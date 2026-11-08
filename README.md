@@ -1,17 +1,17 @@
-# Voltaria
+# FaseCAD
 
-**Voltaria aims to be the best free and open source software for electrical
+**FaseCAD aims to be the best free and open source software for electrical
 diagrams.**
 
-Voltaria is a fork of [QElectroTech](https://qelectrotech.org). It keeps
+FaseCAD is a fork of [QElectroTech](https://qelectrotech.org). It keeps
 everything QElectroTech already does well and adds the device-oriented
 workflow used by professional electrical CAD tools: the project is a model of
 real devices, terminals, cables and parts, and the drawings and reports are
 generated from it and stay in sync.
 
-> **Status:** early development. Voltaria currently builds the same code as
+> **Status:** early development. FaseCAD currently builds the same code as
 > QElectroTech `master`. Use the official QElectroTech release for production
-> work until Voltaria publishes its first release.
+> work until FaseCAD publishes its first release.
 
 ### Goals
 
@@ -27,7 +27,7 @@ generated from it and stay in sync.
   the whole project, with navigators to find any device, terminal or cable.
 - **Fast drawing**: reusable macros, automatic wire numbering and cross
   references.
-- **Compatibility**: QElectroTech projects open in Voltaria unchanged.
+- **Compatibility**: QElectroTech projects open in FaseCAD unchanged.
 
 ### Principles
 
@@ -39,17 +39,17 @@ generated from it and stay in sync.
 
 ### Building
 
-Voltaria builds exactly like QElectroTech: see [INSTALL.md](INSTALL.md).
+FaseCAD builds exactly like QElectroTech: see [INSTALL.md](INSTALL.md).
 
 ```txt
-git clone --recursive https://github.com/Brandix97/voltaria.git
+git clone --recursive https://github.com/Brandix97/FaseCAD.git
 ```
 
 ### Credits and license
 
-Voltaria is based on QElectroTech, created in 2007 and maintained by the
+FaseCAD is based on QElectroTech, created in 2007 and maintained by the
 QElectroTech team and its community. All the original work, credits and
-copyright notices are kept. Like QElectroTech, Voltaria is licensed under the
+copyright notices are kept. Like QElectroTech, FaseCAD is licensed under the
 [GNU GPL version 2 or later](LICENSE).
 
 Maintained by Brandon ([@Brandix97](https://github.com/Brandix97)).

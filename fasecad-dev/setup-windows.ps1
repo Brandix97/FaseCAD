@@ -1,7 +1,7 @@
-# Voltaria: set up a Windows development machine.
+# FaseCAD: set up a Windows development machine.
 #
 # Installs Git, GitHub CLI and MSYS2 (with Qt 6, KDE Frameworks 6, CMake,
-# Ninja, GCC and SQLite), clones the Voltaria fork, configures git and builds
+# Ninja, GCC and SQLite), clones the FaseCAD fork, configures git and builds
 # a debug version.
 #
 # Run it from a normal PowerShell window (not as administrator; winget asks
@@ -12,7 +12,7 @@
 # Every step can be run again safely: what is already there is skipped.
 
 param(
-	[string]$Dir = "$HOME\dev\voltaria",
+	[string]$Dir = "$HOME\dev\fasecad",
 	[string]$UserName = "Brandon",
 	[string]$UserEmail = "59540263+Brandix97@users.noreply.github.com",
 	[int]$Jobs = 0
@@ -67,14 +67,14 @@ if ($LASTEXITCODE -ne 0) {
 & $gh auth setup-git
 
 # 4. Clone ------------------------------------------------------------------
-Step "Cloning Voltaria into $Dir"
+Step "Cloning FaseCAD into $Dir"
 if (Test-Path "$Dir\.git") {
 	Write-Host "Already cloned, updating"
 	git -C $Dir pull --ff-only
 	git -C $Dir submodule update --init --recursive
 } else {
 	New-Item -ItemType Directory -Force (Split-Path $Dir) | Out-Null
-	git clone --recursive --branch voltaria https://github.com/Brandix97/voltaria.git $Dir
+	git clone --recursive --branch fasecad https://github.com/Brandix97/FaseCAD.git $Dir
 	git -C $Dir remote add upstream https://github.com/qelectrotech/qelectrotech-source-mirror.git
 	git -C $Dir fetch upstream
 }
@@ -107,4 +107,4 @@ try {
 	Pop-Location
 }
 
-Step "Done. Start it with $Dir\voltaria-dev\run-voltaria.bat"
+Step "Done. Start it with $Dir\fasecad-dev\run-fasecad.bat"
