@@ -234,9 +234,12 @@ Code in `sources/partsdb/`:
   Branding files use neutral names, so a future rename only touches
   BrandingTranslator::productName(), the About header and the images.
 - Branding (belongs to the `fasecad` branch, NOT to upstream PRs):
-  logo F1 (F whose stem ends in a bolt, white on red tile, style of the
-  earlier "2a") in ico/branding/ (logo.svg, logo-16..256.png,
-  splash.png), ico/windows_icon/branding.ico, exe icon through
+  the FaseCAD brand kit (C:\Users\Brandon\FaseCAD\marca, made from the
+  brandon-engineer.com logo: an A whose right leg is a bolt, square
+  frame, red #FA130C) copied to ico/branding/ (logo.svg = svg/
+  fasecad-app.svg, logo-16..256.png = software/fasecad-*.png,
+  splash.png = software/splash.png), ico/windows_icon/branding.ico =
+  ico/fasecad.ico. Exe icon through
   build-aux/windows/branding-icon.rc.in. QETLogo uses it. Texts:
   sources/branding/brandingtranslator.* rewrites "QElectroTech" as
   "FaseCAD" in every translated or source text, except the About
