@@ -3,6 +3,22 @@
 Working notes for whoever continues the work, on any machine (including an AI
 assistant that has no memory of earlier sessions). Keep this file up to date.
 
+## Folders on Brandon's PC (since 2026-11-10)
+
+- Everything FaseCAD lives in `C:\Users\Brandon\FaseCAD\`: `marca/` and
+  `web/` (brand kit and website) and `software/`, this repository (branch
+  `fasecad`). The former folders `C:\Users\Brandon\voltaria` and
+  `voltaria-partsdb` are gone: older notes below that name them mean
+  `software/` now.
+- Builds: `software/build` (Debug) and `software/build-release`
+  (RelWithDebInfo, the one to run and package), both with
+  `-G Ninja -DPACKAGE_TESTS=ON -DBUILD_WITH_KF=ON -DBUILD_KF=OFF
+  -DCMAKE_PREFIX_PATH=C:/msys64/ucrt64` and the SQLite3 paths of ucrt64.
+- Launchers (local, not committed): `fasecad-dev/run-release.bat` and
+  `run-dev.bat`; both use `QET_SETTINGS_DIR=fasecad-dev/qet-settings` (the
+  new-design settings, local too). Local files are listed in
+  `.git/info/exclude`.
+
 ## Repository
 
 - Fork: https://github.com/Brandix97/FaseCAD (branch `fasecad`, the default)
