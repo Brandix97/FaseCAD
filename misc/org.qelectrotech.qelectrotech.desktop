@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Name=QElectroTech
-TryExec=qelectrotech
-Exec=qelectrotech %F
+Name=FaseCAD
+TryExec=fasecad
+Exec=fasecad %F
 Icon=qelectrotech
 Terminal=false
 Type=Application

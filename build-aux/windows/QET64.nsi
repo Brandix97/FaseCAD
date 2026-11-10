@@ -1,4 +1,4 @@
-﻿; this file is part of installer for QElectroTech
+﻿; this file is part of installer for FaseCAD (based on QElectroTech)
 ; Copyright (C)2015 QElectroTech Team <scorpio@qelectrotech.org>
 ;
 ; This program is free software; you can redistribute it and/or
@@ -15,7 +15,7 @@
 ; along with this program; if not, write to the Free Software
 ; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-; WebSite : https://qelectrotech.org/
+; WebSite : https://fasecad.com/
 
 ;==============================================================================
 ; NSIS 3.x compatibility notes:
@@ -54,9 +54,9 @@ Unicode true
 
 ;--------------------------------
 ; General Product Description Definitions
-!define SOFT_NAME     "QElectroTech"
+!define SOFT_NAME     "FaseCAD"
 !define SOFT_VERSION  "0.5-dev_x86_64-win64+4094"
-!define SOFT_WEB_SITE "https://qelectrotech.org/"
+!define SOFT_WEB_SITE "https://fasecad.com/"
 !define SOFT_BUILD    "1"
 
 ;--------------------------------
@@ -130,7 +130,7 @@ Var final_titleblock_ico
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 
-; Finish page - checkbox to launch QElectroTech
+; Finish page - checkbox to launch FaseCAD
 !define MUI_FINISHPAGE_RUN             "$INSTDIR\Lancer QET.bat"
 !define MUI_FINISHPAGE_RUN_NOTCHECKED
 !define MUI_FINISHPAGE_RUN_TEXT        "$(Check)"
@@ -178,8 +178,8 @@ Var final_titleblock_ico
 !include lang_extra_missing.nsh
 ; NOTE: The string "uninstFailed" must be defined in lang_extra.nsh and
 ; lang_extra_fr.nsh (and any other lang_extra_*.nsh) like so:
-;   LangString uninstFailed ${LANG_ENGLISH} "Uninstallation of the previous version failed.$\nPlease uninstall QElectroTech manually before continuing."
-;   LangString uninstFailed ${LANG_FRENCH}  "La desinstallation de la version precedente a echoue.$\nVeuillez desinstaller QElectroTech manuellement avant de continuer."
+;   LangString uninstFailed ${LANG_ENGLISH} "Uninstallation of the previous version failed.$\nPlease uninstall FaseCAD manually before continuing."
+;   LangString uninstFailed ${LANG_FRENCH}  "La desinstallation de la version precedente a echoue.$\nVeuillez desinstaller FaseCAD manuellement avant de continuer."
 
 ;==============================================================================
 ; SECTIONS
@@ -329,10 +329,10 @@ Section ""
     StrCpy $final_titleblock_ico   "$INSTDIR\ico\application-x-qet-titleblock.ico"
 
     ; File associations - .qet
-    WriteRegStr   HKEY_CLASSES_ROOT "Applications\qelectrotech.exe\shell\open\command" "" \
+    WriteRegStr   HKEY_CLASSES_ROOT "Applications\fasecad.exe\shell\open\command" "" \
         '"$final_qet_exe" "%1"'
     WriteRegStr   HKEY_CLASSES_ROOT ".qet"                                              "" "qet_diagram_file"
-    WriteRegStr   HKEY_CLASSES_ROOT "qet_diagram_file"                                  "" "Diagram QET"
+    WriteRegStr   HKEY_CLASSES_ROOT "qet_diagram_file"                                  "" "FaseCAD diagram"
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_diagram_file"                                  "EditFlags"    0x00000000
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_diagram_file"                                  "BrowserFlags" 0x00000008
     WriteRegStr   HKEY_CLASSES_ROOT "qet_diagram_file\DefaultIcon"                      "" "$final_project_ico"
@@ -343,7 +343,7 @@ Section ""
 
     ; File associations - .elmt
     WriteRegStr   HKEY_CLASSES_ROOT ".elmt"                                             "" "qet_element_file"
-    WriteRegStr   HKEY_CLASSES_ROOT "qet_element_file"                                  "" "Element QET"
+    WriteRegStr   HKEY_CLASSES_ROOT "qet_element_file"                                  "" "FaseCAD element"
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_element_file"                                  "EditFlags"    0x00000000
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_element_file"                                  "BrowserFlags" 0x00000008
     WriteRegStr   HKEY_CLASSES_ROOT "qet_element_file\DefaultIcon"                      "" "$final_element_ico"
@@ -351,7 +351,7 @@ Section ""
 
     ; File associations - .titleblock
     WriteRegStr   HKEY_CLASSES_ROOT ".titleblock"                                       "" "qet_titleblock_file"
-    WriteRegStr   HKEY_CLASSES_ROOT "qet_titleblock_file"                               "" "Titleblock QET"
+    WriteRegStr   HKEY_CLASSES_ROOT "qet_titleblock_file"                               "" "FaseCAD title block"
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_titleblock_file"                               "EditFlags"    0x00000000
     WriteRegDWORD HKEY_CLASSES_ROOT "qet_titleblock_file"                               "BrowserFlags" 0x00000008
     WriteRegStr   HKEY_CLASSES_ROOT "qet_titleblock_file\DefaultIcon"                   "" "$final_titleblock_ico"
@@ -361,26 +361,20 @@ Section ""
 
     ; Start Menu shortcuts
     CreateDirectory "$SMPROGRAMS\${SOFT_NAME}"
-    CreateDirectory "$SMPROGRAMS\${SOFT_NAME}\Manual"
-    CreateDirectory "$SMPROGRAMS\${SOFT_NAME}\Upgrade"
-    CreateShortCut  "$SMPROGRAMS\${SOFT_NAME}\QElectroTech.lnk" \
-        "$INSTDIR\Lancer QET.bat" 0 "$INSTDIR\ico\qelectrotech.ico"
-    CreateShortCut  "$SMPROGRAMS\${SOFT_NAME}\Uninstall QElectroTech.lnk" \
+    CreateShortCut  "$SMPROGRAMS\${SOFT_NAME}\FaseCAD.lnk" \
+        "$INSTDIR\Lancer QET.bat" 0 "$INSTDIR\ico\fasecad.ico"
+    CreateShortCut  "$SMPROGRAMS\${SOFT_NAME}\Uninstall FaseCAD.lnk" \
         "$INSTDIR\Uninstall.exe"
 
     ; Desktop shortcut
-    CreateShortCut "$DESKTOP\QElectroTech.lnk" \
-        "$INSTDIR\Lancer QET.bat" 0 "$INSTDIR\ico\qelectrotech.ico"
+    CreateShortCut "$DESKTOP\FaseCAD.lnk" \
+        "$INSTDIR\Lancer QET.bat" 0 "$INSTDIR\ico\fasecad.ico"
 
     ; Internet shortcuts
-    WriteINIStr "$SMPROGRAMS\${SOFT_NAME}\Manual\Manual_English.url" \
-        "InternetShortcut" "URL" "https://download.qelectrotech.org/qet/manual_0.7/build/index.html"
-    WriteINIStr "$SMPROGRAMS\${SOFT_NAME}\Manual\Manual_Russian.url" \
-        "InternetShortcut" "URL" "https://download.qelectrotech.org/qet/joshua/html/QET_ru.html"
-    WriteINIStr "$SMPROGRAMS\${SOFT_NAME}\Upgrade\Download.url" \
-        "InternetShortcut" "URL" "https://download.qelectrotech.org/qet/builds/nightly/"
+    WriteINIStr "$SMPROGRAMS\${SOFT_NAME}\FaseCAD website.url" \
+        "InternetShortcut" "URL" "https://fasecad.com/"
     WriteINIStr "$SMPROGRAMS\${SOFT_NAME}\Donate.url" \
-        "InternetShortcut" "URL" "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC"
+        "InternetShortcut" "URL" "https://fasecad.com/donate.html"
 
     ; Mark installed elements as read-only
     ${Locate} "$INSTDIR\elements\" "/L=FD /M=*.elmt" "LocateCallback"
@@ -476,7 +470,7 @@ Section "Uninstall"
     RMDir /r "$SMPROGRAMS\${SOFT_NAME}"
 
     ; Remove Desktop shortcut
-    Delete "$DESKTOP\QElectroTech.lnk"
+    Delete "$DESKTOP\FaseCAD.lnk"
 
     ; Remove application files
     Delete "$INSTDIR\*.*"
@@ -487,7 +481,7 @@ Section "Uninstall"
     DeleteRegKey /ifempty HKCU "Software\${SOFT_NAME}"
 
     ; Remove file associations registry keys
-    DeleteRegKey HKEY_CLASSES_ROOT "Applications\qelectrotech.exe"
+    DeleteRegKey HKEY_CLASSES_ROOT "Applications\fasecad.exe"
     DeleteRegKey HKEY_CLASSES_ROOT ".qet"
     DeleteRegKey HKEY_CLASSES_ROOT ".qetz"
     DeleteRegKey HKEY_CLASSES_ROOT "qet_diagram_file"

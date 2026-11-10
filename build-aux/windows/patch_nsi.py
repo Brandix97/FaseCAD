@@ -57,8 +57,8 @@ def main():
     )
     print("  [1] SOFT_VERSION patched")
 
-    # 2. Rename QElectroTech.exe -> qelectrotech.exe (literal value, not NSIS var)
-    nsi = nsi.replace('/bin/QElectroTech.exe', '/bin/qelectrotech.exe')
+    # 2. Rename QElectroTech.exe -> fasecad.exe (literal value, not NSIS var)
+    nsi = nsi.replace('/bin/QElectroTech.exe', '/bin/fasecad.exe')
     print("  [2] Exe name patched")
 
     # 3. Replace relative ./files/ paths with absolute Windows path + backslash

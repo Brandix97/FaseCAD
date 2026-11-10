@@ -30,7 +30,7 @@ foreach(generator ${CPACK_GENERATOR})
   endif()
 endforeach()
 
-set(CPACK_PACKAGE_VENDOR "The QElectroTech Team")
+set(CPACK_PACKAGE_VENDOR "FaseCAD")
 # QET's own component, without the headers, static libraries and translations
 # that the fetched KDE libraries install (see CMakeLists.txt).
 set(CPACK_INSTALL_CMAKE_PROJECTS "${CMAKE_BINARY_DIR};${PROJECT_NAME};qelectrotech;/")
@@ -45,18 +45,18 @@ if("WIX" IN_LIST CPACK_GENERATOR)
   # The one of the official installer (build-aux/windows/QElectroTech.wxs), so
   # that the two never land in the same folder: the one with the higher
   # version replaces the other, and the lower one refuses to install
-  set(CPACK_WIX_UPGRADE_GUID "A1B2C3D4-E5F6-7890-ABCD-EF1234567890")
+  set(CPACK_WIX_UPGRADE_GUID "7D02C145-5F03-4EE2-AB9B-31E7C8399DE4")
   # Windows Installer skips a file when the installed one has a higher version,
   # then removes that one with the old install: the program, built with an
   # older Qt than the old install, would be left without Qt's DLLs
   set(CPACK_WIX_PROPERTY_REINSTALLMODE "amus")
-  set(CPACK_PACKAGE_INSTALL_DIRECTORY "QElectroTech")
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "FaseCAD")
   set(CPACK_PROJECT_CONFIG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/wix.cmake")
   # The icon of the official installers, also given to the shortcuts
   set(nsis_icons "${PROJECT_SOURCE_DIR}/build-aux/windows/nsis_base/files/ico")
-  set(CPACK_WIX_PRODUCT_ICON "${nsis_icons}/qelectrotech.ico")
+  set(CPACK_WIX_PRODUCT_ICON "${nsis_icons}/fasecad.ico")
   # The shortcuts, in the start menu itself and on the desktop, and the file
-  # types Windows opens with QElectroTech. The shortcuts are there and not
+  # types Windows opens with FaseCAD. The shortcuts are there and not
   # from CPACK_PACKAGE_EXECUTABLES, which can't give them an icon: the
   # program has none of its own.
   set(CPACK_WIX_PATCH_FILE "${CMAKE_CURRENT_SOURCE_DIR}/wix-patch.xml")

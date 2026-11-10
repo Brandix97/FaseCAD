@@ -33,64 +33,64 @@
 	<CPackWiXFragment Id="#PRODUCT">
 		<StandardDirectory Id="ProgramMenuFolder">
 			<Component Id="QET_StartMenuShortcut" Guid="*">
-				<Shortcut Id="QET_StartMenuShortcut" Name="QElectroTech"
-					Target="[INSTALL_ROOT]bin\qelectrotech.exe"
+				<Shortcut Id="QET_StartMenuShortcut" Name="FaseCAD"
+					Target="[INSTALL_ROOT]bin\fasecad.exe"
 					WorkingDirectory="CM_DP_bin" Icon="ProductIcon.ico" />
 				<RegistryValue Root="HKCU"
-					Key="Software\The QElectroTech Team\QElectroTech"
+					Key="Software\FaseCAD\FaseCAD"
 					Name="installed" Type="integer" Value="1" KeyPath="yes" />
 			</Component>
 		</StandardDirectory>
 		<StandardDirectory Id="DesktopFolder">
 			<Component Id="QET_DesktopShortcut" Guid="*">
-				<Shortcut Id="QET_DesktopShortcut" Name="QElectroTech"
-					Target="[INSTALL_ROOT]bin\qelectrotech.exe"
+				<Shortcut Id="QET_DesktopShortcut" Name="FaseCAD"
+					Target="[INSTALL_ROOT]bin\fasecad.exe"
 					WorkingDirectory="CM_DP_bin" Icon="ProductIcon.ico" />
 				<RegistryValue Root="HKCU"
-					Key="Software\The QElectroTech Team\QElectroTech"
+					Key="Software\FaseCAD\FaseCAD"
 					Name="installed_desktop" Type="integer" Value="1"
 					KeyPath="yes" />
 			</Component>
 		</StandardDirectory>
 
 		<Component Id="QET_FileTypes" Directory="INSTALL_ROOT"
-			Guid="868EEAA2-22E7-462E-9AA9-40E52A2CA763">
+			Guid="664F2292-540B-4AE4-B714-2906974A5609">
 			<RegistryValue Root="HKCR" Key=".qet" Type="string"
-				Value="QElectroTech.Document" KeyPath="yes" />
+				Value="FaseCAD.Document" KeyPath="yes" />
 			<RegistryValue Root="HKCR" Key=".qetz" Type="string"
-				Value="QElectroTech.Document" />
+				Value="FaseCAD.Document" />
 			<RegistryValue Root="HKCR" Key=".qetdb" Type="string"
-				Value="QElectroTech.Document" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.Document" Type="string"
-				Value="QElectroTech Project" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.Document\DefaultIcon"
+				Value="FaseCAD.Document" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.Document" Type="string"
+				Value="FaseCAD Project" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.Document\DefaultIcon"
 				Type="string"
 				Value="[INSTALL_ROOT]ico\application-x-qet-project.ico" />
 			<RegistryValue Root="HKCR"
-				Key="QElectroTech.Document\shell\open\command" Type="string"
-				Value="&quot;[INSTALL_ROOT]bin\qelectrotech.exe&quot; &quot;%1&quot;" />
+				Key="FaseCAD.Document\shell\open\command" Type="string"
+				Value="&quot;[INSTALL_ROOT]bin\fasecad.exe&quot; &quot;%1&quot;" />
 
 			<RegistryValue Root="HKCR" Key=".elmt" Type="string"
-				Value="QElectroTech.Symbol" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.Symbol" Type="string"
-				Value="QElectroTech Symbol" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.Symbol\DefaultIcon"
+				Value="FaseCAD.Symbol" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.Symbol" Type="string"
+				Value="FaseCAD Symbol" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.Symbol\DefaultIcon"
 				Type="string"
 				Value="[INSTALL_ROOT]ico\application-x-qet-element.ico" />
 			<RegistryValue Root="HKCR"
-				Key="QElectroTech.Symbol\shell\open\command" Type="string"
-				Value="&quot;[INSTALL_ROOT]bin\qelectrotech.exe&quot; &quot;%1&quot;" />
+				Key="FaseCAD.Symbol\shell\open\command" Type="string"
+				Value="&quot;[INSTALL_ROOT]bin\fasecad.exe&quot; &quot;%1&quot;" />
 
 			<RegistryValue Root="HKCR" Key=".titleblock" Type="string"
-				Value="QElectroTech.TitleBlock" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.TitleBlock" Type="string"
-				Value="QElectroTech Title Block Template" />
-			<RegistryValue Root="HKCR" Key="QElectroTech.TitleBlock\DefaultIcon"
+				Value="FaseCAD.TitleBlock" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.TitleBlock" Type="string"
+				Value="FaseCAD Title Block Template" />
+			<RegistryValue Root="HKCR" Key="FaseCAD.TitleBlock\DefaultIcon"
 				Type="string"
 				Value="[INSTALL_ROOT]ico\application-x-qet-titleblock.ico" />
 			<RegistryValue Root="HKCR"
-				Key="QElectroTech.TitleBlock\shell\open\command" Type="string"
-				Value="&quot;[INSTALL_ROOT]bin\qelectrotech.exe&quot; &quot;%1&quot;" />
+				Key="FaseCAD.TitleBlock\shell\open\command" Type="string"
+				Value="&quot;[INSTALL_ROOT]bin\fasecad.exe&quot; &quot;%1&quot;" />
 		</Component>
 	</CPackWiXFragment>
 	<CPackWiXFragment Id="#PRODUCTFEATURE">
