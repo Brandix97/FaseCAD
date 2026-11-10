@@ -40,10 +40,11 @@ namespace BrandMigration
 		/// before anything reads a setting.
 	void run();
 
-		/// On the very first start on a computer -- no settings under
-		/// either name -- the new design: command tabs, parts database
-		/// and the theme of the system. Called by the interface only, so
-		/// the headless runs (exports, scripts) keep the plain defaults.
+		/// Once for every set of settings -- new, or copied from
+		/// QElectroTech -- the new design: command tabs, parts database
+		/// and, when none is chosen, the theme of the system. Called by
+		/// the interface only, so the headless runs (exports, scripts)
+		/// keep the plain defaults.
 	void applyFirstStartDefaults();
 }
 

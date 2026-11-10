@@ -2416,3 +2416,6 @@ target_link_libraries(tst_borderpropertiespaper PRIVATE Qt::Test Qt::Widgets Qt:
 
 # The title block recorded for the screen shows what is drawn
 qet_add_app_test(tst_titleblockcache tst_titleblockcache.cpp)
+
+# FaseCAD settings: copied from QElectroTech, new design applied once
+qet_add_app_test(tst_brandmigration tst_brandmigration.cpp)

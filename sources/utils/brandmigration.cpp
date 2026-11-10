@@ -29,8 +29,7 @@ namespace {
 
 const char *migrated_key = "brand/copied_from_former_name";
 
-	/// No settings at all, under either name, when run() looked
-bool first_start = false;
+const char *new_design_key = "brand/new_design_applied";
 
 	/// The writable folder @p type would be under the names @p organization
 	/// and @p application
@@ -88,7 +87,6 @@ void BrandMigration::run()
 		//application) alone would read the registry on Windows)
 	QSettings former(QSettings::defaultFormat(), QSettings::UserScope,
 					 formerName(), formerName());
-	first_start = settings.allKeys().isEmpty() && former.allKeys().isEmpty();
 	if (settings.allKeys().isEmpty()) {
 		const QStringList keys = former.allKeys();
 		for (const QString &key : keys) {
@@ -116,14 +114,18 @@ void BrandMigration::run()
 
 void BrandMigration::applyFirstStartDefaults()
 {
-	if (!first_start) {
+	QSettings settings;
+	if (settings.value(QLatin1String(new_design_key)).toBool()) {
 		return;
 	}
-	first_start = false;
-	QSettings settings;
+		//Once for every set of settings, new or copied from QElectroTech
+		//(which had none of these): what he changes afterwards stays
 	settings.setValue(QStringLiteral("diagrameditor/command_tabs"), true);
 	settings.setValue(QStringLiteral("parts-database/enabled"), true);
-		//QetSettings::Theme::System
-	settings.setValue(QStringLiteral("theme"), 1);
+	if (!settings.contains(QStringLiteral("theme"))) {
+			//QetSettings::Theme::System
+		settings.setValue(QStringLiteral("theme"), 1);
+	}
+	settings.setValue(QLatin1String(new_design_key), true);
 	settings.sync();
 }
