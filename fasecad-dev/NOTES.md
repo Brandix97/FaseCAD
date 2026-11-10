@@ -246,9 +246,123 @@ Code in `sources/partsdb/`:
   window and "QElectroTech team" (GPL credit); About header says
   "FaseCAD / based on QElectroTech x". Settings and file names keep
   QElectroTech (shared settings with the installed 0.90).
-- Backup copies `examples/2026-11-08-*_industrial.qet` in the
-  partsdb worktree were made by the program's "Create a backup copy?"
-  dialog during tests: never commit them; ask Brandon before deleting.
+- Templates (= macros, upstream already has them: right-click > Create a
+  template, .qetmak files in the user's macros dir, Collections >
+  Templates; the root was renamed "Macros" -> "Templates"). FaseCAD
+  ships 4 examples in templates/examples/ (qrc): Direct-on-line start,
+  Star-delta start (KM2 fed from Q1, KM3 star bridge, coils linked to
+  the power contacts), Digital IO card (S1, B1 PNP, H1, K1 on the
+  right channels), Analog IO card (B2 4-20 mA, B3 probe, AO card).
+  Made by build-aux/templates/make_example_templates.py (project ->
+  `qelectrotech --resave` -> check with --export-png -> templates).
+  sources/branding/exampletemplates.* copies them once into
+  <macros dir>/Examples at start (setting templates/installed_examples;
+  a deleted one never comes back, a user file is never replaced).
+  tst_exampletemplates. Names in English (translation pending).
+- 2026-11-08 (FaseCAD branch only): examples folder renamed "Default";
+  template tree icons 16 px; autonumbering dock hidden the first time
+  (setting diagrameditor/autonumbering_dock_hidden_once), still in the
+  panels menu. New "Devices" dock (sources/ui/devicespanel.*), tabbed
+  with Undo and Projects: every symbol by label from the project
+  DATABASE (no folio built), reports/slaves/thumbnails/wire definitions
+  left out, natural sort, same labels grouped, double-click shows it;
+  View > Panels > Devices. tst_devicespanel. (DB element.type values are
+  lower case: simple, master, slave, terminal, next_report...; diagram.pos
+  counts from 1.)
+- Devices panel: multi-select (Shift/Ctrl), Delete key + context menu
+  (Show on the sheet / Delete): one undo macro, one
+  DeleteQGraphicsItemCommand per sheet built from that sheet's selection
+  (wires go too); bridged/multi-level terminals refused like the sheet.
+- Parts database in element properties: the "..." article button of
+  ElementInfoWidget opens PartPickerDialog (sources/partsdb/
+  partpickerdialog.*: search, category, table, "Parts manager..." as its
+  child) when the parts database is used, else the CSV as before. The
+  part goes through PartsMaterial::record() -> applyMaterialRecord(),
+  accessories fill auxiliary blocks 1-4 with their quantity, one undo
+  step. This was phase 1 "choose article uses the database".
+- "Parts" tab in element properties (Simple, Master, Terminal):
+  sources/partsdb/elementpartswidget.* + partslinks.* (list kept in the
+  element information "parts": one line per part, manufacturer TAB
+  order number TAB units). The tab edits through ElementInfoWidget
+  (partsValue/setPartsValue, writeMaterialRecord), which hides the key
+  from its custom rows and saves it in its own undo command. Adding a
+  part asks whether to overwrite the information: part 1 -> main
+  article, parts 2-5 -> auxiliary 1-4 (with units as quantity).
+  tst_elementparts (app test).
+- Bill of materials of the parts (2026-11-08): sources/partsdb/partsbom.*.
+  Each device counts its Parts list (units), or else its articles (main
+  + auxiliary 1-4, quantity, "2,5" accepted); exclude_from_bom honoured;
+  reports/thumbnails/wire definitions skipped (slaves count, like the
+  nomenclature). Lines grouped by manufacturer + order number, units
+  added, device labels listed; parts database fills description,
+  supplier, unit... Read from the project database cache, no folio
+  built. Table on the sheet: CableListModel identifier "parts_bom"
+  (CableQueryWidget(PartsBomTag)), saved with the project, refreshes.
+  Actions diagrameditor.add_parts_bom / export_parts_bom; menu Lists and
+  Project; ribbon Devices > "Parts list", Tools > Reports / Export.
+  tst_partsbom (app test). Spare terminals of strips are not counted.
+- Terminal diagram style (2026-11-09): DrawStyle::TerminalDiagram=3
+  ("terminal_diagram"), TerminalStrip/GraphicsItem/terminaldiagramdrawer.*.
+  Table per terminal: function text ("=" repeated), PLC address of inner
+  device, inner pin, bridges, colour, type symbol, section, number; under
+  it the outer wire with its cable core colour (Cable::colorOfCore, else
+  wire colour, else number) and one box per device (label, pins, symbol).
+  Data via AbstractRealTerminalInterface::diagramColumn(). Outer side =
+  side with a cable core, else lower. tst_terminaldiagram.
+- Terminal device (2026-11-09): sources/terminals/ (faseterminal,
+  terminalsettingswidget, terminalpropertieswidget), symbol
+  terminals/fasecad_terminal.elmt in qrc, embedded as
+  import/FaseCAD/terminal.elmt. Toolbar "Add terminals..." (data
+  "terminal", id diagrameditor.add_terminal; ribbon Insert > Devices and
+  Devices > Terminals): form strip/number/colour (RD BU BG GNYE BK)/type
+  (normal fuse sectional PE diode LED)/section (0.5-95), then click-place
+  with number +1 (DiagramEventAddElement::setPrepare). "Terminal" tab in
+  properties. FaseTerminal::ChangeCommand: label "-STRIP:N" (formula
+  removed), terminal_color/terminal_section infos, type via ElementData,
+  moves/adds to strip (created if missing), one undo step.
+  stripNameForLabel ignores a leading "-". Beige added to TerminalColor.
+  tst_faseterminal. Fixes 2026-11-09: Terminal tab is applied after the
+  Information tab (shown first via moveTab) so Info's command can't write
+  the label back; pasted terminals get the next free number of their strip
+  (FaseTerminal::pastedTerminals/numberPasted in PasteDiagramCommand, same
+  step, only when pasted elements are auto-numbered).
+  Live panel fix: TerminalPropertiesWidget overrides setLiveEdit (base
+  never set m_live_edit); strip/number apply on Enter/focus out, combos at
+  once; form refreshes on elementInfoChange. Level field 1-4: same strip +
+  number = one physical terminal (Group/UnGroup/ChangeTerminalLevel);
+  ChangeCommand now runs its steps one by one (step()), owns them.
+  Schematic/realistic styles: under the cable each wire goes to its device
+  box (pins, label, symbol) when devices are known (drawDeviceFan in
+  terminalstripdrawer.cpp), else the old single target box.
+  Strip name once per row: labels "-S:n" whose left neighbour (folio,
+  x then y) is the same strip show the number only
+  (Element::showsTerminalNumberOnly / labelForDisplay, set in
+  TerminalStripLabels::refresh, rescheduled on elementInfoChange). Empty
+  strip in the form = FaseTerminal::inheritedStrip (left neighbour).
+  Levels stepped: realistic (geometry width x levels, drawSteppedLevels,
+  levelInset), table (bars in number row), sheet symbol
+  (TerminalElement::setLevelMark).
+  Level marks / number-only did not follow paste + level change:
+  TerminalStripLabels::schedule returned early when strip labels and
+  bridges were both off; removed. ChangeCommand::scheduleLabels also
+  refreshes the folios of every terminal of the strip (redo and undo).
+  tst_autonumincrementwidth fails (spin box not visible): untouched area,
+  not checked whether it failed before.
+  Example project generator:
+  scratchpad terminals/make_terminal_example.py (not in repo).
+- Project extensions (FaseCAD branch only): saved as .edrw (XML),
+  .edrwz (zipped, the default), .edrwdb (database); .qet/.qetz/.qetdb
+  still open. One place: sources/branding/projectextensions.h, used by
+  QETProject::isContainerPath, QetDbFile::isDatabasePath, the open
+  filter, handledFileExtensions, the save dialog, delivery export,
+  previous versions. "Save a copy for an older QElectroTech" stays .qet.
+  Checked: --resave to .edrw (XML) and .edrwz (zip) both reopen.
+- Backup copies `examples/2026-11-08-*_industrial.qet` (made by the
+  program's "Create a backup copy?" dialog during GUI tests) were MOVED
+  to the session scratchpad (examples-backups/): they made
+  tst_multielementinfo fail, since it opens every examples/*.qet by name.
+  Never open examples/*.qet directly in GUI tests: use a copy.
+- Devices panel reads the database only while visible (refresh on show).
 
 Previously open question (answered above):
 
@@ -258,3 +372,48 @@ Previously open question (answered above):
 Upstream check (2026-11-07): no open work on a parts database. Related:
 PR #1680 (grouped parts list with summed quantities), PR #1400 (cabinet
 layout, open).
+
+## Rename to FaseCAD everywhere (2026-11-09)
+- Kept on purpose: GPL licence headers ("Copyright ... The QElectroTech
+  Team") in every file, author/translator credits in About, the .qet
+  extension and qelectrotech_version XML attribute (compatibility), the
+  CMake target name `qelectrotech` (tests use $<TARGET_FILE:qelectrotech>),
+  .ts translations (BrandingTranslator rebrands tr() texts at run time),
+  ChangeLog, examples, elements collection, Linux hicolor icon names and
+  MIME ids, the "Lancer QET.bat" file name.
+- Changed: exe OUTPUT_NAME fasecad (build/fasecad.exe; run-partsdb.bat
+  updated; old build/qelectrotech.exe left, stale). Org/app name FaseCAD,
+  domain fasecad.com (main.cpp via utils/brandmigration). First start
+  copies (never moves) QElectroTech settings + AppConfig/AppData folders +
+  stalefiles to the FaseCAD ones; marker key brand/copied_from_former_name.
+  With QET_SETTINGS_DIR: <dir>/FaseCAD/FaseCAD.ini.
+- About: FaseCAD text, fasecad.com, line "Based on QElectroTech, (c)
+  2006-YYYY ... GPL v2 or later". Help links -> fasecad.com,
+  donate -> fasecad.com/donate.html, upstream YouTube entries removed.
+- Non-tr literals (CLI usage, MCP live-server errors, PDF creator, project
+  lock "app", diagnostics, .qetz errors) say FaseCAD. Tests updated.
+- Installers: WiX/CPack new UpgradeCode 7D02C145-5F03-4EE2-AB9B-31E7C8399DE4
+  and component GUIDs (would otherwise upgrade/replace an installed QET),
+  FaseCAD names/registry keys, nsis_base/files/ico/fasecad.ico (kit icon).
+- qet-mcp: finds fasecad(.exe) first, writes settings for both names,
+  scripts dir FaseCAD/FaseCAD. README rewritten for FaseCAD.
+
+## Release 0.10 (2026-11-10)
+- Visible version QetVersion::productVersion() = "0.10" (About,
+  --version, PDF creator, diagnostics); currentVersion() stays 0.200.1
+  (file format, compared when projects open).
+- First start on a computer without settings under either name
+  (BrandMigration::applyFirstStartDefaults, GUI only): command tabs,
+  parts database, theme System.
+- Portable zip FaseCAD-0.10-windows-x64.zip: cmake --install of
+  build-release (RelWithDebInfo) + strip --strip-debug + windeployqt6
+  --compiler-runtime + every /ucrt64 DLL found by ldd; FaseCAD.bat at the
+  root. Checked with PATH=C:\Windows only (--version, export, first start).
+  No installer: NSIS/WiX not installed on this PC.
+- Full ctest before release: 221/229; fixed tests that still used the
+  QElectroTech settings folder and two that expected the autonumbering
+  dock shown (FaseCAD hides it on first start). Known on Windows:
+  tst_dockminwidth (upstream), tst_lazyfolios (probe hangs; end
+  lazy_folios_probe.exe by hand), resave/lazysave timeouts at -j4.
+- Launchers fasecad-dev/run-partsdb.bat and run-release.bat use
+  QET_SETTINGS_DIR=fasecad-dev/qet-settings (new design settings).
