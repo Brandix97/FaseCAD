@@ -19,6 +19,7 @@
 
 #include "../cablelist/cablelistmodel.h"
 #include "../cablelist/cablequerywidget.h"
+#include "../partsdb/partsbom.h"
 #include "../dataBase/ui/elementquerywidget.h"
 #include "../dataBase/ui/summaryquerywidget.h"
 #include "../diagram.h"
@@ -93,6 +94,48 @@ void QetGraphicsTableFactory::createAndAddCableList(Diagram *diagram)
 	}
 }
 
+/**
+	@brief QetGraphicsTableFactory::createAndAddCablePlan
+	Open a dialog asking the user how the table looks, create a cable
+	plan -- one row per core of every cable, or of one cable -- and add
+	it to diagram, on as many new sheets as it needs when asked to
+	@param diagram
+*/
+void QetGraphicsTableFactory::createAndAddCablePlan(Diagram *diagram)
+{
+	QScopedPointer<AddTableDialog> d(
+				new AddTableDialog(
+					new CableQueryWidget(diagram->project(), nullptr),
+					diagram->views().first()));
+	d->setWindowTitle(QObject::tr("Add a cable plan"));
+	d->setTableName(QObject::tr("Cable plan"));
+
+	if (d->exec()) {
+		create(diagram, d.data());
+	}
+}
+
+/**
+	@brief QetGraphicsTableFactory::createAndAddPartsBom
+	Open a dialog asking the user how the table looks, create a bill of
+	materials -- one row per part the devices are made of (PartsBom) --
+	and add it to diagram, on as many new sheets as it needs when asked to
+	@param diagram
+*/
+void QetGraphicsTableFactory::createAndAddPartsBom(Diagram *diagram)
+{
+	QScopedPointer<AddTableDialog> d(
+				new AddTableDialog(
+					new CableQueryWidget(CableQueryWidget::PartsBomTag(), nullptr),
+					diagram->views().first()));
+	d->setWindowTitle(QObject::tr("Add a bill of materials of the parts"));
+	d->setTableName(QObject::tr("Bill of materials"));
+
+	if (d->exec()) {
+		create(diagram, d.data());
+	}
+}
+
 void QetGraphicsTableFactory::create(Diagram *diagram, AddTableDialog *dialog)
 {
 	auto table_ = newTable(diagram, dialog);
@@ -160,7 +203,16 @@ QetGraphicsTableItem *QetGraphicsTableFactory::newTable(Diagram *diagram, AddTab
 			model = db_model;
 		} else if (auto query_widget = dynamic_cast<CableQueryWidget *>(dialog->contentWidget())) {
 			auto *cable_model = new CableListModel(diagram->project(), diagram->project());
-			cable_model->setIdentifier(CableQueryWidget::modelIdentifier());
+			if (query_widget->isPartsBom()) {
+				cable_model->setIdentifier(PartsBom::identifier());
+			} else if (query_widget->isCablePlan()) {
+					//One row per core: the identifier says so, and is
+					//saved with the table
+				cable_model->setIdentifier(CableListModel::cablePlanIdentifier());
+				cable_model->setOnlyCable(query_widget->onlyCable());
+			} else {
+				cable_model->setIdentifier(CableQueryWidget::modelIdentifier());
+			}
 				//No entries chosen is no mistake to correct: an empty
 				//set of columns makes an empty table, the same grey
 				//frame a nomenclature table makes without entries

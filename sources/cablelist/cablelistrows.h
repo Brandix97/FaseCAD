@@ -23,6 +23,7 @@
 #include <QMap>
 #include <QString>
 #include <QStringList>
+#include <QUuid>
 #include <QVector>
 
 class QETProject;
@@ -96,6 +97,23 @@ class CableList
 			/// default columns
 		static QByteArray toCsv(QETProject *project, const QStringList &keys,
 								bool include_headers);
+
+			/// The columns of the cable plan: one row per core of
+			/// every cable instead of one row per cable
+		static const QList<Column> &coreColumns();
+		static const QStringList &defaultCoreKeys();
+			/// One row per core, cable after cable in the order of
+			/// rows(), every core of a cable from the first to the
+			/// last, used or spare. With @p only_cable, the cores of
+			/// that cable only. Each row also carries the "uuid" of its
+			/// cable, which is no column.
+		static QVector<QMap<QString, QString>> coreRows(
+				QETProject *project, const QUuid &only_cable = QUuid());
+			/// The cable plan as CSV bytes, like toCsv()
+		static QByteArray coresToCsv(QETProject *project,
+									 const QStringList &keys,
+									 bool include_headers,
+									 const QUuid &only_cable = QUuid());
 };
 
 #endif // CABLELISTROWS_H

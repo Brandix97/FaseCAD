@@ -54,13 +54,16 @@ class TerminalStripLayoutPattern
 			 * RealisticPushIn : the strip seen from above, at scale, like the mounting
 			 * drawing of a cabinet : end stops, group marker, push-in wire entries.
 			 * RealisticScrew : same as RealisticPushIn, with screw clamps.
+			 * TerminalDiagram : a table, one column per terminal, with the
+			 * outer wires going down to the devices (see Diagram::paint).
 			 * The schematic style use most of the values of this class,
 			 * the realistic styles use the values prefixed by m_realistic_.
 			 */
 		enum class DrawStyle {
 			Schematic = 0,
 			RealisticPushIn = 1,
-			RealisticScrew = 2
+			RealisticScrew = 2,
+			TerminalDiagram = 3
 		};
 		static QString drawStyleToString(DrawStyle style);
 		static DrawStyle drawStyleFromString(const QString &string, DrawStyle default_style);

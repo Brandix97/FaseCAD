@@ -1822,7 +1822,7 @@ void QETElementEditor::on_m_zoom_original_action_triggered() { m_view->zoomReset
 void QETElementEditor::on_m_about_qet_action_triggered() { QETApp::instance()->aboutQET(); }
 
 void QETElementEditor::on_m_online_manual_triggered() {
-	QString link = "https://download.qelectrotech.org/qet/manual_0.7/build/index.html";
+	QString link = "https://fasecad.com/";
 	QDesktopServices::openUrl(QUrl(link));
 }
 
@@ -1832,7 +1832,7 @@ void QETElementEditor::on_m_youtube_action_triggered() {
 }
 
 void QETElementEditor::on_m_donate_action_triggered() {
-	QString link = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC";
+	QString link = "https://fasecad.com/donate.html";
 	QDesktopServices::openUrl(QUrl(link));
 }
 

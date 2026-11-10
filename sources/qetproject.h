@@ -597,7 +597,7 @@ class QETProject : public QObject
 			/// project-wide variables that will be made available to child diagrams
 		DiagramContext m_project_properties;
 			/// undo stack for this project
-		QUndoStack *m_undo_stack;
+		QUndoStack *m_undo_stack = nullptr;
 			/// True when the loaded file had element numbering schemes
 			/// saved without an id (written before ids existed)
 		bool m_legacy_element_autonums = false;

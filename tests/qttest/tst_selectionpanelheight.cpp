@@ -5,6 +5,7 @@
 #include "qetgraphicsitem/element.h"
 
 #include <QDockWidget>
+#include <QSpinBox>
 
 // The Selection properties panel shrinks to its title bar while the selection
 // has nothing it can edit, so the other panels get the room (#1566), and gets
@@ -27,6 +28,11 @@ class tst_selectionpanelheight : public QObject
 				// Tall enough to leave the panels room to be resized: at a
 				// usual height every right-hand panel is at its minimum
 			editor->resize(1600, 1500);
+				//FaseCAD hides the autonumbering panel on the first start:
+				//shown here, where this check expects it
+			for (QDockWidget *dock : editor->findChildren<QDockWidget *>())
+				if (dock->findChild<QSpinBox *>(QStringLiteral("m_conductor_increase_sb")))
+					dock->show();
 			editor->show();
 			QVERIFY(QTest::qWaitForWindowExposed(editor));
 

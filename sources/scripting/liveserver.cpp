@@ -495,7 +495,7 @@ QJsonObject LiveServer::runScript(const QString &name, const QString &source)
 	if (source.trimmed().isEmpty()) return failure(QStringLiteral("no script given"));
 	QETDiagramEditor *e = editor();
 	QETProject *project = e ? e->currentProject() : nullptr;
-	if (!project) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!project) return failure(QStringLiteral("no project is open in FaseCAD"));
 
 	const QString title = name.trimmed().isEmpty() ? tr("script") : name.trimmed();
 	QetScripting::LiveRun run;
@@ -581,7 +581,7 @@ QJsonObject LiveServer::showFolio(int folio)
 {
 	QETDiagramEditor *e = editor();
 	ProjectView *pv = e ? e->currentProjectView() : nullptr;
-	if (!pv) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!pv) return failure(QStringLiteral("no project is open in FaseCAD"));
 	const QList<Diagram *> diagrams = pv->project()->diagrams();
 	if (folio < 0 || folio >= diagrams.count())
 		return failure(QStringLiteral("no folio %1: the project has %2, counted from 0")
@@ -601,7 +601,7 @@ QJsonObject LiveServer::showFolio(int folio)
 QJsonObject LiveServer::newProject(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
-	if (!e) return failure(QStringLiteral("no QElectroTech editor window is open"));
+	if (!e) return failure(QStringLiteral("no FaseCAD editor window is open"));
 
 	const int folios = request.value(QStringLiteral("folios")).toInt(1);
 	if (folios < 1 || folios > 100)
@@ -622,7 +622,7 @@ QJsonObject LiveServer::newProject(const QJsonObject &request)
 	for (int i = 0; i < folios; ++i) project->addNewDiagram();
 	const QString title = request.value(QStringLiteral("title")).toString().trimmed();
 	if (!title.isEmpty()) project->setTitle(title);
-	if (!e->addProject(project)) return failure(QStringLiteral("QElectroTech refused the new project"));
+	if (!e->addProject(project)) return failure(QStringLiteral("FaseCAD refused the new project"));
 
 		//Current at once, whether or not QElectroTech is the active
 		//application: the next request runs on it (see editor())
@@ -682,7 +682,7 @@ QJsonArray LiveServer::openProjects() const
 QJsonObject LiveServer::openProject(const QString &raw_path)
 {
 	QETDiagramEditor *e = editor();
-	if (!e) return failure(QStringLiteral("no QElectroTech editor window is open"));
+	if (!e) return failure(QStringLiteral("no FaseCAD editor window is open"));
 	const QString path = raw_path.trimmed();
 	if (path.isEmpty()) return failure(QStringLiteral("no path given"));
 	const QFileInfo info(path);
@@ -695,12 +695,12 @@ QJsonObject LiveServer::openProject(const QString &raw_path)
 		e->activateProject(pv);
 		extra = {{QStringLiteral("opened"), false}, {QStringLiteral("already_open"), true}};
 	} else if (QETApp::diagramEditorForFile(info.absoluteFilePath())) {
-		return failure(QStringLiteral("%1 is open in another QElectroTech window; "
+		return failure(QStringLiteral("%1 is open in another FaseCAD window; "
 					      "switch to it there").arg(path));
 	} else {
 		if (!e->openAndAddProject(info.absoluteFilePath(), false))
-			return failure(QStringLiteral("QElectroTech could not open %1 (not a "
-						      "QElectroTech project, or a newer format)").arg(path));
+			return failure(QStringLiteral("FaseCAD could not open %1 (not a "
+						      "FaseCAD project, or a newer format)").arg(path));
 		if (ProjectView *pv = e->viewForFile(info.absoluteFilePath())) e->activateProject(pv);
 	}
 	QJsonObject answer = status();
@@ -716,7 +716,7 @@ QJsonObject LiveServer::openProject(const QString &raw_path)
 QJsonObject LiveServer::switchProject(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
-	if (!e) return failure(QStringLiteral("no QElectroTech editor window is open"));
+	if (!e) return failure(QStringLiteral("no FaseCAD editor window is open"));
 	const QList<ProjectView *> views = e->openedProjects();
 	ProjectView *target = nullptr;
 	if (request.contains(QStringLiteral("index"))) {
@@ -744,7 +744,7 @@ QJsonObject LiveServer::saveProject(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
 	QETProject *project = e ? e->currentProject() : nullptr;
-	if (!project) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!project) return failure(QStringLiteral("no project is open in FaseCAD"));
 	if (project->isReadOnly()) return failure(QStringLiteral("the project is read-only"));
 
 	const QString path = request.value(QStringLiteral("path")).toString().trimmed();
@@ -776,7 +776,7 @@ QJsonObject LiveServer::saveProject(const QJsonObject &request)
 QJsonObject LiveServer::closeProject(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
-	if (!e) return failure(QStringLiteral("no QElectroTech editor window is open"));
+	if (!e) return failure(QStringLiteral("no FaseCAD editor window is open"));
 	const QList<ProjectView *> views = e->openedProjects();
 	ProjectView *pv = nullptr;
 	if (request.contains(QStringLiteral("index"))) {
@@ -787,7 +787,7 @@ QJsonObject LiveServer::closeProject(const QJsonObject &request)
 		pv = views.at(index);
 	} else {
 		pv = e->currentProjectView();
-		if (!pv) return failure(QStringLiteral("no project is open in QElectroTech"));
+		if (!pv) return failure(QStringLiteral("no project is open in FaseCAD"));
 	}
 	QETProject *project = pv->project();
 	if (project->projectWasModified())
@@ -795,7 +795,7 @@ QJsonObject LiveServer::closeProject(const QJsonObject &request)
 					      "(save_project) -- closing never discards them")
 			       .arg(project->title()));
 	const QString title = project->title();
-	if (!e->closeProject(pv)) return failure(QStringLiteral("QElectroTech did not close \"%1\"").arg(title));
+	if (!e->closeProject(pv)) return failure(QStringLiteral("FaseCAD did not close \"%1\"").arg(title));
 	QJsonObject answer = status();
 	answer.insert(QStringLiteral("closed"), title);
 	return answer;
@@ -814,7 +814,7 @@ QJsonObject LiveServer::print(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
 	ProjectView *pv = e ? e->currentProjectView() : nullptr;
-	if (!pv) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!pv) return failure(QStringLiteral("no project is open in FaseCAD"));
 	QETProject *project = pv->project();
 	const QList<Diagram *> all = project->diagrams();
 
@@ -914,7 +914,7 @@ QJsonObject LiveServer::snapshot(const QString &raw_path)
 {
 	QETDiagramEditor *e = editor();
 	QETProject *project = e ? e->currentProject() : nullptr;
-	if (!project) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!project) return failure(QStringLiteral("no project is open in FaseCAD"));
 	const QFileInfo info(raw_path.trimmed());
 	if (raw_path.trimmed().isEmpty() || info.isRelative())
 		return failure(QStringLiteral("path must be absolute"));
@@ -941,7 +941,7 @@ QJsonObject LiveServer::changes(const QJsonObject &request)
 {
 	QETDiagramEditor *e = editor();
 	QETProject *project = e ? e->currentProject() : nullptr;
-	if (!project) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!project) return failure(QStringLiteral("no project is open in FaseCAD"));
 	QUndoStack *stack = project->undoStack();
 	const QString prefix = tr("Assistant: %1").arg(QString());
 	const int since = request.value(QStringLiteral("since")).toInt(-1);
@@ -973,7 +973,7 @@ QJsonObject LiveServer::undoLast()
 {
 	QETDiagramEditor *e = editor();
 	QETProject *project = e ? e->currentProject() : nullptr;
-	if (!project) return failure(QStringLiteral("no project is open in QElectroTech"));
+	if (!project) return failure(QStringLiteral("no project is open in FaseCAD"));
 	QUndoStack *stack = project->undoStack();
 	const QString text = stack->text(stack->index() - 1);
 	const QString prefix = tr("Assistant: %1").arg(QString());
@@ -988,7 +988,7 @@ QJsonObject LiveServer::screenshot()
 {
 	QETDiagramEditor *e = editor();
 	DiagramView *view = e ? e->currentDiagramView() : nullptr;
-	if (!view) return failure(QStringLiteral("no folio is shown in QElectroTech"));
+	if (!view) return failure(QStringLiteral("no folio is shown in FaseCAD"));
 		// Only the part of the folio (frame and title block) that is on
 		// screen: a tall or wide window around a zoomed-out folio would
 		// otherwise give mostly empty background. The whole viewport when

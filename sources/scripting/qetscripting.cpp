@@ -83,7 +83,7 @@ int run(const QStringList &args)
 	const QString script_path = args.value(idx + 1);
 	const QString project_path = args.value(idx + 2);
 	if (script_path.isEmpty() || project_path.isEmpty()) {
-		err << "Usage: qelectrotech --run <script.js> <project.qet>\n";
+		err << "Usage: fasecad --run <script.js> <project.qet>\n";
 		return 2;
 	}
 	if (!QFileInfo::exists(script_path)) {

@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "projectview.h"
+#include "branding/projectextensions.h"
 #include "utils/qetsettings.h"
 
 #include "ElementsCollection/xmlelementcollection.h"
@@ -321,7 +322,7 @@ int ProjectView::tryClosingDiagrams()
 	}
 
 	QString title = project()->title();
-	if (title.isEmpty()) title = "QElectroTech ";
+	if (title.isEmpty()) title = "FaseCAD ";
 
 	int close_dialog = QMessageBox::question(this, title,
 								   tr("The project was modified.\n"
@@ -342,10 +343,11 @@ int ProjectView::tryClosingDiagrams()
 */
 QString ProjectView::askUserForFilePath(bool assign) {
 	// ask the user for a filepath in order to save the project
-	const QString qet_filter = tr("Project QElectroTech (*.qet)", "filetypes allowed when saving a project file");
-	const QString qetz_filter = tr("Zipped project QElectroTech (*.qetz)", "filetypes allowed when saving a project file");
+		//FaseCAD saves as .edrw, .edrwz and .edrwdb (ProjectExtensions)
+	const QString qet_filter = tr("Project QElectroTech (*%1)", "filetypes allowed when saving a project file").arg(ProjectExtensions::xml());
+	const QString qetz_filter = tr("Zipped project QElectroTech (*%1)", "filetypes allowed when saving a project file").arg(ProjectExtensions::zipped());
 		//One SQLite file, offered only with its setting on (experimental)
-	const QString qetdb_filter = tr("Project QElectroTech, one database file (*.qetdb)", "filetypes allowed when saving a project file");
+	const QString qetdb_filter = tr("Project QElectroTech, one database file (*%1)", "filetypes allowed when saving a project file").arg(ProjectExtensions::database());
 		//A project is saved as a .qetz unless a .qet is chosen
 		//(stage D1)
 	QString selected_filter = qetz_filter;
@@ -356,7 +358,7 @@ QString ProjectView::askUserForFilePath(bool assign) {
 		this,
 		tr("Save as", "dialog title"),
 		m_project -> currentDir() + "/" + tr("untitled")
-				+ (selected_filter == qetz_filter ? ".qetz" : ".qet"),
+				+ (selected_filter == qetz_filter ? ProjectExtensions::zipped() : ProjectExtensions::xml()),
 		filters,
 		&selected_filter
 	);
@@ -380,20 +382,21 @@ QString ProjectView::askUserForFilePath(bool assign) {
 	// with the GTK dialog, and still means a .qetz.
 	bool zipped = selected_filter == qetz_filter;
 	bool database = selected_filter == qetdb_filter;
-	for (;;) {
-		if (filepath.endsWith(".qetz", Qt::CaseInsensitive)) {
-			filepath.chop(5);
-			zipped = true;
-		} else if (filepath.endsWith(".qetdb", Qt::CaseInsensitive)) {
-			filepath.chop(6);
-			database = QetSettings::qetdbEnabled();
-		} else if (filepath.endsWith(".qet", Qt::CaseInsensitive)) {
-			filepath.chop(4);
-		} else {
+		//The old names (.qet, .qetz, .qetdb) typed in say the same, and
+		//are written with FaseCAD's own
+	for (bool stripped = true; stripped; ) {
+		stripped = false;
+		for (const QString &suffix : ProjectExtensions::all()) {
+			if (!filepath.endsWith(suffix, Qt::CaseInsensitive)) continue;
+			if (ProjectExtensions::isZipped(suffix)) zipped = true;
+			if (ProjectExtensions::isDatabase(suffix)) database = QetSettings::qetdbEnabled();
+			filepath.chop(suffix.size());
+			stripped = true;
 			break;
 		}
 	}
-	filepath += database ? ".qetdb" : zipped ? ".qetz" : ".qet";
+	filepath += database ? ProjectExtensions::database()
+			     : zipped ? ProjectExtensions::zipped() : ProjectExtensions::xml();
 
 		//Not onto a file someone else has open
 	if (!refuseIfLockedByOther(filepath)) return(QString());
@@ -795,8 +798,8 @@ QETResult ProjectView::saveCopyForOlderVersions()
 	QString base = m_project->filePath().isEmpty()
 			? m_project->currentDir() + "/" + tr("untitled")
 			: m_project->filePath();
-	for (const QString &suffix : {QStringLiteral(".qetz"), QStringLiteral(".qet")})
-		if (base.endsWith(suffix, Qt::CaseInsensitive)) base.chop(suffix.size());
+	for (const QString &suffix : ProjectExtensions::all())
+		if (base.endsWith(suffix, Qt::CaseInsensitive)) { base.chop(suffix.size()); break; }
 	QString path = QFileDialog::getSaveFileName(
 				this,
 				tr("Save a copy for an older QElectroTech", "dialog title"),

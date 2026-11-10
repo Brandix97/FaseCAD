@@ -309,7 +309,7 @@ bool projectDataBase::writeWorkingCopy(const QString &working_copy, const QStrin
 		if (ok && !(query.exec(QStringLiteral("SELECT ready FROM working_copy")) && query.next()
 					&& query.value(0).toInt() == 1)) {
 			ok = false;
-			if (error) *error = QStringLiteral("the working copy is not ready (QElectroTech stopped while opening the project)");
+			if (error) *error = QStringLiteral("the working copy is not ready (FaseCAD stopped while opening the project)");
 		}
 		query = QSqlQuery();
 		db.close();

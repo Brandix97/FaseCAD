@@ -51,6 +51,11 @@
        <string>Realistic (screw)</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>Terminal diagram</string>
+      </property>
+     </item>
     </widget>
    </item>
    <item>

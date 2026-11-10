@@ -33,7 +33,7 @@ bool QetzWriter::write(const QDomDocument &project, const QString &path, QString
 {
 	QList<QetZip::Entry> entries = QetContainer::split(
 				project,
-				QStringLiteral("QElectroTech %1").arg(QetVersion::currentVersion().toString()),
+				QStringLiteral("FaseCAD %1").arg(QetVersion::currentVersion().toString()),
 				error, kept_from);
 	return !entries.isEmpty() && QetZip::write(path, entries, error);
 }

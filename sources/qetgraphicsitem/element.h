@@ -188,6 +188,10 @@ class Element : public QetGraphicsItem
 				is never changed by any of them.
 			*/
 		QString labelForDisplay();
+			/// The label is drawn as its terminal number alone ("2" for
+			/// "-XPERS:2"): the terminal on its left on the folio names the
+			/// same strip (TerminalElement, TerminalStripLabels)
+		virtual bool showsTerminalNumberOnly() const {return false;}
 		QString terminalNumberForDisplay();
 		QString conductorTextForDisplay();
 		QString conductorInfoForDisplay(const QString &info_name);

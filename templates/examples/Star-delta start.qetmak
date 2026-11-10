@@ -1,0 +1,568 @@
+<qet_macro>
+  <collection>
+    <element path="import/10_electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/gv2p.elmt">
+      <definition version="0.100.0" type="element" link_type="master" width="90" height="100" hotspot_x="58" hotspot_y="50">
+        <uuid uuid="{eae7fbc6-02e3-12b8-6aef-5b44940f5a4f}" />
+        <names>
+          <name lang="ar">قاطع مغناطيسي-حراري GV</name>
+          <name lang="ca">Interruptor magnetotèrmic GV</name>
+          <name lang="cs">Motorový spouštěč 3P</name>
+          <name lang="da">Motorværn</name>
+          <name lang="de">Motorschutzschalter</name>
+          <name lang="el">Θερμομαγνητικό</name>
+          <name lang="en">Magneto-thermal circuit breaker GV</name>
+          <name lang="es">Disyuntor termico magnetico 3P mando rotatorio</name>
+          <name lang="fi">Magneto-termisen katkaisijan GV</name>
+          <name lang="fr">Disjoncteur Magnéto-thermique GV</name>
+          <name lang="hr">Magnetotermički prekidač GV</name>
+          <name lang="hu">Motorvédő kapcsoló GV2P</name>
+          <name lang="it">Interr. magneto-termico</name>
+          <name lang="ja">電磁熱動式遮断器 GV</name>
+          <name lang="ko">열동.자기식 모터 보호 차단기 GV</name>
+          <name lang="mn">Магнит-дулааны хэлхээ таслагч GV</name>
+          <name lang="nb">Magnetotermisk effektbryter GV</name>
+          <name lang="nl">Motorbeveiligingsschakelaar GV</name>
+          <name lang="nl_BE">Magneto-thermische stroomonderbreker GV</name>
+          <name lang="pl">Wyłącznik silnikowy</name>
+          <name lang="pt">Disjuntor magnetotérmico GV</name>
+          <name lang="pt_BR">Disjuntor termomagnético GV</name>
+          <name lang="ro">Întrerupător magnetotermic GV</name>
+          <name lang="ru">Магнито-тепловые прерыватели</name>
+          <name lang="sk">Magnetotermický istič GV</name>
+          <name lang="sl">Magnetotermični odklopnik GV</name>
+          <name lang="sr">Магнетно-термички прекидач GV</name>
+          <name lang="sv">Magnetotermisk dvärgbrytare GV</name>
+          <name lang="tr">Manyeto-termik devre kesici GV</name>
+          <name lang="uk">Магнітотермічний автоматичний вимикач GV</name>
+          <name lang="zh">GV2P电机断路器</name>
+        </names>
+        <kindInformations>
+          <kindInformation name="type">protection</kindInformation>
+        </kindInformations>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <line x1="-56" y1="-12" x2="-53" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <polygon x1="20" y1="14" x2="20" y2="10" x3="25" y3="10" x4="25" y4="4" x5="20" y5="4" x6="20" y6="-6" x7="13" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="0" y1="14" x2="0" y2="10" x3="5" y3="10" x4="5" y4="4" x5="0" y5="4" x6="0" y6="-6" x7="-7" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <text text="I&gt;" x="16" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="5&#10;L3" x="24" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="3&#10;L2" x="4" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="4&#10;T2" x="4" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <rect x="-30" y="0" width="60" height="28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="6&#10;T3" x="24" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="2&#10;T1" x="-16" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="I&gt;" x="-4" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <line x1="-18" y1="-33" x2="-22" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-22" y1="-33" x2="-18" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="2" y1="-33" x2="-2" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-2" y1="-33" x2="2" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="22" y1="-33" x2="18" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="18" y1="-33" x2="22" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="50" y="-12" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ef14cea7-d6ae-45f3-a600-a557ed236b54}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <line x1="-30" y1="14" x2="30" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-10" y1="0" x2="-10" y2="27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="10" y1="0" x2="10" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="I&gt;" x="-24" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <line x1="-20" y1="40" x2="-20" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="0" y1="40" x2="0" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="20" y1="40" x2="20" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="1&#10;L1" x="-16" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <polygon x1="-20" y1="14" x2="-20" y2="10" x3="-15" y3="10" x4="-15" y4="4" x5="-20" y5="4" x6="-20" y6="-6" x7="-27" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <line x1="-20" y1="-27" x2="-20" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="0" y1="-27" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="20" y1="-27" x2="20" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <rect x="-46" y="-22" width="12" height="12" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-34" y1="-16" x2="-53" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-53" y1="-20" x2="-53" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-40" y1="-10" x2="-40" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-34" y1="-16" x2="16" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false" />
+          <polygon x1="-30" y1="21" x2="-40" y2="21" x3="-40" y3="-10" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black" />
+          <line x1="-30" y1="7" x2="-40" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-53" y1="-20" x2="-50" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-22" y1="-27" x2="-18" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-2" y1="-27" x2="2" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="18" y1="-27" x2="22" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <terminal uuid="{51a1d7a5-5fcb-4e0d-9dfd-1f1b79e4c048}" name="5" x="20" y="-40" orientation="n" type="Generic" />
+          <terminal uuid="{49fa4a54-1223-4ad7-abac-a5cb747670be}" name="6" x="20" y="40" orientation="s" type="Generic" />
+          <terminal uuid="{17706ff5-f429-4069-ad2d-f4746b290fc5}" name="4" x="0" y="40" orientation="s" type="Generic" />
+          <terminal uuid="{eb77fd47-5491-4852-82ed-dbf8fa65e22b}" name="1" x="-20" y="-40" orientation="n" type="Generic" />
+          <terminal uuid="{aae89003-6097-4abf-af20-ee35bd165efb}" name="3" x="0" y="-40" orientation="n" type="Generic" />
+          <terminal uuid="{7101d9dc-2deb-437d-b0ad-a7282d261e9e}" name="2" x="-20" y="40" orientation="s" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/02_power_contacts/com_puiss4.elmt">
+      <definition version="0.100.0" type="element" link_type="slave" width="60" height="60" hotspot_x="28" hotspot_y="30">
+        <uuid uuid="{b3ba5270-c8bb-0a9d-5c14-fe6eeca703e3}" />
+        <names>
+          <name lang="ar">مُلامس قدرة- كونتكتور (NO)</name>
+          <name lang="ca">Contactar el contactor de potència</name>
+          <name lang="cs">Silový kontakt 3p</name>
+          <name lang="da">Hovedkontakt kontaktor</name>
+          <name lang="de">Leistungsschliesser 3-polig</name>
+          <name lang="el">Επαφές ρελέ ισχύος, ανοικτές</name>
+          <name lang="en">Contact power contactor</name>
+          <name lang="es">Interruptor de potencia contactor</name>
+          <name lang="fi">Koskettimen teho kontaktorille</name>
+          <name lang="fr">Contact puissance contacteur</name>
+          <name lang="hr">Kontakt snažnog kontaktora</name>
+          <name lang="hu">Teljesítmény kontaktor érintkező</name>
+          <name lang="it">3 Contatti NA di potenza</name>
+          <name lang="ja">電力用接触器接点</name>
+          <name lang="ko">전력 접점 접촉기</name>
+          <name lang="mn">Контакт хүчний контактор</name>
+          <name lang="nb">Kontakt kraftkontaktor</name>
+          <name lang="nl">Last contact</name>
+          <name lang="nl_BE">Vermogenscontact contacteur</name>
+          <name lang="pl">Stycznik</name>
+          <name lang="pt">Interruptor de potência contactor</name>
+          <name lang="pt_BR">Contator de potência</name>
+          <name lang="ro">Contact de putere contactor</name>
+          <name lang="ru">Контакт контактора (НР)</name>
+          <name lang="sk">Výkonový kontakt stýkača</name>
+          <name lang="sl">Kontakt močnostnega kontaktorja</name>
+          <name lang="sr">Контакт снаге контактора</name>
+          <name lang="sv">Kontakt effektkontaktor</name>
+          <name lang="tr">Güç kontağı kontaktör</name>
+          <name lang="uk">Силовий контакт контактора</name>
+          <name lang="zh">常开功率触点4</name>
+        </names>
+        <kindInformations>
+          <kindInformation name="type">power</kindInformation>
+          <kindInformation name="state">NO</kindInformation>
+          <kindInformation name="number">3</kindInformation>
+        </kindInformations>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <text text="3&#10;L2" x="5" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="5&#10;L3" x="25" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="4&#10;T2" x="4" y="19" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="2&#10;T1" x="-16" y="19" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="6&#10;T3" x="24" y="19" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <polygon x1="15" y1="-10" x2="20" y2="10" x3="20" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="-25" y1="-10" x2="-20" y2="10" x3="-20" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <line x1="-20" y1="-20" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="25" y="-9.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a4a0d6d4-f67d-4611-ab14-19ab6cdee86f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <arc x="-22.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <arc x="-2.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <arc x="17.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <line x1="-23" y1="0" x2="17" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false" />
+          <text text="1&#10;L1" x="-16" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <terminal uuid="{b1e149d1-a457-4123-a865-ac6ab218b652}" name="" x="-20" y="-20" orientation="n" type="Generic" />
+          <terminal uuid="{ed13c88c-d39e-47a8-aea9-7594b268733e}" name="" x="-20" y="20" orientation="s" type="Generic" />
+          <terminal uuid="{0380e8d3-4a53-4303-8b3d-fc50f33c0928}" name="" x="0" y="-20" orientation="n" type="Generic" />
+          <terminal uuid="{e098d804-f947-4e2a-83ad-5054ab8b6d0c}" name="" x="0" y="20" orientation="s" type="Generic" />
+          <terminal uuid="{df6fc818-e098-49e3-80de-37822bbef71c}" name="" x="20" y="-20" orientation="n" type="Generic" />
+          <terminal uuid="{711ec3d7-c0e0-4a11-b69a-aacb5277329e}" name="" x="20" y="20" orientation="s" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/391_consumers_actuators/10_engines/moteur_tri_de.elmt">
+      <definition version="0.90" type="element" link_type="simple" width="60" height="80" hotspot_x="28" hotspot_y="40">
+        <uuid uuid="{af97d314-6f6a-b8f2-ad74-84cd75740e6a}" />
+        <names>
+          <name lang="ar">محرّك سداسي الأوجه</name>
+          <name lang="ca">Motor de sis fases</name>
+          <name lang="cs">Trojfázový motor</name>
+          <name lang="da">Seksfaset motor</name>
+          <name lang="de">Drehstrom-Motor (6 Anschlüsse)</name>
+          <name lang="el">Εξαφασικός κινητήρας</name>
+          <name lang="en">Six-phase engine</name>
+          <name lang="es">Motor trifásico 6 polos</name>
+          <name lang="fi">Kuusivaihemoottori</name>
+          <name lang="fr">Moteur triphasé (double enroulement)</name>
+          <name lang="hr">Šesterofazni motor</name>
+          <name lang="hu">Hatfázisú motor</name>
+          <name lang="it">Motore trifase doppio avvolgimento</name>
+          <name lang="ja">六相エンジン</name>
+          <name lang="ko">육상 모터</name>
+          <name lang="mn">Зургаан фазын хөдөлгүүр</name>
+          <name lang="nb">Seksfasemotor</name>
+          <name lang="nl">DraaistroomMotor 3 fasen 6 aansluitingen</name>
+          <name lang="nl_BE">Zesfasige motor</name>
+          <name lang="pl">Silnik trójfazowy</name>
+          <name lang="pt">Motor de seis fases (duplo enrolamento)</name>
+          <name lang="pt_BR">motor de seis fases (duplo enrolamento)</name>
+          <name lang="ro">Motor hexafazat</name>
+          <name lang="ru">Шестифазный эл. мотор</name>
+          <name lang="sk">Šesťfázový motor</name>
+          <name lang="sl">Šestfazni motor</name>
+          <name lang="sr">Шестофазни мотор</name>
+          <name lang="sv">Sexfasmotor</name>
+          <name lang="tr">Altı fazlı motor</name>
+          <name lang="uk">Шестифазний двигун</name>
+          <name lang="zh">三相电动机（德）</name>
+        </names>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <arc x="0" y="5.5" width="4" height="3" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <arc x="-16" y="-16" width="33" height="32" start="327" angle="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <text text="W1" x="24" y="-23" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="V1" x="4" y="-23" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="W2" x="24" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="U2" x="-16" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <text text="V2" x="4" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <line x1="0" y1="15" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="M" x="-6" y="0" rotation="0" font="Liberation Sans,11,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <dynamic_text x="50" y="-11" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4969ff35-1df5-42fc-a1f8-3bb8cfafc123}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <line x1="0" y1="-30" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <polygon x1="-20" y1="-30" x2="-20" y2="-20" x3="-11" y3="-11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="20" y1="-30" x2="20" y2="-20" x3="11" y3="-11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="-20" y1="30" x2="-20" y2="20" x3="-11" y3="11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="20" y1="30" x2="20" y2="20" x3="11" y3="11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <text text="U1" x="-16" y="-23" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <polygon x1="17" y1="0" x2="24" y2="0" x3="24" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <line x1="20" y1="5" x2="28" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="21" y1="7" x2="27" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="23" y1="9" x2="25" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="3" x="-8" y="11" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <arc x="4" y="5.5" width="4" height="3" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <terminal uuid="{5529b2c6-acdf-459e-aa49-92b77d357137}" name="U2" x="-20" y="30" orientation="s" type="Generic" />
+          <terminal uuid="{89579bca-27ff-4e5a-9c0c-1874b37abc0e}" name="W2" x="20" y="30" orientation="s" type="Generic" />
+          <terminal uuid="{1eb250d6-75e7-4db6-bbcc-18244247c9df}" name="U1" x="-20" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{359a9276-dd65-44c2-8778-d82184af3900}" name="W1" x="20" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{0f2eb340-a507-4742-ae9c-3c5b2fa4ccdc}" name="V1" x="0" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{6695b0df-2f4c-41ce-a392-5a096a02efec}" name="V2" x="0" y="30" orientation="s" type="Generic" />
+          <terminal uuid="{15ce6a37-e57c-49eb-80ce-cb0ef01c6fd4}" name="PE" x="24" y="0" orientation="n" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/310_relays_contactors_contacts/01_coils/bobine3.elmt">
+      <definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="32">
+        <uuid uuid="{793302b1-e96a-f7f8-70bc-dec53eeaab5b}" />
+        <names>
+          <name lang="ar">ملف</name>
+          <name lang="ca">Bobina</name>
+          <name lang="cs">Cívka relé</name>
+          <name lang="da">Relæ</name>
+          <name lang="de">Spule</name>
+          <name lang="el">Πηνίο</name>
+          <name lang="en">Coil</name>
+          <name lang="es">Bobina</name>
+          <name lang="fi">Käämi</name>
+          <name lang="fr">Bobine</name>
+          <name lang="hr">Zavojnica</name>
+          <name lang="hu">Tekercs</name>
+          <name lang="it">Bobina</name>
+          <name lang="ja">コイル</name>
+          <name lang="ko">코일</name>
+          <name lang="mn">Ороомог</name>
+          <name lang="nb">Spole</name>
+          <name lang="nl">Spoel</name>
+          <name lang="nl_BE">Relais spoel (algemeen)</name>
+          <name lang="pl">Cewka</name>
+          <name lang="pt">Bobina</name>
+          <name lang="pt_BR">Bobina</name>
+          <name lang="ro">Bobina</name>
+          <name lang="ru">Обмотка</name>
+          <name lang="sk">Cievka</name>
+          <name lang="sl">Tuljava</name>
+          <name lang="sr">Каlem</name>
+          <name lang="sv">Spole</name>
+          <name lang="tr">Bobin</name>
+          <name lang="uk">Котушка</name>
+          <name lang="zh">三线圈</name>
+        </names>
+        <kindInformations>
+          <kindInformation name="type">coil</kindInformation>
+        </kindInformations>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <rect x="-14" y="-8" width="28" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="2" y="11.33" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0a58bdda-9173-48ba-acaa-35f2dc00c4bb}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+          </dynamic_text>
+          <dynamic_text x="2" y="-24.67" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7e98ddfe-fde0-4715-a926-9f60cf750078}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+          </dynamic_text>
+          <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="25" y="-9.17" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3ef105d2-add6-4c4b-a4cd-120c40096202}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <terminal uuid="{8d0fa333-2d98-4a75-8a4e-21c81cce7ec3}" name="A1" x="0" y="-20" orientation="n" type="Generic" />
+          <terminal uuid="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" name="A2" x="0" y="20" orientation="s" type="Generic" />
+        </description>
+      </definition>
+    </element>
+  </collection>
+  <diagram_content>
+    <diagram author="" auto_page_num="" cols="17" colsize="60" date="null" displayAt="bottom" displaycols="true" displayrows="true" filename="" folio="%id" freezeNewConductor="false" freezeNewElement="false" height="660" indexrev="" locmach="" order="2" plant="" rows="8" rowsize="80" title="Star-delta start" uuid="{3e5cd553-24c3-531f-8c20-41186137640a}" version="0.200.1-dev">
+      <defaultconductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="1" displaytext="1" formula="" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="_" numsize="9" onetextperfolio="0" tension_protocol="" text_color="#000000" type="multi" vertical-alignment="AlignRight" vertirotatetext="270" />
+      <elements>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/gv2p.elmt" uuid="{3ba83687-aa83-4aea-aff4-739231d3355f}" x="200" y="160" z="10">
+          <terminals>
+            <terminal id="0" orientation="0" x="-20" y="-36" />
+            <terminal id="1" orientation="0" x="0" y="-36" />
+            <terminal id="2" orientation="0" x="20" y="-36" />
+            <terminal id="3" orientation="2" x="-20" y="36" />
+            <terminal id="4" orientation="2" x="0" y="36" />
+            <terminal id="5" orientation="2" x="20" y="36" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Motor protection</elementInformation>
+            <elementInformation name="label" show="1">-Q1</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{54d8a1c2-2c11-441b-bed4-1c965efdfe74}" x="50" y="-12">
+              <text>-Q1</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/02_power_contacts/com_puiss4.elmt" uuid="{ede8499f-fb31-432d-9543-aa6e872b51e3}" x="200" y="280" z="10">
+          <terminals>
+            <terminal id="6" orientation="0" x="-20" y="-16" />
+            <terminal id="7" orientation="0" x="0" y="-16" />
+            <terminal id="8" orientation="0" x="20" y="-16" />
+            <terminal id="9" orientation="2" x="-20" y="16" />
+            <terminal id="10" orientation="2" x="0" y="16" />
+            <terminal id="11" orientation="2" x="20" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{1bf80b7a-f7eb-4ef0-a4f4-e25956a9f18a}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Line contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM1</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{34a8b359-a2d1-4b88-b198-1330ceae72bb}" x="25" y="-9.5">
+              <text>-KM1</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/391_consumers_actuators/10_engines/moteur_tri_de.elmt" uuid="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" x="200" y="440" z="10">
+          <terminals>
+            <terminal id="12" orientation="0" x="-20" y="-26" />
+            <terminal id="13" orientation="0" x="0" y="-26" />
+            <terminal id="14" orientation="0" x="20" y="-26" />
+            <terminal id="15" orientation="0" x="24" y="4" />
+            <terminal id="16" orientation="2" x="-20" y="26" />
+            <terminal id="17" orientation="2" x="0" y="26" />
+            <terminal id="18" orientation="2" x="20" y="26" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Motor 6 terminals</elementInformation>
+            <elementInformation name="label" show="1">-M1</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{374d69a9-f485-43b4-b5a9-a619e5b498d1}" x="50" y="-11">
+              <text>-M1</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/02_power_contacts/com_puiss4.elmt" uuid="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" x="400" y="280" z="10">
+          <terminals>
+            <terminal id="19" orientation="0" x="-20" y="-16" />
+            <terminal id="20" orientation="0" x="0" y="-16" />
+            <terminal id="21" orientation="0" x="20" y="-16" />
+            <terminal id="22" orientation="2" x="-20" y="16" />
+            <terminal id="23" orientation="2" x="0" y="16" />
+            <terminal id="24" orientation="2" x="20" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{29c22029-0f9c-4def-91b9-ca4159cb7c3b}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Delta contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM2</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{68b5008b-7448-4903-91d2-f96a273f3ea6}" x="25" y="-9.5">
+              <text>-KM2</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/02_power_contacts/com_puiss4.elmt" uuid="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" x="400" y="560" z="10">
+          <terminals>
+            <terminal id="25" orientation="0" x="-20" y="-16" />
+            <terminal id="26" orientation="0" x="0" y="-16" />
+            <terminal id="27" orientation="0" x="20" y="-16" />
+            <terminal id="28" orientation="2" x="-20" y="16" />
+            <terminal id="29" orientation="2" x="0" y="16" />
+            <terminal id="30" orientation="2" x="20" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{7a653184-f6ff-4a23-911d-8b2cfe0bbbef}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Star contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM3</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{6a6d43ea-fa30-4ed2-9fe9-38f7915d8387}" x="25" y="-9.5">
+              <text>-KM3</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/01_coils/bobine3.elmt" uuid="{1bf80b7a-f7eb-4ef0-a4f4-e25956a9f18a}" x="640" y="280" z="10">
+          <terminals>
+            <terminal id="31" orientation="0" x="0" y="-16" />
+            <terminal id="32" orientation="2" x="0" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{ede8499f-fb31-432d-9543-aa6e872b51e3}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Line contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM1</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{247fe314-2334-41b1-b43b-951e60f39104}" x="2" y="11.33">
+              <text>A2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{2978c537-cea0-4219-845b-2bbd443ddf86}" x="2" y="-24.67">
+              <text>A1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{9c045102-1490-4509-90e4-090982423ea8}" x="25" y="-9.17">
+              <text>-KM1</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/01_coils/bobine3.elmt" uuid="{29c22029-0f9c-4def-91b9-ca4159cb7c3b}" x="720" y="280" z="10">
+          <terminals>
+            <terminal id="33" orientation="0" x="0" y="-16" />
+            <terminal id="34" orientation="2" x="0" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Delta contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM2</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{3bdb66fc-e2e1-4bc4-8591-723d7bb1670b}" x="2" y="11.33">
+              <text>A2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{db2e11ea-af27-4dd8-b455-36ec16262e9d}" x="2" y="-24.67">
+              <text>A1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{74c0a037-5893-4cc3-bb3a-593559db179f}" x="25" y="-9.17">
+              <text>-KM2</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/310_relays_contactors_contacts/01_coils/bobine3.elmt" uuid="{7a653184-f6ff-4a23-911d-8b2cfe0bbbef}" x="800" y="280" z="10">
+          <terminals>
+            <terminal id="35" orientation="0" x="0" y="-16" />
+            <terminal id="36" orientation="2" x="0" y="16" />
+          </terminals>
+          <inputs />
+          <links_uuids>
+            <link_uuid uuid="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" />
+          </links_uuids>
+          <elementInformations>
+            <elementInformation name="comment" show="1">Star contactor</elementInformation>
+            <elementInformation name="label" show="1">-KM3</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{ed7df374-560a-4888-b4cc-754cd66d49f7}" x="2" y="11.33">
+              <text>A2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{3d23b3cb-1953-476a-ad58-1f8b711a8669}" x="2" y="-24.67">
+              <text>A1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{c8b30dab-9ae1-4717-bca6-ae79aecc64ca}" x="25" y="-9.17">
+              <text>-KM3</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+      </elements>
+      <conductors>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element2_label="-KM1" element2_linked="-KM1" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{7101d9dc-2deb-437d-b0ad-a7282d261e9e}" terminal2="{b1e149d1-a457-4123-a865-ac6ab218b652}" terminalname1="2" terminalname2="" text_color="#000000" type="multi" uuid="{3f02138e-31b7-515e-b14c-f0c8c11d88f7}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element2_label="-KM1" element2_linked="-KM1" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{17706ff5-f429-4069-ad2d-f4746b290fc5}" terminal2="{0380e8d3-4a53-4303-8b3d-fc50f33c0928}" terminalname1="4" terminalname2="" text_color="#000000" type="multi" uuid="{a2cc0a01-aec1-58f3-bbfb-a90465ba86f2}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element2_label="-KM1" element2_linked="-KM1" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{49fa4a54-1223-4ad7-abac-a5cb747670be}" terminal2="{df6fc818-e098-49e3-80de-37822bbef71c}" terminalname1="6" terminalname2="" text_color="#000000" type="multi" uuid="{fca553a7-dc2c-55f6-95cc-f7faf1250522}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element2_label="-KM2" element2_linked="-KM2" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{7101d9dc-2deb-437d-b0ad-a7282d261e9e}" terminal2="{b1e149d1-a457-4123-a865-ac6ab218b652}" terminalname1="2" terminalname2="" text_color="#000000" type="multi" uuid="{f726ab07-ce96-513c-838b-2656986deda9}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element2_label="-KM2" element2_linked="-KM2" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{17706ff5-f429-4069-ad2d-f4746b290fc5}" terminal2="{0380e8d3-4a53-4303-8b3d-fc50f33c0928}" terminalname1="4" terminalname2="" text_color="#000000" type="multi" uuid="{66b63108-fcdf-5401-a855-6fcb7d8b19e3}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{3ba83687-aa83-4aea-aff4-739231d3355f}" element1_label="-Q1" element1_name="Magneto-thermal circuit breaker GV" element2="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element2_label="-KM2" element2_linked="-KM2" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{49fa4a54-1223-4ad7-abac-a5cb747670be}" terminal2="{df6fc818-e098-49e3-80de-37822bbef71c}" terminalname1="6" terminalname2="" text_color="#000000" type="multi" uuid="{96dc0539-1942-5f60-bba5-0e046055ec3b}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element1_label="-KM1" element1_linked="-KM1" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{ed13c88c-d39e-47a8-aea9-7594b268733e}" terminal2="{1eb250d6-75e7-4db6-bbcc-18244247c9df}" terminalname1="" terminalname2="U1" text_color="#000000" type="multi" uuid="{24d5c680-08d8-5563-ad0d-85b858bb50cc}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element1_label="-KM1" element1_linked="-KM1" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{e098d804-f947-4e2a-83ad-5054ab8b6d0c}" terminal2="{0f2eb340-a507-4742-ae9c-3c5b2fa4ccdc}" terminalname1="" terminalname2="V1" text_color="#000000" type="multi" uuid="{1bb3c6d4-9abc-56ed-8a77-d50653fe49c5}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{ede8499f-fb31-432d-9543-aa6e872b51e3}" element1_label="-KM1" element1_linked="-KM1" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{711ec3d7-c0e0-4a11-b69a-aacb5277329e}" terminal2="{359a9276-dd65-44c2-8778-d82184af3900}" terminalname1="" terminalname2="W1" text_color="#000000" type="multi" uuid="{76f7f3cc-0541-52dd-a309-0faf8767073b}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element1_label="-KM2" element1_linked="-KM2" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{ed13c88c-d39e-47a8-aea9-7594b268733e}" terminal2="{89579bca-27ff-4e5a-9c0c-1874b37abc0e}" terminalname1="" terminalname2="W2" text_color="#000000" type="multi" uuid="{c17e262e-0164-5938-972b-2d048ff93c65}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element1_label="-KM2" element1_linked="-KM2" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{e098d804-f947-4e2a-83ad-5054ab8b6d0c}" terminal2="{5529b2c6-acdf-459e-aa49-92b77d357137}" terminalname1="" terminalname2="U2" text_color="#000000" type="multi" uuid="{671dfef9-c0e4-5152-8876-d93b2665f3ea}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0ddad2e8-38d7-4433-8375-4dec60bdd72a}" element1_label="-KM2" element1_linked="-KM2" element1_name="Contact power contactor" element2="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element2_label="-M1" element2_name="Six-phase engine" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{711ec3d7-c0e0-4a11-b69a-aacb5277329e}" terminal2="{6695b0df-2f4c-41ce-a392-5a096a02efec}" terminalname1="" terminalname2="V2" text_color="#000000" type="multi" uuid="{fa5d4493-cfcd-5cdd-912d-ccba6f46c2f6}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element1_label="-M1" element1_name="Six-phase engine" element2="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element2_label="-KM3" element2_linked="-KM3" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{5529b2c6-acdf-459e-aa49-92b77d357137}" terminal2="{b1e149d1-a457-4123-a865-ac6ab218b652}" terminalname1="U2" terminalname2="" text_color="#000000" type="multi" uuid="{06987e68-642f-5aa3-ae7b-1739b7c58d0b}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element1_label="-M1" element1_name="Six-phase engine" element2="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element2_label="-KM3" element2_linked="-KM3" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{6695b0df-2f4c-41ce-a392-5a096a02efec}" terminal2="{0380e8d3-4a53-4303-8b3d-fc50f33c0928}" terminalname1="V2" terminalname2="" text_color="#000000" type="multi" uuid="{3412957e-da3a-5310-ad78-82fd3f47f871}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{99d07c77-9e91-47b4-bf4a-b8c5683b8c10}" element1_label="-M1" element1_name="Six-phase engine" element2="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element2_label="-KM3" element2_linked="-KM3" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{89579bca-27ff-4e5a-9c0c-1874b37abc0e}" terminal2="{df6fc818-e098-49e3-80de-37822bbef71c}" terminalname1="W2" terminalname2="" text_color="#000000" type="multi" uuid="{75fa0104-cb63-5305-949a-f91c5773dd43}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element1_label="-KM3" element1_linked="-KM3" element1_name="Contact power contactor" element2="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element2_label="-KM3" element2_linked="-KM3" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{ed13c88c-d39e-47a8-aea9-7594b268733e}" terminal2="{e098d804-f947-4e2a-83ad-5054ab8b6d0c}" terminalname1="" terminalname2="" text_color="#000000" type="multi" uuid="{5aa7ac87-e908-54f0-a18b-b8bce9aa2ba1}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element1_label="-KM3" element1_linked="-KM3" element1_name="Contact power contactor" element2="{0a506d5d-c1ca-4099-b4ca-5355e2ed1e80}" element2_label="-KM3" element2_linked="-KM3" element2_name="Contact power contactor" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{e098d804-f947-4e2a-83ad-5054ab8b6d0c}" terminal2="{711ec3d7-c0e0-4a11-b69a-aacb5277329e}" terminalname1="" terminalname2="" text_color="#000000" type="multi" uuid="{2c760d23-446c-5535-936f-687d5a76efae}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+      </conductors>
+    </diagram>
+  </diagram_content>
+</qet_macro>

@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="40" height="30" hotspot_x="10" hotspot_y="15">
+    <uuid uuid="{6f3b9a52-1d4e-4c7a-9e2b-fa130c000001}"/>
+    <names>
+        <name lang="en">Terminal</name>
+        <name lang="es">Borne</name>
+        <name lang="fr">Borne</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>FaseCAD terminal. License: same as QElectroTech elements.</informations>
+    <description>
+        <line x1="0" y1="-10" x2="0" y2="-2.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="2.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <dynamic_text x="4" y="-12" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6f3b9a52-1d4e-4c7a-9e2b-fa130c000002}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{6f3b9a52-1d4e-4c7a-9e2b-fa130c000003}" name="1" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{6f3b9a52-1d4e-4c7a-9e2b-fa130c000004}" name="2" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -19,6 +19,7 @@
 #define TERMINALSTRIPDRAWER_H
 
 #include <QColor>
+#include <QPicture>
 #include <QPointer>
 #include <QUuid>
 
@@ -51,6 +52,35 @@ namespace TerminalStripDrawer
 		QRectF rect;
 		int physical{-1};
 		int real{-1};
+	};
+
+	/**
+	 * @brief The DiagramColumn struct
+	 * What the terminal diagram style draws for one real terminal: the
+	 * rows of its table and the device its outer wire goes to.
+	 * The outer side is the side whose wire is a core of a cable, else
+	 * the lower one; the inner side is the other one.
+	 */
+	struct DiagramColumn{
+		//Function text of the device on the outer side
+		QString function_text;
+		//PLC address of the device on the inner side
+		QString plc_designation;
+		//Name of the pin the inner wire lands on
+		QString inner_connection;
+		//Colour or number of the outer wire: the core of its cable,
+		//else the colour of the wire, else its number
+		QString outer_wire;
+		//Label and pin of the device the outer wire lands on, and a
+		//key telling the devices apart (terminals of one device share
+		//one box)
+		QString device_label;
+		QString device_pin;
+		QString device_key;
+		//The symbol of that device, as drawn in its own definition
+		QPicture device_symbol;
+		//Cross-section of the terminal in mm2, empty when unknown
+		QString section;
 	};
 
     class AbstractBridgeInterface
@@ -114,6 +144,8 @@ namespace TerminalStripDrawer
 			virtual QString catalogEntry() const { return QString(); }
 			//A separator plate is mounted after the terminal (drawn by the realistic styles)
 			virtual bool hasSeparatorAfter() const { return false; }
+			//What the terminal diagram style draws for this terminal
+			virtual DiagramColumn diagramColumn() const { return DiagramColumn(); }
     };
 
 	class AbstractPhysicalTerminalInterface

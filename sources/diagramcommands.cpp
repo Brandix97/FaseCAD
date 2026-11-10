@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "diagramcommands.h"
+#include "terminals/faseterminal.h"
 
 #include "autoNum/elementautonumschemecommand.h"
 #include "diagram.h"
@@ -116,6 +117,10 @@ void PasteDiagramCommand::redo()
 		for (Element *e : elmts_list) {
 			e->initLink(elmts_list);
 		}
+			//The terminals naming a strip, read before their labels are
+			//erased: they get the next free numbers of their strips below
+		const QList<FaseTerminal::Pasted> pasted_terminals =
+				FaseTerminal::pastedTerminals(elmts_list);
 
 		//The numberings the pasted elements follow, known now: the label
 		//erasing below empties their formula. Pasted elements get the next
@@ -290,6 +295,9 @@ void PasteDiagramCommand::redo()
 			}
 			if (!pasted_schemes.isEmpty()) {
 				ElementAutoNumSchemeCommand::numberPasted(project, pasted_schemes, this);
+			}
+			if (autonumber) {
+				FaseTerminal::numberPasted(project, pasted_terminals, this);
 			}
 		}
 

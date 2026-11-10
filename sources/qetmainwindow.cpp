@@ -124,7 +124,7 @@ void QETMainWindow::initCommonActions()
 	manual_online_ -> setStatusTip(tr("Launches the default browser to the online manual QElectroTech", "status bar tip"));
 
 	connect(manual_online_, &QAction::triggered, [](bool) {
-	QString link = "https://download.qelectrotech.org/qet/manual_0.7/build/index.html";
+	QString link = "https://fasecad.com/";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
@@ -156,12 +156,12 @@ void QETMainWindow::initCommonActions()
 	upgrade_M -> setStatusTip(tr("Launches the default browser to the online repository Nightly QElectroTech", "status bar tip"));
 
 	connect(upgrade_, &QAction::triggered, [](bool) {
-	QString link = "https://qelectrotech.org/download_windows.php";
+	QString link = "https://fasecad.com/";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	connect(upgrade_M, &QAction::triggered, [](bool) {
-	QString link = "https://qelectrotech.org/download_mac.php";
+	QString link = "https://fasecad.com/";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
@@ -170,7 +170,7 @@ void QETMainWindow::initCommonActions()
 	donate_ -> setStatusTip(tr("Support the QElectroTech project with a donation", "status bar tip"));
 
 	connect(donate_, &QAction::triggered, [](bool) {
-	QString link = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC";
+	QString link = "https://fasecad.com/donate.html";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
@@ -208,7 +208,6 @@ void QETMainWindow::initCommonMenus()
 	help_menu_ -> addSeparator();
 	help_menu_ -> addAction(manual_online_);
 	help_menu_ -> addAction(connect_ai_);
-	help_menu_ -> addAction(youtube_);
 	help_menu_ -> addAction(upgrade_);
 	help_menu_ -> addAction(upgrade_M);
 	help_menu_ -> addAction(donate_);

@@ -26,6 +26,11 @@ namespace QetVersion
 		return QVersionNumber{ 0, 200, 1 };
 	}
 
+	QString productVersion()
+	{
+		return QStringLiteral("0.10");
+	}
+
 	QString displayedVersion()
 	{
 		auto str = currentVersion().toString();

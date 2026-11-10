@@ -27,6 +27,7 @@
 #include <QPalette>
 #include <QSystemTrayIcon>
 #include <QTranslator>
+#include "branding/brandingtranslator.h"
 
 class QSplashScreen;
 class QMenu;
@@ -215,6 +216,8 @@ class QETApp : public QObject
 		static QETApp *m_qetapp;
 		QTranslator qtTranslator;
 		QTranslator qetTranslator;
+			/// FaseCAD in place of QElectroTech in what the user reads
+		BrandingTranslator m_branding_translator;
 		QSystemTrayIcon *m_qsti;
 		QSplashScreen *m_splash_screen;
 		QMenu *menu_systray;
@@ -247,6 +250,7 @@ class QETApp : public QObject
 		 */
 		bool non_interactive_execution_;
 		QPalette initial_palette_;   ///< System color palette
+		QString m_native_style_name; ///< The style QElectroTech started with, before any theme
 		
 		static TitleBlockTemplatesFilesCollection *m_common_tbt_collection;
 		static TitleBlockTemplatesFilesCollection *m_company_tbt_collection;
@@ -303,6 +307,7 @@ class QETApp : public QObject
 		void invertMainWindowVisibility(QWidget *);
 		void useSystemPalette(bool);
 		void useCustomPalette(const QColor &color);
+		void applyTheme();
 		void quitQET();
 		void checkRemainingWindows();
 		void openFiles(const QETArguments &);
@@ -334,6 +339,7 @@ class QETApp : public QObject
 		void initIconTheme();
 		static void applyIconTheme(const QPalette &);
 		void initStyle();
+		void setBaseStyle(const QString &name);
 		void initConfiguration();
 		void initSystemTray();
 		void buildSystemTrayMenu();

@@ -117,6 +117,12 @@ class TerminalStrip : public QObject
 		bool setBridge(const QSharedPointer<TerminalStripBridge> &bridge, const QVector<QSharedPointer<RealTerminal>> &real_terminals);
 		void unBridge(const QVector<QSharedPointer<RealTerminal>> &real_terminals);
 		bool canUnBridge(const QVector <QSharedPointer<RealTerminal>> &real_terminals) const;
+			///A terminal carries up to two bars, one in each groove
+		static constexpr int maxBridgesPerTerminal = 2;
+			///The bridge every terminal of @a real_terminals sits in (the
+			///one in the highest groove when two do), null if none
+		QSharedPointer<TerminalStripBridge> commonBridge(
+				const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
 
 			/**
 				A bridge the drawing brought here: the bridges drawn on the
@@ -159,6 +165,14 @@ class TerminalStrip : public QObject
 			///drawn from them (see TerminalStripModel::bridgePixmapFor)
 		bool hasBridges() const { return !m_bridge.isEmpty(); }
 		QSharedPointer<TerminalStripBridge> bridgeFor (const QVector<QSharedPointer<RealTerminal>> &terminal_vector) const;
+
+	private:
+		bool canLieAcross(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		QSharedPointer<TerminalStripBridge> extendedBridge(
+				const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		bool canTakeNewBar(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+
+	public:
 
 		QSharedPointer<RealTerminal> previousTerminalInLevel(const QSharedPointer<RealTerminal> &real_terminal) const;
 		QSharedPointer<RealTerminal> nextTerminalInLevel(const QSharedPointer<RealTerminal> &real_terminal) const;

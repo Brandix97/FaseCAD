@@ -1,4 +1,8 @@
 #include "titleblocktemplaterenderer.h"
+
+#include "diagram.h"
+#include <QPaintDevice>
+#include <QPainter>
 #include "titleblocktemplate.h"
 
 /**
@@ -79,10 +83,48 @@ int TitleBlockTemplateRenderer::height() const
 void TitleBlockTemplateRenderer::render(QPainter *provided_painter,
 					int titleblock_width) {
 	if (!m_titleblock_template) return;
-	
-	m_titleblock_template -> render(*provided_painter,
-					m_context,
-					titleblock_width);
+
+		//Drawn anew for a print, a PDF or an image: only the screen,
+		//which paints the folio again at every move of the mouse, plays
+		//the recording (working the cells and their texts out took two
+		//thirds of a repaint of a folio)
+	const QPaintDevice *device = provided_painter->device();
+	if (!device || device->devType() != QInternal::Widget) {
+		m_titleblock_template -> render(*provided_painter,
+						m_context,
+						titleblock_width);
+		return;
+	}
+
+	if (!m_cache_valid
+			|| m_cache_template != m_titleblock_template
+			|| m_cache_width != titleblock_width
+			|| m_cache_background != Diagram::background_color
+			|| m_cache_pen != provided_painter->pen().color()
+			|| m_cache_font != provided_painter->font()
+			|| m_cache_context != m_context)
+	{
+		m_cache = QPicture();
+		QPainter recorder(&m_cache);
+		recorder.setPen(provided_painter->pen());
+		recorder.setFont(provided_painter->font());
+		recorder.setRenderHints(provided_painter->renderHints());
+		m_titleblock_template -> render(recorder, m_context, titleblock_width);
+		recorder.end();
+		m_cache_valid = true;
+		m_cache_template = m_titleblock_template;
+		m_cache_width = titleblock_width;
+		m_cache_background = Diagram::background_color;
+		m_cache_pen = provided_painter->pen().color();
+		m_cache_font = provided_painter->font();
+		m_cache_context = m_context;
+	}
+	m_cache.play(provided_painter);
+}
+
+void TitleBlockTemplateRenderer::invalidateCache()
+{
+	m_cache_valid = false;
 }
 
 /**

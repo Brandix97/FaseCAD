@@ -21,6 +21,14 @@
 #include "../terminalstrip.h"
 #include "../terminalstripbridge.h"
 #include "../../autoNum/assignvariables.h"
+#include "../../cable/cable.h"
+#include "../../conductorproperties.h"
+#include "../../diagram.h"
+#include "../../factory/elementpicturefactory.h"
+#include "../../qetgraphicsitem/conductor.h"
+#include "../../qetgraphicsitem/element.h"
+#include "../../qetgraphicsitem/terminal.h"
+#include "../../qetproject.h"
 
 #include "terminalstripdrawer.h"
 
@@ -181,6 +189,126 @@ namespace TerminalStripDrawer
 	bool TrueRealTerminal::hasSeparatorAfter() const
 	{
 		return m_real ? m_real->hasSeparatorAfter() : false;
+	}
+
+	/**
+	 * @brief TrueRealTerminal::diagramColumn
+	 * What the terminal diagram style draws for this terminal, read from
+	 * the wires on its two sides: the outer side is the one whose wire is
+	 * a core of a cable, else the lower one.
+	 */
+	DiagramColumn TrueRealTerminal::diagramColumn() const
+	{
+		DiagramColumn column;
+		if (m_real && m_real->section() > 0) {
+			column.section = QString::number(m_real->section(), 'g', 6);
+		}
+		Element *terminal_element = m_real && m_real->isElement()
+				? m_real->element() : nullptr;
+		if (!terminal_element) {
+			return column;
+		}
+		QETProject *project = terminal_element->diagram()
+				? terminal_element->diagram()->project() : nullptr;
+
+			//The core of a cable a wire is, -1 when it is none
+		auto coreOf = [project](Conductor *conductor, Cable **cable) {
+			if (!project) {
+				return -1;
+			}
+			for (Cable *candidate : project->cables()) {
+				for (const CableCore &core : candidate->usedCores()) {
+					if (core.conductor == conductor->uuid()) {
+						*cable = candidate;
+						return core.core;
+					}
+				}
+			}
+			return -1;
+		};
+
+		struct Side {
+			Terminal *terminal = nullptr;
+			Conductor *conductor = nullptr;
+			Terminal *far = nullptr;
+			Cable *cable = nullptr;
+			int core = -1;
+		};
+		QVector<Side> sides;
+		for (Terminal *terminal : terminal_element->terminals()) {
+			Side side;
+			side.terminal = terminal;
+			const QList<Conductor *> conductors = terminal->conductors();
+			if (!conductors.isEmpty()) {
+				side.conductor = conductors.first();
+				side.far = side.conductor->terminal1 == terminal
+						? side.conductor->terminal2 : side.conductor->terminal1;
+				side.core = coreOf(side.conductor, &side.cable);
+			}
+			sides << side;
+		}
+		if (sides.isEmpty()) {
+			return column;
+		}
+
+		int outer = -1;
+		for (int i = 0; i < sides.size(); ++i) {
+			if (sides.at(i).core >= 0) {
+				outer = i;
+				break;
+			}
+		}
+		if (outer < 0) {
+			outer = 0;
+			for (int i = 1; i < sides.size(); ++i) {
+				if (sides.at(i).terminal->sceneBoundingRect().center().y()
+						> sides.at(outer).terminal->sceneBoundingRect().center().y()) {
+					outer = i;
+				}
+			}
+		}
+
+		const Side &out = sides.at(outer);
+		if (out.conductor) {
+			if (out.cable) {
+				column.outer_wire = out.cable->colorOfCore(out.core);
+				if (column.outer_wire.isEmpty()) {
+					column.outer_wire = QString::number(out.core + 1);
+				}
+			} else {
+				const ConductorProperties properties = out.conductor->properties();
+				column.outer_wire = properties.m_wire_color.isEmpty()
+						? properties.text : properties.m_wire_color;
+			}
+		}
+		if (out.far && out.far->parentElement()) {
+			Element *device = out.far->parentElement();
+			const DiagramContext information = device->elementInformations();
+			column.function_text = information.value(QStringLiteral("function")).toString();
+			if (column.function_text.isEmpty()) {
+				column.function_text = information.value(QStringLiteral("description")).toString();
+			}
+			column.device_label = device->actualLabel();
+			column.device_pin = out.far->name();
+			column.device_key = device->uuid().toString();
+			QPicture low;
+			ElementPictureFactory::instance()->getPictures(
+						device->location(), column.device_symbol, low);
+		}
+
+		for (int i = 0; i < sides.size(); ++i) {
+			if (i == outer || !sides.at(i).far) {
+				continue;
+			}
+			Terminal *inner = sides.at(i).far;
+			column.inner_connection = inner->name();
+			if (Element *device = inner->parentElement()) {
+				column.plc_designation = device->elementInformations()
+						.value(QStringLiteral("plc_address")).toString();
+			}
+			break;
+		}
+		return column;
 	}
 
 	QVector<AbstractBridgeInterface *> TrueRealTerminal::bridges() const

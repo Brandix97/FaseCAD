@@ -57,7 +57,8 @@ namespace TerminalColor
 			{"Yellow",       "jaune",      "#ffd800", nullptr},
 			{"Green",        "vert",       "#2e9e2e", nullptr},
 			{"Violet",       "violet",     "#7b3fa0", nullptr},
-			{"White",        "blanc",      "#ffffff", nullptr}
+			{"White",        "blanc",      "#ffffff", nullptr},
+			{"Beige",        "beige",      "#e6d5ac", nullptr}
 		};
 		return palette_;
 	}

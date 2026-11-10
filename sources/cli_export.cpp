@@ -201,7 +201,7 @@ int exportPdf(QETProject &project, const QString &output,
 		pageMap.insert(diagrams.at(i), i + 1);
 
 	QPdfWriter writer(output);
-	writer.setCreator("QElectroTech");
+	writer.setCreator("FaseCAD");
 	writer.setResolution(96);
 
 	// SOURCE_DATE_EPOCH (reproducible-builds.org) asks for the same file
@@ -1261,7 +1261,7 @@ int run(const QStringList &args)
 	// --check-elements operates on an element file/directory, not a project.
 	if (format == "check") {
 		if (rest.isEmpty()) {
-			err << "Usage: qelectrotech --check-elements "
+			err << "Usage: fasecad --check-elements "
 				   "<element.elmt | directory>\n";
 			return 2;
 		}
@@ -1272,7 +1272,7 @@ int run(const QStringList &args)
 	// cannot be opened from.
 	if (format == "recover") {
 		if (rest.size() < 2) {
-			err << "Usage: qelectrotech --recover <damaged.qetz> <output.qet>\n";
+			err << "Usage: fasecad --recover <damaged.qetz> <output.qet>\n";
 			return 2;
 		}
 		return recoverProject(rest.at(0), rest.at(1));
@@ -1282,7 +1282,7 @@ int run(const QStringList &args)
 	// --history-off make it keep them or drop them (QETDB-S6-SCOPE.md)
 	if (format == "history" || format == "historyon" || format == "historyoff") {
 		if (rest.isEmpty() || !QetDbFile::isDatabasePath(rest.at(0))) {
-			err << "Usage: qelectrotech " << flag << " <project.qetdb>\n";
+			err << "Usage: fasecad " << flag << " <project.qetdb>\n";
 			return 2;
 		}
 		QString error;
@@ -1311,7 +1311,7 @@ int run(const QStringList &args)
 		const qint64 from = rest.value(1).toLongLong(&from_number);
 		const qint64 to = rest.value(2).toLongLong(&to_number);
 		if (rest.size() < 3 || !from_number || !to_number || !QetDbFile::isDatabasePath(rest.at(0))) {
-			err << "Usage: qelectrotech --history-diff <project.qetdb> <revision> <later revision>\n";
+			err << "Usage: fasecad --history-diff <project.qetdb> <revision> <later revision>\n";
 			return 2;
 		}
 		QString error;
@@ -1331,7 +1331,7 @@ int run(const QStringList &args)
 		bool number = false;
 		const int saves = rest.value(1).toInt(&number);
 		if (rest.size() < 2 || !number || !QetDbFile::isDatabasePath(rest.at(0))) {
-			err << "Usage: qelectrotech --history-keep <project.qetdb> <saves, 0 for all>\n";
+			err << "Usage: fasecad --history-keep <project.qetdb> <saves, 0 for all>\n";
 			return 2;
 		}
 		QString error;
@@ -1351,7 +1351,7 @@ int run(const QStringList &args)
 		rest.removeAll(QStringLiteral("--back-to-save"));
 		if (rest.size() < 2 || !QetDbFile::isDatabasePath(rest.at(0)) || !QetDbFile::isDatabasePath(rest.at(1))
 				|| QFileInfo(rest.at(0)).absoluteFilePath() == QFileInfo(rest.at(1)).absoluteFilePath()) {
-			err << "Usage: qelectrotech --qetdb-repair <damaged.qetdb> <repaired.qetdb> [--back-to-save]\n";
+			err << "Usage: fasecad --qetdb-repair <damaged.qetdb> <repaired.qetdb> [--back-to-save]\n";
 			return 2;
 		}
 		QString error;
@@ -1377,7 +1377,7 @@ int run(const QStringList &args)
 	// folio (QETDB-S6-SCOPE.md S6-5)
 	if (format == "lastchange") {
 		if (rest.size() < 2 || !QetDbFile::isDatabasePath(rest.at(0))) {
-			err << "Usage: qelectrotech --last-change <project.qetdb> <uuid>\n";
+			err << "Usage: fasecad --last-change <project.qetdb> <uuid>\n";
 			return 2;
 		}
 		QString error;
@@ -1400,8 +1400,8 @@ int run(const QStringList &args)
 		if (rest.size() < needed || !number || !QetDbFile::isDatabasePath(rest.at(0))
 				|| !QetDbFile::isDatabasePath(rest.at(needed - 1))) {
 			err << (format == "revision"
-					? "Usage: qelectrotech --revision <project.qetdb> <number> <output.qetdb>\n"
-					: "Usage: qelectrotech --export-delivery <project.qetdb> <output.qetdb>\n");
+					? "Usage: fasecad --revision <project.qetdb> <number> <output.qetdb>\n"
+					: "Usage: fasecad --export-delivery <project.qetdb> <output.qetdb>\n");
 			return 2;
 		}
 		QString error;
@@ -1425,7 +1425,7 @@ int run(const QStringList &args)
 	// that ended left behind, which a project cannot be opened from.
 	if (format == "fromdb") {
 		if (rest.size() < 2) {
-			err << "Usage: qelectrotech --from-database <working-copy.sqlite> <output.qet>\n";
+			err << "Usage: fasecad --from-database <working-copy.sqlite> <output.qet>\n";
 			return 2;
 		}
 		QString error;
@@ -1439,7 +1439,7 @@ int run(const QStringList &args)
 	// --query runs one query on many projects, each opened in turn.
 	if (format == "query") {
 		if (rest.size() < 2) {
-			err << "Usage: qelectrotech --query <SQL> <project>... [--json]\n";
+			err << "Usage: fasecad --query <SQL> <project>... [--json]\n";
 			return 2;
 		}
 		return queryProjects(rest.at(0), rest.mid(1), json);
@@ -1447,7 +1447,7 @@ int run(const QStringList &args)
 
 	const QString input = rest.value(0);
 	if (input.isEmpty()) {
-		err << "Usage: qelectrotech " << flag << " <project.qet> <output>\n";
+		err << "Usage: fasecad " << flag << " <project.qet> <output>\n";
 		return 2;
 	}
 	if (!QFileInfo::exists(input)) {
@@ -1468,7 +1468,7 @@ int run(const QStringList &args)
 
 	const QString output = rest.value(1);
 	if (output.isEmpty()) {
-		err << "Usage: qelectrotech " << flag
+		err << "Usage: fasecad " << flag
 			<< " <project.qet> <output>\n";
 		return 2;
 	}

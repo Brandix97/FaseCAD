@@ -40,6 +40,11 @@ class tst_autonumincrementwidth : public QObject
 			QETDiagramEditor *editor = QetAppTest::editor();
 			QVERIFY(editor);
 			editor->resize(1600, 1000);
+				//FaseCAD hides the autonumbering panel on the first start:
+				//shown here, where this check expects it
+			for (QDockWidget *dock : editor->findChildren<QDockWidget *>())
+				if (dock->findChild<QSpinBox *>(QStringLiteral("m_conductor_increase_sb")))
+					dock->show();
 			editor->show();
 			QVERIFY(QTest::qWaitForWindowExposed(editor));
 

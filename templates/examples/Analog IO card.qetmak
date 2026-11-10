@@ -1,0 +1,640 @@
+<qet_macro>
+  <collection>
+    <element path="import/10_electric/10_allpole/395_electronics_semiconductors/41_PLC_controllers/cart_univ_entr.elmt">
+      <definition version="0.100.0" type="element" link_type="simple" width="770" height="100" hotspot_x="15" hotspot_y="37">
+        <uuid uuid="{759d7eb6-32fe-5333-5906-ffb45b47c47e}" />
+        <names>
+          <name lang="ar">مداخل شاملة (8 مدخل)</name>
+          <name lang="ca">Entrades universals (8 entrades)</name>
+          <name lang="cs">Karta vstupů (8 vstupů)</name>
+          <name lang="da">Universelle indgange (8 indgange)</name>
+          <name lang="de">Allgemeine 8xDI-Karte</name>
+          <name lang="el">Κάρτα εισόδων (8 είσοδοι)</name>
+          <name lang="en">Universal inputs (8 inputs)</name>
+          <name lang="es">Data entradas (8 entradas)</name>
+          <name lang="fi">Universaalitulot (8 tuloa)</name>
+          <name lang="fr">Carte universelle - 8 entrées</name>
+          <name lang="hr">Univerzalni ulazi (8 ulaza)</name>
+          <name lang="hu">Univerzális bemenetek (8 bemenet)</name>
+          <name lang="it">Scheda universale (8 ingressi)</name>
+          <name lang="ja">ユニバーサル入力 (8 入力)</name>
+          <name lang="ko">범용 입력 (8 입력)</name>
+          <name lang="mn">Бүх нийтийн оролт (8 оролт)</name>
+          <name lang="nb">Universelle innganger (8 innganger)</name>
+          <name lang="nl">Data ingangen (8 ingang)</name>
+          <name lang="nl_BE">Universele ingangen (8 ingangen)</name>
+          <name lang="pl">Karta wejść (8 wejść)</name>
+          <name lang="pt">Entradas universais (8 entradas)</name>
+          <name lang="pt_BR">Universal entradas (8 entradas)</name>
+          <name lang="ro">Intrări universale (8 intrări)</name>
+          <name lang="ru">Универсальные входы (8 входов)</name>
+          <name lang="sk">Univerzálne vstupy (8 vstupov)</name>
+          <name lang="sl">Univerzalni vhodi (8 vhodov)</name>
+          <name lang="sr">Универзални улази (8 улаза)</name>
+          <name lang="sv">Universella ingångar (8 ingångar)</name>
+          <name lang="tr">Üniversal girişler (8 giriş)</name>
+          <name lang="uk">Універсальні входи (8 входів)</name>
+          <name lang="zh">通用PLC机架入口</name>
+        </names>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <dynamic_text x="81" y="-15.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{32c77b59-b948-4ffc-ba16-3d34e715aa62}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>L-</text>
+          </dynamic_text>
+          <dynamic_text x="1" y="-15.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e9f65451-a8ea-43e0-b62f-db099171235a}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>L+</text>
+          </dynamic_text>
+          <line x1="13" y1="-27" x2="87" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-10" y1="-27" x2="7" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-10" y1="-27" x2="-10" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="750" y1="-27" x2="750" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="733" y1="-27" x2="750" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="157" y="-15.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a8a235f9-9b5b-47bd-b395-cd435e76b80e}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.0</text>
+          </dynamic_text>
+          <line x1="653" y1="-27" x2="727" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="573" y1="-27" x2="647" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="493" y1="-27" x2="567" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="413" y1="-27" x2="487" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="333" y1="-27" x2="407" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="253" y1="-27" x2="327" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="173" y1="-27" x2="247" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="93" y1="-27" x2="167" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="717" y="-15.5" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9ed8c861-10aa-4668-9748-73b2097ddcfe}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.7</text>
+          </dynamic_text>
+          <dynamic_text x="637" y="-15.5" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{45d87bba-12b8-40b6-9969-baa2ac7ccdfe}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.6</text>
+          </dynamic_text>
+          <dynamic_text x="557" y="-15.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f7796b1a-e7a5-4d98-b4d8-1a6ae828b2d9}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.5</text>
+          </dynamic_text>
+          <dynamic_text x="477" y="-15.5" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{85932604-d455-499a-aac5-5ca91c395a5b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.4</text>
+          </dynamic_text>
+          <dynamic_text x="397" y="-15.5" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a190648a-5353-4621-bd0a-faa1768561e5}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.3</text>
+          </dynamic_text>
+          <dynamic_text x="317" y="-16.5" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7cd646e2-2e7d-4019-a505-9636c649abd1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.2</text>
+          </dynamic_text>
+          <dynamic_text x="237" y="-15.5" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{32f10d51-d3da-4bdf-818b-0c60204982a0}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>I0.1</text>
+          </dynamic_text>
+          <dynamic_text x="324" y="-28" z="24" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7b5fe41c-d575-49ea-9d49-c23fd60f891d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+          </dynamic_text>
+          <dynamic_text x="244" y="-28" z="25" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3a575cf2-05f7-410d-88fd-1786ed40dd66}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+          </dynamic_text>
+          <dynamic_text x="164" y="-28" z="26" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{206d99c1-acf3-4635-b334-84dadcc86a39}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+          </dynamic_text>
+          <dynamic_text x="84" y="-28" z="27" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1f8c3bd3-56d2-4871-9bb8-4b24ff829c61}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+          </dynamic_text>
+          <dynamic_text x="4" y="-28" z="28" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{026eedc8-f477-4490-8a5c-6b0689444c54}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+          </dynamic_text>
+          <dynamic_text x="722" y="-28" z="29" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{57944479-9e33-4905-9476-e6687df71d1a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+          </dynamic_text>
+          <dynamic_text x="644" y="-28" z="30" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ee8fad5d-a8b5-48f7-8117-18fadda688ef}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>9</text>
+          </dynamic_text>
+          <dynamic_text x="564" y="-28" z="31" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{79ee7558-71c4-43cf-b6a6-b9ad828efc47}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>8</text>
+          </dynamic_text>
+          <dynamic_text x="484" y="-28" z="32" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{cc36f758-35c2-4b1e-9ec1-6b0d35aec4e3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>7</text>
+          </dynamic_text>
+          <dynamic_text x="404" y="-28" z="33" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{944b83b9-2636-41ff-9957-7a7fe5d5f4fc}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+          </dynamic_text>
+          <ellipse x="327.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="247.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="167.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="87.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="7.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="727.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="647.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="567.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="487.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="407.5" y="-29.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <dynamic_text x="0" y="33" z="44" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9c3a47cd-e6c0-465f-980d-bfac2635723e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <line x1="-10" y1="60" x2="750" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <terminal uuid="{e367603c-10c4-4310-a386-98d4447c80c8}" name="" x="10" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{4cb915e6-5cd9-4b69-8c88-ce6e393b26df}" name="" x="90" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{24cda151-bd8c-4fe9-a462-3ccd1387010e}" name="" x="170" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{3d9ca52e-fd8c-43fa-b8c1-099e76a5ff45}" name="" x="250" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{744c5b53-aad4-4894-bf53-6a318c6271e1}" name="" x="330" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{86a7e6e0-07fa-422d-8cfd-d108dd2ab18a}" name="" x="410" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{a413e4f4-dd34-480f-81ea-32bf6fa0d0c6}" name="" x="490" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{69b9e25d-7b3a-4c33-912d-d86bf1ac76db}" name="" x="570" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{0017a11c-ba41-40d6-aee0-824788d298a8}" name="" x="650" y="-30" orientation="n" type="Generic" />
+          <terminal uuid="{a6366c4d-d909-4f43-b63f-fe2ca099f87c}" name="" x="730" y="-30" orientation="n" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/395_electronics_semiconductors/41_PLC_controllers/cart_univ_sort.elmt">
+      <definition version="0.100.0" type="element" link_type="simple" width="770" height="100" hotspot_x="15" hotspot_y="42">
+        <uuid uuid="{c9005728-19ab-e5ab-7885-b0a16af03016}" />
+        <names>
+          <name lang="ar">مداخل شاملة (8 مخرج)</name>
+          <name lang="ca">Entrades universals (8 sortides)</name>
+          <name lang="cs">Karta výstupů ( 8 výstupů)</name>
+          <name lang="da">Universelle indgange (8 udgange)</name>
+          <name lang="de">Allgemeine 8xDO-Karte</name>
+          <name lang="el">Κάρτα εξόδων (8 έξοδοι)</name>
+          <name lang="en">Universal inputs (8 outputs)</name>
+          <name lang="es">Data salidas (8 Salidas)</name>
+          <name lang="fi">Universaalitulot (8 lähtöä)</name>
+          <name lang="fr">Carte universelle - 8 sorties</name>
+          <name lang="hr">Univerzalni ulazi (8 izlaza)</name>
+          <name lang="hu">Univerzális bemenetek (8 kimenet)</name>
+          <name lang="it">Scheda universale (8 uscite)</name>
+          <name lang="ja">ユニバーサル入力 (8 出力)</name>
+          <name lang="ko">범용 입력 (8 출력)</name>
+          <name lang="mn">Бүх нийтийн оролт (8 гаралт)</name>
+          <name lang="nb">Universelle innganger (8 utganger)</name>
+          <name lang="nl">Data Uitgangen (8 uitgangen)</name>
+          <name lang="nl_BE">Universele ingangen (8 uitgangen)</name>
+          <name lang="pl">Karta wyjść (8 wyjść)</name>
+          <name lang="pt">Entradas universais (8 saídas)</name>
+          <name lang="pt_BR">Universal entradas (8 saídas)</name>
+          <name lang="ro">Intrări universale (8 ieșiri)</name>
+          <name lang="ru">Универсальные входы (8 выходов)</name>
+          <name lang="sk">Univerzálne vstupy (8 výstupov)</name>
+          <name lang="sl">Univerzalni vhodi (8 izhodov)</name>
+          <name lang="sr">Универзални улази (8 излаза)</name>
+          <name lang="sv">Universella ingångar (8 utgångar)</name>
+          <name lang="tr">Üniversal girişler (8 çıkış)</name>
+          <name lang="uk">Універсальні входи (8 виходів)</name>
+          <name lang="zh">通用PLC机架出口</name>
+        </names>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <line x1="-10" y1="-40" x2="-10" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-10" y1="48" x2="7" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="750" y1="-40" x2="750" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="733" y1="48" x2="750" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="1" y="16.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{77912e05-4cf7-4e75-937b-2a1b94d24187}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>L+</text>
+          </dynamic_text>
+          <dynamic_text x="81" y="16.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b5220076-0574-4428-8847-aaab382288d3}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>L-</text>
+          </dynamic_text>
+          <dynamic_text x="716" y="16.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{020132e0-78cd-469d-82c8-463870274215}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.7</text>
+          </dynamic_text>
+          <dynamic_text x="635" y="16.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{636e9a29-ece1-4ce2-995e-dcf91ea485aa}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.6</text>
+          </dynamic_text>
+          <dynamic_text x="555" y="16.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5bbc9a21-b9fa-4f72-addc-b792a578df30}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.5</text>
+          </dynamic_text>
+          <dynamic_text x="475" y="16.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8c66d270-5b3a-4a45-a1ca-08c5409fe898}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.4</text>
+          </dynamic_text>
+          <dynamic_text x="395" y="16.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{69c952a9-a5a5-4e1e-b648-e5488b702b46}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.3</text>
+          </dynamic_text>
+          <dynamic_text x="315" y="16.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1e0655fb-103d-40e3-9fb7-687793c1ae31}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.2</text>
+          </dynamic_text>
+          <dynamic_text x="235" y="16.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{bbacedfa-e2e5-4b78-81bd-f6dd93253a35}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.1</text>
+          </dynamic_text>
+          <dynamic_text x="155" y="16.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4751221a-1720-43ec-98b2-9ade8cc2971f}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Q0.0</text>
+          </dynamic_text>
+          <ellipse x="727.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <line x1="653" y1="48" x2="727" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="573" y1="48" x2="647" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="493" y1="48" x2="567" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="413" y1="48" x2="487" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="333" y1="48" x2="407" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="253" y1="48" x2="327" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="173" y1="48" x2="247" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="722" y="30" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f0f13dde-0a31-45fc-b77f-4dd428d9ca11}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+          </dynamic_text>
+          <ellipse x="647.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="567.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="487.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="407.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="327.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="247.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="167.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <dynamic_text x="644" y="30" z="31" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{acc621a8-f689-44cb-bfda-b5a5853bb488}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>9</text>
+          </dynamic_text>
+          <dynamic_text x="564" y="30" z="32" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b0c14ee4-e569-4fb3-8a25-cd512ff1cf2a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>8</text>
+          </dynamic_text>
+          <dynamic_text x="484" y="30" z="33" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{13495644-7408-46ad-8afa-f5115f290fea}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>7</text>
+          </dynamic_text>
+          <dynamic_text x="404" y="30" z="34" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0e83d4a7-27de-4ebb-913e-2787e355a7ab}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+          </dynamic_text>
+          <dynamic_text x="324" y="30" z="35" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f84b6b5b-8e42-44ca-bed5-deadd934c99a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+          </dynamic_text>
+          <dynamic_text x="244" y="30" z="36" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{bf8b2b64-3900-480e-ade3-f476b1d93ba3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+          </dynamic_text>
+          <dynamic_text x="164" y="30" z="37" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0707401f-3864-40b3-8c9c-811973ae8b87}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+          </dynamic_text>
+          <line x1="93" y1="48" x2="167" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="13" y1="48" x2="87" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <ellipse x="87.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <ellipse x="7.5" y="45.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <dynamic_text x="84" y="30" z="42" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9be1b11d-29b6-41d3-8ec3-62bc9986d57f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+          </dynamic_text>
+          <dynamic_text x="4" y="30" z="43" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{377f56aa-20f1-479a-8f55-158fad45c71c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+          </dynamic_text>
+          <dynamic_text x="0" y="-37" z="44" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f6704cd5-c144-470c-b469-b9229da17162}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <line x1="-10" y1="-40" x2="750" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <terminal uuid="{eaa504db-e6dc-41dc-beb5-5814754f6650}" name="" x="10" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{eee9d54e-bbe1-414d-a31e-fc8f3480fbc1}" name="" x="90" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{c0e59df5-4662-4582-a516-a50f0b69c9fb}" name="" x="170" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{f118c4a9-5d34-40e9-8d13-dc19b888b2ee}" name="" x="250" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{470b2810-07af-4c82-8bbf-b17b17385f0b}" name="" x="330" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{e946eb7a-8ee8-4694-b6a1-4f2ebd065225}" name="" x="410" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{704f838d-21a6-4010-bfa4-f4587400c2da}" name="" x="490" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{8fbc0808-b322-4b3c-828e-5e885ddeec68}" name="" x="570" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{62ed1665-1af2-4ad6-923e-4a372ad89f7c}" name="" x="650" y="51" orientation="s" type="Generic" />
+          <terminal uuid="{b4b76b66-3e2f-461b-b25e-2e43d6131633}" name="" x="730" y="51" orientation="s" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/390_sensors_instruments/15_sensors_temperature/sonde_temperature.elmt">
+      <definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="14">
+        <uuid uuid="{97ef1380-e022-975c-e6f6-5e4dfaf3c266}" />
+        <names>
+          <name lang="ar">حسّاس حرارة</name>
+          <name lang="ca">Sensor de temperatura</name>
+          <name lang="cs">Snímač teploty 2 vodiče</name>
+          <name lang="da">Temperatursensor</name>
+          <name lang="de">Temperaturfühler</name>
+          <name lang="el">Αισθητήρας θερμοκρασίας</name>
+          <name lang="en">Temperature sensor</name>
+          <name lang="es">Sensor de temperatura</name>
+          <name lang="fi">Lämpötila-anturi</name>
+          <name lang="fr">Sonde de temperature</name>
+          <name lang="hr">Senzor temperature</name>
+          <name lang="hu">Hőmérséklet érzékelő</name>
+          <name lang="it">Sonda di temperatura</name>
+          <name lang="ja">温度センサ</name>
+          <name lang="ko">온도 센서</name>
+          <name lang="mn">Температурын мэдрэгч</name>
+          <name lang="nb">Temperatursensor</name>
+          <name lang="nl">Temperatuur sensor</name>
+          <name lang="nl_BE">Temperatuursensor</name>
+          <name lang="pl">Czujnik temperatury</name>
+          <name lang="pt">Sensor de temperatura</name>
+          <name lang="pt_BR">Sensor de temperatura</name>
+          <name lang="ro">Senzor de temperatură</name>
+          <name lang="ru">Датчик температуры</name>
+          <name lang="sk">Teplotný snímač</name>
+          <name lang="sl">Temperaturni senzor</name>
+          <name lang="sr">Сензор температуре</name>
+          <name lang="sv">Temperaturgivare</name>
+          <name lang="tr">Sıcaklık sensörü</name>
+          <name lang="uk">Датчик температури</name>
+          <name lang="zh">温度探头</name>
+        </names>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <dynamic_text x="-12" y="-26" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1927b85f-c493-42a2-affd-b42db99c8cce}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <line x1="-20" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="-10" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{60b450b4-30c4-4ede-a2f9-fbcd8d663e81}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>S_</text>
+          </dynamic_text>
+          <rect x="-10" y="-5" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false" />
+          <polygon x1="-10" y1="10" x2="-5" y2="10" x3="5" y3="-10" x4="10" y4="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <terminal uuid="{f7f478a5-097b-43e9-8539-efcc9548e0ec}" name="1" x="-20" y="0" orientation="w" type="Generic" />
+          <terminal uuid="{ae9ff55e-33a9-45e2-9460-4f427d8b15c5}" name="2" x="20" y="0" orientation="e" type="Generic" />
+        </description>
+      </definition>
+    </element>
+    <element path="import/10_electric/10_allpole/390_sensors_instruments/13_sensors_pressure/capteur_pression.elmt">
+      <definition version="0.100.0" type="element" link_type="simple" width="110" height="70" hotspot_x="37" hotspot_y="39">
+        <uuid uuid="{038c10d5-343b-147a-3944-c595ffd1132f}" />
+        <names>
+          <name lang="ar">حسّاس ضغط</name>
+          <name lang="ca">Sensor de pressió</name>
+          <name lang="cs">Snímač tlaku</name>
+          <name lang="da">Pressure sensor</name>
+          <name lang="de">Drucksensor 3-Leiter</name>
+          <name lang="el">Pressure sensor</name>
+          <name lang="en">Pressure sensor</name>
+          <name lang="es">Sensor de presión</name>
+          <name lang="fi">Painoanturi</name>
+          <name lang="fr">Capteur Pression</name>
+          <name lang="hr">Pressure sensor</name>
+          <name lang="hu">Pressure sensor</name>
+          <name lang="it">Sensore di pressione</name>
+          <name lang="ja">Pressure sensor</name>
+          <name lang="ko">압력 센서</name>
+          <name lang="mn">Pressure sensor</name>
+          <name lang="nb">Pressure sensor</name>
+          <name lang="nl">Druksensor</name>
+          <name lang="nl_BE">Capteur de pression</name>
+          <name lang="pl">Czujnik ciśnienia</name>
+          <name lang="pt">Pressure sensor</name>
+          <name lang="pt_BR">Sensor de pressão</name>
+          <name lang="ro">Pressure sensor</name>
+          <name lang="ru">Pressure sensor</name>
+          <name lang="sk">Tlakový snímač</name>
+          <name lang="sl">Pressure sensor</name>
+          <name lang="sr">Pressure sensor</name>
+          <name lang="sv">Tryckgivare</name>
+          <name lang="tr">Pressure sensor</name>
+          <name lang="uk">Датчик тиску</name>
+          <name lang="zh">压力传感器</name>
+        </names>
+        <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+        <description>
+          <rect x="-35" y="-25" width="105" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <dynamic_text x="73" y="-21.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a85b439c-a15f-4b7d-b30e-2b41794b20bc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text />
+            <info_name>label</info_name>
+          </dynamic_text>
+          <ellipse x="-5" y="-4" width="8" height="8" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true" />
+          <line x1="30" y1="-28" x2="30" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="S+" x="-4" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <line x1="60" y1="-28" x2="60" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="-1" y1="-2" x2="-1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-3" y1="0" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-2" y1="1" x2="0" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <polygon x1="25" y1="12" x2="35" y2="12" x3="39" y3="10" x4="39" y4="12" x5="35" y5="14" x6="25" y6="14" x7="21" y7="12" x8="21" y8="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <ellipse x="-31.5" y="-7.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true" />
+          <line x1="-27" y1="3" x2="-20" y2="-4" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <polygon x1="25" y1="-14" x2="35" y2="-14" x3="39" y3="-12" x4="39" y4="-10" x5="35" y5="-12" x6="25" y6="-12" x7="21" y7="-10" x8="21" y8="-12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" />
+          <polygon x1="14" y1="-7" x2="14" y2="7" x3="16" y3="7" x4="16" y4="-7" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black" />
+          <line x1="-1.5" y1="2" x2="-0.5" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false" />
+          <line x1="-10" y1="-24" x2="-10" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <line x1="0" y1="-28" x2="0" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false" />
+          <text text="L+" x="57" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000" />
+          <terminal uuid="{91f53ddd-fba5-4e78-9c2f-fc56e5757ef3}" name="" x="0" y="-28" orientation="n" type="Generic" />
+          <terminal uuid="{c5fc8835-885a-44f1-a4d2-6cb74be133c4}" name="" x="30" y="-28" orientation="n" type="Generic" />
+          <terminal uuid="{ffa68cf2-ed29-4379-b226-ef287defa31c}" name="" x="60" y="-28" orientation="n" type="Generic" />
+        </description>
+      </definition>
+    </element>
+  </collection>
+  <diagram_content>
+    <diagram author="" auto_page_num="" cols="17" colsize="60" date="null" displayAt="bottom" displaycols="true" displayrows="true" filename="" folio="%id" freezeNewConductor="false" freezeNewElement="false" height="660" indexrev="" locmach="" order="4" plant="" rows="8" rowsize="80" title="Analog I/O card" uuid="{d0c3cbb7-54e9-585e-af7c-3e54c25d904e}" version="0.200.1-dev">
+      <defaultconductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="1" displaytext="1" formula="" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="_" numsize="9" onetextperfolio="0" tension_protocol="" text_color="#000000" type="multi" vertical-alignment="AlignRight" vertirotatetext="270" />
+      <elements>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/395_electronics_semiconductors/41_PLC_controllers/cart_univ_entr.elmt" uuid="{3c5a78be-099a-4b07-8d94-2d42886914c9}" x="100" y="300" z="10">
+          <terminals>
+            <terminal id="0" orientation="0" x="10" y="-26" />
+            <terminal id="1" orientation="0" x="90" y="-26" />
+            <terminal id="2" orientation="0" x="170" y="-26" />
+            <terminal id="3" orientation="0" x="250" y="-26" />
+            <terminal id="4" orientation="0" x="330" y="-26" />
+            <terminal id="5" orientation="0" x="410" y="-26" />
+            <terminal id="6" orientation="0" x="490" y="-26" />
+            <terminal id="7" orientation="0" x="570" y="-26" />
+            <terminal id="8" orientation="0" x="650" y="-26" />
+            <terminal id="9" orientation="0" x="730" y="-26" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Analog inputs AI0-AI7, 4-20 mA / 0-10 V</elementInformation>
+            <elementInformation name="label" show="1">-A3</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{5d6cf60d-0d83-4e79-b66b-c22389db85cd}" x="81" y="-15.5">
+              <text>L-</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{8c8fc46f-49cb-4280-b772-eaa5dead67ab}" x="1" y="-15.5">
+              <text>L+</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{02a1f612-9849-4684-a4f1-cf26c06fdea4}" x="157" y="-15.5">
+              <text>I0.0</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{32ccded3-e5e8-420e-9cb0-0b679b8b23c5}" x="717" y="-15.5">
+              <text>I0.7</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{94ce3145-8180-4701-92bc-b86dca001abe}" x="637" y="-15.5">
+              <text>I0.6</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{4ab7d3b5-2518-4d37-a5cb-bf1ef52dec0d}" x="557" y="-15.5">
+              <text>I0.5</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{c8d801db-1f19-4911-b876-df098d6f933d}" x="477" y="-15.5">
+              <text>I0.4</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{7a558181-bdde-4a87-bd18-59b0ea515156}" x="397" y="-15.5">
+              <text>I0.3</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{7070ca76-203b-49b4-9f0c-22590ca347f9}" x="317" y="-16.5">
+              <text>I0.2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{c6eb8b21-5db5-4af9-93b2-b8cdb7cb43f6}" x="237" y="-15.5">
+              <text>I0.1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{b6af67a6-47f0-4a79-9644-fbf388a7cf4d}" x="324" y="-28">
+              <text>5</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{88b1f146-5a73-4a4e-8a0b-2800dabcd9f4}" x="244" y="-28">
+              <text>4</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{128701f6-18d2-4cc1-b38b-8c9fb485fc87}" x="164" y="-28">
+              <text>3</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{4438af3e-f13a-4210-8d64-3ffa92eea934}" x="84" y="-28">
+              <text>2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{854fc4b8-6c0c-4421-a943-9dcb68902633}" x="4" y="-28">
+              <text>1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{51319d75-b055-42ac-bae0-c1808e347160}" x="722" y="-28">
+              <text>10</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{3e956f6c-8898-4fde-b87b-c2931118f942}" x="644" y="-28">
+              <text>9</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{4709ba8b-f1ba-476c-b3fb-77f0bcf6731c}" x="564" y="-28">
+              <text>8</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{7e90f875-2b57-42fa-8c70-39969781c8a2}" x="484" y="-28">
+              <text>7</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{0950c1a1-54cb-4d24-8481-5e9039e51164}" x="404" y="-28">
+              <text>6</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{a8558815-7a7b-4181-b3df-974d63f0b203}" x="0" y="33">
+              <text>-A3</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/395_electronics_semiconductors/41_PLC_controllers/cart_univ_sort.elmt" uuid="{975b526e-44ed-449a-b1be-1a14fd5821fc}" x="100" y="460" z="10">
+          <terminals>
+            <terminal id="10" orientation="2" x="10" y="47" />
+            <terminal id="11" orientation="2" x="90" y="47" />
+            <terminal id="12" orientation="2" x="170" y="47" />
+            <terminal id="13" orientation="2" x="250" y="47" />
+            <terminal id="14" orientation="2" x="330" y="47" />
+            <terminal id="15" orientation="2" x="410" y="47" />
+            <terminal id="16" orientation="2" x="490" y="47" />
+            <terminal id="17" orientation="2" x="570" y="47" />
+            <terminal id="18" orientation="2" x="650" y="47" />
+            <terminal id="19" orientation="2" x="730" y="47" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Analog outputs AO0-AO7, 0-10 V</elementInformation>
+            <elementInformation name="label" show="1">-A4</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{831bdc46-5730-4685-ad58-e56046fced8c}" x="1" y="16.5">
+              <text>L+</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{68f143f8-cfe9-485c-bb9f-b968242f1d6e}" x="81" y="16.5">
+              <text>L-</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{7ea6e79f-bb64-4ac6-9204-6574bc441ccf}" x="716" y="16.5">
+              <text>Q0.7</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{199456cf-5df6-4762-b0fb-b35b34b4ed9a}" x="635" y="16.5">
+              <text>Q0.6</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{d2215398-abad-457b-aeae-c7744548606a}" x="555" y="16.5">
+              <text>Q0.5</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{6297f41b-fc02-4bd6-8eeb-4ab019d79c88}" x="475" y="16.5">
+              <text>Q0.4</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{a5f2100d-8416-4c9f-9e04-1e87cffc8fd0}" x="395" y="16.5">
+              <text>Q0.3</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{17dcebd2-ee06-418e-81d4-c7577aac6883}" x="315" y="16.5">
+              <text>Q0.2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{3006a586-d642-40b5-addf-ea94f8a5ab5a}" x="235" y="16.5">
+              <text>Q0.1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{439e69a5-8dae-42c1-b874-1ef9ad7a11eb}" x="155" y="16.5">
+              <text>Q0.0</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{851ccbbc-b9d5-4d85-bb59-481d499bf1c7}" x="722" y="30">
+              <text>10</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{f55fd017-aae0-4402-a010-714c0c220c0d}" x="644" y="30">
+              <text>9</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{95f6afa2-fbce-4a7f-a2ca-da69868f253d}" x="564" y="30">
+              <text>8</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{1076cf51-4c72-43bc-933b-05e7dc5ddd8f}" x="484" y="30">
+              <text>7</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{15c3e5d8-60eb-48d0-8fb5-7f9c7206fe25}" x="404" y="30">
+              <text>6</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{274c4179-8049-4c64-9088-3d8e146853a6}" x="324" y="30">
+              <text>5</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{4e631e68-8ca5-4697-9127-3877bbbafeaa}" x="244" y="30">
+              <text>4</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{4fecd8c5-8708-4c4a-b9b9-195b1d532924}" x="164" y="30">
+              <text>3</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{bc36530b-ac14-4ff6-9479-05482ce90ba7}" x="84" y="30">
+              <text>2</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{2481ea9f-c49f-40e5-b33e-e1a54cc57733}" x="4" y="30">
+              <text>1</text>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{cc21efa2-8f3c-4821-8525-9da2e8ef61c4}" x="0" y="-37">
+              <text>-A4</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/390_sensors_instruments/15_sensors_temperature/sonde_temperature.elmt" uuid="{0b5cb5fc-9340-483b-a199-d5a6f0b7b555}" x="300" y="230" z="10">
+          <terminals>
+            <terminal id="20" orientation="3" x="-16" y="0" />
+            <terminal id="21" orientation="1" x="16" y="0" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Temperature probe</elementInformation>
+            <elementInformation name="label" show="1">-B3</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{e0ec79ca-4ce5-4fef-abf8-1297fa56e3c6}" x="-12" y="-26">
+              <text>-B3</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="UserText" text_width="-1" uuid="{08cd2ca8-867e-444d-9751-7055cc4598ba}" x="-10" y="12.5">
+              <text>S_</text>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+        <element freezeLabel="false" is_movable="1" orientation="0" prefix="" type="macro://import/10_electric/10_allpole/390_sensors_instruments/13_sensors_pressure/capteur_pression.elmt" uuid="{c543a392-71f3-4172-ba88-b52b37c8b76a}" x="440" y="210" z="10">
+          <terminals>
+            <terminal id="22" orientation="0" x="0" y="-24" />
+            <terminal id="23" orientation="0" x="30" y="-24" />
+            <terminal id="24" orientation="0" x="60" y="-24" />
+          </terminals>
+          <inputs />
+          <elementInformations>
+            <elementInformation name="comment" show="1">Pressure transmitter 4-20 mA</elementInformation>
+            <elementInformation name="label" show="1">-B2</elementInformation>
+          </elementInformations>
+          <dynamic_texts>
+            <dynamic_elmt_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{92c52428-9cdc-41e6-9c67-b2239971c943}" x="73" y="-21.95">
+              <text>-B2</text>
+              <info_name>label</info_name>
+            </dynamic_elmt_text>
+          </dynamic_texts>
+          <texts_groups />
+        </element>
+      </elements>
+      <conductors>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0b5cb5fc-9340-483b-a199-d5a6f0b7b555}" element1_label="-B3" element1_name="Temperature sensor" element2="{3c5a78be-099a-4b07-8d94-2d42886914c9}" element2_label="-A3" element2_name="Universal inputs (8 inputs)" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{ae9ff55e-33a9-45e2-9460-4f427d8b15c5}" terminal2="{3d9ca52e-fd8c-43fa-b8c1-099e76a5ff45}" terminalname1="2" terminalname2="" text_color="#000000" type="multi" uuid="{fa17957c-bb84-590f-9f7d-aa802d544203}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{0b5cb5fc-9340-483b-a199-d5a6f0b7b555}" element1_label="-B3" element1_name="Temperature sensor" element2="{3c5a78be-099a-4b07-8d94-2d42886914c9}" element2_label="-A3" element2_name="Universal inputs (8 inputs)" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{f7f478a5-097b-43e9-8539-efcc9548e0ec}" terminal2="{4cb915e6-5cd9-4b69-8c88-ce6e393b26df}" terminalname1="1" terminalname2="" text_color="#000000" type="multi" uuid="{22a6db9b-436f-5ee2-bc22-b2c17f32484a}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{c543a392-71f3-4172-ba88-b52b37c8b76a}" element1_label="-B2" element1_name="Pressure sensor" element2="{3c5a78be-099a-4b07-8d94-2d42886914c9}" element2_label="-A3" element2_name="Universal inputs (8 inputs)" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{91f53ddd-fba5-4e78-9c2f-fc56e5757ef3}" terminal2="{24cda151-bd8c-4fe9-a462-3ccd1387010e}" terminalname1="" terminalname2="" text_color="#000000" type="multi" uuid="{e9a8d2a0-00bc-5eb3-afd9-3a75be71dd00}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{c543a392-71f3-4172-ba88-b52b37c8b76a}" element1_label="-B2" element1_name="Pressure sensor" element2="{3c5a78be-099a-4b07-8d94-2d42886914c9}" element2_label="-A3" element2_name="Universal inputs (8 inputs)" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{c5fc8835-885a-44f1-a4d2-6cb74be133c4}" terminal2="{e367603c-10c4-4310-a386-98d4447c80c8}" terminalname1="" terminalname2="" text_color="#000000" type="multi" uuid="{fb6d9333-d235-57d1-8b06-aec32cd3e9f4}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+        <conductor bicolor="false" bus="" cable="" color2="#000000" condsize="1" conductor_color="" conductor_section="" dash-size="2" displaytext="1" element1="{c543a392-71f3-4172-ba88-b52b37c8b76a}" element1_label="-B2" element1_name="Pressure sensor" element2="{3c5a78be-099a-4b07-8d94-2d42886914c9}" element2_label="-A3" element2_name="Universal inputs (8 inputs)" formula="" freezeLabel="false" function="" horizontal-alignment="AlignBottom" horizrotatetext="0" num="" numsize="7" onetextperfolio="0" tension_protocol="" terminal1="{ffa68cf2-ed29-4379-b226-ef287defa31c}" terminal2="{4cb915e6-5cd9-4b69-8c88-ce6e393b26df}" terminalname1="" terminalname2="" text_color="#000000" type="multi" uuid="{1e86fd77-95e0-5ed1-8313-073ea91e3c01}" vertical-alignment="AlignRight" vertirotatetext="270" x="0" y="0">
+          <sequentialNumbers />
+        </conductor>
+      </conductors>
+    </diagram>
+  </diagram_content>
+</qet_macro>

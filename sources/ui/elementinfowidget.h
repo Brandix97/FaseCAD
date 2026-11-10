@@ -60,6 +60,18 @@ class ElementInfoWidget : public AbstractElementPropertiesEditorWidget
 		void updateUi() override;
 		DiagramContext currentInfo() const;
 
+			/// The parts of the element (PartsLinks), kept in the
+			/// information "parts", which no row shows: the Parts tab
+			/// edits it through these, and this tab saves it with the
+			/// rest, in the same step of undo
+		QString partsValue() const {return m_parts_value;}
+		void setPartsValue(const QString &value);
+			/// Write @p record into one block of the fields, as the
+			/// material button does
+		void writeMaterialRecord(const MaterialRecord &record, int block);
+
+	signals:
+		void partsValueChanged();
 
 	protected:
 		bool event(QEvent *event) override;
@@ -70,7 +82,9 @@ class ElementInfoWidget : public AbstractElementPropertiesEditorWidget
 		void buildInterface();
 		void setupMaterialButtons();
 		void materialFromFile(int block);
+		void materialFromPartsDatabase(int block);
 		void applyMaterialRecord(const MaterialRecord &record, int block);
+		QString m_parts_value;
 		ElementInfoPartWidget *infoPartWidgetForKey(const QString &key) const;
 		QStringList predefinedKeys() const;
 		void updateSuggestions();

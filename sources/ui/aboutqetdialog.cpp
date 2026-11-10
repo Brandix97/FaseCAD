@@ -60,22 +60,20 @@ AboutQETDialog::~AboutQETDialog()
 void AboutQETDialog::setAbout()
 {
 
-	QString str  = tr("QElectroTech, an application to design electric diagrams.", "about tab, description line") +
-			"<br><br>© 2006-"+QDate::currentDate().toString("yyyy")+
-			tr(" The developers of QElectroTech", "about tab, developers line") +
+	const QString year = QDate::currentDate().toString("yyyy");
+	QString str  = tr("FaseCAD, an application to design electric diagrams.", "about tab, description line") +
 			"<br><br>"
-			"<a href=\"https://qelectrotech.org/\">https://qelectrotech.org/</a>"
+			"<a href=\"https://fasecad.com/\">https://fasecad.com/</a>"
 			"<br><br>" +
+			tr("Based on QElectroTech, © 2006-%1 the developers of QElectroTech, "
+			   "under the GNU General Public License, version 2 or later.",
+			   "about tab, origin line").arg(year) +
+			"<br><br>"
 			"The program is provided AS IS with NO WARRANTY OF ANY KIND,"
 			"<br>"
 			" INCLUDING THE WARRANTY OF DESIGN, "
 			"<br>"
 			"MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.";
-			"<br>"
-			"<br><br>" +
-			tr("Contact : <a href=\"mailto:qet@lists.tuxfamily.org\">qet@lists.tuxfamily.org</a>", "about tab, contact line");
-
-
 
 	ui->m_about_label->setText(str);
 }
@@ -168,8 +166,10 @@ void AboutQETDialog::setContributors()
 */
 void AboutQETDialog::setVersion()
 {
-	QString str = "<span style=\"font-weight:bold;font-size:16pt;\">QElectroTech V "
-		+ QetVersion::displayedVersion()
+		//FaseCAD, and what it is built on: the QElectroTech version
+	QString str = "<span style=\"font-weight:bold;font-size:16pt;\">FaseCAD "
+		+ QetVersion::productVersion() + "</span><br>"
+		"<span style=\"font-weight:bold;\">" + tr("based on QElectroTech %1").arg(QetVersion::displayedVersion())
 			+ "</span>";
 	ui->m_version_label->setText(str + MachineInfo::instance()->compilation_info());
 }

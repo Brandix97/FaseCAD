@@ -588,9 +588,10 @@ void QetLogger::clearPendingCrashDump(const QStringList &files)
 QByteArray QetLogger::buildDiagnosticsReport() const
 {
 	QByteArray header;
-	header += "QElectroTech diagnostics report\n";
+	header += "FaseCAD diagnostics report\n";
 	header += "Generated: " % QDateTime::currentDateTime().toString(Qt::ISODate) % "\n";
-	header += "Version: " % QetVersion::displayedVersion() % "\n";
+	header += "Version: FaseCAD " % QetVersion::productVersion() % " (QElectroTech "
+			% QetVersion::displayedVersion() % ")\n";
 	header += "Git: " GIT_COMMIT_SHA "\n";
 	header += "OS: " % QSysInfo::prettyProductName() % " (" % QSysInfo::currentCpuArchitecture() % ")\n";
 	header += "Qt: " QT_VERSION_STR "\n";

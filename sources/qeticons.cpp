@@ -586,9 +586,12 @@ void QET::Icons::initIcons()
 	ProjectFileGP = QIcon();
 	for (int size : {16, 22})
 		ProjectFileGP.addPixmap(Projects.pixmap(QSize(size, size), 1.0));
-	QETLogo             = QIcon::fromTheme("qet");
+		//The logo of FaseCAD, in every size the window, the taskbar and
+		//the dialogs ask for
+	QETLogo             = QIcon(QStringLiteral(":/ico/branding/logo.svg"));
+	for (int size : {16, 24, 32, 48, 64, 128, 256})
+		QETLogo.addFile(QStringLiteral(":/ico/branding/logo-%1.png").arg(size), QSize(size, size));
 	QETManual           = QIcon::fromTheme("help-contents");
-	QETLogo.addFile(":/ico/256x256/qet.png");
 	QETVideo            = QIcon::fromTheme("kdenlive-show-video");
 	QtLogo              = QIcon::fromTheme("qt");
 	Raise               = QIcon::fromTheme("raise");

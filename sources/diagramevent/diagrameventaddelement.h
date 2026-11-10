@@ -23,10 +23,13 @@
 
 #include <QPointF>
 
+#include <functional>
+
 class Element;
 class QGraphicsLineItem;
 class QGraphicsPathItem;
 class QStatusBar;
+class QUndoCommand;
 
 /**
 	@brief The DiagramEventAddElement class
@@ -52,6 +55,10 @@ class DiagramEventAddElement : public DiagramEventInterface
 		void init() override;
 			/// The symbol that follows the mouse, until it is dropped
 		Element *pendingElement() const { return m_element; }
+			/// Called for each element placed, before its step of undo is
+			/// pushed: what it adds to that step is undone with it
+		void setPrepare(std::function<void(Element *, QUndoCommand *)> prepare)
+		{ m_prepare = std::move(prepare); }
 
 	private:
 		bool buildElement();
@@ -76,6 +83,7 @@ class DiagramEventAddElement : public DiagramEventInterface
 		QGraphicsPathItem *m_preview_wires = nullptr;	///< grey, to each copy's partners
 		QList<Element *> m_ghosts;		///< previews of the copies
 		QList<QPointF> m_drag_positions;
+		std::function<void(Element *, QUndoCommand *)> m_prepare;
 };
 
 #endif // DIAGRAMEVENTADDELEMENT_H

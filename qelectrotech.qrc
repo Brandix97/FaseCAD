@@ -1,6 +1,21 @@
 <RCC>
     <qresource prefix="/">
         <file>ico/256x256/qet.png</file>
+        <file>ico/branding/logo.svg</file>
+        <file>ico/branding/logo-small.svg</file>
+        <file>terminals/fasecad_terminal.elmt</file>
+        <file>templates/examples/Direct-on-line start.qetmak</file>
+        <file>templates/examples/Star-delta start.qetmak</file>
+        <file>templates/examples/Digital IO card.qetmak</file>
+        <file>templates/examples/Analog IO card.qetmak</file>
+        <file>ico/branding/splash.png</file>
+        <file>ico/branding/logo-16.png</file>
+        <file>ico/branding/logo-24.png</file>
+        <file>ico/branding/logo-32.png</file>
+        <file>ico/branding/logo-48.png</file>
+        <file>ico/branding/logo-64.png</file>
+        <file>ico/branding/logo-128.png</file>
+        <file>ico/branding/logo-256.png</file>
         <file>ico/splash.png</file>
         <file>titleblocks/default.titleblock</file>
         <file>ico/flags/ar.png</file>

@@ -87,7 +87,7 @@ TerminalStrip *AddTerminalStripItemDialog::selectedTerminalStrip() const
  * The index of the combo box is the value of the enum.
  */
 int AddTerminalStripItemDialog::selectedDrawStyle() const {
-	return std::clamp(ui->m_draw_style_cb->currentIndex(), 0, 2);
+	return std::clamp(ui->m_draw_style_cb->currentIndex(), 0, 3);
 }
 
 void AddTerminalStripItemDialog::fillComboBox()

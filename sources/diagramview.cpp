@@ -68,6 +68,13 @@
 #include "NameList/nameslist.h"
 #include "elementdialog.h"
 #include "genericdevice/genericdevicewizard.h"
+#include "terminals/faseterminal.h"
+#include "terminals/terminalsettingswidget.h"
+
+#include <QDialogButtonBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
 #include "qetapp.h"
 #include "qetgraphicsitem/element.h"
 #include "qetgraphicsitem/terminal.h"
@@ -3561,6 +3568,80 @@ void DiagramView::addGenericDevice()
 
 	const ElementsLocation location(dir_path + QLatin1Char('/') + file_name, project);
 	startElementPlacement(location, defaultPlacementPos());
+}
+
+/**
+	@brief DiagramView::addTerminal
+	Ask the strip, the first number, the colour, the type and the
+	cross-section of the terminals to place, then place them one click
+	after the other: each one gets the next number, goes into the strip
+	(made when the project has none of that name) and is undone with its
+	placement.
+*/
+void DiagramView::addTerminal()
+{
+	QETProject *project = m_diagram ? m_diagram->project() : nullptr;
+	if (!project || project->isReadOnly() || m_diagram->isReadOnly()) {
+		return;
+	}
+	const ElementsLocation location = FaseTerminal::symbol(project);
+	if (!location.exist()) {
+		return;
+	}
+
+		//The last terminals placed give the next ones their colour,
+		//type and cross-section
+	static FaseTerminal::Settings last;
+	FaseTerminal::Settings settings = last;
+	if (settings.strip.isEmpty()) {
+		const QStringList strips = FaseTerminal::stripNames(project);
+		settings.strip = strips.isEmpty() ? QStringLiteral("X1")
+										  : strips.first();
+	}
+	settings.number = FaseTerminal::nextNumber(project, settings.strip);
+
+	QDialog dialog(this);
+	dialog.setWindowTitle(tr("Place terminals"));
+	auto *layout = new QVBoxLayout(&dialog);
+	auto *hint = new QLabel(tr("Click on the folio to place each terminal:"
+							   " the number goes up by one each time."
+							   " Right click or Escape ends."), &dialog);
+	hint->setWordWrap(true);
+	layout->addWidget(hint);
+	auto *form = new TerminalSettingsWidget(project, &dialog);
+	form->setSettings(settings);
+	form->setProposeNumbers(true);
+	layout->addWidget(form);
+	auto *buttons = new QDialogButtonBox(
+				QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+	buttons->button(QDialogButtonBox::Ok)->setText(tr("Place"));
+	connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+	layout->addWidget(buttons);
+	if (dialog.exec() != QDialog::Accepted) {
+		return;
+	}
+		//An empty strip: each terminal takes the one on its left
+	last = form->settings();
+
+	if (!startElementPlacement(location, defaultPlacementPos())) {
+		return;
+	}
+	auto *event = dynamic_cast<DiagramEventAddElement *>(
+				m_diagram->eventInterface());
+	if (!event) {
+		return;
+	}
+	auto next = QSharedPointer<FaseTerminal::Settings>::create(last);
+	event->setPrepare([next](Element *element, QUndoCommand *undo) {
+		new FaseTerminal::ChangeCommand(element, *next, undo);
+		bool ok = false;
+		const int number = next->number.toInt(&ok);
+		if (ok) {
+			next->number = QString::number(number + 1);
+		}
+		last.number = next->number;
+	});
 }
 
 /**

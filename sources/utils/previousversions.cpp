@@ -16,6 +16,7 @@
 	along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
 */
 #include "previousversions.h"
+#include "../branding/projectextensions.h"
 
 #include <QDateTime>
 #include <QDir>
@@ -64,7 +65,7 @@ bool sameContent(const QString &a, const QString &b)
 	//has no hard links, and the version is copied
 bool linkVersion(const QString &path, const QString &target)
 {
-	if (!path.endsWith(QLatin1String(".qetdb"), Qt::CaseInsensitive)) return false;
+	if (!ProjectExtensions::isDatabase(path)) return false;
 #ifdef Q_OS_WIN
 	return CreateHardLinkW(reinterpret_cast<const wchar_t *>(QDir::toNativeSeparators(target).utf16()),
 						   reinterpret_cast<const wchar_t *>(QDir::toNativeSeparators(path).utf16()),
@@ -100,9 +101,10 @@ QStringList PreviousVersions::kept(const QString &file_path)
 		//"????-??-?? ??-??-??" written with "\?", so that the compiler doesn't
 		//see the trigraph "??-" in it (-Wtrigraphs)
 	const QString stamp_ = QStringLiteral("?\?\?\?-?\?-?\? ?\?-?\?-?\?");
-	QStringList names = dir.entryList({versionPrefix(info) + stamp_ + QStringLiteral("*.qet"),
-									   versionPrefix(info) + stamp_ + QStringLiteral("*.qetz"),
-									   versionPrefix(info) + stamp_ + QStringLiteral("*.qetdb")},
+	QStringList patterns;
+	for (const QString &suffix : ProjectExtensions::all())
+		patterns << versionPrefix(info) + stamp_ + QLatin1Char('*') + suffix;
+	QStringList names = dir.entryList(patterns,
 									  QDir::Files, QDir::Time);
 	QStringList paths;
 	for (const QString &name : std::as_const(names))

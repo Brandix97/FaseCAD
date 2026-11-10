@@ -30,6 +30,7 @@
 #include "qetproject.h"
 #include "singleapplication.h"
 #include "utils/qetsettings.h"
+#include "utils/brandmigration.h"
 
 #include <QApplication>
 #include <QDomImplementation>
@@ -179,9 +180,9 @@ int main(int argc, char **argv)
 #endif
 	qputenv("QT_HASH_SEED", "0");
 	//Some setup, notably to use with QSetting.
-	QCoreApplication::setOrganizationName("QElectroTech");
-	QCoreApplication::setOrganizationDomain("qelectrotech.org");
-	QCoreApplication::setApplicationName("QElectroTech");
+	QCoreApplication::setOrganizationName(BrandMigration::name());
+	QCoreApplication::setOrganizationDomain(BrandMigration::domain());
+	QCoreApplication::setApplicationName(BrandMigration::name());
 
 	// QET_SETTINGS_DIR keeps the settings in an INI file in that folder,
 	// <folder>/QElectroTech/QElectroTech.ini, instead of the registry on
@@ -201,6 +202,10 @@ int main(int argc, char **argv)
 		QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, settings_dir);
 		QSettings::setPath(QSettings::IniFormat, QSettings::SystemScope, settings_dir);
 	}
+
+	// The settings and folders kept under the former name are copied to
+	// those of FaseCAD the first time it starts (never moved)
+	BrandMigration::run();
 
 	// Refuse invalid data when building QDom documents instead of
 	// serializing malformed XML (CVE-2026-15037). This is the default
@@ -323,6 +328,9 @@ int main(int argc, char **argv)
 		app.sendMessage(message.toUtf8());
 		return 0;
 	}
+
+	// A first start on this computer opens on FaseCAD's own design
+	BrandMigration::applyFirstStartDefaults();
 
 	QETApp qetapp;
 	QETApp::instance()->installEventFilter(&qetapp);

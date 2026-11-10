@@ -25,6 +25,7 @@
 #include <QMap>
 #include <QPointer>
 #include <QStringList>
+#include <QUuid>
 #include <QVector>
 
 class Cable;
@@ -78,6 +79,13 @@ class CableListModel : public QAbstractTableModel
 		QString queryString() const;
 		void setIdentifier(const QString &identifier) {m_identifier = identifier;}
 		QString identifier() const {return m_identifier;}
+			/// The identifier of a cable plan : one row per core
+		static QString cablePlanIdentifier() {return QStringLiteral("cable_plan");}
+		bool isCablePlan() const {return m_identifier == cablePlanIdentifier();}
+			/// A bill of materials : one row per part (PartsBom)
+		bool isPartsBom() const;
+		void setOnlyCable(const QUuid &cable);
+		QUuid onlyCable() const {return m_only_cable;}
 		QETProject *project() const;
 
 		QDomElement toXml(QDomDocument &document) const;
@@ -91,6 +99,8 @@ class CableListModel : public QAbstractTableModel
 	private:
 			/// Watch everything the rows are worked out from
 		void connectProject();
+		QVector<QMap<QString, QString>> workRows() const;
+		QString labelOf(const QString &key) const;
 
 		QPointer<QETProject> m_project;
 		QStringList m_fields;
@@ -99,6 +109,8 @@ class CableListModel : public QAbstractTableModel
 		QHash<int, QHash<int, QVariant>> m_header_data;
 		QHash<int, QVariant> m_index_0_0_data;
 		QString m_identifier = QStringLiteral("cable_list");
+			/// The one cable a cable plan shows, null for all
+		QUuid m_only_cable;
 		/// The current watchers of this model, dropped and taken
 		/// again on every refresh
 		QList<QMetaObject::Connection> m_watchers;

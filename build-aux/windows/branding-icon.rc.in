@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+// FaseCAD: the icon of the executable.
+IDI_ICON1 ICON "@QET_DIR@/ico/windows_icon/branding.ico"

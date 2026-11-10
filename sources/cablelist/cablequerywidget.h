@@ -18,9 +18,12 @@
 #ifndef CABLEQUERYWIDGET_H
 #define CABLEQUERYWIDGET_H
 
+#include <QUuid>
 #include <QWidget>
 
 class ConfigSaveLoaderWidget;
+class QComboBox;
+class QETProject;
 class QListWidget;
 class QListWidgetItem;
 class QPushButton;
@@ -40,9 +43,17 @@ class CableQueryWidget : public QWidget
 
 	public:
 		explicit CableQueryWidget(QWidget *parent = nullptr);
+		CableQueryWidget(QETProject *project, QWidget *parent);
+			/// The columns of a bill of materials (PartsBom)
+		struct PartsBomTag {};
+		CableQueryWidget(PartsBomTag, QWidget *parent);
 		~CableQueryWidget();
 
 		static QString modelIdentifier() {return "cable_list";}
+			/// A cable plan (one row per core) rather than a cable list
+		bool isCablePlan() const {return m_cable_plan;}
+		bool isPartsBom() const {return m_parts_bom;}
+		QUuid onlyCable() const;
 			/// The chosen columns, in order
 		QStringList selectedKeys() const;
 			/// Put exactly these columns in the right list, in that
@@ -60,12 +71,17 @@ class CableQueryWidget : public QWidget
 		void loadConfig();
 
 	private:
+		void init();
+		QString configFile() const;
 		void setUpItems();
 		void fillSavedQuery();
 
 		QListWidget *m_available_list = nullptr;
 		QListWidget *m_choosen_list = nullptr;
 		ConfigSaveLoaderWidget *m_config_gb = nullptr;
+		bool m_cable_plan = false;
+		bool m_parts_bom = false;
+		QComboBox *m_cable_cb = nullptr;
 };
 
 #endif // CABLEQUERYWIDGET_H

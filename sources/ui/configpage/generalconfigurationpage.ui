@@ -25,6 +25,71 @@
       </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
+         <layout class="QHBoxLayout" name="m_theme_layout">
+          <item>
+           <widget class="QLabel" name="m_theme_label">
+            <property name="text">
+             <string>Theme:</string>
+            </property>
+            <property name="buddy">
+             <cstring>m_theme_cb</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="m_theme_cb">
+            <property name="toolTip">
+             <string>Light or dark colors for the whole interface. A sheet left on its system color follows them.</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Colors below (as before)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Follow the system</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Dark</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="m_theme_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="m_command_tabs_cb">
+          <property name="text">
+           <string>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</string>
+          </property>
+          <property name="toolTip">
+           <string>The menus stay, and so do the toolbars you made yourself.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="m_command_tabs_hide_menu_cb">
+          <property name="text">
+           <string>Hide the menu bar too (every menu stays in the File tab)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="m_system_color_layout">
           <item>
            <widget class="QCheckBox" name="m_use_system_color_cb">
@@ -942,6 +1007,38 @@
             </item>
            </layout>
           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="m_parts_db_label">
+             <property name="text">
+              <string>Parts database</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QCheckBox" name="m_parts_db_cb">
+             <property name="text">
+              <string>Use the parts database (cable types from its parts with cores)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <layout class="QHBoxLayout" name="m_parts_db_layout">
+             <item>
+              <widget class="QLineEdit" name="m_parts_db_path_le">
+               <property name="toolTip">
+                <string>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="m_parts_db_browse_pb">
+               <property name="text">
+                <string>Browse...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
          </layout>
         </widget>
        </item>

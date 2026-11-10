@@ -230,7 +230,7 @@ QByteArray ProjectLock::content(const QDateTime &since, const QDateTime &heartbe
 	o.insert(QStringLiteral("user"), thisUser());
 	o.insert(QStringLiteral("host"), thisHost());
 	o.insert(QStringLiteral("pid"), static_cast<double>(QCoreApplication::applicationPid()));
-	o.insert(QStringLiteral("app"), QStringLiteral("QElectroTech %1").arg(QetVersion::currentVersion().toString()));
+	o.insert(QStringLiteral("app"), QStringLiteral("FaseCAD %1").arg(QetVersion::currentVersion().toString()));
 	o.insert(QStringLiteral("since"), isoUtc(since));
 	o.insert(QStringLiteral("heartbeat"), isoUtc(heartbeat));
 	o.insert(QStringLiteral("scope"), QJsonArray{scope});

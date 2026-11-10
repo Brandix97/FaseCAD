@@ -639,6 +639,30 @@ qet_add_app_test(tst_terminalstriporder tst_terminalstriporder.cpp)
 # plan order, the same three fields the cable list computes for a target.
 qet_add_app_test(tst_cabletarget tst_cabletarget.cpp)
 
+# The cable plan: one row per core of every cable, or of one cable, kept
+# as a plan when the table is saved, and the same rows in the CSV.
+qet_add_app_test(tst_cableplan tst_cableplan.cpp)
+
+# The devices panel: every symbol of a project by label, reports and
+# slave contacts left out, in natural order.
+qet_add_app_test(tst_devicespanel tst_devicespanel.cpp)
+
+# The Parts tab of the element properties: its list saved with the
+# element information in one step, never a loose row of that tab.
+qet_add_app_test(tst_elementparts tst_elementparts.cpp)
+
+# The bill of materials of the parts: grouped by order number, units
+# added up, described from the parts database, exclusions honoured.
+qet_add_app_test(tst_partsbom tst_partsbom.cpp)
+
+# The terminal diagram style of a terminal strip: core colour and device
+# of each terminal, the style saved by name, one column per terminal.
+qet_add_app_test(tst_terminaldiagram tst_terminaldiagram.cpp)
+
+# The terminal of the toolbar: label strip:number, its settings in the
+# terminal manager fields and its strip, one step of undo.
+qet_add_app_test(tst_faseterminal tst_faseterminal.cpp)
+
 # What lies outside the sheet: named per folio, for the warning before
 # printing and exporting; off with the setting.
 qet_add_app_test(tst_outsidesheet tst_outsidesheet.cpp)
@@ -666,6 +690,27 @@ add_test(NAME tst_cabletypelist COMMAND tst_cabletypelist)
 target_include_directories(tst_cabletypelist PRIVATE ${QET_DIR}/sources)
 # qetinformation.h uses QRegularExpressionValidator, which lives in QtGui.
 target_link_libraries(tst_cabletypelist PRIVATE Qt::Test Qt::Gui)
+
+# The parts database: parts, technical data, accessories, copied and
+# linked files, identity of a part, and a database busy on a shared folder.
+add_executable(
+  tst_partsdatabase
+  tst_partsdatabase.cpp
+  ${QET_DIR}/sources/partsdb/partsdatabase.cpp
+  ${QET_DIR}/sources/partsdb/partsdatabase.h
+  ${QET_DIR}/sources/partsdb/partscabletypes.cpp
+  ${QET_DIR}/sources/partsdb/partscabletypes.h
+  ${QET_DIR}/sources/partsdb/partsmaterial.cpp
+  ${QET_DIR}/sources/partsdb/partsmaterial.h
+  ${QET_DIR}/sources/partsdb/partslinks.cpp
+  ${QET_DIR}/sources/partsdb/partslinks.h
+  ${QET_DIR}/sources/materiallist/materiallist.cpp
+  ${QET_DIR}/sources/materiallist/materiallist.h
+  ${QET_DIR}/sources/qetinformation.cpp
+  ${QET_DIR}/sources/qetinformation.h)
+add_test(NAME tst_partsdatabase COMMAND tst_partsdatabase)
+target_include_directories(tst_partsdatabase PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_partsdatabase PRIVATE Qt::Test Qt::Sql Qt::Gui)
 
 add_executable(
   tst_qetpalette
@@ -898,6 +943,60 @@ add_executable(
 add_test(NAME tst_sheetbackgroundsetting COMMAND tst_sheetbackgroundsetting)
 target_include_directories(tst_sheetbackgroundsetting PRIVATE ${QET_DIR}/sources)
 target_link_libraries(tst_sheetbackgroundsetting PRIVATE Qt::Test Qt::Gui)
+
+# QetSettings::theme() -- the light or dark interface, off (as before) by
+# default. Compiles qetsettings.cpp alone, like the sheet background.
+add_executable(
+  tst_themesetting
+  tst_themesetting.cpp
+  ${QET_DIR}/sources/utils/qetsettings.cpp)
+add_test(NAME tst_themesetting COMMAND tst_themesetting)
+target_include_directories(tst_themesetting PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_themesetting PRIVATE Qt::Test Qt::Gui)
+
+# CommandTabs -- the commands in tabs grouped by task: the layout, and the
+# buttons following the editor's own actions.
+add_executable(
+  tst_commandtabs
+  tst_commandtabs.cpp
+  ${QET_DIR}/sources/ui/commandtabs.cpp
+  ${QET_DIR}/sources/ui/commandtabs.h)
+add_test(NAME tst_commandtabs COMMAND tst_commandtabs)
+target_include_directories(tst_commandtabs PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_commandtabs PRIVATE Qt::Test Qt::Widgets)
+
+# BrandingTranslator -- FaseCAD in place of QElectroTech in the texts the
+# user reads, the credits kept.
+add_executable(
+  tst_brandingtranslator
+  tst_brandingtranslator.cpp
+  ${QET_DIR}/sources/branding/brandingtranslator.cpp
+  ${QET_DIR}/sources/branding/brandingtranslator.h)
+add_test(NAME tst_brandingtranslator COMMAND tst_brandingtranslator)
+target_include_directories(tst_brandingtranslator PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_brandingtranslator PRIVATE Qt::Test Qt::Core)
+
+# ExampleTemplates -- the example templates copied once into the user's
+# templates, never back once deleted, never over a file of the user.
+add_executable(
+  tst_exampletemplates
+  tst_exampletemplates.cpp
+  ${QET_DIR}/sources/branding/exampletemplates.cpp
+  ${QET_DIR}/sources/branding/exampletemplates.h)
+add_test(NAME tst_exampletemplates COMMAND tst_exampletemplates)
+target_include_directories(tst_exampletemplates PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_exampletemplates PRIVATE Qt::Test Qt::Core)
+
+# CableChecks -- what the cable manager marks on a cable: no name, a name
+# used twice, no type, no core wired, too few spare cores.
+add_executable(
+  tst_cablechecks
+  tst_cablechecks.cpp
+  ${QET_DIR}/sources/cablelist/cablechecks.cpp
+  ${QET_DIR}/sources/cablelist/cablechecks.h)
+add_test(NAME tst_cablechecks COMMAND tst_cablechecks)
+target_include_directories(tst_cablechecks PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_cablechecks PRIVATE Qt::Test Qt::Core)
 
 # SpaceMouseMotion::map() -- how a 3D mouse sample pans and zooms a view.
 # Pure code with no device or widget behind it, so it is built and run
@@ -2313,3 +2412,7 @@ add_test(NAME tst_borderpropertiespaper COMMAND tst_borderpropertiespaper)
 set_tests_properties(tst_borderpropertiespaper PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
 target_include_directories(tst_borderpropertiespaper PRIVATE ${QET_DIR}/sources ${QET_DIR}/sources/ui)
 target_link_libraries(tst_borderpropertiespaper PRIVATE Qt::Test Qt::Widgets Qt::Xml Qt::Svg Qt::Sql Qt::PrintSupport Qt::Concurrent pugixml::pugixml)
+
+
+# The title block recorded for the screen shows what is drawn
+qet_add_app_test(tst_titleblockcache tst_titleblockcache.cpp)

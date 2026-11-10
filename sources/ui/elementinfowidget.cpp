@@ -28,6 +28,9 @@
 #include "../undocommand/freezeelementlabelcommand.h"
 #include "../diagram.h"
 #include "../materiallist/materiallist.h"
+#include "../partsdb/partpickerdialog.h"
+#include "../partsdb/partslinks.h"
+#include "../partsdb/partsmaterial.h"
 #include "../materiallist/materialselectiondialog.h"
 #include "../qetapp.h"
 #include "../qetgraphicsitem/element.h"
@@ -499,6 +502,13 @@ void ElementInfoWidget::setupMaterialButtons()
 */
 void ElementInfoWidget::materialFromFile(int block)
 {
+		//With the parts database used (Settings), the articles come from
+		//it instead of the material file
+	if (PartsDatabase::isEnabled()) {
+		materialFromPartsDatabase(block);
+		return;
+	}
+
 		//Nothing configured yet: the standard location is used, the same
 		//one the preferences offer to create, so that the catalogue can be
 		//reached from here without asking for a file to be saved first.
@@ -543,6 +553,77 @@ void ElementInfoWidget::materialFromFile(int block)
 	MaterialSelectionDialog dialog(path, this);
 	if (dialog.exec() == QDialog::Accepted) {
 		applyMaterialRecord(dialog.selectedRecord(), block);
+	}
+}
+
+/**
+	@brief ElementInfoWidget::setPartsValue
+	Change the parts of the element; in live edit, applied at once.
+*/
+void ElementInfoWidget::setPartsValue(const QString &value)
+{
+	if (value == m_parts_value) {
+		return;
+	}
+	m_parts_value = value;
+	emit partsValueChanged();
+	if (m_live_edit) {
+		apply();
+	}
+}
+
+void ElementInfoWidget::writeMaterialRecord(const MaterialRecord &record,
+											int block)
+{
+	applyMaterialRecord(record, block);
+}
+
+/**
+	@brief ElementInfoWidget::materialFromPartsDatabase
+	Let the user browse the parts database and write the part chosen into
+	the block the button belongs to. A part chosen for the main article
+	brings its accessories into the auxiliary blocks 1 to 4, with their
+	quantities. The whole choice is one step of undo.
+	@param block 0 for the main article, 1 to 4 for an auxiliary article
+*/
+void ElementInfoWidget::materialFromPartsDatabase(int block)
+{
+	PartsDatabase database;
+	QString error;
+	if (!database.open(PartsDatabase::path(), &error)) {
+		QET::QetMessageBox::warning(this, tr("Parts database"), error);
+		return;
+	}
+	PartPickerDialog dialog(&database, this);
+	if (dialog.exec() != QDialog::Accepted) {
+		return;
+	}
+	const std::optional<Part> part = dialog.selectedPart();
+	if (!part) {
+		return;
+	}
+
+		//Every block first, then one apply: one step of undo
+	const bool live_edit = m_live_edit;
+	if (live_edit) {
+		disableLiveEdit();
+	}
+	applyMaterialRecord(PartsMaterial::record(*part), block);
+	if (block == 0) {
+		int auxiliary = 1;
+		for (const PartAccessory &accessory : part->accessories) {
+			if (auxiliary > 4) {
+				break;
+			}
+			if (const std::optional<Part> other = database.part(accessory.accessory_id)) {
+				applyMaterialRecord(PartsMaterial::record(*other, accessory.quantity),
+									auxiliary++);
+			}
+		}
+	}
+	if (live_edit) {
+		enableLiveEdit();
+		apply();
 	}
 }
 
@@ -706,10 +787,16 @@ void ElementInfoWidget::updateUi()
 	}
 	const auto known_keys = predefinedKeys();
 	for (const QString &key : element_info.keys()) {
+			//The parts have a tab of their own, not a loose row
+		if (key == PartsLinks::infoKey()) {
+			continue;
+		}
 		if (!known_keys.contains(key)) {
 			addCustomProperty(key, element_info[key].toString());
 		}
 	}
+	m_parts_value = element_info.value(PartsLinks::infoKey()).toString();
+	emit partsValueChanged();
 
 	// Load the lock status for auto numbering
 	if (m_element->elementData().m_type == ElementData::Terminal) {
@@ -763,6 +850,9 @@ DiagramContext ElementInfoWidget::currentInfo() const
 		{
 			info_.addValue(custom->key(), custom->value());
 		}
+	}
+	if (!m_parts_value.isEmpty()) {
+		info_.addValue(PartsLinks::infoKey(), m_parts_value);
 	}
 
 	// Save the auto numbering lock status

@@ -18,10 +18,12 @@
 #include "cablelistmodel.h"
 
 #include "cablelistrows.h"
+#include "../partsdb/partsbom.h"
 
 #include "../cable/cable.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/element.h"
+#include "../dataBase/projectdatabase.h"
 #include "../qetproject.h"
 #include "../qetxml.h"
 #include "../utils/qetutils.h"
@@ -68,6 +70,7 @@ CableListModel::CableListModel(const CableListModel &other_model) :
 	setParent(other_model.parent());
 	m_project = other_model.m_project;
 	m_identifier = other_model.m_identifier;
+	m_only_cable = other_model.m_only_cable;
 	connectProject();
 	setFields(other_model.m_fields);
 	m_header_data = other_model.m_header_data;
@@ -232,7 +235,7 @@ void CableListModel::setFields(const QStringList &fields)
 		if (kept.contains(field)) {
 			continue;
 		}
-		if (CableList::labelOf(field).isEmpty()) {
+		if (labelOf(field).isEmpty()) {
 			continue;
 		}
 		kept << field;
@@ -253,10 +256,9 @@ void CableListModel::setFields(const QStringList &fields)
 		}
 	}
 	for (int i = 0; i < m_fields.count(); ++i) {
-		m_header_data[i].insert(Qt::DisplayRole, CableList::labelOf(m_fields.at(i)));
+		m_header_data[i].insert(Qt::DisplayRole, labelOf(m_fields.at(i)));
 	}
-	m_rows = m_project ? CableList::rows(m_project)
-					   : QVector<QMap<QString, QString>>();
+	m_rows = workRows();
 	endResetModel();
 }
 
@@ -298,15 +300,18 @@ void CableListModel::refresh()
 								  this, &CableListModel::refresh);
 			const QList<Element *> elements = diagram->elements();
 			for (Element *element : elements) {
+					//A bill of materials reads the information from the
+					//project database, which takes it after this signal
 				m_watchers << connect(element, &Element::elementInfoChange,
-									  this, &CableListModel::refresh);
+									  this, &CableListModel::refresh,
+									  isPartsBom() ? Qt::QueuedConnection
+									               : Qt::AutoConnection);
 			}
 		}
 	}
 
 	beginResetModel();
-	m_rows = m_project ? CableList::rows(m_project)
-					   : QVector<QMap<QString, QString>>();
+	m_rows = workRows();
 	endResetModel();
 }
 
@@ -327,6 +332,63 @@ void CableListModel::connectProject()
 	connect(m_project, &QETProject::cableRemoved, this, &CableListModel::refresh);
 	connect(m_project, &QETProject::diagramAdded, this, &CableListModel::refresh);
 	connect(m_project, &QETProject::diagramRemoved, this, &CableListModel::refresh);
+		//The cable plan shows the wire each core lands on, with its
+		//number and its ends, which no signal above reports. The project
+		//database says when folios were built or wires changed: a plan
+		//read from the file may have been made before the folios its
+		//wires lie on were built, and would show every core as spare
+	connect(m_project->dataBase(), &projectDataBase::dataBaseUpdated,
+			this, [this]() {
+		if (isCablePlan() || isPartsBom()) {
+			refresh();
+		}
+	});
+}
+
+/**
+	@brief CableListModel::workRows
+	@return the rows this model shows: one per cable for a cable list,
+	one per core for a cable plan
+*/
+QVector<QMap<QString, QString>> CableListModel::workRows() const
+{
+	if (!m_project) {
+		return QVector<QMap<QString, QString>>();
+	}
+	if (isPartsBom()) {
+		return PartsBom::rows(m_project.data());
+	}
+	return isCablePlan() ? CableList::coreRows(m_project, m_only_cable)
+						 : CableList::rows(m_project);
+}
+
+bool CableListModel::isPartsBom() const
+{
+	return m_identifier == PartsBom::identifier();
+}
+
+/**
+	@brief CableListModel::labelOf
+	@return the header of the column @p key, empty for a column this
+	kind of table does not know
+*/
+QString CableListModel::labelOf(const QString &key) const
+{
+	if (isPartsBom()) {
+		return PartsBom::labelOf(key);
+	}
+	return CableList::labelOf(key);
+}
+
+/**
+	@brief CableListModel::setOnlyCable
+	Make a cable plan show the cores of @p cable only; a null uuid shows
+	every cable.
+*/
+void CableListModel::setOnlyCable(const QUuid &cable)
+{
+	m_only_cable = cable;
+	refresh();
 }
 
 /**
@@ -346,6 +408,13 @@ QDomElement CableListModel::toXml(QDomDocument &document) const
 	auto dom_identifier_text = document.createTextNode(m_identifier);
 	dom_identifier.appendChild(dom_identifier_text);
 	dom_element.appendChild(dom_identifier);
+
+	//The one cable a cable plan shows, when it shows only one
+	if (!m_only_cable.isNull()) {
+		auto dom_cable = document.createElement("only_cable");
+		dom_cable.appendChild(document.createTextNode(m_only_cable.toString()));
+		dom_element.appendChild(dom_cable);
+	}
 
 	//Fields
 	auto dom_fields = document.createElement("fields");
@@ -391,6 +460,7 @@ void CableListModel::fromXml(const QDomElement &element)
 		return;
 
 	setIdentifier(element.firstChildElement("identifier").text());
+	m_only_cable = QUuid(element.firstChildElement("only_cable").text());
 	setFields(element.firstChildElement("fields").text()
 			  .split(QLatin1Char(','), Qt::SkipEmptyParts));
 

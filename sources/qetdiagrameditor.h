@@ -187,6 +187,8 @@ class QETDiagramEditor : public QETMainWindow
 		void setTabbedMode();
 		void readSettings();
 		void readSettingsState();
+		void updateCommandTabs();
+		QAction *commandTabsAction(const QString &id);
 		void writeSettings();
 		void activateProject(QETProject *);
 		void activateProject(ProjectView *);
@@ -327,7 +329,13 @@ class QETDiagramEditor : public QETMainWindow
 		*m_terminal_numbering,         ///< Action to launch terminal numbering
 		*m_cable_numbering,            ///< Action to open the cable numbering window (rule + numbering of every cable)
 		*m_add_cable_list,             ///< Add a cable list graphics item
+		*m_add_parts_bom,             ///< Add a bill of materials of the parts graphics item
+		*m_export_parts_bom,            ///< Export the bill of materials of the parts to CSV
 		*m_export_cable_list,          ///< Export the cable list of the project to CSV
+		*m_parts_manager,              ///< Open the parts manager, the window of the parts database
+		*m_cable_manager,              ///< Open the cable manager of the current project
+		*m_add_cable_plan,             ///< Add a cable plan (one row per core) graphics item
+		*m_export_cable_plan,          ///< Export the cable plan of the project to CSV
 		*m_reload_element_drawings,    ///< Action to redraw every placed element from its current definition
 		*m_update_elements_from_collections, ///< Action to replace embedded elements changed in their collection
 #ifdef QET_HAS_SCRIPTING
@@ -419,7 +427,9 @@ class QETDiagramEditor : public QETMainWindow
 		*m_add_item_tool_bar = nullptr,
 		*m_depth_tool_bar    = nullptr,
 		*m_connections_tool_bar = nullptr,	///< Symbols on the wires (ConnectionSymbols)
-		*m_scripts_tool_bar  = nullptr;	///< One button per stored script
+		*m_scripts_tool_bar  = nullptr,	///< One button per stored script
+		*m_command_tabs_bar  = nullptr;	///< The commands in tabs (CommandTabs), when chosen in the settings
+		QAction *m_all_menus_action = nullptr;	///< Every menu of the menu bar, for the File tab
 			/// Toolbars the user added (DiagramToolbarSettings)
 		QList<QToolBar *> m_custom_tool_bars;
 			/// The toolbar buttons that are widgets, by DiagramToolbarSettings id
@@ -436,6 +446,8 @@ class QETDiagramEditor : public QETMainWindow
 		
 		QUndoGroup undo_group;
 		AutoNumberingDockWidget *m_autonumbering_dock;
+		QDockWidget *m_devices_dock = nullptr;	///< The devices of the current project, by label
+		class DevicesPanel *m_devices_panel = nullptr;
 		int activeSubWindowIndex;
 		SearchAndReplaceWidget m_search_and_replace_widget;
 };

@@ -42,7 +42,7 @@ TerminalStripLayoutEditor::TerminalStripLayoutEditor(QSharedPointer<TerminalStri
 	connect(ui->m_draw_style_cb, &QComboBox::currentIndexChanged, this, [this](int index) {
 		m_preview_strip_item.prepareGeometryChange();
 		m_preview_strip_item.m_drawer.setDrawStyle(
-					static_cast<TerminalStripLayoutPattern::DrawStyle>(std::clamp(index, 0, 2)));
+					static_cast<TerminalStripLayoutPattern::DrawStyle>(std::clamp(index, 0, 3)));
 		m_preview_strip_item.update();
 		updatePreview();
 	});

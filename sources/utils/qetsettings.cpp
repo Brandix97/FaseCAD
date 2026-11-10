@@ -364,4 +364,84 @@ namespace QetSettings
 		QSettings settings;
 		settings.setValue(QStringLiteral("diagrameditor/sheet_background_recent"), colors);
 	}
+
+	/**
+	* @brief theme
+	* @return the theme chosen in the settings; AsBefore when none was
+	* chosen, or when the stored value is not a theme this version knows.
+	* @sa setTheme
+	*/
+	Theme theme()
+	{
+		QSettings settings;
+		bool ok = false;
+		const int value = settings.value(QStringLiteral("theme"), 0).toInt(&ok);
+		if (!ok || value < 0 || value > static_cast<int>(Theme::Dark)) {
+			return Theme::AsBefore;
+		}
+		return static_cast<Theme>(value);
+	}
+
+	/**
+	* @brief setTheme
+	* Store the theme of the interface. @sa theme
+	* @param theme
+	*/
+	void setTheme(Theme theme)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("theme"), static_cast<int>(theme));
+	}
+
+	/**
+	* @brief themeIsDark
+	* @param theme : any theme but AsBefore, which the colour settings
+	* decide instead
+	* @param system_is_dark : whether the system is in dark mode now
+	* @return true when @p theme draws the interface in dark colours
+	*/
+	bool themeIsDark(Theme theme, bool system_is_dark)
+	{
+		return theme == Theme::Dark
+				|| (theme == Theme::System && system_is_dark);
+	}
+
+	/**
+	* @brief commandTabs
+	* @return true when the diagram editor shows its commands in tabs
+	* grouped by task instead of the classic toolbars. Off by default.
+	* @sa setCommandTabs
+	*/
+	bool commandTabs()
+	{
+		QSettings settings;
+		return settings.value(QStringLiteral("diagrameditor/command_tabs"), false).toBool();
+	}
+
+	/**
+	* @brief setCommandTabs
+	* @param on : see commandTabs()
+	*/
+	void setCommandTabs(bool on)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("diagrameditor/command_tabs"), on);
+	}
+
+	/**
+	* @brief commandTabsHideMenuBar
+	* @return true when the command tabs also hide the classic menu bar;
+	* every menu stays reachable from the File tab. Off by default.
+	*/
+	bool commandTabsHideMenuBar()
+	{
+		QSettings settings;
+		return settings.value(QStringLiteral("diagrameditor/command_tabs_hide_menu_bar"), false).toBool();
+	}
+
+	void setCommandTabsHideMenuBar(bool hide)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("diagrameditor/command_tabs_hide_menu_bar"), hide);
+	}
 }

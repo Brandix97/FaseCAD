@@ -70,7 +70,12 @@ namespace TerminalStripAutoImport
 	 */
 	inline QString stripNameForLabel(const QString &label)
 	{
-		const auto label_ = label.trimmed();
+		auto label_ = label.trimmed();
+			//"-XPERS:9", the label of the terminals of the toolbar
+			//(FaseTerminal), names the strip "XPERS"
+		if (label_.startsWith(QLatin1Char('-')) && label_.contains(QLatin1Char(':'))) {
+			label_ = label_.mid(1);
+		}
 		if (label_.isEmpty()) {
 			return QString();
 		}

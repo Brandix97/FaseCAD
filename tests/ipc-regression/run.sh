@@ -154,7 +154,7 @@ real_window() {
 
 main_window() {
     local w
-    for w in $(xdotool search --onlyvisible --name "QElectroTech" 2>/dev/null); do
+    for w in $(xdotool search --onlyvisible --name "FaseCAD" 2>/dev/null); do
         real_window "$w" && { echo "$w"; return 0; }
     done
     return 1

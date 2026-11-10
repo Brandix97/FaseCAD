@@ -50,9 +50,9 @@ class tst_settingsdir : public QObject
 			return QString();
 
 		// The usual place (Linux): an empty collection. The folder: the right one.
-		writeCollectionSetting(home + QStringLiteral("/.config/QElectroTech/QElectroTech.conf"),
+		writeCollectionSetting(home + QStringLiteral("/.config/FaseCAD/FaseCAD.conf"),
 							   empty_collection);
-		writeCollectionSetting(settings + QStringLiteral("/QElectroTech/QElectroTech.ini"),
+		writeCollectionSetting(settings + QStringLiteral("/FaseCAD/FaseCAD.ini"),
 							   collection);
 
 		const QString project = root + QStringLiteral("/p.qet");
@@ -105,6 +105,41 @@ private slots:
 	void withoutItTheUsualPlaceIsRead()
 	{
 		QCOMPARE(placeTheSymbol(false), QStringLiteral("not resolved"));
+	}
+
+	// The settings kept under the former name in the folder are copied to
+	// FaseCAD's file of the same folder on the first start -- from that
+	// folder, not from the registry or the usual place
+	void formerSettingsOfTheFolderAreCopied()
+	{
+		const QString root = m_dir.filePath(QStringLiteral("rename"));
+		const QString settings = root + QStringLiteral("/settings");
+		const QString former = settings + QStringLiteral("/QElectroTech/QElectroTech.ini");
+		QDir().mkpath(QFileInfo(former).path());
+		QFile f(former);
+		QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Text));
+		f.write("[General]\ncommand_tabs=true\ntheme=3\n");
+		f.close();
+
+		QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+		env.insert(QStringLiteral("QT_QPA_PLATFORM"), QStringLiteral("offscreen"));
+		env.insert(QStringLiteral("QET_SETTINGS_DIR"), settings);
+		env.insert(QStringLiteral("HOME"), root + QStringLiteral("/home"));
+		env.insert(QStringLiteral("XDG_CONFIG_HOME"), root + QStringLiteral("/home/.config"));
+		env.insert(QStringLiteral("XDG_DATA_HOME"), root + QStringLiteral("/home/.local/share"));
+		QProcess proc;
+		proc.setProcessEnvironment(env);
+		proc.setProcessChannelMode(QProcess::MergedChannels);
+		proc.start(QStringLiteral(QET_TEST_BINARY_PATH),
+				   {QStringLiteral("--export-png"), QStringLiteral("missing.qet"), root});
+		QVERIFY(proc.waitForFinished(QetTest::timeout(60000)));
+
+		QFile copied(settings + QStringLiteral("/FaseCAD/FaseCAD.ini"));
+		QVERIFY(copied.open(QIODevice::ReadOnly | QIODevice::Text));
+		const QString text = QString::fromUtf8(copied.readAll());
+		QVERIFY2(text.contains(QStringLiteral("command_tabs=true")), qPrintable(text));
+		QVERIFY(text.contains(QStringLiteral("theme=3")));
+		QVERIFY(QFile::exists(former));
 	}
 };
 

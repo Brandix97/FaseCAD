@@ -91,7 +91,7 @@ void MachineInfo::send_info_to_debug()
 	if (strlen(GIT_COMMIT_SHA)) {
 		qInfo() << "GitRevision " + QString(GIT_COMMIT_SHA);
 	}
-	qInfo()<< "QElectroTech V " + QetVersion::displayedVersion();
+	qInfo()<< "FaseCAD V " + QetVersion::productVersion() + " (QElectroTech " + QetVersion::displayedVersion() + ")";
 	qInfo()<< QObject::tr("Compilation: ") + pc.built.version;
 	qInfo()<< "Built with Qt " + pc.built.QT
 		  + " - " + pc.built.arch
@@ -132,7 +132,7 @@ void MachineInfo::send_info_to_debug()
 	qInfo()<< " Company TitleBlock Templates Dir:"<< QString(QETApp::companyTitleBlockTemplatesDir().toLatin1());
 	qInfo()<< "";
 #if defined(Q_OS_WIN32) || defined(Q_OS_WIN64)
-	qInfo()<< " App-Config: see Registry \"HKEY_CURRENT_USER/Software/QElectroTech/\"";
+	qInfo()<< " App-Config: see Registry \"HKEY_CURRENT_USER/Software/FaseCAD/\"";
 	qInfo()<< " additional config-files:";
 #else
 	qInfo()<< " For QET configuration-files:";
@@ -141,7 +141,7 @@ void MachineInfo::send_info_to_debug()
 	qInfo()<< " For data-files (user-/company-collections, titleblocks, etc.):";
 	qInfo()<< " App Data Location:"<< QETApp::dataDir();
 	qInfo()<< " Directory for project stalefiles:";
-	qInfo()<< " Generic Data Location:"<< QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/stalefiles/QElectroTech/";
+	qInfo()<< " Generic Data Location:"<< QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/stalefiles/FaseCAD/";
 	// qInfo()<< " App Local DataLocation:"<< QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 	// qInfo()<< " Home Location:"<< QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 	// qInfo()<< " Runtime Location:"<< QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);

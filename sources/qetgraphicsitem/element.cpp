@@ -3179,6 +3179,15 @@ QString Element::labelForDisplay()
 		return label.mid(hidden_colon + 1);
 	}
 
+		//A terminal after one of the same strip shows its number only:
+		//the strip is named once, at the first of the row
+	if (showsTerminalNumberOnly()) {
+		const int number_colon = label.lastIndexOf(QLatin1Char(':'));
+		if (number_colon >= 0) {
+			return label.mid(number_colon + 1);
+		}
+	}
+
 	if (!split) {
 		return label;
 	}

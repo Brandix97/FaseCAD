@@ -85,8 +85,10 @@ void ToolbarSettings::applyTo(QMainWindow *window)
 	window->setToolButtonStyle(buttonStyle());
 	const bool movable = !locked();
 	for (QToolBar *toolbar : window->findChildren<QToolBar *>()) {
-			//Not a toolbar inside a panel: only the window's own
-		if (window->toolBarArea(toolbar) != Qt::NoToolBarArea) {
+			//Not a toolbar inside a panel: only the window's own, and
+			//not one that is never moved (the command tabs)
+		if (window->toolBarArea(toolbar) != Qt::NoToolBarArea
+				&& !toolbar->property("qet_fixed_toolbar").toBool()) {
 			toolbar->setMovable(movable);
 		}
 	}

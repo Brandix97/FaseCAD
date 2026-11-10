@@ -43,7 +43,7 @@ void BridgeTerminalsCommand::redo()
 			m_strip->setBridge(m_bridge, m_real_terminal_vector);
 		} else {
 			m_strip->setBridge(m_real_terminal_vector);
-			m_bridge = m_strip->isBridged(m_real_terminal_vector.first());
+			m_bridge = m_strip->commonBridge(m_real_terminal_vector);
 		}
 	}
 }
@@ -58,7 +58,7 @@ UnBridgeTerminalsCommand::UnBridgeTerminalsCommand(TerminalStrip *strip,
 
 	if (strip->canUnBridge(real_terminal))
 	{
-		m_bridge = strip->isBridged(real_terminal.first());
+		m_bridge = strip->commonBridge(real_terminal);
 
 			//If bridge have one more terminals than @real_terminal
 			//that mean every terminals of the bridge must be unbridged by this undo command,

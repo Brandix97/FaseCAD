@@ -33,6 +33,8 @@
 #include "../../materiallist/materiallist.h"
 #include "../../cablelist/cabletypelist.h"
 #include "../../utils/qetsettings.h"
+#include "../../diagramtoolbarsettings.h"
+#include "../../partsdb/partsdatabase.h"
 #include "../../utils/qetutils.h"
 #include "../../utils/previousversions.h"
 #include "../../qetmessagebox.h"
@@ -162,6 +164,41 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 		ui->m_custom_app_color_kpb->setColor(QColor(settings.value("customapplicationcolor").toString()));
 	else
 		ui->m_custom_app_color_kpb->setColor(QApplication::palette().color(QPalette::Window));
+		//The colors above drive the interface only without a theme
+	ui->m_theme_cb->setCurrentIndex(static_cast<int>(QetSettings::theme()));
+	auto enable_colors = [this]() {
+		const bool as_before = ui->m_theme_cb->currentIndex() == 0;
+		ui->m_use_system_color_cb->setEnabled(as_before);
+		ui->m_custom_app_color_kpb->setEnabled(
+				as_before && !ui->m_use_system_color_cb->isChecked());
+	};
+	enable_colors();
+	connect(ui->m_theme_cb, qOverload<int>(&QComboBox::currentIndexChanged),
+			this, enable_colors);
+	ui->m_command_tabs_cb->setChecked(QetSettings::commandTabs());
+	ui->m_command_tabs_hide_menu_cb->setChecked(QetSettings::commandTabsHideMenuBar());
+	ui->m_command_tabs_hide_menu_cb->setEnabled(ui->m_command_tabs_cb->isChecked());
+	connect(ui->m_command_tabs_cb, &QCheckBox::toggled,
+			ui->m_command_tabs_hide_menu_cb, &QWidget::setEnabled);
+
+		//PARTS DATABASE
+	ui->m_parts_db_cb->setChecked(PartsDatabase::isEnabled());
+	ui->m_parts_db_path_le->setText(QDir::toNativeSeparators(PartsDatabase::configuredPath()));
+	ui->m_parts_db_path_le->setPlaceholderText(
+		tr("This computer (%1)").arg(QDir::toNativeSeparators(PartsDatabase::defaultPath())));
+	connect(ui->m_parts_db_browse_pb, &QPushButton::clicked, this, [this]() {
+			//An existing file or a new one: a shared database may not
+			//exist yet, the first one to use it creates it
+		const QString path = QFileDialog::getSaveFileName(
+			this, tr("Parts database"),
+			ui->m_parts_db_path_le->text().isEmpty()
+				? PartsDatabase::defaultPath()
+				: ui->m_parts_db_path_le->text(),
+			tr("Parts databases (*.sqlite *.db)"), nullptr,
+			QFileDialog::DontConfirmOverwrite);
+		if (!path.isEmpty())
+			ui->m_parts_db_path_le->setText(QDir::toNativeSeparators(path));
+	});
 	bool tabbed = settings.value("diagrameditor/viewmode", "tabbed") == "tabbed";
 	if(tabbed)
 		ui->m_use_tab_mode_rb->setChecked(true);
@@ -374,21 +411,45 @@ void GeneralConfigurationPage::applyConf()
 	QSettings settings;
 	
 		//GLOBAL
+	const QetSettings::Theme old_theme = QetSettings::theme();
+	const QetSettings::Theme new_theme =
+			static_cast<QetSettings::Theme>(ui->m_theme_cb->currentIndex());
+	QetSettings::setTheme(new_theme);
+		//The colors are always stored, but drive the interface only
+		//when no theme is or was chosen : otherwise applyTheme() does
+	const bool colors_drive = old_theme == QetSettings::Theme::AsBefore
+			&& new_theme == QetSettings::Theme::AsBefore;
 	bool was_using_system_colors = settings.value("usesystemcolors", "true").toBool();
 	bool must_use_system_colors  = ui->m_use_system_color_cb->isChecked();
 	settings.setValue("usesystemcolors", must_use_system_colors);
 	if (was_using_system_colors != must_use_system_colors) {
 		if (must_use_system_colors) {
-			QETApp::instance()->useSystemPalette(true);
+			if (colors_drive)
+				QETApp::instance()->useSystemPalette(true);
 		} else {
 			QColor custom_color = ui->m_custom_app_color_kpb->color();
 			settings.setValue("customapplicationcolor", custom_color.name());
-			QETApp::instance()->useCustomPalette(custom_color);
+			if (colors_drive)
+				QETApp::instance()->useCustomPalette(custom_color);
 		}
 	} else if (!must_use_system_colors) {
 		QColor custom_color = ui->m_custom_app_color_kpb->color();
 		settings.setValue("customapplicationcolor", custom_color.name());
-		QETApp::instance()->useCustomPalette(custom_color);
+		if (colors_drive)
+			QETApp::instance()->useCustomPalette(custom_color);
+	}
+	if (!colors_drive)
+		QETApp::instance()->applyTheme();
+	PartsDatabase::setEnabled(ui->m_parts_db_cb->isChecked());
+	PartsDatabase::setConfiguredPath(QDir::fromNativeSeparators(
+		ui->m_parts_db_path_le->text().trimmed()));
+	if (ui->m_command_tabs_cb->isChecked() != QetSettings::commandTabs()
+			|| ui->m_command_tabs_hide_menu_cb->isChecked() != QetSettings::commandTabsHideMenuBar()) {
+		QetSettings::setCommandTabs(ui->m_command_tabs_cb->isChecked());
+		QetSettings::setCommandTabsHideMenuBar(ui->m_command_tabs_hide_menu_cb->isChecked());
+			//Every open diagram editor rebuilds its toolbars, and with
+			//them shows or hides the tabs
+		DiagramToolbarSettings::applyToAll();
 	}
 	settings.setValue("border-columns_0",ui->m_border_0->isChecked());
 	settings.setValue("lang", ui->m_lang_cb->itemData(ui->m_lang_cb->currentIndex()).toString());
@@ -1170,6 +1231,7 @@ void GeneralConfigurationPage::on_m_hdpi_round_cb_clicked(bool checked)
 */
 void GeneralConfigurationPage::on_m_use_system_color_cb_toggled(bool checked)
 {
-	ui->m_custom_app_color_kpb->setEnabled(!checked);
+	ui->m_custom_app_color_kpb->setEnabled(
+			!checked && ui->m_theme_cb->currentIndex() == 0);
 }
 

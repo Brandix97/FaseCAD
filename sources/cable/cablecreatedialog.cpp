@@ -18,6 +18,7 @@
 #include "cablecreatedialog.h"
 
 #include "editcablecommand.h"
+#include "../partsdb/partscabletypes.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/conductor.h"
 #include "../qetproject.h"
@@ -481,8 +482,14 @@ void CableCreateDialog::loadTypeFile()
 	}
 	m_types = CableTypeListData();
 	CableTypeList::load(path, &m_types);
+	m_file_columns = m_types.columns;
+	addPartsDatabaseTypes();
 
 	m_new_model->setHorizontalHeaderLabels(CableTypeList::translatedHeader(m_types.columns));
+	const int source_column = m_types.columns.indexOf(PartsCableTypes::sourceColumn());
+	if (source_column >= 0) {
+		m_new_model->setHeaderData(source_column, Qt::Horizontal, tr("Source"));
+	}
 
 	const int needed = neededCores();
 	int current_row = -1;
@@ -1004,6 +1011,35 @@ QString CableCreateDialog::typeFilePath() const
 }
 
 /**
+	@brief CableCreateDialog::addPartsDatabaseTypes
+	When the parts database is used (Settings), its parts with cores are
+	cable types too: they are offered after the lines of the file, marked
+	as coming from the database, and never written to the file. A
+	database which cannot be opened leaves the file's types alone.
+*/
+void CableCreateDialog::addPartsDatabaseTypes()
+{
+	if (!PartsDatabase::isEnabled()) {
+		return;
+	}
+	PartsDatabase database;
+	if (!database.open(PartsDatabase::path())) {
+		return;
+	}
+	const QList<CableTypeRecord> records =
+			PartsCableTypes::records(database.parts());
+	if (records.isEmpty()) {
+		return;
+	}
+	for (const QString &column : PartsCableTypes::columns()) {
+		if (!m_types.columns.contains(column)) {
+			m_types.columns << column;
+		}
+	}
+	m_types.records << records;
+}
+
+/**
 	@brief CableCreateDialog::addTypeRecord
 	Fill in a new line of the cable type file, the way the material
 	window adds one of its own articles: the form is appended to the
@@ -1013,7 +1049,7 @@ QString CableCreateDialog::typeFilePath() const
 */
 void CableCreateDialog::addTypeRecord()
 {
-	QStringList columns = m_types.columns;
+	QStringList columns = m_file_columns;
 	if (columns.isEmpty()) {
 		columns = CableTypeList::defaultColumns();
 	}
@@ -1072,7 +1108,14 @@ void CableCreateDialog::editTypeRecord()
 
 	const CableTypeRecord before = m_types.records.at(index.row());
 
-	QStringList columns = m_types.columns;
+	if (PartsCableTypes::isFromPartsDatabase(before)) {
+		QMessageBox::information(this, tr("Parts database"),
+					 tr("This cable type comes from the parts database: "
+					    "change it in the parts manager."));
+		return;
+	}
+
+	QStringList columns = m_file_columns;
 	if (columns.isEmpty()) {
 		columns = CableTypeList::defaultColumns();
 	}

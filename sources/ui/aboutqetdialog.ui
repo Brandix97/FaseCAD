@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>About QElectroTech</string>
+   <string>About FaseCAD</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

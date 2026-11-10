@@ -52,8 +52,8 @@ class tst_elementautonumids : public QObject
 		// Windows keep the settings elsewhere and would never read it.
 		const QString settings_dir = home + QStringLiteral("/settings");
 		if (!m_preferences.isEmpty()) {
-			QDir().mkpath(settings_dir + QStringLiteral("/QElectroTech"));
-			QFile settings(settings_dir + QStringLiteral("/QElectroTech/QElectroTech.ini"));
+			QDir().mkpath(settings_dir + QStringLiteral("/FaseCAD"));
+			QFile settings(settings_dir + QStringLiteral("/FaseCAD/FaseCAD.ini"));
 			if (settings.open(QIODevice::WriteOnly)) {
 				settings.write(m_preferences.toUtf8());
 			}

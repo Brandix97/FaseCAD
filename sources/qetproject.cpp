@@ -17,6 +17,7 @@
 */
 
 #include "qetproject.h"
+#include "branding/projectextensions.h"
 #include "TerminalStrip/terminalstriplabels.h"
 #include "container/qetcontainer.h"
 #include "container/qetcontainerdb.h"
@@ -3043,11 +3044,12 @@ bool QETProject::close()
 */
 /**
 	@brief QETProject::isContainerPath
-	@return true if @p path names a .qetz file: write() saves it zipped
+	@return true if @p path names a zipped project, .edrwz or .qetz:
+	write() saves it zipped
 */
 bool QETProject::isContainerPath(const QString &path)
 {
-	return path.endsWith(QLatin1String(".qetz"), Qt::CaseInsensitive);
+	return ProjectExtensions::isZipped(path);
 }
 
 /**
@@ -3057,7 +3059,7 @@ bool QETProject::isContainerPath(const QString &path)
 */
 QString QETProject::openFileFilter()
 {
-	return tr("QElectroTech project (*.qet *.qetz *.qetdb)");
+	return tr("QElectroTech project (%1)").arg(ProjectExtensions::openPatterns());
 }
 
 /**

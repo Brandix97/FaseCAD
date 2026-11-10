@@ -95,8 +95,8 @@ int run(int argc, char **argv, void (*prepare)() = nullptr)
 		//them away from the user's own
 	QStandardPaths::setTestModeEnabled(true);
 	QApplication app(argc, argv);
-	QCoreApplication::setOrganizationName("QElectroTech");
-	QCoreApplication::setApplicationName("QElectroTech");
+	QCoreApplication::setOrganizationName("FaseCAD");
+	QCoreApplication::setApplicationName("FaseCAD");
 	QTemporaryDir home;
 	if (!home.isValid())
 		return 1;

@@ -120,6 +120,9 @@ QVector<PhysicalGeometry> geometry(const AbstractTerminalStripInterface *strip)
 		if (g_.width_mm <= 0) {
 			g_.width_mm = Helpers::referenceTerminalWidthMm();
 		}
+			//The levels of a terminal side by side, level 1 on the left,
+			//each one as wide as a terminal (see drawSteppedLevels())
+		g_.width_mm *= g_.reals.size();
 		geometry_.append(g_);
 	}
 	return geometry_;
@@ -513,6 +516,92 @@ void drawEntriesHalf(QPainter *painter, const QRectF &body, qreal outer, qreal i
 }
 
 /**
+ * @brief levelInset
+ * How much shorter, at each end, level @a k (from 0) of a terminal of
+ * @a levels levels is drawn: the levels step down from left to right.
+ */
+qreal levelInset(int k, int levels, qreal length)
+{
+	return levels > 1 ? length * 0.07 * k : 0;
+}
+
+/**
+ * @brief drawSteppedLevels
+ * A terminal of several levels seen from the side of its levels: one
+ * part by level, level 1 on the left and tallest, each next one shorter,
+ * each with its own colour, wire entries, band and number.
+ */
+void drawSteppedLevels(QPainter *painter, qreal x, qreal w, qreal length, qreal s,
+					   const QVector<QSharedPointer<AbstractRealTerminalInterface>> &reals,
+					   bool screw)
+{
+	const int levels{static_cast<int>(reals.size())};
+	const qreal part_w{w / levels};
+	for (int k = 0 ; k < levels ; ++k)
+	{
+		const auto &real_t{reals.at(k)};
+		const qreal inset{levelInset(k, levels, length)};
+		const QRectF part{x + k * part_w, inset, part_w, length - 2 * inset};
+		const qreal h{part.height()};
+
+		QColor fill, stripe;
+		Helpers::terminalColors(real_t, fill, stripe);
+		if (!fill.isValid()) {
+			fill = QColor(150, 150, 150);
+		}
+		painter->save();
+		painter->setPen(QPen(fill.darker(220), 0.5));
+		painter->setBrush(fill);
+		painter->drawRect(part);
+		if (stripe.isValid()) {
+			painter->setPen(Qt::NoPen);
+			painter->setBrush(stripe);
+			painter->drawRect(QRectF{part.left(), part.top(), part_w * 0.6, h});
+		}
+		painter->restore();
+
+		const qreal max_r{max_entry_radius_mm * s};
+		drawEntriesHalf(painter, part, part.top() + h * entries_top,
+						part.top() + h * band_top, 1, max_r, fill, screw);
+		drawEntriesHalf(painter, part, part.top() + h * (1 - entries_top),
+						part.top() + h * band_bottom, 1, max_r, fill, screw);
+
+		painter->save();
+		painter->setPen(Qt::NoPen);
+		painter->setBrush(band_color);
+		painter->drawRect(QRectF{part.left(), part.top() + h * band_top,
+								 part_w, h * (band_bottom - band_top)});
+		painter->setBrush(channel_color);
+		painter->drawRect(QRectF{part.left() + part_w * 0.15,
+								 part.top() + h * channels_top,
+								 part_w * 0.7, h * (channels_bottom - channels_top)});
+		painter->restore();
+
+		if (real_t && (real_t->type() != ElementData::TTGeneric || real_t->isLed()))
+		{
+			painter->save();
+			painter->setPen(QPen(Qt::white, 0.5));
+			Helpers::drawTypeSymbol(painter, QRectF{part.left(), part.top() + h * 0.54,
+													 part_w, h * 0.055},
+									real_t->type(), real_t->isLed());
+			painter->restore();
+		}
+
+		const qreal margin{std::min(0.6 * s, part_w * 0.12)};
+		const QRectF tag{part.left() + margin, part.top() + h * 0.455,
+						 part_w - 2 * margin, h * 0.08};
+		painter->save();
+		painter->setPen(QPen(QColor(120, 120, 120), 0.3));
+		painter->setBrush(Qt::white);
+		painter->drawRect(tag);
+		painter->restore();
+		drawVerticalText(painter, tag,
+						 real_t ? Helpers::terminalNumber(real_t->label()) : QString(),
+						 QColor(Qt::black));
+	}
+}
+
+/**
  * @brief The BridgePoint struct
  * Where a bridge is plugged.
  */
@@ -577,7 +666,7 @@ bool haveCable(const AbstractTerminalStripInterface *strip)
 				}
 				Helpers::CableCell cell_;
 				cell_.x = x_ + w_ * (k + 0.5) / levels_;
-				cell_.bottom = length_;
+				cell_.bottom = length_ - levelInset(k, levels_, length_);
 				cell_.cable = real_t->cable();
 				cell_.wire = real_t->cableWire();
 				cell_.shield = real_t->isShield();
@@ -710,87 +799,92 @@ void paint(QPainter *painter,
 			fill_ = QColor(150, 150, 150);
 		}
 
-			//Body
-		painter->save();
-		painter->setPen(QPen(fill_.darker(220), 0.5));
-		painter->setBrush(fill_);
-		painter->drawRect(body_);
-		if (stripe_.isValid())
-		{
-				//Two-tone terminal (PE) : the stripe color on the left part, like the real ones
-			painter->setPen(Qt::NoPen);
-			painter->setBrush(stripe_);
-			painter->drawRect(QRectF{body_.left(), body_.top(), w_ * 0.6, length_});
-		}
-		painter->restore();
-
-			//Wire entries : one row by level, at the top and at the bottom
-		const qreal max_r_{max_entry_radius_mm * s_};
-		drawEntriesHalf(painter, body_, length_ * entries_top, length_ * band_top, levels_, max_r_, fill_, screw_);
-		drawEntriesHalf(painter, body_, length_ * (1 - entries_top), length_ * band_bottom, levels_, max_r_, fill_, screw_);
-
-			//Middle band, with one bridge channel by level
-		painter->save();
-		painter->setPen(Qt::NoPen);
-		painter->setBrush(band_color);
-		painter->drawRect(QRectF{x_, length_ * band_top, w_, length_ * (band_bottom - band_top)});
-		painter->setBrush(channel_color);
-		const qreal channel_h_{length_ * (channels_bottom - channels_top) / levels_};
-		for (int k = 0 ; k < levels_ ; ++k) {
-			painter->drawRect(QRectF{x_ + w_ * 0.15, length_ * channels_top + (k + 0.2) * channel_h_,
-									 w_ * 0.7, channel_h_ * 0.6});
-		}
-		painter->restore();
-
-			//Specific parts of some types of terminal
-		const auto type_{first_->type()};
-		switch (type_)
-		{
-			case ElementData::TTFuse:
-				drawFuseHolder(painter, x_, w_, length_, levels_, screw_, first_->isLed());
-				break;
-			case ElementData::TTSectional:
-				drawDisconnectKnife(painter, x_, w_, length_, levels_, screw_);
-				break;
-			case ElementData::TTTestSocket:
-				drawTestSockets(painter, x_, w_, length_, s_, levels_, screw_, fill_);
-				break;
-			default:
-				break;
-		}
-
-			//Symbol of the type (fuse, led...), at the bottom of the band
-			//A test terminal with levels have its test sockets in place of the symbol
-		const bool have_symbol_{(first_->type() != ElementData::TTGeneric || first_->isLed())
-								&& !(type_ == ElementData::TTTestSocket && levels_ > 1)};
-		const qreal tag_top_{length_ * 0.455};
-		const bool sockets_in_band_{type_ == ElementData::TTTestSocket && levels_ > 1};
-		const qreal tag_bottom_{length_ * (have_symbol_ || sockets_in_band_ ? 0.535 : 0.59)};
-		if (have_symbol_)
-		{
+		if (levels_ > 1) {
+			drawSteppedLevels(painter, x_, w_, length_, s_, g_.reals, screw_);
+		} else {
+				//Body
 			painter->save();
-				//Black on the orange knife, white on the dark band and on the fuse holder
-			painter->setPen(QPen(type_ == ElementData::TTSectional ? QColor(Qt::black) : QColor(Qt::white), 0.5));
-			Helpers::drawTypeSymbol(painter, QRectF{x_, length_ * 0.54, w_, length_ * 0.055},
-									first_->type(), first_->isLed());
+			painter->setPen(QPen(fill_.darker(220), 0.5));
+			painter->setBrush(fill_);
+			painter->drawRect(body_);
+			if (stripe_.isValid())
+			{
+					//Two-tone terminal (PE) : the stripe color on the left part, like the real ones
+				painter->setPen(Qt::NoPen);
+				painter->setBrush(stripe_);
+				painter->drawRect(QRectF{body_.left(), body_.top(), w_ * 0.6, length_});
+			}
 			painter->restore();
-		}
 
-			//Marker tag with the number(s) of the terminal
-		QStringList numbers_;
-		for (const auto &real_t : g_.reals) {
-			numbers_ << Helpers::terminalNumber(real_t->label());
+				//Wire entries : one row by level, at the top and at the bottom
+			const qreal max_r_{max_entry_radius_mm * s_};
+			drawEntriesHalf(painter, body_, length_ * entries_top, length_ * band_top, levels_, max_r_, fill_, screw_);
+			drawEntriesHalf(painter, body_, length_ * (1 - entries_top), length_ * band_bottom, levels_, max_r_, fill_, screw_);
+
+				//Middle band, with one bridge channel by level
+			painter->save();
+			painter->setPen(Qt::NoPen);
+			painter->setBrush(band_color);
+			painter->drawRect(QRectF{x_, length_ * band_top, w_, length_ * (band_bottom - band_top)});
+			painter->setBrush(channel_color);
+			const qreal channel_h_{length_ * (channels_bottom - channels_top) / levels_};
+			for (int k = 0 ; k < levels_ ; ++k) {
+				painter->drawRect(QRectF{x_ + w_ * 0.15, length_ * channels_top + (k + 0.2) * channel_h_,
+										 w_ * 0.7, channel_h_ * 0.6});
+			}
+			painter->restore();
+
+				//Specific parts of some types of terminal
+			const auto type_{first_->type()};
+			switch (type_)
+			{
+				case ElementData::TTFuse:
+					drawFuseHolder(painter, x_, w_, length_, levels_, screw_, first_->isLed());
+					break;
+				case ElementData::TTSectional:
+					drawDisconnectKnife(painter, x_, w_, length_, levels_, screw_);
+					break;
+				case ElementData::TTTestSocket:
+					drawTestSockets(painter, x_, w_, length_, s_, levels_, screw_, fill_);
+					break;
+				default:
+					break;
+			}
+
+				//Symbol of the type (fuse, led...), at the bottom of the band
+				//A test terminal with levels have its test sockets in place of the symbol
+			const bool have_symbol_{(first_->type() != ElementData::TTGeneric || first_->isLed())
+									&& !(type_ == ElementData::TTTestSocket && levels_ > 1)};
+			const qreal tag_top_{length_ * 0.455};
+			const bool sockets_in_band_{type_ == ElementData::TTTestSocket && levels_ > 1};
+			const qreal tag_bottom_{length_ * (have_symbol_ || sockets_in_band_ ? 0.535 : 0.59)};
+			if (have_symbol_)
+			{
+				painter->save();
+					//Black on the orange knife, white on the dark band and on the fuse holder
+				painter->setPen(QPen(type_ == ElementData::TTSectional ? QColor(Qt::black) : QColor(Qt::white), 0.5));
+				Helpers::drawTypeSymbol(painter, QRectF{x_, length_ * 0.54, w_, length_ * 0.055},
+										first_->type(), first_->isLed());
+				painter->restore();
+			}
+
+				//Marker tag with the number(s) of the terminal
+			QStringList numbers_;
+			for (const auto &real_t : g_.reals) {
+				numbers_ << Helpers::terminalNumber(real_t->label());
+			}
+			const bool sectional_{first_->type() == ElementData::TTSectional};
+			const QRectF tag_{x_ + std::min(0.6 * s_, w_ * 0.12), tag_top_,
+							  w_ - 2 * std::min(0.6 * s_, w_ * 0.12), tag_bottom_ - tag_top_};
+			painter->save();
+			painter->setPen(QPen(QColor(120, 120, 120), 0.3));
+			painter->setBrush(sectional_ ? QColor(Qt::black) : QColor(Qt::white));
+			painter->drawRect(tag_);
+			painter->restore();
+			drawVerticalText(painter, tag_, numbers_.join(QStringLiteral(" / ")),
+							 sectional_ ? QColor(Qt::white) : QColor(Qt::black));
+
 		}
-		const bool sectional_{first_->type() == ElementData::TTSectional};
-		const QRectF tag_{x_ + std::min(0.6 * s_, w_ * 0.12), tag_top_,
-						  w_ - 2 * std::min(0.6 * s_, w_ * 0.12), tag_bottom_ - tag_top_};
-		painter->save();
-		painter->setPen(QPen(QColor(120, 120, 120), 0.3));
-		painter->setBrush(sectional_ ? QColor(Qt::black) : QColor(Qt::white));
-		painter->drawRect(tag_);
-		painter->restore();
-		drawVerticalText(painter, tag_, numbers_.join(QStringLiteral(" / ")),
-						 sectional_ ? QColor(Qt::white) : QColor(Qt::black));
 
 			//Clickable zones : the whole terminal for a terminal with one level,
 			//the rows of wire entries of the level (top and bottom) for a terminal with levels.
@@ -867,7 +961,9 @@ void paint(QPainter *painter,
 				const qreal y_{track > 0
 							   ? length_ * channels_top + (qBound(1, track, 4) - 0.5) * channel_h_
 							   : length_ * (channels_top + channels_bottom) / 2};
-				bridges_[bridge_->uuid()].append(BridgePoint{QPointF{x_ + w_ / 2, y_}, w_});
+					//A level is plugged in the middle of its own part
+				const qreal part_w_{w_ / levels_};
+				bridges_[bridge_->uuid()].append(BridgePoint{QPointF{x_ + part_w_ * (k + 0.5), y_}, part_w_});
 			}
 		}
 

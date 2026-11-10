@@ -180,6 +180,7 @@ QString TerminalStripLayoutPattern::drawStyleToString(DrawStyle style)
 	switch (style) {
 		case DrawStyle::RealisticPushIn : return QStringLiteral("realistic_push_in");
 		case DrawStyle::RealisticScrew  : return QStringLiteral("realistic_screw");
+		case DrawStyle::TerminalDiagram : return QStringLiteral("terminal_diagram");
 		default                         : return QStringLiteral("schematic");
 	}
 }
@@ -194,6 +195,7 @@ TerminalStripLayoutPattern::DrawStyle TerminalStripLayoutPattern::drawStyleFromS
 	if (string == QLatin1String("schematic")) return DrawStyle::Schematic;
 	if (string == QLatin1String("realistic_push_in") || string == QLatin1String("realistic")) return DrawStyle::RealisticPushIn;
 	if (string == QLatin1String("realistic_screw")) return DrawStyle::RealisticScrew;
+	if (string == QLatin1String("terminal_diagram")) return DrawStyle::TerminalDiagram;
 	return default_style;
 }
 

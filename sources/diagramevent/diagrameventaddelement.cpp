@@ -418,6 +418,8 @@ void DiagramEventAddElement::addElement()
 		//own placement (one Ctrl+Z reverts both, instead of silently
 		//leaving the counter advanced).
 	element->setUpFormula(true, undo_object);
+	if (m_prepare)
+		m_prepare(element, undo_object);
 
 	m_diagram -> undoStack().push(undo_object);
 	element->freezeNewAddedElement();
@@ -559,6 +561,9 @@ void DiagramEventAddElement::addElements(const QList<QPointF> &positions)
 
 	for (Element *element : std::as_const(added))
 		element->setUpFormula(true, undo_object);
+	if (m_prepare)
+		for (Element *element : std::as_const(added))
+			m_prepare(element, undo_object);
 	m_diagram->undoStack().push(undo_object);
 	for (Element *element : std::as_const(added))
 		element->freezeNewAddedElement();

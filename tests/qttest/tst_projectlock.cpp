@@ -103,7 +103,7 @@ class tst_projectlock : public QObject
 			QCOMPARE(o["user"].toString(), ProjectLock::thisUser());
 			QCOMPARE(o["host"].toString(), ProjectLock::thisHost());
 			QCOMPARE(static_cast<qint64>(o["pid"].toDouble()), QCoreApplication::applicationPid());
-			QVERIFY(o["app"].toString().startsWith(QStringLiteral("QElectroTech")));
+			QVERIFY(o["app"].toString().startsWith(QStringLiteral("FaseCAD")));
 			QVERIFY(QDateTime::fromString(o["since"].toString(), Qt::ISODate).isValid());
 			QVERIFY(QDateTime::fromString(o["heartbeat"].toString(), Qt::ISODate).isValid());
 			QCOMPARE(o["scope"].toArray().at(0).toObject()["kind"].toString(), QStringLiteral("project"));

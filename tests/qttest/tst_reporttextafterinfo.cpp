@@ -74,8 +74,8 @@ private slots:
 			// points at: on Windows the settings are in the registry
 			// otherwise, and the columns would count from 0
 		const QString home = m_dir.filePath(tag + QStringLiteral("-home"));
-		QVERIFY(QDir().mkpath(home + QStringLiteral("/settings/QElectroTech")));
-		QFile conf(home + QStringLiteral("/settings/QElectroTech/QElectroTech.ini"));
+		QVERIFY(QDir().mkpath(home + QStringLiteral("/settings/FaseCAD")));
+		QFile conf(home + QStringLiteral("/settings/FaseCAD/FaseCAD.ini"));
 		QVERIFY(conf.open(QIODevice::WriteOnly));
 		conf.write("[General]\nborder-columns_0=false\n");
 		conf.close();

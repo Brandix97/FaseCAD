@@ -228,8 +228,8 @@ int main(int argc, char **argv)
 {
 	QStandardPaths::setTestModeEnabled(true);
 	QApplication app(argc, argv);
-	QCoreApplication::setOrganizationName("QElectroTech");
-	QCoreApplication::setApplicationName("QElectroTech");
+	QCoreApplication::setOrganizationName("FaseCAD");
+	QCoreApplication::setApplicationName("FaseCAD");
 	QTemporaryDir home;
 	if (!home.isValid())
 		return 1;

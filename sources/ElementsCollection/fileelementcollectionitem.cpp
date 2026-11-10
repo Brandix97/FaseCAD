@@ -20,6 +20,7 @@
 
 #include "../qetapp.h"
 #include "../qeticons.h"
+#include "../branding/brandicons.h"
 #include "elementslocation.h"
 
 #include <QApplication>
@@ -163,7 +164,7 @@ QString FileElementCollectionItem::localName()
 			else if (m_path == QETApp::customElementsDirN())
 				setText(QObject::tr("User Collection"));
 			else if (m_path == macrosPath)
-				setText(QObject::tr("Macros"));
+				setText(QObject::tr("Templates"));
 			else
 				setText(QObject::tr("Unknown collection"));
 		}
@@ -462,7 +463,7 @@ void FileElementCollectionItem::setUpIcon()
 		if (macrosPath.endsWith("/")) macrosPath.remove(macrosPath.length() - 1, 1);
 
 		if (m_path == QETApp::commonElementsDirN())
-			setIcon(QIcon::fromTheme("qet"));
+			setIcon(BrandIcons::treeLogo());
 		else if (m_path == QETApp::companyElementsDirN())
 			setIcon(QIcon::fromTheme("go-company"));
 		else if (m_path == macrosPath)

@@ -93,8 +93,15 @@
 #include "textgrid.h"
 #include "shortcutmanager.h"
 #include "cablelist/cableexportdialog.h"
+#include "partsdb/partsmanagerdialog.h"
+#include "partsdb/partsbom.h"
+#include "cablelist/cablelistrows.h"
+#include "cablelist/cablemanagerdialog.h"
 #include "ui/bomexportdialog.h"
 #include "ui/conductorcolortoolbutton.h"
+#include "branding/projectextensions.h"
+#include "ui/commandtabs.h"
+#include "ui/devicespanel.h"
 #include "ui/diagrambgcolorbutton.h"
 #include "ui/duplicatelabelsdialog.h"
 #include "ui/potentialcheckdialog.h"
@@ -130,6 +137,7 @@
 #include <QGuiApplication>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QSaveFile>
 #include <QClipboard>
 #include <QPainter>
 #include <QJsonArray>
@@ -335,6 +343,9 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 	setUpMenu();
 
 	tabifyDockWidget(qdw_undo, qdw_pa);
+	tabifyDockWidget(qdw_pa, m_devices_dock);
+		//The projects stay the panel shown at start
+	qdw_pa->raise();
 
 		//By default the windows is maximised
 	setMinimumSize(QSize(500, 350));
@@ -488,6 +499,22 @@ void QETDiagramEditor::setUpUndoStack()
 	qdw_undo -> setWidget(undo_view);
 
 	addDockWidget(Qt::LeftDockWidgetArea, qdw_undo);
+
+		//The devices of the current project, by label, beside the undo
+		//list and the projects
+	m_devices_panel = new DevicesPanel(this);
+	m_devices_dock = new QDockWidget(tr("Devices", "dock title"), this);
+	m_devices_dock->setObjectName(QStringLiteral("devices_dock"));
+	m_devices_dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	m_devices_dock->setFeatures(QDockWidget::DockWidgetClosable
+				    | QDockWidget::DockWidgetMovable
+				    | QDockWidget::DockWidgetFloatable);
+	m_devices_dock->setMinimumWidth(160);
+	m_devices_dock->setWidget(m_devices_panel);
+	addDockWidget(Qt::LeftDockWidgetArea, m_devices_dock);
+	connect(&m_workspace, &QMdiArea::subWindowActivated, this, [this]() {
+		m_devices_panel->setProject(currentProject());
+	});
 }
 
 /**
@@ -1232,14 +1259,99 @@ void QETDiagramEditor::setUpActions()
 
 		//Add a cable list
 	m_add_cable_list = new QAction(QET::Icons::TableOfContent, tr("Add a cable list"), this);
+	ShortcutManager::instance().registerAction(m_add_cable_list, "diagrameditor.add_cable_list", tr("Diagram editors"), QKeySequence());
 	connect(m_add_cable_list, &QAction::triggered, this, [this]() {
 		if (this->currentDiagramView()) {
 			QetGraphicsTableFactory::createAndAddCableList(this->currentDiagramView()->diagram());
 		}
 	});
 
+		//The parts database is not a project's : the window opens even
+		//without a project
+	m_parts_manager = new QAction(QET::Icons::DocumentSpreadsheet, tr("Parts manager..."), this);
+	m_parts_manager->setStatusTip(tr("Manage the parts database: parts, technical data, accessories, images and DXF drawings"));
+	ShortcutManager::instance().registerAction(m_parts_manager, "diagrameditor.parts_manager", tr("Diagram editors"), QKeySequence());
+	connect(m_parts_manager, &QAction::triggered, this, [this]() {
+		PartsManagerDialog::showManager(this);
+	});
+
+		//Every cable of the project in one window, with its cores
+	m_cable_manager = new QAction(QET::Icons::TableOfContent, tr("Cable manager..."), this);
+	m_cable_manager->setStatusTip(tr("List every cable of the project with its cores, used or spare, and edit them"));
+	ShortcutManager::instance().registerAction(m_cable_manager, "diagrameditor.cable_manager", tr("Diagram editors"), QKeySequence());
+	connect(m_cable_manager, &QAction::triggered, this, [this]() {
+		CableManagerDialog::showFor(this->currentProject(), this);
+	});
+
+		//The cable plan: every core of every cable, used or spare
+	m_add_cable_plan = new QAction(QET::Icons::TableOfContent, tr("Add a cable plan"), this);
+	m_add_cable_plan->setStatusTip(tr("Add a table listing every core of the cables, with its colour, wire and ends"));
+	ShortcutManager::instance().registerAction(m_add_cable_plan, "diagrameditor.add_cable_plan", tr("Diagram editors"), QKeySequence());
+	connect(m_add_cable_plan, &QAction::triggered, this, [this]() {
+		if (this->currentDiagramView()) {
+			QetGraphicsTableFactory::createAndAddCablePlan(this->currentDiagramView()->diagram());
+		}
+	});
+
+	m_export_cable_plan = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export the cable plan to CSV format"), this);
+	ShortcutManager::instance().registerAction(m_export_cable_plan, "diagrameditor.export_cable_plan", tr("Diagram editors"), QKeySequence());
+	connect(m_export_cable_plan, &QAction::triggered, this, [this]() {
+		QETProject *project = this->currentProject();
+		if (!project) {
+			return;
+		}
+		const QString path = QFileDialog::getSaveFileName(
+					this, tr("Export the cable plan"),
+					QFileInfo(project->filePath()).absoluteDir()
+						.filePath(tr("cable_plan") + QStringLiteral(".csv")),
+					tr("CSV files (*.csv)"));
+		if (path.isEmpty()) {
+			return;
+		}
+		QSaveFile file(path);
+		const QByteArray csv = CableList::coresToCsv(project, CableList::defaultCoreKeys(), true);
+		if (!file.open(QIODevice::WriteOnly) || file.write(csv) != csv.size() || !file.commit()) {
+			QMessageBox::warning(this, tr("Export the cable plan"),
+					     tr("The file %1 cannot be written.").arg(QDir::toNativeSeparators(path)));
+		}
+	});
+
+		//The bill of materials of the parts the devices are made of
+	m_add_parts_bom = new QAction(QET::Icons::TableOfContent, tr("Add a bill of materials of the parts"), this);
+	m_add_parts_bom->setStatusTip(tr("Add a table listing the parts of the devices, grouped by order number, with their quantities"));
+	ShortcutManager::instance().registerAction(m_add_parts_bom, "diagrameditor.add_parts_bom", tr("Diagram editors"), QKeySequence());
+	connect(m_add_parts_bom, &QAction::triggered, this, [this]() {
+		if (this->currentDiagramView()) {
+			QetGraphicsTableFactory::createAndAddPartsBom(this->currentDiagramView()->diagram());
+		}
+	});
+
+	m_export_parts_bom = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export the bill of materials of the parts to CSV format"), this);
+	ShortcutManager::instance().registerAction(m_export_parts_bom, "diagrameditor.export_parts_bom", tr("Diagram editors"), QKeySequence());
+	connect(m_export_parts_bom, &QAction::triggered, this, [this]() {
+		QETProject *project = this->currentProject();
+		if (!project) {
+			return;
+		}
+		const QString path = QFileDialog::getSaveFileName(
+					this, tr("Export the bill of materials of the parts"),
+					QFileInfo(project->filePath()).absoluteDir()
+						.filePath(tr("bill_of_materials") + QStringLiteral(".csv")),
+					tr("CSV files (*.csv)"));
+		if (path.isEmpty()) {
+			return;
+		}
+		QSaveFile file(path);
+		const QByteArray csv = PartsBom::toCsv(project, PartsBom::defaultKeys(), true);
+		if (!file.open(QIODevice::WriteOnly) || file.write(csv) != csv.size() || !file.commit()) {
+			QMessageBox::warning(this, tr("Export the bill of materials of the parts"),
+								     tr("The file %1 cannot be written.").arg(QDir::toNativeSeparators(path)));
+		}
+	});
+
 		//Export the whole cable list to CSV, every column of the list
 	m_export_cable_list = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export the cable list to CSV format"), this);
+	ShortcutManager::instance().registerAction(m_export_cable_list, "diagrameditor.export_cable_list", tr("Diagram editors"), QKeySequence());
 	connect(m_export_cable_list, &QAction::triggered, [this]() {
 		QETProject *project = this->currentProject();
 		if (!project) {
@@ -1294,6 +1406,7 @@ void QETDiagramEditor::setUpActions()
 	// Cable numbering: the rule the project numbers its cables with, and
 	// the numbering of every cable of that project at once
 	m_cable_numbering = new QAction(QET::Icons::AutoNum, tr("Cable numbering"), this);
+	ShortcutManager::instance().registerAction(m_cable_numbering, "diagrameditor.cable_numbering", tr("Diagram editors"), QKeySequence());
 	m_cable_numbering->setStatusTip(
 		tr("Shows the cable numbering rule of the project and "
 		   "renumbers its cables with it"));
@@ -1824,6 +1937,9 @@ void QETDiagramEditor::setUpActions()
 	QAction *add_fillet    = m_add_item_actions_group.addAction(QET::Icons::DrawFillet,   tr("Add a fillet"));
 	QAction *add_terminal_strip = m_add_item_actions_group.addAction(QET::Icons::TerminalStrip, tr("Add a terminal plan"));
 	QAction *add_generic_device = m_add_item_actions_group.addAction(QET::Icons::GenericDevice, tr("Add a generic device…"));
+		//A terminal of a strip, placed with its strip, number, colour,
+		//type and cross-section
+	QAction *add_terminal = m_add_item_actions_group.addAction(QET::Icons::TerminalStrip, tr("Add terminals…"));
 		//Not an element of the drawing but a line drawn across the
 		//conductors: what it crosses becomes the cores of a cable.
 	m_add_cable		   = m_add_item_actions_group.addAction(QET::Icons::Cable,      tr("Draw a cable"));
@@ -1846,6 +1962,7 @@ void QETDiagramEditor::setUpActions()
 	add_path     ->setStatusTip(tr("Adds a Bézier curve to the current sheet"));
 	add_fillet   ->setStatusTip(tr("Rounds the corner between two lines of the current sheet"));
 	add_terminal_strip->setStatusTip(tr("Adds a terminal plan to the current sheet"));
+	add_terminal->setStatusTip(tr("Places terminals of a terminal strip, numbered one after the other"));
 	add_generic_device->setStatusTip(tr("Makes a box symbol with terminals on any side and places it on the current sheet"));
 	m_add_cable     ->setStatusTip(tr("Draws the main line of a cable: every conductor crossed becomes one of its cores"));
 	m_add_dimension_linear->setStatusTip(tr("Adds a linear dimension to the current sheet"));
@@ -1866,6 +1983,7 @@ void QETDiagramEditor::setUpActions()
 	add_fillet   ->setData(QStringLiteral("fillet"));
 	add_terminal_strip->setData(QStringLiteral("terminal_strip"));
 	add_generic_device->setData(QStringLiteral("generic_device"));
+	add_terminal->setData(QStringLiteral("terminal"));
 	m_add_cable     ->setData(QStringLiteral("cable"));
 	m_add_dimension_linear->setData(QStringLiteral("dimension_linear"));
 	m_add_dimension_chain ->setData(QStringLiteral("dimension_chain"));
@@ -2044,6 +2162,108 @@ void QETDiagramEditor::rebuildToolBars()
 			if (auto *button = qobject_cast<QToolButton *>(toolbar->widgetForAction(action)))
 				button->setPopupMode(QToolButton::MenuButtonPopup);
 	}
+	updateCommandTabs();
+}
+
+/**
+	@brief QETDiagramEditor::commandTabsAction
+	@return the action the command tabs show for @p id: a command of the
+	ShortcutManager, or one of the window's own the tabs also offer --
+	the panels (panel.*) and every menu of the menu bar (menu.all), which
+	keeps each command reachable when the menu bar is hidden.
+*/
+QAction *QETDiagramEditor::commandTabsAction(const QString &id)
+{
+	if (id == QLatin1String("panel.projects")) {
+		QAction *action = qdw_pa->toggleViewAction();
+		if (action->icon().isNull())
+			action->setIcon(QET::Icons::Projects);
+		return action;
+	}
+	if (id == QLatin1String("panel.collections")) {
+		QAction *action = m_qdw_elmt_collection->toggleViewAction();
+		if (action->icon().isNull())
+			action->setIcon(QET::Icons::Folder);
+		return action;
+	}
+	if (id == QLatin1String("panel.devices")) {
+		QAction *action = m_devices_dock->toggleViewAction();
+		if (action->icon().isNull())
+			action->setIcon(QET::Icons::ElementEdit);
+		return action;
+	}
+	if (id == QLatin1String("panel.undo")) {
+		QAction *action = qdw_undo->toggleViewAction();
+		if (action->icon().isNull())
+			action->setIcon(QET::Icons::EditUndo);
+		return action;
+	}
+	if (id == QLatin1String("menu.all")) {
+		if (!m_all_menus_action) {
+			auto *menu = new QMenu(this);
+				//Filled when it opens: the menus are made after the tabs
+			connect(menu, &QMenu::aboutToShow, this, [this, menu]() {
+				menu->clear();
+				for (QAction *top : menuBar()->actions()) {
+					if (top->menu())
+						menu->addMenu(top->menu());
+				}
+			});
+			m_all_menus_action = new QAction(QET::Icons::listDrawings, tr("Menus"), this);
+			m_all_menus_action->setMenu(menu);
+		}
+		return m_all_menus_action;
+	}
+	return ShortcutManager::instance().action(id, this);
+}
+
+/**
+	@brief QETDiagramEditor::updateCommandTabs
+	Show the commands in tabs grouped by task (CommandTabs) or in the
+	classic toolbars, as chosen in the settings (QetSettings::commandTabs()).
+	The menus stay either way, and so do the toolbars the user made. The
+	classic toolbars are hidden only when the tabs appear: the user can
+	still show one of them from the toolbars' context menu.
+*/
+void QETDiagramEditor::updateCommandTabs()
+{
+	const QList<QToolBar *> classic {main_tool_bar, view_tool_bar, diagram_tool_bar,
+					 m_add_item_tool_bar, m_depth_tool_bar};
+		//The menu bar goes only when asked, and only with the tabs: the
+		//File tab then reaches every menu
+	menuBar()->setVisible(!(QetSettings::commandTabs()
+				&& QetSettings::commandTabsHideMenuBar()));
+	if (!QetSettings::commandTabs()) {
+		if (m_command_tabs_bar) {
+			removeToolBarBreak(main_tool_bar);
+			removeToolBar(m_command_tabs_bar);
+			m_command_tabs_bar->deleteLater();
+			m_command_tabs_bar = nullptr;
+				//Back to the toolbars shown by default
+			for (QToolBar *toolbar : classic)
+				toolbar->show();
+		}
+		return;
+	}
+	if (m_command_tabs_bar)
+		return;
+
+	m_command_tabs_bar = new QToolBar(tr("Command tabs", "toolbar title"), this);
+	m_command_tabs_bar->setObjectName(QStringLiteral("command_tabs"));
+	m_command_tabs_bar->setMovable(false);
+		//Kept fixed by ToolbarSettings::applyTo() as well
+	m_command_tabs_bar->setProperty("qet_fixed_toolbar", true);
+	m_command_tabs_bar->setFloatable(false);
+	m_command_tabs_bar->toggleViewAction()->setVisible(false);
+	auto *tabs = new CommandTabs([this](const QString &id) {
+		return commandTabsAction(id);
+	}, m_command_tabs_bar);
+	tabs->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+	m_command_tabs_bar->addWidget(tabs);
+	insertToolBar(main_tool_bar, m_command_tabs_bar);
+	insertToolBarBreak(main_tool_bar);
+	for (QToolBar *toolbar : classic)
+		toolbar->hide();
 }
 
 /**
@@ -2198,6 +2418,8 @@ void QETDiagramEditor::setUpMenu()
 	menu_project -> addSeparator();
 	menu_project -> addAction(m_csv_export);
 	menu_project -> addAction(m_export_cable_list);
+	menu_project -> addAction(m_export_cable_plan);
+	menu_project -> addAction(m_export_parts_bom);
 	menu_project -> addAction(m_project_export_conductor_num);
 	menu_project -> addAction(m_project_export_wiring_list);
 	menu_project -> addAction(m_project_wiring_list_view);
@@ -2230,11 +2452,16 @@ void QETDiagramEditor::setUpMenu()
 		//project menu, the cable list's among them.
 	menu_lists -> addAction(m_add_summary);
 	menu_lists -> addAction(m_add_nomenclature);
+	menu_lists -> addAction(m_add_parts_bom);
 	menu_lists -> addSeparator();
 	menu_lists -> addAction(m_terminal_strip_dialog);
 	menu_lists -> addAction(m_project_terminalBloc);
 	menu_lists -> addSeparator();
 	menu_lists -> addAction(m_add_cable_list);
+	menu_lists -> addAction(m_add_cable_plan);
+	menu_lists -> addAction(m_cable_manager);
+	menu_lists -> addSeparator();
+	menu_lists -> addAction(m_parts_manager);
 
 	main_tool_bar         -> toggleViewAction() -> setStatusTip(tr("Display or hide the main toolbar"));
 	view_tool_bar         -> toggleViewAction() -> setStatusTip(tr("Display or hide the Display toolbar"));
@@ -2343,7 +2570,7 @@ void QETDiagramEditor::save()
 			QETApp::projectsRecentFiles() -> fileWasOpened(project_view -> project() -> filePath());
 
 			QString title = (project_view -> project() -> title ());
-			if (title.isEmpty()) title = "QElectroTech ";
+			if (title.isEmpty()) title = "FaseCAD ";
 			QString filePath = (project_view -> project() -> filePath ());
 			statusBar()-> showMessage(tr("Project %1 registered in the directory: %2.").arg(title).arg (filePath), 2000);
 			m_element_collection_widget->highlightUnusedElement();
@@ -2367,7 +2594,7 @@ void QETDiagramEditor::saveAs()
 			QETApp::projectsRecentFiles() -> fileWasOpened(project_view -> project() -> filePath());
 
 			QString title = (project_view -> project() -> title ());
-			if (title.isEmpty()) title = "QElectroTech ";
+			if (title.isEmpty()) title = "FaseCAD ";
 			QString filePath = (project_view -> project() -> filePath ());
 			statusBar()->showMessage(tr("Project %1 registered in the directory: %2.").arg(title).arg (filePath), 2000);
 			m_element_collection_widget->highlightUnusedElement();
@@ -3460,6 +3687,10 @@ void QETDiagramEditor::addItemGroupTriggered(QAction *action)
 	else if (value == QLatin1String("generic_device"))
 	{
 		currentDiagramView()->addGenericDevice();
+	}
+	else if (value == QLatin1String("terminal"))
+	{
+		currentDiagramView()->addTerminal();
 	}
 	else if (value == QLatin1String("terminal_strip"))
 	{
@@ -4583,6 +4814,19 @@ void QETDiagramEditor::readSettingsState()
 			settings.remove("diagrameditor/state");
 		}
 	}
+		//FaseCAD: the autonumbering panel is hidden the first time, and
+		//stays as the user leaves it after that (the saved state)
+	if (!settings.value(QStringLiteral("diagrameditor/autonumbering_dock_hidden_once")).toBool()) {
+		m_autonumbering_dock->hide();
+		settings.setValue(QStringLiteral("diagrameditor/autonumbering_dock_hidden_once"), true);
+	}
+		//A state saved before the tabs were chosen shows the classic
+		//toolbars again: they make way for the tabs once more
+	if (m_command_tabs_bar && !settings.value(QStringLiteral("diagrameditor/command_tabs_state_saved")).toBool()) {
+		for (QToolBar *toolbar : {main_tool_bar, view_tool_bar, diagram_tool_bar,
+					  m_add_item_tool_bar, m_depth_tool_bar})
+			toolbar->hide();
+	}
 }
 
 /**
@@ -4594,6 +4838,9 @@ void QETDiagramEditor::writeSettings()
 	QSettings settings;
 	settings.setValue("diagrameditor/geometry", saveGeometry());
 	settings.setValue("diagrameditor/state", saveState());
+		//Whether that state was saved with the tabs (readSettingsState())
+	settings.setValue(QStringLiteral("diagrameditor/command_tabs_state_saved"),
+			  m_command_tabs_bar != nullptr);
 }
 
 /**
@@ -6221,10 +6468,10 @@ void QETDiagramEditor::exportForDelivery()
 	const QFileInfo info(project->filePath());
 	QString path = QFileDialog::getSaveFileName(
 				this, tr("Export for delivery"),
-				info.dir().filePath(tr("%1 - delivery.qetdb").arg(info.completeBaseName())),
-				tr("QElectroTech project (*.qetdb)"));
+				info.dir().filePath(tr("%1 - delivery").arg(info.completeBaseName()) + ProjectExtensions::database()),
+				tr("QElectroTech project (*%1)").arg(ProjectExtensions::database()));
 	if (path.isEmpty()) return;
-	if (!QetDbFile::isDatabasePath(path)) path += QStringLiteral(".qetdb");
+	if (!QetDbFile::isDatabasePath(path)) path += ProjectExtensions::database();
 	if (QFileInfo(path).absoluteFilePath() == info.absoluteFilePath()) {
 		QMessageBox::warning(this, tr("Export for delivery"),
 							 tr("Choose another file than the project's own."));
@@ -6248,7 +6495,7 @@ void QETDiagramEditor::exportForDelivery()
 */
 bool QETDiagramEditor::openProjectRevision(QETProject *project, qint64 number)
 {
-	const QDir folder(QDir::temp().filePath(QStringLiteral("QElectroTech saves")));
+	const QDir folder(QDir::temp().filePath(QStringLiteral("FaseCAD saves")));
 	if (!folder.exists() && !QDir().mkpath(folder.path())) return false;
 	const QString path = folder.filePath(tr("%1 - save %2.qetdb")
 										 .arg(QFileInfo(project->filePath()).completeBaseName())

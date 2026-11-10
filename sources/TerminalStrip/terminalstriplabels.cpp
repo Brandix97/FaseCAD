@@ -21,9 +21,14 @@
 #include "../qetproject.h"
 #include "../qetgraphicsitem/terminalelement.h"
 #include "terminalstrip.h"
+#include "physicalterminal.h"
+#include "realterminal.h"
+#include "../terminals/faseterminal.h"
 #include "../qetgraphicsitem/terminal.h"
 
 #include <QHash>
+
+#include <algorithm>
 #include <QPointer>
 #include <QThread>
 #include <QTimer>
@@ -42,8 +47,17 @@ class Updater : public QObject
 			connect(&m_timer, &QTimer::timeout, this, [this]() {
 				TerminalStripLabels::refresh(m_diagram);
 			});
+				//The marks of the terminals alone (strip labels and
+				//bridges off): worked out once the changes stop, not at
+				//every step of a drag
+			m_quiet_timer.setSingleShot(true);
+			m_quiet_timer.setInterval(150);
+			connect(&m_quiet_timer, &QTimer::timeout, this, [this]() {
+				TerminalStripLabels::refresh(m_diagram);
+			});
 		}
 		void schedule() { m_timer.start(); }
+		void scheduleQuiet() { if (!m_timer.isActive()) m_quiet_timer.start(); }
 			/// A strip renamed or reordered changes its labels too
 		void follow(TerminalStrip *strip)
 		{
@@ -62,6 +76,7 @@ class Updater : public QObject
 	private:
 		Diagram *m_diagram;
 		QTimer m_timer;
+		QTimer m_quiet_timer;
 		QList<TerminalStrip *> m_followed;
 };
 
@@ -137,16 +152,19 @@ void TerminalStripLabels::schedule(Diagram *diagram)
 {
 	if (!diagram)
 		return;
-		//Both options off (the default): nothing is drawn, nothing to work
-		//out; switching one on works every built folio out at once
-		//(QETProject::setTerminalStripLabelsShown() and ...BridgesShown())
-	if (QETProject *project = diagram->project();
-		project && !project->terminalStripLabelsShown() && !project->terminalStripBridgesShown())
-		return;
 		//Without a running event loop (an export from the command line,
 		//a script run headless) a timer never fires: work them out now
-	if (QThread::currentThread()->loopLevel() == 0)
+	if (QThread::currentThread()->loopLevel() == 0) {
 		refresh(diagram);
+		return;
+	}
+		//Both options off: only the labels drawn as their number alone and
+		//the level marks of the terminals (FaseTerminal) follow the
+		//change, once it is over
+	QETProject *project = diagram->project();
+	if (project && !project->terminalStripLabelsShown()
+			&& !project->terminalStripBridgesShown())
+		updaterOf(diagram)->scheduleQuiet();
 	else
 		updaterOf(diagram)->schedule();
 }
@@ -184,5 +202,33 @@ void TerminalStripLabels::refresh(Diagram *diagram)
 		TerminalStrip *strip = te->parentTerminalStrip();
 		te->setStripLabel(strip && first.value(strip) == te ? text(strip) : QString());
 		te->setBridgeLine(bridges && strip ? bridgeLine(te, strip, rows.value(strip)) : QLineF());
+	}
+
+		//The terminals labelled "-XPERS:2" (FaseTerminal) name their strip
+		//once, at the first of a row: the next ones, while the terminal on
+		//their left names the same strip, show their number only. And
+		//every level of a terminal of several levels shows which one it is.
+	QList<TerminalElement *> ordered = terminals;
+	std::sort(ordered.begin(), ordered.end(), &before);
+	QString previous;
+	for (TerminalElement *te : std::as_const(ordered))
+	{
+			//The label as written: the FaseTerminal ones have no formula,
+			//and working a formula out reads the settings from the disk
+		const QString label = te->elementInformations()
+				.value(QStringLiteral("label")).toString();
+		const bool fase = label.startsWith(QLatin1Char('-'))
+				&& label.contains(QLatin1Char(':'));
+		QString name;
+		if (fase) {
+			FaseTerminal::parseLabel(label, &name, nullptr);
+		}
+		te->setNumberOnly(fase && !name.isEmpty() && name == previous);
+		previous = fase ? name : QString();
+
+		const auto real = te->realTerminal();
+		const auto physical = real ? real->physicalTerminal() : nullptr;
+		te->setLevelMark(physical ? physical->realTerminalCount() : 0,
+					   real ? real->level() : -1);
 	}
 }

@@ -17,6 +17,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "qetdbfile.h"
+#include "../branding/projectextensions.h"
 
 #include "projectdatabase.h"
 #include "qetparity.h"
@@ -1282,11 +1283,11 @@ bool windBack(Sqlite &file, qint64 ord, QString *error)
 } // namespace
 
 /**
-	@return true if @p path names a .qetdb file
+	@return true if @p path names a database project, .edrwdb or .qetdb
 */
 bool QetDbFile::isDatabasePath(const QString &path)
 {
-	return path.endsWith(QLatin1String(".qetdb"), Qt::CaseInsensitive);
+	return ProjectExtensions::isDatabase(path);
 }
 
 /**
@@ -1509,7 +1510,7 @@ static bool readCopy(const QString &path, QDomDocument *document, QString *error
 			repaired.kept_changes = true;
 			if (repair) *repair = repaired;
 			qWarning().noquote() << "QetDbFile:" << QFileInfo(path).fileName()
-								 << "opened with content that is not what QElectroTech saved, as the user chose;"
+								 << "opened with content that is not what FaseCAD saved, as the user chose;"
 									" its content check was skipped";
 			return read;
 		}

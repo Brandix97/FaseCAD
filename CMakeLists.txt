@@ -20,8 +20,8 @@ cmake_minimum_required(VERSION 3.5...4.2)
 
 project(qelectrotech
         VERSION 0.200.1
-        DESCRIPTION "QET is a CAD/CAE editor focusing on schematics drawing features."
-        HOMEPAGE_URL "https://qelectrotech.org/"
+        DESCRIPTION "FaseCAD is a CAD/CAE editor focusing on schematics drawing features."
+        HOMEPAGE_URL "https://fasecad.com/"
         LANGUAGES C CXX)
 
 include(cmake/copyright_message.cmake)
@@ -220,6 +220,9 @@ qt_add_executable(
 # files, so skip the QML import scan qt_add_executable adds for deployment,
 # which would otherwise go through the whole source tree on every build.
 set_target_properties(${PROJECT_NAME} PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
+# The program is FaseCAD: the file built is fasecad(.exe), the target keeps
+# its name for the build and the tests
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME fasecad)
 if(WIN32)
     # Our own manifest (it declares longPathAware). MSVC merges a .manifest
     # listed as a source; MinGW needs it embedded through a resource file,
@@ -233,6 +236,11 @@ if(WIN32)
         target_sources(${PROJECT_NAME} PRIVATE
                        ${CMAKE_CURRENT_BINARY_DIR}/qelectrotech-manifest.rc)
     endif()
+    # FaseCAD: the icon of the executable, shown by the file explorer
+    configure_file(${QET_DIR}/build-aux/windows/branding-icon.rc.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/branding-icon.rc @ONLY)
+    target_sources(${PROJECT_NAME} PRIVATE
+                   ${CMAKE_CURRENT_BINARY_DIR}/branding-icon.rc)
 endif()
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_objects)
 
@@ -253,8 +261,8 @@ if(APPLE)
     # string without a panel ever appearing, so File > Open and File > Save
     # as do nothing at all.
     set_target_properties(${PROJECT_NAME} PROPERTIES
-        MACOSX_BUNDLE_GUI_IDENTIFIER "org.qelectrotech.QElectroTech"
-        MACOSX_BUNDLE_BUNDLE_NAME "QElectroTech"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.fasecad.FaseCAD"
+        MACOSX_BUNDLE_BUNDLE_NAME "FaseCAD"
         MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
         MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
         MACOSX_BUNDLE_COPYRIGHT "Copyright 2006-2026 The QElectroTech Team"

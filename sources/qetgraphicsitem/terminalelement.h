@@ -24,6 +24,7 @@
 
 class QETProject;
 class QGraphicsLineItem;
+class QGraphicsPathItem;
 class QGraphicsSimpleTextItem;
 class RealTerminal;
 /**
@@ -53,6 +54,15 @@ class TerminalElement : public Element
 			/// the row, as a line in this terminal's coordinates, drawn
 			/// behind it (TerminalStripLabels); a null line takes it away
 		void setBridgeLine(const QLineF &line);
+			/// Show the label as the terminal number alone
+		void setNumberOnly(bool number_only);
+		bool showsTerminalNumberOnly() const override {return m_number_only;}
+			/// Beside the symbol, the levels of the terminal it is a level of,
+			/// stepped from level 1 on the left, its own one filled; nothing
+			/// for a terminal of one level
+		void setLevelMark(int levels, int level);
+			/// The levels the mark shows, 0 for none
+		int levelMarkLevels() const {return m_level_mark ? m_mark_levels : 0;}
 		QLineF bridgeLine() const;
 
 	protected:
@@ -64,6 +74,10 @@ class TerminalElement : public Element
 		QSharedPointer<RealTerminal> m_real_terminal;
 		QGraphicsSimpleTextItem *m_strip_label = nullptr;
 		QGraphicsLineItem *m_bridge_line = nullptr;
+		QGraphicsPathItem *m_level_mark = nullptr;
+		bool m_number_only = false;
+		int m_mark_levels = 0;
+		int m_mark_level = -1;
 };
 
 #endif // TERMINALELEMENT_H

@@ -1148,11 +1148,14 @@ def _run_qet(binary: str, args: list[str], timeout: int = 180,
                 raise ValueError(f"no such elements directory: {coll}")
         user = _user_collections()
         if coll or user:
-            cfg = home / ".config" / "QElectroTech"
-            cfg.mkdir(parents=True, exist_ok=True)
             setting = _collection_setting(coll, user.get("custom"), user.get("company"))
-            for name in ("QElectroTech.ini", "QElectroTech.conf"):
-                (cfg / name).write_text(setting, encoding="utf-8")
+            # FaseCAD keeps its settings under its own name; a build from
+            # before the rename reads the QElectroTech ones
+            for brand in ("FaseCAD", "QElectroTech"):
+                cfg = home / ".config" / brand
+                cfg.mkdir(parents=True, exist_ok=True)
+                for name in (brand + ".ini", brand + ".conf"):
+                    (cfg / name).write_text(setting, encoding="utf-8")
         if script is not None:
             script_path = sandbox / "qet-mcp-edit.js"
             script_path.write_text(script, encoding="utf-8")
@@ -3980,7 +3983,7 @@ def default_scripts_dir(os_name: str, platform: str, env, home) -> PurePath:
     """QETApp::dataDir() + "/scripts" for a given platform.
 
     dataDir() is Qt's AppDataLocation with organisation and application
-    both "QElectroTech" (main.cpp). Pure, so the Windows and macOS answers
+    both "FaseCAD" (main.cpp). Pure, so the Windows and macOS answers
     are tested on any machine.
     """
     if os_name == "nt":
@@ -3991,7 +3994,7 @@ def default_scripts_dir(os_name: str, platform: str, env, home) -> PurePath:
         base = PurePosixPath(home, "Library", "Application Support")
     else:
         base = PurePosixPath(env.get("XDG_DATA_HOME") or PurePosixPath(home, ".local", "share"))
-    return base / "QElectroTech" / "QElectroTech" / "scripts"
+    return base / "FaseCAD" / "FaseCAD" / "scripts"
 
 
 def assistant_info_file() -> Path:
@@ -6180,11 +6183,11 @@ def resolve_binary() -> Path | None:
     if install is not None:
         # The Windows build names it QElectroTech.exe; only a case-sensitive
         # file system tells the spellings apart.
-        for name in ("qelectrotech", "qelectrotech.exe", "QElectroTech.exe"):
+        for name in ("fasecad", "fasecad.exe", "qelectrotech", "qelectrotech.exe", "QElectroTech.exe"):
             cand = install[0] / name
             if cand.is_file():
                 return cand.resolve()
-    found = shutil.which("qelectrotech")
+    found = shutil.which("fasecad") or shutil.which("qelectrotech")
     return Path(found).resolve() if found else None
 
 

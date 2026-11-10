@@ -162,6 +162,7 @@ class CableCreateDialog : public QDialog
 		void buildExistingTab();
 		void buildPropertyRow();
 		void loadTypeFile();
+		void addPartsDatabaseTypes();
 		void refreshExisting();
 		void selectionChanged();
 			///Fill the name field in and remember what this window put there
@@ -211,6 +212,9 @@ class CableCreateDialog : public QDialog
 			///can only work on a line which was picked
 		QPushButton *m_edit_button = nullptr;
 		CableTypeListData m_types;
+			/// The columns of the cable type file itself, without those
+			/// the lines of the parts database add for showing
+		QStringList m_file_columns;
 
 		QLineEdit *m_existing_search = nullptr;
 		QCheckBox *m_existing_hide = nullptr;

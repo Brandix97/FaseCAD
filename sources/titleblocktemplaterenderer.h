@@ -17,6 +17,8 @@
 */
 #ifndef TITLEBLOCK_TEMPLATE_RENDERER_H
 #define TITLEBLOCK_TEMPLATE_RENDERER_H
+#include <QColor>
+#include <QFont>
 #include <QPicture>
 #include <QTransform>
 #include "diagramcontext.h"
@@ -41,11 +43,23 @@ class TitleBlockTemplateRenderer : public QObject
 		
 		int height() const;
 		void render(QPainter *, int);
+			/// Forget the recorded title block: its template changed
+		void invalidateCache();
 		void renderDxf(QRectF &, int, QString &, int,
 			       const QTransform & = QTransform());
 	
 	private:
 		const TitleBlockTemplate *m_titleblock_template;
 		DiagramContext m_context;
+			/// The title block drawn on screen, recorded once and played
+			/// on every paint until what it is drawn from changes
+		QPicture m_cache;
+		bool m_cache_valid = false;
+		const TitleBlockTemplate *m_cache_template = nullptr;
+		DiagramContext m_cache_context;
+		int m_cache_width = -1;
+		QColor m_cache_background;
+		QColor m_cache_pen;
+		QFont m_cache_font;
 };
 #endif

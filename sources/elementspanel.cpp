@@ -20,6 +20,7 @@
 #include "diagram.h"
 #include "qetapp.h"
 #include "qeticons.h"
+#include "branding/brandicons.h"
 #include "qetproject.h"
 #include "titleblock/templatescollection.h"
 #include <QApplication>
@@ -257,7 +258,7 @@ bool ElementsPanel::matchesFilter(const QTreeWidgetItem *item,
 */
 void ElementsPanel::reload()
 {
-	QIcon system_icon = QIcon::fromTheme("qet");
+	QIcon system_icon = BrandIcons::treeLogo();
 	QIcon company_icon = QET::Icons::Company;
 	QIcon user_icon = QIcon::fromTheme("go-home");
 

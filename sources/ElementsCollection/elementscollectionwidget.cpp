@@ -268,7 +268,9 @@ void ElementsCollectionWidget::setUpWidget()
 	//Setup the macros tree view
 	m_macros_tree_view = new ElementsTreeView(this);
 	m_macros_tree_view->setHeaderHidden(true);
-	m_macros_tree_view->setIconSize(QSize(50, 50));
+		//Templates show no picture of their own: the size of the
+		//folders of the other trees
+	m_macros_tree_view->setIconSize(QSize(16, 16));
 	m_macros_tree_view->setDragDropMode(QAbstractItemView::DragDrop);
 	m_macros_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
 	m_macros_tree_view->setAutoExpandDelay(500);

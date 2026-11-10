@@ -80,7 +80,7 @@ void ProjectPrintWindow::launchDialog(QETProject *project, QPrinter::OutputForma
 		if (!file_name.endsWith(".pdf")) {
 			file_name.append(".pdf");
 		}
-		printer_->setCreator(QString("QElectroTech %1").arg(QetVersion::displayedVersion()));
+		printer_->setCreator(QString("FaseCAD %1").arg(QetVersion::productVersion()));
 		printer_->setOutputFileName(file_name);
 		printer_->setOutputFormat(QPrinter::PdfFormat);
 	}

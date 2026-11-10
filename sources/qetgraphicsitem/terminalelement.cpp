@@ -23,6 +23,8 @@
 #include "../shownkinds.h"
 
 #include <QGraphicsLineItem>
+#include <QGraphicsPathItem>
+#include <QPainterPath>
 #include <QGraphicsSimpleTextItem>
 #include <QPen>
 
@@ -51,6 +53,12 @@ TerminalElement::TerminalElement(const ElementsLocation &location,
 	connect(this, &Element::yChanged, this, moved);
 	connect(this, &Element::rotationChanged, this, moved);
 	connect(this, &Element::mirrorChanged, this, moved);
+		//A new label may name another strip: the terminals of the folio
+		//show their number alone or not (TerminalStripLabels)
+	connect(this, &Element::elementInfoChange, this, [this]() {
+		if (auto *d = diagram())
+			TerminalStripLabels::schedule(d);
+	});
 }
 
 TerminalElement::~TerminalElement()
@@ -147,6 +155,73 @@ void TerminalElement::setBridgeLine(const QLineF &line)
 	}
 	if (m_bridge_line->line() != line)
 		m_bridge_line->setLine(line);
+}
+
+/**
+	@brief TerminalElement::setNumberOnly
+	Show the label as the terminal number alone, or whole again: the
+	fields of the label are drawn again when that changes.
+*/
+void TerminalElement::setNumberOnly(bool number_only)
+{
+	if (m_number_only == number_only) {
+		return;
+	}
+	m_number_only = number_only;
+	refreshLabelFields();
+}
+
+/**
+	@brief TerminalElement::setLevelMark
+	Draw, at the left of the symbol, one bar by level of the terminal this
+	one is a level of: level 1 on the left and tallest, each next one
+	shorter, the bar of this terminal's own @a level (from 0) filled.
+	@a levels below 2 takes the mark away.
+*/
+void TerminalElement::setLevelMark(int levels, int level)
+{
+	if (levels < 2) {
+		delete m_level_mark;
+		m_level_mark = nullptr;
+		m_mark_levels = 0;
+		m_mark_level = -1;
+		return;
+	}
+	if (m_level_mark && m_mark_levels == levels && m_mark_level == level) {
+		return;
+	}
+	m_mark_levels = levels;
+	m_mark_level = level;
+	if (!m_level_mark)
+	{
+		m_level_mark = new QGraphicsPathItem(this);
+		m_level_mark->setPen(QPen(Qt::black, 0.5));
+		m_level_mark->setAcceptedMouseButtons(Qt::NoButton);
+		m_level_mark->setAcceptHoverEvents(false);
+		ShownKinds::tag(m_level_mark, ShownKinds::SymbolTexts);
+	}
+	const qreal bar_w = 2.5;
+	const qreal full_h = 12;
+	QPainterPath outline, own;
+	for (int k = 0 ; k < levels ; ++k)
+	{
+		const qreal h = full_h - 2.5 * k;
+		const QRectF bar(-6 - (levels - k) * bar_w, -h / 2, bar_w, h);
+		outline.addRect(bar);
+		if (k == level) {
+			own.addRect(bar);
+		}
+	}
+	m_level_mark->setPath(outline);
+	m_level_mark->setBrush(Qt::NoBrush);
+		//The own level, filled: a second path in the same item
+	auto *fill = m_level_mark->childItems().isEmpty()
+			? new QGraphicsPathItem(m_level_mark)
+			: static_cast<QGraphicsPathItem *>(m_level_mark->childItems().first());
+	fill->setPen(Qt::NoPen);
+	fill->setBrush(Qt::black);
+	fill->setPath(own);
+	fill->setAcceptedMouseButtons(Qt::NoButton);
 }
 
 /**

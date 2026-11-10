@@ -514,7 +514,7 @@ bool QetContainer::join(const QList<QetZip::Entry> &entries, QDomDocument *proje
 
 	const QByteArray mimetype = files.value(QStringLiteral("mimetype"));
 	if (mimetype != QByteArray(MimeType) && mimetype != QByteArray(OldMimeType)
-			&& !noted(QStringLiteral("not a QElectroTech project (.qetz)")))
+			&& !noted(QStringLiteral("not a FaseCAD project (.qetz)")))
 		return false;
 	QDomDocument manifest;
 	QString manifest_error;
@@ -525,7 +525,7 @@ bool QetContainer::join(const QList<QetZip::Entry> &entries, QDomDocument *proje
 	const int min_reader = manifest.documentElement().attribute(QStringLiteral("min-reader")).toInt(&ok);
 		//A later format is not damage: refused all the same
 	if (has_manifest && (!ok || min_reader > Format)) {
-		setError(error, QStringLiteral("made by a later QElectroTech (format %1, this one reads up to %2)")
+		setError(error, QStringLiteral("made by a later FaseCAD (format %1, this one reads up to %2)")
 				 .arg(manifest.documentElement().attribute(QStringLiteral("format")))
 				 .arg(Format));
 		return false;

@@ -19,6 +19,7 @@
 
 #include "../bomexport.h"
 #include "../cable/cable.h"
+#include "../cable/cablemanager.h"
 #include "../conductorproperties.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/conductor.h"
@@ -195,6 +196,11 @@ const QStringList &CableList::defaultKeys()
 QString CableList::labelOf(const QString &key)
 {
 	for (const Column &column : allColumns()) {
+		if (column.key == key) {
+			return column.label;
+		}
+	}
+	for (const Column &column : coreColumns()) {
 		if (column.key == key) {
 			return column.label;
 		}
@@ -376,6 +382,9 @@ QVector<QMap<QString, QString>> CableList::rows(QETProject *project)
 		Cable *cable = entry.cable;
 		QMap<QString, QString> row;
 		row.insert(QStringLiteral("nr"), QString::number(++number));
+			//Not a column: tells a window listing the rows which cable a
+			//row stands for (the cable manager)
+		row.insert(QStringLiteral("uuid"), cable->uuid().toString());
 		row.insert(QStringLiteral("installation_cable"), cable->installation());
 		row.insert(QStringLiteral("location_cable"), cable->location());
 		row.insert(QStringLiteral("bmk_cable"), cable->designation());
@@ -465,4 +474,176 @@ QByteArray CableList::toCsv(QETProject *project, const QStringList &keys,
 QByteArray CableList::toCsv(QETProject *project)
 {
 	return toCsv(project, defaultKeys(), true);
+}
+
+/**
+	@brief CableList::coreColumns
+	@return every column of the cable plan, in the order they are
+	offered, drawn and exported. Their keys never meet those of
+	allColumns(), so labelOf() reads both.
+*/
+const QList<CableList::Column> &CableList::coreColumns()
+{
+	static const QList<Column> columns = {
+		{QStringLiteral("plan_cable"),  tr("Cable")},
+		{QStringLiteral("plan_type"),   tr("Cable type")},
+		{QStringLiteral("plan_core"),   tr("Core")},
+		{QStringLiteral("plan_color"),  tr("Colour")},
+		{QStringLiteral("plan_wire"),   tr("Wire")},
+		{QStringLiteral("plan_from"),   tr("From")},
+		{QStringLiteral("plan_to"),     tr("To")},
+		{QStringLiteral("plan_folio"),  tr("Sheet")},
+		{QStringLiteral("plan_state"),  tr("State")},
+	};
+	return columns;
+}
+
+/**
+	@brief CableList::defaultCoreKeys
+	@return the columns a fresh cable plan starts with: all of them
+*/
+const QStringList &CableList::defaultCoreKeys()
+{
+	static const QStringList keys = []() {
+		QStringList list;
+		for (const Column &column : coreColumns()) {
+			list << column.key;
+		}
+		return list;
+	}();
+	return keys;
+}
+
+namespace {
+
+	///"-K3:13" : the label of the piece a terminal belongs to, and the
+	///name of the terminal when it has one
+QString terminalText(Terminal *terminal)
+{
+	if (!terminal || !terminal->parentElement()) {
+		return QString();
+	}
+		//The label the cable list reads for an end, or else the one
+		//the sheet shows
+	Element *element = terminal->parentElement();
+	QString text = element->elementInformations()
+			.value(QETInformation::ELMT_LABEL).toString();
+	if (text.isEmpty()) {
+		text = element->actualLabel();
+	}
+	const QString name = terminal->name();
+	if (!name.isEmpty()) {
+		text += QLatin1Char(':') + name;
+	}
+	return text;
+}
+
+} // namespace
+
+/**
+	@brief CableList::coreRows
+	@param project the project whose cables are listed
+	@param only_cable the one cable to list, or a null uuid for all
+	@return one row per core, cable after cable in the order of rows()
+*/
+QVector<QMap<QString, QString>> CableList::coreRows(QETProject *project,
+													const QUuid &only_cable)
+{
+	QVector<QMap<QString, QString>> result;
+	if (!project) {
+		return result;
+	}
+
+	QHash<QString, Cable *> by_uuid;
+	for (Cable *cable : project->cables()) {
+		by_uuid.insert(cable->uuid().toString(), cable);
+	}
+
+	for (const QMap<QString, QString> &cable_row : rows(project))
+	{
+		Cable *cable = by_uuid.value(cable_row.value(QStringLiteral("uuid")));
+		if (!cable || (!only_cable.isNull() && cable->uuid() != only_cable)) {
+			continue;
+		}
+		for (int core = 0; core < cable->coreCount(); ++core)
+		{
+			QMap<QString, QString> row;
+			row.insert(QStringLiteral("uuid"), cable->uuid().toString());
+			row.insert(QStringLiteral("plan_cable"), cable->designation());
+			row.insert(QStringLiteral("plan_type"), cable->type());
+			row.insert(QStringLiteral("plan_core"), QString::number(core + 1));
+			row.insert(QStringLiteral("plan_color"), cable->colorOfCore(core));
+
+			Conductor *conductor = nullptr;
+			if (cable->hasCore(core)) {
+				conductor = CableManager::conductorByUuid(
+							project, cable->core(core).conductor);
+			}
+			if (conductor)
+			{
+				row.insert(QStringLiteral("plan_wire"),
+						   conductor->properties().text);
+				row.insert(QStringLiteral("plan_from"),
+						   terminalText(conductor->terminal1));
+				row.insert(QStringLiteral("plan_to"),
+						   terminalText(conductor->terminal2));
+				if (Diagram *diagram = conductor->diagram()) {
+					row.insert(QStringLiteral("plan_folio"),
+							   QString::number(project->folioIndex(diagram) + 1));
+				}
+				row.insert(QStringLiteral("plan_state"), tr("Used"));
+					//Not a column: lets a window tell used from spare
+					//without reading a translated word
+				row.insert(QStringLiteral("used"), QStringLiteral("1"));
+			}
+			else {
+				row.insert(QStringLiteral("plan_state"), tr("Spare"));
+			}
+			result.append(row);
+		}
+	}
+	return result;
+}
+
+/**
+	@brief CableList::coresToCsv
+	The cable plan as CSV bytes, in the format of toCsv()
+	@param project the project whose cables are listed
+	@param keys the columns to write, in that order; unknown keys are
+	dropped, and none at all falls back to defaultCoreKeys()
+	@param include_headers whether the line of column names is written
+	@param only_cable the one cable to write, or a null uuid for all
+*/
+QByteArray CableList::coresToCsv(QETProject *project, const QStringList &keys,
+								 bool include_headers, const QUuid &only_cable)
+{
+	QStringList kept;
+	for (const QString &key : keys)
+	{
+		if (kept.contains(key) || !defaultCoreKeys().contains(key)) {
+			continue;
+		}
+		kept << key;
+	}
+	if (kept.isEmpty()) {
+		kept = defaultCoreKeys();
+	}
+
+	QByteArray csv("\xEF\xBB\xBF");
+	if (include_headers) {
+		QStringList headers;
+		for (const QString &key : std::as_const(kept)) {
+			headers << labelOf(key);
+		}
+		csv += BomExport::csvRecord(headers);
+	}
+	for (const QMap<QString, QString> &row : coreRows(project, only_cable))
+	{
+		QStringList values;
+		for (const QString &key : std::as_const(kept)) {
+			values << row.value(key);
+		}
+		csv += BomExport::csvRecord(values);
+	}
+	return csv;
 }

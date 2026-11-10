@@ -18,10 +18,12 @@
 #include "cablequerywidget.h"
 
 #include "cablelistrows.h"
+#include "../partsdb/partsbom.h"
 
 #include "../qetapp.h"
 #include "../ui/configsaveloaderwidget.h"
 
+#include <QComboBox>
 #include <QFile>
 #include <QHBoxLayout>
 #include <QJsonDocument>
@@ -41,6 +43,76 @@
 */
 CableQueryWidget::CableQueryWidget(QWidget *parent) :
 	QWidget(parent)
+{
+	init();
+}
+
+/**
+	@brief CableQueryWidget::CableQueryWidget
+	The content tab of the dialog which puts a cable plan on a sheet:
+	the columns of the plan (one row per core), and which cable of
+	@p project it shows, all of them or one.
+	@param project
+	@param parent
+*/
+CableQueryWidget::CableQueryWidget(QETProject *project, QWidget *parent) :
+	QWidget(parent),
+	m_cable_plan(true)
+{
+	init();
+
+	auto *cable_layout = new QHBoxLayout;
+	cable_layout->addWidget(new QLabel(tr("Cable:"), this));
+	m_cable_cb = new QComboBox(this);
+	m_cable_cb->addItem(tr("All cables"), QUuid());
+	if (project) {
+		for (const QMap<QString, QString> &row : CableList::rows(project)) {
+			m_cable_cb->addItem(row.value(QStringLiteral("bmk_cable")),
+								QUuid(row.value(QStringLiteral("uuid"))));
+		}
+	}
+	cable_layout->addWidget(m_cable_cb, 1);
+	static_cast<QVBoxLayout *>(layout())->insertLayout(0, cable_layout);
+		//A plan is read core by core: it opens with every column chosen
+	setFields(CableList::defaultCoreKeys());
+}
+
+/**
+	@brief CableQueryWidget::CableQueryWidget
+	The content tab of the dialog which puts a bill of materials on a
+	sheet: its columns, one row per part.
+*/
+CableQueryWidget::CableQueryWidget(PartsBomTag, QWidget *parent) :
+	QWidget(parent),
+	m_parts_bom(true)
+{
+	init();
+	setFields(PartsBom::defaultKeys());
+}
+
+/**
+	@brief CableQueryWidget::onlyCable
+	@return the one cable a cable plan shows, null for all of them
+*/
+QUuid CableQueryWidget::onlyCable() const
+{
+	return m_cable_cb ? m_cable_cb->currentData().toUuid() : QUuid();
+}
+
+/**
+	@brief CableQueryWidget::configFile
+	@return the file the saved column sets are kept in, one for the
+	cable list and one for the cable plan
+*/
+QString CableQueryWidget::configFile() const
+{
+	return QETApp::configDir()
+			% (m_parts_bom ? QStringLiteral("/parts_bom.json")
+						  : m_cable_plan ? QStringLiteral("/cable_plan.json")
+							: QStringLiteral("/cable_list.json"));
+}
+
+void CableQueryWidget::init()
 {
 	auto *layout = new QVBoxLayout(this);
 
@@ -164,7 +236,9 @@ void CableQueryWidget::setFields(const QStringList &fields)
 */
 void CableQueryWidget::setUpItems()
 {
-	for (const CableList::Column &column : CableList::allColumns())
+	for (const CableList::Column &column : m_parts_bom
+		 ? PartsBom::columns()
+		 : m_cable_plan ? CableList::coreColumns() : CableList::allColumns())
 	{
 		auto *item = new QListWidgetItem(column.label, m_available_list);
 		item->setData(Qt::UserRole, column.key);
@@ -177,7 +251,7 @@ void CableQueryWidget::setUpItems()
 */
 void CableQueryWidget::fillSavedQuery()
 {
-	QFile file(QETApp::configDir() % QStringLiteral("/cable_list.json"));
+	QFile file(configFile());
 	if (file.open(QFile::ReadOnly))
 	{
 		QJsonDocument jsd(QJsonDocument::fromJson(file.readAll()));
@@ -264,7 +338,7 @@ void CableQueryWidget::moveFieldDown()
 */
 void CableQueryWidget::saveConfig()
 {
-	QFile file_(QETApp::configDir() % QStringLiteral("/cable_list.json"));
+	QFile file_(configFile());
 
 	if (file_.open(QFile::ReadWrite))
 	{
@@ -299,7 +373,7 @@ void CableQueryWidget::loadConfig()
 		return;
 	}
 
-	QFile file_(QETApp::configDir() % QStringLiteral("/cable_list.json"));
+	QFile file_(configFile());
 	if (!file_.open(QFile::ReadOnly)) {
 		return;
 	}

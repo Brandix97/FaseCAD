@@ -32,6 +32,7 @@
 #include "utils/qetutils.h"
 #include "utils/configprofile.h"
 #include "utils/qetsettings.h"
+#include "branding/exampletemplates.h"
 #include "dataBase/projectdatabase.h"
 #include "qetmessagebox.h"
 #include "qetproject.h"
@@ -146,6 +147,9 @@ QETApp::QETApp() :
 		std::exit(EXIT_SUCCESS);
 	}
 	initConfiguration();
+		//The example templates, in Collections > Templates from the
+		//first start on
+	ExampleTemplates::install(ExampleTemplates::resourceDir(), userMacrosDir());
 	initLanguage();
 	initIconTheme();
 	QET::Icons::initIcons();
@@ -350,6 +354,12 @@ void QETApp::setLanguage(const QString &desired_language) {
 					   << __LINE__ << __FUNCTION__ << ")";
 	}
 	qApp->installTranslator(&qetTranslator);
+
+		//Installed last, so asked first: FaseCAD in place of QElectroTech
+		//in the texts of both translators above
+	m_branding_translator.setBases({&qetTranslator, &qtTranslator});
+	qApp->removeTranslator(&m_branding_translator);
+	qApp->installTranslator(&m_branding_translator);
 
 	QString ltr_special_string = tr(
 		"LTR",
@@ -1215,6 +1225,9 @@ QStringList QETApp::handledFileExtensions()
 {
 	static QStringList ext;
 	if (!ext.count()) {
+		ext << "edrw";
+		ext << "edrwz";
+		ext << "edrwdb";
 		ext << "qet";
 		ext << "qetz";
 		ext << "qetdb";
@@ -2092,6 +2105,74 @@ void QETApp::useCustomPalette(const QColor &color) {
 }
 
 /**
+	@brief QETApp::applyTheme
+	Apply the theme chosen in the settings (QetSettings::theme()).
+
+	AsBefore gives the interface back to "Use system colors" and the
+	application color, the way they always worked. Every other theme draws
+	with the Fusion style and its tuned light or dark palette
+	(QET::Palette::fusionLight(), fusionDark()): the native Windows styles
+	ignore most of a dark palette, so a dark interface needs Fusion there.
+	A sheet left on its system color follows the palette, so it turns dark
+	with the interface.
+*/
+void QETApp::applyTheme()
+{
+	const QetSettings::Theme theme = QetSettings::theme();
+	if (theme == QetSettings::Theme::AsBefore) {
+		setBaseStyle(m_native_style_name);
+		QSettings settings;
+		if (settings.value("usesystemcolors", true).toBool()) {
+			useSystemPalette(true);
+		} else if (settings.contains("customapplicationcolor")) {
+			useCustomPalette(QColor(settings.value("customapplicationcolor").toString()));
+		} else {
+			useSystemPalette(false);
+		}
+		return;
+	}
+
+	bool system_is_dark = QET::Palette::isDark(initial_palette_);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+	if (theme == QetSettings::Theme::System) {
+		// Ask the system itself, not a scheme set by an earlier theme.
+		qApp->styleHints()->unsetColorScheme();
+		system_is_dark = qApp->styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+	}
+#endif
+	const bool dark = QetSettings::themeIsDark(theme, system_is_dark);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+	// Also darkens the title bars of the windows on Windows.
+	if (theme != QetSettings::Theme::System)
+		qApp->styleHints()->setColorScheme(dark ? Qt::ColorScheme::Dark
+		                                        : Qt::ColorScheme::Light);
+#endif
+
+	setBaseStyle(QStringLiteral("fusion"));
+	const QPalette palette = dark ? QET::Palette::fusionDark()
+	                              : QET::Palette::fusionLight();
+	qApp->setPalette(palette);
+	qApp->setStyleSheet(QString());
+	applyIconTheme(palette);
+	QET::Palette::refreshStyleSheets();
+}
+
+/**
+	@brief QETApp::setBaseStyle
+	Draw the application with the style @p name, still wrapped in QETStyle
+	(see initStyle()). Nothing happens when it is the style in use already,
+	or when this system has no such style.
+*/
+void QETApp::setBaseStyle(const QString &name)
+{
+	if (name.isEmpty()
+	    || qApp->style()->objectName().compare(name, Qt::CaseInsensitive) == 0)
+		return;
+	if (QStyle *base = QStyleFactory::create(name))
+		qApp->setStyle(new QETStyle(base));
+}
+
+/**
 	@brief QETApp::quitQET
 	Request the closing of all windows;
 	if the user accepts them, the application quits
@@ -2826,7 +2907,7 @@ void QETApp::parseArguments()
 void QETApp::initSplashScreen()
 {
 	if (non_interactive_execution_) return;
-	m_splash_screen = new QSplashScreen(QPixmap(":/ico/splash.png"));
+	m_splash_screen = new QSplashScreen(QPixmap(":/ico/branding/splash.png"));
 	m_splash_screen -> show();
 	setSplashScreenStep(tr("Loading...", "splash screen caption"));
 }
@@ -2946,6 +3027,7 @@ void QETApp::initStyle()
 		qApp->setStyle(new QETStyle(QStyleFactory::create(qApp->style()->objectName())));
 
 	initial_palette_ = qApp->palette();
+	m_native_style_name = qApp->style()->objectName();
 
 #ifdef Q_OS_MACOS
 	// main.cpp forces the Fusion style on macOS, but the palette Qt hands
@@ -2975,6 +3057,21 @@ void QETApp::initStyle()
 		useSystemPalette(false);
 	}
 
+	// A theme chosen in the settings takes over from the colors above.
+	if (QetSettings::theme() != QetSettings::Theme::AsBefore)
+		applyTheme();
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+	// "Follow the system" also follows a light/dark switch made while
+	// QElectroTech runs, on every system.
+	connect(qApp->styleHints(), &QStyleHints::colorSchemeChanged, this,
+	        [this]()
+	{
+		if (QetSettings::theme() == QetSettings::Theme::System)
+			applyTheme();
+	});
+#endif
+
 #if defined(Q_OS_MACOS) && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
 	// Setting an application palette stops Qt from following the OS
 	// light/dark switch on its own, so follow it here. The platform accent
@@ -2984,6 +3081,9 @@ void QETApp::initStyle()
 	        [this](Qt::ColorScheme scheme)
 	{
 		if (!QET::Palette::styleIsFusion(qApp->style()))
+			return;
+		// A theme handles the switch itself (see above).
+		if (QetSettings::theme() != QetSettings::Theme::AsBefore)
 			return;
 		QSettings settings;
 		// A custom color keeps its palette whatever the OS does; it also
@@ -3581,7 +3681,9 @@ void QETApp::printHelp()
 */
 void QETApp::printVersion()
 {
-	std::cout << qPrintable(QetVersion::displayedVersion()) << std::endl;
+	std::cout << "FaseCAD " << qPrintable(QetVersion::productVersion())
+			  << " (QElectroTech " << qPrintable(QetVersion::displayedVersion())
+			  << ")" << std::endl;
 }
 
 /**

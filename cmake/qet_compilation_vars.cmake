@@ -832,6 +832,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/realisticterminalstripdrawer.cpp
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/realisticterminalstripdrawer.h
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminalstripdrawerhelpers.h
+  ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminaldiagramdrawer.cpp
+  ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminaldiagramdrawer.h
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminalstripdrawer.cpp
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminalstripdrawer.h
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/properties/terminalstriplayoutpattern.cpp
@@ -1031,6 +1033,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/utils/macosxopenevent.cpp
   ${QET_DIR}/sources/utils/macosxopenevent.h
   ${QET_DIR}/sources/utils/qetsettings.cpp
+  ${QET_DIR}/sources/utils/brandmigration.cpp
+  ${QET_DIR}/sources/utils/brandmigration.h
   ${QET_DIR}/sources/utils/qetsettings.h
   ${QET_DIR}/sources/utils/qetutils.cpp
   ${QET_DIR}/sources/utils/previousversions.cpp
@@ -1045,6 +1049,44 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/materiallist/materialselectiondialog.cpp
   ${QET_DIR}/sources/materiallist/materialselectiondialog.h
 
+  ${QET_DIR}/sources/partsdb/partsdatabase.cpp
+  ${QET_DIR}/sources/partsdb/partsdatabase.h
+  ${QET_DIR}/sources/partsdb/elementpartswidget.cpp
+  ${QET_DIR}/sources/partsdb/elementpartswidget.h
+  ${QET_DIR}/sources/partsdb/partslinks.cpp
+  ${QET_DIR}/sources/partsdb/partslinks.h
+  ${QET_DIR}/sources/partsdb/partpickerdialog.cpp
+  ${QET_DIR}/sources/partsdb/partpickerdialog.h
+  ${QET_DIR}/sources/partsdb/partsmaterial.cpp
+  ${QET_DIR}/sources/partsdb/partsmaterial.h
+  ${QET_DIR}/sources/terminals/faseterminal.cpp
+  ${QET_DIR}/sources/terminals/faseterminal.h
+  ${QET_DIR}/sources/terminals/terminalsettingswidget.cpp
+  ${QET_DIR}/sources/terminals/terminalsettingswidget.h
+  ${QET_DIR}/sources/terminals/terminalpropertieswidget.cpp
+  ${QET_DIR}/sources/terminals/terminalpropertieswidget.h
+  ${QET_DIR}/sources/partsdb/partsbom.cpp
+  ${QET_DIR}/sources/partsdb/partsbom.h
+  ${QET_DIR}/sources/partsdb/partscabletypes.cpp
+  ${QET_DIR}/sources/partsdb/partscabletypes.h
+  ${QET_DIR}/sources/partsdb/partsmanagerdialog.cpp
+  ${QET_DIR}/sources/partsdb/partsmanagerdialog.h
+
+  ${QET_DIR}/sources/ui/devicespanel.cpp
+  ${QET_DIR}/sources/ui/devicespanel.h
+  ${QET_DIR}/sources/ui/commandtabs.cpp
+  ${QET_DIR}/sources/ui/commandtabs.h
+
+  ${QET_DIR}/sources/branding/brandicons.h
+  ${QET_DIR}/sources/branding/brandingtranslator.cpp
+  ${QET_DIR}/sources/branding/brandingtranslator.h
+  ${QET_DIR}/sources/branding/exampletemplates.cpp
+  ${QET_DIR}/sources/branding/exampletemplates.h
+
+  ${QET_DIR}/sources/cablelist/cablechecks.cpp
+  ${QET_DIR}/sources/cablelist/cablechecks.h
+  ${QET_DIR}/sources/cablelist/cablemanagerdialog.cpp
+  ${QET_DIR}/sources/cablelist/cablemanagerdialog.h
   ${QET_DIR}/sources/cablelist/cabletypelist.cpp
   ${QET_DIR}/sources/cablelist/cabletypelist.h
   ${QET_DIR}/sources/cablelist/cableexportdialog.cpp

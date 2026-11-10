@@ -18,6 +18,7 @@
 #include "terminalstripdrawer.h"
 #include "terminalstripdrawerhelpers.h"
 #include "realisticterminalstripdrawer.h"
+#include "terminaldiagramdrawer.h"
 
 #include <QPainter>
 #include <QPolygonF>
@@ -438,6 +439,104 @@ QVector<TargetBox> targetBoxes(const QVector<CableCell> &cells,
  * @param cells : one cell per terminal, in the drawing order
  * @param pattern
  */
+	/**
+	 * @brief drawDeviceFan
+	 * Under the end of a cable: each wire goes down to the device it
+	 * lands on, marked with its colour or number; the wires of one device
+	 * end in one box, with the pin of each wire, the label of the device
+	 * and its symbol.
+	 */
+void drawDeviceFan(QPainter *painter, const QVector<CableCell> &wires,
+				   const QVector<DiagramColumn> &devices, qreal top,
+				   qreal end_length)
+{
+	const qreal fan{qMin<qreal>(24, end_length * 0.35)};
+	const qreal box_top{top + fan};
+	const qreal box_height{qMax<qreal>(30, end_length - fan - 2)};
+	const qreal pins_height{9};
+	const qreal label_height{11};
+
+	QFont small_font{painter->font()};
+	small_font.setPixelSize(6);
+	QFont label_font{painter->font()};
+	label_font.setPixelSize(8);
+
+	auto half_gap = [&wires](int index, int neighbour) {
+		if (neighbour < 0 || neighbour >= wires.size()) {
+			return qreal(10);
+		}
+		return qMax<qreal>(3, qAbs(wires.at(index).x - wires.at(neighbour).x) / 2 - 1);
+	};
+
+	int first{0};
+	while (first < wires.size())
+	{
+		int last{first};
+		while (last + 1 < wires.size()
+			   && devices.at(last + 1).device_key == devices.at(first).device_key) {
+			++last;
+		}
+
+		for (int i = first ; i <= last ; ++i)
+		{
+			const qreal x{wires.at(i).x};
+			painter->drawLine(QPointF{x, top}, QPointF{x, box_top});
+			painter->save();
+			painter->setFont(small_font);
+			painter->drawText(QRectF{x + 1.5, box_top - 9, 30, 8},
+							  Qt::AlignLeft | Qt::AlignVCenter,
+							  wires.at(i).wire);
+			painter->restore();
+		}
+
+		const DiagramColumn &device{devices.at(first)};
+		if (!device.device_key.isEmpty())
+		{
+			const qreal left{wires.at(first).x - half_gap(first, first - 1)};
+			const qreal right{wires.at(last).x + half_gap(last, last + 1)};
+			const QRectF box{left, box_top, right - left, box_height};
+			painter->drawRect(box);
+			painter->drawLine(QPointF{left, box_top + pins_height},
+							  QPointF{right, box_top + pins_height});
+			painter->drawLine(QPointF{left, box_top + pins_height + label_height},
+							  QPointF{right, box_top + pins_height + label_height});
+			painter->save();
+			painter->setFont(small_font);
+			for (int i = first ; i <= last ; ++i)
+			{
+				painter->drawText(QRectF{wires.at(i).x - 12, box_top, 24, pins_height},
+								  Qt::AlignCenter, devices.at(i).device_pin);
+			}
+			QFont fitted{label_font};
+			while (QFontMetricsF{fitted}.horizontalAdvance(device.device_label)
+				   > box.width() - 2 && fitted.pixelSize() > 4) {
+				fitted.setPixelSize(fitted.pixelSize() - 1);
+			}
+			painter->setFont(fitted);
+			painter->drawText(QRectF{left, box_top + pins_height, box.width(), label_height},
+							  Qt::AlignCenter, device.device_label);
+			painter->restore();
+
+			const QRectF symbol_area{left + 2, box_top + pins_height + label_height + 2,
+									 box.width() - 4,
+									 box_height - pins_height - label_height - 4};
+			const QRectF source{device.device_symbol.boundingRect()};
+			if (!source.isEmpty() && symbol_area.width() > 0 && symbol_area.height() > 0)
+			{
+				const qreal scale{qMin(symbol_area.width() / source.width(),
+									   symbol_area.height() / source.height())};
+				painter->save();
+				painter->translate(symbol_area.center());
+				painter->scale(scale, scale);
+				painter->translate(-source.center());
+				painter->drawPicture(0, 0, device.device_symbol);
+				painter->restore();
+			}
+		}
+		first = last + 1;
+	}
+}
+
 void drawCables(QPainter *painter, const QVector<CableCell> &cells, const TerminalStripLayoutPattern &pattern)
 {
 	const qreal wire_length{pattern.m_cable_wire_length};
@@ -562,40 +661,54 @@ void drawCables(QPainter *painter, const QVector<CableCell> &cells, const Termin
 			//box standing in the way of another one is set lower instead,
 			//its stub drawn longer, so no box is ever written over another.
 		painter->drawLine(QPointF{min_x, bar_2_y}, QPointF{max_x, bar_2_y});
-		const qreal stub{qMin<qreal>(6, end_length)};
-		const TargetBox box{box_of.value(first)};
-		if (box.lines.isEmpty())
-		{
-			painter->drawLine(QPointF{cable_x, bar_2_y},
-							  QPointF{cable_x, bar_2_y + stub});
+		//Where its wires go is known: each one leaves the cable for the
+		//device it lands on, a box with its pins, label and symbol
+		QVector<DiagramColumn> devices;
+		bool devices_known{false};
+		for (const auto &wire : std::as_const(wires)) {
+			devices << (wire.terminal ? wire.terminal->diagramColumn()
+								  : DiagramColumn());
+			devices_known = devices_known || !devices.last().device_key.isEmpty();
 		}
-		else
-		{
-				//The stub goes down to the box, which stands lower than the
-				//end zone when another box of this strip was in its way
-			painter->drawLine(QPointF{cable_x, bar_2_y},
-							  QPointF{cable_x, box.top});
-
-				//The font of the drawing, shrunk only while the lines do not
-				//fit the height the settings leave for the box
-			const QFont box_font{boxFont(painter->font(), box.lines,
-										 end_length - stub)};
-			const QFontMetricsF box_metrics{box_font};
-			const QRectF box_rect{cable_x - box.width / 2, box.top,
-								  box.width, box.height};
-
-			painter->save();
-			painter->setFont(box_font);
-			painter->drawRect(box_rect);
-			for (auto i = 0 ; i < box.lines.size() ; ++i)
+		if (devices_known) {
+			drawDeviceFan(painter, wires, devices, bar_2_y, end_length);
+		} else {
+			const qreal stub{qMin<qreal>(6, end_length)};
+			const TargetBox box{box_of.value(first)};
+			if (box.lines.isEmpty())
 			{
-				painter->drawText(QRectF{box_rect.left() + 3,
-										  box_rect.top() + 2 + i * box_metrics.height(),
-										  box_rect.width() - 6, box_metrics.height()},
-								  Qt::AlignCenter,
-								  box.lines.at(i));
+				painter->drawLine(QPointF{cable_x, bar_2_y},
+								  QPointF{cable_x, bar_2_y + stub});
 			}
-			painter->restore();
+			else
+			{
+					//The stub goes down to the box, which stands lower than the
+					//end zone when another box of this strip was in its way
+				painter->drawLine(QPointF{cable_x, bar_2_y},
+								  QPointF{cable_x, box.top});
+
+					//The font of the drawing, shrunk only while the lines do not
+					//fit the height the settings leave for the box
+				const QFont box_font{boxFont(painter->font(), box.lines,
+											 end_length - stub)};
+				const QFontMetricsF box_metrics{box_font};
+				const QRectF box_rect{cable_x - box.width / 2, box.top,
+									  box.width, box.height};
+
+				painter->save();
+				painter->setFont(box_font);
+				painter->drawRect(box_rect);
+				for (auto i = 0 ; i < box.lines.size() ; ++i)
+				{
+					painter->drawText(QRectF{box_rect.left() + 3,
+											  box_rect.top() + 2 + i * box_metrics.height(),
+											  box_rect.width() - 6, box_metrics.height()},
+									  Qt::AlignCenter,
+									  box.lines.at(i));
+				}
+				painter->restore();
+			}
+
 		}
 
 			//The shield, linked to an ellipse around the cable
@@ -1173,8 +1286,13 @@ void TerminalStripDrawer::paint(QPainter *painter)
 		m_united_xref_text_rect = QRectF();
 		m_xref_rects.clear();
 		m_hovered_xref = hoverTerminal{};
-		Realistic::paint(painter, *m_strip, *m_pattern, m_draw_style, m_preview_draw,
-						 m_mouse_hover_pos, &m_xref_rects);
+		if (m_draw_style == TerminalStripLayoutPattern::DrawStyle::TerminalDiagram) {
+			Diagram::paint(painter, *m_strip, *m_pattern, m_preview_draw,
+						   m_mouse_hover_pos, &m_xref_rects);
+		} else {
+			Realistic::paint(painter, *m_strip, *m_pattern, m_draw_style, m_preview_draw,
+						     m_mouse_hover_pos, &m_xref_rects);
+		}
 		for (const auto &xref_rect : std::as_const(m_xref_rects))
 		{
 			m_united_xref_text_rect = m_united_xref_text_rect.isNull() ?
@@ -1606,6 +1724,9 @@ void TerminalStripDrawer::paint(QPainter *painter)
 QRectF TerminalStripDrawer::boundingRect() const
 {
 	if (m_pattern && m_draw_style != TerminalStripLayoutPattern::DrawStyle::Schematic) {
+		if (m_draw_style == TerminalStripLayoutPattern::DrawStyle::TerminalDiagram) {
+			return Diagram::boundingRect(m_strip.data(), *m_pattern);
+		}
 		return Realistic::boundingRect(m_strip.data(), *m_pattern);
 	}
 

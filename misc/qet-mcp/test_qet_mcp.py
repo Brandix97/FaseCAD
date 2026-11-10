@@ -3429,15 +3429,15 @@ class ScriptStore(unittest.TestCase):
         from pathlib import PurePosixPath, PureWindowsPath
         f = m.default_scripts_dir
         self.assertEqual(f("posix", "linux", {"XDG_DATA_HOME": "/x/share"}, "/home/u"),
-                         PurePosixPath("/x/share/QElectroTech/QElectroTech/scripts"))
+                         PurePosixPath("/x/share/FaseCAD/FaseCAD/scripts"))
         self.assertEqual(f("posix", "linux", {}, "/home/u"),
-                         PurePosixPath("/home/u/.local/share/QElectroTech/QElectroTech/scripts"))
+                         PurePosixPath("/home/u/.local/share/FaseCAD/FaseCAD/scripts"))
         self.assertEqual(f("nt", "win32", {"APPDATA": r"C:\Users\u\AppData\Roaming"}, r"C:\Users\u"),
-                         PureWindowsPath(r"C:\Users\u\AppData\Roaming\QElectroTech\QElectroTech\scripts"))
+                         PureWindowsPath(r"C:\Users\u\AppData\Roaming\FaseCAD\FaseCAD\scripts"))
         self.assertEqual(f("nt", "win32", {}, r"C:\Users\u"),
-                         PureWindowsPath(r"C:\Users\u\AppData\Roaming\QElectroTech\QElectroTech\scripts"))
+                         PureWindowsPath(r"C:\Users\u\AppData\Roaming\FaseCAD\FaseCAD\scripts"))
         self.assertEqual(f("posix", "darwin", {}, "/Users/u"),
-                         PurePosixPath("/Users/u/Library/Application Support/QElectroTech/QElectroTech/scripts"))
+                         PurePosixPath("/Users/u/Library/Application Support/FaseCAD/FaseCAD/scripts"))
         with mock.patch.dict(os.environ, {"QET_MCP_SCRIPTS_DIR": "/elsewhere"}):
             self.assertEqual(m.scripts_dir(), Path("/elsewhere"))
 
@@ -3884,7 +3884,7 @@ class AssistantInfoFile(unittest.TestCase):
         with mock.patch.dict(os.environ, {"QET_MCP_INFO_FILE": "", "XDG_DATA_HOME": "/x"}), \
                 mock.patch.object(m.os, "name", "posix"), mock.patch.object(m.sys, "platform", "linux"):
             self.assertEqual(m.assistant_info_file(),
-                             Path("/x/QElectroTech/QElectroTech/qet-assistant.json"))
+                             Path("/x/FaseCAD/FaseCAD/qet-assistant.json"))
 
 
 class Recordings(unittest.TestCase):

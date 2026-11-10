@@ -202,7 +202,7 @@ bool TerminalStrip::removeTerminal(QSharedPointer<RealTerminal> real_t)
 		return false;
 	}
 
-	if (auto bridge_ = real_t->bridge()) {
+	for (const auto &bridge_ : bridgesOf(real_t)) {
 		bridge_->removeTerminal(real_t);
 	}
 
@@ -234,7 +234,7 @@ void TerminalStrip::removeTerminals(QVector<QSharedPointer<RealTerminal>> real_t
 			continue;
 		}
 
-		if (auto bridge_ = real_t->bridge()) {
+		for (const auto &bridge_ : bridgesOf(real_t)) {
 			bridge_->removeTerminal(real_t);
 		}
 
@@ -364,7 +364,7 @@ bool TerminalStrip::removeTerminal(QSharedPointer<PhysicalTerminal> phy_t)
 	if (m_physical_terminals.removeOne(phy_t))
 	{
 		for (const auto &real_t : phy_t->realTerminals()) {
-			if (auto bridge_ = real_t->bridge()) {
+			for (const auto &bridge_ : bridgesOf(real_t)) {
 				bridge_->removeTerminal(real_t);
 			}
 		}
@@ -385,7 +385,7 @@ void TerminalStrip::removeTerminals(QVector<QSharedPointer<PhysicalTerminal> > p
 		if (m_physical_terminals.removeOne(phy_t))
 		{
 			for (const auto &real_t : phy_t->realTerminals()) {
-				if (auto bridge_ = real_t->bridge()) {
+				for (const auto &bridge_ : bridgesOf(real_t)) {
 					bridge_->removeTerminal(real_t);
 				}
 			}
@@ -696,74 +696,119 @@ bool TerminalStrip::setLevel(const QSharedPointer<RealTerminal> &real_terminal, 
  */
 bool TerminalStrip::isBridgeable(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const
 {
-	if (real_terminals.size() < 2) {
+	if (!canLieAcross(real_terminals)) {
+		return false;
+	}
+	return extendedBridge(real_terminals) || canTakeNewBar(real_terminals);
+}
+
+/**
+ * @brief TerminalStrip::canLieAcross
+ * @return true when a bar could lie across @a real_terminals : two or
+ * more terminals of this strip, at the same level, of distinct physical
+ * terminals, consecutive.
+ */
+bool TerminalStrip::canLieAcross(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const
+{
+	if (real_terminals.size() < 2 || !real_terminals.first()) {
 		return false;
 	}
 
-		// Check if first terminal belong to this strip
-	const auto first_real_terminal = real_terminals.first();
-	if (!first_real_terminal) {
-		return false;
-	}
-
-		// Get the level of the first terminal
-	const int level_ = first_real_terminal->level();
-
-		// Get the physical terminal and pos
-	auto first_physical_terminal = first_real_terminal->physicalTerminal();
-	QVector<shared_physical_terminal> physical_vector{first_physical_terminal};
-	QVector<int> pos_vector{static_cast<int>(m_physical_terminals.indexOf(first_physical_terminal))};
-
-	auto bridge_ = isBridged(first_real_terminal);
-		//bool to know at the end of this function if at least one terminal is not bridged
-	bool no_bridged = bridge_ ? false : true;
-
-			// Check for each terminals
-	for (int i=1 ; i<real_terminals.size() ; ++i)
+	const int level_ = real_terminals.first()->level();
+	QVector<shared_physical_terminal> physical_vector;
+	QVector<int> pos_vector;
+	for (const auto &real_terminal : real_terminals)
 	{
-			// If belong to this strip
-		const auto real_terminal = real_terminals.at(i);
-		if (!real_terminal) {
+		if (!real_terminal || real_terminal->level() != level_) {
 			return false;
 		}
-
-			// at the same level
-		if (level_ != real_terminal->level()) {
-			return false;
-		}
-
-			// Not to the same physical terminal of a previous checked real terminal
 		const auto physical_terminal = real_terminal->physicalTerminal();
 		if (physical_vector.contains(physical_terminal)) {
 			return false;
-		} else {
-			physical_vector.append(physical_terminal);
 		}
-
-			// Not in another bridge of a previous checked real terminal
-		const auto checked_bridge = isBridged(real_terminal);
-		if (checked_bridge)
-		{
-			if (bridge_.isNull()) {
-				bridge_ = checked_bridge;
-			} else if (checked_bridge != bridge_) {
-				return false;
-			}
-		} else {
-			no_bridged = true;
-		}
-
+		physical_vector.append(physical_terminal);
 		pos_vector.append(m_physical_terminals.indexOf(physical_terminal));
 	}
 
-		// Check if concecutive
 	const auto count_ = pos_vector.size();
 	const auto min_max = std::minmax_element(pos_vector.constBegin(), pos_vector.constEnd());
-	if ((*min_max.second - *min_max.first) + 1 != count_) {
+	return (*min_max.second - *min_max.first) + 1 == count_;
+}
+
+/**
+ * @brief TerminalStrip::extendedBridge
+ * @return the bridge that bridging @a real_terminals together makes
+ * longer: the only bridge any of them sits in, when one of them at least
+ * is in none. Null when they need a bar of their own.
+ */
+QSharedPointer<TerminalStripBridge> TerminalStrip::extendedBridge(
+		const QVector<QSharedPointer<RealTerminal>> &real_terminals) const
+{
+	QSharedPointer<TerminalStripBridge> found;
+	bool one_free = false;
+	for (const auto &real_t : real_terminals)
+	{
+		const auto list = bridgesOf(real_t);
+		if (list.isEmpty()) {
+			one_free = true;
+			continue;
+		}
+		for (const auto &bridge_ : list)
+		{
+			if (found && found != bridge_) {
+				return QSharedPointer<TerminalStripBridge>();
+			}
+			found = bridge_;
+		}
+	}
+	return one_free ? found : QSharedPointer<TerminalStripBridge>();
+}
+
+/**
+ * @brief TerminalStrip::canTakeNewBar
+ * @return true when a bar of its own may lie across @a real_terminals:
+ * none of them carries maxBridgesPerTerminal bars yet (a second bar over
+ * the same terminals is a double bridge, for the current).
+ */
+bool TerminalStrip::canTakeNewBar(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const
+{
+	if (real_terminals.isEmpty()) {
 		return false;
 	}
+	for (const auto &real_t : real_terminals) {
+		if (bridgesOf(real_t).size() >= maxBridgesPerTerminal) {
+			return false;
+		}
+	}
+	return true;
+}
 
-	return no_bridged;
+/**
+ * @brief TerminalStrip::commonBridge
+ * @return the bridge every terminal of @a real_terminals sits in, the one
+ * in the highest groove when two do; null when none joins them all.
+ */
+QSharedPointer<TerminalStripBridge> TerminalStrip::commonBridge(
+		const QVector<QSharedPointer<RealTerminal>> &real_terminals) const
+{
+	QSharedPointer<TerminalStripBridge> found;
+	if (real_terminals.isEmpty()) {
+		return found;
+	}
+	for (const auto &bridge_ : bridgesOf(real_terminals.first()))
+	{
+		bool all = true;
+		for (const auto &real_t : real_terminals) {
+			if (!bridge_->realTerminals().contains(real_t)) {
+				all = false;
+				break;
+			}
+		}
+		if (all && (!found || bridge_->track() > found->track())) {
+			found = bridge_;
+		}
+	}
+	return found;
 }
 
 /**
@@ -781,9 +826,16 @@ bool TerminalStrip::isBridgeable(QSharedPointer<TerminalStripBridge> bridge, con
 	}
 
 	auto vector_ = bridge->realTerminals();
-	vector_.append(real_terminals);
+	for (const auto &real_t : real_terminals)
+	{
+		if (vector_.contains(real_t)
+				|| bridgesOf(real_t).size() >= maxBridgesPerTerminal) {
+			return false;
+		}
+		vector_.append(real_t);
+	}
 
-	return isBridgeable(vector_);
+	return canLieAcross(vector_);
 }
 
 /**
@@ -798,7 +850,7 @@ bool TerminalStrip::setBridge(const QVector<QSharedPointer<RealTerminal>> &real_
 		return false;
 	}
 
-	auto bridge = bridgeFor(real_terminals);
+	auto bridge = extendedBridge(real_terminals);
 	if (bridge.isNull())
 	{
 		auto br_ = new TerminalStripBridge(this);
@@ -850,7 +902,7 @@ void TerminalStrip::unBridge(const QVector<QSharedPointer<RealTerminal>> &real_t
 {
 	if (canUnBridge(real_terminals))
 	{
-		auto bridge_ = isBridged(real_terminals.first());
+		auto bridge_ = commonBridge(real_terminals);
 		bridge_->removeTerminals(real_terminals);
 		emit bridgeChanged();
 	}
@@ -870,7 +922,7 @@ bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &re
 	}
 
 		//Get the bridge of first terminal
-	const auto compar_bridge = isBridged(real_terminals.first());
+	const auto compar_bridge = commonBridge(real_terminals);
 	if (compar_bridge)
 	{
 			//A bridge the drawing brought here belongs to the drawing:
@@ -884,7 +936,7 @@ bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &re
 			//If true insert the terminal in sorted_terminal QMap
 			//with for key the position of the parent physical terminal
 		for (const auto &real_t : real_terminals) {
-			if (compar_bridge != isBridged(real_t)) {
+			if (!bridgesOf(real_t).contains(compar_bridge)) {
 				return false;
 			} else {
 				sorted_terminal.insert(m_physical_terminals.indexOf(real_t->physicalTerminal()),
@@ -904,8 +956,7 @@ bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &re
 		if (previous_real_t.isNull())
 			return true;
 		else {
-			const auto previous_bridge = isBridged(previous_real_t);
-			if (compar_bridge != previous_bridge) {
+			if (!bridgesOf(previous_real_t).contains(compar_bridge)) {
 				return true;
 			}
 		}
@@ -915,8 +966,7 @@ bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &re
 		if (next_real_t.isNull()) {
 			return true;
 		} else {
-			const auto next_bridge = isBridged(next_real_t);
-			if (compar_bridge != next_bridge) {
+			if (!bridgesOf(next_real_t).contains(compar_bridge)) {
 				return true;
 			}
 		}

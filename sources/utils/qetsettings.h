@@ -88,6 +88,30 @@ namespace QetSettings
 
 	QStringList sheetBackgroundRecentColors();
 	void setSheetBackgroundRecentColors(const QStringList &colors);
+
+	/// The colours of the whole interface, Settings > General > Theme.
+	/// AsBefore leaves "Use system colors" and the application colour
+	/// in charge, exactly as they always worked: it is the default, so
+	/// nothing changes for whoever does not choose a theme.
+	enum class Theme {
+		AsBefore = 0,
+		System = 1,
+		Light = 2,
+		Dark = 3
+	};
+
+	Theme theme();
+	void setTheme(Theme theme);
+	bool themeIsDark(Theme theme, bool system_is_dark);
+
+	/// The commands of the diagram editor in tabs grouped by task
+	/// (CommandTabs) instead of the classic toolbars. Off by default.
+	bool commandTabs();
+	void setCommandTabs(bool on);
+		/// With the command tabs: the classic menu bar hidden too.
+		/// Off by default, the menus stay.
+	bool commandTabsHideMenuBar();
+	void setCommandTabsHideMenuBar(bool hide);
 }
 
 #endif // QETSETTINGS_H

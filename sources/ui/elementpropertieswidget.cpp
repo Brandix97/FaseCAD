@@ -29,6 +29,8 @@
 #include "../qeticons.h"
 #include "dynamicelementtextitemeditor.h"
 #include "elementinfowidget.h"
+#include "../partsdb/elementpartswidget.h"
+#include "../terminals/terminalpropertieswidget.h"
 #include "linksingleelementwidget.h"
 #include "masterpropertieswidget.h"
 #include "plclinkwidget.h"
@@ -44,6 +46,7 @@
 #include <QLabel>
 #include <QLocale>
 #include <QUndoStack>
+#include <QTabBar>
 #include <QVBoxLayout>
 
 namespace {
@@ -332,10 +335,18 @@ void ElementPropertiesWidget::updateUi()
 		m_general_widget = nullptr;
 	}
 
+		//The information of the element, and the parts it is made of,
+		//which the Information tab saves with it (ElementPartsWidget)
+	auto add_info_and_parts = [this]() {
+		auto *info = new ElementInfoWidget(m_element, this);
+		m_list_editor << info;
+		m_list_editor << new ElementPartsWidget(m_element, info, this);
+	};
+
 		//Create editor according to the type of element
 	switch (m_element -> linkType())	{
 		case Element::Simple:
-			m_list_editor << new ElementInfoWidget(m_element, this);
+			add_info_and_parts();
 			break;
 		case Element::Thumbnail:
 			m_list_editor << new ElementInfoWidget(m_element, this);
@@ -356,7 +367,7 @@ void ElementPropertiesWidget::updateUi()
 		}
 		case Element::Master:
 			m_list_editor << new MasterPropertiesWidget(m_element, this);
-			m_list_editor << new ElementInfoWidget(m_element, this);
+			add_info_and_parts();
 			break;
 		case Element::Slave:
 			if (m_element->elementData().m_slave_type == ElementData::PLCSlave)
@@ -365,7 +376,10 @@ void ElementPropertiesWidget::updateUi()
 				m_list_editor << new LinkSingleElementWidget(m_element, this);
 			break;
 		case Element::Terminale:
-			m_list_editor << new ElementInfoWidget(m_element, this);
+			add_info_and_parts();
+				//After the Information tab: its change is done on top of
+				//that tab's, which would otherwise write the label back
+			m_list_editor << new TerminalPropertiesWidget(m_element, this);
 			break;
 		case Element::ConductorDefinition:
 			break;
@@ -382,6 +396,13 @@ void ElementPropertiesWidget::updateUi()
 		m_tab->addTab(aepew, aepew->title());
 	}
 	addGeneralWidget();
+		//The Terminal tab is applied last but shown first
+	for (int i = 0 ; i < m_tab->count() ; ++i) {
+		if (qobject_cast<TerminalPropertiesWidget *>(m_tab->widget(i))) {
+			m_tab->tabBar()->moveTab(i, 0);
+			break;
+		}
+	}
 
 		//Go to the tab, edited at the beginning of this method
 	if (!tab_text.isEmpty())
