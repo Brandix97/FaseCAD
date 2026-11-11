@@ -46,8 +46,8 @@ class ElementsPanelWidget : public QWidget {
 		*prj_edit_prop,
 		*prj_prop_diagram,
 		*prj_add_diagram,
-		*prj_insert_diagram_above,
 		*prj_insert_diagram_below,
+		*prj_insert_cabinet_diagram,
 		*prj_del_diagram,
 		*prj_duplicate_diagram,
 		*prj_move_diagram_up,
@@ -69,6 +69,7 @@ class ElementsPanelWidget : public QWidget {
 	void requestForProject(QETProject *);
 	void requestForNewDiagram(QETProject *);
 	void requestForNewDiagramAt(QETProject *, int);
+	void requestForNewCabinetDiagramAt(QETProject *, int);
 	void requestForProjectClosing(QETProject *);
 	void requestForProjectPropertiesEdition(QETProject *);
 	void requestForDiagramPropertiesEdition(Diagram *);
@@ -91,8 +92,8 @@ class ElementsPanelWidget : public QWidget {
 	void editProjectProperties();
 	void editDiagramProperties();
 	void newDiagram();
-	void insertDiagramAbove();
 	void insertDiagramBelow();
+	void insertCabinetDiagramBelow();
 	void deleteDiagram();
 	void duplicateDiagram();
 	void moveDiagramUp();

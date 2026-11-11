@@ -281,6 +281,20 @@ add_test(NAME tst_dimensionitem COMMAND tst_dimensionitem)
 target_include_directories(tst_dimensionitem PRIVATE ${QET_DIR}/sources)
 target_link_libraries(tst_dimensionitem PRIVATE qelectrotech_objects Qt::Test)
 
+# Cabinet construction 2D: the kind and the scale of a folio, the mounting
+# plates, DIN rails and wire ducts kept in millimetres, the tool drawing them.
+add_executable(tst_cabinetfolio tst_cabinetfolio.cpp)
+add_test(NAME tst_cabinetfolio COMMAND tst_cabinetfolio)
+target_include_directories(tst_cabinetfolio PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_cabinetfolio PRIVATE qelectrotech_objects Qt::Test)
+
+# The DXF reader of cabinet construction 2D: lines, arcs, polylines, blocks
+# and units of a DXF file turned into a path in millimetres.
+add_executable(tst_dxfreader tst_dxfreader.cpp)
+add_test(NAME tst_dxfreader COMMAND tst_dxfreader)
+target_include_directories(tst_dxfreader PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_dxfreader PRIVATE qelectrotech_objects Qt::Test)
+
 # The project file of a crash-recovery file, from the URL that QElectroTech's
 # own KAutoSaveFile gives and from the one KDE's gives.
 add_executable(tst_autosavemanagedfilepath tst_autosavemanagedfilepath.cpp)
@@ -590,6 +604,10 @@ qet_add_app_test(tst_dockfold tst_dockfold.cpp)
 # View > Snap to the grid switches every snap off and on, as Ctrl held does;
 # View > Grid step sets a fine, medium or coarse step.
 qet_add_app_test(tst_gridsnap tst_gridsnap.cpp)
+
+# Cabinet construction 2D in the editor: the projects panel inserts a
+# cabinet sheet, the commands of the cabinet work on a cabinet folio only.
+qet_add_app_test(tst_cabinetcommands tst_cabinetcommands.cpp)
 
 # The docks of the right side could not be made narrower than about 310 px:
 # the Assistant's check box text never wraps, the Auto numbering fields

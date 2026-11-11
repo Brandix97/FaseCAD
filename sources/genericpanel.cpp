@@ -17,6 +17,7 @@
 */
 #include "genericpanel.h"
 
+#include "cabinet/cabinetdialogs.h"
 #include "diagram.h"
 #include "qetapp.h"
 #include "qeticons.h"
@@ -399,7 +400,11 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 			this, &GenericPanel::diagramTitleChanged);
 	}
 	
-	return(updateItem(diagram_qtwi, options, freshly_created));
+	QTreeWidgetItem *updated = updateItem(diagram_qtwi, options, freshly_created);
+		//A cabinet folio is told from a schematic at a glance
+	if (diagram -> isCabinetFolio())
+		diagram_qtwi -> setIcon(0, CabinetDialogs::folioIcon());
+	return(updated);
 }
 
 

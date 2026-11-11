@@ -433,3 +433,69 @@ layout, open).
   lazy_folios_probe.exe by hand), resave/lazysave timeouts at -j4.
 - Launchers fasecad-dev/run-partsdb.bat and run-release.bat use
   QET_SETTINGS_DIR=fasecad-dev/qet-settings (new design settings).
+
+## Cabinet construction 2D (started 2026-11-11)
+Brandon's request. Plan agreed in phases; 1-4 written on 2026-11-11
+(not committed yet), 5-6 to do.
+1. DONE Folio kind: `Diagram::FolioKind {Schematic, Cabinet}`, XML
+   attributes `folioKind="cabinet"` + `cabinetScale` on <diagram>,
+   written for a cabinet only (old files and schematic folios unchanged).
+   Scale 1:N, default 1:5; `Diagram::pixelsPerMm()` = 2/N (2 px = 1 mm of
+   sheet, as the dimensions). `QETProject::addNewCabinetDiagram(pos)`.
+   Project panel context menu on a folio: "Insert a sheet number above"
+   removed, "below" renamed "Insert a schematic sheet", new "Insert a
+   cabinet construction sheet" (inserted below). Cabinet folios have
+   their own icon (tree + tab). Dimensions on a cabinet folio show the
+   real measure (x scale).
+2-4. DONE `sources/cabinet/`: `CabinetItem` (QGraphicsItem type 1016;
+   kinds MountingPlate, DinRail, WireDuct; measures kept in mm, drawn at
+   the folio's scale; <cabinet_items><cabinet_item .../>), `CabinetSnap`
+   (5 mm grid + edges of the other parts; Ctrl = free),
+   `cabinetcommands` (ChangeCabinetItemCommand, ChangeCabinetScaleCommand),
+   `cabinetdialogs` (duct width/height, plate size, scale, edit a part on
+   double click; icons painted in code). Tool
+   `diagramevent/diagrameventaddcabinetitem`: duct/rail drawn click-click
+   (or drag), horizontal/vertical by the mouse, yellow box under the mouse
+   with the length in mm, a length can be typed + Enter; plate follows the
+   mouse and one click places it. Editor: actions add_cabinet_duct/rail/
+   plate + cabinet_scale, in a menu (`menu.cabinet`, Edit menu and the
+   Insert tab button "Cabinet construction 2D", enabled on a cabinet
+   folio only). DIN rail has no dialog (TH35-7.5; profile editable by
+   double click), as Brandon asked. Tests: `tst_cabinetfolio` (17) and
+   the app test `tst_cabinetcommands` (4; QET_CABINET_SHOT=<file.png>
+   saves a picture of a painted cabinet). Spanish texts added by hand to
+   lang/qet_es.ts (unfinished). Not checked by hand in the real window
+   yet: Brandon tries it in the debug build (run-dev.bat). In the test
+   picture the hyphen and the point of "TH35-7.5" were missing (font of
+   the offscreen platform?): look at it in the real program.
+5. TODO Cabinet device navigator (the "Navigator" placeholder on the
+   Devices tab): devices of the schematic with their reference, placed /
+   not placed, linked to the schematic element; a device without DXF is a
+   rectangle of the parts database's width x height.
+6. DONE (2026-11-11) DXF import: own reader `sources/cabinet/dxfreader`
+   (LINE, LWPOLYLINE/POLYLINE with bulges, ARC, CIRCLE, ELLIPSE, SPLINE as
+   NURBS, SOLID/TRACE, INSERT of blocks; $INSUNITS to mm; texts and
+   dimensions left out and counted). A drawing is a CabinetItem of kind
+   Drawing ("dxf_drawing", path kept in the project as <path d="M.. L..
+   C.."/>, no link to the file), placed like a plate with one click.
+   Command "Insert a DXF…" (diagrameditor.add_dxf, Insert tab next to
+   Cabinet construction 2D), on any folio: real size on a cabinet folio,
+   1:1 on a schematic. $EXTMAX of manufacturer files can be stale: do
+   not trust it. Tests: tst_dxfreader (FASECAD_DXF_SAMPLES=<folder>,
+   FASECAD_DXF_SHOTS=<folder> for pictures). His test files are in
+   C:\Users\Brandon\FaseCAD\dxf-pruebas (3 manufacturer front views,
+   AC1024, mm, entities LINE/ARC/CIRCLE/LWPOLYLINE/SPLINE/ELLIPSE).
+Snapping on a cabinet folio (2026-11-11, Brandon's request):
+`sources/cabinet/cabinetsnap`. The magnet (Diagram::gridSnap) on a cabinet
+folio catches corners and side middles of the other CabinetItems (10
+screen px), else lines up per axis with them, else whole mm (no grid);
+orange marker: square = corner, triangle = middle. Used when moving a
+part, placing a plate/DXF, both ends of a duct/rail, and the points of a
+dimension on a cabinet folio. Ctrl or magnet off = free. Rails are not
+painted under a DXF drawing (clipped), as Brandon asked.
+New files of FaseCAD carry "Copyright 2026 The FaseCAD Team / This file
+is part of FaseCAD" (Brandon asked, 2026-11-11); files from QElectroTech
+keep their header (GPL).
+Ideas offered, not done: handles to stretch a rail/duct with the mouse,
+rotate with space, plate carrying what is on it, cutting list (metres of
+duct/rail per type) into the material list, overlap warning.

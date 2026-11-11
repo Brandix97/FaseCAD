@@ -37,6 +37,7 @@ class DiagramTextItem;
 class QetGraphicsTableItem;
 class TerminalStripItem;
 class DimensionItem;
+class CabinetItem;
 
 /**
 	This class provides a container that makes the transmission of diagram content
@@ -69,8 +70,9 @@ class DiagramContent
 			Tables = 512,
 			TerminalStrip = 1024,
 			Dimensions = 2048,
-			All = 4095,
-			SelectedOnly = 4096
+			SelectedOnly = 4096,
+			CabinetItems = 8192,
+			All = 4095 | 8192
 		};
 		
 		QList<Element *> m_elements;
@@ -78,6 +80,7 @@ class DiagramContent
 		QSet<DiagramImageItem *> m_images;
 		QSet<QetShapeItem *> m_shapes;
 		QSet<DimensionItem *> m_dimensions;
+		QSet<CabinetItem *> m_cabinet_items;
 		QList<Conductor *> m_conductors_to_update;
 		QList<Conductor *> m_conductors_to_move;
 		QList<Conductor *> m_other_conductors;

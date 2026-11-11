@@ -50,6 +50,7 @@
 #include "qetgraphicsitem/independenttextitem.h"
 #include "qetgraphicsitem/qetshapeitem.h"
 #include "qetgraphicsitem/dimensionitem.h"
+#include "cabinet/cabinetitem.h"
 #include "qetgraphicsitem/terminal.h"
 #include "qetxml.h"
 #include "undocommand/addelementtextcommand.h"
@@ -1559,6 +1560,7 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 	QVector<QetGraphicsTableItem *> table_vector;
 	QVector<TerminalStripItem *> strip_vector;
 	QVector<DimensionItem *> list_dimensions;
+	QVector<CabinetItem *> list_cabinet_items;
 
 	//Ckeck graphics item to "XMLise"
 	for(QGraphicsItem *qgi : items())
@@ -1623,6 +1625,13 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 				auto dim = static_cast<DimensionItem *>(qgi);
 				if (whole_content || dim->isSelected()) {
 					list_dimensions << dim;
+				}
+				break;
+			}
+			case CabinetItem::Type: {
+				auto part = static_cast<CabinetItem *>(qgi);
+				if (whole_content || part->isSelected()) {
+					list_cabinet_items << part;
 				}
 				break;
 			}
@@ -1721,6 +1730,7 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 	appendInStackingOrder(document, dom_root, QStringLiteral("shapes"), list_shapes, stack_rank);
 	appendInStackingOrder(document, dom_root, QStringLiteral("tables"), table_vector, stack_rank);
 	appendInStackingOrder(document, dom_root, QStringLiteral("dimensions"), list_dimensions, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("cabinet_items"), list_cabinet_items, stack_rank);
 
 	if (!strip_vector.isEmpty()) {
 		dom_root.appendChild(TerminalStripItemXml::toXml(strip_vector, document));
@@ -1758,6 +1768,15 @@ void Diagram::appendValuesXml(QDomDocument &document, QDomElement &dom_root) con
 	dom_root.setAttribute(QStringLiteral("freezeNewConductor"),
 				  m_freeze_new_conductors_
 				  ? QStringLiteral("true") : QStringLiteral("false"));
+
+		//The kind of folio and its scale: written for a cabinet only, a
+		//schematic stays as every folio was written so far
+	if (isCabinetFolio()) {
+		dom_root.setAttribute(QStringLiteral("folioKind"),
+					  folioKindToString(m_folio_kind));
+		dom_root.setAttribute(QStringLiteral("cabinetScale"),
+					  QString::number(m_cabinet_scale));
+	}
 }
 
 /**
@@ -2373,6 +2392,13 @@ bool Diagram::fromXml(QDomElement &document,
 		m_freeze_new_conductors_ = root.attribute(QStringLiteral("freezeNewConductor"))
 				== QLatin1String("true");
 
+			//Load the kind of folio and the scale of a cabinet: a folio
+			//that says nothing is a schematic
+		m_folio_kind = folioKindFromString(root.attribute(QStringLiteral("folioKind")));
+		bool scale_read = false;
+		const qreal scale = root.attribute(QStringLiteral("cabinetScale")).toDouble(&scale_read);
+		m_cabinet_scale = (scale_read && scale > 0) ? scale : defaultCabinetScale;
+
 			//Load Element Folio Sequential
 		folioSequentialsFromXml(root,
 					&m_elmt_unitfolio_max,
@@ -2624,6 +2650,23 @@ bool Diagram::fromXml(QDomElement &document,
 		added_dimensions << dim;
 	}
 
+		// Load the parts of a cabinet. One this program does not know (a
+		// kind a later version added) is left out rather than misdrawn.
+	QList<CabinetItem *> added_cabinet_items;
+	for (auto part_xml : QET::findInDomElement(root,
+												QStringLiteral("cabinet_items"),
+												QStringLiteral("cabinet_item"))) {
+		CabinetItem *part = new CabinetItem();
+		if (!part->fromXml(part_xml)) {
+			delete part;
+			continue;
+		}
+		settle_uuid(part, part_xml, QStringLiteral("cabinet_item"), added_cabinet_items.size());
+		ItemGroups::setGroup(part, ItemGroups::read(part_xml));
+		addItem(part);
+		added_cabinet_items << part;
+	}
+
 		//Load tables
 	QVector<QetGraphicsTableItem *> added_tables;
 	for (const auto &dom_table : QETXML::subChild(root,
@@ -2670,6 +2713,7 @@ bool Diagram::fromXml(QDomElement &document,
 		for (const auto &strip : std::as_const(added_strips)) added_items << strip;
 		for (const auto &cable : std::as_const(added_cables)) added_items << cable;
 		for (auto dim     : std::as_const(added_dimensions )) added_items << dim;
+		for (auto part    : std::as_const(added_cabinet_items)) added_items << part;
 		for (Bridge *bridge : std::as_const(added_bridges)) {
 			for (BridgePart *part : BridgePart::allParts()) {
 				if (part && part->bridge() == bridge) {
@@ -2841,6 +2885,9 @@ bool Diagram::fromXml(QDomElement &document,
 		content_ptr -> m_dimensions	= QSet<DimensionItem *>(
 					added_dimensions.begin(),
 					added_dimensions.end());
+		content_ptr -> m_cabinet_items = QSet<CabinetItem *>(
+					added_cabinet_items.begin(),
+					added_cabinet_items.end());
 	}
 
 	adjustSceneRect();
@@ -3781,6 +3828,78 @@ void Diagram::setFreezeNewElements(bool b) {
 bool Diagram::freezeNewElements()
 {
 	return m_freeze_new_elements;
+}
+
+/**
+	@brief Diagram::setFolioKind
+	Make this folio a schematic or the construction of a cabinet. A new
+	folio is given its kind before anything is drawn on it.
+*/
+void Diagram::setFolioKind(FolioKind kind)
+{
+	if (m_folio_kind == kind) return;
+	m_folio_kind = kind;
+	queueValuesStore();
+	emit folioKindChanged();
+	update();
+}
+
+/**
+	@brief Diagram::setCabinetScale
+	Draw the cabinet of this folio at 1:@p scale. What a cabinet folio
+	holds is kept in millimetres: its items stand where they stood in
+	the cabinet, redrawn at the new scale.
+*/
+void Diagram::setCabinetScale(qreal scale)
+{
+	if (scale <= 0 || qFuzzyCompare(scale, m_cabinet_scale)) return;
+		//The parts of a folio not built yet stand where the old scale put
+		//them: they are moved with the others
+	ensureLoaded();
+	const qreal old_pixels_per_mm = pixelsPerMm();
+	m_cabinet_scale = scale;
+	const qreal ratio = pixelsPerMm() / old_pixels_per_mm;
+	if (isCabinetFolio()) {
+		for (QGraphicsItem *item : items()) {
+			if (auto *cabinet_item = qgraphicsitem_cast<CabinetItem *>(item))
+				cabinet_item->scaleChanged(ratio);
+		}
+	}
+	queueValuesStore();
+	emit cabinetScaleChanged();
+	update();
+}
+
+/**
+	@brief Diagram::drawingScale
+	@return how many millimetres of the real thing one millimetre of this
+	folio stands for: 1 on a schematic, the scale of the cabinet on a
+	cabinet folio
+*/
+qreal Diagram::drawingScale() const
+{
+	return isCabinetFolio() ? m_cabinet_scale : 1.0;
+}
+
+/**
+	@brief Diagram::pixelsPerMm
+	@return the pixels of this folio one millimetre of the real thing takes
+*/
+qreal Diagram::pixelsPerMm() const
+{
+	return pixelsPerPaperMm / drawingScale();
+}
+
+QString Diagram::folioKindToString(FolioKind kind)
+{
+	return kind == FolioKind::Cabinet ? QStringLiteral("cabinet")
+									  : QStringLiteral("schematic");
+}
+
+Diagram::FolioKind Diagram::folioKindFromString(const QString &text)
+{
+	return text == QLatin1String("cabinet") ? FolioKind::Cabinet
+											: FolioKind::Schematic;
 }
 
 /**

@@ -50,7 +50,8 @@ MoveGraphicsItemCommand::MoveGraphicsItemCommand(Diagram *diagram,
 														   | DiagramContent::Shapes
 														   | DiagramContent::ElementTextFields
 														   | DiagramContent::TerminalStrip
-														   | DiagramContent::Dimensions);
+														   | DiagramContent::Dimensions
+														   | DiagramContent::CabinetItems);
 
 	setText(QString(QObject::tr("move %1",
 								"undo caption - %1 is a sentence listing the moved content").arg(moved_content_sentence)));
@@ -111,7 +112,8 @@ void MoveGraphicsItemCommand::move(const QPointF &movement)
 									  | DiagramContent::ElementTextFields
 									  | DiagramContent::Tables
 									  | DiagramContent::TerminalStrip
-									  | DiagramContent::Dimensions))
+									  | DiagramContent::Dimensions
+									  | DiagramContent::CabinetItems))
 	{
 			//If item have a parent and the parent is in m_content,
 			//we don't apply movement because this item will be moved by his parent

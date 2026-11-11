@@ -86,6 +86,14 @@ class Diagram : public QGraphicsScene
 			Columns: display columns
 		*/
 		enum BorderOptions { EmptyBorder, TitleBlock, Columns };
+		/// What a folio is drawn for: a schematic (every folio so far),
+		/// or the construction of a cabinet, drawn to scale in millimetres
+		enum class FolioKind { Schematic, Cabinet };
+		/// Pixels of a folio for one millimetre of paper (as the
+		/// dimensions measure it)
+		static constexpr qreal pixelsPerPaperMm = 2.0;
+		/// The scale a new cabinet folio is drawn at: 1:5
+		static constexpr qreal defaultCabinetScale = 5.0;
 		/// Represents available option of Numerotation type.
 		enum NumerotationType { Conductors };
 		/// Default properties for new conductors
@@ -144,6 +152,8 @@ class Diagram : public QGraphicsScene
 		bool m_press_went_to_tool = false;   ///< the last press went to a tool
 
 		bool m_freeze_new_elements;
+		FolioKind m_folio_kind = FolioKind::Schematic;
+		qreal m_cabinet_scale = defaultCabinetScale;
 		bool m_freeze_new_conductors_;
 		QUuid m_uuid = QUuid::createUuid();
 			/// The XML of this folio's items, while they are not built yet
@@ -395,6 +405,17 @@ class Diagram : public QGraphicsScene
 		void unfreezeElements();
 		void setFreezeNewElements(bool);
 		bool freezeNewElements();
+
+		//methods related to the kind of folio and the scale of a cabinet
+		FolioKind folioKind() const {return m_folio_kind;}
+		void setFolioKind(FolioKind kind);
+		bool isCabinetFolio() const {return m_folio_kind == FolioKind::Cabinet;}
+		qreal cabinetScale() const {return m_cabinet_scale;}
+		void setCabinetScale(qreal scale);
+		qreal drawingScale() const;
+		qreal pixelsPerMm() const;
+		static QString folioKindToString(FolioKind kind);
+		static FolioKind folioKindFromString(const QString &text);
 	
 		//methods related to conductor label Update Policy
 		void freezeConductors(bool freeze);
@@ -451,6 +472,9 @@ class Diagram : public QGraphicsScene
 
 		void diagramActivated();
 		void diagramInformationChanged();
+			/// The kind of this folio or the scale of its cabinet changed
+		void folioKindChanged();
+		void cabinetScaleChanged();
 
 			/// Emitted by setItemGroup(): an item joined or left a group
 			/// without the selection changing (#1144)

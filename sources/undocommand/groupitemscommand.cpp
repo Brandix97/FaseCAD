@@ -24,6 +24,7 @@
 #include "../qetgraphicsitem/independenttextitem.h"
 #include "../qetgraphicsitem/qetshapeitem.h"
 #include "../qetgraphicsitem/dimensionitem.h"
+#include "../cabinet/cabinetitem.h"
 
 #include <QSet>
 
@@ -93,6 +94,7 @@ bool GroupItemsCommand::isGroupable(const QGraphicsItem *item)
 		case IndependentTextItem::Type:
 		case QetShapeItem::Type:
 		case DimensionItem::Type:
+		case CabinetItem::Type:
 		case DiagramImageItem::Type:
 			return true;
 		default:

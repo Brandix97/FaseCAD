@@ -933,7 +933,7 @@ void DiagramView::duplicate(const QPoint &stepOffset)
 	const int movable = DiagramContent::Elements | DiagramContent::TextFields
 					   | DiagramContent::Images | DiagramContent::Shapes
 					   | DiagramContent::Tables | DiagramContent::TerminalStrip
-					   | DiagramContent::Dimensions;
+					   | DiagramContent::Dimensions | DiagramContent::CabinetItems;
 	for (QGraphicsItem *item : pasted.items(movable))
 		item->setPos(item->pos() + offset);
 		//The new line is stamped beside the original like everything
@@ -2167,6 +2167,14 @@ bool DiagramView::event(QEvent *e) {
 		e -> type() == QEvent::ShortcutOverride &&
 		selectedItemHasFocus()
 	) {
+		e -> accept();
+		return(true);
+	}
+		//A tool that reads the keyboard (a length typed while a part of a
+		//cabinet is drawn) gets its keys before the shortcuts do
+	if (e -> type() == QEvent::ShortcutOverride && m_diagram
+		&& m_diagram -> eventInterface()
+		&& m_diagram -> eventInterface() -> wantsKey(static_cast<QKeyEvent *>(e))) {
 		e -> accept();
 		return(true);
 	}

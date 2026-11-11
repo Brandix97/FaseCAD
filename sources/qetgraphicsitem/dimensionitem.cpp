@@ -518,7 +518,10 @@ qreal DimensionItem::dimensionValueMM() const
 	qreal dx = m_p2.x() - m_p1.x();
 	qreal dy = m_p2.y() - m_p1.y();
 	qreal dist_px = std::hypot(dx, dy);
-	return dist_px / 2.0; // Strictly 2 px = 1.0 mm
+		//Strictly 2 px = 1.0 mm of the sheet. On a cabinet folio the
+		//sheet is drawn to scale: the dimension says the real measure.
+	const qreal scale = diagram() ? diagram()->drawingScale() : 1.0;
+	return dist_px / 2.0 * scale;
 }
 
 QString DimensionItem::displayText() const

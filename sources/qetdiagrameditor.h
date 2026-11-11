@@ -21,6 +21,7 @@
 #include "SearchAndReplace/ui/searchandreplacewidget.h"
 #include "dataBase/qetdbfile.h"
 #include "dataBase/workingcopyrecovery.h"
+#include "cabinet/cabinetitem.h"
 #include "diagramcontext.h"
 #include "projectlock.h"
 #include "qetmainwindow.h"
@@ -218,6 +219,10 @@ class QETDiagramEditor : public QETMainWindow
 		void editDiagramProperties(Diagram *);
 		void addDiagramToProject(QETProject *);
 		void addDiagramToProjectAt(QETProject *, int);
+		void addCabinetDiagramToProjectAt(QETProject *, int);
+		void addCabinetItemTriggered(QAction *action);
+		void changeCabinetScale();
+		bool askDxfDrawing(CabinetItem::Properties &properties);
 		void removeDiagram(Diagram *);
 		void removeDiagrams(const QList<Diagram *> &diagrams);
 		void removeDiagramFromProject();
@@ -430,6 +435,14 @@ class QETDiagramEditor : public QETMainWindow
 		*m_scripts_tool_bar  = nullptr,	///< One button per stored script
 		*m_command_tabs_bar  = nullptr;	///< The commands in tabs (CommandTabs), when chosen in the settings
 		QAction *m_all_menus_action = nullptr;	///< Every menu of the menu bar, for the File tab
+			//The construction of a cabinet: enabled on a cabinet folio only
+		QAction *m_cabinet_menu_action = nullptr;	///< The menu holding the four below
+		QAction *m_add_cabinet_duct = nullptr;	///< Draw a wire duct
+		QAction *m_add_cabinet_rail = nullptr;	///< Draw a DIN rail
+		QAction *m_add_cabinet_plate = nullptr;	///< Place a mounting plate
+		QAction *m_cabinet_scale = nullptr;	///< Change the scale of the cabinet folio
+		QActionGroup *m_cabinet_actions_group = nullptr;
+		void updateCabinetActions();
 			/// Toolbars the user added (DiagramToolbarSettings)
 		QList<QToolBar *> m_custom_tool_bars;
 			/// The toolbar buttons that are widgets, by DiagramToolbarSettings id

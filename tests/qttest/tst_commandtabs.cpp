@@ -26,8 +26,8 @@
 	  its text under its icon, a small one beside it;
 	* a command the window has no action for is left out, a group left
 	  empty is not shown, and a menu holds only the commands that exist;
-	* the placeholders of cabinet construction are always shown and never
-	  enabled;
+	* no feature still to come is shown: cabinet construction 2D is a
+	  command of the Insert tab now;
 	* the strip folds down to its titles and opens again.
 */
 
@@ -53,7 +53,7 @@ class TstCommandTabs : public QObject
 		void sizesLayTheTextOut();
 		void missingCommandsAreLeftOut();
 		void menusHoldWhatExists();
-		void placeholdersStayDisabled();
+		void noPlaceholderLeft();
 		void stripFolds();
 };
 
@@ -156,7 +156,7 @@ void TstCommandTabs::missingCommandsAreLeftOut()
 		//Opens on Home, not on File
 	QCOMPARE(tabs.currentIndex(), 1);
 
-		//Undo and redo, and the two placeholders, which need no action
+		//Undo and redo only
 	int real = 0;
 	for (CommandButton *button : tabs.findChildren<CommandButton *>()) {
 		if (button->action() == &undo || button->action() == &redo) {
@@ -191,19 +191,15 @@ void TstCommandTabs::menusHoldWhatExists()
 	QVERIFY(found);
 }
 
-void TstCommandTabs::placeholdersStayDisabled()
+void TstCommandTabs::noPlaceholderLeft()
 {
+	for (const CommandTabs::Tab &tab : CommandTabs::layout())
+		for (const CommandTabs::Group &group : tab.groups)
+			for (const CommandTabs::Command &command : group.commands)
+				QVERIFY2(!command.placeholder, qPrintable(command.id));
+		//Without the actions of the editor, nothing is left to show
 	CommandTabs tabs([](const QString &) -> QAction * {return nullptr;});
-	const QList<CommandButton *> buttons = tabs.findChildren<CommandButton *>();
-		//Insert and Devices: cabinet construction 2D, still to come
-	QCOMPARE(buttons.size(), 2);
-	for (CommandButton *button : buttons) {
-		QVERIFY(!button->isEnabled());
-		QVERIFY(!button->action()->isEnabled());
-		QVERIFY(!button->icon().isNull());
-		button->action()->setEnabled(true);
-		button->action()->setEnabled(false);
-	}
+	QVERIFY(tabs.findChildren<CommandButton *>().isEmpty());
 }
 
 void TstCommandTabs::stripFolds()

@@ -29,6 +29,7 @@
 #include "qetgraphicsitem/elementtextitemgroup.h"
 #include "qetgraphicsitem/independenttextitem.h"
 #include "qetgraphicsitem/qetshapeitem.h"
+#include "cabinet/cabinetitem.h"
 #include "qetinformation.h"
 #include "qgimanager.h"
 
@@ -56,7 +57,7 @@ PasteDiagramCommand::PasteDiagramCommand( Diagram *dia, const DiagramContent &c,
 	QUndoCommand(parent),
 	content(c),
 	diagram(dia),
-	filter(DiagramContent::Elements|DiagramContent::TextFields|DiagramContent::Images|DiagramContent::ConductorsToMove | DiagramContent::Shapes | DiagramContent::Dimensions),
+	filter(DiagramContent::Elements|DiagramContent::TextFields|DiagramContent::Images|DiagramContent::ConductorsToMove | DiagramContent::Shapes | DiagramContent::Dimensions | DiagramContent::CabinetItems),
 	first_redo(true)
 {
 	setText(QObject::tr("paste %1", "undo caption - %1 is a sentence listing the content to paste").arg(content.sentence(filter)));
@@ -148,6 +149,9 @@ void PasteDiagramCommand::redo()
 		}
 		for (QetShapeItem *s : std::as_const(content.m_shapes)) {
 			s -> newUuid();
+		}
+		for (CabinetItem *part : std::as_const(content.m_cabinet_items)) {
+			part -> newUuid();
 		}
 
 		//this is the first paste, we do some actions for the new element

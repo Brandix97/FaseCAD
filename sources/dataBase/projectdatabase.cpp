@@ -8543,6 +8543,7 @@ QStringList projectDataBase::foreignChildren(const QDomElement &parent, bool fol
 		QStringLiteral("defaultconductor"), QStringLiteral("elements"), QStringLiteral("conductors"),
 		QStringLiteral("inputs"), QStringLiteral("images"), QStringLiteral("shapes"),
 		QStringLiteral("tables"), QStringLiteral("dimensions"), QStringLiteral("properties"),
+		QStringLiteral("cabinet_items"),
 		QStringLiteral("terminal_strip_items"),
 		QStringLiteral("elementautonumfoliosequentials"),
 		QStringLiteral("conductorautonumfoliosequentials"),

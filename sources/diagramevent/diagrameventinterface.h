@@ -58,6 +58,9 @@ class DiagramEventInterface : public QObject
 		virtual void keyPressEvent         (QKeyEvent *event);
 		virtual void keyReleaseEvent       (QKeyEvent *event);
 		virtual bool isRunning () const;
+			/// Whether this tool takes @p event itself (a number typed
+			/// while it draws), before the shortcuts of the window do
+		virtual bool wantsKey (const QKeyEvent *event) const;
 		virtual void init();
 
 	signals:

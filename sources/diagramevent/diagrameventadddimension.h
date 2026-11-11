@@ -51,6 +51,7 @@ public:
 
 private:
 	void updateStatusHint();
+	QPointF snapped(const QPointF &scene_pos);
 	void commitCurrentDimension();
 	void finishChain();
 	void abortTool();

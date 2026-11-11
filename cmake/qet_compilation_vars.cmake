@@ -438,6 +438,18 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/diagramevent/diagrameventaddshape.h
   ${QET_DIR}/sources/diagramevent/diagrameventadddimension.cpp
   ${QET_DIR}/sources/diagramevent/diagrameventadddimension.h
+  ${QET_DIR}/sources/diagramevent/diagrameventaddcabinetitem.cpp
+  ${QET_DIR}/sources/diagramevent/diagrameventaddcabinetitem.h
+  ${QET_DIR}/sources/cabinet/cabinetitem.cpp
+  ${QET_DIR}/sources/cabinet/cabinetitem.h
+  ${QET_DIR}/sources/cabinet/cabinetcommands.cpp
+  ${QET_DIR}/sources/cabinet/cabinetcommands.h
+  ${QET_DIR}/sources/cabinet/cabinetdialogs.cpp
+  ${QET_DIR}/sources/cabinet/cabinetdialogs.h
+  ${QET_DIR}/sources/cabinet/cabinetsnap.cpp
+  ${QET_DIR}/sources/cabinet/cabinetsnap.h
+  ${QET_DIR}/sources/cabinet/dxfreader.cpp
+  ${QET_DIR}/sources/cabinet/dxfreader.h
   ${QET_DIR}/sources/diagramevent/diagrameventfillet.cpp
   ${QET_DIR}/sources/diagramevent/diagrameventfillet.h
   ${QET_DIR}/sources/diagramevent/diagrameventaddpath.cpp

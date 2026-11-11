@@ -21,6 +21,7 @@
 
 #include "ElementsCollection/xmlelementcollection.h"
 #include "autoNum/assignvariables.h"
+#include "cabinet/cabinetdialogs.h"
 #include "diagram.h"
 #include "diagramview.h"
 #include "editor/ui/qetelementeditor.h"
@@ -1113,7 +1114,10 @@ void ProjectView::loadDiagrams()
 		dv->setFrameStyle(QFrame::Plain | QFrame::NoFrame);
 
 		auto index = m_project->folioIndex(diagram);
-		m_tab->insertTab(index, dv, QET::Icons::Diagram, dv->title());
+		m_tab->insertTab(index, dv,
+						 diagram->isCabinetFolio() ? CabinetDialogs::folioIcon()
+												   : QET::Icons::Diagram,
+						 dv->title());
 		m_diagram_view_list.insert(index, dv);
 
 		connect(dv, &DiagramView::showDiagram,         this, QOverload<Diagram*>::of(&ProjectView::showDiagram));
@@ -1169,7 +1173,10 @@ void ProjectView::diagramAdded(Diagram *diagram)
 {
 	auto dv = new DiagramView(diagram);
 	auto index = m_project->folioIndex(diagram);
-	m_tab->insertTab(index, dv, QET::Icons::Diagram, dv->title());
+	m_tab->insertTab(index, dv,
+					 diagram->isCabinetFolio() ? CabinetDialogs::folioIcon()
+											   : QET::Icons::Diagram,
+					 dv->title());
 	dv->setFrameStyle(QFrame::Plain | QFrame::NoFrame);
 
 	m_diagram_view_list.insert(index, dv);

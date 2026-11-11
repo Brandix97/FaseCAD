@@ -77,5 +77,11 @@ bool DiagramEventInterface::isRunning() const
 	return m_running;
 }
 
+bool DiagramEventInterface::wantsKey(const QKeyEvent *event) const
+{
+	Q_UNUSED(event)
+	return false;
+}
+
 void DiagramEventInterface::init()
 {}

@@ -17,6 +17,7 @@
 */
 #include "elementspanelwidget.h"
 #include "autoNum/elementautonumschemecommand.h"
+#include "cabinet/cabinetdialogs.h"
 #include "diagram.h"
 #include "qetgraphicsitem/conductor.h"
 #include "editor/ui/qetelementeditor.h"
@@ -69,8 +70,8 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Project properties"),          this);
 	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Sheet properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,              tr("Add a sheet"),                this);
-	prj_insert_diagram_above = new QAction(QET::Icons::DiagramAdd,              tr("Insert a sheet number above"),      this);
-	prj_insert_diagram_below = new QAction(QET::Icons::DiagramAdd,              tr("Insert a sheet number below"),     this);
+	prj_insert_diagram_below = new QAction(QET::Icons::DiagramAdd,              tr("Insert a schematic sheet"),     this);
+	prj_insert_cabinet_diagram = new QAction(CabinetDialogs::folioIcon(),       tr("Insert a cabinet construction sheet"), this);
 	prj_duplicate_diagram   = new QAction(QET::Icons::IC_CopyFile,              tr("Copy and paste"),               this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this sheet"),              this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this sheet up"),               this);
@@ -111,8 +112,8 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	connect(prj_edit_prop, &QAction::triggered, this, &ElementsPanelWidget::editProjectProperties);
 	connect(prj_prop_diagram, &QAction::triggered, this, &ElementsPanelWidget::editDiagramProperties);
 	connect(prj_add_diagram, &QAction::triggered, this, &ElementsPanelWidget::newDiagram);
-	connect(prj_insert_diagram_above, &QAction::triggered, this, &ElementsPanelWidget::insertDiagramAbove);
 	connect(prj_insert_diagram_below, &QAction::triggered, this, &ElementsPanelWidget::insertDiagramBelow);
+	connect(prj_insert_cabinet_diagram, &QAction::triggered, this, &ElementsPanelWidget::insertCabinetDiagramBelow);
 	connect(prj_del_diagram, &QAction::triggered, this, &ElementsPanelWidget::deleteDiagram);
 	connect(prj_duplicate_diagram, &QAction::triggered, this, &ElementsPanelWidget::duplicateDiagram);
 	connect(prj_move_diagram_up, &QAction::triggered, this, &ElementsPanelWidget::moveDiagramUp);
@@ -256,19 +257,6 @@ void ElementsPanelWidget::newDiagram()
 }
 
 /**
-	@brief ElementsPanelWidget::insertDiagramAbove
-	Emit requestForNewDiagramAt with the position of the currently
-	selected diagram, inserting the new folio right before it.
-*/
-void ElementsPanelWidget::insertDiagramAbove()
-{
-	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
-		QETProject *project = selected_diagram->project();
-		emit(requestForNewDiagramAt(project, project->folioIndex(selected_diagram)));
-	}
-}
-
-/**
 	@brief ElementsPanelWidget::insertDiagramBelow
 	Emit requestForNewDiagramAt with the position right after the
 	currently selected diagram, inserting the new folio right after it.
@@ -278,6 +266,20 @@ void ElementsPanelWidget::insertDiagramBelow()
 	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
 		QETProject *project = selected_diagram->project();
 		emit(requestForNewDiagramAt(project, project->folioIndex(selected_diagram) + 1));
+	}
+}
+
+/**
+	@brief ElementsPanelWidget::insertCabinetDiagramBelow
+	Emit requestForNewCabinetDiagramAt with the position right after the
+	currently selected diagram: a folio for the construction of a cabinet
+	is inserted right after it.
+*/
+void ElementsPanelWidget::insertCabinetDiagramBelow()
+{
+	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
+		QETProject *project = selected_diagram->project();
+		emit(requestForNewCabinetDiagramAt(project, project->folioIndex(selected_diagram) + 1));
 	}
 }
 
@@ -489,8 +491,8 @@ void ElementsPanelWidget::updateButtons()
 
 			prj_del_diagram           -> setEnabled(is_writable);
 			prj_duplicate_diagram     -> setEnabled(is_writable);
-			prj_insert_diagram_above -> setEnabled(is_writable);
 			prj_insert_diagram_below -> setEnabled(is_writable);
+			prj_insert_cabinet_diagram -> setEnabled(is_writable);
 			prj_move_diagram_up        -> setEnabled(is_writable && min_position > 0);
 			prj_move_diagram_down     -> setEnabled(is_writable && max_position < project_diagrams_count - 1);
 			prj_move_diagram_top      -> setEnabled(is_writable && min_position > 0);
@@ -544,8 +546,8 @@ void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 			break;
 		case QET::Diagram:
 			context_menu -> addAction(prj_prop_diagram);
-			context_menu -> addAction(prj_insert_diagram_above);
 			context_menu -> addAction(prj_insert_diagram_below);
+			context_menu -> addAction(prj_insert_cabinet_diagram);
 			context_menu -> addAction(prj_del_diagram);
 			context_menu -> addAction(prj_duplicate_diagram);
 			context_menu -> addAction(prj_move_diagram_top);

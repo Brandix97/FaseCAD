@@ -17,6 +17,7 @@
 */
 #include "diagrameventadddimension.h"
 
+#include "../cabinet/cabinetsnap.h"
 #include "../diagram.h"
 #include "../qetapp.h"
 #include "../qetdiagrameditor.h"
@@ -58,6 +59,7 @@ DiagramEventAddDimension::~DiagramEventAddDimension()
 	}
 
 	if (m_diagram) {
+		CabinetSnap::hideMarker(m_diagram);
 		for (auto *view : m_diagram->views()) {
 			view->viewport()->unsetCursor();
 			view->viewport()->update();
@@ -143,7 +145,7 @@ void DiagramEventAddDimension::mousePressEvent(QGraphicsSceneMouseEvent *event)
 		return;
 	}
 
-	QPointF pos = Diagram::snapToGrid(event->scenePos());
+	QPointF pos = snapped(event->scenePos());
 
 	switch (m_state) {
 		case WaitingForP1: {
@@ -240,9 +242,26 @@ void DiagramEventAddDimension::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	}
 }
 
+/**
+	@brief DiagramEventAddDimension::snapped
+	@return where a point of the dimension goes: on the grid of a
+	schematic folio; on a cabinet folio, onto the corners and the middles
+	of the parts of the cabinet, shown by a marker
+*/
+QPointF DiagramEventAddDimension::snapped(const QPointF &scene_pos)
+{
+	if (m_diagram && m_diagram->isCabinetFolio()) {
+		const CabinetSnap::Snap snap = CabinetSnap::point(scene_pos, m_diagram);
+		CabinetSnap::showMarker(m_diagram, snap);
+		return snap.value;
+	}
+	return Diagram::snapToGrid(scene_pos);
+}
+
 void DiagramEventAddDimension::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-	QPointF pos = Diagram::snapToGrid(event->scenePos());
+	QPointF pos = (m_state == WaitingForOffset) ? Diagram::snapToGrid(event->scenePos())
+												: snapped(event->scenePos());
 
 	switch (m_state) {
 		case WaitingForP1:

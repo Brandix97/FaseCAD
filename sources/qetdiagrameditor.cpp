@@ -57,6 +57,10 @@
 #endif
 #include "diagramevent/diagrameventaddshape.h"
 #include "diagramevent/diagrameventadddimension.h"
+#include "diagramevent/diagrameventaddcabinetitem.h"
+#include "cabinet/cabinetcommands.h"
+#include "cabinet/cabinetdialogs.h"
+#include "cabinet/dxfreader.h"
 #include "diagramevent/diagrameventaddpath.h"
 #include "diagramevent/diagrameventaddcable.h"
 #include "diagramevent/diagrameventaddbridge.h"
@@ -435,6 +439,7 @@ void QETDiagramEditor::setUpElementsPanel()
 	connect(pa, &ElementsPanelWidget::requestForProjectPropertiesEdition, this, qOverload<QETProject*>(&QETDiagramEditor::editProjectProperties));
 	connect(pa, &ElementsPanelWidget::requestForNewDiagram, this, &QETDiagramEditor::addDiagramToProject);
 	connect(pa, &ElementsPanelWidget::requestForNewDiagramAt, this, &QETDiagramEditor::addDiagramToProjectAt);
+	connect(pa, &ElementsPanelWidget::requestForNewCabinetDiagramAt, this, &QETDiagramEditor::addCabinetDiagramToProjectAt);
 	connect(pa, &ElementsPanelWidget::requestForDiagramPropertiesEdition, this, qOverload<Diagram*>(&QETDiagramEditor::editDiagramProperties));
 	connect(pa, &ElementsPanelWidget::requestForDiagramsDeletion, this, &QETDiagramEditor::removeDiagrams);
 	connect(pa, &ElementsPanelWidget::requestForDiagramMoveUp, this, &QETDiagramEditor::moveDiagramUp);
@@ -1948,6 +1953,9 @@ void QETDiagramEditor::setUpActions()
 		//A bridge across terminals: what it crosses becomes the terminals
 		//the bridge lands on.
 	m_add_bridge	   = m_add_item_actions_group.addAction(QET::Icons::Bridge,     tr("Draw a bridge"));
+		//The front view of a device, as its maker gives it: drawn to the
+		//scale of the folio, in real size on a cabinet folio
+	QAction *add_dxf = m_add_item_actions_group.addAction(CabinetDialogs::dxfIcon(), tr("Insert a DXF…"));
 
 	add_text     ->setStatusTip(tr("Adds a text field to the current sheet"));
 	add_image    ->setStatusTip(tr("Add an image to the current sheet"));
@@ -1968,6 +1976,7 @@ void QETDiagramEditor::setUpActions()
 	m_add_dimension_linear->setStatusTip(tr("Adds a linear dimension to the current sheet"));
 	m_add_dimension_chain ->setStatusTip(tr("Adds a chain dimension to the current sheet"));
 	m_add_bridge    ->setStatusTip(tr("Draws a bridge over terminals: every terminal crossed becomes one of its connections"));
+	add_dxf         ->setStatusTip(tr("Reads the lines of a DXF drawing in millimetres and places them on the current sheet"));
 
 	add_text     ->setData(QStringLiteral("text"));
 	add_image    ->setData(QStringLiteral("image"));
@@ -1988,6 +1997,7 @@ void QETDiagramEditor::setUpActions()
 	m_add_dimension_linear->setData(QStringLiteral("dimension_linear"));
 	m_add_dimension_chain ->setData(QStringLiteral("dimension_chain"));
 	m_add_bridge    ->setData(QStringLiteral("bridge"));
+	add_dxf         ->setData(QStringLiteral("dxf"));
 
 	add_text->setCheckable(true);
 	add_line->setCheckable(true);
@@ -2010,6 +2020,48 @@ void QETDiagramEditor::setUpActions()
 		ShortcutManager::instance().registerAction(
 			action, "diagrameditor.add_" + action->data().toString(),
 			tr("Diagram editors"), QKeySequence());
+	}
+
+		//The construction of a cabinet: its parts are drawn on a cabinet
+		//folio only, the commands are disabled on a schematic. A group of
+		//their own, so the "Add" menu and toolbar of the schematic keep
+		//what they held.
+	m_cabinet_actions_group = new QActionGroup(this);
+	m_cabinet_actions_group->setExclusionPolicy(QActionGroup::ExclusionPolicy::ExclusiveOptional);
+	m_add_cabinet_duct  = m_cabinet_actions_group->addAction(CabinetDialogs::icon(CabinetItem::Kind::WireDuct),      tr("Add a wire duct…"));
+	m_add_cabinet_rail  = m_cabinet_actions_group->addAction(CabinetDialogs::icon(CabinetItem::Kind::DinRail),       tr("Add a DIN rail"));
+	m_add_cabinet_plate = m_cabinet_actions_group->addAction(CabinetDialogs::icon(CabinetItem::Kind::MountingPlate), tr("Add a mounting plate…"));
+	m_add_cabinet_duct ->setStatusTip(tr("Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse"));
+	m_add_cabinet_rail ->setStatusTip(tr("Draws a DIN rail on the cabinet sheet, as long as the mouse says"));
+	m_add_cabinet_plate->setStatusTip(tr("Asks for the size of the mounting plate, then places it on the cabinet sheet"));
+	m_add_cabinet_duct ->setData(QStringLiteral("cabinet_duct"));
+	m_add_cabinet_rail ->setData(QStringLiteral("cabinet_rail"));
+	m_add_cabinet_plate->setData(QStringLiteral("cabinet_plate"));
+	m_add_cabinet_duct ->setCheckable(true);
+	m_add_cabinet_rail ->setCheckable(true);
+	m_add_cabinet_plate->setCheckable(true);
+	connect(m_cabinet_actions_group, &QActionGroup::triggered, this, &QETDiagramEditor::addCabinetItemTriggered);
+	for (QAction *action : m_cabinet_actions_group->actions()) {
+		ShortcutManager::instance().registerAction(
+			action, "diagrameditor.add_" + action->data().toString(),
+			tr("Diagram editors"), QKeySequence());
+	}
+	m_cabinet_scale = new QAction(QET::Icons::ZoomFitBest, tr("Scale of the cabinet…"), this);
+	m_cabinet_scale->setStatusTip(tr("Changes the scale the cabinet sheet is drawn at: the parts keep their measures"));
+	ShortcutManager::instance().registerAction(m_cabinet_scale, "diagrameditor.cabinet_scale", tr("Diagram editors"), QKeySequence());
+	connect(m_cabinet_scale, &QAction::triggered, this, &QETDiagramEditor::changeCabinetScale);
+	{
+		auto *cabinet_menu = new QMenu(this);
+		cabinet_menu->addAction(m_add_cabinet_duct);
+		cabinet_menu->addAction(m_add_cabinet_rail);
+		cabinet_menu->addAction(m_add_cabinet_plate);
+		cabinet_menu->addSeparator();
+		cabinet_menu->addAction(m_cabinet_scale);
+			//Drawn in black: the command tabs give it the colour of the
+			//text on a dark theme, as they do the symbols
+		m_cabinet_menu_action = new QAction(CabinetDialogs::folioIcon(Qt::black), tr("Cabinet construction 2D"), this);
+		m_cabinet_menu_action->setMenu(cabinet_menu);
+		m_cabinet_menu_action->setToolTip(tr("Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates"));
 	}
 
 		//Depth action
@@ -2198,6 +2250,9 @@ QAction *QETDiagramEditor::commandTabsAction(const QString &id)
 			action->setIcon(QET::Icons::EditUndo);
 		return action;
 	}
+	if (id == QLatin1String("menu.cabinet")) {
+		return m_cabinet_menu_action;
+	}
 	if (id == QLatin1String("menu.all")) {
 		if (!m_all_menus_action) {
 			auto *menu = new QMenu(this);
@@ -2348,6 +2403,7 @@ void QETDiagramEditor::setUpMenu()
 	QMenu *tape_menu = menu_edition -> addMenu(QET::Icons::DimensionLinear, tr("Tape measure"));
 	tape_menu -> addAction(m_add_dimension_linear);
 	tape_menu -> addAction(m_add_dimension_chain);
+	menu_edition -> addAction(m_cabinet_menu_action);
 	menu_edition -> addSeparator();
 		//The menu had grown to over forty entries and no longer fitted on a
 		//laptop screen (issue #1336). Whole families now sit one level down,
@@ -3684,6 +3740,12 @@ void QETDiagramEditor::addItemGroupTriggered(QAction *action)
 	{
 		diagram_event = new DiagramEventAddText(d);
 	}
+	else if (value == QLatin1String("dxf"))
+	{
+		CabinetItem::Properties properties;
+		if (!askDxfDrawing(properties)) return;
+		diagram_event = new DiagramEventAddCabinetItem(d, properties);
+	}
 	else if (value == QLatin1String("generic_device"))
 	{
 		currentDiagramView()->addGenericDevice();
@@ -3726,6 +3788,158 @@ void QETDiagramEditor::addItemGroupTriggered(QAction *action)
 		if (QWidget *button = m_add_item_tool_bar->widgetForAction(action))
 			button->update();
 	}
+}
+
+/**
+	@brief QETDiagramEditor::updateCabinetActions
+	The commands of the construction of a cabinet work on a cabinet folio
+	of a project that can be changed, and nowhere else.
+*/
+void QETDiagramEditor::updateCabinetActions()
+{
+	if (!m_cabinet_menu_action) return;
+	DiagramView *dv = currentDiagramView();
+	ProjectView *pv = currentProjectView();
+	const bool cabinet = dv && dv->diagram() && dv->diagram()->isCabinetFolio()
+			&& pv && !pv->project()->isReadOnly();
+	m_cabinet_actions_group->setEnabled(cabinet);
+	m_cabinet_scale->setEnabled(cabinet);
+	m_cabinet_menu_action->setEnabled(cabinet);
+	m_cabinet_scale->setText(cabinet
+			? tr("Scale of the cabinet (%1)…").arg(CabinetDialogs::scaleText(dv->diagram()->cabinetScale()))
+			: tr("Scale of the cabinet…"));
+		//The magnet of a cabinet folio catches the parts, not the grid
+	const bool cabinet_folio = dv && dv->diagram() && dv->diagram()->isCabinetFolio();
+	const QString snap_text = cabinet_folio
+			? tr("Snap to the corners and the middles of the sides of the parts")
+			: m_grid_snap->text();
+	m_grid_snap->setToolTip(snap_text);
+	m_grid_snap->setStatusTip(cabinet_folio
+			? tr("Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is")
+			: tr("Snap the pointer and what is moved or placed to the grid; off, they go to the nearest point"));
+	if (m_snap_status_button)
+		m_snap_status_button->setToolTip(QStringLiteral("%1 (%2)").arg(snap_text,
+				m_grid_snap->shortcut().toString(QKeySequence::NativeText)));
+}
+
+/**
+	@brief QETDiagramEditor::addCabinetItemTriggered
+	A command adding a part of a cabinet was chosen: ask what the part
+	needs before it is drawn (the width of a duct, the size of a plate),
+	then start the tool on the current cabinet folio.
+*/
+void QETDiagramEditor::addCabinetItemTriggered(QAction *action)
+{
+	DiagramView *dv = currentDiagramView();
+	if (Q_UNLIKELY(!dv || !dv->diagram() || !dv->diagram()->isCabinetFolio())) {
+		action->setChecked(false);
+		return;
+	}
+	Diagram *d = dv->diagram();
+
+		//A click on the tool that is running ends it
+	if (!action->isChecked()) {
+		d->clearEventInterface();
+		return;
+	}
+
+	CabinetItem::Properties properties;
+	const QString value = action->data().toString();
+	if (value == QLatin1String("cabinet_duct")) {
+		properties.kind = CabinetItem::Kind::WireDuct;
+		if (!CabinetDialogs::askDuct(properties.width, properties.depth, this)) {
+			action->setChecked(false);
+			d->clearEventInterface();
+			return;
+		}
+	} else if (value == QLatin1String("cabinet_rail")) {
+		const CabinetItem::RailProfile profile =
+				CabinetItem::railProfile(CabinetItem::defaultRailProfile());
+		properties.kind = CabinetItem::Kind::DinRail;
+		properties.profile = profile.name;
+		properties.width = profile.width;
+		properties.depth = profile.depth;
+	} else if (value == QLatin1String("cabinet_plate")) {
+		QSizeF size;
+		if (!CabinetDialogs::askPlate(size, this)) {
+			action->setChecked(false);
+			d->clearEventInterface();
+			return;
+		}
+		properties.kind = CabinetItem::Kind::MountingPlate;
+		properties.length = size.width();
+		properties.width = size.height();
+	} else {
+		return;
+	}
+
+	setLastCommand(action);
+	auto *tool = new DiagramEventAddCabinetItem(d, properties);
+	d->setEventInterface(tool);
+	connect(tool, &DiagramEventInterface::destroyed, action, [action]() {action->setChecked(false);});
+	dv->setFocus();
+}
+
+/**
+	@brief QETDiagramEditor::askDxfDrawing
+	Ask for a DXF file and read it into @p properties, a drawing.
+	@return false if the user gave up or the file could not be read: the
+	user was told why
+*/
+bool QETDiagramEditor::askDxfDrawing(CabinetItem::Properties &properties)
+{
+	QSettings settings;
+	const QString folder = settings.value(QStringLiteral("cabinet/dxf_folder"),
+										  QDir::homePath()).toString();
+	const QString file_path = QFileDialog::getOpenFileName(
+				this, tr("Insert a DXF"), folder,
+				tr("DXF drawings (*.dxf *.DXF)"));
+	if (file_path.isEmpty()) return false;
+	settings.setValue(QStringLiteral("cabinet/dxf_folder"), QFileInfo(file_path).absolutePath());
+
+	QApplication::setOverrideCursor(Qt::WaitCursor);
+	const DxfReader::Result read = DxfReader::readFile(file_path);
+	QApplication::restoreOverrideCursor();
+	if (!read.ok) {
+		QMessageBox::warning(this, tr("Insert a DXF"),
+							 tr("%1 could not be read.\n\n%2")
+							 .arg(QFileInfo(file_path).fileName(), read.error));
+		return false;
+	}
+
+	const QRectF bounds = read.path.boundingRect();
+	properties.kind = CabinetItem::Kind::Drawing;
+	properties.drawing = read.path;
+	properties.length = bounds.width();
+	properties.width = bounds.height();
+	properties.source = QFileInfo(file_path).completeBaseName();
+
+	if (!read.skipped.isEmpty()) {
+		QStringList skipped;
+		for (auto it = read.skipped.constBegin() ; it != read.skipped.constEnd() ; ++it)
+			skipped << QStringLiteral("%1 (%2)").arg(it.key()).arg(it.value());
+		statusBar()->showMessage(tr("DXF: %1 lines drawn; left out: %2")
+								 .arg(read.drawn).arg(skipped.join(QStringLiteral(", "))),
+								 8000);
+	}
+	return true;
+}
+
+/**
+	@brief QETDiagramEditor::changeCabinetScale
+	Ask for the scale of the current cabinet folio and apply it, undoably.
+*/
+void QETDiagramEditor::changeCabinetScale()
+{
+	DiagramView *dv = currentDiagramView();
+	if (!dv || !dv->diagram() || !dv->diagram()->isCabinetFolio()) return;
+	Diagram *d = dv->diagram();
+	if (d->isReadOnly()) return;
+	qreal scale = d->cabinetScale();
+	if (!CabinetDialogs::askScale(scale, this)) return;
+	if (qFuzzyCompare(scale, d->cabinetScale())) return;
+	d->undoStack().push(new ChangeCabinetScaleCommand(d, scale));
+	updateCabinetActions();
 }
 
 /**
@@ -4011,6 +4225,7 @@ void QETDiagramEditor::slot_updateActions()
 	m_zoom_actions_group.           setEnabled(opened_diagram);
 	m_select_actions_group.         setEnabled(opened_diagram);
 	m_add_item_actions_group.       setEnabled(editable_project);
+	updateCabinetActions();
 	m_insert_last_element->         setEnabled(opened_diagram && editable_project && !m_last_inserted_element.isNull());
 	for (QAction *action : std::as_const(m_connection_actions))
 		action->setEnabled(opened_diagram && editable_project);
@@ -4512,6 +4727,11 @@ void QETDiagramEditor::addProjectView(ProjectView *project_view)
 	// display error messages sent by the project view
 	connect(project_view, &ProjectView::errorEncountered, this, qOverload<const QString&>(&QETDiagramEditor::showError));
 
+		//The commands of the cabinet follow the kind of the folio shown
+	connect(project_view, &ProjectView::diagramActivated, this, [this]() {
+		updateCabinetActions();
+	});
+
 	//Highlight the current page
 	connect(project_view, &ProjectView::diagramActivated, this, [this](DiagramView *dv) {
 		if (dv && dv->diagram() && pa) {
@@ -4921,6 +5141,26 @@ void QETDiagramEditor::addDiagramToProject(QETProject *project)
 	{
 		activateProject(project);
 		project_view->project()->addNewDiagram();
+	}
+}
+
+/**
+	@brief QETDiagramEditor::addCabinetDiagramToProjectAt
+	Add a folio for the construction of a cabinet to project, inserted at
+	a specific position.
+	@param project
+	@param pos
+*/
+void QETDiagramEditor::addCabinetDiagramToProjectAt(QETProject *project, int pos)
+{
+	if (!project) {
+		return;
+	}
+
+	if (ProjectView *project_view = findProject(project))
+	{
+		activateProject(project);
+		project_view->project()->addNewCabinetDiagram(pos);
 	}
 }
 

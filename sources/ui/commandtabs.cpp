@@ -221,8 +221,9 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 				large(editor("add_dimension_linear"), tr("Linear")),
 				small(editor("add_dimension_chain"), tr("Chain"))}},
 			{tr("Cabinet construction 2D"), {
-				placeholder(QStringLiteral("placeholder.cabinet_insert"),
-							tr("Cabinet\nconstruction 2D"))}}}},
+				symbol(large(QStringLiteral("menu.cabinet"),
+							 tr("Cabinet\nconstruction 2D"))),
+				symbol(large(editor("add_dxf"), tr("Insert\nDXF")))}}}},
 		{tr("Edit"), {
 			{tr("Clipboard"), {
 				large(editor("paste"), tr("Paste")),
@@ -301,10 +302,7 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 					 Size::Small,
 					 {editor("terminal_strip_labels"),
 					  editor("terminal_strip_bridges"),
-					  editor("terminal_strip_plugin")})}},
-			{tr("Cabinet construction 2D"), {
-				placeholder(QStringLiteral("placeholder.cabinet_navigator"),
-							tr("Navigator"))}}}},
+					  editor("terminal_strip_plugin")})}}}},
 		{tr("Connections"), {
 			{tr("Wires"), {
 				large(editor("auto_conductor"), tr("Automatic")),

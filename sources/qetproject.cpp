@@ -3897,6 +3897,35 @@ Diagram *QETProject::addNewDiagram(int pos)
 }
 
 /**
+	@brief QETProject::addNewCabinetDiagram
+	Add a new folio for the construction of a cabinet at position pos: a
+	folio drawn to scale, on which mounting plates, DIN rails and wire
+	ducts are placed. Undoable, as addNewDiagram() is.
+	@param pos
+	@return the new created diagram
+*/
+Diagram *QETProject::addNewCabinetDiagram(int pos)
+{
+	if (isReadOnly()) {
+		return(nullptr);
+	}
+
+	Diagram *diagram = new Diagram(this);
+
+	diagram->border_and_titleblock.importBorder(defaultBorderProperties());
+	TitleBlockProperties titleblock = defaultTitleBlockProperties();
+	if (titleblock.title.isEmpty())
+		titleblock.title = tr("Cabinet construction", "title of a new cabinet folio");
+	diagram->border_and_titleblock.importTitleBlock(titleblock);
+	diagram->defaultConductorProperties = defaultConductorProperties();
+	diagram->setFolioKind(Diagram::FolioKind::Cabinet);
+	diagram->queueValuesStore();
+
+	m_undo_stack->push(new AddDiagramCommand(this, diagram, pos));
+	return(diagram);
+}
+
+/**
 	@brief QETProject::removeDiagram
 	Remove diagram from project immediately (not undoable). UI code should
 	generally go through ProjectView::removeDiagram() instead, which pushes
