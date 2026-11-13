@@ -28,7 +28,7 @@ namespace QetVersion
 
 	QString productVersion()
 	{
-		return QStringLiteral("0.11");
+		return QStringLiteral("0.12");
 	}
 
 	QString displayedVersion()
