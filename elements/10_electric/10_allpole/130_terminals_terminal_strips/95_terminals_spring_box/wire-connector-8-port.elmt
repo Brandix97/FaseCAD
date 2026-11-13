@@ -1,0 +1,71 @@
+<definition version="0.80" type="element" link_type="terminal" width="90" height="50" hotspot_x="50" hotspot_y="26">
+    <uuid uuid="{4624ee94-37cb-53b9-684d-dfafd10db4e8}"/>
+    <names>
+        <name lang="ar">موصل أسلاك 8-منفذ</name>
+        <name lang="ca">Connector de cable de 8 ports</name>
+        <name lang="cs">Svorka 8 vodičů</name>
+        <name lang="da">Ledningsstik 8-port</name>
+        <name lang="de">8-polig</name>
+        <name lang="el">Σύνδεσμος καλωδίων 8 θέσεων</name>
+        <name lang="en">Wire Connector 8-Port</name>
+        <name lang="es">Conector de cable 8 puertos</name>
+        <name lang="fi">Johliliitin 8-portti</name>
+        <name lang="hr">Kabelski konektor 8-portni</name>
+        <name lang="hu">Kötőelem 8 tagos</name>
+        <name lang="it">Connettore filo 8 porte</name>
+        <name lang="ja">電線コネクタ 8ポート</name>
+        <name lang="ko">전선 커넥터 8포트</name>
+        <name lang="mn">Утас холбогч 8-порт</name>
+        <name lang="nb">Ledningskobling 8-port</name>
+        <name lang="nl">Draadconnector 8-poorts</name>
+        <name lang="nl_BE">Draadconnector 8-poorts</name>
+        <name lang="pl">Złącze przewodu 8-portowe</name>
+        <name lang="pt">Conector de fios 8 portas</name>
+        <name lang="pt_BR">Conector de fios 8 portas</name>
+        <name lang="ro">Conector de fir 8 porturi</name>
+        <name lang="ru">Соединитель проводов 8-портовый</name>
+        <name lang="sk">Drôtový konektor 8-portový</name>
+        <name lang="sl">Žični konektor 8-portni</name>
+        <name lang="sr">Кабловски конектор 8-порт</name>
+        <name lang="sv">Trådanslutning 8-port</name>
+        <name lang="tr">Kablo konnektörü 8-portlu</name>
+        <name lang="uk">З'єднувач проводів 8-портовий</name>
+        <name lang="zh">8口接线连接器</name>
+    </names>
+    <informations>Author convertor: Mario Luongo</informations>
+    <description>
+        <rect x="-45.5" y="-22.5" width="81.2" height="42" rx="1" ry="1" style="line-style:normal;line-weight:normal;filling:lightgray;color:gray" antialias="false"/>
+        <rect x="-34" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="26" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-44" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <line x1="-40" y1="5" x2="-40" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-31" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="-30" y1="5" x2="-30" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="6" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-24" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <line x1="-10" y1="5" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <rect x="16" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <line x1="30" y1="-5" x2="-40" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="9" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="20" y1="-5" x2="20" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-21" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="30" y1="-5" x2="30" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="19" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <rect x="-9" y="-17" width="8" height="3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:HTMLGrayGainsboro;color:white" antialias="false"/>
+        <terminal uuid="{9c620950-9e04-46e3-b477-f812612f9008}" name="" x="20" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{b6b6837c-1fb0-4d51-b82e-f75652e7bf95}" name="" x="-10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{5bc3f241-865f-4fce-a096-cc053e70df2c}" name="" x="10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{eb338493-235e-4448-9ddd-9b9f761b4e59}" name="" x="-20" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{2255551c-b561-47f3-9c9c-b15094545cc7}" name="" x="-40" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{e4089383-584f-4b93-a868-ca51233170ad}" name="" x="-30" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{5d52fbb5-b819-477b-ae1e-68d7558b3607}" name="" x="30" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{3f89f462-c81c-47dd-a912-2d2c8fc73c30}" name="" x="0" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

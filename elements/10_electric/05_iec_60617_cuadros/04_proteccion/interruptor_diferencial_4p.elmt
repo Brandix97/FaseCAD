@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="60" hotspot_x="32" hotspot_y="25">
+    <uuid uuid="{9acd590c-9490-5d5f-aa6a-078d2b8fbbea}"/>
+    <names>
+        <name lang="de">Fehlerstrom-Schutzschalter (RCCB), 4-polig</name>
+        <name lang="en">Residual current device (RCCB), 4 poles</name>
+        <name lang="es">Interruptor diferencial, 4 polos</name>
+        <name lang="fr">Interrupteur différentiel, 4 pôles</name>
+        <name lang="it">Interruttore differenziale, 4 poli</name>
+        <name lang="pt">Interruptor diferencial, 4 polos</name>
+        <name lang="tr">Kaçak akım rölesi, 4 kutuplu</name>
+        <name lang="zh">剩余电流动作断路器，4极</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4c2a9b29-134a-567c-bfb3-543f5613e163}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="18.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ab7974e9-e05e-52bf-a580-9ed6eef2ae82}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="20" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{77024e5a-33dd-5ead-bdb2-fff42dd20b68}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="18.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{24b61312-577d-50b5-a107-afeb0606f1fc}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <line x1="40" y1="-20" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="40" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="32" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="38" y="-24.1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0620dc62-5bab-543a-8c5b-dad789e95eb9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text x="38" y="18.4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6e4d8955-6fe9-5f4c-a9e5-d62dae1016d6}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <line x1="60" y1="-20" x2="60" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="10" x2="60" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="10" x2="52" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="58" y="-24.1" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{24c766ce-bdf8-5e27-9566-4bab6b584dd2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>N</text>
+        </dynamic_text>
+        <dynamic_text x="58" y="18.4" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{53a038c8-79fb-5043-a820-c2c7d0f19ae3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>N</text>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="56" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-6" width="14" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="-23" y="2.92" text="IΔ" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{a89d8d70-966f-5196-8596-7dd6b49bf76e}"/>
+        <line x1="-16" y1="0" x2="56" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="13.5" width="72" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-6" y1="16" x2="-23" y2="16" x3="-23" y3="6" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-39" y="-10.49" z="10" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{08417a9e-d15a-58ef-92a2-63c3d7bedfc2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{54640b20-d023-5250-a9f0-e9ce1d9a71a7}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a266c9ba-55b9-5bf7-b9f9-df3895492e61}" name="2" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{c76bfc6b-5c03-5008-aead-f801074bf0a0}" name="3" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{671ae7b5-eb41-5159-9b53-5865800a51f2}" name="4" x="20" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{a5e6c977-659f-5122-afc8-e54622f4d32c}" name="5" x="40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d13301c7-cd24-5fa9-bd2f-d4e913f1e3c2}" name="6" x="40" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{7943709e-40af-5422-b008-ed07c3c2e7bd}" name="N" x="60" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b6aa7afd-57e5-55e0-95a6-4e52dc42e3b9}" name="N" x="60" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

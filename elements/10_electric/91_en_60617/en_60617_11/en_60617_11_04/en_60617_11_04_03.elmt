@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="45" hotspot_y="45">
+    <uuid uuid="{108322e6-837f-2c36-045d-77b1ec593678}"/>
+    <names>
+        <name lang="ar">نقطة توصيل متقاطع</name>
+        <name lang="ca">Punt de connexió creuada</name>
+        <name lang="cs">Rozváděcí bod</name>
+        <name lang="da">Krydsforbindelsespunkt</name>
+        <name lang="de">Querverbindungspunkt</name>
+        <name lang="el">Σημείο διασύνδεσης</name>
+        <name lang="en">Cross-connection point</name>
+        <name lang="es">Punto de interconexión</name>
+        <name lang="fi">Ristikytkentäpiste</name>
+        <name lang="fr">Point de répartition</name>
+        <name lang="hr">Točka unakrsnog spajanja</name>
+        <name lang="hu">Keresztkapcsolódási pont</name>
+        <name lang="it">Punto di interconnessione</name>
+        <name lang="ja">クロス接続点</name>
+        <name lang="ko">교차 접속 지점</name>
+        <name lang="mn">Хөндлөн холболтын цэг</name>
+        <name lang="nb">Krysskoblingspunkt</name>
+        <name lang="nl">Kruisverbindingspunt</name>
+        <name lang="nl_BE">Kruisverbindingspunt</name>
+        <name lang="pl">Punkt przełączenia</name>
+        <name lang="pt">Ponto de interligação</name>
+        <name lang="pt_BR">Ponto de conexão cruzada</name>
+        <name lang="ro">Punct de conexiune încrucișată</name>
+        <name lang="ru">Точка перекрёстного соединения</name>
+        <name lang="sk">Krížový spojovací bod</name>
+        <name lang="sl">Križna povezovalna točka</name>
+        <name lang="sr">Тачка укрсног спајања</name>
+        <name lang="sv">Korskopplingspunkt</name>
+        <name lang="tr">Çapraz bağlantı noktası</name>
+        <name lang="uk">Точка перехресного з'єднання</name>
+        <name lang="zh">接线端子排3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5406b7c2-4ebf-48b1-a08d-dabb344c5b91}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-40" y="-40" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-35" y="-35" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-10" x2="-2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-30" x2="-2" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

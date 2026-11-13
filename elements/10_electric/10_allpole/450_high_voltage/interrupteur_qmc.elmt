@@ -1,0 +1,73 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="130" hotspot_x="24" hotspot_y="30">
+    <uuid uuid="{e5daeb8c-a302-cbf0-5a4a-71b09c3ada5d}"/>
+    <names>
+        <name lang="ar">مفتاح QMC</name>
+        <name lang="ca">Interruptor QMC</name>
+        <name lang="cs">Pojistkový odpínač s uzemňovačem a MTP QMC</name>
+        <name lang="da">Afbryder QMC</name>
+        <name lang="de">Schalter QMC</name>
+        <name lang="el">Διακόπτης QMC</name>
+        <name lang="en">Switch QMC</name>
+        <name lang="es">Interruptor QMC</name>
+        <name lang="fi">Kytkin QMC</name>
+        <name lang="fr">Interrupteur QMC</name>
+        <name lang="hr">Prekidač QMC</name>
+        <name lang="hu">Kapcsoló QMC</name>
+        <name lang="it">Interruttore QMC</name>
+        <name lang="ja">スイッチ QMC</name>
+        <name lang="ko">스위치 QMC</name>
+        <name lang="mn">Унтраалга QMC</name>
+        <name lang="nb">Bryter QMC</name>
+        <name lang="nl">Onderbreker QMC</name>
+        <name lang="nl_BE">Schakelaar QMC</name>
+        <name lang="pl">Rozłącznik QMC</name>
+        <name lang="pt">Interruptor QMC</name>
+        <name lang="pt_BR">Interruptor QMC</name>
+        <name lang="ro">Comutator QMC</name>
+        <name lang="ru">Выключатель QMC</name>
+        <name lang="sk">Spínač QMC</name>
+        <name lang="sl">Stikalo QMC</name>
+        <name lang="sr">Прекидач QMC</name>
+        <name lang="sv">Brytare QMC</name>
+        <name lang="tr">Şalter QMC</name>
+        <name lang="uk">Вимикач QMC</name>
+        <name lang="zh">隔离开关QMC</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="6" y1="-2" x2="19" y2="-2" x3="19" y3="25" x4="15" y4="25" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="23" y="18.05" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{91937795-e7f3-46e5-ada6-ba14bc5e9e31}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-1" y1="22" x2="-1" y2="-2" x3="5" y3="-2" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1" y1="50" x2="-1" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4" y1="22" x2="-4" y2="29" x3="2" y3="26" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="5" y="16" width="9" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-11" y1="55" x2="-5" y2="55" x3="3" y3="47" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="4" y1="52" x2="4" y2="58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="55" x2="5" y2="55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4.34" y="39.34" width="11.31" height="11.31" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="1.7" y1="-8" x2="9.7" y2="6" x3="9.7" y3="89" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-5" x2="-10.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11.55" y1="50.95" x2="-11.55" y2="58.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="-3" x2="-11.8" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.55" y1="54.95" x2="-15.55" y2="55.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-7" x2="-13.8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.55" y1="52.95" x2="-13.55" y2="56.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="-3" x2="-17.8" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-5" x2="-15.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.7" y="-10" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.7" y1="-10" x2="11.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="77" x2="4.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.7" y1="72" x2="4.7" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.95" y1="72" x2="2.95" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.3" y1="77" x2="2.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10.3" y="72" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.7" y1="-20" x2="9.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1fb6bb6b-11d6-4a6a-b440-93329e7e4489}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{9590c192-e564-4502-91e0-0f1171b458ff}" name="" x="10" y="90" orientation="s" type="Generic"/>
+        <terminal uuid="{88dbf638-5d87-4ca9-80f5-bd1d03991324}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

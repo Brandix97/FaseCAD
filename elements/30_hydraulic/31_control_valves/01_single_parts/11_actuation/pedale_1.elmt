@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="21" hotspot_y="14">
+    <uuid uuid="{727a1fe5-6c57-01cb-7c60-e3036dd36fc6}"/>
+    <names>
+        <name lang="ar">دوّاسة</name>
+        <name lang="ca">Pedal</name>
+        <name lang="cs">Pedál</name>
+        <name lang="da">Pedal</name>
+        <name lang="de">Pedal</name>
+        <name lang="el">Ποδόπληκτρο</name>
+        <name lang="en">Pedal</name>
+        <name lang="es">Pedal de 1 via</name>
+        <name lang="fi">Poljin</name>
+        <name lang="fr">Pédale</name>
+        <name lang="hr">Papiga</name>
+        <name lang="hu">Pedál</name>
+        <name lang="it">pedale</name>
+        <name lang="ja">ペダル</name>
+        <name lang="ko">페달</name>
+        <name lang="mn">Гишгүүр</name>
+        <name lang="nb">Pedal</name>
+        <name lang="nl">Voetpedaal</name>
+        <name lang="nl_BE">Pedaal</name>
+        <name lang="pl">Pedał</name>
+        <name lang="pt">Pedal</name>
+        <name lang="pt_BR">Pedal</name>
+        <name lang="ro">Pedală</name>
+        <name lang="ru">Педаль</name>
+        <name lang="sk">Pedál</name>
+        <name lang="sl">Pedał</name>
+        <name lang="sr">Педала</name>
+        <name lang="sv">Pedal</name>
+        <name lang="tr">Pedal</name>
+        <name lang="uk">Педаль</name>
+        <name lang="zh">踏板1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ddd22f45-157a-48f7-ba17-f0e9440ebde0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-7" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-9" x2="-2" y2="-5" x3="-17" y3="10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-13" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

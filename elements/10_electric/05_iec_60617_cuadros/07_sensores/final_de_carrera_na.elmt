@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{e4acb5bb-59d3-55ed-8a17-2b073434ec9a}"/>
+    <names>
+        <name lang="de">Positionsschalter, Schließer</name>
+        <name lang="en">Position switch (limit switch), NO</name>
+        <name lang="es">Final de carrera NA</name>
+        <name lang="fr">Interrupteur de position, NO</name>
+        <name lang="it">Finecorsa NA</name>
+        <name lang="pt">Fim de curso NA</name>
+        <name lang="tr">Limit anahtarı, NA</name>
+        <name lang="zh">行程开关，常开</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{798a3085-c7be-52d7-892f-092ca0f33522}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c7311bc1-6e0b-57e4-bae3-6c4c3da5b357}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+        <polygon x1="-5.6" y1="-4" x2="-10.62" y2="-1.55" x3="-2.8" y3="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-19.62" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1684c2f4-4577-58a5-8d1c-92f49d22b474}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f02c412d-8294-5712-92a3-db0d26219e09}" name="13" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{77819d56-1d63-5d8d-9f53-84496759e1f0}" name="14" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

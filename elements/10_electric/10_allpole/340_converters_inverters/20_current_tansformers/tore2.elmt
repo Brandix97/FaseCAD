@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="25" hotspot_y="27">
+    <uuid uuid="{dc832590-4cc0-d532-2221-d212212bf80d}"/>
+    <names>
+        <name lang="ar">ملف حلقي بقطبين</name>
+        <name lang="ca">Nucli toroidal de 2 pols</name>
+        <name lang="cs">Dvoupólový proudový transformátor</name>
+        <name lang="da">2-polede ringkerne</name>
+        <name lang="de">Stromwandler 2-polig</name>
+        <name lang="el">Τοροειδές πηνίο 2 πόλων</name>
+        <name lang="en">2-poles toroidal core</name>
+        <name lang="es">Núcleo toroide 2 polos</name>
+        <name lang="fi">2-napaiset toroidisydän</name>
+        <name lang="fr">Tore 2 pôles</name>
+        <name lang="hr">2-polne torusne jezgre</name>
+        <name lang="hu">2 pólusú toroidmag</name>
+        <name lang="it">Toroide a 2 poli</name>
+        <name lang="ja">2極トロイダルコア</name>
+        <name lang="ko">2-극 환상 코어</name>
+        <name lang="mn">2-туйлтай цагираг цөм</name>
+        <name lang="nb">2-poler ringkjerne</name>
+        <name lang="nl">Stroomtransformator ringkern 2AC</name>
+        <name lang="nl_BE">2-polige ringkern</name>
+        <name lang="pl">Przekładnik prądowy dwutorowy</name>
+        <name lang="pt">Núcleo toroidal de 2 polos</name>
+        <name lang="pt_BR">Núcleo toroidal de 2 polos</name>
+        <name lang="ro">Nucleu toroidal cu 2 poli</name>
+        <name lang="ru">2-полюсный тороидальный сердечник</name>
+        <name lang="sk">2-pólové toroidné jadro</name>
+        <name lang="sl">2-polna toroidna jedra</name>
+        <name lang="sr">2-полна торусна језгра</name>
+        <name lang="sv">2-polig toroidkärna</name>
+        <name lang="tr">2 kutuplu toroidal çekirdek</name>
+        <name lang="uk">2-полюсні тороїдальні осердя</name>
+        <name lang="zh">环形电流互感器2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-24" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d2955a26-7fc6-472f-9056-2c8234e8e23a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="5" y1="0" x2="5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-10" x2="5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-20" y="-2.5" width="30" height="5" style="line-style:dashed;line-weight:thin;filling:white;color:black" antialias="true"/>
+        <line x1="-10" y1="-15" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f8595341-d3fb-41bd-92ae-317a8aaf94e3}" name="" x="15" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{9006c495-27a9-4d2d-b902-8244f80a6e42}" name="" x="-10" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{702b39a8-a52f-4b11-a3ec-4d234b18c08d}" name="" x="-10" y="11" orientation="s" type="Generic"/>
+        <terminal uuid="{1e020ed6-97f0-4ff6-8945-aa9a37ccb413}" name="" x="0" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{b90ea2a3-ec53-496c-a19b-470da375c4c9}" name="" x="0" y="11" orientation="s" type="Generic"/>
+        <terminal uuid="{354913e4-b41c-4034-a858-fcece5005146}" name="" x="15" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

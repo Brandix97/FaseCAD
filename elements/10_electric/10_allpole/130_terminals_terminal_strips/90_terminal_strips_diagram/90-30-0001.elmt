@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="80" hotspot_x="10" hotspot_y="39">
+    <uuid uuid="{bd62b711-ea9b-de8b-9daa-485614384fb9}"/>
+    <names>
+        <name lang="ar">ملصق كابل</name>
+        <name lang="ca">Etiqueta de cable</name>
+        <name lang="cs">Kabelový štítek</name>
+        <name lang="da">Kabelmærke</name>
+        <name lang="de">Kabel Bezeichnungsschild</name>
+        <name lang="el">Ετικέτα καλωδίου</name>
+        <name lang="en">Cable tag</name>
+        <name lang="es">Etiqueta de cable</name>
+        <name lang="fi">Kaapelimerkki</name>
+        <name lang="fr">Cable etiquette</name>
+        <name lang="hr">Oznaka kabela</name>
+        <name lang="hu">Kábel címke</name>
+        <name lang="it">Etichetta del cavo</name>
+        <name lang="ja">ケーブルタグ</name>
+        <name lang="ko">케이블 태그</name>
+        <name lang="mn">Кабелийн шошго</name>
+        <name lang="nb">Kabelmerke</name>
+        <name lang="nl">Kabelmarkering</name>
+        <name lang="nl_BE">Kabelmarkering</name>
+        <name lang="pl">Oznaczenie kabla</name>
+        <name lang="pt">Etiqueta de cabo</name>
+        <name lang="pt_BR">Cabo tag</name>
+        <name lang="ro">Etichetă cablu</name>
+        <name lang="ru">Маркировка кабеля</name>
+        <name lang="sk">Štítok kábla</name>
+        <name lang="sl">Oznaka kabla</name>
+        <name lang="sr">Ознака кабла</name>
+        <name lang="sv">Kabeletikett</name>
+        <name lang="tr">Kablo etiketi</name>
+        <name lang="uk">Маркування кабелю</name>
+        <name lang="zh">90-30-0001</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="10" y="30" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{3821132d-9820-4fb2-97e9-dd563f011092}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>?m</text>
+        </dynamic_text>
+        <dynamic_text x="-24" y="30" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6d462e7b-e4dc-4e91-a0a1-fa8e2ac41137}" font="Liberation Sans,11,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-30" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1" y="30" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{babe5916-9e1c-40ac-96a7-2baa35751f8d}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>Cable type</text>
+        </dynamic_text>
+        <terminal uuid="{34902b68-d854-4ef3-9ef0-c18442b2d648}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{17788378-4e14-4668-aa40-54be6464a11f}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

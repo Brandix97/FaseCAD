@@ -1,0 +1,39 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="30" hotspot_x="39" hotspot_y="9">
+    <uuid uuid="{12bab084-5d66-de0f-9a5b-ea45f3b5f9c0}"/>
+    <names>
+        <name lang="ca">Connector C16 mascle de 4 polzades</name>
+        <name lang="cs">C16 4p male</name>
+        <name lang="hu">C16 4p apa csatlakozó</name>
+        <name lang="pt_BR">Conector circular C16 4 vias macho</name>
+        <name lang="zh">C16 4针公连接器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="27" y1="-1" x2="30" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-1" x2="10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-1" x2="-10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-4" x2="13" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-4" x2="-7" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-4" x2="33" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="10" x2="30" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="-10" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="10" x2="10" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-33" y1="-1" x2="-30" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-4" x2="-27" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="10" x2="-30" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="1" x2="30" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="3" x2="30" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1" x="-28" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="-8" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="12" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="PE" x="32" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-64" y="-9" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{1640ef0e-7d5c-4342-a5c8-90b708c32e4c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2a581296-1dc7-45b2-9cef-ca70fad7b126}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{c05802e1-a754-43d4-a023-02cac3902c87}" name="" x="-30" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{8fd39e97-b19a-4b5c-ad6a-c96e6bd41deb}" name="" x="30" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{29beab65-8e54-415c-bf55-cee387528443}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

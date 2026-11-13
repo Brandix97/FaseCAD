@@ -1,0 +1,64 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="171">
+    <uuid uuid="{abad93ed-e16f-91c0-ead8-fec56923a41d}"/>
+    <names>
+        <name lang="ar">موقد طبخ</name>
+        <name lang="ca">Placa</name>
+        <name lang="cs">Vařič</name>
+        <name lang="da">Kogeplade</name>
+        <name lang="de">Kochfeld</name>
+        <name lang="el">Εστία μαγειρέματος</name>
+        <name lang="en">Hob</name>
+        <name lang="es">Placa de cocina</name>
+        <name lang="fr">Plaque de cuisson</name>
+        <name lang="pt_BR">Cooktop elétrico</name>
+        <name lang="zh">电磁炉2</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="66.78" y="-160" width="6.48" height="9.75" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="73.26" y="-160" width="6.48" height="9.75" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="66.78" y="-150.25" width="6.48" height="9.75" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="73.26" y="-150.25" width="6.48" height="9.75" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="36" y="-116.13" width="48.6" height="6.5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{6f4beb01-49b6-4c45-b4d8-2862b19b65b3}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>32</text>
+        </dynamic_text>
+        <ellipse x="75.69" y="-113.69" width="1.62" height="1.63" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="true"/>
+        <ellipse x="43.29" y="-113.67" width="1.62" height="1.59" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="true"/>
+        <dynamic_text x="-2" y="-63" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{8db29583-3bab-4d43-ada2-e2e1b45d2ea7}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>function</info_name>
+        </dynamic_text>
+        <arc x="58.68" y="-129.13" width="9.72" height="9.75" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="71.64" y="-129.13" width="9.72" height="9.75" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="74.88" y1="-119.38" x2="65.16" y2="-119.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="58.68" y1="-125.88" x2="58.68" y2="-134" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="81.36" y1="-125.88" x2="81.36" y2="-134" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="79.74" y1="-134" x2="60.3" y2="-134" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="58.68" y1="-130.75" x2="37.62" y2="-135.63" x3="36" y3="-132.38" x4="58.68" y4="-129.13" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <arc x="60.3" y="-160" width="6.48" height="9.75" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="60.3" y="-150.25" width="6.48" height="9.75" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="28" y="-13.5" z="48" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{731fd6ee-c952-4f0a-abe9-e333a2e6a346}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 6.0</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="49" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{270fb163-a508-44b9-a8a7-ebd22054dc27}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="50" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{80bb439c-14f0-4e7e-b2f7-cbf9f85caa44}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Plaques de cuisson</text>
+        </dynamic_text>
+        <terminal uuid="{651185c8-ba29-4ad7-8d10-a37a628d875e}" name="" x="60" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{ebad152a-2a7e-4830-bd21-cdb79547dd40}" name="" x="80" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{87d84ca0-c53b-41c8-babb-f49f49a6cfdf}" name="" x="70" y="-110" orientation="s" type="Generic"/>
+    </description>
+</definition>

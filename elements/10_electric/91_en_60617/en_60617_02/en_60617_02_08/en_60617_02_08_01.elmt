@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="40" hotspot_x="8" hotspot_y="20">
+    <uuid uuid="{6afbaae1-d6cb-b511-418d-7326171e9dbf}"/>
+    <names>
+        <name lang="ar">تأثير حراري</name>
+        <name lang="ca">Efecte tèrmic</name>
+        <name lang="cs">Tepelný účinek</name>
+        <name lang="da">Termisk effekt</name>
+        <name lang="de">thermische Wirkung</name>
+        <name lang="el">Θερμικό αποτέλεσμα</name>
+        <name lang="en">Thermal effect</name>
+        <name lang="es">Efecto térmico</name>
+        <name lang="fi">Lämpövaikutus</name>
+        <name lang="fr">Effet thermique</name>
+        <name lang="hr">Toplinski učinak</name>
+        <name lang="hu">Hőhatás</name>
+        <name lang="it">Effetto termico</name>
+        <name lang="ja">熱効果</name>
+        <name lang="ko">열 효과</name>
+        <name lang="mn">Дулааны нөлөө</name>
+        <name lang="nb">Termisk effekt</name>
+        <name lang="nl">Thermisch effect</name>
+        <name lang="nl_BE">Thermisch effect</name>
+        <name lang="pl">Efekt cieplny</name>
+        <name lang="pt">Efeito térmico</name>
+        <name lang="pt_BR">Efeito térmico</name>
+        <name lang="ro">Efect termic</name>
+        <name lang="ru">Тепловой эффект</name>
+        <name lang="sk">Tepelný účinok</name>
+        <name lang="sl">Toplotni učinek</name>
+        <name lang="sr">Термички ефекат</name>
+        <name lang="sv">Termisk effekt</name>
+        <name lang="tr">Isıl etki</name>
+        <name lang="uk">Тепловий ефект</name>
+        <name lang="zh">端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3c8b24d4-e810-4910-92b0-deec6d23de77}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-4" x2="8" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-4" x2="8" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="4" x2="0" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{945fcede-4d19-4e84-90e8-4460ed3448e7}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{1912bb5c-70f8-494e-aafe-d3538e179c98}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

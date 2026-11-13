@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{631fcf2b-2cfd-827d-2752-6b449a82fe02}"/>
+    <names>
+        <name lang="ar">ملف مُؤقت مع تأخير الإعتاق</name>
+        <name lang="ca">Bobina amb retard d'apagada</name>
+        <name lang="cs">Relé se zpožděným vypnutím</name>
+        <name lang="da">Relæ med slukningsforsinkelse</name>
+        <name lang="de">Relais rückfallverzögert</name>
+        <name lang="el">Πηνίο χρονικού, καθυστέρηση απενεργοποίησης</name>
+        <name lang="en">Coil with off delay</name>
+        <name lang="es">Bobina de reposo temporizado</name>
+        <name lang="fi">Käämi, poiskytkentäviive</name>
+        <name lang="fr">Bobine tempo repos</name>
+        <name lang="hr">Zavojnica s odgodom isključivanja</name>
+        <name lang="hu">Tekercs ki késleltetéssel</name>
+        <name lang="it">Bobina di relè temporizzato</name>
+        <name lang="ja">オフ遅延付きコイル</name>
+        <name lang="ko">오프 지연 코일</name>
+        <name lang="mn">Унтрах сааталтай ороомог</name>
+        <name lang="nb">Spole med utkoblingsforsinkelse</name>
+        <name lang="nl">mechanisch met afvalvertraging</name>
+        <name lang="nl_BE">Spoel met uitschakel vertraging</name>
+        <name lang="pl">Cewka przekaźnika działająca z opóźnieniem przy odwzbudzeniu</name>
+        <name lang="pt">Bobina com atraso na desativação</name>
+        <name lang="pt_BR">Bobina com off retardo</name>
+        <name lang="ro">Bobina cu întârziere la oprire</name>
+        <name lang="ru">Обмотка</name>
+        <name lang="sk">Cievka s oneskorením vypnutia</name>
+        <name lang="sl">Tuljava z zakasnitvijo izklopa</name>
+        <name lang="sr">Каlem са кашњењем искључења</name>
+        <name lang="sv">Spole med frånslagsfördröjning</name>
+        <name lang="tr">Kapatma gecikmeli bobin</name>
+        <name lang="uk">Котушка з затримкою вимикання</name>
+        <name lang="zh">断电延时线圈</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="10" y="-8" width="4" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-14" y="-8" width="28" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="11.33" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{75c9d389-5ac1-4787-8ada-14af5effb73f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="2" y="-24.67" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c5243d94-8b47-4d6d-a233-d3a9afdf169a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="25" y="-9.17" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c8853df7-7a58-4b37-a81d-0593782fda96}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4111e0ed-c1d1-4996-bb2a-627e92d8c96b}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{685f0bf8-c3b8-4124-ba27-0640fa670e36}" name="A2" x="0" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

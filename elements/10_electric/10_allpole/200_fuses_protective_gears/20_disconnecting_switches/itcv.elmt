@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="60" hotspot_x="39" hotspot_y="30">
+    <uuid uuid="{ddbe1e0e-703d-9c98-0dbc-90b777880c95}"/>
+    <names>
+        <name lang="ar">itcv</name>
+        <name lang="ca">itcv</name>
+        <name lang="cs">Uzamykatelný odpínač 3P</name>
+        <name lang="da">itcv</name>
+        <name lang="de">Lasttrenner 3P</name>
+        <name lang="el">itcv</name>
+        <name lang="en">itcv</name>
+        <name lang="es">Seccionador 3P mando rotativo y con llave</name>
+        <name lang="fi">itcv</name>
+        <name lang="fr">itcv</name>
+        <name lang="hr">itcv</name>
+        <name lang="hu">Terheléskapcsoló lakatolható</name>
+        <name lang="it">itcv</name>
+        <name lang="ja">itcv</name>
+        <name lang="ko">itcv</name>
+        <name lang="mn">itcv</name>
+        <name lang="nb">itcv</name>
+        <name lang="nl">Scheidingsschakelaar</name>
+        <name lang="nl_BE">itcv</name>
+        <name lang="pl">Rozłącznik</name>
+        <name lang="pt">itcv</name>
+        <name lang="pt_BR">Chave seccionadora sob carga</name>
+        <name lang="ro">itcv</name>
+        <name lang="ru">itcv</name>
+        <name lang="sk">itcv</name>
+        <name lang="sl">itcv</name>
+        <name lang="sr">itcv</name>
+        <name lang="sv">itcv</name>
+        <name lang="tr">itcv</name>
+        <name lang="uk">itcv</name>
+        <name lang="zh">隔离开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="28" y="-12" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-24" y1="-6" x2="-25" y2="-2" x3="-21" y3="-2" x4="-22" y4="-6" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="8" y="-12" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-25.24" y="-10.24" width="4.47" height="4.47" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-12" y="-12" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-15" y1="-10" x2="-10" y2="10" x3="-10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="25" y1="-10" x2="30" y2="10" x3="30" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="-10" x2="10" y2="10" x3="10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="32.75" y="-9.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ba68bc6c-cce9-4b51-b28a-02ad9bdf08a2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="-20" x2="-10" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-12" x2="-12" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-12" x2="8" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="30" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="32" y1="-12" x2="28" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-34" y1="-4" x2="-30" y2="-4" x3="-30" y3="6" x4="-25" y4="6" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-29" y1="0" x2="27" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{7267bac8-3467-4a02-9ed1-e30821d31620}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{cc71c962-d1fa-4c9a-9d3b-8bc4ff61f042}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{394fc664-4a93-4b2e-a7da-2729a2f2f78a}" name="" x="30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{95f4b141-d639-4c5e-9ccf-6ffbb8ad3404}" name="" x="30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{3ce07692-8be1-475e-9271-10320c2a10f8}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{622e0019-acf0-43e5-a26e-fc5d8b4cf409}" name="" x="10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

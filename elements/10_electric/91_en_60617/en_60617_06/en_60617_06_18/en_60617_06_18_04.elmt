@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="110" hotspot_x="75" hotspot_y="105">
+    <uuid uuid="{ef75185a-bb8e-b6b6-5433-2894fa721b9a}"/>
+    <names>
+        <name lang="ar">مولد صمام ثنائي حراري مع مصدر حرارة إشعاع غير مؤين</name>
+        <name lang="ca">Generador de díodes termoiònics amb font de calor de radiació no ionitzant</name>
+        <name lang="cs">Termoemisní diodový generátor
+s neionizujícím radiačním tepelným zdrojem</name>
+        <name lang="da">Termionisk diodegenerator med ikke-ioniserende strålingsvarmekilde</name>
+        <name lang="de">Thermodiodengenerator, betrieben durch
+nichtionisierende Strahlungswärme</name>
+        <name lang="el">Γεννήτρια θερμιονικής διόδου με πηγή θερμότητας μη ιονίζουσας ακτινοβολίας</name>
+        <name lang="en">Thermionic diode generator with non-ionizing radiation heat source</name>
+        <name lang="es">Generador de diodo termoiónico con fuente de calor de radiación no ionizante</name>
+        <name lang="fi">Termionidiodigeneraattori, ionisoimaton säteilylämpölähde</name>
+        <name lang="fr">Générateur thermoïonique à semiconducteur à
+source de chaleur par rayonnement non
+ionisant</name>
+        <name lang="hr">Termionski diodni generator s izvorom neionizirajućeg zračenja</name>
+        <name lang="hu">Termionikus diódagenerátor, nem ionizáló sugárzású hőforrással</name>
+        <name lang="it">Generatore a diodo termoionico con sorgente di calore a radiazione non ionizzante</name>
+        <name lang="ja">非電離放射線熱源付き熱電子ダイオード発電器</name>
+        <name lang="ko">비이온화 방사선 열원을 가진 열전자 다이오드 발전기</name>
+        <name lang="mn">Ионжуулахгүй цацрагийн дулааны эх үүсвэртэй термоионы диод генератор</name>
+        <name lang="nb">Termionisk diodegenerator med ikke-ioniserende strålingsvarmekilde</name>
+        <name lang="nl">Thermionische diodegenerator met niet-ioniserende stralingswarmtebron</name>
+        <name lang="nl_BE">Thermionische diodegenerator met niet-ioniserende stralingswarmtebron</name>
+        <name lang="pl">Generator diodowy termoemisyjny ze źródłem ciepła promieniowania niejonizującego</name>
+        <name lang="pt">Gerador de díodo termiónico com fonte de calor de radiação não ionizante</name>
+        <name lang="pt_BR">Gerador termiônico de diodo com fonte de calor por radiação não ionizante</name>
+        <name lang="ro">Generator cu diodă termoionică cu sursă de căldură cu radiații neionizante</name>
+        <name lang="ru">Термоэлектронный диодный генератор с источником тепла от неионизирующего излучения</name>
+        <name lang="sk">Termionický diódový generátor s neionizujúcim zdrojom žiarenia</name>
+        <name lang="sl">Termionski diodni generator z virom toplote z neionizirajočim sevanjem</name>
+        <name lang="sr">Термионски диодни генератор са извором нејонизујућег зрачења</name>
+        <name lang="sv">Termionisk diodgenerator med icke-joniserande strålningsvärmekälla</name>
+        <name lang="tr">İyonlaştırıcı olmayan radyasyon ısı kaynaklı termiyonik diyot jeneratör</name>
+        <name lang="uk">Генератор на терміонному діоді з джерелом тепла у вигляді неіонізуючого випромінювання</name>
+        <name lang="zh">接线端子排04</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="22.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{50399436-a681-4b89-93da-d54e6a4f3172}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-40" y="-40" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="G" x="-23.75" y="-79.2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-45" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="5" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-100" width="60" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-55" y1="-15" x2="-65" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-10" x2="-70" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-59" y1="-16" x2="-56" y2="-19" x3="-54" y3="-14" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="-61" y1="-14" x2="-64" y2="-11" x3="-59" y3="-9" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-30" y1="-60" x2="-10" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-65" x2="-15" y2="-55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-25" y1="-55" x2="-25" y2="-65" x3="-15" y3="-60" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

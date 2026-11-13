@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="160" hotspot_x="37" hotspot_y="72">
+    <uuid uuid="{d79be7c9-779a-64b6-ba0e-9b592bdfe12f}"/>
+    <names>
+        <name lang="ar">RESEAU STATION FIN</name>
+        <name lang="ca">Network Station Last</name>
+        <name lang="cs">Koncová stanice</name>
+        <name lang="da">Netværksstation sidste</name>
+        <name lang="de">Netzwerkstation Ende</name>
+        <name lang="el">Σταθμός δικτύου τελευταίος</name>
+        <name lang="en">Network Station Last</name>
+        <name lang="es">Estación de Red final</name>
+        <name lang="fi">Verkkoasema viimeinen</name>
+        <name lang="fr">RESEAU STATION FIN</name>
+        <name lang="hr">Mrežna stanica zadnja</name>
+        <name lang="hu">Hálózati állomás utolsó</name>
+        <name lang="it">RETE Stazione finale</name>
+        <name lang="ja">ネットワークステーション最後</name>
+        <name lang="ko">네트워크 스테이션 마지막</name>
+        <name lang="mn">Сүлжээний станц сүүлийн</name>
+        <name lang="nb">Nettverksstasjon siste</name>
+        <name lang="nl">Netwerk Station laatsteRESEAU STATION FIN</name>
+        <name lang="nl_BE">Netwerkstation laatste</name>
+        <name lang="pl">Stacja końcowa</name>
+        <name lang="pt">Última estação de rede</name>
+        <name lang="pt_BR">Estação de rede final</name>
+        <name lang="ro">Stație de rețea ultima</name>
+        <name lang="ru">Сетевая станция последняя</name>
+        <name lang="sk">Sieťová stanica posledná</name>
+        <name lang="sl">Omrežna postaja zadnja</name>
+        <name lang="sr">Мрежна станица последња</name>
+        <name lang="sv">Nätverksstation sista</name>
+        <name lang="tr">Ağ İstasyonu Son</name>
+        <name lang="uk">Мережева станція остання</name>
+        <name lang="zh">网络站终点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-65" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5052c5a0-782c-4c39-bcb1-06cd8e1c1c4d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>ADR : _</text>
+        </dynamic_text>
+        <rect x="-30" y="-70" width="70" height="156" rx="2" ry="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="35" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2906ef26-7101-40e3-a48c-908736b4ea67}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{1731100b-4840-4c81-bf6e-4a78624be505}" name="" x="-30" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

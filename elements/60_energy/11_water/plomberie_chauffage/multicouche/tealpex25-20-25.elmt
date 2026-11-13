@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="70" hotspot_x="57" hotspot_y="51">
+    <uuid uuid="{e4b9c7b4-063f-1507-2d4d-2c0bb0097102}"/>
+    <names>
+        <name lang="ca">T Alpex 25-20-25</name>
+        <name lang="es">Te Alpex 25-20-25</name>
+        <name lang="pt_BR">Te Alpex 25-20-25</name>
+        <name lang="zh">铝塑管三通25-20-25</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="16" y="-15" width="3" height="29" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-10.82" y="-40.08" width="15.57" height="18.59" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.81" y="-20.49" width="11.18" height="4.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11" y="-8.3" width="5.06" height="15.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2.37" y="-22" width="14.65" height="13.71" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="42.92" y="-7.83" width="2.16" height="15.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.08" y="-41.8" width="10.07" height="1.72" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22.2" y="-8.3" width="5.06" height="15.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50.28" y="-7.3" width="3.29" height="15.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-47" y="-12.39" width="21.78" height="24.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="19" y="-12.39" width="23.91" height="24.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-23.47" y="-22" width="14.65" height="13.71" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15.88" y1="6.93" x2="12" y2="6.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="-15" width="3" height="29" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-14" y="-22" width="21" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <dynamic_text x="-24" y="8" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3e7e0716-4a46-461d-b44b-c3584d5dd540}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{554f82c9-191a-4751-8bf6-b6dfebe60c4b}" name="" x="-50" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a995c62e-ef14-406c-b91f-a7a73a3800bb}" name="" x="-3" y="-42" orientation="n" type="Generic"/>
+        <terminal uuid="{e8440683-03ae-434c-ac40-6595334b8dc3}" name="" x="45" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,52 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="40" hotspot_x="15" hotspot_y="10">
+    <uuid uuid="{291517ca-f492-ed5f-e1f5-d28cdaee30e0}"/>
+    <names>
+        <name lang="ar">مشغل الحجاب الحاجز</name>
+        <name lang="ca">Actuador de diafragma</name>
+        <name lang="cs">Membránový pohon</name>
+        <name lang="da">Membranaktuator</name>
+        <name lang="de">Membranantrieb</name>
+        <name lang="el">Ενεργοποιητής διαφράγματος</name>
+        <name lang="en">Diaphragm actuator</name>
+        <name lang="es">Actuador de diafragma</name>
+        <name lang="fi">Kalvotoimilaite</name>
+        <name lang="fr">Actionneur à membrane</name>
+        <name lang="hr">Membranski aktuator</name>
+        <name lang="hu">Membrán működtető</name>
+        <name lang="it">Attuatore a membrana</name>
+        <name lang="ja">ダイヤフラムアクチュエータ</name>
+        <name lang="ko">다이어프램 액추에이터</name>
+        <name lang="mn">Диафрагмын идэвхжүүлэгч</name>
+        <name lang="nb">Membranaktuator</name>
+        <name lang="nl">Membraanactuator:</name>
+        <name lang="nl_BE">Membraanactuator</name>
+        <name lang="pl">Siłownik membranowy</name>
+        <name lang="pt">Atuador de diafragma</name>
+        <name lang="pt_BR">Atuador de diafragma</name>
+        <name lang="ro">Servomotor cu diafragmă</name>
+        <name lang="ru">Мембранный привод</name>
+        <name lang="sk">Membránový pohon</name>
+        <name lang="sl">Membranski aktuator</name>
+        <name lang="sr">Мембрански актуатор</name>
+        <name lang="sv">Membranställdon</name>
+        <name lang="tr">diyafram aktüatörü</name>
+        <name lang="uk">Мембранний привід</name>
+        <name lang="zh">膜片气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="50" y1="15" x2="50" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-30" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f298e455-a295-413b-9314-fe7a0fed84b8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="15" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="40" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="30" y="-5" width="20" height="20" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="15" x2="50" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="-5" width="20" height="20" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{1129e77a-f0bd-41f4-acd4-deb39cc06314}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

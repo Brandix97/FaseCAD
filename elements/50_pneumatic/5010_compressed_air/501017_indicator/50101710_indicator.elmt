@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="40" hotspot_x="15" hotspot_y="12">
+    <uuid uuid="{10c7b1af-0a97-0159-a51e-20f8b3112e5f}"/>
+    <names>
+        <name lang="ar">ميزان الحرارة</name>
+        <name lang="ca">Termòmetre</name>
+        <name lang="cs">teploměr</name>
+        <name lang="da">termometer</name>
+        <name lang="de">Thermometer</name>
+        <name lang="el">θερμόμετρο</name>
+        <name lang="en">thermometer</name>
+        <name lang="es">termómetro</name>
+        <name lang="fi">lämpömittari</name>
+        <name lang="fr">thermomètre</name>
+        <name lang="hr">termometar</name>
+        <name lang="hu">hőmérő</name>
+        <name lang="it">termometro</name>
+        <name lang="ja">温度計</name>
+        <name lang="ko">온도계</name>
+        <name lang="mn">термометр</name>
+        <name lang="nb">termometer</name>
+        <name lang="nl">thermometer</name>
+        <name lang="nl_BE">thermometer</name>
+        <name lang="pl">termometr</name>
+        <name lang="pt">termômetro</name>
+        <name lang="pt_BR">termômetro</name>
+        <name lang="ro">termometru</name>
+        <name lang="ru">термометр</name>
+        <name lang="sk">Teplomer</name>
+        <name lang="sl">termometer</name>
+        <name lang="sr">термометар</name>
+        <name lang="sv">Termometer</name>
+        <name lang="tr">termometre</name>
+        <name lang="uk">термометр</name>
+        <name lang="zh">50101710_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-20" y="-25" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4806bc96-dfb8-41a8-98f6-340299de7cb5}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-6" x2="0" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1.5" y="2.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="0" y1="10" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ba0d6e00-48b3-4ca8-9f08-9b2ed8a3cc44}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

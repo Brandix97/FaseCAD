@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="20" hotspot_y="11">
+    <uuid uuid="{b4dc79bb-6d83-672f-de60-d71406350591}"/>
+    <names>
+        <name lang="ar">صمّام  بثلاث مسارات مُزوّد بمُحرّك</name>
+        <name lang="ca">Vàlvula motoritzada de tres vies</name>
+        <name lang="cs">Trojcestná klapka řízená motorem</name>
+        <name lang="da">Motoriseret trevejsventil</name>
+        <name lang="de">Motorisiertes Dreiwegeventil</name>
+        <name lang="el">Μοτοριζόμενη τρίοδη βαλβίδα</name>
+        <name lang="en">Motorized three-way valve</name>
+        <name lang="es">Válvula motorizada de tres vías</name>
+        <name lang="fi">Moottorikäyttöinen kolmitieventtiili</name>
+        <name lang="fr">Vanne trois voies motorisée</name>
+        <name lang="hr">Motorizirani trosmjerni ventil</name>
+        <name lang="hu">Motoros háromutas szelep</name>
+        <name lang="it">Valvola motorizzata 3vie</name>
+        <name lang="ja">電動三方弁</name>
+        <name lang="ko">모터 구동 3방향 밸브</name>
+        <name lang="mn">Моторт гурван талын хавхлага</name>
+        <name lang="nb">Motorisert treveisventil</name>
+        <name lang="nl">Klep drieweg motor</name>
+        <name lang="nl_BE">Gemotoriseerde driewegklep</name>
+        <name lang="pl">Zawór trójdrogowy sterowany silnikiem</name>
+        <name lang="pt">Válvula de três vias motorizada</name>
+        <name lang="pt_BR">Válvula de três vias motorizada</name>
+        <name lang="ro">Supapă motorizată cu trei căi</name>
+        <name lang="ru">Трёхходовой клапан с электроприводом</name>
+        <name lang="sk">Motorizovaný trojcestný ventil</name>
+        <name lang="sl">Motorizirani tripotni ventil</name>
+        <name lang="sr">Моторизовани трокраки вентил</name>
+        <name lang="sv">Motorstyrd trevägsventil</name>
+        <name lang="tr">Motorlu üç yollu valf</name>
+        <name lang="uk">Триходовий клапан з електроприводом</name>
+        <name lang="zh">电动阀2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="30" x2="10" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="22" y="-10.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0d4d14d4-f6cd-4e8f-a7a8-e2d6dfc5b939}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="5" y1="30" x2="15" y2="30" x3="10" y3="20" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="2.5" y="-7.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-10" width="20" height="20" start="225" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="M" x="6" y="3" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="16" y1="6" x2="18" y2="8" x3="20" y3="3" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="2" y1="8" x2="4" y2="6" x3="0" y3="3" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="9" y1="19" x2="9" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="19" x2="11" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="20" x2="30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="26" x2="10" y2="20" x3="20" y3="14" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="14" x2="0" y2="26" x3="10" y3="20" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{612a73e6-609a-4afb-8a04-9941b1629551}" name="" x="30" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{8aba835e-48fc-40db-bdd2-c300522c0ab1}" name="" x="-10" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{70ead6e1-412a-4250-8ca1-460e17da7c78}" name="" x="10" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

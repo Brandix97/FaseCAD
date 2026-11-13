@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{4d2c66e6-8a08-130d-0c89-25c499cafbcd}"/>
+    <names>
+        <name lang="ar">مرحّل مُستقطب</name>
+        <name lang="ca">Relleu polaritzat</name>
+        <name lang="cs">Polarizované relé</name>
+        <name lang="da">Polariseret relæ</name>
+        <name lang="de">Relais polarisiert</name>
+        <name lang="el">Πηνίο ρελέ με πολικότητα</name>
+        <name lang="en">Polarized relay</name>
+        <name lang="es">Relé polarizado</name>
+        <name lang="fi">Polarisoitu rele</name>
+        <name lang="fr">Relais polarisé</name>
+        <name lang="hr">Polarizirani relej</name>
+        <name lang="hu">Polarizált relé</name>
+        <name lang="it">Relè polarizzato</name>
+        <name lang="ja">有極リレー</name>
+        <name lang="ko">분극 릴레이</name>
+        <name lang="mn">Туйлшсан реле</name>
+        <name lang="nb">Polarisert relé</name>
+        <name lang="nl">relay polair</name>
+        <name lang="nl_BE">Relais gepolariseerd</name>
+        <name lang="pl">Przekaźnik spolaryzowany</name>
+        <name lang="pt">Relé polarizado</name>
+        <name lang="pt_BR">Relé polarizado</name>
+        <name lang="ro">Releu polarizat</name>
+        <name lang="ru">Поляризованное реле</name>
+        <name lang="sk">Polarizované relé</name>
+        <name lang="sl">Polarizirani rele</name>
+        <name lang="sr">Поларизовани релеј</name>
+        <name lang="sv">Polariserat relä</name>
+        <name lang="tr">Polarize röle</name>
+        <name lang="uk">Поляризоване реле</name>
+        <name lang="zh">极化触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-22" y1="-10" x2="-22" y2="-7" x3="-18" y3="-7" x4="-18" y4="7" x5="-22" y5="7" x6="-22" y6="10" x7="-15" y7="10" x8="-15" y8="-10" x9="-22" y9="-10" x10="-22" y10="-7" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{d6b976e8-4c8a-491e-b9a0-5a241cb6cd8c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7873e313-ef79-489d-8af0-bfb7620deb52}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fdc63a55-7f34-4877-81e8-c4dac08dd863}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{454425c1-f62d-4fd9-918d-7a22a2062a1c}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{22fcb4b4-6a26-4ad7-9286-36149ad797d7}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

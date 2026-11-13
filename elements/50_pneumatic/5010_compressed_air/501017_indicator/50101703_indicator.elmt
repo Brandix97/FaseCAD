@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="40" hotspot_x="15" hotspot_y="12">
+    <uuid uuid="{c5888aa7-4c2a-9d28-d899-c7db4953c52f}"/>
+    <names>
+        <name lang="ar">مؤشر الضغط</name>
+        <name lang="ca">Indicador de pressió</name>
+        <name lang="cs">Indikátor tlaku</name>
+        <name lang="da">Trykindikator</name>
+        <name lang="de">Druckanzeige</name>
+        <name lang="el">Δείκτης πίεσης</name>
+        <name lang="en">Pressure Indicator</name>
+        <name lang="es">Indicador de presión</name>
+        <name lang="fi">Painemittari</name>
+        <name lang="fr">Indicateur de pression</name>
+        <name lang="hr">Indikator tlaka</name>
+        <name lang="hu">Nyomásjelző</name>
+        <name lang="it">Indicatore di pressione</name>
+        <name lang="ja">圧力インジケーター</name>
+        <name lang="ko">압력 지시기</name>
+        <name lang="mn">Даралтын үзүүлэлт</name>
+        <name lang="nb">Trykkindikator</name>
+        <name lang="nl">Druk indicator</name>
+        <name lang="nl_BE">Drukindicator</name>
+        <name lang="pl">Wskaźnik ciśnienia</name>
+        <name lang="pt">Indicador de pressão</name>
+        <name lang="pt_BR">indicador de pressão</name>
+        <name lang="ro">Indicator de presiune</name>
+        <name lang="ru">Индикатор давления</name>
+        <name lang="sk">Indikátor tlaku</name>
+        <name lang="sl">Indikator tlaka</name>
+        <name lang="sr">Индикатор притиска</name>
+        <name lang="sv">Tryckindikator</name>
+        <name lang="tr">Basınç göstergesi</name>
+        <name lang="uk">Індикатор тиску</name>
+        <name lang="zh">50101703_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-21" y="-23" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1fa6b1a7-6266-435b-afc7-a6a9bc9a96d2}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="10" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="-7" x2="7" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="7" x2="7" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{d4100fab-2850-40bc-9a93-3ecce9257f77}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

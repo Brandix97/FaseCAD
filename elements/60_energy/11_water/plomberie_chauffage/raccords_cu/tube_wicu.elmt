@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="40" height="20" hotspot_x="29" hotspot_y="10">
+    <uuid uuid="{f7ea6489-0137-291b-d1ac-a725e270cf56}"/>
+    <names>
+        <name lang="ar">أنبوب نحاس Wicu</name>
+        <name lang="ca">Tub de coure Wicu</name>
+        <name lang="cs">Měděná trubka Wicu</name>
+        <name lang="da">Kobberrør Wicu</name>
+        <name lang="de">Kupferrohr Wicu</name>
+        <name lang="el">Σωλήνας χαλκού Wicu</name>
+        <name lang="en">Wicu copper pipe</name>
+        <name lang="fr">Tube Cuivre Wicu</name>
+        <name lang="pt_BR">Tube Cuivre Wicu</name>
+        <name lang="zh">WICU管</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <text text="Wicu" x="-17" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-3" y="-43.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eca8f032-debc-4891-8130-824abe9b20d0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="3" y1="-4" x2="3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="-5" x2="3" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="5" x2="3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="-5" x2="-26" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-19" y="-8" width="16" height="2" rx="0" ry="0" style="line-style:normal;line-weight:hight;filling:gray;color:gray" antialias="false"/>
+        <rect x="-26" y="6" width="23" height="2" rx="0" ry="0" style="line-style:normal;line-weight:hight;filling:gray;color:gray" antialias="false"/>
+        <terminal uuid="{bad24483-d9db-4c70-a063-024bc2fd0305}" name="" x="3" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{a34d4ea7-9a63-4acc-9f6d-0a2da6680655}" name="" x="-22" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

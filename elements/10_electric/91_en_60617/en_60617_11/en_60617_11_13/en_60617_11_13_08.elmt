@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="45" hotspot_y="45">
+    <uuid uuid="{6edb71d4-572a-79b3-03be-c0aa1bfe83e2}"/>
+    <names>
+        <name lang="ar">قاعدة مقبس تيّار (قدرة) مع محوّل عزل</name>
+        <name lang="ca">Presa de corrent (alimentació) amb transformador aïllant</name>
+        <name lang="cs">Zásuvka s oddělovacím transformátorem</name>
+        <name lang="da">Stikdåse (kraft) med isoleringstransformer</name>
+        <name lang="de">Steckdose mit Trenntrafo</name>
+        <name lang="el">Ρευματοδότης με μετασχημαστιστή απομόνωσης</name>
+        <name lang="en">Socket outlet (power) with isolating transformer</name>
+        <name lang="es">Toma de corriente (potencia) con transformador de aislamiento</name>
+        <name lang="fi">Pistorasia (teho) erotusmuuntajalla</name>
+        <name lang="fr">Socle de prise de courant (puissance) avec
+transformateur de séparation, par exemple:
+prise pour rasoir</name>
+        <name lang="hr">Utičnica (napajanje) s izolacijskim transformatorom</name>
+        <name lang="hu">Csatlakozóaljzat (erősáramú) leválasztó transzformátorral</name>
+        <name lang="it">Presa con trasformatore d’isolamento</name>
+        <name lang="ja">絶縁変圧器付きコンセント（電源）</name>
+        <name lang="ko">절연 변압기 부착 콘센트 (전원)</name>
+        <name lang="mn">Тусгаарлагч трансформатортай розетка (цахилгаан)</name>
+        <name lang="nb">Stikkontakt (kraft) med skilletransformator</name>
+        <name lang="nl">wandcontactdoos met transformator</name>
+        <name lang="nl_BE">Stopcontact (vermogen) met scheidingstransformator</name>
+        <name lang="pl">Gniazdo z transformatorem separacyjnym</name>
+        <name lang="pt">Tomada (energia) com transformador de isolamento</name>
+        <name lang="pt_BR">Tomada de potencia com transformador de isolacao</name>
+        <name lang="ro">Priză (de putere) cu transformator de izolare</name>
+        <name lang="ru">Розетка (силовая) с разделительным трансформатором</name>
+        <name lang="sk">Zásuvka (napájanie) s oddeľovacím transformátorom</name>
+        <name lang="sl">Vtičnica (moč) z izolacijskim transformatorjem</name>
+        <name lang="sr">Утичница (напајање) са изолационим трансформатором</name>
+        <name lang="sv">Vägguttag (kraft) med skyddstransformator</name>
+        <name lang="tr">İzolasyon transformatörlü priz (güç)</name>
+        <name lang="uk">Розетка (силова) з розділовим трансформатором</name>
+        <name lang="zh">接线端子排08</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cbf24f84-e0a3-43e6-9ca7-3e39dbed2aba}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-20" y="-10" width="20" height="20" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-40" x2="-10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-40" x2="-11" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-20" y="-20" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

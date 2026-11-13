@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="17" hotspot_y="22">
+    <uuid uuid="{0191a1a5-f053-3333-1377-198b8d5f4795}"/>
+    <names>
+        <name lang="ar">اسطوانة هيدروليكية 1</name>
+        <name lang="ca">cilindre hidràulic 1</name>
+        <name lang="cs">Vodní válec 1</name>
+        <name lang="da">hydraulikcylinder 1</name>
+        <name lang="de">Hydraulikzylinder 1</name>
+        <name lang="el">Υδραυλικό έμβολο 1</name>
+        <name lang="en">hydraulic cylinder 1</name>
+        <name lang="es">Piston hidraulico 1</name>
+        <name lang="fi">hydraulisylinteri 1</name>
+        <name lang="fr">Verin hydraulique 1</name>
+        <name lang="hr">hidraulički cilindar 1</name>
+        <name lang="hu">hidraulikus henger 1</name>
+        <name lang="it">Pistone idraulico 1</name>
+        <name lang="ja">油圧シリンダ 1</name>
+        <name lang="ko">유압 실린더 1</name>
+        <name lang="mn">гидравлик цилиндр 1</name>
+        <name lang="nb">hydraulisk sylinder 1</name>
+        <name lang="nl">Cylinder 1</name>
+        <name lang="nl_BE">hydraulische cilinder 1</name>
+        <name lang="pl">Siłownik hydrauliczny dwustronnego działania</name>
+        <name lang="pt">Cilindro hidráulico 1</name>
+        <name lang="pt_BR">Cilindro hidráulico 1</name>
+        <name lang="ro">Cilindru hidraulic 1</name>
+        <name lang="ru">Гидравлический цилиндр 1</name>
+        <name lang="sk">hydraulický valec 1</name>
+        <name lang="sl">hidravlični cilinder 1</name>
+        <name lang="sr">хидраулични цилиндар 1</name>
+        <name lang="sv">hydraulcylinder 1</name>
+        <name lang="tr">hidrolik silindir 1</name>
+        <name lang="uk">гідравлічний циліндр 1</name>
+        <name lang="zh">液压缸1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="40" y1="0" x2="40" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-41.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3b1a7703-311a-4a84-88d6-bc7d6a15900b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="42" y1="-8" x2="42" y2="0" x3="-12" y3="0" x4="-12" y4="-20" x5="42" y5="-20" x6="42" y6="-12" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="38" y1="0" x2="42" y2="0" x3="40" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="0" x2="-8" y2="0" x3="-10" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="0" y1="-8" x2="50" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-12" x2="50" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-20" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b9a4506e-b361-4e1c-95a6-8433b330fa95}" name="" x="40" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{7b8c9cff-28da-4b86-a2e3-2d0bdb57bd82}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,51 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="12">
+    <uuid uuid="{a262367f-6f29-e2aa-5c18-55dc6070b170}"/>
+    <names>
+        <name lang="ar">الضغط التفاضلي</name>
+        <name lang="ca">Pressió diferencial</name>
+        <name lang="cs">Diferenční tlak</name>
+        <name lang="da">Differenstryk</name>
+        <name lang="de">Differenzdruck</name>
+        <name lang="el">Διαφορική πίεση</name>
+        <name lang="en">Differential Pressure</name>
+        <name lang="es">Presión diferencial</name>
+        <name lang="fi">Eropainemittari</name>
+        <name lang="fr">Pression différentielle</name>
+        <name lang="hr">Diferencijalni tlak</name>
+        <name lang="hu">Nyomáskülönbség</name>
+        <name lang="it">Pressione differenziale</name>
+        <name lang="ja">差圧</name>
+        <name lang="ko">차압</name>
+        <name lang="mn">Дифференциал даралт</name>
+        <name lang="nb">Differensialtrykk</name>
+        <name lang="nl">Drukverschil</name>
+        <name lang="nl_BE">Differentiële druk</name>
+        <name lang="pl">Ciśnienie różnicowe</name>
+        <name lang="pt">Pressão diferencial</name>
+        <name lang="pt_BR">Pressão diferencial</name>
+        <name lang="ro">Presiune diferențială</name>
+        <name lang="ru">Перепад давления</name>
+        <name lang="sk">Diferenčný tlak</name>
+        <name lang="sl">Diferencialni tlak</name>
+        <name lang="sr">Диференцијални притисак</name>
+        <name lang="sv">Differentialtryck</name>
+        <name lang="tr">Diferansiyel basınç</name>
+        <name lang="uk">Диференціальний тиск</name>
+        <name lang="zh">50101701_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-18" y="-22" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{626bc3ce-662b-4448-9b76-fc8f3ca51dd7}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="6" x2="3" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-5" y="-9" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2" y1="1" x2="5" y2="-2" x3="0" y3="-4" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="10" y1="10" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{78768ded-c4bf-4150-b057-e591c17a8de5}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{89b5be46-f356-4d98-a0c3-8679c584e87a}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

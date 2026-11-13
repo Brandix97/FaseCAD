@@ -1,0 +1,17 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="13" hotspot_y="28">
+    <uuid uuid="{4fc7c490-f100-eebe-b987-925a53899a01}"/>
+    <names>
+        <name lang="ca">Pressòstat mini</name>
+        <name lang="es">Presostato mini</name>
+        <name lang="pt_BR">Presostato mini</name>
+        <name lang="zh">微型压力开关</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-6" y="-19" width="12" height="11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="P" x="-3" y="-11" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-8" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{2db59e55-742e-4c7c-89d3-467d2682c065}" name="" x="0" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{d3273dec-1b3e-4994-807a-ed240c81a34e}" name="" x="7" y="-17" orientation="e" type="Generic"/>
+    </description>
+</definition>

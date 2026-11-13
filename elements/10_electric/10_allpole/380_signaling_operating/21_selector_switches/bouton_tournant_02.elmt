@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="11" hotspot_y="30">
+    <uuid uuid="{af37215f-59ea-6c85-9b6d-4d724b914e1f}"/>
+    <names>
+        <name lang="ar">مُحدّد دوار بوضعين ثابتين محمي بقفل, إخراج المفتاح إلى اليسار</name>
+        <name lang="ca">Interruptor selector de 2 posicions per mantenir-se posat, retirada de clau de l'esquerra</name>
+        <name lang="cs">Otočný přepínač s 2 pevnými polohami, ovládaný klíčkem, zleva</name>
+        <name lang="da">Vælgerkontakt 2-position fastholdt, nøgleudtræk fra venstre</name>
+        <name lang="de">Öffner 1-polig 2 Stellungen Schlüssel betätigt rastend</name>
+        <name lang="el">Διακόπτης επιλογής 2 θέσεων, αφαίρεση κλειδιού στην αριστερή θέση</name>
+        <name lang="en">Selector switch 2-position stay put, key withdrawal from LH</name>
+        <name lang="es">Interruptor selector 2 posición fija con llave LH</name>
+        <name lang="fi">Valintakytkin 2-asento pysyvä, avaimen poisto vasemmalta</name>
+        <name lang="fr">Bouton tournant 2 positions fixes, retrait de la clé à gauche</name>
+        <name lang="hr">Selektorska sklopka 2 položaja s uklopom, vađenje ključa u lijevom položaju</name>
+        <name lang="hu">Választókapcsoló 2 állás reteszelt, kulcs kihúzható bal oldali állásból</name>
+        <name lang="it">Selettore a chiave, 2 posizioni stabili, estrazione chiave a SX</name>
+        <name lang="ja">セレクタスイッチ 2位置固定、左側からのキー抜き取り</name>
+        <name lang="ko">셀렉터 스위치 2 위치 유지형, 키 좌측에서 빼냄</name>
+        <name lang="mn">Сонгогч унтраалга 2-байрлал тогтмол, түлхүүрийг зүүн талаас гаргах</name>
+        <name lang="nb">Velgerbryter 2-posisjon fast, nøkkeluttak fra venstre</name>
+        <name lang="nl">2 positie sleutelschakelaar(vergrendelt in stand 2 (NC)</name>
+        <name lang="nl_BE">Keuzeschakelaar 2-stand blijvend, sleutelafname links</name>
+        <name lang="pl">Łącznik obrotowy przełączny, uruchamiany kluczykiem</name>
+        <name lang="pt">Interruptor rotativo 2 posições com retenção, extração de chave à esquerda</name>
+        <name lang="pt_BR">Chave seletora 2 posições mantidas, retirada da chave à esquerda</name>
+        <name lang="ro">Comutator selector 2 poziții cu menținere, extragere cheie din stânga</name>
+        <name lang="ru">Переключатель 2-позиционный с фиксацией, извлечение ключа из левого положения</name>
+        <name lang="sk">Prepínač 2-polohový s aretáciou, vytiahnutie kľúča vľavo</name>
+        <name lang="sl">Izbirno stikalo 2-položajno fiksno, izvlek ključa iz levega položaja</name>
+        <name lang="sr">Изборни прекидач 2-положаја са задржавањем, вађење кључа из ЛХ</name>
+        <name lang="sv">Vridströmbrytare 2-läges fast, nyckeluttag från vänster</name>
+        <name lang="tr">Seçici şalter 2 konum kalıcı, anahtar sol taraftan çıkarılır</name>
+        <name lang="uk">Перемикач 2-позиційний фіксований, ключ виймається зліва</name>
+        <name lang="zh">旋转按钮02</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">commutator</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="30" y1="20" x2="30" y2="10" x3="36" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="8" y1="-7" x2="7" y2="-5" x3="9" y3="-5" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="30" y1="-9" x2="37" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="0" x2="11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="30" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="7.5" y="-7.5" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="39" y="-10" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{79d48625-52bd-45ef-8339-0d84b846cd0f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="13" y1="3" x2="17" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="1" x="6" y="-9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-8" y1="0" x2="-9" y2="4" x3="-5" y3="4" x4="-6" y4="0" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="15" y1="0" x2="18" y2="0" x3="20" y3="3" x4="22" y4="0" x5="33" y5="0" closed="false" antialias="true" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="-9.24" y="-4.24" width="4.47" height="4.47" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="13" y1="3" x2="9" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-3" y1="4" x2="0" y2="4" x3="0" y3="-4" x4="3" y4="-4" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <text text="2" x="17" y="-9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{a460546f-64da-4154-bca8-c7ad7e91fdac}" name="" x="30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b2163300-e295-4e1d-8a4c-5f8618eb9ef6}" name="" x="30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

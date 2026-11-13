@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="140" hotspot_x="86" hotspot_y="83">
+    <uuid uuid="{49ebc4b4-1f19-9c21-9110-4dab58fbf19a}"/>
+    <names>
+        <name lang="ar">محول تيار بقلبين مع ملف ثانوي واحد على كل قلب</name>
+        <name lang="ca">Transformador de corrent amb dos nuclis amb un bobinatge secundari a cada nucli</name>
+        <name lang="cs">Transformátor proudu se dvěma jádry a
+s jedním sekundárním vinutím na každém jádru</name>
+        <name lang="da">Strømtransformer med to kerner med én sekundærvikling på hver kerne</name>
+        <name lang="de">Stromwandler mit zwei Kernen und einer
+Sekundärwicklung auf jedem Kern</name>
+        <name lang="el">Μετασχηματιστής έντασης με δύο πυρήνες με ένα δευτερεύον τύλιγμα σε κάθε πυρήνα</name>
+        <name lang="en">Current transformer with two cores with one secondary winding on each core</name>
+        <name lang="es">Transformador de corriente con dos núcleos con un devanado secundario en cada núcleo</name>
+        <name lang="fi">Virtamuuntaja, kaksi sydäntä, yksi toisiokäämi kummassakin sydämessä</name>
+        <name lang="fr">Transformateur de courant, à deux noyaux
+avec un enroulement secondaire sur chaque
+noyau</name>
+        <name lang="hr">Strujni transformator s dvije jezgre s po jednim sekundarnim namotom na svakoj jezgri</name>
+        <name lang="hu">Áramváltó két maggal, mindegyik magon egy-egy szekunder tekercseléssel</name>
+        <name lang="it">Trasformatore di corrente con due nuclei con un avvolgimento secondario su ciascun nucleo</name>
+        <name lang="ja">2つの鉄心を持ち各鉄心に一つの二次巻線を有する変流器</name>
+        <name lang="ko">각 코어에 하나의 2차 권선이 있는 두 개의 코어를 가진 변류기</name>
+        <name lang="mn">Гүйдлийн трансформатор хоёр цөмтэй, цөм бүр дээр нэг хоёрдогч ороомогтой</name>
+        <name lang="nb">Strømtransformator med to kjerner med én sekundærvikling på hver kjerne</name>
+        <name lang="nl">Stroomtransformator met twee kernen met één secundaire wikkeling op elke kern</name>
+        <name lang="nl_BE">Stroomtransformator met twee kernen met één secundaire wikkeling op elke kern</name>
+        <name lang="pl">Przekładnik prądowy z dwoma rdzeniami i jednym uzwojeniem wtórnym na każdym rdzeniu</name>
+        <name lang="pt">Transformador de corrente com dois núcleos com um enrolamento secundário em cada núcleo</name>
+        <name lang="pt_BR">Transformador de corrente com two coues com one secondary winding on each coue</name>
+        <name lang="ro">Transformator de curent cu două miezuri cu o înfășurare secundară pe fiecare miez</name>
+        <name lang="ru">Трансформатор тока с двумя сердечниками и одной вторичной обмоткой на каждом сердечнике</name>
+        <name lang="sk">Prúdový transformátor s dvoma jadrami s jedným sekundárnym vinutím na každom jadre</name>
+        <name lang="sl">Tokovni transformator z dvema jedroma z enim sekundarnim navitjem na vsakem jedru</name>
+        <name lang="sr">Струјни трансформатор са два језгра са по једним секундарним намотајем на сваком језгру</name>
+        <name lang="sv">Strömtransformator med två kärnor med en sekundärlindning på varje kärna</name>
+        <name lang="tr">Her çekirdekte bir sekonder sargı bulunan iki çekirdekli akım transformatörü</name>
+        <name lang="uk">Трансформатор струму з двома осердями з однією вторинною обмоткою на кожному осерді</name>
+        <name lang="zh">接线端子排03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="22.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{26031bf2-d441-487f-b065-1cd9a7836ad3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Form 2 / Forme 2" x="-74" y="-70" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-35" y="-30" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="10" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-20" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="20" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-30" x2="-40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="10" x2="-40" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="10" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="30" x2="-10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-10" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-30" x2="-10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-32.5" y="-52.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-32.5" y="47.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="47" x2="-30" y2="-47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

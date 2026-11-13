@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="7">
+    <uuid uuid="{00d288bd-0f61-de00-f965-6178c814c5c8}"/>
+    <names>
+        <name lang="ar">صمّام ضدّ الرجع بكرة</name>
+        <name lang="ca">Vàlvula de retenció de bola</name>
+        <name lang="cs">Kuličkový pojistný ventil</name>
+        <name lang="da">Kuglekontraventil</name>
+        <name lang="de">Rückschlagventil Kugel</name>
+        <name lang="el">Ανεπίστροφη βαλβίδα μπίλιας</name>
+        <name lang="en">Check Valve Ball</name>
+        <name lang="es">Válvula de retención de bola</name>
+        <name lang="fi">Takaiskuventtiili pallo</name>
+        <name lang="fr">Clapet anti-retour à Bille</name>
+        <name lang="hr">Kuglični nepovratni ventil</name>
+        <name lang="hu">Golyós visszacsapó szelep</name>
+        <name lang="it">Valvola di ritegno</name>
+        <name lang="ja">ボール式チェックバルブ</name>
+        <name lang="ko">볼 역류 밸브</name>
+        <name lang="mn">Бөмбөлөгт буцах хавхлага</name>
+        <name lang="nb">Tilbakeslagsventil kule</name>
+        <name lang="nl">Terugslagklep kogel</name>
+        <name lang="nl_BE">Kogelterugslagklep</name>
+        <name lang="pl">Zawór zwrotny kulowy</name>
+        <name lang="pt">Válvula de retenção de esfera</name>
+        <name lang="pt_BR">Check valvula Ball</name>
+        <name lang="ro">Supapă de reținere cu bilă</name>
+        <name lang="ru">Шаровой обратный клапан</name>
+        <name lang="sk">Spätný ventil guľový</name>
+        <name lang="sl">Kroglični povratni ventil</name>
+        <name lang="sr">Куглични неповратни вентил</name>
+        <name lang="sv">Backventil kula</name>
+        <name lang="tr">Çek valf bilyeli</name>
+        <name lang="uk">Кульовий зворотний клапан</name>
+        <name lang="zh">止回阀03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="10" x2="10" y2="10" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-4" y="-4" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="-5" x2="4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-19" y="-23.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c19ef4cf-ba3e-4c6c-bd86-ba687a8a1c5a}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f153fd5e-dae3-4c5a-a56c-990c25177091}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{76017ea1-3d34-49a9-8dcb-598805b4dc8d}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

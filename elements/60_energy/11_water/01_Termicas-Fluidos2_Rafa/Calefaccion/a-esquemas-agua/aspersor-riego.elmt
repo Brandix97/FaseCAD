@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="12" hotspot_y="21">
+    <uuid uuid="{4e40fc88-5668-cb26-1717-7dfbab557450}"/>
+    <names>
+        <name lang="ar">مُرشّاش</name>
+        <name lang="ca">Aspersor de reg</name>
+        <name lang="cs">Sprinkler</name>
+        <name lang="da">Sprinkler</name>
+        <name lang="de">Sprinkler</name>
+        <name lang="el">Καταιονιστήρας</name>
+        <name lang="en">Sprinkler</name>
+        <name lang="es">Aspersor riego</name>
+        <name lang="fi">Sprinkleri</name>
+        <name lang="fr">Sprinkler</name>
+        <name lang="hr">Sprinkler</name>
+        <name lang="hu">Sprinkler</name>
+        <name lang="it">Sprinkler</name>
+        <name lang="ja">スプリンクラー</name>
+        <name lang="ko">스프링클러</name>
+        <name lang="mn">Шүршигч</name>
+        <name lang="nb">Sprinkler</name>
+        <name lang="nl">Sprinkler</name>
+        <name lang="nl_BE">Sprinkler</name>
+        <name lang="pl">Tryskacz</name>
+        <name lang="pt">Aspersor</name>
+        <name lang="pt_BR">Sprinkler</name>
+        <name lang="ro">Sprinkler</name>
+        <name lang="ru">Спринклер</name>
+        <name lang="sk">Sprinkler</name>
+        <name lang="sl">Razpršilec</name>
+        <name lang="sr">Прскалица</name>
+        <name lang="sv">Sprinkler</name>
+        <name lang="tr">Sprinkler</name>
+        <name lang="uk">Спринклер</name>
+        <name lang="zh">灌溉喷头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-2" y="-9" width="4" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-8" x2="22" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-6" x2="22" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-8" x2="21" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="3.37" x2="0" y2="8.6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-4" x2="2" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-10" x2="3" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-11" x2="-6" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-12" x2="-4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-7" x2="4.94" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-18.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5ed3c014-6c8e-4911-85f5-7917013dd2a8}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{1f13f850-9a57-4cb0-800a-47028d581177}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="90" hotspot_x="48" hotspot_y="61">
+    <uuid uuid="{e7102019-3317-c1eb-7a98-9337f94d813f}"/>
+    <names>
+        <name lang="ca">Forn industrial</name>
+        <name lang="es">Horno industrial</name>
+        <name lang="pt_BR">Houno industrial</name>
+        <name lang="zh">工业炉</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-34.69" y="-19.9" width="34.5" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.13" y="-8.94" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-34.69" y="2.1" width="34.5" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.13" y="-35.94" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="3.13" y="-28.94" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="3.13" y="-15.94" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-27.5" y1="-8.92" x2="-28.94" y2="-7.68" x3="-8.81" y3="-7.68" x4="-7.38" y4="-8.92" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-27.5" y1="11.08" x2="-28.94" y2="12.32" x3="-8.81" y3="12.32" x4="-7.38" y4="11.08" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-40" y1="-45" x2="-29" y2="-55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="24" x2="20" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.13" y="4.08" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-40" y="-44.39" width="48.88" height="68.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-44" x2="20" y2="-54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-34.69" y="-41.9" width="34.5" height="18.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-27.5" y1="-31.52" x2="-28.94" y2="-30.52" x3="-8.81" y3="-30.52" x4="-7.38" y4="-31.52" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="3.13" y="9.06" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-29" y1="-55" x2="21" y2="-55" x3="21" y3="-27" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="21" y1="-28" x2="21" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-31" y="-2" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{78252dd8-42a3-49c1-9c85-e3e21967c01c}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{af448ce1-f0c9-4f6e-af76-519cc20823e6}" name="" x="-37" y="-51" orientation="w" type="Generic"/>
+        <terminal uuid="{4f7e6243-d209-48ed-a6ad-aa7b14426cb1}" name="" x="21" y="-49" orientation="e" type="Generic"/>
+    </description>
+</definition>

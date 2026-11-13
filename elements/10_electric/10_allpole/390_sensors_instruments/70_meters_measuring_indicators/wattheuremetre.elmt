@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="12" hotspot_y="2">
+    <uuid uuid="{0a30647e-e9ce-3fa0-8421-603bf85e53c6}"/>
+    <names>
+        <name lang="ar">عدّاد طاقة فعّالة - وات ساعة متر -</name>
+        <name lang="ca">Mesurador de watt hora</name>
+        <name lang="cs">Činný elektroměr</name>
+        <name lang="da">Watt-timemåler</name>
+        <name lang="de">Wattstundenzähler</name>
+        <name lang="el">Μετρητής βατ/ώρα</name>
+        <name lang="en">Watt hour meter</name>
+        <name lang="es">Contador de vatios-hora</name>
+        <name lang="fi">Wattituntimittari</name>
+        <name lang="fr">Compteur d'énergie active Wattheuremètre</name>
+        <name lang="hr">Vat-satni mjerač</name>
+        <name lang="hu">Wattóra mérő</name>
+        <name lang="it">Misuratore di Wh</name>
+        <name lang="ja">電力量計</name>
+        <name lang="ko">전력량계</name>
+        <name lang="mn">Ватт-цаг тоолуур</name>
+        <name lang="nb">Watt-time måler</name>
+        <name lang="nl">Watt uur meter</name>
+        <name lang="nl_BE">Wattuurmeter</name>
+        <name lang="pl">Licznik watogodzin</name>
+        <name lang="pt">Contador de watts-hora</name>
+        <name lang="pt_BR">Medidor de energia ativa</name>
+        <name lang="ro">Contor de watt-oră</name>
+        <name lang="ru">Счетчик ватт-часов</name>
+        <name lang="sk">Watthodinový merač</name>
+        <name lang="sl">Števec vatnih ur</name>
+        <name lang="sr">Мерач ват-часова</name>
+        <name lang="sv">Wattimmätare</name>
+        <name lang="tr">Vat-saat sayacı</name>
+        <name lang="uk">Лічильник ват-годин</name>
+        <name lang="zh">瓦时计</name>
+    </names>
+    <informations>EN 60617: 08-04-03</informations>
+    <description>
+        <dynamic_text x="28" y="-2" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6835e916-216f-409f-8836-fb051184bf46}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-6" y="0" width="32" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="14" x2="26" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Wh" x="0" y="35" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{9c4c9472-da1f-4c1a-ac7d-8f636e2bcb12}" name="" x="0" y="50" orientation="s" type="Generic"/>
+        <terminal uuid="{85c71ace-f45a-4d89-8373-40da37da0bb0}" name="" x="20" y="50" orientation="s" type="Generic"/>
+    </description>
+</definition>

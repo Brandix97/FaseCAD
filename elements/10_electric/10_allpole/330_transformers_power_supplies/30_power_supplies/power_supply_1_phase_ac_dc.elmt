@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="80" hotspot_x="30" hotspot_y="40">
+    <uuid uuid="{f0160878-0e41-0e40-c772-038e0342e143}"/>
+    <names>
+        <name lang="ar">تغذية 24V DC أحادي الوجه</name>
+        <name lang="ca">Alimentació de 24 V CC una fase</name>
+        <name lang="cs">Napájecí zdroj AC/DC 24V</name>
+        <name lang="da">24V DC-forsyning enfaset</name>
+        <name lang="de">24V DC-Versorgung einphasig</name>
+        <name lang="el">Τροφοδοτικό 24V DC μονοφασικό</name>
+        <name lang="en">24V DC supply one phase</name>
+        <name lang="es">Alimentación 24V DC monofásica</name>
+        <name lang="fi">24V DC teholähde yksivaiheinen</name>
+        <name lang="hr">24V DC napajanje jednofazno</name>
+        <name lang="hu">24V DC tápegység 1 fázis</name>
+        <name lang="it">Alimentatore 24V DC monofase</name>
+        <name lang="ja">24V DC電源 単相</name>
+        <name lang="ko">24V DC 전원 공급 장치 단상</name>
+        <name lang="mn">24V DC тэжээл нэг фаз</name>
+        <name lang="nb">24V DC-forsyning enfaset</name>
+        <name lang="nl">24V DC voeding eenfase</name>
+        <name lang="nl_BE">24V DC voeding een fase</name>
+        <name lang="pl">Zasilacz 24V DC jednofazowy</name>
+        <name lang="pt">Alimentação 24V DC monofásica</name>
+        <name lang="pt_BR">Fonte de alimentação 24 Vcc monofásica</name>
+        <name lang="ro">Sursă 24V DC monofazată</name>
+        <name lang="ru">Источник питания 24В пост. однофазный</name>
+        <name lang="sk">24V DC napájanie jednofázové</name>
+        <name lang="sl">24V DC napajanje enofazno</name>
+        <name lang="sr">24V DC напајање једнофазно</name>
+        <name lang="sv">24V DC-matning en fas</name>
+        <name lang="tr">24V DC besleme tek faz</name>
+        <name lang="uk">Блок живлення 24В DC однофазний</name>
+        <name lang="zh">单相AC-DC电源</name>
+    </names>
+    <description>
+        <rect x="-25" y="-30" width="90" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="AC 1~" x="-8" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="47.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="−" x="27.6" y="24" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="−" x="47.6" y="24" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L" x="-12" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="24V DC" x="24.5" y="13.4" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="+" x="7.6" y="24" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="PE" x="45" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="27" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="27.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="-12.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="47.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="7.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="27.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="+" x="-12.4" y="24" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-10" y="-15" width="60" height="30" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-15" x2="-10" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-65" y="-30" z="20" text_width="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{2b727eb9-6bbc-41f7-b41e-743d1b2159e2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-12.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <terminal uuid="{b167500b-4819-40e2-8c39-46584c606f1b}" name="" x="10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{ee0eee15-1362-446b-9bc8-da99fa90731f}" name="" x="50" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{db10ecd6-289e-42dc-9e8f-812325e8d855}" name="" x="-10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{e01c0888-d42e-494e-8b17-91f31f1f4fc0}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{d36bfc70-7cc9-42de-be4e-45fca37154a1}" name="" x="30" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{6b1276dc-8bec-4373-ba65-e03c170a36bd}" name="" x="30" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{8eb5b1f9-20ec-47cd-9951-6f37f59aa2c5}" name="" x="50" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

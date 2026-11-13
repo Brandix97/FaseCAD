@@ -1,0 +1,79 @@
+<definition version="0.80" type="element" link_type="slave" width="100" height="60" hotspot_x="90" hotspot_y="30">
+    <uuid uuid="{ec7cfdd3-f65d-1da5-b696-eef5ec994c07}"/>
+    <names>
+        <name lang="ar">كونتكتور 1 تحويل 4 أقطاب</name>
+        <name lang="ca">Contactor 1 canvi 4 pols</name>
+        <name lang="cs">Stykač 1 s mech. blokováním 4p</name>
+        <name lang="da">Kontaktor 1 omkobling 4 poler</name>
+        <name lang="de">Schütz 1 Umschalter 4 polig</name>
+        <name lang="el">Ρελέ 1 εναλλαγής 4 πόλων</name>
+        <name lang="en">Contactor 1 changeover 4 poles</name>
+        <name lang="es">Contactor 1 conmutador 4 polos</name>
+        <name lang="fi">Kontaktori 1 vaihtokosketin 4 napaa</name>
+        <name lang="fr">Contacteur 1 inverseur 4 poles</name>
+        <name lang="hr">Kontaktor 1 preklopni 4 polova</name>
+        <name lang="hu">Kontaktor 1 váltó 4 pólusú</name>
+        <name lang="it">Contattore 1 commutatore 4 poli</name>
+        <name lang="ja">接触器 1 切替 4 極</name>
+        <name lang="ko">접촉기 1 전환 4 극</name>
+        <name lang="mn">Контактор 1 шилжилт 4 туйл</name>
+        <name lang="nb">Kontaktor 1 veksler 4 poler</name>
+        <name lang="nl">Magneetschakelaar 1 wisselcontact 4 polen</name>
+        <name lang="nl_BE">Contacteur 1 wisselcontact 4 polen</name>
+        <name lang="pl">Stycznik 1 przełączny 4 biegunów</name>
+        <name lang="pt">Contactor 1 comutação 4 polos</name>
+        <name lang="pt_BR">Contator 1 contato reversível 4 polos</name>
+        <name lang="ro">Contactor 1 comutator 4 poli</name>
+        <name lang="ru">Контактор 1 переключающий 4 полюсов</name>
+        <name lang="sk">Stýkač 1 prepínací 4 pólov</name>
+        <name lang="sl">Kontaktor 1 preklop 4 polov</name>
+        <name lang="sr">Контактор 1 преклопни 4 полова</name>
+        <name lang="sv">Kontaktor 1 omkopplare 4 poler</name>
+        <name lang="tr">Kontaktör 1 değiştirici 4 kutup</name>
+        <name lang="uk">Контактор 1 перекидний 4 полюсів</name>
+        <name lang="zh">4极常开功率触点反向</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="number" show="1">4</kindInformation>
+        <kindInformation name="state" show="1">NO</kindInformation>
+        <kindInformation name="type" show="1">power</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-83" y1="0" x2="-3" y2="0" end1="none" end2="none" length1="1.5" length2="1.48" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="6&#10;T3" x="-36" y="18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4&#10;T2" x="-56" y="18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="8&#10;T4" x="-16" y="18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-25" y1="-10" x2="-20" y2="10" x3="-20" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-45" y1="-10" x2="-40" y2="10" x3="-40" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-65" y1="-10" x2="-60" y2="10" x3="-60" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-40" y1="-20" x2="-40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-20" x2="-60" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-100" y="-10" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{cf89cd93-26be-471d-aaae-5af0536b9bb9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="-20" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="2&#10;T1" x="-76" y="18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-42.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-22.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-62.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="3&#10;L2" x="-55" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5&#10;L3" x="-36" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="7&#10;L4" x="-16" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-85" y1="-10" x2="-80" y2="10" x3="-80" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-80" y1="-20" x2="-80" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-82.5" y="-14.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="1&#10;L1" x="-76" y="-20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-4" y1="-2" x2="4" y2="-2" x3="0" y3="3" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{aef20556-47cf-474c-8766-ff7d847b000a}" name="7" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{4c167395-1a48-4105-bf26-a9498814a1f3}" name="3" x="-60" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{80aa01e9-8810-42e4-a39f-9f097cec5126}" name="6" x="-40" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{611c6946-9a08-4c22-9704-f2cf240ff731}" name="1" x="-80" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a82fb8b8-00ad-4fa9-bbe3-a7ef6527b523}" name="4" x="-60" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{f4e10dc4-bf5f-41a7-8623-240a3d1ad917}" name="5" x="-40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a30378fb-df7f-41fc-9ebf-e6237d0a70e0}" name="2" x="-80" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{5277858a-4998-4df0-b3df-38835be0b1d0}" name="8" x="-20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

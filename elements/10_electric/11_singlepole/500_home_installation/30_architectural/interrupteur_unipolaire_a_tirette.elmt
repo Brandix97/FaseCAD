@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="11" hotspot_y="15">
+    <uuid uuid="{ba522409-70a0-92da-f3b6-3fdd0940c53e}"/>
+    <names>
+        <name lang="ar">مفتاح أحادي القطب بسحّاب</name>
+        <name lang="ca">Interruptor de cordó unipolar</name>
+        <name lang="cs">Tahový vypínač</name>
+        <name lang="da">Snoreafbryder enkeltpol</name>
+        <name lang="de">Schalter 1-polig mit Zugschnur</name>
+        <name lang="el">Διακόπτης έλξης με κορδόνι</name>
+        <name lang="en">Pull-cord single pole switch</name>
+        <name lang="es">Interruptor unipolar con tirador</name>
+        <name lang="fi">Nyörikytkin, yksinapainen</name>
+        <name lang="fr">Interrupteur unipolaire à tirette</name>
+        <name lang="hr">Jednopolni prekidač s vrpcom</name>
+        <name lang="hu">Zsinóros egypólusú kapcsoló</name>
+        <name lang="it">Interruttore unipolare a tirante</name>
+        <name lang="ja">引き紐式単極スイッチ</name>
+        <name lang="ko">당김줄 단극 스위치</name>
+        <name lang="mn">Оосор татах нэг туйлт унтраалга</name>
+        <name lang="nb">Snorbryter enpolet</name>
+        <name lang="nl">Schakelaar met trekkoord</name>
+        <name lang="nl_BE">Trekkoordschakelaar enkelpolig</name>
+        <name lang="pl">Łącznik pociągany</name>
+        <name lang="pt">Interruptor unipolar com cordão</name>
+        <name lang="pt_BR">Interruptor unipolar de cordão</name>
+        <name lang="ro">Comutator unipolar cu șnur</name>
+        <name lang="ru">Однополюсный выключатель с тяговым шнуром</name>
+        <name lang="sk">Jednopólový prepínač so šnúrkou</name>
+        <name lang="sl">Vrvno enopolno stikalo</name>
+        <name lang="sr">Једнополни прекидач са вучним каблом</name>
+        <name lang="sv">Snörbrytare enpolig</name>
+        <name lang="tr">İpli tek kutuplu anahtar</name>
+        <name lang="uk">Однополюсний перемикач зі шнурком</name>
+        <name lang="zh">拉线单极开关</name>
+    </names>
+    <informations>EN 60617: 11-14-09</informations>
+    <description>
+        <dynamic_text x="3" y="-10.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b8568842-82ca-4566-ace9-e8f2189a6cf5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="2" y1="0" x2="9" y2="-11" x3="12" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="9" y1="-10" x2="9" y2="-5" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-5" y="0" width="10" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{5514ed18-9cee-4165-93b3-a0ad69a89d96}" name="" x="0" y="0" orientation="n" type="Generic"/>
+    </description>
+</definition>

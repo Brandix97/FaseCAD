@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="70" hotspot_x="37" hotspot_y="39">
+    <uuid uuid="{038c10d5-343b-147a-3944-c595ffd1132f}"/>
+    <names>
+        <name lang="ar">حسّاس ضغط</name>
+        <name lang="ca">Sensor de pressió</name>
+        <name lang="cs">Snímač tlaku</name>
+        <name lang="da">Pressure sensor</name>
+        <name lang="de">Drucksensor 3-Leiter</name>
+        <name lang="el">Pressure sensor</name>
+        <name lang="en">Pressure sensor</name>
+        <name lang="es">Sensor de presión</name>
+        <name lang="fi">Painoanturi</name>
+        <name lang="fr">Capteur Pression</name>
+        <name lang="hr">Pressure sensor</name>
+        <name lang="hu">Pressure sensor</name>
+        <name lang="it">Sensore di pressione</name>
+        <name lang="ja">Pressure sensor</name>
+        <name lang="ko">압력 센서</name>
+        <name lang="mn">Pressure sensor</name>
+        <name lang="nb">Pressure sensor</name>
+        <name lang="nl">Druksensor</name>
+        <name lang="nl_BE">Capteur de pression</name>
+        <name lang="pl">Czujnik ciśnienia</name>
+        <name lang="pt">Pressure sensor</name>
+        <name lang="pt_BR">Sensor de pressão</name>
+        <name lang="ro">Pressure sensor</name>
+        <name lang="ru">Pressure sensor</name>
+        <name lang="sk">Tlakový snímač</name>
+        <name lang="sl">Pressure sensor</name>
+        <name lang="sr">Pressure sensor</name>
+        <name lang="sv">Tryckgivare</name>
+        <name lang="tr">Pressure sensor</name>
+        <name lang="uk">Датчик тиску</name>
+        <name lang="zh">压力传感器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-35" y="-25" width="105" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="73" y="-21.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a85b439c-a15f-4b7d-b30e-2b41794b20bc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-5" y="-4" width="8" height="8" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="-28" x2="30" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="S+" x="-4" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-28" x2="60" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-2" x2="-1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="0" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="1" x2="0" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="25" y1="12" x2="35" y2="12" x3="39" y3="10" x4="39" y4="12" x5="35" y5="14" x6="25" y6="14" x7="21" y7="12" x8="21" y8="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-31.5" y="-7.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-27" y1="3" x2="-20" y2="-4" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="25" y1="-14" x2="35" y2="-14" x3="39" y3="-12" x4="39" y4="-10" x5="35" y5="-12" x6="25" y6="-12" x7="21" y7="-10" x8="21" y8="-12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="14" y1="-7" x2="14" y2="7" x3="16" y3="7" x4="16" y4="-7" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1.5" y1="2" x2="-0.5" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-24" x2="-10" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-28" x2="0" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L+" x="57" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{91f53ddd-fba5-4e78-9c2f-fc56e5757ef3}" name="" x="0" y="-28" orientation="n" type="Generic"/>
+        <terminal uuid="{c5fc8835-885a-44f1-a4d2-6cb74be133c4}" name="" x="30" y="-28" orientation="n" type="Generic"/>
+        <terminal uuid="{ffa68cf2-ed29-4379-b226-ef287defa31c}" name="" x="60" y="-28" orientation="n" type="Generic"/>
+    </description>
+</definition>

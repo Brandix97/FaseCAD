@@ -1,0 +1,62 @@
+<definition version="0.90" type="element" link_type="simple" width="90" height="60" hotspot_x="45" hotspot_y="30">
+    <uuid uuid="{e34e55b1-1414-13e6-c766-5f99c2db7c66}"/>
+    <names>
+        <name lang="ar">خط مرشح</name>
+        <name lang="ca">Filtre de línia</name>
+        <name lang="cs">Síťový filtr 3f</name>
+        <name lang="da">Netfilter</name>
+        <name lang="de">Netzfilter</name>
+        <name lang="el">Φίλτρο γραμμής</name>
+        <name lang="en">Line filter</name>
+        <name lang="es">Filtro de linea</name>
+        <name lang="fi">Verkkosuodatin</name>
+        <name lang="fr">Ligne filtre</name>
+        <name lang="hr">Mrežni filtar</name>
+        <name lang="hu">Hálózati szűrő</name>
+        <name lang="it">Filtro di linea</name>
+        <name lang="ja">ラインフィルタ</name>
+        <name lang="ko">라인 필터</name>
+        <name lang="mn">Шугамын шүүлтүүр</name>
+        <name lang="nb">Linjefilter</name>
+        <name lang="nl">Lijn filter</name>
+        <name lang="nl_BE">Lijnfilter</name>
+        <name lang="pl">Filtr sieciowy</name>
+        <name lang="pt">Filtro de linha</name>
+        <name lang="pt_BR">Filtro de linha</name>
+        <name lang="ro">Filtru de linie</name>
+        <name lang="ru">Сетевой фильтр</name>
+        <name lang="sk">Sieťový filter</name>
+        <name lang="sl">Omrežni filter</name>
+        <name lang="sr">Линијски филтер</name>
+        <name lang="sv">Linjefilter</name>
+        <name lang="tr">Hat filtresi</name>
+        <name lang="uk">Мережевий фільтр</name>
+        <name lang="zh">线路滤波器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-40" y="-20" width="80" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="43" y="-21.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{30ec412d-e639-4c28-aed6-a06f8b5490e4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="LINE FILTER" x="-26" y="2" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-32.24" y="-22.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="-32.24" y="17.76" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="27.76" y="17.76" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="27.76" y="-22.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="7.76" y="17.76" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="7.76" y="-22.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="-12.24" y="17.76" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="-12.24" y="-22.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <terminal uuid="{a249da08-25bc-41d9-acc5-052cd79ec69e}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{1b1da244-ff4e-4744-96cb-cd47bae7c019}" name="" x="30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{5417d31c-8613-48e8-ba76-e8c2e661c3b7}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{ce946f5b-f9da-4f0a-8add-255a91c6832e}" name="" x="-30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{7dc0e784-c015-4d9c-b304-35e0ca7e110f}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{25af4545-8c52-494f-8588-c101e0c8ca44}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8d1f699f-9ef2-40f9-9c19-78b4efbfd17a}" name="" x="30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{2f0de0b4-ba40-4c74-bcfc-8a557001a107}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

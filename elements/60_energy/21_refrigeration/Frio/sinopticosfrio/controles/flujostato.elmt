@@ -1,0 +1,18 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="12" hotspot_y="21">
+    <uuid uuid="{dc52090b-f428-fade-d03d-53b7b0633bdb}"/>
+    <names>
+        <name lang="ca">Fluixòstat</name>
+        <name lang="es">Flujostato</name>
+        <name lang="pt_BR">Flujostato</name>
+        <name lang="zh">流量开关</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-6" y="-17.28" width="12" height="8.43" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Q" x="-5" y="-12" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-8.84" x2="0" y2="-0.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-11" x2="4" y2="-11" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{230bfb93-7428-4211-9c86-40173fb1e8ab}" name="" x="0" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,38 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="60" hotspot_x="39" hotspot_y="38">
+    <uuid uuid="{73f3a704-b09e-6cb6-9364-3eeb352b2ed5}"/>
+    <names>
+        <name lang="ar">كوع 45 فلنجات</name>
+        <name lang="ca">Colze de 45° brides</name>
+        <name lang="cs">Koleno 45 příruby</name>
+        <name lang="da">Bøjning 45 flanger</name>
+        <name lang="de">Bogen 45° mit Flansch</name>
+        <name lang="el">Γωνία 45 φλάντζες</name>
+        <name lang="en">Elbow 45 flanges</name>
+        <name lang="es">Codo 45 bridas</name>
+        <name lang="fr">Coude 45 brides</name>
+        <name lang="pt_BR">Codo 45 bridas</name>
+        <name lang="zh">弯头45法兰</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-30.2" y="-17.45" width="3.5" height="34.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-34" y="-32" width="41" height="39" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6.13" y="-17.89" width="4.5" height="5.48" start="315" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="6.87" y="-5.89" width="4.5" height="4.48" start="40" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1" y1="1" x2="7" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-26.13" y="-11.89" width="4.5" height="5.48" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-26.13" y="7" width="4.5" height="5.48" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-20" y="2.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{c7671ca1-5a66-47e7-8350-27a06b8a8cf3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-22" y="-20" width="16" height="14" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-23.31" y1="7" x2="-14.69" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-6" x2="-23" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-8" x2="-2" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="-22" x2="14" y2="-2" x3="16" y3="-4" x4="-6" y4="-24" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{73f10379-c780-418c-aaf9-f6912dc463fe}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{24837409-a83f-4324-a99b-6ac780049ca0}" name="" x="5" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

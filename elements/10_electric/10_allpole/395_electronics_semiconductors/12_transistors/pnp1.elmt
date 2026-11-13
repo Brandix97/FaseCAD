@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{ccee7900-4403-b758-6c0d-c7c025dc30b4}"/>
+    <names>
+        <name lang="ar">ترنزيستور PNP</name>
+        <name lang="ca">Transistor PNP</name>
+        <name lang="cs">Bipolární tranzistor PNP</name>
+        <name lang="da">PNP-transistor</name>
+        <name lang="de">PNP Transistor</name>
+        <name lang="el">Τρανζίστορ PNP</name>
+        <name lang="en">PNP transistor</name>
+        <name lang="es">Transistor PNP</name>
+        <name lang="fi">PNP-transistori</name>
+        <name lang="fr">Transistor PNP</name>
+        <name lang="hr">PNP tranzistor</name>
+        <name lang="hu">PNP tranzisztor</name>
+        <name lang="it">Transistor PNP</name>
+        <name lang="ja">PNPトランジスタ</name>
+        <name lang="ko">PNP 트랜지스터</name>
+        <name lang="mn">PNP транзистор</name>
+        <name lang="nb">PNP-transistor</name>
+        <name lang="nl">Transistor PNP</name>
+        <name lang="nl_BE">PNP-transistor</name>
+        <name lang="pl">Tranzystor PNP</name>
+        <name lang="pt">Transístor PNP</name>
+        <name lang="pt_BR">Transistor PNP</name>
+        <name lang="ro">Tranzistor PNP</name>
+        <name lang="ru">PNP транзистор</name>
+        <name lang="sk">Tranzistor PNP</name>
+        <name lang="sl">Tranzistor PNP</name>
+        <name lang="sr">PNP транзистор</name>
+        <name lang="sv">PNP-transistor</name>
+        <name lang="tr">PNP transistör</name>
+        <name lang="uk">Транзистор PNP</name>
+        <name lang="zh">PNP型晶体管1</name>
+    </names>
+    <informations>Author: Angelescu Constantin
+titus0818@yahoo.com</informations>
+    <description>
+        <dynamic_text x="15" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3f1efc34-aef9-489b-8b9d-f97a63ddad06}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="0" x2="10" y2="-10" x3="10" y3="-17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="-8" x2="-5" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="-9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-17" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="0" x2="10" y2="10" x3="10" y3="17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-11.85" y="-9.85" width="19.7" height="19.7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-2.14" x2="2.16" y2="-7" x3="4.24" y3="-2.14" x4="-2" y4="-2.14" x5="0.08" y5="-2.14" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <terminal uuid="{4d72a172-b85c-462c-921e-48b75745a555}" name="" x="10" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{5e0d225c-064c-4081-a337-9ce63a4757e1}" name="" x="10" y="21" orientation="s" type="Generic"/>
+        <terminal uuid="{64b9f0ca-7bf5-41f8-89e6-a8e43c35b3d0}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="70" hotspot_x="54" hotspot_y="37">
+    <uuid uuid="{cb194fcd-4642-edaa-8e81-e3ec64b90c7e}"/>
+    <names>
+        <name lang="ar">ECS بالون خزّان مُجمع B1</name>
+        <name lang="ca">Pilota 1B i ECS combinat</name>
+        <name lang="cs">1B zásobník kombinovaný ECS</name>
+        <name lang="da">1B kugle og kombineret brugsvand</name>
+        <name lang="de">1B Kugel und Kombispeicher ECS</name>
+        <name lang="el">Δοχείο 1B και συνδυασμένο ECS</name>
+        <name lang="en">1B ball and combined ECS</name>
+        <name lang="es">1B bola y conbinada ECS</name>
+        <name lang="fi">1B pallo ja yhdistetty ECS</name>
+        <name lang="fr">1B ballon et combiner ECS</name>
+        <name lang="hr">1B bojler i kombinirani PTV</name>
+        <name lang="hu">1B gömb és kombinált HMV</name>
+        <name lang="it">1B Scambiatore ACS</name>
+        <name lang="ja">1Bボイラー及び複合ECS</name>
+        <name lang="ko">1B 보일러 및 복합 ECS</name>
+        <name lang="mn">1B бөмбөлөг ба хосолсон ECS</name>
+        <name lang="nb">1B ball og kombinert ECS</name>
+        <name lang="nl">type 1B tank met dubbele wisselaar</name>
+        <name lang="nl_BE">1B-ballon met gecombineerde ECS</name>
+        <name lang="pl">1B zasobnik kombinowany CWU</name>
+        <name lang="pt">Balão 1B e AQS combinado</name>
+        <name lang="pt_BR">1B ball e Juncaod ECS</name>
+        <name lang="ro">Balon 1B și ACM combinat</name>
+        <name lang="ru">Шар 1B и комбинированный ГВС</name>
+        <name lang="sk">1B zásobník a kombinovaný TÚV</name>
+        <name lang="sl">Posoda 1B in kombinirana ECS</name>
+        <name lang="sr">1Б бојлер и комбиновани ПТВ</name>
+        <name lang="sv">1B beredare och kombinerad VV</name>
+        <name lang="tr">1B balon ve kombi KSH</name>
+        <name lang="uk">Бак 1B і комбінований ГВП</name>
+        <name lang="zh">组合式生活热水水箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-56.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{da5b42fc-3979-4e96-a051-82bd18c5a9c6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-11" y="-26" width="22" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="1B" x="-43" y="-18.7" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="29" y1="-5.7" x2="6" y2="-5.7" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="29" y1="-21.7" x2="6" y2="-21.7" end1="triangle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="24" y1="26.3" x2="27" y2="23.3" x3="27" y3="29.3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-29" y1="26" x2="-26" y2="23" x3="-26" y3="29" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="22" y="22.3" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-31" y="22" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-16" y="-27.7" width="32" height="59" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="6.3" x2="43" y2="6.3" x3="33" y3="11.3" x4="43" y4="16.3" x5="33" y5="21.3" x6="43" y6="26.3" x7="23" y7="26.3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="solaire" x="-36" y="17" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="chauff." x="18" y="18.3" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ECS" x="25" y="-11.7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ballon" x="-13" y="-31" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-23" y1="6" x2="-43" y2="6" x3="-33" y3="11" x4="-43" y4="16" x5="-33" y5="21" x6="-43" y6="26" x7="-23" y7="26" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-23" y1="6" x2="-3" y2="6" x3="-13" y3="11" x4="-3" y4="16" x5="-13" y5="21" x6="-3" y6="26" x7="-23" y7="26" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="23" y1="6.3" x2="3" y2="6.3" x3="13" y3="11.3" x4="3" y4="16.3" x5="13" y5="21.3" x6="3" y6="26.3" x7="23" y7="26.3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

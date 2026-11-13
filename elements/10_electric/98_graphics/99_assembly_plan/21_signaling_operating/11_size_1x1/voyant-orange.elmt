@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="40" height="60" hotspot_x="15" hotspot_y="24">
+    <uuid uuid="{1ffb78c9-7d81-7452-c1f4-5bf929807c06}"/>
+    <names>
+        <name lang="ar"></name>
+        <name lang="ca">Llum taronja</name>
+        <name lang="cs">Oranžová kontrolka</name>
+        <name lang="da">Orange signallampe</name>
+        <name lang="de"></name>
+        <name lang="el"></name>
+        <name lang="en"></name>
+        <name lang="es">Piloto naranja</name>
+        <name lang="fi">Oranssi merkkivalo</name>
+        <name lang="fr">Voyant Orange</name>
+        <name lang="hr">Signalna lampica narančasta</name>
+        <name lang="hu">Jelzőlámpa narancssárga</name>
+        <name lang="it"></name>
+        <name lang="ja">橙表示灯</name>
+        <name lang="ko">주황색 표시등</name>
+        <name lang="mn">Улбар шар гэрэл</name>
+        <name lang="nb">Oransje indikatorlampe</name>
+        <name lang="nl"></name>
+        <name lang="nl_BE">Signaallamp Oranje</name>
+        <name lang="pl"></name>
+        <name lang="pt">Indicador Laranja</name>
+        <name lang="pt_BR">Indicador luminoso laranja</name>
+        <name lang="ro">Lampă portocalie</name>
+        <name lang="ru">Индикатор оранжевый</name>
+        <name lang="sk">Oranžová kontrolka</name>
+        <name lang="sl">Oranžna signalna lučka</name>
+        <name lang="sr">Наранџаста сигнална лампица</name>
+        <name lang="sv">Orange indikeringslampa</name>
+        <name lang="tr">Turuncu Gösterge</name>
+        <name lang="uk">Лампа оранжева</name>
+        <name lang="zh">橙色指示灯</name>
+    </names>
+    <informations>PFIT 589</informations>
+    <description>
+        <ellipse x="-7.5" y="-17.5" width="25" height="25" style="line-style:normal;line-weight:hight;filling:orange;color:black" antialias="false"/>
+        <line x1="-3" y1="4" x2="14" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="9.5" y="12.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="15" y1="14" x2="11" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="14" x2="15" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="13" x2="13" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="16" x2="16" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7.5" y="12.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="14" x2="-6" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="14" x2="-2" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="13" x2="-4" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="16" x2="-1" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-12" x2="13" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="15" y="-1" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{0a7ec1aa-56f5-4d4e-85fa-f35ad1211760}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <dynamic_text x="-22" y="-1" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{8fadd307-1947-412a-aa64-234fd56d371c}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <terminal uuid="{856d5e32-aee6-404c-a700-35cadffef339}" name="" x="13" y="25" orientation="s" type="Generic"/>
+        <terminal uuid="{8d156a37-6065-4d38-b35b-bdd6c807ee77}" name="" x="-4" y="25" orientation="s" type="Generic"/>
+    </description>
+</definition>

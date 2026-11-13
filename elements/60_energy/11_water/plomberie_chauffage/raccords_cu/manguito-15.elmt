@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="9">
+    <uuid uuid="{7e1cd4cb-c658-0b5b-3ae6-1f5ae961e1f7}"/>
+    <names>
+        <name lang="ar">جلبة نحاس 15</name>
+        <name lang="ca">Maneguet Cu 15</name>
+        <name lang="cs">Objímka Cu 15</name>
+        <name lang="da">Kobbermuffe 15</name>
+        <name lang="de">Muffe Cu 15</name>
+        <name lang="el">Χιτώνιο Cu 15</name>
+        <name lang="en">Copper sleeve 15</name>
+        <name lang="es">Manguito Cu 15</name>
+        <name lang="fr">Manchon Cu 15</name>
+        <name lang="pt_BR">Manguito Cu 15</name>
+        <name lang="zh">接头15</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-3.31" y1="4.5" x2="3.34" y2="4.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="3.87" y="-5.41" width="1.74" height="1.27" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6.63" y="-5.5" width="2.33" height="2.05" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3.87" y="4.62" width="1.74" height="1.27" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6.63" y="3.73" width="2.33" height="2.05" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4.22" y1="-3.55" x2="-4.22" y2="4.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5.79" y1="-5.5" x2="-11.08" y2="-5.5" x3="-11.08" y3="5.78" x4="-5.79" y4="5.78" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="3.94" y1="-4.62" x2="3.94" y2="4.65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4.71" y1="-5.37" x2="10.7" y2="-5.37" x3="10.7" y3="5.88" x4="5.46" y4="5.88" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-4.21" y1="-4" x2="3.23" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="9" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4906de64-9dcf-4fce-8991-f0af95778ca4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{9cf43242-f4fc-404f-ae4d-889aa5d71e6a}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{552c99ca-3e0b-4e57-af10-f0dfe79fbae8}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

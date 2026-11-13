@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="15" hotspot_y="20">
+    <uuid uuid="{e9c94584-3357-971a-ee6d-9c8b410872ae}"/>
+    <names>
+        <name lang="ca">Extractor de pop</name>
+        <name lang="es">Extractor pulpo</name>
+        <name lang="pt_BR">Extractou pulpo</name>
+        <name lang="zh">吸油烟机-章鱼式</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="22.8" y="5.91" width="3.5" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="22.8" y1="15" x2="-2.4" y2="15" x3="-2.4" y3="1" x4="0.4" y4="-3.18" x5="0.4" y5="-10.87" x6="6.7" y6="-10.87" x7="6.7" y7="-3.88" x8="10.2" y8="-4.58" x9="13.7" y9="-3.88" x10="13.7" y10="-10.87" x11="20" y11="-10.87" x12="20" y12="-3.18" x13="22.8" y13="-0.38" x14="22.8" y14="15" x15="22.8" y15="14.3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-5.9" y="5.91" width="3.5" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="1" x2="20.7" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="8.1" y="-8.77" width="4.2" height="4.2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.8" y1="-3.18" x2="5.3" y2="-3.88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="14.4" y1="-3.88" x2="18.6" y2="-3.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="17.9" y1="9.41" x2="21.4" y2="9.41" x3="19.3" y3="8.71" x4="19.3" y4="10.11" x5="21.4" y5="9.41" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="3.2" y="3.85" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{af3134a7-1315-46fe-9c36-32bfe70ac1a9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a497faee-80dc-4de6-8675-1af4d8c75198}" name="" x="-7" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{36cf7889-0589-463b-9066-d30d6d346cdf}" name="" x="26" y="9" orientation="e" type="Generic"/>
+        <terminal uuid="{27fbc30a-56ee-4f98-b2b4-20b49901d789}" name="" x="3" y="-11" orientation="n" type="Generic"/>
+        <terminal uuid="{058b4793-ab60-43d0-bda2-3a908afe793b}" name="" x="10" y="-9" orientation="n" type="Generic"/>
+        <terminal uuid="{d95e9a3b-e27a-4161-9922-d15fc8967ac0}" name="" x="18" y="-11" orientation="n" type="Generic"/>
+    </description>
+</definition>

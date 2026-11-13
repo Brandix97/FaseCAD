@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{8e1fe3eb-f508-c699-2e7b-827c2cb9a001}"/>
+    <names>
+        <name lang="ar">ضاغط تيربو</name>
+        <name lang="ca">Turbocompressor</name>
+        <name lang="cs">Turbokompresor</name>
+        <name lang="da">Turbo kompressor</name>
+        <name lang="de">Turbo-Verdichter</name>
+        <name lang="el">Συμπιεστής τούρμπο</name>
+        <name lang="en">Turbo compressor</name>
+        <name lang="es">Turbo compresor</name>
+        <name lang="fi">Turbo-kompressori</name>
+        <name lang="fr">Compresseur turbo</name>
+        <name lang="hr">Turbo kompresor</name>
+        <name lang="hu">Turbó kompresszor</name>
+        <name lang="it">Turbocompressore</name>
+        <name lang="ja">ターボ圧縮機</name>
+        <name lang="ko">터보 압축기</name>
+        <name lang="mn">Турбо компрессор</name>
+        <name lang="nb">Turbo kompressor</name>
+        <name lang="nl">Turbocompressor</name>
+        <name lang="nl_BE">Turbo-compressor</name>
+        <name lang="pl">Turbo kompresor</name>
+        <name lang="pt">Turbo compressor</name>
+        <name lang="pt_BR">Turbo Compressãor</name>
+        <name lang="ro">Compresor turbo</name>
+        <name lang="ru">Турбокомпрессор</name>
+        <name lang="sk">Turbokompresor</name>
+        <name lang="sl">Turbo kompresor</name>
+        <name lang="sr">Турбо компресор</name>
+        <name lang="sv">Turbo­kompressor</name>
+        <name lang="tr">Turbo kompresör</name>
+        <name lang="uk">Турбокомпресор</name>
+        <name lang="zh">涡轮压缩机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{274b046c-8e99-42af-a3ee-7009f2d32747}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="-3.5" y="-3.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-13" x2="13" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="13" x2="13" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{fc054aa0-89c7-4c6f-9839-624ad93b2ee3}" name="" x="16" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{5d07fe5a-374a-4cfe-9601-1f81e7089389}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

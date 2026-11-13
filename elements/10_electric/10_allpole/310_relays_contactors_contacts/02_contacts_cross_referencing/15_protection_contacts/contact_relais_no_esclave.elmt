@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="slave" width="20" height="60" hotspot_x="12" hotspot_y="30">
+    <uuid uuid="{de01959a-ab29-04cf-b9f9-be8dc35008e1}"/>
+    <names>
+        <name lang="ar">مثلامس مرحل حراري (NO)</name>
+        <name lang="ca">Relé tèrmic de contacte (NO)</name>
+        <name lang="cs">Kontakt (NO) tepelného jističe</name>
+        <name lang="da">Kontakt termisk relæ (NO)</name>
+        <name lang="de">Relaisschliesser</name>
+        <name lang="el">Επαφή θερμικού ανοικτή</name>
+        <name lang="en">Contact thermal relay (NO)</name>
+        <name lang="es">Contacto relé térmico NA</name>
+        <name lang="fi">Kosketin lämpörele (NO)</name>
+        <name lang="fr">Contact relais thermique (NO)</name>
+        <name lang="hr">Termički relej s kontaktom (NO)</name>
+        <name lang="hu">Hőrelé érintkező (NO)</name>
+        <name lang="it">Contatto relè termico (NA)</name>
+        <name lang="ja">接点 熱動継電器 (NO)</name>
+        <name lang="ko">접점 열 릴레이 (NO)</name>
+        <name lang="mn">Дулааны релений контакт (NO)</name>
+        <name lang="nb">Termisk relé med kontakt (NO)</name>
+        <name lang="nl">Thermisch bediend contact (NO)</name>
+        <name lang="nl_BE">Contact thermisch relais (NO)</name>
+        <name lang="pl">Zestyk zwierny przekaźnika cieplnego</name>
+        <name lang="pt">Contacto relé térmico (NO)</name>
+        <name lang="pt_BR">Contato de relé térmico (NA)</name>
+        <name lang="ro">Contact releu termic (NO)</name>
+        <name lang="ru">Контакт теплового реле (НР)</name>
+        <name lang="sk">Kontakt tepelného relé (NO)</name>
+        <name lang="sl">Kontakt toplotnega releja (NO)</name>
+        <name lang="sr">Термички релеј са контактом (НО)</name>
+        <name lang="sv">Kontakt termiskt relä (NO)</name>
+        <name lang="tr">Termal röle kontağı (NO)</name>
+        <name lang="uk">Контакт теплового реле (NO)</name>
+        <name lang="zh">继电器常开从属触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="2.75" y="-9.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4e29f2a0-804c-4b21-b8f4-d5af4be1d60b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="0" x2="-9" y2="0" x3="-9" y3="4" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-7" y1="0" x2="-7" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{29d70cbc-15e2-4c5a-9e99-eb76206659e9}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{927f1ef7-f100-49d8-b3b2-ecaab1d16b50}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

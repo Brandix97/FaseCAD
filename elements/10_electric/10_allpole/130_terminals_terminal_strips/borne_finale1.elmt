@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="20" height="30" hotspot_x="10" hotspot_y="21">
+    <uuid uuid="{d172d1e7-33fd-a1ca-c93b-9aa3f8c03753}"/>
+    <names>
+        <name lang="ar">طرف نهائي</name>
+        <name lang="ca">Born final</name>
+        <name lang="cs">Koncová svorka</name>
+        <name lang="da">Klemme</name>
+        <name lang="de">Endklemme</name>
+        <name lang="el">Ακροδέκτης</name>
+        <name lang="en">Terminal block</name>
+        <name lang="es">Punto de unión</name>
+        <name lang="fi">Liitinrima</name>
+        <name lang="fr">Borne finale</name>
+        <name lang="hr">Stezaljka</name>
+        <name lang="hu">Sorkapocs</name>
+        <name lang="it">Terminale di fine</name>
+        <name lang="ja">端子ブロック</name>
+        <name lang="ko">단자 블록</name>
+        <name lang="mn">Клеммын блок</name>
+        <name lang="nb">Rekkeklemme</name>
+        <name lang="nl">Klem eind</name>
+        <name lang="nl_BE">Klemmenblok</name>
+        <name lang="pl">Zacisk</name>
+        <name lang="pt">Terminal de fim</name>
+        <name lang="pt_BR">Borne de extremidade</name>
+        <name lang="ro">Bloc de borne</name>
+        <name lang="ru">Клеммник</name>
+        <name lang="sk">Svorkovnica</name>
+        <name lang="sl">Vrstna sponka</name>
+        <name lang="sr">Клемни блок</name>
+        <name lang="sv">Plint</name>
+        <name lang="tr">Klemens bloğu</name>
+        <name lang="uk">Клемна колодка</name>
+        <name lang="zh">终端接线端子1</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-1" y="-18.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{711c40c9-4dab-4072-a64d-a3b667b65217}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4" y1="2" x2="4" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{21c4c9ff-544f-409e-b5c6-7e3d30cea240}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

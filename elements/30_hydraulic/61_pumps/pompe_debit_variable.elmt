@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="70" hotspot_x="34" hotspot_y="34">
+    <uuid uuid="{389c17e1-1bfc-81b6-5e1f-b0d4dc5721a2}"/>
+    <names>
+        <name lang="ar">مضخّة بتدفق مُتغيّر</name>
+        <name lang="ca">Bomba hidràulica de desplaçament variable</name>
+        <name lang="cs">Vodní čerpadlo s proměnlivým výkonem</name>
+        <name lang="da">Hydraulikpumpe med variabelt slagvolumen</name>
+        <name lang="de">Hydraulikpumpe mit verstellbarer Verdrängung</name>
+        <name lang="el">Υδραυλική αντλία μεταβλητής μετατόπισης</name>
+        <name lang="en">Variable displacement hydraulic pump</name>
+        <name lang="es">Bomba de desplazamiento variable</name>
+        <name lang="fi">Muuttuvatilavuuksinen hydraulipumppu</name>
+        <name lang="fr">Pompe debit variable</name>
+        <name lang="hr">Hidraulička pumpa promjenjivog pomaka</name>
+        <name lang="hu">Változtatható térfogatáramú hidraulikus szivattyú</name>
+        <name lang="it">Pompa a portata variabile</name>
+        <name lang="ja">可変容量油圧ポンプ</name>
+        <name lang="ko">가변 용량 유압 펌프</name>
+        <name lang="mn">Хувьсах шилжилттэй гидравлик насос</name>
+        <name lang="nb">Hydraulisk pumpe med variabelt slagvolum</name>
+        <name lang="nl">Pomp variabel</name>
+        <name lang="nl_BE">Hydraulische pomp met variabele opbrengst</name>
+        <name lang="pl">Pompa o zmiennej wydajności i jednym kiekunku tłoczenia</name>
+        <name lang="pt">Bomba hidráulica de cilindrada variável</name>
+        <name lang="pt_BR">Bomba hidraulica de deslocamento variavel</name>
+        <name lang="ro">Pompă hidraulică cu deplasare variabilă</name>
+        <name lang="ru">Гидравлический насос переменной производительности</name>
+        <name lang="sk">Hydraulické čerpadlo s premenlivým zdvihovým objemom</name>
+        <name lang="sl">Hidravlična črpalka s spremenljivo iztisnino</name>
+        <name lang="sr">Хидраулична пумпа променљиве запремине</name>
+        <name lang="sv">Hydraulpump med variabelt deplacement</name>
+        <name lang="tr">Değişken deplasmanlı hidrolik pompa</name>
+        <name lang="uk">Гідравлічний насос змінної продуктивності</name>
+        <name lang="zh">变量泵</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="26" y="-29" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5c37e2c1-e44d-4ad3-8cd3-fbcc30abf228}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="19.83" y1="-19.93" x2="16.45" y2="-17.72" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19.83" y1="-19.83" x2="17.61" y2="-16.35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="20" x2="19.83" y2="-19.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-20" y="-20" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0.24" y1="-19.93" x2="-2.25" y2="-15" x3="2.25" y3="-15" x4="4.16" y4="-19.58" x5="4.16" y5="-19.46" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="0" y1="20" x2="0" y2="24.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20.4" x2="0" y2="-24.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.5" y1="0" x2="-24.5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{32c4136d-0f6d-4af2-8aba-795f8a48d79e}" name="" x="0" y="-24" orientation="n" type="Generic"/>
+        <terminal uuid="{eb044016-2967-4e11-b8a5-fdec3ae2e630}" name="" x="0" y="24" orientation="s" type="Generic"/>
+        <terminal uuid="{f0e6c85b-f13b-483f-b970-1f62d71722e9}" name="" x="-24" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

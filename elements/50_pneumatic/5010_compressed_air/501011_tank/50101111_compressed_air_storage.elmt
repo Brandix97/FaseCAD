@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="30" hotspot_x="50" hotspot_y="15">
+    <uuid uuid="{e261d66b-9473-bde3-02b7-ff6dd4126f8c}"/>
+    <names>
+        <name lang="ar">تخزين الهواء المضغوط</name>
+        <name lang="ca">emmagatzematge d'aire comprimit</name>
+        <name lang="cs">skladování stlačeného vzduchu</name>
+        <name lang="da">opbevaring af trykluft</name>
+        <name lang="de">Druckluftspeicher</name>
+        <name lang="el">αποθήκευση πεπιεσμένου αέρα</name>
+        <name lang="en">compressed air storage</name>
+        <name lang="es">almacenamiento de aire comprimido</name>
+        <name lang="fi">paineilman varastointi</name>
+        <name lang="fr">stockage d'air comprimé</name>
+        <name lang="hr">skladište komprimiranog zraka</name>
+        <name lang="hu">sűrített levegő tárolása</name>
+        <name lang="it">accumulo di aria compressa</name>
+        <name lang="ja">圧縮空気貯蔵</name>
+        <name lang="ko">압축 공기 저장</name>
+        <name lang="mn">шахсан агаарын агуулах</name>
+        <name lang="nb">lagring av trykkluft</name>
+        <name lang="nl">perslucht opslag</name>
+        <name lang="nl_BE">persluchtopslag</name>
+        <name lang="pl">magazynowanie sprężonego powietrza</name>
+        <name lang="pt">armazenamento de ar comprimido</name>
+        <name lang="pt_BR">armazenamento de ar comprimido</name>
+        <name lang="ro">stocarea aerului comprimat</name>
+        <name lang="ru">хранилище сжатого воздуха</name>
+        <name lang="sk">Zásobník stlačeného vzduchu</name>
+        <name lang="sl">skladiščenje stisnjenega zraka</name>
+        <name lang="sr">складиште компримованог ваздуха</name>
+        <name lang="sv">Tryckluftslagring</name>
+        <name lang="tr">basınçlı hava depolama</name>
+        <name lang="uk">сховище стисненого повітря</name>
+        <name lang="zh">压缩空气储罐</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-23" y="-31" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{85f966eb-c5ef-cbf5-89d1-2abfd34f1339}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-24" y="-9" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4e7303d7-e665-70c3-3a94-5122794af357}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="20" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="0" x2="-30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="10" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="0" y="-10" width="20" height="20" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-10" width="20" height="20" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{828b2a99-bff0-4914-8713-a467b325de20}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{6dc735cf-05a2-4458-9a73-e852d98e8176}" name="" x="30" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

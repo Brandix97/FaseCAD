@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{34027127-96a3-1eef-1d05-a62b7720b668}"/>
+    <names>
+        <name lang="ar">وصلة لا تقطع الموصل</name>
+        <name lang="ca">Cruïlla que no interromp el conductor</name>
+        <name lang="cs">Napojení vodiče nepřerušující vodič</name>
+        <name lang="da">Samling der ikke afbryder lederen</name>
+        <name lang="de">Abzweigung, bei der der Leiter nicht
+unterbrochen werden darf</name>
+        <name lang="el">Κόμβος που δεν διακόπτει τον αγωγό</name>
+        <name lang="en">Junction not interrupting the conductor</name>
+        <name lang="es">Empalme que no interrumpe el conductor</name>
+        <name lang="fi">Liitos, joka ei katkaise johdinta</name>
+        <name lang="fr">Prise de conducteur n'interrompant pas le
+conducteur</name>
+        <name lang="hr">Čvorište koje ne prekida vodič</name>
+        <name lang="hu">A vezetéket nem megszakító csomópont</name>
+        <name lang="it">Giunzione che non interrompe il conduttore</name>
+        <name lang="ja">導体を遮断しない接続点</name>
+        <name lang="ko">도체를 차단하지 않는 접합</name>
+        <name lang="mn">Дамжуулагчийг таслахгүй зангилаа</name>
+        <name lang="nb">Forgrening som ikke avbryter lederen</name>
+        <name lang="nl">Aftakking die de geleider niet onderbreekt</name>
+        <name lang="nl_BE">Aftakking die de geleider niet onderbreekt</name>
+        <name lang="pl">Węzeł nieprzerywający przewodu</name>
+        <name lang="pt">Junção que não interrompe o condutor</name>
+        <name lang="pt_BR">Junção sem interromper o condutor</name>
+        <name lang="ro">Joncțiune care nu întrerupe conductorul</name>
+        <name lang="ru">Соединение, не прерывающее проводник</name>
+        <name lang="sk">Spoj neprerušujúci vodič</name>
+        <name lang="sl">Stičišče, ki ne prekinja vodnika</name>
+        <name lang="sr">Спој који не прекида проводник</name>
+        <name lang="sv">Knutpunkt som inte avbryter förbindningen</name>
+        <name lang="tr">İletkeni kesmeyen birleşme</name>
+        <name lang="uk">З'єднання, що не перериває провідник</name>
+        <name lang="zh">接线端子16</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ec8ed9a-db63-431c-b354-9b578fa4d2c6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-5" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{993b1e31-a7ce-4cf0-a184-2b4ef34410d0}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{dd4c0620-0679-4086-835d-d4942e526fda}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{96c084b8-0d3f-456a-8061-8c8187440c6a}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

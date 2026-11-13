@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="100" hotspot_x="25" hotspot_y="62">
+    <uuid uuid="{fb54daf4-7323-1bdc-9947-e4d6a34a1e02}"/>
+    <names>
+        <name lang="ar">كهربائي حراري</name>
+        <name lang="ca">termoelèctric</name>
+        <name lang="cs">Elektrický ohřívač</name>
+        <name lang="da">Termo Elektrisk</name>
+        <name lang="de">Elektro-Thermo</name>
+        <name lang="el">Ηλεκτρικό θερμοστάτη</name>
+        <name lang="en">thermo Electric</name>
+        <name lang="es">Termo Electrico</name>
+        <name lang="fi">Sähköinen termo</name>
+        <name lang="fr">Ballon ECS stable</name>
+        <name lang="hr">Termo električni</name>
+        <name lang="hu">Elektromos termos</name>
+        <name lang="it">Boiler elettrico</name>
+        <name lang="ja">電気温水器</name>
+        <name lang="ko">전기 써모</name>
+        <name lang="mn">Термо цахилгаан</name>
+        <name lang="nb">Termo elektrisk</name>
+        <name lang="nl">thermo Elektrisch</name>
+        <name lang="nl_BE">Elektrische thermo</name>
+        <name lang="pl">Bojler elektryczny</name>
+        <name lang="pt">Termoelétrico</name>
+        <name lang="pt_BR">Termoeletrico</name>
+        <name lang="ro">Termoelectric</name>
+        <name lang="ru">Электротермо</name>
+        <name lang="sk">Termoelektrický</name>
+        <name lang="sl">Elektro termo</name>
+        <name lang="sr">Термо електрични</name>
+        <name lang="sv">Termo el</name>
+        <name lang="tr">Termo elektrik</name>
+        <name lang="uk">Термоелектричний</name>
+        <name lang="zh">稳定型生活热水水箱</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-7" y="-98.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ce2307ca-66c3-4602-9f9f-73716207b066}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-4.5" y="12.5" width="9" height="9" start="0" angle="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5.88" y1="-54.79" x2="-5.88" y2="-51.56" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="-19" y="-47.25" width="38" height="6.5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-1" y="-52" width="2" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <rect x="19" y="24" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <ellipse x="-0.84" y="17.25" width="1.68" height="1.51" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="true"/>
+        <line x1="22" y1="21" x2="25" y2="21" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:blue" antialias="false"/>
+        <line x1="-19" y1="-43" x2="-19" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="-43" x2="-19" y2="-43" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="-43" x2="19" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="29" x2="-19" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="30" width="40" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{6af5fe39-4796-4b45-8cab-32e2e839c65e}" name="" x="24" y="25" orientation="e" type="Generic"/>
+        <terminal uuid="{804487a6-7f88-4e9d-9b07-e1efdb4cfedd}" name="" x="0" y="-52" orientation="n" type="Generic"/>
+    </description>
+</definition>

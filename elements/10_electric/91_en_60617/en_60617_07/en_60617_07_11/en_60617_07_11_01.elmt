@@ -1,0 +1,98 @@
+<definition version="0.100.0" type="element" link_type="simple" width="170" height="400" hotspot_x="45" hotspot_y="397">
+    <uuid uuid="{b787e132-e773-7517-6a8d-700deb9acd07}"/>
+    <names>
+        <name lang="ar">مجموعة مفاتيح، تُشغل برافعة</name>
+        <name lang="ca">Conjunt d'interruptor, accionat per palanca</name>
+        <name lang="cs">Páčkový ovládací spínač, třípolohový</name>
+        <name lang="da">Afbryderenhed, håndtagsbetjent</name>
+        <name lang="de">Schalter mit drei Schaltstellungen</name>
+        <name lang="el">Συγκρότημα διακοπτών, με μοχλό</name>
+        <name lang="en">Switch assembly, lever-operated</name>
+        <name lang="es">Conmutador de levas accionado por palanca</name>
+        <name lang="fi">Kytkinkokoonpano, vipukäyttöinen</name>
+        <name lang="fr">Commutateur à commande par levier à trois
+positions</name>
+        <name lang="hr">Sklop sklopki, upravljan polugom</name>
+        <name lang="hu">Kapcsolóegység, karos működtetésű</name>
+        <name lang="it">Gruppo interruttore, a comando a leva</name>
+        <name lang="ja">スイッチ組立，レバー操作</name>
+        <name lang="ko">스위치 어셈블리, 레버 조작</name>
+        <name lang="mn">Унтраалгын угсралт, хөшүүргээр ажиллуулагч</name>
+        <name lang="nb">Bryterenhet, spakbetjent</name>
+        <name lang="nl">Schakelaarsamenstelling, hendelbediend</name>
+        <name lang="nl_BE">Schakelaarcombinatie, hendelbediend</name>
+        <name lang="pl">Zespół łączników, sterowany dźwignią</name>
+        <name lang="pt">Conjunto de interruptores, acionado por alavanca</name>
+        <name lang="pt_BR">Conjunto de Interruptor, acionado pou alavanca</name>
+        <name lang="ro">Ansamblu de întrerupătoare, acționat cu pârghie</name>
+        <name lang="ru">Блок выключателей, рычажный</name>
+        <name lang="sk">Zostava spínača, pákou ovládaná</name>
+        <name lang="sl">Sestav stikala, upravljan z vzvodom</name>
+        <name lang="sr">Склоп прекидача, управљан полугом</name>
+        <name lang="sv">Brytarenhet, spakmanövrerad</name>
+        <name lang="tr">Şalter düzeneği, kollu kumandalı</name>
+        <name lang="uk">Блок вимикачів, керований важелем</name>
+        <name lang="zh">01 元件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="40" y1="-170" x2="40" y2="-220" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8578ab8e-07a9-438f-80e1-978d1e924971}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="0" x2="-40" y2="0" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-10" x2="-40" y2="-10" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-50" x2="-40" y2="-50" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-60" x2="-40" y2="-60" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-60" x2="0" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-70" x2="-40" y2="-70" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-10" x2="20" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-70" x2="10" y2="-55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-100" x2="-40" y2="-100" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-110" x2="-40" y2="-110" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-150" x2="-40" y2="-150" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-160" x2="-40" y2="-160" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-155" x2="0" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-170" x2="-40" y2="-170" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-170" x2="60" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-170" x2="60" y2="-70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-160" x2="120" y2="-160" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-155" x2="80" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-170" x2="120" y2="-170" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="75" y1="-150" x2="120" y2="-150" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-110" x2="120" y2="-110" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="75" y1="-100" x2="120" y2="-100" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-70" x2="120" y2="-70" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-45" x2="80" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-60" x2="120" y2="-60" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="65" y1="-60" x2="65" y2="-70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-50" x2="120" y2="-50" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-220" x2="30" y2="-220" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="30" y1="-190" x2="50" y2="-190" x3="40" y3="-205" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="30" y1="-240" x2="40" y2="-240" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-230" x2="20" y2="-230" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-240" x2="40" y2="-250" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-250" x2="50" y2="-260" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-260" x2="40" y2="-270" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-270" x2="40" y2="-280" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-280" x2="60" y2="-280" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-280" x2="60" y2="-390" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-280" x2="20" y2="-390" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-280" x2="-40" y2="-280" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-280" x2="120" y2="-280" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-300" x2="120" y2="-300" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-300" x2="-40" y2="-300" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-280" x2="0" y2="-310" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-280" x2="80" y2="-310" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-320" x2="-40" y2="-320" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-320" x2="120" y2="-320" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-370" x2="-40" y2="-370" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-370" x2="0" y2="-395" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-390" x2="-40" y2="-390" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-390" x2="120" y2="-390" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-395" x2="80" y2="-375" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-375" x2="120" y2="-375" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

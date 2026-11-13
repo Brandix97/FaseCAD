@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="13" hotspot_y="28">
+    <uuid uuid="{a024da28-1a35-0433-ca46-6c5a4bae8aab}"/>
+    <names>
+        <name lang="ca">Sensor de pressió</name>
+        <name lang="es">Sensor presión</name>
+        <name lang="pt_BR">Sensor pressão</name>
+        <name lang="zh">压力传感器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-9.7" y1="17.46" x2="-3.2" y2="16.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-9.7" y1="16.25" x2="-3.2" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-7.1" y="-18.1" width="7.8" height="9.19" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9.7" y1="15" x2="-3.2" y2="13.82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-9.7" y1="13.82" x2="-3.2" y2="12.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-9.7" y="10.19" width="6.5" height="8.48" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.7" y1="12.61" x2="-3.2" y2="11.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-11" y1="-5.57" x2="-11" y2="7.76" x3="-9.7" y3="10.19" x4="-3.2" y4="10.19" x5="-1.9" y5="7.76" x6="-1.9" y6="-5.57" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9.7" y="-12.25" width="6.5" height="6.69" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <arc x="-5.15" y="-16.43" width="4.55" height="5.85" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-0.6" y1="-13.93" x2="-0.6" y2="-18.94" x3="0.7" y3="-18.94" x4="0.7" y4="-13.93" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-3.85" y="11" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7d24c4de-913b-4c00-8213-f43f87b56b19}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{df6d26cc-e7d2-4803-8869-a336ed1115a0}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

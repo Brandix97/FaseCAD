@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{651c787e-35f5-880c-649e-f377c8245677}"/>
+    <names>
+        <name lang="ca">Compressor hermètic</name>
+        <name lang="es">Compresor Hermético</name>
+        <name lang="pt_BR">Compresou Hermético</name>
+        <name lang="zh">全封闭压缩机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="8" y="1" width="13" height="11" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="21" y1="6" x2="21" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17" y1="8.64" x2="17" y2="-7.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="7" x2="-19" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17" y1="17" x2="17" y2="12.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-23" y="11" width="40" height="11" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-24.08" y1="-3" x2="18.08" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="1" width="11" height="11" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-23" y="-14" width="40" height="11" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-19" y="3" width="9" height="8" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-23" y1="16.14" x2="-23" y2="1.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="1.61" x2="-23" y2="-7.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="7" x2="-20" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="10" y="2" width="9" height="8" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="19" y1="6" x2="19" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="5" x2="23" y2="10" end1="none" end2="simple" length1="1.5" length2="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="1" x2="-15" y2="7" end1="simple" end2="none" length1="1" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-17" y1="21" x2="-19" y2="23" x3="-21" y3="23" x4="-22" y4="23" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="21" x2="13" y2="23" x3="16" y3="23" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="13" y="10" width="4" height="2" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-2" y="0" width="6" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="1" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{75faf410-a32d-4fff-bad6-787799141728}" name="" x="20" y="-1" orientation="n" type="Generic"/>
+        <terminal uuid="{0d697a8e-8b23-44d2-812e-82f44c978e7a}" name="" x="1" y="11" orientation="s" type="Generic"/>
+        <terminal uuid="{46c72b14-a280-4209-9e23-4c8f57926a48}" name="" x="-20" y="0" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{ea9f2d2b-9556-2d38-bcfb-75c7f4a633db}"/>
+    <names>
+        <name lang="ar">قفل مفتاح دائما حرّ</name>
+        <name lang="ca">Clau de bloqueig sempre lliure</name>
+        <name lang="cs">Zámek, klíč vždy dostupný</name>
+        <name lang="da">Lås nøgle altid fri</name>
+        <name lang="de">Schloss Schlüssel immer frei</name>
+        <name lang="el">Κλείδωμα κλειδιού πάντα ελεύθερο</name>
+        <name lang="en">Lock key always free</name>
+        <name lang="es">Cerradura con llave siempre libre</name>
+        <name lang="fi">Lukko avain aina vapaa</name>
+        <name lang="fr">Serrure cle toujours libre</name>
+        <name lang="hr">Ključ za zaključavanje uvijek slobodan</name>
+        <name lang="hu">Zár kulcs mindig szabad</name>
+        <name lang="it">Serratura sempre libera</name>
+        <name lang="ja">ロックキー 常時自由</name>
+        <name lang="ko">잠금 키 항상 자유</name>
+        <name lang="mn">Түгжээний түлхүүр үргэлж чөлөөтэй</name>
+        <name lang="nb">Låsenøkkel alltid fri</name>
+        <name lang="nl">Sleutel altijd vrij</name>
+        <name lang="nl_BE">Vergrendeling sleutel altijd vrij</name>
+        <name lang="pl">Zamek, klucz dostępny</name>
+        <name lang="pt">Fechadura de chave sempre livre</name>
+        <name lang="pt_BR">Fechadura com chave sempre livre</name>
+        <name lang="ro">Cheie de blocare mereu liberă</name>
+        <name lang="ru">Замок с ключом всегда свободен</name>
+        <name lang="sk">Zámok s kľúčom vždy voľný</name>
+        <name lang="sl">Ključavnica s ključem vedno prost</name>
+        <name lang="sr">Брава са кључем увек слободна</name>
+        <name lang="sv">Låsnyckel alltid fri</name>
+        <name lang="tr">Kilit anahtarı her zaman serbest</name>
+        <name lang="uk">Замок, ключ завжди вільний</name>
+        <name lang="zh">锁-钥匙始终自由</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-10" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-32" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{feb0d256-b702-4052-8097-8b956d6a0eeb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

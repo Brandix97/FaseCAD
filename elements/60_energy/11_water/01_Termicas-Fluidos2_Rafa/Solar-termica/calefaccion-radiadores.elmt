@@ -1,0 +1,77 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="60" hotspot_x="57" hotspot_y="29">
+    <uuid uuid="{3dbb18c1-cc7c-5dba-4eb4-939efadc487f}"/>
+    <names>
+        <name lang="ar">تدفئة بالمشعاع</name>
+        <name lang="ca">Calefacció per radiador</name>
+        <name lang="cs">Radiátorové topení</name>
+        <name lang="da">Radiatoropvarmning</name>
+        <name lang="de">Heizkörper</name>
+        <name lang="el">Θέρμανση με θερμαντικό σώμα</name>
+        <name lang="en">Radiator heating</name>
+        <name lang="es">Calefacción radiadores</name>
+        <name lang="fi">Patterilämmitys</name>
+        <name lang="fr">Chauffage radiateur</name>
+        <name lang="hr">Radijatorsko grijanje</name>
+        <name lang="hu">Radiátorfűtés</name>
+        <name lang="it">Riscaldamento a termosifone</name>
+        <name lang="ja">放熱器暖房</name>
+        <name lang="ko">라디에이터 난방</name>
+        <name lang="mn">Радиаторын халаалт</name>
+        <name lang="nb">Radiatoroppvarming</name>
+        <name lang="nl">Radiator verwarming</name>
+        <name lang="nl_BE">Radiatorkachel</name>
+        <name lang="pl">Grzejnik</name>
+        <name lang="pt">Radiador de aquecimento</name>
+        <name lang="pt_BR">Radiatou aquecimento</name>
+        <name lang="ro">Încălzire cu radiator</name>
+        <name lang="ru">Радиаторное отопление</name>
+        <name lang="sk">Radiátorové vykurovanie</name>
+        <name lang="sl">Ogrevanje z radiatorjem</name>
+        <name lang="sr">Грејање радијатором</name>
+        <name lang="sv">Radiatoruppvärmning</name>
+        <name lang="tr">Radyatör ısıtma</name>
+        <name lang="uk">Радіаторне опалення</name>
+        <name lang="zh">散热器供暖</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="9.54" y1="12.71" x2="34.76" y2="12.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-24.36" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-10.54" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-31.27" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-27.82" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-47.4" y1="-18.28" x2="46.86" y2="-18.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-47.4" y1="19.63" x2="47.58" y2="19.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-35.82" y1="12.71" x2="-10.6" y2="12.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-35.88" y="-11.9" width="27.65" height="26.51" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="17.54" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="34.82" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-17.45" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-34.67" y1="-10" x2="-9.45" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-34.73" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-20.9" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="21" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="14.09" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-41.64" y1="-18.23" x2="-41.64" y2="-9.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-41.64" y1="-9.31" x2="-35.88" y2="-9.31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.8" y1="12.61" x2="-3.48" y2="12.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="31.37" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3.48" y1="12.61" x2="-3.48" y2="19.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9.48" y="-11.9" width="27.65" height="26.51" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="27.91" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10.69" y1="-10" x2="35.91" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="10.63" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="24.46" y="-8.12" width="1.15" height="18.93" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3.72" y1="-18.23" x2="3.72" y2="-9.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.72" y1="-9.31" x2="9.48" y2="-9.31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="37.56" y1="12.61" x2="41.88" y2="12.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="41.88" y1="12.61" x2="41.88" y2="19.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="44.16" y="-8.06" z="33" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ffbe1699-4358-40c9-9daf-743557bd2b6d}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f26261de-3e56-4f72-bfd0-40db64cf3dcd}" name="" x="-47" y="-18" orientation="w" type="Generic"/>
+        <terminal uuid="{51bf9786-d0ff-49c1-9161-250bfe8c6e54}" name="" x="-47" y="20" orientation="w" type="Generic"/>
+    </description>
+</definition>

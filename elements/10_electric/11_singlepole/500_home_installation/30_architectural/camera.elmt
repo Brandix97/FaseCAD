@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="30" hotspot_x="37" hotspot_y="12">
+    <uuid uuid="{bf63f27b-1a20-8332-3bea-ede1259de940}"/>
+    <names>
+        <name lang="ar">كاميرا</name>
+        <name lang="ca">Càmera</name>
+        <name lang="cs">Kamera</name>
+        <name lang="da">Kamera</name>
+        <name lang="de">Kamera</name>
+        <name lang="el">Κάμερα</name>
+        <name lang="en">Camera</name>
+        <name lang="es">Cámara</name>
+        <name lang="fi">Kamera</name>
+        <name lang="fr">Camera</name>
+        <name lang="hr">Kamera</name>
+        <name lang="hu">Kamera</name>
+        <name lang="it">Camera</name>
+        <name lang="ja">カメラ</name>
+        <name lang="ko">카메라</name>
+        <name lang="mn">Камер</name>
+        <name lang="nb">Kamera</name>
+        <name lang="nl">Camera</name>
+        <name lang="nl_BE">Camera</name>
+        <name lang="pl">Kamera</name>
+        <name lang="pt">Câmara</name>
+        <name lang="pt_BR">Câmera</name>
+        <name lang="ro">Cameră video</name>
+        <name lang="ru">Камера</name>
+        <name lang="sk">Kamera</name>
+        <name lang="sl">Kamera</name>
+        <name lang="sr">Камера</name>
+        <name lang="sv">Kamera</name>
+        <name lang="tr">Kamera</name>
+        <name lang="uk">Камера</name>
+        <name lang="zh">摄像头</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-30" y="-10" width="50" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="CCTV" x="-21" y="5" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-30" y="-33.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dc2bc004-b9ce-402a-95d2-fb640b97c0bb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="21" y="-4" width="2" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="24" y="-6" width="16" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{ca77d0ad-34b0-4d25-900f-43f847d8452a}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{abff96ab-e48d-46f1-9fcb-c8cc8c01f8d5}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a79c45d3-22a6-4783-8d43-23c1244b916a}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{abc32737-1bc7-4fa5-a20e-99fe2bb01370}" name="" x="-20" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

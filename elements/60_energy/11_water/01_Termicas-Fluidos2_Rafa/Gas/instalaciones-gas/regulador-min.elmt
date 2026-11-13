@@ -1,0 +1,22 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="14" hotspot_y="16">
+    <uuid uuid="{59ca7a6c-0bd3-e02c-c036-c1255cf21b0c}"/>
+    <names>
+        <name lang="ca">Regulador de pressió</name>
+        <name lang="de">Druckregler</name>
+        <name lang="es">Regulador pres</name>
+        <name lang="pt_BR">Regulador de pressão</name>
+        <name lang="zh">微型调节器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-2" y="12" width="4" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="2" width="6" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1" y1="2" x2="6" y2="2" x3="9" y3="-1" x4="6" y4="-4" x5="-6" y5="-4" x6="-9" y6="-1" x7="-7" y7="2" x8="0" y8="2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-3" y="-7" width="6" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="5" width="3" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="_mB" x="-4" y="-9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{b9d08d6d-489d-42c1-84ed-c0c3bd81632a}" name="" x="6" y="7" orientation="e" type="Generic"/>
+        <terminal uuid="{7d7f107a-9d32-4379-a5a0-a79cdca399d6}" name="" x="0" y="16" orientation="s" type="Generic"/>
+    </description>
+</definition>

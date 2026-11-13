@@ -1,0 +1,96 @@
+<definition version="0.100.0" type="element" link_type="simple" width="140" height="310" hotspot_x="14" hotspot_y="301">
+    <uuid uuid="{599b30f9-869b-d921-e29e-a099c9beac3f}"/>
+    <names>
+        <name lang="ar">إدارة الطاقة</name>
+        <name lang="ca">Gestió energètica</name>
+        <name lang="cs">Řízení spotřeby energie</name>
+        <name lang="da">Energistyring</name>
+        <name lang="de">Energieverwaltung</name>
+        <name lang="el">Διαχείριση ενέργειας</name>
+        <name lang="en">Energy management</name>
+        <name lang="es">Gestión de energía</name>
+        <name lang="fi">Energianhallinta</name>
+        <name lang="fr">Gestion Énergie</name>
+        <name lang="hr">Upravljanje energijom</name>
+        <name lang="hu">Energiagazdálkodás</name>
+        <name lang="it">Gestione Energia</name>
+        <name lang="ja">エネルギー管理</name>
+        <name lang="ko">에너지 관리</name>
+        <name lang="mn">Эрчим хүчний менежмент</name>
+        <name lang="nb">Energistyring</name>
+        <name lang="nl">Energiemanagement</name>
+        <name lang="nl_BE">Energiebeheer</name>
+        <name lang="pl">Zarządzanie enerią</name>
+        <name lang="pt">Gestão de energia</name>
+        <name lang="pt_BR">Gerenciamento de energia</name>
+        <name lang="ro">Management energetic</name>
+        <name lang="ru">Управление энергопотреблением</name>
+        <name lang="sk">Riadenie energie</name>
+        <name lang="sl">Upravljanje z energijo</name>
+        <name lang="sr">Управљање енергијом</name>
+        <name lang="sv">Energistyrning</name>
+        <name lang="tr">Enerji yönetimi</name>
+        <name lang="uk">Керування енергоспоживанням</name>
+        <name lang="zh">能源管理</name>
+    </names>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="65" y1="-224" x2="55" y2="-214" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-244" x2="60" y2="-240" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="60" y1="-257" x2="60" y2="-260" x3="55" y3="-280" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="29" y="-45" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{40897780-c3e6-43ad-b157-d855b877887d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-64" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0ea48702-2336-4128-bc3b-33371dcdbf01}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Coffret</text>
+        </dynamic_text>
+        <line x1="65" y1="-218" x2="55" y2="-208" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-240" x2="60" y2="-180" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="56" y="-249.5" width="8" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="60" y1="-252" x2="60" y2="-250" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-253" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-170" x2="120" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <ellipse x="64" y="-225" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="64" y1="-257" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-257" x2="64" y2="-257" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="57" y="-154" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="60" y1="-290" x2="60" y2="-280" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="62" y1="-282" x2="58" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="54" y="-116" width="12" height="12" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="true"/>
+        <line x1="58" y1="-282" x2="62" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="57" y1="-270" x2="50" y2="-270" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="57" y="-130" width="6" height="15" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:red;color:black" antialias="false"/>
+        <line x1="50" y1="-270" x2="50" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-247" x2="64" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="°C" x="73" y="-135" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-179" x2="60" y2="-155" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-255" x2="64" y2="-255" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-14.5" z="34" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{072bc6c4-1071-4c83-967b-78d76acad507}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="70" y="-233.5" z="35" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9aeb0448-7cb3-4f53-8e3c-ca3f8096b170}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="66" y="-278.83" z="36" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{50e667b5-9227-41b7-98ab-dee78cb27438}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="30" y="-29.5" z="37" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9bc65520-df37-4a71-881b-a39ee09b586d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-82.5" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{bbcf3120-8196-4e33-83f9-f3494137c71b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Gestion Énergie</text>
+        </dynamic_text>
+        <line x1="57" y1="-150" x2="57" y2="-116" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="63" y1="-150" x2="63" y2="-116" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="58" y="-172" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{a90341f5-c27c-4379-8a06-ca4b593afb2a}" name="" x="60" y="-290" orientation="n" type="Generic"/>
+    </description>
+</definition>

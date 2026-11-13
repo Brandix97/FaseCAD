@@ -1,0 +1,51 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="40" hotspot_x="38" hotspot_y="10">
+    <uuid uuid="{17b05445-b78a-bcad-0527-8f03bb627e21}"/>
+    <names>
+        <name lang="ar">التمثيل الفردي + المغناطيس</name>
+        <name lang="ca">Simple efecte + imant</name>
+        <name lang="cs">Jednočinný + magnet</name>
+        <name lang="da">Enkeltvirkende + magnet</name>
+        <name lang="de">Einfachwirkend + Magnet</name>
+        <name lang="el">Μονής δράσης + μαγνήτης</name>
+        <name lang="en">Single acting + magnet</name>
+        <name lang="es">Simple efecto + imán</name>
+        <name lang="fi">Yksitoiminen + magneetti</name>
+        <name lang="fr">Simple effet + aimant</name>
+        <name lang="hr">Jednostruko djelovanje + magnet</name>
+        <name lang="hu">Egyszeres működésű + mágnes</name>
+        <name lang="it">Semplice effetto + magnete</name>
+        <name lang="ja">単動+磁石</name>
+        <name lang="ko">단동 + 자석</name>
+        <name lang="mn">Нэг үйлдэлтэй + соронз</name>
+        <name lang="nb">Enkeltvirkende + magnet</name>
+        <name lang="nl">Enkelwerkend + magneet</name>
+        <name lang="nl_BE">Enkelwerkend + magneet</name>
+        <name lang="pl">Jednostronnego działania + magnes</name>
+        <name lang="pt">Simples ação + ímã</name>
+        <name lang="pt_BR">Simples ação + ímã</name>
+        <name lang="ro">Simplu efect + magnet</name>
+        <name lang="ru">Одностороннего действия + магнит</name>
+        <name lang="sk">Jednočinný + magnet</name>
+        <name lang="sl">Enostransko delovanje + magnet</name>
+        <name lang="sr">Једноструко дејство + магнет</name>
+        <name lang="sv">Enkelverkande + magnet</name>
+        <name lang="tr">Tek etkili + mıknatıs</name>
+        <name lang="uk">Односторонньої дії + магніт</name>
+        <name lang="zh">单作用气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-25" y1="1" x2="-25" y2="9" x3="-24" y3="9" x4="-24" y4="1" x5="-23" y5="1" x6="-23" y6="9" x7="-22" y7="9" x8="-22" y8="7" x9="-23" y9="6" x10="-23" y10="4" x11="-22" y11="3" x12="-22" y12="1" x13="-24" y13="1" x14="-25" y14="1" x15="-25" y15="9" x16="-23" y16="9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-27" y="-5" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-33" y3="15" x4="-33" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="22" y1="15" x2="20" y2="19" x3="18" y3="15" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="28" y1="3" x2="-20" y2="3" x3="-20" y3="7" x4="28" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

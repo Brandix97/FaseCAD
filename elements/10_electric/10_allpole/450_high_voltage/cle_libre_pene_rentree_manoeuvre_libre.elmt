@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{c5a410c9-1ace-5012-bcca-d797881efeb8}"/>
+    <names>
+        <name lang="ar">المفتاح مُتاح يُسمح بالدخول</name>
+        <name lang="ca">Maniobra d'entrada gratuïta amb clau de tancament</name>
+        <name lang="cs">Klíč dostupný, vstup dovolen</name>
+        <name lang="da">Lås nøgle fri fri indgangsmanøvre</name>
+        <name lang="de">Riegel Schlüssel frei Zutritt möglich</name>
+        <name lang="el">Χειρισμός ελεύθερης εισόδου με κλειδί και σύρτη ελεύθερο</name>
+        <name lang="en">Latch key free free entry maneuver</name>
+        <name lang="es">Llave de enclavamiento libre, maniobra de entrada libre</name>
+        <name lang="fi">Salpa-avain vapaa vapaa pääsy manööveri</name>
+        <name lang="fr">Cle libre pene entree manoeuvre libre</name>
+        <name lang="hr">Ključ brave slobodan, slobodan ulaz, manevar</name>
+        <name lang="hu">Kilincs kulcs szabad, szabad belépési manőver</name>
+        <name lang="it">Chiave libera, manovra libera</name>
+        <name lang="ja">ラッチキー 自由 自由投入操作</name>
+        <name lang="ko">래치 키 자유 자유 진입 조작</name>
+        <name lang="mn">Түгжээ түлхүүр чөлөөт чөлөөт орох маневр</name>
+        <name lang="nb">Låsenøkkel fri fri inngang manøver</name>
+        <name lang="nl">Slot sleutel in vrij</name>
+        <name lang="nl_BE">Vergrendelsleutel vrij vrije toegang bediening</name>
+        <name lang="pl">Klucz dostępny, wejście dozwolone</name>
+        <name lang="pt">Chave de lingueta livre, manobra de entrada livre</name>
+        <name lang="pt_BR">Chave livre, pino recolhido, manobra liberada</name>
+        <name lang="ro">Cheie zăvor intrare liberă manevră liberă</name>
+        <name lang="ru">Защёлка с ключом свободна, манёвр разрешён</name>
+        <name lang="sk">Zámok s kľúčom voľný, voľný vstup, manévrovanie</name>
+        <name lang="sl">Zaskočni ključ prost, prost manever vstopa</name>
+        <name lang="sr">Реза кључ слободан слободан улаз маневар</name>
+        <name lang="sv">Spärrnyckel fri fri ingång manöver</name>
+        <name lang="tr">Mandallı anahtar serbest serbest giriş manevrası</name>
+        <name lang="uk">Засув із вільним ключем, маневрування дозволене</name>
+        <name lang="zh">钥匙自由-锁舌缩回-自由操作</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-5" y="-31.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f1a33917-e9e6-4675-9e48-2a07f39e4ad8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-8" y1="-7" x2="9" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="19" y="-8" width="4" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-10" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7.07" y="-7.07" width="14.14" height="14.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="37" hotspot_y="25">
+    <uuid uuid="{363f1004-473d-129c-02a6-30b9c27eedfd}"/>
+    <names>
+        <name lang="ar">مّوزّع عاديّا مفتوح 2-2</name>
+        <name lang="ca">Vàlvula de control normalment oberta 2-2</name>
+        <name lang="cs">Regulativní ventil obvykle otevřený 2/2</name>
+        <name lang="da">Styreventil normalt åben 2-2</name>
+        <name lang="de">Wegeventil normal offen 2-2</name>
+        <name lang="el">Βαλβίδα ελέγχου κανονικά ανοικτή 2-2</name>
+        <name lang="en">Control valve normally open 2-2</name>
+        <name lang="es">Válvula de control normalmente abierta 2-2</name>
+        <name lang="fi">Säätöventtiili normaalisti auki 2-2</name>
+        <name lang="fr">Distributeur Normalement ouvert 2-2</name>
+        <name lang="hr">Kontrolni ventil normalno otvoren 2-2</name>
+        <name lang="hu">Szabályozó szelep alaphelyzetben nyitva 2-2</name>
+        <name lang="it">Valvola di controllo NO 2-2</name>
+        <name lang="ja">制御弁ノーマルオープン 2-2</name>
+        <name lang="ko">제어 밸브 상시 열림 2-2</name>
+        <name lang="mn">Хяналтын хавхлага хэвийн нээлттэй 2-2</name>
+        <name lang="nb">Styreventil normalt åpen 2-2</name>
+        <name lang="nl">P -&gt; A, gesloten NO 2-2</name>
+        <name lang="nl_BE">Stuurklep normaal open 2-2</name>
+        <name lang="pl">Zawór sterujący normalnie otwarty 2/2</name>
+        <name lang="pt">Válvula de comando normalmente aberta 2-2</name>
+        <name lang="pt_BR">Válvula de comando 2/2 normalmente aberta</name>
+        <name lang="ro">Supapă de control normal deschisă 2-2</name>
+        <name lang="ru">Клапан управления нормально открытый 2-2</name>
+        <name lang="sk">Ovládací ventil normálne otvorený 2-2</name>
+        <name lang="sl">Krmilni ventil normalno odprt 2-2</name>
+        <name lang="sr">Контролни вентил нормално отворен 2-2</name>
+        <name lang="sv">Styrventil normalt öppen 2-2</name>
+        <name lang="tr">Normalde açık kontrol valfi 2-2</name>
+        <name lang="uk">Регулювальний клапан нормально відкритий 2-2</name>
+        <name lang="zh">2/2换向阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="14.68" x2="10" y2="-15.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-42" y="-31.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2d03201f-2c12-4c6e-a4e9-c69a82463bdd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="26.68" y1="-5.8" x2="30.59" y2="4.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="24.26" y1="4.64" x2="26.58" y2="-5.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20.1" y1="-5.32" x2="24.1" y2="4.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-20" y1="-10.32" x2="20" y2="-10.32" x3="20" y3="9.68" x4="-20" y4="9.68" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-32" y1="-4.82" x2="-23" y2="4.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-5.32" x2="-20" y2="4.68" x3="-35" y3="4.68" x4="-35" y4="-5.32" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="-10.32" x2="12.5" y2="-5.32" x3="7.5" y3="-5.32" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-12" y1="-5.32" x2="-8" y2="-5.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-15.32" x2="-10" y2="-5.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="4.68" x2="-8" y2="4.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="14.68" x2="-10" y2="4.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10.32" x2="0" y2="9.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1b9409d9-37b2-4087-a9a3-5c24f7f53844}" name="" x="10" y="15" orientation="s" type="Generic"/>
+        <terminal uuid="{d95da4d4-6114-4518-95fb-b1574f1e1b5d}" name="" x="-10" y="15" orientation="s" type="Generic"/>
+        <terminal uuid="{d4d1c95c-188d-43e6-817b-e36ebf3bafd7}" name="" x="10" y="-15" orientation="n" type="Generic"/>
+        <terminal uuid="{e5dbedbf-30f7-4c4f-bcc7-66ab93cec909}" name="" x="-10" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

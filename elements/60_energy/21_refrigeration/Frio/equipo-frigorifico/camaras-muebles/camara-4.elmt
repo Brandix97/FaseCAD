@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="160" height="160" hotspot_x="80" hotspot_y="117">
+    <uuid uuid="{242a3e11-d9d9-6278-1583-29dbc3a82ba6}"/>
+    <names>
+        <name lang="ca">Cambra planta 2</name>
+        <name lang="es">Cámara planta-2</name>
+        <name lang="pt_BR">Cámara planta-2</name>
+        <name lang="zh">冷库4</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-8" y="-25.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b3a13b2d-c790-49ff-ac5f-9060b79f9e9c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-15.56" y1="28.42" x2="-74.43" y2="28.42" x3="-74.43" y3="-112.08" x4="72.73" y4="-112.08" x5="72.73" y5="28.42" x6="25.64" y6="28.42" x7="25.64" y7="23.73" x8="25.64" y8="19.05" x9="66.85" y9="19.05" x10="66.85" y10="-102.72" x11="-68.54" y11="-102.72" x12="-68.54" y12="19.05" x13="-15.56" y13="19.05" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-21.17" y="29.33" width="50.45" height="5.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="20.88" y="35" width="5.61" height="2.85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-35" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6a82673d-7805-482b-8e37-25d13fafc362}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

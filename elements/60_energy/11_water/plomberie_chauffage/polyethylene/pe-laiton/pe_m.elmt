@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{f8ce01ea-d5b2-da8e-0605-d18e2dbb5ba8}"/>
+    <names>
+        <name lang="ar">وصلة PE ذكر</name>
+        <name lang="ca">Encaix PE M</name>
+        <name lang="cs">Přechodka PE M</name>
+        <name lang="da">PE-stud M</name>
+        <name lang="de">Anschluss PE M</name>
+        <name lang="el">Σύνδεσμος PE M</name>
+        <name lang="en">PE male fitting</name>
+        <name lang="fr">Raccord PE M</name>
+        <name lang="pt_BR">Raccoud PE M</name>
+        <name lang="zh">外螺纹</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <polygon x1="-13" y1="-5" x2="-6" y2="-5" x3="-6" y3="5" x4="-13" y4="5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="5" y="-9" width="8" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="false"/>
+        <line x1="-9" y1="-5" x2="-7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="-5" x2="-10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-5" x2="-11" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-25.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{00ec095e-9d0e-4ee4-b271-8b4ac9e9e5d6}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-13" y1="0" x2="-12" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-5" x2="-9" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-3" y="-9" width="2" height="2" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-5" x2="-8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-3" y="7" width="2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-8" y1="-5" x2="-6" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-9" x2="7" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-5" x2="-6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="9" x2="7" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-9" width="4" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-5" x2="13" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="5" x2="13" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-7" x2="-3" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-8" x2="7" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-8" x2="9" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="8" x2="9" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-8" width="3" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-4" x2="-3" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="4" x2="-3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{5239a290-3420-4f6e-9467-6d1820c4999c}" name="" x="-13" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{82c529f0-b8da-44c2-94ff-281237201f6b}" name="" x="13" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="18">
+    <uuid uuid="{e42b889b-269e-7e99-beb4-fb660c417716}"/>
+    <names>
+        <name lang="ar">مصدر الهواء المضغوط</name>
+        <name lang="ca">font d'aire comprimit</name>
+        <name lang="cs">zdroj stlačeného vzduchu</name>
+        <name lang="da">trykluftkilde</name>
+        <name lang="de">Qruckluftquelle</name>
+        <name lang="el">πηγή πεπιεσμένου αέρα</name>
+        <name lang="en">compressed air source</name>
+        <name lang="es">fuente de aire comprimido</name>
+        <name lang="fi">paineilman lähde</name>
+        <name lang="fr">source d'air comprimé</name>
+        <name lang="hr">izvor komprimiranog zraka</name>
+        <name lang="hu">sűrített levegő forrás</name>
+        <name lang="it">fonte di aria compressa</name>
+        <name lang="ja">圧縮空気源</name>
+        <name lang="ko">압축 공기 공급원</name>
+        <name lang="mn">шахсан агаарын эх үүсвэр</name>
+        <name lang="nb">trykkluftkilde</name>
+        <name lang="nl">persluchtbron</name>
+        <name lang="nl_BE">persluchtbron</name>
+        <name lang="pl">źródło sprężonego powietrza</name>
+        <name lang="pt">fonte de ar comprimido</name>
+        <name lang="pt_BR">fonte de ar comprimido</name>
+        <name lang="ro">sursa de aer comprimat</name>
+        <name lang="ru">источник сжатого воздуха</name>
+        <name lang="sk">Zdroj stlačeného vzduchu</name>
+        <name lang="sl">vir stisnjenega zraka</name>
+        <name lang="sr">извор компримованог ваздуха</name>
+        <name lang="sv">Tryckluftskälla</name>
+        <name lang="tr">basınçlı hava kaynağı</name>
+        <name lang="uk">джерело стисненого повітря</name>
+        <name lang="zh">压缩空气源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-20" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{84c5a282-673b-da78-5176-09a611b3de1d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-10" y="9" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{30a02494-8600-035e-2a99-e496813c8136}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-4" y1="8" x2="4" y2="8" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8c314fc9-c749-4ab9-93f4-1c85f676afdd}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

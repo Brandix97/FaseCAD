@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{a1a16d6b-052f-611b-b93e-ad2efafe0919}"/>
+    <names>
+        <name lang="ar">مجس حرارة اللوحة</name>
+        <name lang="ca">Sonda de temperatura de placa</name>
+        <name lang="cs">Sonda teploty desky</name>
+        <name lang="da">Pladetemperaturføler</name>
+        <name lang="de">Platten-Temperaturfühler</name>
+        <name lang="el">Αισθητήρας θερμοκρασίας πλάκας</name>
+        <name lang="en">Plate tempeture probe</name>
+        <name lang="es">Sonda temp. placa</name>
+        <name lang="fi">Levyn lämpötila-anturi</name>
+        <name lang="hr">Sonda temperature ploče</name>
+        <name lang="hu">Lemez hőmérséklet-érzékelő</name>
+        <name lang="it">Sonda di temperatura piastra</name>
+        <name lang="ja">プレート温度プローブ</name>
+        <name lang="ko">판형 온도 프로브</name>
+        <name lang="mn">Хавтан температурын мэдрэгч</name>
+        <name lang="nb">Platetemperaturføler</name>
+        <name lang="nl">Voeler temperatuur plaat</name>
+        <name lang="nl_BE">Voeler temperatuur plaat</name>
+        <name lang="pl">Czujnik temperatury płyty</name>
+        <name lang="pt">Sonda de temperatura de placas</name>
+        <name lang="pt_BR">Plate tempeture probe</name>
+        <name lang="ro">Sondă de temperatură placă</name>
+        <name lang="ru">Датчик температуры пластины</name>
+        <name lang="sk">Snímač teploty dosky</name>
+        <name lang="sl">Tipalo temperature na plošči</name>
+        <name lang="sr">Сонда температуре плоче</name>
+        <name lang="sv">Plattemperaturgivare</name>
+        <name lang="tr">Plaka sıcaklık probu</name>
+        <name lang="uk">Датчик температури пластини</name>
+        <name lang="zh">温度探头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="6.91" y="-3.39" width="3.63" height="7.69" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-11.82" width="6.3" height="10.82" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.9" y="-18.84" width="1.4" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-4.09" x2="-6.17" y2="-4.09" x3="-6.17" y3="5" x4="6.91" y4="5" x5="6.91" y5="-4.09" x6="2" y6="-4.09" x7="4.73" y7="-4.09" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9.81" y="-3.39" width="3.63" height="7.69" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="3" y="-25" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e497d9b9-f360-40cc-8b23-33f6d38baf62}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{324a9eb3-6368-418e-9788-764fec8bf9dd}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{8c6e22ff-b57d-4926-89ce-c5d13a68c8b4}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{1bb4dd87-cf93-446d-b66c-7cdf691b6487}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

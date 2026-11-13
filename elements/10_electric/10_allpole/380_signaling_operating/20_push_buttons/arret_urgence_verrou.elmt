@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="master" width="30" height="60" hotspot_x="17" hotspot_y="32">
+    <uuid uuid="{85ad6acd-26f6-567b-ef6a-0bf067503d38}"/>
+    <names>
+        <name lang="ar">زرّ توقيف طوارئ (بقفل)</name>
+        <name lang="ca">Parada d'emergència (LATCH)</name>
+        <name lang="cs">Nouzové zastavení – uvolnění klíčem</name>
+        <name lang="da">Nødstop (LÅS)</name>
+        <name lang="de">Pilzdrucktaster Öffner mit Schlüsselentriegelung</name>
+        <name lang="el">Στάση κινδύνου (μανδάλωση)</name>
+        <name lang="en">Emergency stop (LATCH)</name>
+        <name lang="es">Paro de emergencia</name>
+        <name lang="fi">Hätäpysäytys (LUKITTUVA)</name>
+        <name lang="fr">Arrêt d'urgence (VERROU)</name>
+        <name lang="hr">Nužno zaustavljanje (LATCH)</name>
+        <name lang="hu">Vészleállító (RETESZ)</name>
+        <name lang="it">Arresto d'emergenza</name>
+        <name lang="ja">非常停止 (ラッチ)</name>
+        <name lang="ko">비상 정지 (LATCH)</name>
+        <name lang="mn">Яаралтай зогсоол (ТҮГЖИХ)</name>
+        <name lang="nb">Nødstopp (LÅS)</name>
+        <name lang="nl">Noodstop grendel</name>
+        <name lang="nl_BE">Noodstop (VERGRENDELD)</name>
+        <name lang="pl">Łącznik przyciskowy, odblokowywany kluczykiem (przycisk bezpieczeństwa)</name>
+        <name lang="pt">Paragem de emergência (RETENÇÃO)</name>
+        <name lang="pt_BR">Botão de emergência com retenção</name>
+        <name lang="ro">Oprire de urgență (LATCH)</name>
+        <name lang="ru">Аварийный стоп (ФИКСАЦИЯ)</name>
+        <name lang="sk">Núdzové zastavenie (ARETÁCIA)</name>
+        <name lang="sl">Zasilni izklop (zaskočitev)</name>
+        <name lang="sr">Нужно заустављање (ЗАДРШКА)</name>
+        <name lang="sv">Nödstopp (LATCH)</name>
+        <name lang="tr">Acil durdurma (KİLİT)</name>
+        <name lang="uk">Аварійний стоп (фіксація)</name>
+        <name lang="zh">急停按钮（带锁）</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">commutator</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-6.5" y1="6.33" x2="-7.5" y2="8.33" x3="-4.5" y3="8.33" x4="-5.5" y4="6.33" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-3" y1="5.33" x2="-5" y2="5.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7" y="4.33" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-1.67" x2="-3" y2="5.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="4.88" y1="-11.67" x2="-0.13" y2="8.33" x3="-0.13" y3="18.33" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-4.13" y1="-3.67" x2="-1.13" y2="-1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-11.13" y="-6.67" width="8" height="10" start="88" angle="184" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-4.13" y1="-3.67" x2="-4.13" y2="-1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-0.13" y1="-10.67" x2="5.88" y2="-10.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.13" y1="-21.67" x2="-0.13" y2="-10.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="6" y="-11.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7a1c715e-8a1d-4fea-b9fd-df8c1b3d5079}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-7" y1="-6.67" x2="-7" y2="3.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-1.67" x2="3" y2="-1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{39dfc980-b962-4f84-a17c-93680f3f7c88}" name="" x="0" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{24209df9-e0cf-41dc-9c75-62a87003ade9}" name="" x="0" y="19" orientation="s" type="Generic"/>
+    </description>
+</definition>

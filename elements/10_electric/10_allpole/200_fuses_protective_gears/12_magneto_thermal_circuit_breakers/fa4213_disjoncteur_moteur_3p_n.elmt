@@ -1,0 +1,96 @@
+<definition version="0.100.0" type="element" link_type="master" width="110" height="80" hotspot_x="32" hotspot_y="9">
+    <uuid uuid="{b83a8379-1b92-4bac-01b1-8879d100bc0c}"/>
+    <names>
+        <name lang="ar">قاطع دارة المحرك مع محايد</name>
+        <name lang="ca">Interruptor del motor amb neutre</name>
+        <name lang="cs">Pojistkový odpínač 3p+N</name>
+        <name lang="da">Motorsikring med nulleder</name>
+        <name lang="de">Motorschutzschalter mit Nulleiter</name>
+        <name lang="el">Θερμομαγνητικός διακόπτης με ουδέτερο</name>
+        <name lang="en">Motor circuit breaker with neutral</name>
+        <name lang="es">Disyuntor termico magnetico 3P+N mando manual con auto retorno y boton de desenclave</name>
+        <name lang="fi">Moottorikatkaisija neutraalilla</name>
+        <name lang="fr">Disjoncteur de moteur avec neutre</name>
+        <name lang="hr">Motorni prekidač s neutralnim vodičem</name>
+        <name lang="hu">Motorvédő kapcsoló 3F + N pólusú</name>
+        <name lang="it">Salvamotore 3P+N</name>
+        <name lang="ja">中性線付き電動機用遮断器</name>
+        <name lang="ko">중성선 포함 모터 회로 차단기</name>
+        <name lang="mn">Нейтральтай моторын хэлхээ таслагч</name>
+        <name lang="nb">Motoreffektbryter med nøytral</name>
+        <name lang="nl">Motorschakelaar met nulleider</name>
+        <name lang="nl_BE">Motorbeveiligingsschakelaar met neutre</name>
+        <name lang="pl">Wyłącznik silnikowy</name>
+        <name lang="pt">Disjuntor de motor com neutro</name>
+        <name lang="pt_BR">Disjuntor-motor de proteção com neutro (3P+N)</name>
+        <name lang="ro">Întrerupător de motor cu neutru</name>
+        <name lang="ru">Автоматический выключатель двигателя с нейтралью</name>
+        <name lang="sk">Motorový istič s neutrálom</name>
+        <name lang="sl">Motorni odklopnik z nevtralnim vodnikom</name>
+        <name lang="sr">Моторни прекидач са неутралним проводником</name>
+        <name lang="sv">Motorskyddsbrytare med nolledare</name>
+        <name lang="tr">Nötr'lü motor devre kesici</name>
+        <name lang="uk">Автоматичний вимикач двигуна з нейтраллю</name>
+        <name lang="zh">FA4213电机断路器3极+N</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="20" y1="40" x2="20" y2="37" x3="25" y3="37" x4="25" y4="33" x5="20" y5="33" x6="20" y6="24" x7="15" y7="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="50" x2="20" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="30" y="30" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="50" x2="40" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="30" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="40" y1="40" x2="40" y2="37" x3="45" y3="37" x4="45" y4="33" x5="40" y5="33" x6="40" y6="24" x7="35" y7="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="10" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="57" y1="30" x2="63" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="10" y="30" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="N1" x="68" y="9" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N2" x="68" y="60" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5" x="49" y="5" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="6" x="49" y="58" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="29" y="58" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="29" y="5" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="9" y="58" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="30" y="40" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="40" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="10" y="40" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I>" x="16" y="48" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-28.05" y1="11.95" x2="-28.05" y2="19.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I>" x="35" y="48" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-28" y1="40" x2="-28" y2="48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-47" y="-12" z="25" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f019de00-512a-4576-8e17-f64b255a89b2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="50" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I>" x="-3" y="48" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-10" y1="16" x2="59" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.22" y1="16" x2="-16.76" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="18" x2="-20" y2="14" x3="-24" y3="16" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="1" x="9" y="5" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="0" y1="40" x2="0" y2="37" x3="5" y3="37" x4="5" y4="33" x5="0" y5="33" x6="0" y6="24" x7="-5" y7="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="13" width="6" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.13" y1="16" x2="-10.86" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="13" x2="-14" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="44" x2="-14" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="44" x2="-16" y2="44" x3="-18" y3="47" x4="-20" y4="44" x5="-28" y5="44" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <line x1="60" y1="0" x2="60" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="60" x2="60" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="57" y1="10" x2="63" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="13" x2="60" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ef7c045b-3672-4736-89be-da44306096b0}" name="1" x="0" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{d7ba02a8-cc4b-4b82-9ba0-26628f369f34}" name="3" x="20" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{022719b4-a4a7-4969-8c4f-8c92a1fe6db9}" name="5" x="40" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{46640299-be88-4cab-b112-5c511d6c6b34}" name="6" x="40" y="60" orientation="s" type="Generic"/>
+        <terminal uuid="{b49de099-73c5-4604-baf6-bcfb11542966}" name="4" x="20" y="60" orientation="s" type="Generic"/>
+        <terminal uuid="{348d6789-6d0b-4e1e-9ea5-4c8aef8dc516}" name="2" x="0" y="60" orientation="s" type="Generic"/>
+        <terminal uuid="{0fd718bf-ee21-43c4-bf54-9922e71f6b22}" name="N1" x="60" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{79011d4e-2d0b-43b0-9291-3be37991eb67}" name="N2" x="60" y="60" orientation="s" type="Generic"/>
+    </description>
+</definition>

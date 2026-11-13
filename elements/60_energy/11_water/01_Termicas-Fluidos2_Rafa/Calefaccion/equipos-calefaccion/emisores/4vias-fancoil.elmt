@@ -1,0 +1,70 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="30" hotspot_y="33">
+    <uuid uuid="{7dc7bb92-ef00-349c-782e-f5edeb6c4c44}"/>
+    <names>
+        <name lang="ar">صمّام 4 مسالك</name>
+        <name lang="ca">Vàlvula de 4 vies de ventilador de bobina (fancoil)</name>
+        <name lang="cs">Ventil 4 cestný</name>
+        <name lang="da">Ventil 4 vejs</name>
+        <name lang="de">Ventil 4 Wege</name>
+        <name lang="el">Βαλβίδα 4 οδών</name>
+        <name lang="en">Vanne 4 voies</name>
+        <name lang="es">Llave 4V fancoil</name>
+        <name lang="fi">Venttiili 4 tie</name>
+        <name lang="fr">Vanne 4 voies</name>
+        <name lang="hr">Ventil 4 puta</name>
+        <name lang="hu">Szelep 4 járatú</name>
+        <name lang="it">Valvola 4 vie</name>
+        <name lang="ja">Vanne 4 voies</name>
+        <name lang="mn">Хаалт 4 зам</name>
+        <name lang="nb">Ventil 4 veis</name>
+        <name lang="nl">Klep 4 wegen</name>
+        <name lang="nl_BE">Klep 4 wegen</name>
+        <name lang="pl">Zawór 4-drożny</name>
+        <name lang="pt">Válvula de 4 vias</name>
+        <name lang="pt_BR">Llave 4V fancoil</name>
+        <name lang="ro">Robinet 4 căi</name>
+        <name lang="ru">Клапан 4 ходов</name>
+        <name lang="sk">Ventil 4 cestný</name>
+        <name lang="sl">Ventil 4 poti</name>
+        <name lang="sr">Вентил са 4 крака</name>
+        <name lang="sv">Ventil 4 vägar</name>
+        <name lang="tr">Vana 4 yollu</name>
+        <name lang="uk">Клапан 4 ходовий</name>
+        <name lang="zh">四通风机盘管阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-1.48" y1="2.49" x2="0.67" y2="2.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.48" y1="-8.21" x2="0.67" y2="-8.21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11.33" y1="-20.42" x2="-11.33" y2="-16.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-2" width="2.69" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-12.74" width="2.69" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.83" y1="-20.42" x2="-9.83" y2="-16.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.48" y1="-11.23" x2="0.67" y2="-11.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.48" y1="-0.53" x2="0.67" y2="-0.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.73" y1="-8.21" x2="-16.58" y2="-8.21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.34" y1="-20.42" x2="-8.34" y2="-16.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.73" y1="2.49" x2="-16.58" y2="2.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16.58" y="-10.35" width="3" height="2.19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-13.58" y="-13.28" width="6" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19.27" y="-2" width="2.69" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19.27" y="-12.74" width="2.69" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.73" y1="-11.23" x2="-16.58" y2="-11.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.73" y1="-0.53" x2="-16.58" y2="-0.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12.08" y="-14.74" width="3" height="1.46" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-14.33" y1="-14.74" x2="-6.83" y2="-14.74" x3="-6.83" y3="-21.36" x4="-8.33" y4="-24.2" x5="-12.83" y5="-24.2" x6="-14.33" y6="-21.36" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-12.83" y1="-20.42" x2="-12.83" y2="-16.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7.58" y="-10.35" width="5.25" height="2.19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.08" y1="-7.17" x2="-12.08" y2="-0.47" x3="-16.58" y3="-0.47" x4="-16.58" y4="1.54" x5="-2.33" y5="1.54" x6="-2.33" y6="-0.47" x7="-9.08" y7="-0.47" x8="-9.08" y8="-7.17" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-7" y="-33" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9ec1657a-4f91-43c1-8b10-a7ba664eec4b}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{85fb795e-64f6-484e-a47c-cebfe9949326}" name="" x="-20" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{71ad6713-a9bc-4abf-982a-ea23cd173eea}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7203d382-a33b-491a-aea6-45132e9df692}" name="" x="-11" y="-26" orientation="n" type="Generic"/>
+        <terminal uuid="{f71532d3-0bd3-4a5b-88a7-43b14b996ecf}" name="" x="0" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{91a2db4b-0955-4080-bcf6-542be0b188bd}" name="" x="0" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

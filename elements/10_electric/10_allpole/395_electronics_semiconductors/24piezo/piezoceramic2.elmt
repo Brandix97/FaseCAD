@@ -1,0 +1,35 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="80" hotspot_x="37" hotspot_y="40">
+    <uuid uuid="{fe0a5949-8b00-01e4-971a-699d009455f8}"/>
+    <names>
+        <name lang="ar">محوّل كهربائي ضغطي سيراميكي 2</name>
+        <name lang="ca">Transductor piezoceràmic 2</name>
+        <name lang="cs">Piezokeramický měnič</name>
+        <name lang="da">Piezokeramisk transducer 2</name>
+        <name lang="de">Piezokeramischer Wandler 2</name>
+        <name lang="el">Πιεζοκεραμικός μετατροπέας 2</name>
+        <name lang="en">Piezoceramic transducer 2</name>
+        <name lang="fr">Transducteur piézocéramique 2</name>
+        <name lang="pl">Przetwornik piezoceramiczny</name>
+        <name lang="pt_BR">Transdutor piezocerâmico 2</name>
+        <name lang="ro">piezotransducer</name>
+        <name lang="zh">压电陶瓷2</name>
+    </names>
+    <informations>Author:titus
+titus0818@yahoo.com</informations>
+    <description>
+        <ellipse x="-20" y="-20" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-16" y="-17" width="32" height="34" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <line x1="0" y1="10.6" x2="0" y2="27.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-29.23" x2="0" y2="-18.77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="23" y="-35.21" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{38e809bc-b7ea-490d-a3c7-94bbdf28dae9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-3" y="1" width="6" height="33" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2" y="1" width="5" height="33" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-25.88" y1="0" x2="-10.13" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{46691575-84c7-4e24-828a-76b0fb301895}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{4b64c94b-048f-4b85-82ba-052197bd8886}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{e81097ff-710a-411e-84d3-925831aae698}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

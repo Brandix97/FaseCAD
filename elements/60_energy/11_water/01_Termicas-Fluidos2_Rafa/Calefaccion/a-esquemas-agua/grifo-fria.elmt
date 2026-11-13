@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="17">
+    <uuid uuid="{b416d24a-0ba2-9c2b-5dda-cebbb56afd5c}"/>
+    <names>
+        <name lang="ar">صنبور ماء بارد</name>
+        <name lang="ca">Aixeta freda</name>
+        <name lang="cs">Kohout studené vody</name>
+        <name lang="da">Koldtvandshane</name>
+        <name lang="de">Kaltwasserhahn</name>
+        <name lang="el">Βρύση κρύου νερού</name>
+        <name lang="en">Cold faucet</name>
+        <name lang="es">Grifo fría</name>
+        <name lang="fi">Kylmävesihana</name>
+        <name lang="hr">Slavina hladne vode</name>
+        <name lang="hu">Hidegvíz csap</name>
+        <name lang="it">Rubinetto acqua fredda</name>
+        <name lang="ja">冷水栓</name>
+        <name lang="ko">냉수 밸브</name>
+        <name lang="mn">Хүйтэн кран</name>
+        <name lang="nb">Kald kran</name>
+        <name lang="nl">Koudwaterkraan</name>
+        <name lang="nl_BE">Koudwaterkraan</name>
+        <name lang="pl">Kran z zimną wodą</name>
+        <name lang="pt">Bica de água fria</name>
+        <name lang="pt_BR">Cold faucet</name>
+        <name lang="ro">Robinet de apă rece</name>
+        <name lang="ru">Кран холодной воды</name>
+        <name lang="sk">Kohútik studenej vody</name>
+        <name lang="sl">Pipa za hladno vodo</name>
+        <name lang="sr">Славина за хладну воду</name>
+        <name lang="sv">Kallvattenkran</name>
+        <name lang="tr">Soğuk su musluğu</name>
+        <name lang="uk">Кран холодної води</name>
+        <name lang="zh">冷水龙头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="0" y1="-8" x2="0" y2="1.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="7" y1="1.46" x2="-8" y2="1.46" x3="-0.5" y3="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-7" y="9.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f15fcfe5-7bbb-4717-a3ee-6338617e51e9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c48d4eb6-d428-43de-89d2-f6cf1e690c57}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

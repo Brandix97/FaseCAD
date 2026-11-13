@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="80" hotspot_x="60" hotspot_y="39">
+    <uuid uuid="{a7449e5d-8a6d-9545-7391-7462a1d7b333}"/>
+    <names>
+        <name lang="ar">كوع PE PP</name>
+        <name lang="ca">PE PP Colze</name>
+        <name lang="cs">Koleno PE PP</name>
+        <name lang="da">PE PP bøjning</name>
+        <name lang="de">PE PP Winkel</name>
+        <name lang="el">Γωνία PE PP</name>
+        <name lang="en">PE PP elbow</name>
+        <name lang="fr">PE PP Coude</name>
+        <name lang="pt_BR">PE PP Coude</name>
+        <name lang="zh">PE-PP 弯头</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <ellipse x="-54" y="-30" width="64" height="64" style="line-style:normal;line-weight:normal;filling:gray;color:none" antialias="false"/>
+        <rect x="-28" y="8" width="24" height="26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <ellipse x="-34" y="-10" width="24" height="24" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <rect x="-54" y="-12" width="32" height="46" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <rect x="-24" y="-31" width="2" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <rect x="-11" y="2" width="22" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <polygon x1="-40" y1="-8" x2="-40" y2="-32" x3="-24" y3="-32" x4="-24" y4="-8" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <line x1="-40" y1="-25" x2="-24" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="27" y="0.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{40aab1c1-2355-42e4-a4b7-45eeb49ed7d6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="12" y="17" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-15" x2="-24" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-14" y="17" width="2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-40" y1="-9" x2="-50" y2="-12" x3="-50" y3="-28" x4="-40" y4="-31" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <line x1="-14" y1="17" x2="-14" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-39" y="-34" width="2" height="4" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12" y1="4" x2="-14" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-39" y="-10" width="2" height="4" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14" y1="17" x2="14" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="4" x2="12" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-37" y1="-6" x2="-24" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-37" y1="-34" x2="-24" y2="-34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="20" x2="12" y2="20" x3="12" y3="4" x4="-12" y4="4" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <line x1="-5" y1="4" x2="-5" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-33" x2="-24" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="4" x2="5" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="30" x2="8" y2="30" x3="11" y3="20" x4="-11" y4="20" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <line x1="-12" y1="2" x2="12" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-32" x2="-22" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-54" y="-30" width="64" height="64" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="true"/>
+        <arc x="-34" y="-10" width="24" height="24" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{6b673d06-9919-42e9-b51e-fd8c19cd42c7}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{e205599c-a0f1-4f0e-8bd7-47179f69d961}" name="" x="-50" y="-20" orientation="w" type="Generic"/>
+    </description>
+</definition>

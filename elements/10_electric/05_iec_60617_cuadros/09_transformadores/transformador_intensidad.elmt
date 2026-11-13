@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="14" hotspot_y="25">
+    <uuid uuid="{d65ac18f-ee3a-5abd-9ee1-2fa92eafbd58}"/>
+    <names>
+        <name lang="de">Stromwandler</name>
+        <name lang="en">Current transformer</name>
+        <name lang="es">Transformador de intensidad</name>
+        <name lang="fr">Transformateur de courant</name>
+        <name lang="it">Trasformatore di corrente</name>
+        <name lang="pt">Transformador de corrente</name>
+        <name lang="tr">Akım transformatörü</name>
+        <name lang="zh">电流互感器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7.07" y="-7.07" width="14.14" height="14.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="5" y1="-5" x2="10" y2="-10" x3="20" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="5" x2="10" y2="10" x3="20" y3="10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5f5b893e-2e31-5e22-b3de-703feb42fb36}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>P1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.9" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a4e0941c-6741-5f00-856c-515567c5ab13}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>P2</text>
+        </dynamic_text>
+        <dynamic_text x="9" y="-21.6" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a6e32330-e474-5048-bab3-92defb2fbffa}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>S1</text>
+        </dynamic_text>
+        <dynamic_text x="9" y="6.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{307de4af-26b5-5613-9247-b7de7b1fb45e}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>S2</text>
+        </dynamic_text>
+        <dynamic_text x="-16.07" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b9d8471b-9a96-57ac-a223-269ad683c100}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{10eb64f5-695a-58b2-b250-ffae5382132e}" name="P1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{81a59b0e-5453-5784-ba45-d9cdc83a799b}" name="P2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{16152e14-56e7-5b24-9fd4-24b25da87ea7}" name="S1" x="20" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{32815aa8-94a0-5520-8afc-61fa04a6ffe3}" name="S2" x="20" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

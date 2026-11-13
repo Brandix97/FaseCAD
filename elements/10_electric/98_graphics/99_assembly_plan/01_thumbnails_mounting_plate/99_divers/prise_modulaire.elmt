@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="50" height="110" hotspot_x="4" hotspot_y="8">
+    <uuid uuid="{4269ffee-541a-d687-1b61-116504ae248e}"/>
+    <names>
+        <name lang="ar">مقبس معياري Legrand</name>
+        <name lang="ca">Endoll modular Legrand</name>
+        <name lang="cs">Modulární zásuvka Legrand</name>
+        <name lang="da">modulstik Legrand</name>
+        <name lang="de">Modulare Steckdose Legrand</name>
+        <name lang="el">Ρευματοδότης μονάδας Legrand</name>
+        <name lang="en">Legrand modular socket</name>
+        <name lang="es">Base de enchufe modular Legrand</name>
+        <name lang="fr">prise modulaire Legrand</name>
+        <name lang="pt_BR">Tomada modulaire Legre</name>
+        <name lang="zh">模块化插座</name>
+    </names>
+    <informations>Alexandre DIS</informations>
+    <description>
+        <rect x="0" y="0" width="41.8" height="90" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <ellipse x="18.81" y="28.82" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="10.45" y="40.5" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="27.17" y="40.5" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="23" y1="63.88" x2="40.13" y2="63.88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:red" antialias="false"/>
+        <ellipse x="34.28" y="10.78" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="10.45" y="83.24" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="11.7" y1="84.64" x2="13.38" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35.53" y1="12.18" x2="37.2" y2="14.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="2.09" y="83.24" width="4.18" height="4.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="37.2" y1="12.18" x2="35.53" y2="14.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.38" y1="84.64" x2="11.7" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12.54" y1="84.64" x2="12.54" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="11.7" y1="85.58" x2="13.38" y2="85.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="36.37" y1="12.18" x2="36.37" y2="14.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3.34" y1="84.64" x2="5" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35.53" y1="13.12" x2="37.2" y2="13.12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="84.64" x2="3.34" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.18" y1="84.64" x2="4.18" y2="86.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3.34" y1="85.58" x2="5" y2="85.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="20.87" width="41.8" height="46.75" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="65.28" x2="40.13" y2="65.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:red" antialias="false"/>
+        <arc x="3.34" y="34.43" width="0.42" height="0.47" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="Legrand" x="5" y="64.81" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="0" y="-14" z="25" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{18288964-403b-4d7b-b630-032c8704db17}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="2.09" y1="53.59" x2="2.09" y2="62.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:eleve;filling:none;color:red" antialias="false"/>
+        <line x1="36.16" y1="5.64" x2="36.16" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="34.69" y1="7" x2="37.62" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35.11" y1="8" x2="37.2" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35.95" y1="8.91" x2="36.37" y2="8.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4.18" y="23.67" width="33.44" height="37.4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{69dd9e0a-ed46-4feb-8414-8ca13ce8013f}" name="" x="36" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{81962623-406d-4c14-8cb8-1f14cab19d06}" name="" x="4" y="94" orientation="s" type="Generic"/>
+        <terminal uuid="{03803625-daaf-4703-841d-cf352e2cb75d}" name="" x="13" y="94" orientation="s" type="Generic"/>
+    </description>
+</definition>

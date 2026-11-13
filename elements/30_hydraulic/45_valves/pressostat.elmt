@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{0d01f7bd-723f-35e9-ea05-a19f0185f371}"/>
+    <names>
+        <name lang="ar">حسّاس ضغط</name>
+        <name lang="ca">Pressostat</name>
+        <name lang="cs">Přenašeč tlaku</name>
+        <name lang="da">Pressostat</name>
+        <name lang="de">Druckschalter</name>
+        <name lang="el">Πρεσοστάτης</name>
+        <name lang="en">Pressostat</name>
+        <name lang="es">Manómetro 3/8M</name>
+        <name lang="fi">Painekytkin</name>
+        <name lang="fr">Pressostat</name>
+        <name lang="hr">Presostat</name>
+        <name lang="hu">Nyomáskapcsoló</name>
+        <name lang="it">Sensore di pressione</name>
+        <name lang="ja">圧力スイッチ</name>
+        <name lang="ko">압력 스위치</name>
+        <name lang="mn">Даралтын унтраалга</name>
+        <name lang="nb">Pressostat</name>
+        <name lang="nl">Drukzender</name>
+        <name lang="nl_BE">Pressostaat</name>
+        <name lang="pl">Presostat</name>
+        <name lang="pt">Pressostato</name>
+        <name lang="pt_BR">Pressostato</name>
+        <name lang="ro">Presostat</name>
+        <name lang="ru">Реле давления</name>
+        <name lang="sk">Presostat</name>
+        <name lang="sl">Presostat</name>
+        <name lang="sr">Прекидач притиска</name>
+        <name lang="sv">Pressostat</name>
+        <name lang="tr">Presostat</name>
+        <name lang="uk">Реле тиску</name>
+        <name lang="zh">压力开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-16" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="-9" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-4" y1="-16" x2="4" y2="-18" x3="-4" y3="-20" x4="4" y4="-22" x5="-4" y5="-24" x6="4" y6="-26" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="8" y1="-18" x2="-8" y2="-24" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="-11" y="5" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="8" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8" y1="0" x2="-10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-10" y="-52" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{622765bd-23fd-4792-ad3a-2168ff953d0b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="14" x2="0" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d1c0eff0-f052-4ca2-bffb-960ba16dce84}" name="" x="0" y="18" orientation="s" type="Generic"/>
+    </description>
+</definition>

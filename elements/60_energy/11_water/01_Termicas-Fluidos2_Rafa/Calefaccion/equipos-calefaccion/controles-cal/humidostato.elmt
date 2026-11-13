@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="18" hotspot_y="28">
+    <uuid uuid="{2b83ad39-f903-27c5-3582-d132fc2b8e0d}"/>
+    <names>
+        <name lang="ar">مُتحكم رطوبة</name>
+        <name lang="ca">Humidòstat</name>
+        <name lang="cs">Hygrostat</name>
+        <name lang="da">Humidostat</name>
+        <name lang="de">Hygrostat</name>
+        <name lang="el">Υγροστάτης</name>
+        <name lang="en">Humidistat</name>
+        <name lang="es">Humidostato</name>
+        <name lang="fi">Kosteudensäädin</name>
+        <name lang="fr">hygrostat</name>
+        <name lang="hr">Hidrostat</name>
+        <name lang="hu">Páratartalom-szabályozó</name>
+        <name lang="it">Umidostato</name>
+        <name lang="ja">湿度調節器</name>
+        <name lang="ko">습도 조절기</name>
+        <name lang="mn">Чийгшил хянагч</name>
+        <name lang="nb">Fuktighetsstat</name>
+        <name lang="nl">Vochtigheidsregelaar</name>
+        <name lang="nl_BE">Vochtigheidsregelaar</name>
+        <name lang="pl">Higrostat</name>
+        <name lang="pt">Higrostato</name>
+        <name lang="pt_BR">Humidistat</name>
+        <name lang="ro">Higrostat</name>
+        <name lang="ru">Гигростат</name>
+        <name lang="sk">Hygrostat</name>
+        <name lang="sl">Hidrostat</name>
+        <name lang="sr">Хигростат</name>
+        <name lang="sv">Hygrostat</name>
+        <name lang="tr">Nem kontrol cihazı</name>
+        <name lang="uk">Гігростат</name>
+        <name lang="zh">湿度控制器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-1" y1="-19" x2="-5" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-13" y1="-3" x2="7" y2="-3" x3="7" y3="4" x4="-13" y4="7" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1" y1="-21" x2="-5" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7" y="-1" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-2" width="2" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="0" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="1" x2="5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-17" x2="-1" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-3" x2="-6" y2="-22" x3="-5" y3="-23" x4="-1" y4="-23" x5="0" y5="-22" x6="0" y6="-4" x7="0" y7="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-13" y="3.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cdd05081-a555-4704-9bcb-cbf8b6c36df7}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{6f3bdd45-b036-4b42-b905-92a78ec0e7a2}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

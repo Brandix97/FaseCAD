@@ -1,0 +1,30 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="50" hotspot_x="38" hotspot_y="40">
+    <uuid uuid="{770126f7-bbba-2e7f-493d-5c8bb6b31169}"/>
+    <names>
+        <name lang="ar">كوع 180</name>
+        <name lang="ca">Colze 180</name>
+        <name lang="cs">Koleno 180</name>
+        <name lang="da">Bøjning 180</name>
+        <name lang="de">Bogen 180°</name>
+        <name lang="el">Γωνία 180</name>
+        <name lang="en">Elbow 180</name>
+        <name lang="es">Codo 180</name>
+        <name lang="fr">Coude 180</name>
+        <name lang="pt_BR">Codo 180</name>
+        <name lang="zh">弯头180</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-8.08" y1="-35.15" x2="-8.08" y2="-22.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16.55" y="-22.49" width="17.47" height="14.51" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-32.44" y="-35.81" width="49.42" height="41.14" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="7" y="0" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{b89f6e6a-f934-4c44-b6d9-105cec7c43f4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-8.08" y1="-7.15" x2="-8.08" y2="5.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{23251589-df5a-4cff-9188-a52f9b93853c}" name="" x="-8" y="-1" orientation="w" type="Generic"/>
+        <terminal uuid="{b0c8ce74-83f4-425b-9f7d-4a4f4c6672b6}" name="" x="-9" y="-29" orientation="w" type="Generic"/>
+    </description>
+</definition>

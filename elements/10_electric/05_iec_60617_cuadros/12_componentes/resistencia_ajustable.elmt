@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{e31b2c70-cd06-5472-abf1-00de960f350e}"/>
+    <names>
+        <name lang="de">Einstellbarer Widerstand</name>
+        <name lang="en">Adjustable resistor</name>
+        <name lang="es">Resistencia ajustable</name>
+        <name lang="fr">Résistance réglable</name>
+        <name lang="it">Resistore regolabile</name>
+        <name lang="pt">Resistência ajustável</name>
+        <name lang="tr">Ayarlı direnç</name>
+        <name lang="zh">可调电阻器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="9" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-9" width="6" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="9" x2="6.5" y2="-7.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="8" y1="-9.5" x2="6.95" y2="-6.45" x3="5.13" y3="-8.02" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-17" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{25abac59-203a-5815-b465-c3c03b78e658}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e10e19cb-650a-578d-ab4f-58522309e909}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{10d9018b-cbc8-5e08-ad43-ab9021152cd2}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

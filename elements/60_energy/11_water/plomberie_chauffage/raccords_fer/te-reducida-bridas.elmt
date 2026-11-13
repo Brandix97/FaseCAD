@@ -1,0 +1,32 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="30" hotspot_y="31">
+    <uuid uuid="{670553f8-8846-0813-d79f-d2191ab16d8a}"/>
+    <names>
+        <name lang="ca">T reduïda brides</name>
+        <name lang="es">Te reducida bridas</name>
+        <name lang="pt_BR">Te reducida bridas</name>
+        <name lang="zh">异径三通法兰</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="21" y="-13" width="2" height="26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.79" y1="8" x2="19.92" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.38" y1="-18.76" x2="-5.38" y2="-8.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.56" y1="-8.05" x2="-6.09" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.44" y1="-8.05" x2="20.29" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.68" y1="-18.76" x2="5.68" y2="-8.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.1" y1="-2.69" x2="-5.82" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.71" y1="-2.69" x2="6" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-9" y="3.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{96f18a77-b8f5-48b4-afe8-0f2d0a46b55c}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-21" y1="-7.13" x2="-21" y2="7.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-7.18" x2="21" y2="7.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.89" y1="-19" x2="5.1" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9" y="-21" width="18.2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-24" y="-13" width="3" height="26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{82a1792f-19bc-48c8-9078-7a11f67b029c}" name="" x="-22" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7b5b968c-e53c-4c25-a1c5-c8a7799241ac}" name="" x="22" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{d0b42bf1-2d99-49ef-b95e-56426b0ab620}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

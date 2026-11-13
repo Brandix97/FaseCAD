@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="31" hotspot_y="28">
+    <uuid uuid="{a13e15ea-9d8d-b0da-20c8-be6dc38f7a06}"/>
+    <names>
+        <name lang="ca">Colze rectangular</name>
+        <name lang="es">Codo rectangular</name>
+        <name lang="pt_BR">Codo rectangular</name>
+        <name lang="zh">矩形风管</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-19" y1="-4" x2="-19" y2="4" x3="-10" y3="9" x4="-10" y4="-1" x5="-19" y5="-6" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-5" y="-11" width="6" height="5" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8" y="-18" width="31" height="27" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-19" y1="4" x2="-10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="1" y1="-17" x2="1" y2="-9" x3="10" y3="-4" x4="10" y4="-14" x5="1" y5="-19" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="-1" x2="7" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4" y="-6" width="6" height="5" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1" y1="-19" x2="14" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="14" y1="-19" x2="23" y2="-14" x3="10" y3="-14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="23" y1="-4" x2="23" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="-6" x2="-2" y2="-6" x3="7" y3="-1" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="9" x2="8" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-18.82" x2="14" y2="-14.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="1" y="7.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d1080a27-592e-47f1-9fe0-f909d6fa7cfc}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="10" y="-3.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ace1d17e-6a65-40ac-8f63-bc7ca05ab18e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2e43b76f-718c-41b2-9f1a-f2a158467846}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{8eb22d06-eb73-432b-9bc2-aa058701b23e}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="100" hotspot_x="29" hotspot_y="50">
+    <uuid uuid="{2c3f335e-9187-3751-df9b-1fa5362f9a79}"/>
+    <names>
+        <name lang="ar">خزّان ذاتي التفريغ Guy  Delsol</name>
+        <name lang="ca">Ampolla autobuidant Guy Delsol</name>
+        <name lang="cs">Samočinně se vyprazdňující zásobník Guy Delsol</name>
+        <name lang="da">Beholder selvtømmende Guy Delsol</name>
+        <name lang="de">Selbstentleerender Behälter Guy Delsol</name>
+        <name lang="el">Φιάλη αυτοεκκένωσης Guy Delsol</name>
+        <name lang="en">Bottle self-emptying Guy Delsol</name>
+        <name lang="es">Botella auto-vaciado Guy Delsol</name>
+        <name lang="fi">Itse tyhjentyvä pullo Guy Delsol</name>
+        <name lang="fr">Bouteille auto-vidange Guy Delsol</name>
+        <name lang="hr">Boca sa samoispražnjavanjem Guy Delsol</name>
+        <name lang="hu">Önürítő palack Guy Delsol</name>
+        <name lang="it">Serbatoio Guy Delsol ad auto-svuotamento</name>
+        <name lang="ja">自動空気抜きボトル Guy Delsol</name>
+        <name lang="ko">자동 배수 보틀 Guy Delsol</name>
+        <name lang="mn">Өөрөө хоосрох лонх Guy Delsol</name>
+        <name lang="nb">Beholder selvtømmende Guy Delsol</name>
+        <name lang="nl">automatische aftap Guy Delsol</name>
+        <name lang="nl_BE">Zelfledigende fles Guy Delsol</name>
+        <name lang="pl">Samoopróżniający się zasobnik Guy Delsol</name>
+        <name lang="pt">Garrafa com autoesvaziamento Guy Delsol</name>
+        <name lang="pt_BR">Bottle self-emptying Guy Delsol</name>
+        <name lang="ro">Sticlă autogolire Guy Delsol</name>
+        <name lang="ru">Бутыль самоопорожняющаяся Guy Delsol</name>
+        <name lang="sk">Fľaša samovyprázdňovacia Guy Delsol</name>
+        <name lang="sl">Posoda za samodejno praznjenje Guy Delsol</name>
+        <name lang="sr">Боца са самопражњењем Guy Delsol</name>
+        <name lang="sv">Självtömmande flaska Guy Delsol</name>
+        <name lang="tr">Kendini boşaltan şişe Guy Delsol</name>
+        <name lang="uk">Самоспускний бак Guy Delsol</name>
+        <name lang="zh">Guy Delsol 瓶</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="23" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{17d3bdd5-7af3-4ab9-a623-be06909dfc71}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="40" x2="0" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="12" y="-21" width="8" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="bouteille&#10;guy Delsol" x="-2" y="2" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-0.41" y="-33.41" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="-41" width="20" height="70" start="280" angle="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-40" x2="0" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="-37.5" width="25" height="25" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12" y1="-20" x2="12" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="14" x2="12" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="12.5" width="25" height="25" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12.5" y1="-25" x2="-12.5" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.5" y1="-25" x2="12.5" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{5fd2c6bd-6cbd-4888-82cd-c2e7eb66db6d}" name="" x="20" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{d7f09e98-b04d-4e69-8b5f-175d99030a87}" name="" x="0" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{8e8dde5c-9bbb-4a8d-b5fc-5b5dc830e347}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

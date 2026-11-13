@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="20" hotspot_y="9">
+    <uuid uuid="{d82e4384-aff5-c2b6-32e2-e1fffbbc149c}"/>
+    <names>
+        <name lang="ca">Maneguet Cu 18</name>
+        <name lang="es">Manguito Cu 18</name>
+        <name lang="pt_BR">Manguito Cu 18</name>
+        <name lang="zh">接头18</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="10.4" y="-7.2" width="8.8" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9.6" y="-7.2" width="8.8" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1" y="-6" width="11" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="4" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1ed9d5e8-2485-42c1-bbad-56e3f0d66f72}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3f17c26b-2f7c-46a4-ae20-a7eca00fbcff}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{34cb0a2d-493c-4f39-92b3-95990becf915}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

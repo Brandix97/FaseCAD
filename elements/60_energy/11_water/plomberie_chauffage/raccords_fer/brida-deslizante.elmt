@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="17" hotspot_y="20">
+    <uuid uuid="{7a2b501e-5f3d-94a5-6afe-6930be453e1e}"/>
+    <names>
+        <name lang="ca">Brida lliscant</name>
+        <name lang="de">Flansch, verschiebbar</name>
+        <name lang="es">Brida desliz.</name>
+        <name lang="pt_BR">Brida desliz.</name>
+        <name lang="zh">滑动法兰</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="0" y1="6" x2="-1" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-8" y1="4" x2="4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <arc x="-2" y="6" width="4" height="3" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="true"/>
+        <line x1="-7.66" y1="-6" x2="-2.34" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.65" y1="6" x2="-2.35" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2" y="-9" width="4" height="3" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="true"/>
+        <rect x="-2" y="-17" width="4" height="33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="14" width="1" height="0" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-6" x2="-8" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-4" x2="4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <rect x="2" y="-9" width="2" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-6" x2="-1" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <dynamic_text x="-14" y="13.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ffdb255a-24e8-483e-9a25-783805152466}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c1707bb1-2369-4786-875a-20ea2092b2b2}" name="" x="5" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{54c25889-ebb3-4b8c-8676-0762ac7f26f0}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="26" hotspot_y="20">
+    <uuid uuid="{9a366319-3279-445e-a89f-e85a6f9f548e}"/>
+    <names>
+        <name lang="ar">مخفّض ضغط الغاز</name>
+        <name lang="ca">Regulador de GAS</name>
+        <name lang="cs">Regulátor tlaku plynu</name>
+        <name lang="da">Gastrykregulator</name>
+        <name lang="de">Gasdruckregler</name>
+        <name lang="el">Ρυθμιστής πίεσης αερίου</name>
+        <name lang="en">GAS regulator</name>
+        <name lang="es">Reductor presion gas</name>
+        <name lang="fr">Detendeur GAZ</name>
+        <name lang="pt_BR">Reductou presion gas</name>
+        <name lang="zh">气体减压器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="13.54" y1="2" x2="8.63" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4.42" y="-2" width="7.61" height="4" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-16.37" y1="2.59" x2="-14.57" y2="2.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="1.4" x2="-11.14" y2="1.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16.37" y="2.59" width="2.7" height="2.41" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3.79" y="-17.81" width="13.95" height="13.81" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-6.36" y="-4" width="17.12" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.7" y="-17.81" width="13.95" height="13.81" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="11.39" y1="-1" x2="13.3" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="13.93" y="-3" width="1.9" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="1.25" y="-15.3" width="2.54" height="3.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5.09" y="-2" width="7.61" height="4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-1.29" y1="2" x2="-8.26" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.26" y1="-1" x2="-6.36" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16.37" y="-3.63" width="3" height="7.63" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10.79" y="-2" width="2.54" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.11" y1="-1" x2="-11" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-2.22" x2="-14.92" y2="-2.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16.37" y="-4.63" width="2.7" height="2.41" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15.47" y="-2.22" width="1.8" height="4.82" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-1.92" y="-0.5" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{865b5c63-4b51-4214-9fd9-d0d7d0d0a7d0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3537de3d-6833-4450-b65e-2b12c74a111c}" name="" x="-17" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{1b815edf-040a-4c4f-a3c3-da9607d5d8b2}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

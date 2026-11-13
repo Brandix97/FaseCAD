@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="130" hotspot_x="30" hotspot_y="50">
+    <uuid uuid="{f3348d5c-8190-c72d-8183-6f8aac632612}"/>
+    <names>
+        <name lang="ar">مفتاح IM</name>
+        <name lang="ca">Interruptor de missatgeria instantània</name>
+        <name lang="cs">Odpínač s uzemňovačem IM</name>
+        <name lang="da">IM-afbryder</name>
+        <name lang="de">IM-Schalter</name>
+        <name lang="el">Διακόπτης IM</name>
+        <name lang="en">IM switch</name>
+        <name lang="es">Interruptor IM</name>
+        <name lang="fi">IM kytkin</name>
+        <name lang="fr">Interrupteur IM</name>
+        <name lang="hr">IM prekidač</name>
+        <name lang="hu">IM kapcsoló</name>
+        <name lang="it">Interruttore IM</name>
+        <name lang="ja">IM スイッチ</name>
+        <name lang="ko">IM 스위치</name>
+        <name lang="mn">IM унтраалга</name>
+        <name lang="nb">IM bryter</name>
+        <name lang="nl">Onderbreker IM</name>
+        <name lang="nl_BE">IM schakelaar</name>
+        <name lang="pl">Rozłącznik IM</name>
+        <name lang="pt">Interruptor IM</name>
+        <name lang="pt_BR">IM Interruptor</name>
+        <name lang="ro">Comutator IM</name>
+        <name lang="ru">Выключатель IM</name>
+        <name lang="sk">Spínač IM</name>
+        <name lang="sl">Stikalo IM</name>
+        <name lang="sr">IM прекидач</name>
+        <name lang="sv">IM-brytare</name>
+        <name lang="tr">IM şalteri</name>
+        <name lang="uk">Вимикач IM</name>
+        <name lang="zh">隔离开关IM</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-7.5" y1="-28" x2="0.5" y2="-14" x3="0.5" y3="69" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="3" y="-1.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8549b41a-fc33-41dc-b189-0f466258e5b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="-25" x2="-20" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-23" x2="-21" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="-27" x2="-23" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-23" x2="-27" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-25" x2="-25" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-0.5" y="-30" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-1.5" y1="-30" x2="2.5" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.5" y1="57" x2="-4.5" y2="57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.5" y1="52" x2="-4.5" y2="62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.25" y1="52" x2="-6.25" y2="62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.5" y1="57" x2="-6.5" y2="57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-19.5" y="52" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0.5" y1="-40" x2="0.5" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{c6a13909-8f4f-4439-90c3-4c872bd3c329}" name="" x="1" y="70" orientation="s" type="Generic"/>
+        <terminal uuid="{62bc8ad9-696b-488c-841d-f0c9d747bdb1}" name="" x="1" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{332750ae-43ba-42e2-9e71-e16e1acd818e}" name="" x="1" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

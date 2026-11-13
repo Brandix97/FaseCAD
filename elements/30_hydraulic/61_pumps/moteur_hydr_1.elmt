@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="70" hotspot_x="15" hotspot_y="40">
+    <uuid uuid="{ca9f9bd5-72bb-e0ce-46b4-cdeef232411a}"/>
+    <names>
+        <name lang="ar">مُحرّك هيدروليكي</name>
+        <name lang="ca">Motor hidràulic 1</name>
+        <name lang="cs">Vodní motor 1</name>
+        <name lang="da">Hydraulikmotor 1</name>
+        <name lang="de">Hydraulikmotor 1</name>
+        <name lang="el">Υδραυλικός κινητήρας 1</name>
+        <name lang="en">Hydraulic motor 1</name>
+        <name lang="es">Motor hidraulico velocidad angular ajustable, bidireccional, 1 eje</name>
+        <name lang="fi">Hydraulimoottori 1</name>
+        <name lang="fr">Moteur hydraulique 1</name>
+        <name lang="hr">Hidraulički motor 1</name>
+        <name lang="hu">Hidraulikus motor 1</name>
+        <name lang="it">Motore idraulico 1</name>
+        <name lang="ja">油圧モーター 1</name>
+        <name lang="ko">유압 모터 1</name>
+        <name lang="mn">Гидравлик мотор 1</name>
+        <name lang="nb">Hydraulisk motor 1</name>
+        <name lang="nl">Motor 1</name>
+        <name lang="nl_BE">Hydraulische motor 1</name>
+        <name lang="pl">Silnik hydrauliczny o zmiennym kierunku przepływu, o zmiennej objętości roboczej i o dwóch kierunkach obrotów</name>
+        <name lang="pt">Motor hidráulico 1</name>
+        <name lang="pt_BR">motor hidraulico 1</name>
+        <name lang="ro">Motor hidraulic 1</name>
+        <name lang="ru">Гидравлический мотор 1</name>
+        <name lang="sk">Hydraulický motor 1</name>
+        <name lang="sl">Hidravlični motor 1</name>
+        <name lang="sr">Хидраулични мотор 1</name>
+        <name lang="sv">Hydraulmotor 1</name>
+        <name lang="tr">Hidrolik motor 1</name>
+        <name lang="uk">Гідравлічний двигун 1</name>
+        <name lang="zh">液压马达1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="15" x2="29" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-17" y="-41.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7ed61423-6520-47b2-8079-0894e26bb392}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="25" y1="-23" x2="28" y2="-20" x3="31" y3="-26" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="6" y1="9" x2="14" y2="9" x3="10" y3="2" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="6" y1="-19" x2="14" y2="-19" x3="10" y3="-12" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="34" y1="6" x2="37" y2="3" x3="40" y3="9" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <ellipse x="-5" y="-20" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="34" y1="-16" x2="37" y2="-13" x3="40" y3="-19" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="32" y="-20" width="30" height="30" start="135" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="10" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-4" x2="40" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-6" x2="40" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-30" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{60ab516b-6b62-4998-9a91-86c1b2a9c45c}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{d661a92d-6e21-484b-816a-046663ce0423}" name="" x="10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,75 @@
+<definition version="0.100.0" type="element" link_type="slave" width="80" height="50" hotspot_x="13" hotspot_y="25">
+    <uuid uuid="{0bd5daa0-74b3-59ea-83d5-259f76b83f74}"/>
+    <names>
+        <name lang="de">Schütz-Hauptkontakte, 4-polig</name>
+        <name lang="en">Contactor main contacts, 4 poles</name>
+        <name lang="es">Contactos principales de contactor, 4 polos</name>
+        <name lang="fr">Contacts principaux de contacteur, 4 pôles</name>
+        <name lang="it">Contatti principali di contattore, 4 poli</name>
+        <name lang="pt">Contactos principais de contactor, 4 polos</name>
+        <name lang="tr">Kontaktör ana kontakları, 4 kutuplu</name>
+        <name lang="zh">接触器主触点，4极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">power</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">4</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6732917d-6623-5e77-a038-560ddac26dac}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{98a08152-3544-543a-a572-1367ca593427}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0e3841f2-1379-5355-87ab-1c4d3d81b25f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="8.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8fd2f2f1-bdae-5db5-8ea2-effccc5658d2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <line x1="40" y1="-20" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="32" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="38" y="-24.1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{dff47d53-dadf-5bd1-a501-df6a74d4183f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text x="38" y="8.4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8d2cfedc-84e6-5aeb-a194-8d029982d21c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <line x1="60" y1="-20" x2="60" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="10" x2="60" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="10" x2="52" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="57.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="58" y="-24.1" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{86288805-2e31-52e3-b8cc-52ed14f785e6}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>7</text>
+        </dynamic_text>
+        <dynamic_text x="58" y="8.4" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{decb6923-5200-5fa8-bf9d-02aca8e236b2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>8</text>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="56" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-17" y="-10.49" z="10" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{de93f591-1b89-5343-9bba-c7c9b81e63c6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ebc68dc4-d9e1-5377-9adf-64e2ddd12251}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{556cc28a-c65e-52a9-a8fe-6aed96ab7bdf}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{82d0da93-8bd3-52c3-8e35-25ea741a00bf}" name="3" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{e3e22658-229e-5386-8981-ef80d5f70621}" name="4" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{cf1f90ee-b8a7-58f8-a900-a088c491b8c9}" name="5" x="40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{6bee8ad0-e9b8-5aa6-aaf5-6f9c436e2733}" name="6" x="40" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{7c147b6e-6028-573e-8b84-29d47a261000}" name="7" x="60" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{01bf92c6-e5e7-5eb4-984a-cc8c165f4929}" name="8" x="60" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

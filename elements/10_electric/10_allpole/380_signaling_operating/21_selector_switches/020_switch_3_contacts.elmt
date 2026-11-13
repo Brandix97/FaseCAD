@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="10" hotspot_y="40">
+    <uuid uuid="{0e158671-2ff7-8994-e1cf-932d839f754f}"/>
+    <names>
+        <name lang="ar">مفتاح بوضعين</name>
+        <name lang="ca">Interruptor de 3 posicions</name>
+        <name lang="cs">Třípolohový přepínač</name>
+        <name lang="da">Afbryder 3 positioner</name>
+        <name lang="de">Wahlschalter 3 Positionen</name>
+        <name lang="el">Διακόπτης 2 θέσεων</name>
+        <name lang="en">Switch 3 positions</name>
+        <name lang="es">Interruptor 3 posiciones</name>
+        <name lang="fi">Kytkin 3 asentoa</name>
+        <name lang="fr">Interrupteur 3 positions</name>
+        <name lang="hr">Sklopka 3 položaja</name>
+        <name lang="hu">Kapcsoló 3 állás</name>
+        <name lang="it">Interruttore a 3 posizioni</name>
+        <name lang="ja">スイッチ 3位置</name>
+        <name lang="ko">스위치 3 위치</name>
+        <name lang="mn">Унтраалга 3 байрлал</name>
+        <name lang="nb">Bryter 3 posisjoner</name>
+        <name lang="nl">WisselContact (NC/NO)</name>
+        <name lang="nl_BE">Schakelaar 3 standen</name>
+        <name lang="pl">Zestyk przełączny przerwowy</name>
+        <name lang="pt">Interruptor 3 posições</name>
+        <name lang="pt_BR">Interruptor 3 posições</name>
+        <name lang="ro">comutatorcu3pozitii</name>
+        <name lang="ru">Переключатель 3-х позиционный</name>
+        <name lang="sk">Prepínač 3 polôh</name>
+        <name lang="sl">Stikalo 3 položajev</name>
+        <name lang="sr">Прекидач 3 положаја</name>
+        <name lang="sv">Brytare 3 lägen</name>
+        <name lang="tr">Şalter 3 konum</name>
+        <name lang="uk">Перемикач 3 положень</name>
+        <name lang="zh">020_三触点开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="24" y="-8.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e1a549c5-7e99-4dad-be89-282393d87a1b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="9" y1="-13" x2="2" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="18.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="2" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="8.5" y="-16.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="2" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="2" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-17" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ff69ebf1-5b4d-4377-ba8c-b4447a0266fd}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{57f76739-5fe2-4cba-8a09-93e322e26e8b}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{a9f9372e-3f9f-47cb-833c-06976e45bfdd}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{42419817-bdea-44fb-ac07-79cea241abe6}" name="" x="20" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

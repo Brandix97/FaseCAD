@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="45" hotspot_y="25">
+    <uuid uuid="{732b1a7a-4986-abd1-bfbe-feb510f06e37}"/>
+    <names>
+        <name lang="ar">حثّ بنواة مغناطيسية</name>
+        <name lang="ca">Inductor amb nucli magnètic</name>
+        <name lang="cs">Indukční cívka s magnetickým jádrem</name>
+        <name lang="da">Induktor med magnetkerne</name>
+        <name lang="de">Induktivität mit Magnetkern</name>
+        <name lang="el">Πηνίο με μαγνητικό πυρήνα</name>
+        <name lang="en">Inductor with magnetic core</name>
+        <name lang="es">Inductor con núcleo magnético</name>
+        <name lang="fi">Induktori, magneettisydämellä</name>
+        <name lang="fr">Inductance à noyau magnétique</name>
+        <name lang="hr">Induktor s magnetskom jezgrom</name>
+        <name lang="hu">Induktor mágneses maggal</name>
+        <name lang="it">Induttore con nucleo magnetico</name>
+        <name lang="ja">磁心付きインダクタ</name>
+        <name lang="ko">자기 코어가 있는 인덕터</name>
+        <name lang="mn">Соронзон цөмтэй индуктор</name>
+        <name lang="nb">Induktor med magnetkjerne</name>
+        <name lang="nl">Inductor met magnetische kern</name>
+        <name lang="nl_BE">Inductor met magnetische kern</name>
+        <name lang="pl">Cewka z rdzeniem magnetycznym</name>
+        <name lang="pt">Indutância com núcleo magnético</name>
+        <name lang="pt_BR">Indutor com núcleo magnético</name>
+        <name lang="ro">Inductor cu miez magnetic</name>
+        <name lang="ru">Индуктивность с магнитопроводом</name>
+        <name lang="sk">Induktor s magnetickým jadrom</name>
+        <name lang="sl">Induktor z magnetnim jedrom</name>
+        <name lang="sr">Индуктор са магнетним језгром</name>
+        <name lang="sv">Induktor med magnetkärna</name>
+        <name lang="tr">Manyetik çekirdekli indüktör</name>
+        <name lang="uk">Котушка індуктивності з магнітним осердям</name>
+        <name lang="zh">接线端子排3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{62880d6b-7f6d-491d-bf0c-418135f661d5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-20" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-40" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-10" x2="-40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

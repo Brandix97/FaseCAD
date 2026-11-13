@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="master" width="30" height="70" hotspot_x="8" hotspot_y="40">
+    <uuid uuid="{2a83d9ff-3d9c-9a83-ca4e-1d4079f982cd}"/>
+    <names>
+        <name lang="ar">قاطع ثنائي القطبية - 1 قطب محمي</name>
+        <name lang="ca">Interruptor</name>
+        <name lang="cs">Dvoupólový jistič 1 pól chránící</name>
+        <name lang="da">Automatsikring</name>
+        <name lang="de">Leitungsschutzschalter LS 1P</name>
+        <name lang="el">Διακόπτης κυκλώματος</name>
+        <name lang="en">Circuit-breaker</name>
+        <name lang="es">Disyuntor termico magnetico en polo P</name>
+        <name lang="fi">Katkaisija</name>
+        <name lang="fr">Disjoncteur bipolaire 1 pole protege</name>
+        <name lang="hr">Prekidač</name>
+        <name lang="hu">Kismegszakító 1 pólusú</name>
+        <name lang="it">Int. Aut. Magneto-termico 1P</name>
+        <name lang="ja">遮断器</name>
+        <name lang="ko">회로 차단기</name>
+        <name lang="mn">Хэлхээ таслагч</name>
+        <name lang="nb">Effektbryter</name>
+        <name lang="nl">Lastscheider 1P</name>
+        <name lang="nl_BE">Stroomonderbreker</name>
+        <name lang="pl">Wyłącznik</name>
+        <name lang="pt">Disjuntor</name>
+        <name lang="pt_BR">Disjuntor termomagnético monopolar (1P)</name>
+        <name lang="ro">Întrerupător automat</name>
+        <name lang="ru">Выключатель</name>
+        <name lang="sk">Istič</name>
+        <name lang="sl">Odklopnik</name>
+        <name lang="sr">Прекидач</name>
+        <name lang="sv">Dvärgbrytare</name>
+        <name lang="tr">Devre kesici</name>
+        <name lang="uk">Автоматичний вимикач</name>
+        <name lang="zh">单极断路器</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="15.5" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4" y="10.5" width="8" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="10.5" x2="0" y2="8" x3="5" y3="8" x4="5" y4="3" x5="0" y5="3" x6="0" y6="0" x7="-5" y7="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-25" x2="-2" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="10" y="-17.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b3b0aba4-6a49-4225-9525-4a3fb043d24e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>-F1</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-2" y1="-25" x2="2" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="-19" x2="2" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4bc9f11b-af63-4db3-86fa-e39aed2097cb}" name="IN.1" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{43b1df3a-c1d0-4947-ae97-f224c1fe15e5}" name="OUT.2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

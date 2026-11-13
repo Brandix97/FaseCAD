@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="19" hotspot_y="7">
+    <uuid uuid="{2b3d0680-3012-5e20-d8e3-e8367715e441}"/>
+    <names>
+        <name lang="ar">إمداد بالمياه الباردة</name>
+        <name lang="ca">Subministrament d'aigua freda</name>
+        <name lang="cs">Přípojka studené vody</name>
+        <name lang="da">Koldtvandstilførsel</name>
+        <name lang="de">Kaltwasserversorgung</name>
+        <name lang="el">Παροχή κρύου νερού</name>
+        <name lang="en">Cold water supply</name>
+        <name lang="es">Entrada agua fría</name>
+        <name lang="fi">Kylmän veden syöttö</name>
+        <name lang="fr">Arrivée d'eau froide</name>
+        <name lang="hr">Dovod hladne vode</name>
+        <name lang="hu">Hidegvíz ellátás</name>
+        <name lang="it">Entrata acqua calda</name>
+        <name lang="ja">冷水供給</name>
+        <name lang="ko">냉수 공급</name>
+        <name lang="mn">Хүйтэн усны хангамж</name>
+        <name lang="nb">Kaldtvannsforsyning</name>
+        <name lang="nl">Koud water toevoer</name>
+        <name lang="nl_BE">Koudwatertoevoer</name>
+        <name lang="pl">Przyłącze zimnej wody</name>
+        <name lang="pt">Alimentação de água fria</name>
+        <name lang="pt_BR">Cold water alimentacao</name>
+        <name lang="ro">Alimentare cu apă rece</name>
+        <name lang="ru">Подача холодной воды</name>
+        <name lang="sk">Prívod studenej vody</name>
+        <name lang="sl">Dovod hladne vode</name>
+        <name lang="sr">Довод хладне воде</name>
+        <name lang="sv">Kallvattenförsörjning</name>
+        <name lang="tr">Soğuk su beslemesi</name>
+        <name lang="uk">Подача холодної води</name>
+        <name lang="zh">市政水</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="11" y="-13.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5b5a1bf8-b4cc-4541-b751-af9668d1ea3d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-6" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4" y1="-5" x2="4" y2="5" x3="-6" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="E.F." x="11" y="5" rotation="-90" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-10.5" y="-0.5" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{0a6fb345-ac2b-496b-8afc-cba3b201a3b8}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

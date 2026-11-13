@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="40" hotspot_y="32">
+    <uuid uuid="{883908de-51cc-f919-1d45-f664d6f3dd93}"/>
+    <names>
+        <name lang="ar">فلنجات المرشح</name>
+        <name lang="ca">Filtre brides</name>
+        <name lang="cs">Filtr s přírubami</name>
+        <name lang="da">Filterflanger</name>
+        <name lang="de">Filterflansche</name>
+        <name lang="el">Φλάντζες φίλτρου</name>
+        <name lang="en">filter flanges</name>
+        <name lang="es">Filtro bridas</name>
+        <name lang="fi">Suodatinlaipat</name>
+        <name lang="hr">prirubnice filtra</name>
+        <name lang="hu">szűrő karimák</name>
+        <name lang="it">flange filtro</name>
+        <name lang="ja">フィルターフランジ</name>
+        <name lang="ko">필터 플랜지</name>
+        <name lang="mn">Шүүлтүүрийн фланц</name>
+        <name lang="nb">filterflenser</name>
+        <name lang="nl">filter flenzen</name>
+        <name lang="nl_BE">filterflenzen</name>
+        <name lang="pl">Kołnierze filtra</name>
+        <name lang="pt">flanges de filtro</name>
+        <name lang="pt_BR">Flanges de filtro</name>
+        <name lang="ro">Flanșe filtru</name>
+        <name lang="ru">Фланцевый фильтр</name>
+        <name lang="sk">príruby filtra</name>
+        <name lang="sl">prirobnice filtra</name>
+        <name lang="sr">прирубнице филтера</name>
+        <name lang="sv">filterflänsar</name>
+        <name lang="tr">filtre flanşları</name>
+        <name lang="uk">фланці фільтра</name>
+        <name lang="zh">过滤器法兰</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="6" y="-13" width="1" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-7" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-23" x2="-2" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-16" x2="-1" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.61" y1="-16.84" x2="3.82" y2="-21.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.87" y1="4.47" x2="-11.44" y2="4.47" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.12" y1="-28.27" x2="3.82" y2="-21.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.33" y1="-23.73" x2="-9.12" y2="-28.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-25" x2="3" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-29" y="-13" width="1" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28" y1="-8" x2="-23" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-25" x2="-22" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-8" x2="5" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-28" y1="7" x2="-26" y2="7" x3="-11" y3="13" x4="-10" y4="13" x5="-7" y5="9" x6="-6" y6="8" x7="6" y7="8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-22" y1="-6" x2="-25" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-26" x2="-8" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="4.5" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{02a748f1-8388-4268-8466-1af803bd6464}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <terminal uuid="{59be3773-f243-4ccd-9730-3a29cee9d9c8}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{8f685228-a689-46a0-84bc-e57c63168ed1}" name="" x="8" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

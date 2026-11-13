@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="50" height="170" hotspot_x="26" hotspot_y="82">
+    <uuid uuid="{d494451b-5a90-2370-8079-41574561458a}"/>
+    <names>
+        <name lang="ar">قطب قاطع  دائرة</name>
+        <name lang="ca">Interruptor automàtic d'1 pol</name>
+        <name lang="cs">Jednopólový jistič</name>
+        <name lang="da">1-polet automatsikring</name>
+        <name lang="de">Leitungsschutzschalter 1-polig</name>
+        <name lang="el">Μικροαυτόματος διακόπτης</name>
+        <name lang="en">1-pole circuit breaker</name>
+        <name lang="es">Disyuntor 1 polos</name>
+        <name lang="fi">1-napainen johdonsuojakatkaisija</name>
+        <name lang="fr">Disjoncteur unipolaire</name>
+        <name lang="hr">1-polni prekidač</name>
+        <name lang="hu">1 pólusú megszakító</name>
+        <name lang="it">Interruttore 1 polo</name>
+        <name lang="ja">1極配線用遮断器</name>
+        <name lang="ko">1극 회로 차단기</name>
+        <name lang="mn">1-туйлын таслуур</name>
+        <name lang="nb">1-polet automatsikring</name>
+        <name lang="nl">stroom onderbreker 1 polig</name>
+        <name lang="nl_BE">1-polige automaat</name>
+        <name lang="pl">Wyłącznik jednobiegunowy</name>
+        <name lang="pt">Disjuntor 1 polos</name>
+        <name lang="pt_BR">Disjuntor termomagnético monopolar (1P)</name>
+        <name lang="ro">Întrerupător automat 1 poli</name>
+        <name lang="ru">1-полюсный автоматический выключатель</name>
+        <name lang="sk">1-pólový istič</name>
+        <name lang="sl">1-polni odklopnik</name>
+        <name lang="sr">1-полни прекидач</name>
+        <name lang="sv">1-polig dvärgbrytare</name>
+        <name lang="tr">1 kutuplu devre kesici</name>
+        <name lang="uk">1-полюсний автоматичний вимикач</name>
+        <name lang="zh">1极断路器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-18" y="-80" width="36" height="162" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-126" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cdcbdae4-c872-4a3f-9e32-7ea185aea58e}" font="Liberation Sans,18,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-6" y1="-80.48" x2="-6" y2="-76.48" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="78" x2="-6" y2="83" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-44" width="36" height="90" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-80.48" x2="6" y2="-76.48" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="6" width="20" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="6" y1="78" x2="6" y2="83" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-11" y="-79" width="22" height="22" start="120" angle="300" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-11" y="59" width="22" height="22" start="300" angle="300" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-7" y="63" width="14" height="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-7" y="-75" width="14" height="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="70" x2="6" y2="70" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="65.91" x2="0" y2="73.93" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-68" x2="6" y2="-68" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-72" x2="0" y2="-64" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="2" width="28" height="6" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:black;color:white" antialias="false"/>
+        <line x1="-16" y1="36" x2="16" y2="36" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-16.12" y1="40" x2="16.13" y2="40" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="84" x2="-6" y2="86" x3="6" y3="86" x4="6" y4="82" x5="6" y5="86" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-14" y1="4" x2="14" y2="4" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:white" antialias="false"/>
+        <line x1="-8" y1="22" x2="-8" y2="26" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:white" antialias="false"/>
+        <line x1="-4.23" y1="24" x2="-3.58" y2="24" end1="none" end2="none" length1="3" length2="3" style="line-style:normal;line-weight:thin;filling:none;color:white" antialias="false"/>
+        <ellipse x="0" y="22" width="4" height="4" style="line-style:normal;line-weight:thin;filling:none;color:white" antialias="true"/>
+        <polygon x1="8" y1="22" x2="8" y2="26" x3="5.32" y3="22" x4="5.32" y4="26" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:white"/>
+        <dynamic_text x="-12" y="-47" z="26" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{acf08137-0725-4794-a2ec-7df95a5d967a}" font="Liberation Sans,8,-1,5,25,0,0,0,0,0,Regular">
+            <text>_A</text>
+        </dynamic_text>
+    </description>
+</definition>

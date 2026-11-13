@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="29" hotspot_y="30">
+    <uuid uuid="{64ce34ba-c70f-572d-b9fe-200293a9254c}"/>
+    <names>
+        <name lang="ar">مفتاح نهاية مشوار (NC) بحدبة دورانية</name>
+        <name lang="ca">Interruptor de lleves (NC)</name>
+        <name lang="cs">Vačkový spínač NC</name>
+        <name lang="da">Kamafbryder (NC)</name>
+        <name lang="de">Öffner Steuernocken</name>
+        <name lang="el">Τερματικό, Κλειστό</name>
+        <name lang="en">Cam switch (NC)</name>
+        <name lang="es">Final de carrera (NC)</name>
+        <name lang="fi">Nokkakytkin (NC)</name>
+        <name lang="fr">Fin de course  à came (NF)</name>
+        <name lang="hr">Bregasta sklopka (NC)</name>
+        <name lang="hu">Bütykös kapcsoló (NC)</name>
+        <name lang="it">Finecorsa (NC)</name>
+        <name lang="ja">カムスイッチ (NC)</name>
+        <name lang="ko">캠 스위치 (NC)</name>
+        <name lang="mn">Камын унтраалга (NC)</name>
+        <name lang="nb">Kamvender (NC)</name>
+        <name lang="nl">Nokkenschakelaar (NC)</name>
+        <name lang="nl_BE">Nokkenschakelaar (NC)</name>
+        <name lang="pl">Zestyk rozwierny łącznika krańcowego</name>
+        <name lang="pt">Fim de curso (NC)</name>
+        <name lang="pt_BR">Fim de curso (NF)</name>
+        <name lang="ro">Comutator cu camă (NC)</name>
+        <name lang="ru">Концевой контакт (НЗ)</name>
+        <name lang="sk">Vačkový spínač (NC)</name>
+        <name lang="sl">Odmično stikalo (NC)</name>
+        <name lang="sr">Прекидач са брегом (NC)</name>
+        <name lang="sv">Kamomkopplare (NC)</name>
+        <name lang="tr">Kam anahtarı (NC)</name>
+        <name lang="uk">Кулачковий перемикач (NC)</name>
+        <name lang="zh">限位开关_凸轮_常闭</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-19" y1="-3" x2="3" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-7.5" x2="-20" y2="-3" x3="-15" y3="-3" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <arc x="-25" y="-7.5" width="10" height="10" start="90" angle="275" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-9" x2="6" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5.75" y="-9.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dc220f83-0b42-4fb2-8154-88e02bcdf7c9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{0ff5f178-5ba8-45aa-9f4b-240bff71079b}" name="" x="0" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{15ba6a0f-2599-453e-8c98-0150921a81d5}" name="" x="0" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

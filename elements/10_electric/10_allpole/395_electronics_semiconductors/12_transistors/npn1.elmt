@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{3114cbaa-687a-7939-d2c9-3fcf214cdd3a}"/>
+    <names>
+        <name lang="ar">ترنزيستور NPN</name>
+        <name lang="ca">transistor NPN</name>
+        <name lang="cs">Bipolární tranzistor NPN</name>
+        <name lang="da">NPN-transistor</name>
+        <name lang="de">NPN Transistor</name>
+        <name lang="el">Τρανζίστορ NPN</name>
+        <name lang="en">NPN transistor</name>
+        <name lang="es">Transistor NPN</name>
+        <name lang="fi">NPN-transistori</name>
+        <name lang="fr">Transistor NPN</name>
+        <name lang="hr">NPN tranzistor</name>
+        <name lang="hu">NPN tranzisztor</name>
+        <name lang="it">Transistor NPN</name>
+        <name lang="ja">NPNトランジスタ</name>
+        <name lang="ko">NPN 트랜지스터</name>
+        <name lang="mn">NPN транзистор</name>
+        <name lang="nb">NPN-transistor</name>
+        <name lang="nl">Transistor NPN</name>
+        <name lang="nl_BE">NPN-transistor</name>
+        <name lang="pl">Tranzystor NPN</name>
+        <name lang="pt">Transístor NPN</name>
+        <name lang="pt_BR">Transistor NPN</name>
+        <name lang="ro">Tranzistor NPN</name>
+        <name lang="ru">NPN транзистор</name>
+        <name lang="sk">Tranzistor NPN</name>
+        <name lang="sl">Tranzistor NPN</name>
+        <name lang="sr">NPN транзистор</name>
+        <name lang="sv">NPN-transistor</name>
+        <name lang="tr">NPN transistör</name>
+        <name lang="uk">Транзистор NPN</name>
+        <name lang="zh">NPN型晶体管1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="15" y="-13.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{427b5ab8-9512-4cc5-8481-a79bf2233146}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="0" x2="10" y2="-10" x3="10" y3="-17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="-8" x2="-5" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="-9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-17" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="0" x2="10" y2="10" x3="10" y3="17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-11.85" y="-9.85" width="19.7" height="19.7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="-6.7" x2="3" y2="-2" x3="5" y3="-6.7" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <terminal uuid="{1d85cb1b-9226-41f1-ab65-2376dca141e7}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7f3726d6-cc0f-4632-acf0-6a8cd462ab7f}" name="" x="10" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{9c83a6e2-e515-4494-a895-f2960b8b6871}" name="" x="10" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

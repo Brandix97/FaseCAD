@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="17" hotspot_y="20">
+    <uuid uuid="{5d94d559-88de-6fc6-6814-3e4a1be4b82c}"/>
+    <names>
+        <name lang="ar">مقياس ضغط</name>
+        <name lang="ca">Manòmetre</name>
+        <name lang="cs">Tlakoměr</name>
+        <name lang="da">Manometer</name>
+        <name lang="de">Manometer</name>
+        <name lang="el">Μανόμετρο</name>
+        <name lang="en">Manometer</name>
+        <name lang="es">Manòmetro</name>
+        <name lang="fi">Manometri</name>
+        <name lang="fr">Manométre</name>
+        <name lang="hr">Manometar</name>
+        <name lang="hu">Manométer</name>
+        <name lang="it">Manometro</name>
+        <name lang="ja">圧力計</name>
+        <name lang="ko">압력계</name>
+        <name lang="mn">Манометр</name>
+        <name lang="nb">Manometer</name>
+        <name lang="nl">Drukmeter</name>
+        <name lang="nl_BE">Manometer</name>
+        <name lang="pl">Manometr</name>
+        <name lang="pt">Manômetro</name>
+        <name lang="pt_BR">Manômetro</name>
+        <name lang="ro">Manometru</name>
+        <name lang="ru">Манометр</name>
+        <name lang="sk">Manometer</name>
+        <name lang="sl">Manometer</name>
+        <name lang="sr">Манометар</name>
+        <name lang="sv">Manometer</name>
+        <name lang="tr">Manometre</name>
+        <name lang="uk">Манометр</name>
+        <name lang="zh">压力表3/8外螺纹</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-2.74" y1="8.05" x2="2.26" y2="7.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.74" y1="7.28" x2="2.26" y2="6.77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5.52" y1="5.46" x2="-5.52" y2="2.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9.69" y="-15.48" width="20" height="18.93" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-2.74" y="5.74" width="5" height="4.09" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.52" y1="5.74" x2="5" y2="5.74" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="5.52" x2="5" y2="3.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10.8" y="-16.25" width="22.23" height="20.46" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-6.28" x2="-6.35" y2="-11.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.35" y1="-11.39" x2="0" y2="-6.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-0.24" y="-6.53" width="1.67" height="1.53" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-12" y="-9" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{08021bf2-231c-4cef-a233-afe8f5a83c45}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <text text="2" x="-8.86" y="-5.77" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="-4.69" y="-11.14" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="2.54" y="-11.65" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5" x="7.81" y="-6" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="6" x="4.48" y="1.14" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-2.74" y1="9.58" x2="2.26" y2="9.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.74" y1="8.81" x2="2.26" y2="8.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-9" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8f296195-2869-45df-933e-16a9f9f66a13}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7c35aee3-6c89-4113-b201-8e7f2970da45}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

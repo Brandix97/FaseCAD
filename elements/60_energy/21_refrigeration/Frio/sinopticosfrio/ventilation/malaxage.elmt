@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="25">
+    <uuid uuid="{f79957c4-ff92-fc16-c92f-48fd37d7720c}"/>
+    <names>
+        <name lang="ar">صندوق خلط</name>
+        <name lang="ca">Caixa de mescla</name>
+        <name lang="cs">Smíchávací komora</name>
+        <name lang="da">Blandingsboks</name>
+        <name lang="de">Mischkammer</name>
+        <name lang="el">Κιβώτιο μίξης</name>
+        <name lang="en">Mixing box</name>
+        <name lang="es">Caja de mezcla</name>
+        <name lang="fi">Sekoituslaatikko</name>
+        <name lang="fr">Boîte malaxage</name>
+        <name lang="hr">Komora za miješanje</name>
+        <name lang="hu">Keverődoboz</name>
+        <name lang="it">Box di miscelazione</name>
+        <name lang="ja">ミキシングボックス</name>
+        <name lang="ko">혼합 박스</name>
+        <name lang="mn">Холигч хайрцаг</name>
+        <name lang="nb">Blandeboks</name>
+        <name lang="nl">Mengkast</name>
+        <name lang="nl_BE">Mengbox</name>
+        <name lang="pl">Komora mieszania</name>
+        <name lang="pt">Caixa de mistura</name>
+        <name lang="pt_BR">Mixing box</name>
+        <name lang="ro">Cameră de amestec</name>
+        <name lang="ru">Смесительная камера</name>
+        <name lang="sk">Zmiešavacia komora</name>
+        <name lang="sl">Mešalna komora</name>
+        <name lang="sr">Комора за мешање</name>
+        <name lang="sv">Blandningsbox</name>
+        <name lang="tr">Karışım kutusu</name>
+        <name lang="uk">Змішувальна камера</name>
+        <name lang="zh">混合器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-10" y="-20" width="20" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-41.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0576658d-075f-45ee-a78a-dafbf2ceca8d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{67c687a4-509f-47b2-84a0-ac7f0915d815}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{e66aa569-2315-4530-85d5-712941306664}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

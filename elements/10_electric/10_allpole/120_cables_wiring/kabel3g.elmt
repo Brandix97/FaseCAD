@@ -1,0 +1,61 @@
+<definition type="element" link_type="simple" hotspot_x="35" hotspot_y="5" width="70" height="10" version="0.100.1">
+    <uuid uuid="{806f6db3-94e9-427b-aee3-52c7e3d415c7}"/>
+    <names>
+        <name lang="ar">كابل 3G</name>
+        <name lang="ca">cable 3G</name>
+        <name lang="cs">Kabel 3G</name>
+        <name lang="da">Kabel 3G</name>
+        <name lang="de">Kabel 3G</name>
+        <name lang="el">Καλώδιο 3G</name>
+        <name lang="en">Cable 3G</name>
+        <name lang="es">Cable 3 fases+tierra</name>
+        <name lang="fi">Kaapeli 3G</name>
+        <name lang="fr">Cable 3G</name>
+        <name lang="hr">Kabel 3G</name>
+        <name lang="hu">Kábel 2 + PE</name>
+        <name lang="it">Cavo  3 fasi + terra</name>
+        <name lang="ja">ケーブル 3G</name>
+        <name lang="ko">케이블 3G</name>
+        <name lang="mn">Кабель 3G</name>
+        <name lang="nb">Kabel 3G</name>
+        <name lang="nl">Kabel 3G</name>
+        <name lang="nl_BE">Kabel 3G</name>
+        <name lang="pl">Przewód trójżyłowy</name>
+        <name lang="pt">Cabo 3G</name>
+        <name lang="pt_BR">Cabo 3G</name>
+        <name lang="ro">Cablu 3G</name>
+        <name lang="ru">Кабель 3G</name>
+        <name lang="sk">Kábel 3G</name>
+        <name lang="sl">Kabel 3G</name>
+        <name lang="sr">Кабл 3G</name>
+        <name lang="sv">Kabel 3G</name>
+        <name lang="tr">Kablo 3G</name>
+        <name lang="uk">Кабель 3G</name>
+        <name lang="zh">3芯电缆</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-2.05" length1="1.5" x2="1.95" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2" antialias="true" y2="2" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="18" length1="1.5" x2="22" length2="1.5"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-50" y="0.5" z="3" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{fe752adf-2e2b-4005-a272-42dd6976c493}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+            <text>3G</text>
+        </dynamic_text>
+        <line end1="none" end2="none" y1="0" antialias="false" y2="0" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-29.94" length1="1.5" x2="30" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2" antialias="true" y2="2" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-22" length1="1.5" x2="-18" length2="1.5"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-51" y="-18.5" z="6" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{65bfd07e-7af5-4193-a5ba-b3dc967da121}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-22" y="-11" z="7" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{df01c7dd-b2e7-4b24-9057-b8bc3478ff67}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-2" y="-11" z="8" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{ce5a0030-5247-47ab-a975-63256db0d2bd}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="18" y="-11" z="9" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{e0a00f86-dd76-48fe-be8b-8ff6f510e651}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+            <text>PE</text>
+        </dynamic_text>
+    </description>
+</definition>

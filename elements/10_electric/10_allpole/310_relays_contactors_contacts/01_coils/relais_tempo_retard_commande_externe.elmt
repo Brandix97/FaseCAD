@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="30" hotspot_y="32">
+    <uuid uuid="{1aadf8a1-7bdf-8348-e33b-f37d27f0ec85}"/>
+    <names>
+        <name lang="ar">مرحل تأخير الإعتاق بأمر خارجي</name>
+        <name lang="ca">Relé Focus retard retardat amb una comanda externa</name>
+        <name lang="cs">Zpožděné relé s externím ovládáním</name>
+        <name lang="da">Relæ Focus hvileforsinket med ekstern kommando</name>
+        <name lang="de">Relais ansprechverzögert mit externer Steuerung</name>
+        <name lang="el">Πηνίο καθυστέρησης απενεργοποίησης με εξωτερική εντολή</name>
+        <name lang="en">Relay Focus rest delayed withe external command</name>
+        <name lang="es">Relé Focus reposo retardado con mando externo</name>
+        <name lang="fi">Rele Focus, viivästetty lepo ulkoisella ohjauksella</name>
+        <name lang="fr">Relais temporisé repos à commande externe</name>
+        <name lang="hr">Relej s odgodom mirovanja i vanjskim upravljanjem</name>
+        <name lang="hu">Elengedeés késleltetésű relé külső paranccsal</name>
+        <name lang="it">Relè temporizzato a comando esterno</name>
+        <name lang="ja">外部指令付き復帰遅延リレー Focus</name>
+        <name lang="ko">외부 명령에 의한 복귀 지연 집중 릴레이</name>
+        <name lang="mn">Гадаад командаар амралт саатсан фокус реле</name>
+        <name lang="nb">Relé fokus hvileforsinket med ekstern kommando</name>
+        <name lang="nl">Relais Focus afvalvertraagd met externe opdracht</name>
+        <name lang="nl_BE">Relais focus vertraagd afval met externe opdracht</name>
+        <name lang="pl">Przekaźnik z opuźnionym powrotem, z wejściem sterującym</name>
+        <name lang="pt">Relé com atraso na desativação comandado externamente</name>
+        <name lang="pt_BR">Relé temporizado no retorno com comando externo</name>
+        <name lang="ro">Releu cu întârziere la repaus cu comandă externă</name>
+        <name lang="ru">Реле Focus с задержкой отпускания и внешним управлением</name>
+        <name lang="sk">Relé Focus oneskorené v pokoji s externým povelom</name>
+        <name lang="sl">Rele Focus z zakasnitvijo mirovanja z zunanjim ukazom</name>
+        <name lang="sr">Релеј са кашњењем мировања са спољном командом</name>
+        <name lang="sv">Relä fokus frånslagsfördröjt med extern styrning</name>
+        <name lang="tr">Harici komutla dinlenme gecikmeli odak röle</name>
+        <name lang="uk">Реле з затримкою відпускання з зовнішнім керуванням</name>
+        <name lang="zh">外部控制延时继电器</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{838734a6-d6f8-40f4-914d-470f5a2effc6}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9cd71663-be53-4859-a531-cfd247403bca}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-9.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eb35585f-fc58-4ce8-bd80-731f4d69578e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{14a352f6-ef08-4325-a945-58ac67955afb}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{424c1e19-926e-4f74-8c60-7f8ec5995770}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{52f1253c-0115-479b-b251-905f58210ac3}" name="" x="-20" y="-11" orientation="n" type="Generic"/>
+        <terminal uuid="{7eca73df-5da6-445e-aa81-e8f9b229f2b0}" name="" x="-20" y="11" orientation="s" type="Generic"/>
+    </description>
+</definition>

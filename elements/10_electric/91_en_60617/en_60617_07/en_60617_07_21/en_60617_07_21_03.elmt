@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="7" hotspot_y="40">
+    <uuid uuid="{2f681b6d-2712-6482-eeaf-bc048aa82820}"/>
+    <names>
+        <name lang="ar">مصهر؛ مصهر بمطرقة</name>
+        <name lang="ca">fusible; </name>
+        <name lang="cs">Tavná pojistka s mechanickým spojením</name>
+        <name lang="da">Sikring; Slagsikring</name>
+        <name lang="de">Sicherung mit mechanischer Auslösemeldung
+(Schlagbolzensicherung)</name>
+        <name lang="el">Ασφάλεια; Ασφάλεια με κρουστήρα</name>
+        <name lang="en">Fuse; Striker fuse</name>
+        <name lang="es">Fusible; fusible con percutor</name>
+        <name lang="fi">Sulake; Iskusulake</name>
+        <name lang="fr">Fusible à percuteur (à liaison mécanique)</name>
+        <name lang="hr">Osigurač; Osigurač s udarnim klinom</name>
+        <name lang="hu">Olvadóbiztosító; Ütőszeges olvadóbiztosító</name>
+        <name lang="it">Fusibile; Fusibile a percussore</name>
+        <name lang="ja">ヒューズ；ストライカヒューズ</name>
+        <name lang="ko">퓨즈; 스트라이커 퓨즈</name>
+        <name lang="mn">Хайлмаг; Цохилуур хайлмаг</name>
+        <name lang="nb">Sikring; slagstiftsikring</name>
+        <name lang="nl">Zekering; Aanslagzekering</name>
+        <name lang="nl_BE">Zekering; Zekering met slagpin</name>
+        <name lang="pl">Bezpiecznik; Bezpiecznik wybijakowy</name>
+        <name lang="pt">Fusível; Fusível com percutor</name>
+        <name lang="pt_BR">Fusível; Striker Fusível</name>
+        <name lang="ro">Fuzibil; Fuzibil cu percutor</name>
+        <name lang="ru">Предохранитель; предохранитель с бойком</name>
+        <name lang="sk">Poistka; Úderová poistka</name>
+        <name lang="sl">Varovalka; varovalka z udarnim klinom</name>
+        <name lang="sr">Осигурач; Осигурач са ударним клином</name>
+        <name lang="sv">Säkring; Slagsäkring</name>
+        <name lang="tr">Sigorta; Çekiçli sigorta</name>
+        <name lang="uk">Запобіжник; Запобіжник з бойком</name>
+        <name lang="zh">接线端子03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8a510c5c-78d4-4537-a8f2-58a6dde2778a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-30" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-15" width="10" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4caf7f6b-7d9e-414b-92ed-1de9acd34d06}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{2d40a6ab-cc4d-41a7-8e96-394ca28803bb}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

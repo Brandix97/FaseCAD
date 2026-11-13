@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="25" hotspot_y="18">
+    <uuid uuid="{8918a976-fd8a-b12d-d9f8-ccbb878d7919}"/>
+    <names>
+        <name lang="ar">كوع 87°30 PVC 40 DF</name>
+        <name lang="ca">Tee 87°30 PVC 40 DF</name>
+        <name lang="cs">T 87°30 PVC 40 DF</name>
+        <name lang="da">T 87°30 PVC 40 DF</name>
+        <name lang="de">T-Stück 87°30 PVC 40 IG</name>
+        <name lang="el">Ταφ 87°30 PVC 40 DF</name>
+        <name lang="en">Tee 87°30 PVC 40 FF</name>
+        <name lang="fr">Té 87°30 PVC 40 DF</name>
+        <name lang="pt_BR">Té 87°30 PVC 40 DF</name>
+        <name lang="zh">T型三通-87度-40</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="19.5" y="3" width="7" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16" y="-16" width="32" height="32" start="315" angle="45" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-6.5" y="3" width="7" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="-7.5" width="14" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="14" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{af96b308-371a-4c9f-b707-4304143c6d11}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-16" y="-16" width="32" height="32" start="346" angle="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4" y="-4" width="8" height="8" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0.4" y1="16" x2="19.6" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16.15" y1="4" x2="18.85" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{99b53249-6798-4e06-9cac-8fe7e0d523e3}" name="" x="-8" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{bbfe4900-ebad-42e1-99e6-93963184dd42}" name="" x="10" y="-8" orientation="n" type="Generic"/>
+        <terminal uuid="{85cb7f65-4708-4458-8777-7342be9f54b6}" name="" x="27" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

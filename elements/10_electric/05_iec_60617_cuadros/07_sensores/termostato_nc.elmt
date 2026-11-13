@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="16" hotspot_y="25">
+    <uuid uuid="{20849bc2-af84-5497-854f-328dac0ba74f}"/>
+    <names>
+        <name lang="de">Thermostat, Öffner</name>
+        <name lang="en">Thermostat, NC</name>
+        <name lang="es">Termostato NC</name>
+        <name lang="fr">Thermostat, NF</name>
+        <name lang="it">Termostato NC</name>
+        <name lang="pt">Termóstato NF</name>
+        <name lang="tr">Termostat, NK</name>
+        <name lang="zh">温度开关，常闭</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="9" y2="-12.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{255dde08-a470-58b7-9e80-2768285162a8}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>21</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{579aef2f-8b7d-5452-a250-f9d400c967a4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>22</text>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="-14" y="3.89" text="θ" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{e1986afd-d1f9-50cf-9d69-f2e37ba30abd}"/>
+        <dynamic_text x="-26.31" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{055217b5-9d8d-5497-99ca-757024ac9d00}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{078d3169-8ab1-5518-a62f-d7fccf8d2597}" name="21" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a095023a-38a8-59ec-8d1f-eb2a4a607cc6}" name="22" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

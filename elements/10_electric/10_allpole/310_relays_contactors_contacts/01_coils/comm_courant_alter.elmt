@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="60" height="60" hotspot_x="39" hotspot_y="32">
+    <uuid uuid="{0267a6db-9745-19bd-e3e7-5d5bcd65f54f}"/>
+    <names>
+        <name lang="ar">مرحل تيار متردد</name>
+        <name lang="ca">AC Relais</name>
+        <name lang="cs">Cívka relé pro AC napájení</name>
+        <name lang="da">AC Relæ</name>
+        <name lang="de">Spule mit Wechselstrombetätigung</name>
+        <name lang="el">Πηνίο εναλλασσόμενου</name>
+        <name lang="en">AC Relais</name>
+        <name lang="es">Relé de CA</name>
+        <name lang="fi">AC-rele</name>
+        <name lang="fr">Relais à courant alternatif</name>
+        <name lang="hr">AC relej</name>
+        <name lang="hu">Tekercs AC</name>
+        <name lang="it">Relè AC</name>
+        <name lang="ja">ACリレー</name>
+        <name lang="ko">AC 릴레이</name>
+        <name lang="mn">AC реле</name>
+        <name lang="nb">AC-relé</name>
+        <name lang="nl">Relais voor wisselspanning</name>
+        <name lang="nl_BE">Relais AC (wisselspanning)</name>
+        <name lang="pl">Przekaźnik prądu przemiennego</name>
+        <name lang="pt">Relé CA</name>
+        <name lang="pt_BR">Relé CA</name>
+        <name lang="ro">Releu AC</name>
+        <name lang="ru">Реле переменного тока</name>
+        <name lang="sk">AC relé</name>
+        <name lang="sl">AC rele</name>
+        <name lang="sr">AC релеј</name>
+        <name lang="sv">AC-relä</name>
+        <name lang="tr">AC Röle</name>
+        <name lang="uk">Реле змінного струму</name>
+        <name lang="zh">交流触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-25" y="-10" width="10" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="~" x="-24" y="4" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c3139493-2952-4dba-8f34-fba36c03e7b5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{47714fa1-01a2-48a6-90bf-2b665077f5de}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3313af81-cc9d-405c-9401-9705d9141466}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3d72ff41-629d-495d-9503-6e709739fb61}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{7f019967-de3c-49e9-91f4-40f0ec21ca2d}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

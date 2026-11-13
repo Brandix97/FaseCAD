@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="27" hotspot_y="50">
+    <uuid uuid="{cca4bf56-6eb1-cd2c-4834-a5c063b87737}"/>
+    <names>
+        <name lang="ar">مرجل حائطي مختلط</name>
+        <name lang="ca">Caldera de paret mixta</name>
+        <name lang="cs">Nástěnný kombinovaný kotel</name>
+        <name lang="da">Chaudiére murale mixte</name>
+        <name lang="de">Wandkessel gemischt</name>
+        <name lang="el">Επιτοίχιος λέβητας μίξης</name>
+        <name lang="en">Wall-mounted combined boiler</name>
+        <name lang="es">Caldera Mural Mixta</name>
+        <name lang="fr">Chaudiére murale mixte</name>
+        <name lang="pt_BR">Caldera Mural Mixta</name>
+        <name lang="zh">壁挂两用锅炉</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <text text="ACS" x="3" y="-11" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-19" y="-36.39" width="33.75" height="33.86" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.84" y1="-36.39" x2="-2.78" y2="-43.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.75" y1="-43.54" x2="3.3" y2="-36.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.05" y="-10" width="5.06" height="2.86" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Cal" x="-15" y="-11" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-10" y="-54" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0c2f365d-b649-4628-9e13-3b20c5c8cd50}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b7a00121-61ab-4fd7-a684-ec374d03fb31}" name="" x="-16" y="-1" orientation="s" type="Generic"/>
+        <terminal uuid="{83375881-1b16-46bb-8b1d-0bd3ca33c0c0}" name="" x="-9" y="-1" orientation="s" type="Generic"/>
+        <terminal uuid="{ffd14889-d412-489f-8678-2ce40506b95e}" name="" x="5" y="-1" orientation="s" type="Generic"/>
+        <terminal uuid="{fac53a71-b946-4629-a95f-e46c857cfc8e}" name="" x="12" y="-1" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="28">
+    <uuid uuid="{741a6f8d-3517-b51e-0dfe-62c20261845f}"/>
+    <names>
+        <name lang="ca">Vàlvula de comporta amb brida</name>
+        <name lang="es">Valv compuerta brida</name>
+        <name lang="pt_BR">Valv compuerta brida</name>
+        <name lang="zh">法兰式补偿阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="5.12" y1="-3.54" x2="5.12" y2="-8.29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.54" y="-5.77" width="0.55" height="11.8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4.9" y="-14.06" width="10.17" height="7.52" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="5.26" y="-3.74" width="2.36" height="7.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4.9" y="0.88" width="10.17" height="7.52" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-2.45" y="-19.58" width="4.9" height="1.88" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.45" y="-24.64" width="17.16" height="1.13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.69" y="-23.51" width="1.4" height="3.93" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7.82" y="-3.41" width="2.92" height="7.44" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-19.58" x2="-1" y2="-18.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.41" y1="-19.58" x2="1.41" y2="-18.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2.38" y="-17.52" width="4.94" height="3.64" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.82" y1="-3.54" x2="-4.82" y2="-8.29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.66" y="-10.06" width="13.15" height="1.27" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7.51" y="-5.77" width="0.55" height="11.8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-39" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3d66802b-2b4d-4eff-acbf-683ac05086c3}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{30560010-3f2d-4afa-beaa-6f5d1d8824b0}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{5dc4dfe9-9744-4e23-9572-d1b10713c655}" name="" x="9" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

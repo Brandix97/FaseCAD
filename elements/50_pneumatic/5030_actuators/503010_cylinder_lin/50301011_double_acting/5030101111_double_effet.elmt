@@ -1,0 +1,53 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="40" hotspot_x="38" hotspot_y="10">
+    <uuid uuid="{7ba4dff3-96f3-55ff-8187-7c408e2e58f9}"/>
+    <names>
+        <name lang="ar">مزدوجة الفعل + فرامل نهاية السفر على كلا الجانبين</name>
+        <name lang="ca">Doble efecte + fre de final de carrera a banda i banda</name>
+        <name lang="cs">Dvojčinná + dojezdová brzda na obou stranách</name>
+        <name lang="da">Dobbeltvirkende + endebremse på begge sider</name>
+        <name lang="de">Doppeltwirkend + Endlagenbremse beidseitig</name>
+        <name lang="el">Διπλής δράσης + φρένο τέλους διαδρομής και στις δύο πλευρές</name>
+        <name lang="en">Double-acting + end-of-travel brake on both sides</name>
+        <name lang="es">Freno de doble efecto + final de carrera en ambos lados</name>
+        <name lang="fi">Kaksitoiminen + iskunpään jarru molemmilla puolilla</name>
+        <name lang="fr">Double effet + frein de fin de course des deux côtés</name>
+        <name lang="hr">Dvostrano djelovanje + kočnica za kraj vožnje s obje strane</name>
+        <name lang="hu">Kettős működésű + végfék mindkét oldalon</name>
+        <name lang="it">Doppio effetto + freno di fine corsa su entrambi i lati</name>
+        <name lang="ja">両側に複動式+トラベルエンドブレーキ</name>
+        <name lang="ko">복동 + 양쪽 행정단 브레이크</name>
+        <name lang="mn">Хоёр талдаа давхар үйлдэлтэй + төгсгөлийн тоормос</name>
+        <name lang="nb">Dobbeltvirkende + endebrems på begge sider</name>
+        <name lang="nl">Dubbelwerkend + eindelooprem aan beide zijden</name>
+        <name lang="nl_BE">Dubbelwerkend + eindaanslag aan beide zijden</name>
+        <name lang="pl">Dwustronnego działania + hamulec krańcowy po obu stronach</name>
+        <name lang="pt">Freio de dupla ação + fim de curso em ambos os lados</name>
+        <name lang="pt_BR">Freio de dupla ação + fim de curso em ambos os lados</name>
+        <name lang="ro">Frână cu dublă acțiune + final de cursă pe ambele părți</name>
+        <name lang="ru">Двустороннего действия + концевой тормоз с обеих сторон</name>
+        <name lang="sk">Dvojčinný + koncová brzda na oboch stranách</name>
+        <name lang="sl">Dvostransko delovanje + zavora na koncu vožnje na obeh straneh</name>
+        <name lang="sr">Двострано дејство + кочница на крају вожње са обе стране</name>
+        <name lang="sv">Dubbelverkande + ändlägesbroms på båda sidor</name>
+        <name lang="tr">Her iki tarafta çift etkili + hareket sonu freni</name>
+        <name lang="uk">Двосторонньої дії + гальмо кінця ходу з обох боків</name>
+        <name lang="zh">双作用气缸 5030101111</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-24" y="1" width="3" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-32" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-30" y="1" width="3" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-27" y="-5" width="3" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="28" y1="3" x2="-21" y2="3" x3="-21" y3="7" x4="28" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-33" y3="15" x4="-33" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{8f3be32e-851a-427c-a68d-b241257f983c}" name="" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

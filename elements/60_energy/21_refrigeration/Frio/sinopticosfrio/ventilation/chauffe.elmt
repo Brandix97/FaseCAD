@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="25">
+    <uuid uuid="{8f5a4700-8854-b55c-95cf-e6d55f9e7db4}"/>
+    <names>
+        <name lang="ar">جهاز تدفئة</name>
+        <name lang="ca">Escalfador</name>
+        <name lang="cs">Ohřívač</name>
+        <name lang="da">Varmelegeme</name>
+        <name lang="de">Heizung</name>
+        <name lang="el">Θερμαντήρας</name>
+        <name lang="en">Heater</name>
+        <name lang="es">Calentador</name>
+        <name lang="fi">Lämmitin</name>
+        <name lang="fr">Chauffe</name>
+        <name lang="hr">Grijač</name>
+        <name lang="hu">Fűtőtest</name>
+        <name lang="it">Riscaldatore</name>
+        <name lang="ja">ヒーター</name>
+        <name lang="ko">히터</name>
+        <name lang="mn">Халаагч</name>
+        <name lang="nb">Varmeovn</name>
+        <name lang="nl">Verwarmer</name>
+        <name lang="nl_BE">Verwarming</name>
+        <name lang="pl">Nagrzewnica</name>
+        <name lang="pt">Aquecedor</name>
+        <name lang="pt_BR">Heater</name>
+        <name lang="ro">Încălzitor</name>
+        <name lang="ru">Обогреватель</name>
+        <name lang="sk">Ohrievač</name>
+        <name lang="sl">Grelec</name>
+        <name lang="sr">Грејач</name>
+        <name lang="sv">Värmare</name>
+        <name lang="tr">Isıtıcı</name>
+        <name lang="uk">Обігрівач</name>
+        <name lang="zh">加热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-43.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{18441390-b54a-4d63-83b4-9d8d5dceb70b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="-20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-10" y="-20" width="20" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f1e8d16c-3844-493b-b93a-17f07926ec4e}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{c853c871-489b-4841-8a10-14f519da2c4d}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

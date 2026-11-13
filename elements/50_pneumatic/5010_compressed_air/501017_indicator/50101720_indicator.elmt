@@ -1,0 +1,51 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="50" hotspot_x="30" hotspot_y="25">
+    <uuid uuid="{c81318fc-b2aa-b8a5-466c-70494d71e85e}"/>
+    <names>
+        <name lang="ar">قياس التدفق</name>
+        <name lang="ca">mesura de cabal</name>
+        <name lang="cs">měření průtoku</name>
+        <name lang="da">flowmåling</name>
+        <name lang="de">Durchlussmessung</name>
+        <name lang="el">μέτρηση ροής</name>
+        <name lang="en">flow measurement</name>
+        <name lang="es">medición de flujo</name>
+        <name lang="fi">virtauksen mittaus</name>
+        <name lang="fr">Mesure de flux</name>
+        <name lang="hr">mjerenje protoka</name>
+        <name lang="hu">áramlásmérés</name>
+        <name lang="it">misurazione del flusso</name>
+        <name lang="ja">流量測定</name>
+        <name lang="ko">유량 측정</name>
+        <name lang="mn">урсгалын хэмжилт</name>
+        <name lang="nb">strømningsmåling</name>
+        <name lang="nl">stroommeting</name>
+        <name lang="nl_BE">debietmeting</name>
+        <name lang="pl">pomiar przepływu</name>
+        <name lang="pt">medição de vazão</name>
+        <name lang="pt_BR">medição de vazão</name>
+        <name lang="ro">măsurarea debitului</name>
+        <name lang="ru">измерение расхода</name>
+        <name lang="sk">Meranie prietoku</name>
+        <name lang="sl">merjenje pretoka</name>
+        <name lang="sr">мерење протока</name>
+        <name lang="sv">Flödesmätning</name>
+        <name lang="tr">Akış ölçümü</name>
+        <name lang="uk">вимірювання витрати</name>
+        <name lang="zh">50101720_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-20" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5cd127ef-ff15-4a15-b93a-c55adcae7428}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-10" y="5" width="20" height="20" start="50" angle="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-25" width="20" height="20" start="230" angle="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{81c59d59-1cbf-46af-b9b5-a8764d61e705}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{083a6b3a-ce5b-4bf1-b666-c5fbb0f69150}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

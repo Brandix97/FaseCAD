@@ -1,0 +1,54 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="15">
+    <uuid uuid="{289acb6e-150b-194e-a075-be72760201f9}"/>
+    <names>
+        <name lang="ar">أوميتر أفقي</name>
+        <name lang="ca">Òhmetre horitzontal</name>
+        <name lang="cs">Ohmmetr, vodorovný</name>
+        <name lang="da">Vandret ohmmeter</name>
+        <name lang="de">Ohmmeter waagerecht</name>
+        <name lang="el">Ωμόμετρο οριζόντιο</name>
+        <name lang="en">Horizontal ohmmeter</name>
+        <name lang="es">Óhmetro horizontal</name>
+        <name lang="fi">Vaakasuora ohmimittari</name>
+        <name lang="fr">Ohmmètre horizontal</name>
+        <name lang="hr">Vodoravni ohmmetar</name>
+        <name lang="hu">Vízszintes ohmmérő</name>
+        <name lang="it">Ohmmetro orizzontale</name>
+        <name lang="ja">横型抵抗計</name>
+        <name lang="ko">수평형 저항계</name>
+        <name lang="mn">Хэвтээ омметр</name>
+        <name lang="nb">Horisontal ohmmeter</name>
+        <name lang="nl">Ohmmeter</name>
+        <name lang="nl_BE">Horizontale ohmmeter</name>
+        <name lang="pl">Omomierz (poziomo)</name>
+        <name lang="pt">Ohmímetro horizontal</name>
+        <name lang="pt_BR">Ohmímetro Horizontal</name>
+        <name lang="ro">Ohmmetru orizontal</name>
+        <name lang="ru">Омметр (горизонтальный)</name>
+        <name lang="sk">Horizontálny ohmmeter</name>
+        <name lang="sl">Vodoravni ohmeter</name>
+        <name lang="sr">Хоризонтални омметар</name>
+        <name lang="sv">Horisontell ohmmeter</name>
+        <name lang="tr">Yatay ohmmetre</name>
+        <name lang="uk">Горизонтальний омметр</name>
+        <name lang="zh">欧姆表-水平</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="8" y="-25" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{81514b0c-ca91-4838-ae5b-0e63cb8bec51}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-5" y1="5" x2="-3.25" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.25" y1="5" x2="5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.25" y1="5" x2="-3.25" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="-6" width="10" height="10" start="315" angle="270" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3.25" y1="3" x2="3.25" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1b8488a9-50d9-4fee-8321-4d1753a484e2}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{f08390b4-5b4b-4c12-9bf9-41036a86ed2a}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

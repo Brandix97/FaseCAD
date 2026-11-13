@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="25" hotspot_y="35">
+    <uuid uuid="{6fdfe889-6a34-5a48-9abf-3bf683b10031}"/>
+    <names>
+        <name lang="ar">صمّام بمسارين</name>
+        <name lang="ca">Vàlvula de 2 vies</name>
+        <name lang="cs">Dvoucestný ventil</name>
+        <name lang="da">2-vejsventil</name>
+        <name lang="de">2-Wegeventil</name>
+        <name lang="el">Βαλβίδα 2 κατευθύνσεων</name>
+        <name lang="en">2-way valve</name>
+        <name lang="es">Válvula de 2 vías</name>
+        <name lang="fi">2-tieventtiili</name>
+        <name lang="fr">Vanne 2 voies</name>
+        <name lang="hr">2-smjerni ventil</name>
+        <name lang="hu">2-utas szelep</name>
+        <name lang="it">Valvola</name>
+        <name lang="ja">2ウェイバルブ</name>
+        <name lang="ko">2-방향 밸브</name>
+        <name lang="mn">2-талт хавхлага</name>
+        <name lang="nb">2-veis ventil</name>
+        <name lang="nl">klep 2</name>
+        <name lang="nl_BE">2-wegklep</name>
+        <name lang="pl">Zawór dwudrożny</name>
+        <name lang="pt">Válvula de 2 vias</name>
+        <name lang="pt_BR">2-way valvula</name>
+        <name lang="ro">Supapă 2 căi</name>
+        <name lang="ru">2-ходовой клапан</name>
+        <name lang="sk">2-cestný ventil</name>
+        <name lang="sl">2-potni ventil</name>
+        <name lang="sr">2-краки вентил</name>
+        <name lang="sv">2-vägsventil</name>
+        <name lang="tr">2 yollu vana</name>
+        <name lang="uk">2-ходовий клапан</name>
+        <name lang="zh">两通阀2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-1.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7b0630a9-c23a-424e-99ae-7b29092b0629}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-10" y="-31" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="V1" x="-5" y="-19" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="1" y1="-10" x2="1" y2="-1" end1="none" end2="none" length1="2.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-10" x2="-1" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="15" y1="10" x2="0" y2="0" x3="15" y3="-10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="0" x2="-15" y2="-10" x3="-15" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{4eae772b-c943-4e96-b07a-5b7366f2fd5c}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{380867c6-1f13-407b-a28c-cf342ea36b70}" name="" x="15" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

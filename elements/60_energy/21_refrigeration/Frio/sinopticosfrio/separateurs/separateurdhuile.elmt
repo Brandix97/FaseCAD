@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="18">
+    <uuid uuid="{0ea1f3ae-1f5d-e59a-6f05-62143c5426ef}"/>
+    <names>
+        <name lang="ar">فاصلة زيت</name>
+        <name lang="ca">Separador d'oli</name>
+        <name lang="cs">Odlučovač oleje</name>
+        <name lang="da">Olieseparator</name>
+        <name lang="de">Ölabscheider</name>
+        <name lang="el">Διαχωριστής λαδιού</name>
+        <name lang="en">Oil separator</name>
+        <name lang="es">Separador de aceite</name>
+        <name lang="fi">Öljynerotin</name>
+        <name lang="fr">Séparateur d'huile</name>
+        <name lang="hr">Separator ulja</name>
+        <name lang="hu">Olajleválasztó</name>
+        <name lang="it">Disoleatore</name>
+        <name lang="ja">油分離器</name>
+        <name lang="ko">오일 분리기</name>
+        <name lang="mn">Тос тусгаарлагч</name>
+        <name lang="nb">Oljeseparator</name>
+        <name lang="nl">Olie scheider</name>
+        <name lang="nl_BE">Olieafscheider</name>
+        <name lang="pl">Separator oleju</name>
+        <name lang="pt">Separador de óleo</name>
+        <name lang="pt_BR">Oil separatou</name>
+        <name lang="ro">Separator de ulei</name>
+        <name lang="ru">Маслоотделитель</name>
+        <name lang="sk">Odlučovač oleja</name>
+        <name lang="sl">Oljni separator</name>
+        <name lang="sr">Сепаратор уља</name>
+        <name lang="sv">Oljeseparator</name>
+        <name lang="tr">Yağ ayırıcı</name>
+        <name lang="uk">Масловіддільник</name>
+        <name lang="zh">油分离器</name>
+    </names>
+    <informations>Rotation possible</informations>
+    <description>
+        <polygon x1="1" y1="7" x2="6" y2="2" x3="9" y3="2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-7" y="-36" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fe1d74eb-44a1-4645-bb3f-3bdbfb22c5b7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="-13" x2="8" y2="-13" x3="8" y3="5" x4="0" y4="13" x5="-8" y5="5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-2" y="7" width="4" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{f31ea5ee-1c0d-4b6f-98d5-49f1b161db72}" name="" x="0" y="14" orientation="s" type="Generic"/>
+        <terminal uuid="{0c3daea3-8220-44c6-8353-49bbe69f3b8a}" name="" x="-9" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{a2db4a6d-7220-4b46-8686-adc25c7d662e}" name="" x="9" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{ed8256c8-eadc-45d1-9fd9-8c3151f1e230}" name="" x="9" y="2" orientation="e" type="Generic"/>
+    </description>
+</definition>

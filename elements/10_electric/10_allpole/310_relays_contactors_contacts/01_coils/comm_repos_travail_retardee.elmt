@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="master" width="60" height="60" hotspot_x="38" hotspot_y="32">
+    <uuid uuid="{92b7f142-b9b5-87ad-ac30-3379678d1159}"/>
+    <names>
+        <name lang="ar">مرحل تأخير عند التشغيل والإعتاق</name>
+        <name lang="ca">Retard del relé a l'activació i al repòs</name>
+        <name lang="cs">Relé se zpožděným zapnutím a vypnutím</name>
+        <name lang="da">Relæ forsinkelse ved aktivering og hvile</name>
+        <name lang="de">Relais ansprech- und rückfallverzögert</name>
+        <name lang="el">Πηνίο χρονικού, καθυστέρηση ενεργοποίησης-απενεργοποίησης</name>
+        <name lang="en">Relay delay at activation and rest</name>
+        <name lang="es">Relé de trabajo y reposo retardado</name>
+        <name lang="fi">Rele, viive aktivoinnissa ja lepotilassa</name>
+        <name lang="fr">Relais à mise au travail et mise au repos retardées</name>
+        <name lang="hr">Relej s odgodom pri aktiviranju i mirovanju</name>
+        <name lang="hu">Meghúzás és elengedés késleltetésű relé</name>
+        <name lang="it">Relè ritardato all'apertura/chiusura</name>
+        <name lang="ja">動作時および復帰時遅延リレー</name>
+        <name lang="ko">여자 및 복귀 지연 릴레이</name>
+        <name lang="mn">Реле саатал идэвхжилт ба амралт</name>
+        <name lang="nb">Relé forsinkelse ved aktivering og hvile</name>
+        <name lang="nl">spoel opkom en afval vertraagd</name>
+        <name lang="nl_BE">Relais vertraagd bij bekrachtiging en afval</name>
+        <name lang="pl">Przekaźnik działający ze zwłoką przy odwzbudzeniu</name>
+        <name lang="pt">Relé com atraso na ativação e na desativação</name>
+        <name lang="pt_BR">Relé com retardo na energização e no retorno</name>
+        <name lang="ro">Releu cu întârziere la activare și repaus</name>
+        <name lang="ru">Реле с задержкой при срабатывании и отпускании</name>
+        <name lang="sk">Relé s oneskorením pri aktivácii a v pokoji</name>
+        <name lang="sl">Rele z zakasnitvijo pri aktiviranju in mirovanju</name>
+        <name lang="sr">Релеј са кашњењем при активирању и мировању</name>
+        <name lang="sv">Relä fördröjning vid till- och frånslag</name>
+        <name lang="tr">Uyarma ve dinlenme gecikmeli röle</name>
+        <name lang="uk">Реле з затримкою при спрацюванні та відпусканні</name>
+        <name lang="zh">延时断开闭合触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-32" y="-10" width="47" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="10" x2="-15" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-22" y1="-10" x2="-15" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-32" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5d1e39fe-12f9-47fd-abaf-7e366f48449d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4e796ff3-9bcd-4116-a596-61054c95a0e9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a900bc52-4e10-4481-8ad7-f874a9a5be76}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{11b6805a-bcd7-4901-b517-3cb4c7d6536a}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b93cc914-3f17-44e7-80aa-43f7cee804a8}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

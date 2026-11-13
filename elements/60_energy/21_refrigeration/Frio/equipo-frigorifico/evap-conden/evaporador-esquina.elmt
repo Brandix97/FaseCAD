@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="50" hotspot_x="39" hotspot_y="25">
+    <uuid uuid="{4306613d-acf2-8086-4bfa-6b21349ac09b}"/>
+    <names>
+        <name lang="ca">Evaporador de cantonada</name>
+        <name lang="es">Evap. Esquina</name>
+        <name lang="pt_BR">Evap. Esquina</name>
+        <name lang="zh">墙角式蒸发器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="19.44" y1="-2.74" x2="16.63" y2="-2.74" x3="13.12" y3="-2.09" x4="8.91" y4="-0.81" x5="5.4" y5="1.12" x6="4" y6="3.05" x7="4" y7="5" x8="6.11" y8="5.63" x9="8.21" y9="5.63" x10="11.72" y10="5" x11="15.23" y11="3.7" x12="18.74" y12="1.77" x13="20.14" y13="0.48" x14="20.84" y14="-1.45" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="22.23" y1="-3.94" x2="18.15" y2="-3.94" x3="13.05" y3="-3.13" x4="6.93" y4="-1.5" x5="1.83" y5="0.95" x6="-0.21" y6="3.39" x7="-0.21" y7="5.83" x8="2.85" y8="6.65" x9="5.91" y9="6.65" x10="11" y10="5.83" x11="16.11" y11="4.2" x12="21.21" y12="1.76" x13="23.25" y13="0.13" x14="24.27" y14="-2.31" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="17.61" y1="-1.25" x2="15.65" y2="-1.25" x3="13.19" y3="-0.79" x4="10.25" y4="0.11" x5="7.79" y5="1.46" x6="6.81" y6="2.81" x7="6.81" y7="4.16" x8="8.28" y8="4.61" x9="9.75" y9="4.61" x10="12.21" y10="4.16" x11="14.67" y11="3.26" x12="17.12" y12="1.91" x13="18.1" y13="1" x14="18.59" y14="-0.34" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="42.61" y1="3.75" x2="40.65" y2="3.75" x3="38.19" y3="4.21" x4="35.25" y4="5.11" x5="32.79" y5="6.46" x6="31.81" y6="7.81" x7="31.81" y7="9.16" x8="33.28" y8="9.61" x9="34.75" y9="9.61" x10="37.21" y10="9.16" x11="39.67" y11="8.26" x12="42.12" y12="6.91" x13="43.1" y13="6" x14="43.59" y14="4.66" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-28" y1="-8" x2="-25" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28" y1="5" x2="-25" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="6" x2="37" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="-14" x2="-30" y2="-14" x3="-30" y3="6" x4="-19" y4="6" x5="10" y5="-10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-30" y1="6" x2="26" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="44.44" y1="2.26" x2="41.63" y2="2.26" x3="38.12" y3="2.91" x4="33.91" y4="4.19" x5="30.4" y5="6.12" x6="29" y6="8.05" x7="29" y7="10" x8="31.11" y8="10.63" x9="33.21" y9="10.63" x10="36.72" y10="10" x11="40.23" y11="8.7" x12="43.74" y12="6.77" x13="45.14" y13="5.48" x14="45.84" y14="3.55" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="10" y1="-14" x2="66" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-29" y="2" width="2" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-28" y1="2" x2="-25" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="47.23" y1="1.06" x2="43.15" y2="1.06" x3="38.05" y3="1.87" x4="31.93" y4="3.5" x5="26.83" y5="5.95" x6="24.79" y6="8.39" x7="24.79" y7="10.83" x8="27.85" y8="11.65" x9="30.91" y9="11.65" x10="36" y10="10.83" x11="41.11" y11="9.2" x12="46.21" y12="6.76" x13="48.25" y13="5.13" x14="49.27" y14="2.69" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="10" y1="-10" x2="66" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26" y1="17" x2="37" y2="17" x3="66" y3="1" x4="66" y4="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="49.91" y1="-0.76" x2="44.58" y2="-0.76" x3="37.91" y3="0.35" x4="29.91" y4="2.57" x5="23.25" y5="5.91" x6="20.58" y6="9.24" x7="20.58" y7="12.58" x8="24.58" y8="13.69" x9="28.58" y9="13.69" x10="35.25" y10="12.58" x11="41.91" y11="10.35" x12="48.58" y12="7" x13="51.24" y13="4.8" x14="52.58" y14="1.46" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-26" y="2" width="2" height="3" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="22" y1="12.67" x2="51.45" y2="1.45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="24.91" y1="-5.76" x2="19.58" y2="-5.76" x3="12.91" y3="-4.65" x4="4.91" y4="-2.43" x5="-1.75" y5="0.91" x6="-4.42" y6="4.24" x7="-4.42" y7="7.58" x8="-0.42" y8="8.69" x9="3.58" y9="8.69" x10="10.25" y10="7.58" x11="16.91" y11="5.35" x12="23.58" y12="2" x13="26.24" y13="-0.2" x14="27.58" y14="-3.54" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="22" y1="7.57" x2="50.05" y2="6.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="7.67" x2="26.45" y2="-3.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="2.57" x2="25.05" y2="1.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="38.82" y1="0.43" x2="34.61" y2="12.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="13.82" y1="-4.57" x2="9.61" y2="7.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-29" y="-11" width="2" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-28" y1="-11" x2="-25" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-26" y="-11" width="2" height="3" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-1" y="12" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="-12" x2="-11" y2="-12" x3="-11" y3="-6" x4="-19" y4="-6" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{86a7220a-ee02-45bf-ac31-16fc8935163a}" name="" x="-29" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{f926b26e-0ccd-4e50-9a0b-8919bbe0bd5b}" name="" x="-29" y="3" orientation="w" type="Generic"/>
+        <terminal uuid="{563bce0f-2c04-4c64-93db-72db09aab561}" name="" x="1" y="14" orientation="s" type="Generic"/>
+        <terminal uuid="{d9e55c00-cd1b-4522-9f19-2dde4ef07540}" name="" x="-15" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

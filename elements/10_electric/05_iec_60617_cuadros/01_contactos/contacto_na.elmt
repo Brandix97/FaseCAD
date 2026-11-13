@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="slave" width="20" height="50" hotspot_x="14" hotspot_y="25">
+    <uuid uuid="{13496f18-f0c1-58cd-ba49-73d3654e7b78}"/>
+    <names>
+        <name lang="de">Schließer</name>
+        <name lang="en">Make contact (NO)</name>
+        <name lang="es">Contacto NA</name>
+        <name lang="fr">Contact à fermeture (NO)</name>
+        <name lang="it">Contatto NA</name>
+        <name lang="pt">Contacto NA</name>
+        <name lang="tr">NA kontak (normalde açık)</name>
+        <name lang="zh">常开触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3d9ff0cc-8cc6-5037-baca-f5514c76a29b}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1ed42927-1745-52c8-8d3f-9de6765b4a4d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+        <dynamic_text x="-17" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3a31a2a8-c936-5976-b09f-3ecaeae61aba}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{9e4b305a-9ed1-5185-af7b-661c98a94958}" name="13" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{45301f93-9959-5284-aed3-d7bd98fe5c33}" name="14" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

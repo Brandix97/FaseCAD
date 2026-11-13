@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="90" hotspot_x="76" hotspot_y="63">
+    <uuid uuid="{180d002f-e929-a654-6a03-aa2fff1deae3}"/>
+    <names>
+        <name lang="ar">لاقط شمسي سطح</name>
+        <name lang="ca">Captador solar terrassa</name>
+        <name lang="cs">Terénní solární kolektor</name>
+        <name lang="da">Terrassesolfanger</name>
+        <name lang="de">Terrasse Solarkollektor</name>
+        <name lang="el">Ηλιακός συλλέκτης δώματος</name>
+        <name lang="en">Terrace solar capturator</name>
+        <name lang="es">Captador solar terraza</name>
+        <name lang="fi">Terassin aurinkokeräin</name>
+        <name lang="fr">Capteur solaire incliné</name>
+        <name lang="hr">Krovni solarni kolektor</name>
+        <name lang="hu">Terasz napkollektor</name>
+        <name lang="it">Collettore solare da terrazzo</name>
+        <name lang="ja">屋根置き型太陽熱集熱器</name>
+        <name lang="ko">테라스형 태양열 집열기</name>
+        <name lang="mn">Дээврийн нарны коллектор</name>
+        <name lang="nb">Terrassesolfanger</name>
+        <name lang="nl">Terras zonnecollector</name>
+        <name lang="nl_BE">Terras zonnecollector</name>
+        <name lang="pl">Kolektor słoneczny dachowy</name>
+        <name lang="pt">Coletor solar de terraço</name>
+        <name lang="pt_BR">Terrace solar capturatou</name>
+        <name lang="ro">Captator solar de terasă</name>
+        <name lang="ru">Солнечный коллектор на крыше</name>
+        <name lang="sk">Terasa solárny kolektor</name>
+        <name lang="sl">Strešni sončni kolektor</name>
+        <name lang="sr">Терасни соларни колектор</name>
+        <name lang="sv">Terrassolfångare</name>
+        <name lang="tr">Teras güneş kolektörü</name>
+        <name lang="uk">Сонячний колектор на терасі</name>
+        <name lang="zh">露台太阳能集热器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-23" y1="6" x2="3" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="5" x2="3" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-64" y1="7" x2="-36" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-67" y1="4" x2="-39" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28" y1="-56" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28" y1="-56" x2="-67" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-40" x2="-39" y2="20" x3="-35" y3="20" x4="3" y4="-40" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="3" y1="-40" x2="-25" y2="-56" x3="-28" y3="-56" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-65" y1="4" x2="-40" y2="18" x3="-3" y3="-39" x4="-28" y4="-53" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="-36" y1="23" x2="4" y2="-40" x3="6" y3="-39" x4="-34" y4="23" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="6" y1="-39" x2="6" y2="22" x3="3" y3="22" x4="3" y4="-34" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-11" y1="-13" x2="3" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-12" x2="3" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-64" y1="7" x2="-64" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-15" y="-62.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fdd88080-9c47-45d9-899b-772719264378}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{06d6896b-de92-4433-84e2-67b76363f465}" name="" x="-33" y="19" orientation="e" type="Generic"/>
+        <terminal uuid="{928503af-580f-4caf-a8d1-10776e96d71b}" name="" x="3" y="-37" orientation="e" type="Generic"/>
+        <terminal uuid="{45970fc1-9671-4a14-98eb-52e71c94de9f}" name="" x="-65" y="2" orientation="w" type="Generic"/>
+        <terminal uuid="{8f32cdca-1112-4fe0-bec2-8aff18ebf141}" name="" x="-29" y="-55" orientation="w" type="Generic"/>
+    </description>
+</definition>

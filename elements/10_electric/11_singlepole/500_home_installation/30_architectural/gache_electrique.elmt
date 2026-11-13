@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="15" hotspot_y="7">
+    <uuid uuid="{874dcef4-9bea-f732-2b74-1da0d0cf5a67}"/>
+    <names>
+        <name lang="ar">قفل كهربائي</name>
+        <name lang="ca">Pany elèctric</name>
+        <name lang="cs">Elektrický zámek</name>
+        <name lang="da">Elektrisk lås</name>
+        <name lang="de">Türöffner</name>
+        <name lang="el">Ηλεκτρική κλειδαριά</name>
+        <name lang="en">Electric lock</name>
+        <name lang="es">Cerradura eléctrica</name>
+        <name lang="fi">Sähkölukko</name>
+        <name lang="fr">Gâche électrique</name>
+        <name lang="hr">Električna brava</name>
+        <name lang="hu">Elektromos zár</name>
+        <name lang="it">Serratura elettrica</name>
+        <name lang="ja">電気錠</name>
+        <name lang="ko">전기 잠금장치</name>
+        <name lang="mn">Цахилгаан цоож</name>
+        <name lang="nb">Elektrisk lås</name>
+        <name lang="nl">Electrisch slot</name>
+        <name lang="nl_BE">Elektrisch slot</name>
+        <name lang="pl">Zamek elektryczny</name>
+        <name lang="pt">Fechadura elétrica</name>
+        <name lang="pt_BR">Fechadura eletrica</name>
+        <name lang="ro">Încuietoare electrică</name>
+        <name lang="ru">Электрический замок</name>
+        <name lang="sk">Elektrický zámok</name>
+        <name lang="sl">Električna ključavnica</name>
+        <name lang="sr">Електрична брава</name>
+        <name lang="sv">Ellås</name>
+        <name lang="tr">Elektrikli kilit</name>
+        <name lang="uk">Електричний замок</name>
+        <name lang="zh">电锁扣</name>
+    </names>
+    <informations>EN 60617: 11-16-04</informations>
+    <description>
+        <dynamic_text x="-10" y="-1.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c76b709b-c80d-4f86-9024-c0549fff674e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="10" y1="10" x2="20" y2="10" x3="10" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-10" y="0" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="3.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="3.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{d612a82d-1bb4-4cea-9174-b969572583fc}" name="" x="0" y="0" orientation="n" type="Generic"/>
+    </description>
+</definition>

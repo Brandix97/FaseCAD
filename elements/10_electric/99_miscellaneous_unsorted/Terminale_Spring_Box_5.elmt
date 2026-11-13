@@ -1,0 +1,63 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="4">
+    <uuid uuid="{9f79aff4-9528-aa03-a39c-7772e8815786}"/>
+    <names>
+        <name lang="ar">Terminale Spring Box 5</name>
+        <name lang="ca">Caixa de molles de terminal 5</name>
+        <name lang="cs">Pružinová svorka 5 vodičů</name>
+        <name lang="da">Terminale Spring Box 5</name>
+        <name lang="de">Verbindungsklemme 5-polig</name>
+        <name lang="el">Terminale Spring Box 5</name>
+        <name lang="en">Terminale Spring Box 5</name>
+        <name lang="es">Terminale Spring Box 5</name>
+        <name lang="fi">Terminale Spring Box 5</name>
+        <name lang="fr">Borne automatique à ressorts 5 entrées (Wago)</name>
+        <name lang="hr">Terminale Spring Box 5</name>
+        <name lang="hu">Terminale Spring Box 5</name>
+        <name lang="it">Terminale Spring Box 5</name>
+        <name lang="ja">端子スプリングボックス 5</name>
+        <name lang="ko">Terminale Spring Box 5</name>
+        <name lang="mn">Terminale Spring Box 5</name>
+        <name lang="nb">Terminale Spring Box 5</name>
+        <name lang="nl">Terminale Spring Box 5</name>
+        <name lang="nl_BE">Terminale Spring Box 5</name>
+        <name lang="pl">Terminale Spring Box 5</name>
+        <name lang="pt">Terminal Spring Box 5</name>
+        <name lang="pt_BR">Borne de mola 5</name>
+        <name lang="ro">Terminale Spring Box 5</name>
+        <name lang="ru">Клеммная пружинная коробка 5</name>
+        <name lang="sk">Terminale Spring Box 5</name>
+        <name lang="sl">Terminale Spring Box 5</name>
+        <name lang="sr">Terminale Spring Box 5</name>
+        <name lang="sv">Terminale Spring Box 5</name>
+        <name lang="tr">Terminale Yay Kutusu 5</name>
+        <name lang="uk">Terminale Spring Box 5</name>
+        <name lang="zh">弹簧接线盒5</name>
+    </names>
+    <informations>Author convertor: Ronny Desmedt
+      ELMT created by dxfTOelmt converter V1.0</informations>
+    <description>
+        <rect x="-26" y="0" width="52" height="20" rx="1" ry="1" style="line-style:normal;line-weight:normal;filling:gray;color:gray" antialias="false"/>
+        <ellipse x="16.45" y="11.6" width="7" height="7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="6.45" y="11.6" width="7" height="7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="9" y="3" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <ellipse x="-3.56" y="11.6" width="7" height="7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1" y="3" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <ellipse x="-23.56" y="11.6" width="7" height="7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-13.56" y="11.6" width="7" height="7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="4" x2="-10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-10" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="0" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="0" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="4" x2="10" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="4" x2="20" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="4" x2="20" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="3" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="-20" y1="17" x2="-20" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ff94345e-cc2a-4554-a195-8f34c662eb20}" name="" x="20" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{5bc3f241-865f-4fce-a096-cc053e70df2c}" name="" x="10" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{eb338493-235e-4448-9ddd-9b9f761b4e59}" name="" x="-20" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{b6b6837c-1fb0-4d51-b82e-f75652e7bf95}" name="" x="-10" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{3f89f462-c81c-47dd-a912-2d2c8fc73c30}" name="" x="0" y="17" orientation="s" type="Generic"/>
+    </description>
+</definition>

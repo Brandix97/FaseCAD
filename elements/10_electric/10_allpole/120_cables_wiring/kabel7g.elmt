@@ -1,0 +1,77 @@
+<definition type="element" link_type="simple" hotspot_x="73" hotspot_y="5" width="150" height="10" version="0.100.1">
+    <uuid uuid="{6ccbaa23-30ec-4b0a-a9c6-bdc72a4aec7b}"/>
+    <names>
+        <name lang="ar">كابل 7G</name>
+        <name lang="ca">Cable de 6 fases + terra</name>
+        <name lang="cs">Kabel 7G</name>
+        <name lang="da">Kabel 7G</name>
+        <name lang="de">Kabel 7G</name>
+        <name lang="el">Καλώδιο 7G</name>
+        <name lang="en">Cable 7G</name>
+        <name lang="es">Cable 6 fases+tierra</name>
+        <name lang="fi">Kaapeli 7G</name>
+        <name lang="fr">Cable 6 phases+terre</name>
+        <name lang="hr">Kabel 7G</name>
+        <name lang="hu">Kábel 6 + PE</name>
+        <name lang="it">Cavo 6 fasi + terra</name>
+        <name lang="ja">ケーブル 7G</name>
+        <name lang="ko">케이블 7G</name>
+        <name lang="mn">Кабель 7G</name>
+        <name lang="nb">Kabel 7G</name>
+        <name lang="nl">Kabel 7G</name>
+        <name lang="nl_BE">Kabel 7G</name>
+        <name lang="pl">Oznaczenie przewodu czterożyłowego</name>
+        <name lang="pt">Cabo 7G</name>
+        <name lang="pt_BR">Cabo 7G</name>
+        <name lang="ro">Cablu 7G</name>
+        <name lang="ru">Кабель 6 жилы + PE</name>
+        <name lang="sk">Kábel 7G</name>
+        <name lang="sl">Kabel 7G</name>
+        <name lang="sr">Кабл 7G</name>
+        <name lang="sv">Kabel 7G</name>
+        <name lang="tr">Kablo 7G</name>
+        <name lang="uk">Кабель 7G</name>
+        <name lang="zh">7芯电缆</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="38" y="-12" z="1" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{9b7c92fb-b0ff-4483-b060-f502e0464e24}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>6</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="18" y="-12" z="2" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{b5c036ee-f37f-48bb-a2fd-1c11986b470d}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-2" y="-12" z="3" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{e642d995-04af-4501-8d52-c4bec7c69740}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>4</text>
+        </dynamic_text>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="57.95" length1="1.5" x2="61.95" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-42.05" length1="1.5" x2="-38.05" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="37.95" length1="1.5" x2="41.95" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="17.95" length1="1.5" x2="21.95" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2.05" antialias="true" y2="1.95" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-2.05" length1="1.5" x2="1.95" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2" antialias="true" y2="2" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-22" length1="1.5" x2="-18" length2="1.5"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-89" y="-0.5" z="10" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{5ac77b32-8af9-4916-bf8a-2a61ca11d521}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>7G</text>
+        </dynamic_text>
+        <line end1="none" end2="none" y1="0" antialias="false" y2="0" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-67.94" length1="1.5" x2="71" length2="1.5"/>
+        <line end1="none" end2="none" y1="-2" antialias="true" y2="2" style="line-style:normal;line-weight:normal;filling:none;color:black" x1="-62" length1="1.5" x2="-58" length2="1.5"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-90" y="-19.5" z="13" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{4fea1fe2-0c89-4005-bff3-09b5ae3a4f16}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-62" y="-12" z="14" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{b476f7e1-852a-492b-95b1-54be137a704b}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-42" y="-12" z="15" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{cdd3fa2d-c33c-437d-9378-39cf895eef76}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-22" y="-12" z="16" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{720940a7-a0cf-4c74-9836-a4d3edb122d9}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="58" y="-12" z="17" rotation="0" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{801a2dc2-b144-4e71-81e7-f85568b0de85}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>PE</text>
+        </dynamic_text>
+    </description>
+</definition>

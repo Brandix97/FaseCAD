@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="45" hotspot_y="25">
+    <uuid uuid="{334dc748-a769-647b-7f55-4c8edb7acbfd}"/>
+    <names>
+        <name lang="ar">حثّ بفجوة في النواة المغناطيسية</name>
+        <name lang="ca">Inductor amb buit al nucli magnètic</name>
+        <name lang="cs">Indukční cívka 
+s magnetickým jádrem se vzduchovou mezerou</name>
+        <name lang="da">Induktor med luftspalte i magnetkerne</name>
+        <name lang="de">Induktivität mit Luftspalt im Magnetkern</name>
+        <name lang="el">Πηνίο με διάκενο στον μαγνητικό πυρήνα</name>
+        <name lang="en">Inductor with gap in magnetic core</name>
+        <name lang="es">Inductor con entrehierro en el núcleo magnético</name>
+        <name lang="fi">Induktori, magneettisydämen raolla</name>
+        <name lang="fr">Inductance à noyau magnétique avec entrefer</name>
+        <name lang="hr">Induktor s rasporom u magnetskoj jezgri</name>
+        <name lang="hu">Induktor légréssel a mágneses magban</name>
+        <name lang="it">Induttore con traferro nel nucleo magnetico</name>
+        <name lang="ja">磁心にギャップのあるインダクタ</name>
+        <name lang="ko">자기 코어에 갭이 있는 인덕터</name>
+        <name lang="mn">Соронзон цөмд завсартай индуктор</name>
+        <name lang="nb">Induktor med luftgap i magnetkjernen</name>
+        <name lang="nl">Inductor met luchtspleet in magnetische kern</name>
+        <name lang="nl_BE">Inductor met luchtspleet in magnetische kern</name>
+        <name lang="pl">Cewka ze szczeliną w rdzeniu magnetycznym</name>
+        <name lang="pt">Indutância com entreferro no núcleo magnético</name>
+        <name lang="pt_BR">Indutor com entreferro no núcleo magnético</name>
+        <name lang="ro">Inductor cu întrefier în miezul magnetic</name>
+        <name lang="ru">Индуктивность с зазором в магнитопроводе</name>
+        <name lang="sk">Induktor s medzerou v magnetickom jadre</name>
+        <name lang="sl">Induktor z režo v magnetnem jedru</name>
+        <name lang="sr">Индуктор са зазором у магнетном језгру</name>
+        <name lang="sv">Induktor med luftgap i magnetkärnan</name>
+        <name lang="tr">Manyetik çekirdeğinde boşluk olan indüktör</name>
+        <name lang="uk">Котушка індуктивності із зазором у магнітному осерді</name>
+        <name lang="zh">接线端子排4</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{754cf7cf-5781-42b3-bfbd-a4381d0d78a2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-20" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-40" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-20" x2="-25" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-10" x2="-40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

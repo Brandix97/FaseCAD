@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="40" hotspot_x="10" hotspot_y="22">
+    <uuid uuid="{cf59a1be-a085-ca81-2b14-ceed763c67f6}"/>
+    <names>
+        <name lang="ar">مقياس تدفّق</name>
+        <name lang="ca">Mesurador de cabal</name>
+        <name lang="cs">Průtokoměr</name>
+        <name lang="da">Flowmåler</name>
+        <name lang="de">Durchflussmesser</name>
+        <name lang="el">Δεβιτόμετρο</name>
+        <name lang="en">Flow meter</name>
+        <name lang="fr">Débitmètre</name>
+        <name lang="it">Flussometro</name>
+        <name lang="pt_BR">Débitmètre</name>
+        <name lang="zh">流量计</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <text text="L/s" x="-2" y="-16" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-4" y="-20" width="8" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="3" width="16" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:lightgray;color:lightgray" antialias="false"/>
+        <line x1="0" y1="-9" x2="0" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-10" x2="2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-8" y="11" width="16" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-8" y="-59.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c8f66a69-ede2-474b-aef8-56c629524d5c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-3" y1="-16" x2="3" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="2" x2="3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-2" x2="3" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="0" x2="3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-6" x2="3" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-4" x2="3" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-14" x2="3" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-8" x2="3" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-12" x2="3" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="11" x2="-4" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="11" x2="4" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-10" x2="3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="10" x2="5" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="3" x2="-5" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:gray" antialias="false"/>
+        <line x1="5" y1="3" x2="5" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:gray" antialias="false"/>
+        <line x1="-8" y1="3" x2="-8" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:gray" antialias="false"/>
+        <line x1="8" y1="3" x2="8" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:gray" antialias="false"/>
+        <line x1="0" y1="3" x2="0" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:gray" antialias="false"/>
+    </description>
+</definition>

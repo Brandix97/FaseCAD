@@ -1,0 +1,23 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{d518a969-dba4-bcab-6628-1669aa907150}"/>
+    <names>
+        <name lang="ca">Disc de trencadament</name>
+        <name lang="es">Disco de rotura</name>
+        <name lang="pt_BR">Disco de rotura</name>
+        <name lang="zh">爆破片</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-10.8" y1="0" x2="-4.85" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.34" y1="0" x2="10.89" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="10.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{84ccfe7a-7e92-422e-a55d-0e772ad79855}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-8" y="-6" width="16" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4" y="-2" width="8" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{da7c37b1-8e1b-4590-9403-88c86a27fb3e}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a6c02deb-688c-4aad-83d8-b2e7727a52cc}" name="" x="12" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="100" hotspot_x="30" hotspot_y="51">
+    <uuid uuid="{c139bd9f-d609-23b0-ba7a-3c81e2474400}"/>
+    <names>
+        <name lang="ar">صهريج كهربائي</name>
+        <name lang="ca">ECS elèctric del dipòsit</name>
+        <name lang="cs">Elektrická jímka ECS</name>
+        <name lang="da">Tank elektrisk ECS</name>
+        <name lang="de">Elektrischer Tank ECS</name>
+        <name lang="el">Δεξαμενή ηλεκτρική ECS</name>
+        <name lang="en">Tank electrical ECS</name>
+        <name lang="es">Tanque electrico ECS 2</name>
+        <name lang="fi">Sähkösäiliö ECS</name>
+        <name lang="fr">Ballon electrique ECS "gauche"</name>
+        <name lang="hr">Spremnik električni PTV</name>
+        <name lang="hu">Elektromos HMV tartály</name>
+        <name lang="it">Serbatoio ACS elettrico</name>
+        <name lang="ja">電気温水器タンク</name>
+        <name lang="ko">전기 탱크 ECS</name>
+        <name lang="mn">Сав цахилгаан ECS</name>
+        <name lang="nb">Tank elektrisk ECS</name>
+        <name lang="nl">Boiler elektrisch</name>
+        <name lang="nl_BE">Elektrische boiler ECS</name>
+        <name lang="pl">Zbiornik elektryczny CWU</name>
+        <name lang="pt">Depósito elétrico AQS</name>
+        <name lang="pt_BR">Tanque eletrico ECS</name>
+        <name lang="ro">Rezervor electric ACM</name>
+        <name lang="ru">Электрический бак ГВС</name>
+        <name lang="sk">Elektrický zásobník TÚV</name>
+        <name lang="sl">Električna posoda ECS</name>
+        <name lang="sr">Резервоар електрични ПТВ</name>
+        <name lang="sv">Elberedare VV</name>
+        <name lang="tr">Tank elektrikli KSH</name>
+        <name lang="uk">Бак електричний ГВП</name>
+        <name lang="zh">电热水器2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-71.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b54ec92a-ecd7-4826-955e-1437ac8c8d8e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Ballon ECS" x="-7" y="14" rotation="-90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="25" y1="-40" x2="25" y2="36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-40" x2="-25" y2="37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-25" y="31" width="50" height="12" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21.25" y="38.75" width="2.5" height="2.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="18.75" y="-1.25" width="2.5" height="2.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="18.75" y="38.75" width="2.5" height="2.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="3" y1="17" x2="-3" y2="19" x3="3" y3="20" x4="-3" y4="22" x5="3" y5="23" x6="-3" y6="25" x7="3" y7="26" x8="-3" y8="28" x9="3" y9="29" x10="-3" y10="31" x11="3" y11="32" x12="-3" y12="34" x13="3" y13="35" x14="-3" y14="37" x15="3" y15="38" x16="0" y16="39" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="31" x2="20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-40" x2="-20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-25" y="-47" width="50" height="12" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-6" y="40" width="12" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{bcc47766-bfef-4e46-9f75-da6ba746f515}" name="" x="20" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{1a559777-365e-488d-bfc5-f933c2ae872d}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{88ca35e7-60c7-4902-adde-7b113c678dd9}" name="" x="-20" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

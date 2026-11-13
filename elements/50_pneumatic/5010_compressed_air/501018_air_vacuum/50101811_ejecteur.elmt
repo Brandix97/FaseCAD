@@ -1,0 +1,59 @@
+<definition version="0.90" type="element" link_type="simple" width="80" height="60" hotspot_x="37" hotspot_y="20">
+    <uuid uuid="{7793a7e6-a76a-f1cc-72de-fa68d512059a}"/>
+    <names>
+        <name lang="ar">مولد الفراغ</name>
+        <name lang="ca">Generador de buit</name>
+        <name lang="cs">Vakuový generátor</name>
+        <name lang="da">Vakuum generator</name>
+        <name lang="de">Vacuum generator</name>
+        <name lang="el">Γεννήτρια κενού</name>
+        <name lang="en">Vacuum generator</name>
+        <name lang="es">Generador de vacío</name>
+        <name lang="fi">Alipainegeneraattori</name>
+        <name lang="fr">Générateur de vide</name>
+        <name lang="hr">Generator vakuuma</name>
+        <name lang="hu">Vákuum generátor</name>
+        <name lang="it">Generatore di vuoto</name>
+        <name lang="ja">真空発生器</name>
+        <name lang="ko">진공 발생기</name>
+        <name lang="mn">Вакуум генератор</name>
+        <name lang="nb">Vakuum generator</name>
+        <name lang="nl">Vacuümgenerator</name>
+        <name lang="nl_BE">Vacuümgenerator</name>
+        <name lang="pl">Generator podciśnienia</name>
+        <name lang="pt">Gerador de vácuo</name>
+        <name lang="pt_BR">gerador de vácuo</name>
+        <name lang="ro">Generator de vid</name>
+        <name lang="ru">Генератор вакуума</name>
+        <name lang="sk">Výveva</name>
+        <name lang="sl">Vakuumski generator</name>
+        <name lang="sr">Генератор вакуума</name>
+        <name lang="sv">Vakuumgenerator</name>
+        <name lang="tr">Vakum jeneratörü</name>
+        <name lang="uk">Генератор вакууму</name>
+        <name lang="zh">喷射器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="34" y1="3" x2="34" y2="-3" x3="40" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="4" x2="3" y2="5" x3="-3" y3="7" x4="3" y4="9" x5="-3" y5="11" x6="3" y6="13" x7="0" y7="14" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="2" x="6" y="25" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-35" y="-40" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c76bdc44-7f6b-40d2-91e9-c2ebb6ad0556}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="23" x2="0" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="3" x="21" y="5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="2" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="18" x2="0" y2="23" x3="5" y3="18" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-10" y="-11" width="20" height="9" start="200" angle="140" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3" y="15" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="2" width="20" height="9" start="20" angle="140" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-25" y1="0" x2="34" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="-15" width="50" height="41" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1" x="-24" y="5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{63fc137e-3382-484b-bab3-d53cd10d7f6d}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{ac0aa1cb-43af-4013-850b-7df99c9d7ac8}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

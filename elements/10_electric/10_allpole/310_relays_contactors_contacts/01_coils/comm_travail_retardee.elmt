@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{2147e881-3148-831c-617d-41744bafc286}"/>
+    <names>
+        <name lang="ar">مرحل تأخير التشغيل عند الإثارة</name>
+        <name lang="ca">Retard de funcionament del relé a l'excitació</name>
+        <name lang="cs">Relé se zpožděným zapnutím</name>
+        <name lang="da">Relæ aktiveringsforsinkelse ved excitation</name>
+        <name lang="de">Relais ansprechverzögert</name>
+        <name lang="el">Πηνίο χρονικού, καθυστέρηση ενεργοποίησης</name>
+        <name lang="en">Relay operating delay at excitation</name>
+        <name lang="es">Relé con retrazo en la exitación</name>
+        <name lang="fi">Rele, toimintaviive herätyksessä</name>
+        <name lang="fr">Relais à mise au travail retardée</name>
+        <name lang="hr">Relej s odgodom djelovanja pri pobudi</name>
+        <name lang="hu">Meghúzás késleltetésű relé</name>
+        <name lang="it">Relè ritardato alla chiusura</name>
+        <name lang="ja">励磁時動作遅延リレー</name>
+        <name lang="ko">여자 시 작동 지연 릴레이</name>
+        <name lang="mn">Реле ажиллагааны саатал өдөөлт дээр</name>
+        <name lang="nb">Relé driftsforsinkelse ved eksitasjon</name>
+        <name lang="nl">Relays met opkomvertraging</name>
+        <name lang="nl_BE">Relais met vertraging bij bekrachtiging</name>
+        <name lang="pl">Przekaźnik działający ze zwłoką przy wzbudzeniu</name>
+        <name lang="pt">Relé com atraso na ativação por excitação</name>
+        <name lang="pt_BR">Relé com retardo na energização</name>
+        <name lang="ro">Releu cu întârziere la excitație</name>
+        <name lang="ru">Реле с задержкой срабатывания при возбуждении</name>
+        <name lang="sk">Relé s oneskorením činnosti pri budení</name>
+        <name lang="sl">Rele z zakasnitvijo delovanja pri vzbujanju</name>
+        <name lang="sr">Релеј са кашњењем рада при побуди</name>
+        <name lang="sv">Relä fördröjning vid aktivering</name>
+        <name lang="tr">Uyarmada çalışma gecikmeli röle</name>
+        <name lang="uk">Реле з затримкою спрацювання при збудженні</name>
+        <name lang="zh">延时闭合触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="10" x2="-15" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-22" y1="-10" x2="-15" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{32c27a08-2931-44fc-80c5-0f28141f43ce}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0c5554f8-3d90-4efd-ac32-56972f907fe9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{907151b7-6b4e-4d82-b208-98a7b7e26cfc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{21568f42-a34c-4f6c-89bf-081d19b3c07f}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{7293f2b5-b9a6-4a69-86f0-97637fb734e9}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

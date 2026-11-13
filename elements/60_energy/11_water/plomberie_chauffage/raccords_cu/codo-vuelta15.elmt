@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{0fcdf97d-70db-3012-f23d-fec355593fae}"/>
+    <names>
+        <name lang="ca">Volta soldar 15</name>
+        <name lang="es">Vuelta soldar 15</name>
+        <name lang="pt_BR">Vuelta soldar 15</name>
+        <name lang="zh">回弯头15</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-11.5" y="-13" width="17.5" height="17.75" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-23" width="2.2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="3" width="2.2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-14" width="2.2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="12" width="2.2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2.72" y1="-21.1" x2="-2.72" y2="-12.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-19" y="-21.29" width="33" height="34.31" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-4.2" y1="-23" x2="-9.2" y2="-23" x3="-9.2" y3="-12" x4="-4.2" y4="-12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-5" y="-12" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{edf73654-239f-45d1-b02f-af6b142d51bb}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-2.72" y1="4.9" x2="-2.72" y2="13.11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4.2" y1="3" x2="-9.2" y2="3" x3="-9.2" y3="14" x4="-4.2" y4="14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{9e42e23e-5920-4899-8bab-0c5be703964b}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{ed877566-a668-4e79-ae02-2fcc529339c6}" name="" x="-10" y="-20" orientation="w" type="Generic"/>
+    </description>
+</definition>

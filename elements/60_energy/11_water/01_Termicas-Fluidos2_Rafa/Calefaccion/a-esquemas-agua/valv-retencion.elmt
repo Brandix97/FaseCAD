@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{170b3a8f-1d24-1450-5226-9e910d1d32d6}"/>
+    <names>
+        <name lang="ar">صمام عدم رجوع</name>
+        <name lang="ca">Vàlvula de retenció</name>
+        <name lang="cs">Zpětná klapka</name>
+        <name lang="da">Kontraventil</name>
+        <name lang="de">Rückschlagklappe</name>
+        <name lang="el">Βαλβίδα αντεπιστροφής</name>
+        <name lang="en">Check valve</name>
+        <name lang="es">Válvula retención</name>
+        <name lang="fi">Takaiskuventtiili</name>
+        <name lang="fr">Clapet anti-retour</name>
+        <name lang="hr">Nepovratni ventil</name>
+        <name lang="hu">Visszacsapó szelep</name>
+        <name lang="it">valvola di ritegno</name>
+        <name lang="ja">チェックバルブ</name>
+        <name lang="ko">역류 밸브</name>
+        <name lang="mn">Хавхлагыг шалгах</name>
+        <name lang="nb">Tilbakeslagsventil</name>
+        <name lang="nl">Controle klep</name>
+        <name lang="nl_BE">Terugslagklep</name>
+        <name lang="pl">Zawór zwrotny</name>
+        <name lang="pt">Válvula de retenção</name>
+        <name lang="pt_BR">valvula retención</name>
+        <name lang="ro">Supapă de reținere</name>
+        <name lang="ru">Обратный клапан</name>
+        <name lang="sk">Spätný ventil</name>
+        <name lang="sl">Povratni ventil</name>
+        <name lang="sr">Неповратни вентил</name>
+        <name lang="sv">Backventil</name>
+        <name lang="tr">Çek valf</name>
+        <name lang="uk">Зворотний клапан</name>
+        <name lang="zh">止回阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-9.63" y1="5.59" x2="-9.63" y2="-6.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.5" y1="5.59" x2="9.5" y2="-6.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.63" y1="-6.84" x2="9.27" y2="5.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.85" y1="6.22" x2="3.6" y2="6.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1.71" y1="4.44" x2="4.08" y2="6.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1.71" y1="8" x2="4.08" y2="6.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="-8" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <dynamic_text x="-6" y="-15" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dc65e9b8-8ca1-40d7-9660-e64ac76a39dc}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{cce1a8a6-94e2-465a-81b5-0a58fb9a4cb8}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{867959f4-e763-489d-bf90-27d1badd0365}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

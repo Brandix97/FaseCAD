@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="130" height="170" hotspot_x="65" hotspot_y="125">
+    <uuid uuid="{f87aca37-5c79-43d8-cb1b-fd8f73473aee}"/>
+    <names>
+        <name lang="ar">كاثود بركة</name>
+        <name lang="ca">Càtode de piscina</name>
+        <name lang="cs">Tekutá katoda</name>
+        <name lang="da">Bassinkatode</name>
+        <name lang="de">Flüssigkathode</name>
+        <name lang="el">Κάθοδος δεξαμενής</name>
+        <name lang="en">Pool cathode</name>
+        <name lang="es">Cátodo de piscina</name>
+        <name lang="fi">Allaskatodi</name>
+        <name lang="fr">Cathode liquide</name>
+        <name lang="hr">Bazenska katoda</name>
+        <name lang="hu">Medencekatód</name>
+        <name lang="it">Catodo a pozza</name>
+        <name lang="ja">プール陰極</name>
+        <name lang="ko">풀 음극</name>
+        <name lang="mn">Цөөрмийн катод</name>
+        <name lang="nb">Bassengkatode</name>
+        <name lang="nl">Poelkathode</name>
+        <name lang="nl_BE">Pool cathode</name>
+        <name lang="pl">Katoda ciekła</name>
+        <name lang="pt">Cátodo de poço</name>
+        <name lang="pt_BR">Catodo de poça</name>
+        <name lang="ro">Catod cu bazin</name>
+        <name lang="ru">Катод с жидким металлом</name>
+        <name lang="sk">Katóda s kovovou hladinou</name>
+        <name lang="sl">Katoda z bazenom</name>
+        <name lang="sr">Базен катода</name>
+        <name lang="sv">Poolkatod</name>
+        <name lang="tr">Havuz katot</name>
+        <name lang="uk">Ртутний катод</name>
+        <name lang="zh">端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="35" y="32.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{21531918-48a1-4ff5-9359-679c3f49827d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-60" y="-120" width="120" height="120" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-56" y1="-40" x2="56" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

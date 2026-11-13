@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="30" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{7b9d8c6b-ba98-efda-3a64-c49bdfa72510}"/>
+    <names>
+        <name lang="ar">زرّ دوُار جنب</name>
+        <name lang="ca">Girar el costat del botó</name>
+        <name lang="cs">Otočný ovladač v pravé pozici</name>
+        <name lang="da">Drejeknap side</name>
+        <name lang="de">Knebelschalter rechts</name>
+        <name lang="el">Περιστροφικός διακόπτης, δεξιά</name>
+        <name lang="en">Turning button side</name>
+        <name lang="es">Pulsador giratorio lateral</name>
+        <name lang="fi">Sivukiertonappi</name>
+        <name lang="fr">Bouton tournant coté</name>
+        <name lang="hr">Okretni gumb bočni</name>
+        <name lang="hu">Oldalsó forgatógomb</name>
+        <name lang="it">Pulsante rotativo a lato</name>
+        <name lang="ja">側面回転ボタン</name>
+        <name lang="ko">측면 회전 버튼</name>
+        <name lang="mn">Хажуугийн эргэлдэх товчлуур</name>
+        <name lang="nb">Dreieknapp side</name>
+        <name lang="nl">knop draai stand 1</name>
+        <name lang="nl_BE">Draaiknop zijkant</name>
+        <name lang="pl">Łącznik obrotowy w pozycji prawej</name>
+        <name lang="pt">Botão rotativo lateral</name>
+        <name lang="pt_BR">Turning button side</name>
+        <name lang="ro">Buton rotativ lateral</name>
+        <name lang="ru">Поворотная кнопка сбоку</name>
+        <name lang="sk">Otočné tlačidlo bočné</name>
+        <name lang="sl">Vrtljivo tipkalo ob strani</name>
+        <name lang="sr">Обртни тастер бочни</name>
+        <name lang="sv">Vridknapp sidomonterad</name>
+        <name lang="tr">Yan döner buton</name>
+        <name lang="uk">Поворотна кнопка збоку</name>
+        <name lang="zh">侧边旋钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="3" y1="-2" x2="-6" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-31.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{446671a5-ab3b-45a7-a683-9f590c3bb2c1}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-5" y1="7" x2="3" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="6" x2="2" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="6" x2="2" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="5" x2="1" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-4" x2="4" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="8" x2="8" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="5" x2="5" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="5" x2="-5" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-8" x2="8" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11" y="-11" width="22" height="22" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

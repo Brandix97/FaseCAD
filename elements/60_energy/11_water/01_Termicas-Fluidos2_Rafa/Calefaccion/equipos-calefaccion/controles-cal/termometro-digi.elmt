@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="28" hotspot_y="23">
+    <uuid uuid="{23516181-e5fa-12d9-f179-e9eb27150fda}"/>
+    <names>
+        <name lang="ar">متحكم حرارة</name>
+        <name lang="ca">Controlador de temperatura</name>
+        <name lang="cs">Regulátor teploty</name>
+        <name lang="da">Temperaturregulator</name>
+        <name lang="de">Temperaturregler</name>
+        <name lang="el">Ελεγκτής θερμοκρασίας</name>
+        <name lang="en">Tempeture controller</name>
+        <name lang="es">Controlador de temperatura</name>
+        <name lang="fi">Lämpötilansäädin</name>
+        <name lang="fr">Thermométre digital</name>
+        <name lang="hr">Regulator temperature</name>
+        <name lang="hu">Hőmérséklet-szabályozó</name>
+        <name lang="it">Controllore di temperatura</name>
+        <name lang="ja">温度コントローラー</name>
+        <name lang="ko">온도 컨트롤러</name>
+        <name lang="mn">Температурын хянагч</name>
+        <name lang="nb">Temperaturkontroller</name>
+        <name lang="nl">Temperatuurregelaar</name>
+        <name lang="nl_BE">Temperatuurregelaar</name>
+        <name lang="pl">Regulator temperatury</name>
+        <name lang="pt">Controlador de temperatura</name>
+        <name lang="pt_BR">Tempeture controller</name>
+        <name lang="ro">Regulator de temperatură</name>
+        <name lang="ru">Регулятор температуры</name>
+        <name lang="sk">Regulátor teploty</name>
+        <name lang="sl">Regulator temperature</name>
+        <name lang="sr">Регулатор температуре</name>
+        <name lang="sv">Temperaturregulator</name>
+        <name lang="tr">Sıcaklık kontrolörü</name>
+        <name lang="uk">Контролер температури</name>
+        <name lang="zh">数字温度计</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="10" y="3" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-9" x2="-1" y2="-9" x3="-3" y3="-3" x4="-8" y4="-3" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:red"/>
+        <rect x="-1" y="3" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-12" width="22" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-6" x2="-2" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <polygon x1="-14" y1="-9" x2="-9" y2="-9" x3="-11" y3="-3" x4="-16" y4="-3" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:red"/>
+        <line x1="-15" y1="-6" x2="-10" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <polygon x1="7" y1="-8" x2="12" y2="-8" x3="12" y3="-10" x4="9" y4="-12" x5="6" y5="-10" x6="6" y6="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:red"/>
+        <polygon x1="6" y1="-6" x2="12" y2="-6" x3="12" y3="-4" x4="9" y4="-2" x5="6" y5="-4" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:blue"/>
+        <rect x="-22" y="-15" width="36" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-22" y1="-15" x2="-18" y2="-17" x3="16" y3="-17" x4="14" y4="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="16" y1="-17" x2="16" y2="0" x3="14" y3="2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-7" y="3" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="1" y="-9" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-6" width="3" height="3" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-10" y="-32" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f321a587-4b3f-413c-8519-b8df0f52a649}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5f35a1e9-14d4-4e6b-98bb-9a4c82515b02}" name="" x="-6" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{88b4c083-fe6e-409f-bc72-58eec09cad76}" name="" x="0" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{1ed378c1-27a2-4320-a63e-3d4e2c528aac}" name="" x="11" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

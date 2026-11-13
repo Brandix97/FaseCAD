@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{2158db28-e63e-b2e3-6894-c81e86c5f6d1}"/>
+    <names>
+        <name lang="ar">مفتاح عزل بمصهرات P+N</name>
+        <name lang="ca">interruptor fusible P+N</name>
+        <name lang="cs">Pojistkový odpínač  1p+N</name>
+        <name lang="da">sikringsafbryder P+N</name>
+        <name lang="de">Sicherungstrenner 1-polig + N</name>
+        <name lang="el">Ασφαλειοδιακόπτης P+N</name>
+        <name lang="en">switchfuse P+N</name>
+        <name lang="es">Seccionador con fusible P+N</name>
+        <name lang="fi">Kytkinvaroke P+N</name>
+        <name lang="fr">Porte fusible P+N</name>
+        <name lang="hr">Osigurač-prekidač P+N</name>
+        <name lang="hu">Olvadóbiztosítós szakaszoló N + F</name>
+        <name lang="it">Sezionatore con fusibile 1P+N</name>
+        <name lang="ja">ヒューズ付き開閉器 P+N</name>
+        <name lang="ko">스위치퓨즈 P+N</name>
+        <name lang="mn">унтраалга-хайлмаг P+N</name>
+        <name lang="nb">sikringsbryter P+N</name>
+        <name lang="nl">Zekeringscheider 1+N</name>
+        <name lang="nl_BE">Schakelaar met zekering P+N</name>
+        <name lang="pl">Odłącznik bezpiecznikowy</name>
+        <name lang="pt">Seccionador-fusível P+N</name>
+        <name lang="pt_BR">Chave fusível P+N</name>
+        <name lang="ro">întrerupător cu fuzibil P+N</name>
+        <name lang="ru">Выключатель-предохранитель P+N</name>
+        <name lang="sk">Prepínač s poistkou P+N</name>
+        <name lang="sl">Varovalka s stikalom P+N</name>
+        <name lang="sr">прекидач-осигурач P+N</name>
+        <name lang="sv">säkringsbrytare P+N</name>
+        <name lang="tr">şalterli sigorta P+N</name>
+        <name lang="uk">Перемикач-запобіжник P+N</name>
+        <name lang="zh">双极熔断器座</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-15" y1="-10" x2="-10" y2="10" x3="-10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="-10" x2="10" y2="10" x3="10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4.31" y1="-4.51" x2="6.81" y2="5.49" x3="10.69" y3="4.51" x4="8.19" y4="-5.49" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="8" y1="-10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-12" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{adf13359-df60-438a-be3c-de76e3fc1696}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-8" y1="-10" x2="-12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ab7e8135-8258-41b8-8a5b-d93580a504d5}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a3ddcb3a-261e-49a7-b8aa-c2cc2ccb5bfc}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{858d69ae-d635-4f43-805c-144ed3b8e246}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8831279b-408b-4d0c-99c8-2e72e998dde0}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

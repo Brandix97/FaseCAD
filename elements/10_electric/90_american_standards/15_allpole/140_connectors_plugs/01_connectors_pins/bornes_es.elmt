@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{a904b2ef-cdee-e1d9-6be0-88e6f7b42794}"/>
+    <names>
+        <name lang="ar">طرف مزدوج</name>
+        <name lang="ca">Endoll i endoll</name>
+        <name lang="cs">Dvojitá svorka</name>
+        <name lang="da">Stik og bøsning</name>
+        <name lang="de">Steckverbindung Buchse + Stecker</name>
+        <name lang="el">Βύσμα και υποδοχή</name>
+        <name lang="en">Plug and socket</name>
+        <name lang="es">Terminal doble</name>
+        <name lang="fi">Pistoke ja pistorasia</name>
+        <name lang="fr">Fiche et prise</name>
+        <name lang="hr">Utikač i utičnica</name>
+        <name lang="hu">Csatlakozó dugó + aljzat</name>
+        <name lang="it">Terminale doppio</name>
+        <name lang="ja">プラグとソケット</name>
+        <name lang="ko">플러그 및 소켓</name>
+        <name lang="mn">Залгуур ба гнездо</name>
+        <name lang="nb">Plugg og kontakt</name>
+        <name lang="nl">Steker en contact</name>
+        <name lang="nl_BE">Stekker en contactdoos</name>
+        <name lang="pl">Złącze wtykowe</name>
+        <name lang="pt">Terminal duplo</name>
+        <name lang="pt_BR">Borne duplo</name>
+        <name lang="ro">Ștecher și priză</name>
+        <name lang="ru">Соединение (стар.)</name>
+        <name lang="sk">Konektor a zásuvka</name>
+        <name lang="sl">Vtič in vtičnica</name>
+        <name lang="sr">Утикач и утичница</name>
+        <name lang="sv">Stickpropp och uttag</name>
+        <name lang="tr">Fiş ve priz</name>
+        <name lang="uk">Штекер і гніздо</name>
+        <name lang="zh">接线端子_ES</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="8" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e903210d-2505-40c2-8986-89940b97e72d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-4" y1="-1" x2="0" y2="5" x3="4" y3="-1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-4" y1="-5" x2="0" y2="1" x3="4" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="5.5" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{5c94071e-2d17-491c-b45e-ffad8226be96}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{73184f72-a529-445c-b268-6fa771a3cf8b}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="20" hotspot_y="5">
+    <uuid uuid="{66ba4faf-b371-3819-6563-0465e4fc0c6d}"/>
+    <names>
+        <name lang="ar">تحكم كهربائي يمين</name>
+        <name lang="ca">Comandament elèctric dret</name>
+        <name lang="cs">Elektrické řízení (pravá strana)</name>
+        <name lang="da">Elektrisk styring højre</name>
+        <name lang="de">Elektrische Betätigung rechts</name>
+        <name lang="el">Ηλεκτρική εντολή δεξιά</name>
+        <name lang="en">Electrical command right</name>
+        <name lang="es">Comando electrico derecho</name>
+        <name lang="fi">Sähköinen ohjaus oikea</name>
+        <name lang="fr">Commande electrique droite</name>
+        <name lang="hr">Električni upravljački desno</name>
+        <name lang="hu">Elektromos vezérlés jobbra</name>
+        <name lang="it">Comando elettrico Dx</name>
+        <name lang="ja">電気指令右</name>
+        <name lang="ko">전기 명령 우측</name>
+        <name lang="mn">Цахилгаан командын баруун</name>
+        <name lang="nb">Elektrisk styring høyre</name>
+        <name lang="nl">Spoel Elektrisch rechts</name>
+        <name lang="nl_BE">Elektrische bediening rechts</name>
+        <name lang="pl">Elektryczne (strona prawa)</name>
+        <name lang="pt">Comando elétrico à direita</name>
+        <name lang="pt_BR">Comando eletrico a direita</name>
+        <name lang="ro">Comandă electrică dreapta</name>
+        <name lang="ru">Электрическое управление справа</name>
+        <name lang="sk">Elektrické ovládanie vpravo</name>
+        <name lang="sl">Električni ukaz desno</name>
+        <name lang="sr">Електрична команда десно</name>
+        <name lang="sv">Elektrisk styrning höger</name>
+        <name lang="tr">Elektriksel kumanda sağ</name>
+        <name lang="uk">Електричне керування праворуч</name>
+        <name lang="zh">电动控制右</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="0" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-32" y="-6.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0c6dee90-0e8c-46c6-afe8-9832e3c8f173}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="0" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

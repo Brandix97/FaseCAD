@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="17" hotspot_y="25">
+    <uuid uuid="{2c2cd74f-6b26-5e00-88af-2423d1cdca6b}"/>
+    <names>
+        <name lang="de">Druckschalter, Schließer</name>
+        <name lang="en">Pressure switch, NO</name>
+        <name lang="es">Presostato NA</name>
+        <name lang="fr">Pressostat, NO</name>
+        <name lang="it">Pressostato NA</name>
+        <name lang="pt">Pressostato NA</name>
+        <name lang="tr">Basınç anahtarı, NA</name>
+        <name lang="zh">压力开关，常开</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{cbf64a42-bc90-5dd1-b02f-09dd562ee708}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5e923820-410b-5752-b389-c7c76f5782c6}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+        <line x1="-14" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="-18" y="3.89" text="p" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{4c59ea64-fdd3-5a0f-b0e0-660082ea8b45}"/>
+        <dynamic_text x="-30.31" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{61901505-88f7-5cf9-a1c5-7d9116eb826a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d0c88773-48eb-5b13-9bd7-a85db271243b}" name="13" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c5147ec1-ec23-57ad-b36a-c8e138f3314e}" name="14" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

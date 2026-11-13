@@ -1,0 +1,32 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="29" hotspot_y="10">
+    <uuid uuid="{14893105-4c40-e63e-c420-37a37937cf2b}"/>
+    <names>
+        <name lang="ar">صمّام 3/4"</name>
+        <name lang="ca">Vàlvula de retenció 3/4"</name>
+        <name lang="cs">Zpětná klapka 3/4"</name>
+        <name lang="da">Kontraventil 3/4"</name>
+        <name lang="de">Klappe 3/4"</name>
+        <name lang="el">Βαλβίδα αντεπιστροφής 3/4"</name>
+        <name lang="en">Check valve 3/4"</name>
+        <name lang="es">Valv. retención 3/4</name>
+        <name lang="fr">Clapet 3/4"</name>
+        <name lang="pt_BR">Valv. retención 3/4</name>
+        <name lang="zh">3/4英寸止回阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="3.1" y="-4.93" width="8" height="10.56" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="9.5" y="-7.37" width="1.6" height="14.62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16.71" y="-8" width="26.17" height="16.35" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-18.5" y="-7.37" width="1.6" height="14.62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.9" y1="-0.06" x2="0.7" y2="-0.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.7" y1="-1.68" x2="0.7" y2="1.57" x3="3.9" y3="-0.06" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-19.3" y="-21.06" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a38c241e-e908-4369-ad1b-97e0685e983c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-18.5" y="-4.93" width="8" height="10.56" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <terminal uuid="{201801dd-4f65-4ef7-9641-a737ca91d198}" name="" x="-19" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{31097383-74cb-4fb6-ae30-10acc3cd87e8}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

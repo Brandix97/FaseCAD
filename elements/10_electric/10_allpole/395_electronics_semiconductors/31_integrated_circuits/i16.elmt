@@ -1,0 +1,78 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="160" hotspot_x="40" hotspot_y="50">
+    <uuid uuid="{4b757555-00ba-e815-0894-f18deda4d885}"/>
+    <names>
+        <name lang="ar">دائرة مدمجة 16 دبوس</name>
+        <name lang="ca">Circuit integrat, 16 pins</name>
+        <name lang="cs">Integrovaný obvod, 16 pinů</name>
+        <name lang="da">Integreret kredsløb, 16 ben</name>
+        <name lang="de">Integrierte Schaltung 16 Anschlüsse</name>
+        <name lang="el">Ολοκληρωμένο κύκλωμα 16 ακροδεκτών</name>
+        <name lang="en">Integrated Circuit, 16 pins</name>
+        <name lang="es">Circuito integrado, 16 pines</name>
+        <name lang="fi">Integroitu piiri, 16 nastaa</name>
+        <name lang="fr">Circuit integré 16 broches</name>
+        <name lang="hr">Integrirani krug, 16 pinova</name>
+        <name lang="hu">Integrált áramkör, 16 láb</name>
+        <name lang="it">Circuito integrato, 16 pin</name>
+        <name lang="ja">集積回路、16 ピン</name>
+        <name lang="ko">집적 회로, 16 핀</name>
+        <name lang="mn">Интеграл хэлхээ, 16 зүү</name>
+        <name lang="nb">Integrert krets, 16 pinner</name>
+        <name lang="nl">IC 16 pin</name>
+        <name lang="nl_BE">Geïntegreerde schakeling, 16 pinnen</name>
+        <name lang="pl">Układ scalony, 16 nóżek</name>
+        <name lang="pt">Circuito integrado, 16 pinos</name>
+        <name lang="pt_BR">Circuito integrado, 16 pinos</name>
+        <name lang="ro">Circuit integrat, 16 pini</name>
+        <name lang="ru">Микросхема, 16 выводов</name>
+        <name lang="sk">Integrovaný obvod, 16 pinov</name>
+        <name lang="sl">Integrirano vezje, 16 nožic</name>
+        <name lang="sr">Интегрисано коло, 16 пинова</name>
+        <name lang="sv">Integrerad krets, 16 stift</name>
+        <name lang="tr">Entegre devre, 16 pin</name>
+        <name lang="uk">Інтегральна схема, 16 виводів</name>
+        <name lang="zh">16引脚集成电路</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-30" y1="0" x2="-21" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="80" x2="-21" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="100" x2="-21" y2="100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="40" x2="30" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="60" x2="30" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="60" x2="-21" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="80" x2="30" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="40" x2="-21" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="100" x2="30" y2="100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="20" x2="-21" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-20" x2="-21" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-40" x2="-21" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-40" x2="30" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-20" x2="30" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="20" x2="30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.5" y="-47" width="5" height="5" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-31.5" y="108.5" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ebb91caf-f7a7-41c4-a17e-441b9bc93ae3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-45" width="40" height="150" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{2e19848a-e019-4c64-a1dc-13d84ed9719a}" name="" x="31" y="-40" orientation="e" type="Generic"/>
+        <terminal uuid="{18fb96cf-4591-4b32-975b-d4bfd152d046}" name="" x="31" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{dd8b58e7-f8d4-4537-9cfa-12f94c6c7a52}" name="" x="31" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{af03f77a-4271-412e-ac19-f241667dfc5d}" name="" x="31" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{076a26be-438a-4dd5-8f5d-ade0af8cfe52}" name="" x="-31" y="-40" orientation="w" type="Generic"/>
+        <terminal uuid="{9ce4e34d-aef4-4dd5-b279-4f4e87703494}" name="" x="-31" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{8dead877-8a9c-4776-bc07-ef6c6116c86f}" name="" x="-31" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{4c6db3a1-fbcd-4637-9f3c-a2da1b3c4923}" name="" x="31" y="40" orientation="e" type="Generic"/>
+        <terminal uuid="{80c66db3-f10f-4184-b211-73bb893b7bcd}" name="" x="31" y="60" orientation="e" type="Generic"/>
+        <terminal uuid="{a01398c1-2881-4066-a93a-5ddb6f6794fa}" name="" x="31" y="80" orientation="e" type="Generic"/>
+        <terminal uuid="{1db1ba82-944e-4f13-a64b-450b1d8bc410}" name="" x="31" y="100" orientation="e" type="Generic"/>
+        <terminal uuid="{b463f680-fe6c-435c-b47b-92272e457736}" name="" x="-31" y="40" orientation="w" type="Generic"/>
+        <terminal uuid="{32560334-2db6-4044-8ed6-9aa873b19a0a}" name="" x="-31" y="100" orientation="w" type="Generic"/>
+        <terminal uuid="{64d29541-8918-4390-983a-65ecef27a768}" name="" x="-31" y="60" orientation="w" type="Generic"/>
+        <terminal uuid="{789fbf99-2e7b-45b1-a57a-f4e836f106d8}" name="" x="-31" y="80" orientation="w" type="Generic"/>
+        <terminal uuid="{6a9eab80-5144-4d17-9619-cb5b5d0ec4b5}" name="" x="-31" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

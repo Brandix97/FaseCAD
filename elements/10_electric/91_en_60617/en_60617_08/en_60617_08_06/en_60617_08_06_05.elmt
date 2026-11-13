@@ -1,0 +1,53 @@
+<definition version="0.90" type="element" link_type="simple" width="40" height="100" hotspot_x="20" hotspot_y="90">
+    <uuid uuid="{7e81c207-e3e2-ada8-3132-2530dc60da1b}"/>
+    <names>
+        <name lang="ar">ثنائي حراري بعنصر تسخين معزول</name>
+        <name lang="ca">Termoparell amb element calefactor aïllat</name>
+        <name lang="cs">Termočlánek s izolovaným vyhřívacím článkem</name>
+        <name lang="da">Termoelement med isoleret varmeelement</name>
+        <name lang="de">Thermoelement mit isoliertem Heizelement</name>
+        <name lang="el">Θερμοστοιχείο με μονωμένο θερμαντικό στοιχείο</name>
+        <name lang="en">Thermocouple with insulated heating element</name>
+        <name lang="es">Termopar con elemento térmico aislado</name>
+        <name lang="fi">Termopari, jossa eristetty lämmitysvastus</name>
+        <name lang="fr">Thermocouple à élément chauffant isolé</name>
+        <name lang="hr">Termopar s izoliranim grijaćim elementom</name>
+        <name lang="hu">Hőelem szigetelt fűtőelemmel</name>
+        <name lang="it">Termocoppia con elemento riscaldante isolato</name>
+        <name lang="ja">絶縁発熱体付き熱電対</name>
+        <name lang="ko">절연 발열체가 있는 열전대</name>
+        <name lang="mn">Тусгаарлагдсан халаах элементтэй термопар</name>
+        <name lang="nb">Termoelement med isolert varmeelement</name>
+        <name lang="nl">Thermokoppel met geïsoleerd verwarmingselement</name>
+        <name lang="nl_BE">Thermokoppel met geïsoleerd verwarmingselement</name>
+        <name lang="pl">Termopara z izolowanym elementem grzejnym</name>
+        <name lang="pt">Termopar com elemento de aquecimento isolado</name>
+        <name lang="pt_BR">Thermocouple com insulated aquecimento element</name>
+        <name lang="ro">Termocuplu cu element de încălzire izolat</name>
+        <name lang="ru">Термопара с изолированным нагревательным элементом</name>
+        <name lang="sk">Termočlánok s izolovaným vyhrievacím prvkom</name>
+        <name lang="sl">Termoelement z izoliranim grelnim elementom</name>
+        <name lang="sr">Термопар са изолованим грејним елементом</name>
+        <name lang="sv">Termoelement med isolerat värmeelement</name>
+        <name lang="tr">Yalıtımlı ısıtma elemanlı termokupl</name>
+        <name lang="uk">Термопара з ізольованим нагрівальним елементом</name>
+        <name lang="zh">接线端子排5</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="13.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e4209537-21da-4152-8bd2-fc7eb676c365}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-2" y="-42" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-80" x2="-10" y2="-55" x3="0" y3="-40" x4="10" y4="-55" x5="10" y5="-80" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-10" y="-30" width="20" height="20" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-20" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0b4ad7b6-4cd5-4f25-b871-98037d5e7570}" name="" x="-10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{043ec689-85de-413d-bfc3-c545d2269253}" name="" x="10" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{31fd7753-772d-4e50-9f14-bed086fe988c}" name="" x="-10" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{7aafbc22-523b-46bb-baca-21bab93365fd}" name="" x="10" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

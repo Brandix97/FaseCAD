@@ -1,0 +1,17 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="6" hotspot_y="4">
+    <uuid uuid="{b85cce43-7d97-2b13-9cbc-67204d73a152}"/>
+    <names>
+        <name lang="ca">Pressòstat diferencial d'oli</name>
+        <name lang="es">Presostato dif. aceite</name>
+        <name lang="pt_BR">Presostato dif. aceite</name>
+        <name lang="zh">油差压开关</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-4" y="-0.71" width="26.43" height="10.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="PdA" x="1" y="6" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="9.45" y1="10.2" x2="9.45" y2="19.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{83da68aa-7fb5-49ab-a443-db57df01011f}" name="" x="9" y="18" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="30" height="100" hotspot_x="15" hotspot_y="50">
+    <uuid uuid="{b5f74572-15bd-ad84-8198-4960376d63dd}"/>
+    <names>
+        <name lang="ar">طرف طور</name>
+        <name lang="ca">Terminal de fase</name>
+        <name lang="cs">Svorka fázová</name>
+        <name lang="da">Klemme fase</name>
+        <name lang="de"></name>
+        <name lang="el">Ακροδέκτης φάσης</name>
+        <name lang="en"></name>
+        <name lang="es"></name>
+        <name lang="fi">Vaiheliitin</name>
+        <name lang="fr">Borne Phase</name>
+        <name lang="hr">Fazna stezaljka</name>
+        <name lang="hu">Fázis sorkapocs</name>
+        <name lang="it">Morsetto fase</name>
+        <name lang="ja">相線端子</name>
+        <name lang="ko">상 단자</name>
+        <name lang="mn">Фазын терминал</name>
+        <name lang="nb">Faseklemme</name>
+        <name lang="nl">Klem fase</name>
+        <name lang="nl_BE">Fase klem</name>
+        <name lang="pl"></name>
+        <name lang="pt">Borne Fase</name>
+        <name lang="pt_BR">Borne fase</name>
+        <name lang="ro">Bornă Fază</name>
+        <name lang="ru">Клемма фазы</name>
+        <name lang="sk">Fázová svorka</name>
+        <name lang="sl">Fazna sponka</name>
+        <name lang="sr">Фазна клема</name>
+        <name lang="sv">Faspunkt</name>
+        <name lang="tr">Faz klemensi</name>
+        <name lang="uk">Клема фази</name>
+        <name lang="zh">相线端子</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-13" y="14" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="true" text_from="UserText" uuid="{4e0b3bcf-4cf3-42be-a6bd-3c56b6ab86cd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <ellipse x="-3.5" y="-24.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3.35" y="16.56" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2.15" y1="18.06" x2="-1.85" y2="22.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-23" x2="-2" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-23" x2="2" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.85" y1="18.06" x2="2.15" y2="22.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-40" width="20" height="80" rx="0" ry="0" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-24" x2="0" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0.15" y1="17.06" x2="0.15" y2="23.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="-12" width="16" height="24" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="-2.85" y1="20.06" x2="3.15" y2="20.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-21" x2="3" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-39" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{0a7ec1aa-56f5-4d4e-85fa-f35ad1211760}" font="Liberation Sans,4,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <terminal uuid="{bb61438d-f42b-44b3-a13d-b5ab0e71c8a5}" name="" x="0" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{970c255c-ad5d-4dad-82d4-7daa7ba4399a}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

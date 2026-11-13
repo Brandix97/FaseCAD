@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="11" hotspot_y="20">
+    <uuid uuid="{6ebeb643-5ea8-a076-a8fd-24197f96b63c}"/>
+    <names>
+        <name lang="ar">كتلة</name>
+        <name lang="ca">missa</name>
+        <name lang="cs">Kostra</name>
+        <name lang="da">Masse</name>
+        <name lang="de">Masse, f</name>
+        <name lang="el">Γείωση</name>
+        <name lang="en">Mass</name>
+        <name lang="es">Masa</name>
+        <name lang="fi">Massa</name>
+        <name lang="fr">Masse</name>
+        <name lang="hr">Masa</name>
+        <name lang="hu">Test</name>
+        <name lang="it">Massa</name>
+        <name lang="ja">アース</name>
+        <name lang="ko">질량</name>
+        <name lang="mn">Масс</name>
+        <name lang="nb">Masse</name>
+        <name lang="nl">Massa</name>
+        <name lang="nl_BE">Massa</name>
+        <name lang="pl">Masa</name>
+        <name lang="pt">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="pt_BR">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="ro">Masă</name>
+        <name lang="ru">Масса</name>
+        <name lang="sk">Hmota</name>
+        <name lang="sl">Masa</name>
+        <name lang="sr">Маса</name>
+        <name lang="sv">Massa</name>
+        <name lang="tr">Gövde</name>
+        <name lang="uk">Маса</name>
+        <name lang="zh">接地</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="4" y1="0" x2="1" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="-3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="0" x2="-7" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="6" y="-16.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2584848e-e902-49cc-b3de-014cabb0312c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d22ca52f-11f9-4b02-97ca-01a32909fbbd}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

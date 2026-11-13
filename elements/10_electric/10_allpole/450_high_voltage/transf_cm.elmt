@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="130" hotspot_x="21" hotspot_y="30">
+    <uuid uuid="{b263b510-77a9-b569-b16b-6ec82926f4f5}"/>
+    <names>
+        <name lang="ar">محوّل كمون CM</name>
+        <name lang="ca">Transformador de potencial CM</name>
+        <name lang="cs">Vývod s transformátorem CM</name>
+        <name lang="da">Potentialetransformer CM</name>
+        <name lang="de">Spannungswandler CM</name>
+        <name lang="el">Μετασχηματιστής τάσης CM</name>
+        <name lang="en">Potential transformer CM</name>
+        <name lang="es">Transformador de potencial CM</name>
+        <name lang="fi">Jännitemuuntaja CM</name>
+        <name lang="fr">Transformateur de potentiel CM</name>
+        <name lang="hr">Mjerni transformator napona CM</name>
+        <name lang="hu">Feszültségváltó CM</name>
+        <name lang="it">Trasformatore di potenziale CM</name>
+        <name lang="ja">計器用変圧器 CM</name>
+        <name lang="ko">계기용 변압기 CM</name>
+        <name lang="mn">Потенциал трансформатор CM</name>
+        <name lang="nb">Måletransformator CM</name>
+        <name lang="nl">Transformator CM CM</name>
+        <name lang="nl_BE">Potentiaaltransformator CM</name>
+        <name lang="pl">Transformator CM</name>
+        <name lang="pt">Transformador de potencial CM</name>
+        <name lang="pt_BR">Transformador de potencial CM</name>
+        <name lang="ro">Transformator de potențial CM</name>
+        <name lang="ru">Трансформатор напряжения CM</name>
+        <name lang="sk">Napäťový transformátor CM</name>
+        <name lang="sl">Napetostni transformator CM</name>
+        <name lang="sr">Напонски мерни трансформатор CM</name>
+        <name lang="sv">Spänningstransformator CM</name>
+        <name lang="tr">Gerilim transformatörü CM</name>
+        <name lang="uk">Трансформатор напруги CM</name>
+        <name lang="zh">变压器CM</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="23" y="8.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{183dae81-f839-4c47-89f1-fce21f32b897}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="3" y1="24" x2="3" y2="45" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <line x1="8" y1="41" x2="13" y2="41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="38" x2="10" y2="41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="6.39" y="27.39" width="7.21" height="7.21" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="7" y="9" width="6" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7" y="60" width="6" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="6.39" y="30.39" width="7.21" height="7.21" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="3" y1="18" x2="3" y2="-1" x3="7" y3="-1" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="90" x2="10" y2="55" x3="2" y3="44" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="18" x2="0" y2="25" x3="6" y3="22" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="1.7" y1="-8" x2="10" y2="6" x3="10" y3="28" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-5" x2="-10.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="-3" x2="-11.8" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-7" x2="-13.8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="-3" x2="-17.8" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-5" x2="-15.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.7" y1="-10" x2="11.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="-20" x2="9.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{c2a786c8-7aee-4bee-af3c-3b21f1cf3cf8}" name="" x="10" y="90" orientation="s" type="Generic"/>
+        <terminal uuid="{c4755ae4-5b1e-4f42-a250-576a573240ca}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{dd1c09c7-dd78-49d7-a0d7-a7b34453baad}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="13" hotspot_y="25">
+    <uuid uuid="{c63a0ed6-8268-5356-a834-2d9bb058e4fe}"/>
+    <names>
+        <name lang="de">Sicherungs-Trennschalter, 3-polig</name>
+        <name lang="en">Fuse-disconnector, 3 poles</name>
+        <name lang="es">Fusible-seccionador, 3 polos</name>
+        <name lang="fr">Fusible-sectionneur, 3 pôles</name>
+        <name lang="it">Fusibile-sezionatore, 3 poli</name>
+        <name lang="pt">Fusível-seccionador, 3 polos</name>
+        <name lang="tr">Sigortalı ayırıcı, 3 kutuplu</name>
+        <name lang="zh">熔断器式隔离器，3极</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-10" x2="3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4.19" y1="-7.46" x2="-9.01" y2="-5.53" x3="-3.81" y3="7.46" x4="1.01" y4="5.53" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{181b2bc9-7820-5856-9907-1d044de2cf9d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{04dca275-2fe9-5b34-ba9c-1d1f85d8bb48}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="17" y1="-10" x2="23" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="15.81" y1="-7.46" x2="10.99" y2="-5.53" x3="16.19" y3="7.46" x4="21.01" y4="5.53" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="18" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2b37d2c3-5ec9-5e2c-bde0-9dacae44b83c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="8.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c5f54da8-381c-5d8f-ab43-4dde6ef76623}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <line x1="40" y1="-20" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="10" x2="32" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="37" y1="-10" x2="43" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="35.81" y1="-7.46" x2="30.99" y2="-5.53" x3="36.19" y3="7.46" x4="41.01" y4="5.53" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="38" y="-24.1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f9e680b3-a272-5964-ae55-7df098463461}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text x="38" y="8.4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e2eaee6e-8b2c-510b-8d74-047a4b6100d8}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="36" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-18.01" y="-10.49" z="8" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e80015c2-5911-57e4-8009-55fdcd698306}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{6571d144-b203-59f8-8c76-8927a30d8f4d}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a75f379b-044e-5eef-9f2b-b03211cd8634}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{aa660a81-a983-5a21-ab39-b510f73b572f}" name="3" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{2dabac43-de99-5047-89f1-4c924ae3d1bf}" name="4" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{f947ccfc-f71e-5107-8fe4-a9c77bae8f07}" name="5" x="40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{8ea61241-a621-5391-9302-854f92b5a588}" name="6" x="40" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

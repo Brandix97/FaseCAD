@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="100" hotspot_x="10" hotspot_y="20">
+    <uuid uuid="{9a203499-5307-bb03-aaa0-6346adf63a65}"/>
+    <names>
+        <name lang="ar">طرف ربط مصهر</name>
+        <name lang="ca">Born fusible</name>
+        <name lang="cs">Svorkovnice s pojistkou</name>
+        <name lang="da">Klemme sikring</name>
+        <name lang="de">Sicherungsklemme</name>
+        <name lang="el">Ασφάλεια ακροδέκτη</name>
+        <name lang="en">Terminal fuse</name>
+        <name lang="es">Terminal fusible</name>
+        <name lang="fi">Liitinsulake</name>
+        <name lang="fr">Borne fusible cablage</name>
+        <name lang="hr">Osigurač na stezaljci</name>
+        <name lang="hu">Sorkapocs-biztosíték</name>
+        <name lang="it">Terminale con fusibile</name>
+        <name lang="ja">端子ヒューズ</name>
+        <name lang="ko">단자 퓨즈</name>
+        <name lang="mn">Клеммын хайлмаг</name>
+        <name lang="nb">Klemme med sikring</name>
+        <name lang="nl">klem met zekering</name>
+        <name lang="nl_BE">Klemzekering</name>
+        <name lang="pl">Złącze bezpiecznikowe</name>
+        <name lang="pt">Fusível de terminal</name>
+        <name lang="pt_BR">Borne porta-fusível</name>
+        <name lang="ro">Fusibil de borne</name>
+        <name lang="ru">Клеммный предохранитель</name>
+        <name lang="sk">Poistková svorka</name>
+        <name lang="sl">Varovalka na sponki</name>
+        <name lang="sr">Клемни осигурач</name>
+        <name lang="sv">Plintsäkring</name>
+        <name lang="tr">Klemensli sigorta</name>
+        <name lang="uk">Клемний запобіжник</name>
+        <name lang="zh">熔断器接线端子（带接线）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="10" y="12.17" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{79481e89-fa93-465e-ab99-b53bb91b98bf}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-3" y="17" width="6" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="57.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ea3910f3-28a1-457f-8aec-e1dc99a9e801}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="5" y="-2.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7b707f8a-aaf1-415f-aad0-69ddbf426ad4}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="5" y="42" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b7aa5a84-7622-4c10-b1d3-7aa690629526}" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="5" y="-18" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{dcbe2dc2-50df-4ea0-ae28-f566154878f5}" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <line x1="0" y1="57" x2="0" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="70" x2="0" y2="63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="57.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{2c5ad8a9-124b-4198-a229-68df68d814f9}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{50ad5e2c-a38b-4127-8679-d453df69df00}" name="" x="0" y="70" orientation="s" type="Generic"/>
+    </description>
+</definition>

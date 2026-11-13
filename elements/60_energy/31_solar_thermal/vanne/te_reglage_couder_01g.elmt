@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="10" hotspot_y="10">
+    <uuid uuid="{461a6783-6e23-4f88-4e9d-9c7ec02fc33a}"/>
+    <names>
+        <name lang="ar">رابط كوعي بتعديل "يسار"</name>
+        <name lang="ca">Conjunt de samarretes de colze esquerra</name>
+        <name lang="cs">Regulační uzávěr (levý)</name>
+        <name lang="da">Bøjning T-sæt "venstre"</name>
+        <name lang="de">Winkel-T-Stück "links"</name>
+        <name lang="el">Σετ γωνίας ταυ "αριστερά"</name>
+        <name lang="en">Elbow Tee Set "left"</name>
+        <name lang="es">Codo de salida "izquierda"</name>
+        <name lang="fi">Kulmahaarasarja "vasen"</name>
+        <name lang="fr">Té de Réglage Couder "gauche"</name>
+        <name lang="hr">Kutni T-set "lijevo"</name>
+        <name lang="hu">Könyök T-idom készlet "bal"</name>
+        <name lang="it">Raccordo Sx</name>
+        <name lang="ja">エルボT型セット「左」</name>
+        <name lang="ko">엘보 티 세트 "왼쪽"</name>
+        <name lang="mn">Өнцөг Т-холболт "зүүн"</name>
+        <name lang="nb">Kne-T-sett "venstre"</name>
+        <name lang="nl">Elleboog</name>
+        <name lang="nl_BE">Bocht T-stuk set "links"</name>
+        <name lang="pl">Zawór kątowy (lewy)</name>
+        <name lang="pt">Conjunto de tê e cotovelo "esquerda"</name>
+        <name lang="pt_BR">Elbow Tee Set &quot;esquerda&quot;</name>
+        <name lang="ro">Set teu cotit "stânga"</name>
+        <name lang="ru">Угловой тройник "левый"</name>
+        <name lang="sk">Sada kolenného T-kusu "ľavá"</name>
+        <name lang="sl">Koleno T-set "levo"</name>
+        <name lang="sr">Комплет колена Т "лево"</name>
+        <name lang="sv">Böj-T-rörsats "vänster"</name>
+        <name lang="tr">Dirsek T takımı "sol"</name>
+        <name lang="uk">Кутовий трійник "лівий"</name>
+        <name lang="zh">弯头调节三通01左</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="10" x2="10" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="9" y1="2" x2="5" y2="8" x3="15" y3="8" x4="11" y4="2" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="7.76" y="-2.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="9" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="8" y1="-1" x2="2" y2="-5" x3="2" y3="5" x4="8" y4="1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="0" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="13" y="4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cff31d8a-d2e7-4adc-bd45-00670aedb868}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{33c13909-f25c-499d-94f2-251a1c59059a}" name="" x="0" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{31142315-06bd-4285-9281-d8cc33ef140d}" name="" x="10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="12">
+    <uuid uuid="{42a6e2dd-6cf4-7890-8749-69d740e45698}"/>
+    <names>
+        <name lang="ca">Vàlvula de control de diafragma</name>
+        <name lang="es">Valvula control diafragma</name>
+        <name lang="pt_BR">Valvula Comando diafragma</name>
+        <name lang="zh">膜片控制阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0.48" y1="0" x2="0.48" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-7" x2="6" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-6" y="-9" width="13" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{36d113ee-8847-4469-8478-177d42afe916}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{cdb8860a-be6a-4430-9d96-043d485a411f}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

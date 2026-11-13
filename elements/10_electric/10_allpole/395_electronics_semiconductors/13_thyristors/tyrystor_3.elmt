@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="7" hotspot_y="30">
+    <uuid uuid="{e1f14017-ccb1-d6e0-9934-ffec78f6f9f0}"/>
+    <names>
+        <name lang="ar">ترياك , بوابة N</name>
+        <name lang="ca">Tiristortriode de bloqueig invers, N-Gate</name>
+        <name lang="cs">Triodový tyristor blokující obráceně, brána N</name>
+        <name lang="da">Spærrende thyristortriode, N-gate</name>
+        <name lang="de">rückwärts sperrende Thyristortriode, N-Gate</name>
+        <name lang="el">Θυρίστορ τριοδικό ανάστροφης αποκοπής, πύλη N</name>
+        <name lang="en">Reverse blocking Thyristortriode, N-Gate</name>
+        <name lang="es">Tiristor triodo de bloqueo inverso, puerta N</name>
+        <name lang="fi">Estosuunnassa estävä tyristoritriodi, N-hila</name>
+        <name lang="fr">Thyristor triode bloqué en inverse, gâchette N</name>
+        <name lang="hr">Reverzno blokirajući tiristorski triod, N-upravljački</name>
+        <name lang="hu">Záróirányú tirisztor trióda, N-vezérlőelektróda</name>
+        <name lang="it">Tiristore triodo bloccato nel senso inverso di conduzione, porta N (controllato sull’anodo)</name>
+        <name lang="ja">逆阻止三極サイリスタ、Nゲート</name>
+        <name lang="ko">역방향 차단 3극 사이리스터, N-게이트</name>
+        <name lang="mn">Урвуу хаах тиристор триод, N-хаалга</name>
+        <name lang="nb">Reverssperrende tyristortriode, N-gate</name>
+        <name lang="nl">Triac N gate</name>
+        <name lang="nl_BE">Sperthyristortriode, N-Gate</name>
+        <name lang="pl">Tyrystor triodowy dwukierunkowy. Triak</name>
+        <name lang="pt">Tiristor triodo de bloqueio inverso, porta N</name>
+        <name lang="pt_BR">Tiristor triodo de bloqueio reverso, porta N</name>
+        <name lang="ro">Tiristor triodă cu blocare inversă, poartă N</name>
+        <name lang="ru">Обратно запирающий триодный тиристор, N-управление</name>
+        <name lang="sk">Tyristorový triódový typ s reverzným blokovaním, N-hradlo</name>
+        <name lang="sl">Povratno zaporni tiristorski triod, N-vrata</name>
+        <name lang="sr">Повратно непроводни тиристор триода, N-гејт</name>
+        <name lang="sv">Spärrbacktyristortriod, N-gate</name>
+        <name lang="tr">Ters bloklama tristör triyot, N-Kapı</name>
+        <name lang="uk">Зворотноблокуючий триодний тиристор, N-керування</name>
+        <name lang="zh">晶闸管_3</name>
+    </names>
+    <informations>EN 60617: 05-04-11</informations>
+    <description>
+        <dynamic_text x="35" y="-19.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{69ecc79c-54f8-4203-95bc-13e7dc73b7ed}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="-20" x2="10" y2="-20" x3="16" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="25" y1="-10" x2="20" y2="0" x3="30" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="-10" x2="20" y2="-10" x3="15" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="20" y1="-20" x2="20" y2="-10" x3="30" y3="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="0" x2="20" y2="0" x3="20" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{4fb8f8b9-6a85-4154-a1e6-c1f13820ad31}" name="" x="0" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{c475d10a-e532-44e9-8d20-e52b05fd71c1}" name="" x="20" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{dabfa28f-0b67-4eec-94d6-2d400cd9db7f}" name="" x="20" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

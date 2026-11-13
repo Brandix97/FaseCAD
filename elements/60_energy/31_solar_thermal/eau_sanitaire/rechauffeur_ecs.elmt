@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="80" hotspot_x="34" hotspot_y="41">
+    <uuid uuid="{d6e937d3-617c-a4b8-9b18-48bad66bd658}"/>
+    <names>
+        <name lang="ar">سخّان ECS</name>
+        <name lang="ca">Escalfador ECS</name>
+        <name lang="cs">Ohřívač ECS</name>
+        <name lang="da">Brugsvandsbeholder</name>
+        <name lang="de">Warmwasserbereiter</name>
+        <name lang="el">Θερμαντήρας ECS</name>
+        <name lang="en">ECS heater</name>
+        <name lang="es">Calentador ECS</name>
+        <name lang="fi">ECS lämmitin</name>
+        <name lang="fr">Réchauffeur ECS</name>
+        <name lang="hr">PTV grijač</name>
+        <name lang="hu">HMV fűtő</name>
+        <name lang="it">Riscaldatore ACS</name>
+        <name lang="ja">ECSヒーター</name>
+        <name lang="ko">ECS 히터</name>
+        <name lang="mn">ECS халаагч</name>
+        <name lang="nb">ECS varmeapparat</name>
+        <name lang="nl">Tank met wisselaar</name>
+        <name lang="nl_BE">SWW-boiler</name>
+        <name lang="pl">Ogrzewacz CWU</name>
+        <name lang="pt">Aquecedor AQS</name>
+        <name lang="pt_BR">ECS heater</name>
+        <name lang="ro">Încălzitor ACM</name>
+        <name lang="ru">Нагреватель ГВС</name>
+        <name lang="sk">Ohrievač TÚV</name>
+        <name lang="sl">Grelec ECS</name>
+        <name lang="sr">ПТВ грејач</name>
+        <name lang="sv">VV-beredare</name>
+        <name lang="tr">KSH ısıtıcı</name>
+        <name lang="uk">Нагрівач ГВП</name>
+        <name lang="zh">生活热水加热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="18.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5789b6df-2beb-4ea5-bf5b-177715264105}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="ECS" x="2" y="-25" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="EF" x="26" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-26.55" y1="20" x2="-19.55" y2="20" end1="triangle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27.55" y1="-20" x2="-20.55" y2="-20" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="réchauffeur ecs" x="17" y="19" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-20" y1="-26" x2="-20" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="-26" x2="20" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="-21" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-20" y1="-20" x2="10" y2="-20" x3="-10" y3="-15" x4="10" y4="-10" x5="-10" y5="-6" x6="10" y6="0" x7="-10" y7="5" x8="10" y8="10" x9="-10" y9="15" x10="10" y10="20" x11="-20" y11="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-20" y="-30.5" width="40" height="8" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="19" y="19" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1" y="-31.5" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="19" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="21.5" width="40" height="8" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1d06f0a7-6e5e-4d77-9ad7-ba956f62e900}" name="" x="-20" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{846007ed-afc2-41bc-99ec-46c5fc6eebe5}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{bb7aaba8-c6df-4f91-8d60-1076aa10e13a}" name="" x="20" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{0d9342a0-3db8-4bd7-842c-40b107b2bcd8}" name="" x="-20" y="-20" orientation="w" type="Generic"/>
+    </description>
+</definition>

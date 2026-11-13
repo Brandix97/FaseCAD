@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="28" hotspot_y="10">
+    <uuid uuid="{1057b9c3-8894-b6e4-d984-3c17b21cac2b}"/>
+    <names>
+        <name lang="ar">مشغل (يُشغل بمقبض قابل للفصل)</name>
+        <name lang="ca">Actuador (accionat per mànec extraïble)</name>
+        <name lang="cs">Ovládání snímatelnou rukojetí</name>
+        <name lang="da">Aktuator (betjent ved aftageligt håndtag)</name>
+        <name lang="de">Betätigung durch abnehmbaren Griff</name>
+        <name lang="el">Ενεργοποιητής (λειτουργία με αφαιρούμενη λαβή)</name>
+        <name lang="en">Actuator (operated by removable handle)</name>
+        <name lang="es">Accionado por mango extraíble</name>
+        <name lang="fi">Toimilaite (irrotettavalla kahvalla käytetty)</name>
+        <name lang="fr">Commande manuelle amovible</name>
+        <name lang="hr">Aktuator (aktiviran uklonjivom ručkom)</name>
+        <name lang="hu">Működtető (levehető fogantyúval működtetett)</name>
+        <name lang="it">Attuatore (azionato da maniglia rimovibile)</name>
+        <name lang="ja">操作機構（取り外し可能なハンドルによる操作）</name>
+        <name lang="ko">액추에이터 (탈착식 핸들로 작동)</name>
+        <name lang="mn">Идэвхжүүлэгч (салгаж болох бариулаар ажилладаг)</name>
+        <name lang="nb">Aktuator (betjent med avtakbart håndtak)</name>
+        <name lang="nl">Bediener (bediend door afneembare handgreep)</name>
+        <name lang="nl_BE">Bekrachtiger (bediend door verwijderbare handgreep)</name>
+        <name lang="pl">Napęd (sterowany przez uchwyt zdejmowany)</name>
+        <name lang="pt">Atuador (acionado por manípulo removível)</name>
+        <name lang="pt_BR">Atuador (operado pou manopla removivel)</name>
+        <name lang="ro">Acționare (acționată prin mâner detașabil)</name>
+        <name lang="ru">Привод (управляемый съёмной рукояткой)</name>
+        <name lang="sk">Ovládač (ovládaný odnímateľnou rukoväťou)</name>
+        <name lang="sl">Aktuator (upravljan z odstranljivim ročajem)</name>
+        <name lang="sr">Актуатор (покретан преносном ручком)</name>
+        <name lang="sv">Ställdon (manövrerat med löstagbart handtag)</name>
+        <name lang="tr">Aktüatör (çıkarılabilir tutamakla çalıştırılan)</name>
+        <name lang="uk">Привод (керований знімною ручкою)</name>
+        <name lang="zh">12 端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ff1ef3e-876e-43c6-a33b-c902e9c173cb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-24" y1="0" x2="-17" y2="7" x3="-10" y3="0" x4="-17" y4="-7" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="130" height="50" hotspot_x="10" hotspot_y="9">
+    <uuid uuid="{e3087f0d-f6f5-0d25-97a7-cfb54492fb31}"/>
+    <names>
+        <name lang="ar">صمام عوّام</name>
+        <name lang="ca">Vàlvula de flotador</name>
+        <name lang="cs">Plovákový ventil</name>
+        <name lang="da">Svømmerventil</name>
+        <name lang="de">Schwimmerventil</name>
+        <name lang="el">Βάννα με πλωτήρα</name>
+        <name lang="en">Float valve</name>
+        <name lang="es">Valvula flotador"M</name>
+        <name lang="fr">Vanne à floteur</name>
+        <name lang="pt_BR">Valvula flotadou&quot;M</name>
+        <name lang="zh">浮球阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-7.43" y="-6.2" width="47.07" height="40.51" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3.82" y1="-4.55" x2="5.4" y2="4.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="6.71" y1="-4.55" x2="8.28" y2="4.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="9.33" y1="-4.55" x2="10.91" y2="4.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0.67" y="-5.48" width="10.5" height="11.14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11.17" y="-7.15" width="5.21" height="15.32" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.19" y1="-4.55" x2="2.77" y2="4.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="25.38" y="14.71" width="14.2" height="4.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="8.52" y="7.52" width="16.75" height="13.07" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="23.68" y1="-6" x2="48.41" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="38" y1="6.87" x2="48.41" y2="6.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="42" y="-5.55" width="13.56" height="12.42" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="46" y="-4.24" width="4" height="3.27" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="55.59" y1="-1.63" x2="105.05" y2="12.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="55.59" y1="1" x2="103.45" y2="14.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="97.45" y="13.32" width="17.55" height="15.68" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="14.79" y="-22.95" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2a32481b-b691-4043-be59-ce5f8780599e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c12a60c6-6663-4b9e-8370-871757bc40da}" name="" x="0" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{1e940794-87f3-47d0-a2bb-f37160268d11}" name="" x="33" y="19" orientation="s" type="Generic"/>
+    </description>
+</definition>

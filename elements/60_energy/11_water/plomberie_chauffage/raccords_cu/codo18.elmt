@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="18" hotspot_y="20">
+    <uuid uuid="{e32debc1-5dcc-2020-3f58-c8a7f223f4e8}"/>
+    <names>
+        <name lang="ar">كوع للحام 18</name>
+        <name lang="ca">Colze de soldadura 18</name>
+        <name lang="cs">Svařovací koleno 18</name>
+        <name lang="da">Loddebøjning 18</name>
+        <name lang="de">Lötbogen 18</name>
+        <name lang="el">Γωνία συγκόλλησης 18</name>
+        <name lang="en">Welding elbow 18</name>
+        <name lang="es">Codo soldar18</name>
+        <name lang="fr">Coude à souder 18</name>
+        <name lang="pt_BR">Codo soldar18</name>
+        <name lang="zh">弯头18</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="15.35" y="-4.77" width="2.53" height="2.2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.2" y="2.93" width="2.53" height="2.2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7.08" y="-8.08" width="12.08" height="11.82" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.2" y="12.83" width="2.53" height="2.2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18" y="-18.29" width="33.35" height="32.24" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="0" y="1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{65aa1976-935c-49fb-a061-9579512ba6ed}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="2.7" y="-4.77" width="2.53" height="2.2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2.7" y1="-3.67" x2="2.7" y2="-10.27" x3="17.88" y3="-10.27" x4="17.88" y4="-3.67" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="4" y1="-2.57" x2="15.35" y2="-2.57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.58" y1="5" x2="-1.58" y2="14.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.28" y1="2.93" x2="-9" y2="2.93" x3="-9" y3="15" x4="-3.28" y4="15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{f34c3beb-d7d7-48d3-ac71-92c732459508}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{a058ef1f-df94-46e3-9197-31a1e41ecf5a}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

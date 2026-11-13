@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="25" hotspot_y="15">
+    <uuid uuid="{49a124f9-516a-68fd-a9d6-995c3b85989c}"/>
+    <names>
+        <name lang="ar">شاشة؛ حاجب</name>
+        <name lang="ca">pantalla; </name>
+        <name lang="cs">Stínítko, stínění</name>
+        <name lang="da">Skærm; Afskærmning</name>
+        <name lang="de">Abschirmung Schirm</name>
+        <name lang="el">Πλέγμα; Θωράκιση</name>
+        <name lang="en">Screen; Shield</name>
+        <name lang="es">Blindage de pantalla</name>
+        <name lang="fi">Verkko; Suoja</name>
+        <name lang="fr">Écran Blindage</name>
+        <name lang="hr">Zaslon; Oklop</name>
+        <name lang="hu">Árnyékolás; Pajzs</name>
+        <name lang="it">Schermo; Schermatura</name>
+        <name lang="ja">スクリーン；シールド</name>
+        <name lang="ko">스크린; 차폐</name>
+        <name lang="mn">Дэлгэц; Хамгаалалт</name>
+        <name lang="nb">Skjerm; Skjold</name>
+        <name lang="nl">Scherm; Afscherming</name>
+        <name lang="nl_BE">Scherm; Afscherming</name>
+        <name lang="pl">Ekran; Ekranowanie</name>
+        <name lang="pt">Ecrã; Blindagem</name>
+        <name lang="pt_BR">Malha de blindagem contra interferência (EMC/RFI)</name>
+        <name lang="ro">Ecran; Blindaj</name>
+        <name lang="ru">Экран; Щит</name>
+        <name lang="sk">Obrazovka; Tienenie</name>
+        <name lang="sl">Zaslon; Ščit</name>
+        <name lang="sr">Екран; Заштита</name>
+        <name lang="sv">Skärm; Sköld</name>
+        <name lang="tr">Ekran; Perde</name>
+        <name lang="uk">Екран; Екран</name>
+        <name lang="zh">屏蔽端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2b3921ac-f108-4109-a4cd-73ab20e794b7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-10" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="100" hotspot_x="39" hotspot_y="61">
+    <uuid uuid="{8d722180-2d53-9743-26e9-f8b33181e927}"/>
+    <names>
+        <name lang="ar">محرّك ثلاثي الأوجه</name>
+        <name lang="ca">Motor monofàsic</name>
+        <name lang="cs">Jednofázový motor</name>
+        <name lang="da">En-faset motor</name>
+        <name lang="de">Drehstrom Motor</name>
+        <name lang="el">Μονοφασικό μοτέρ</name>
+        <name lang="en">One-phase engine</name>
+        <name lang="es">Motor trifásico</name>
+        <name lang="fi">Yksivaihemoottori</name>
+        <name lang="fr">Moteur triphasé</name>
+        <name lang="hr">Jednofazni motor</name>
+        <name lang="hu">Egyfázisú motor</name>
+        <name lang="it">Motore trifase</name>
+        <name lang="ja">単相エンジン</name>
+        <name lang="ko">단상 모터</name>
+        <name lang="mn">Нэг фазын хөдөлгүүр</name>
+        <name lang="nb">Enfasemotor</name>
+        <name lang="nl">Draaistroommotor</name>
+        <name lang="nl_BE">Eenfasige motor</name>
+        <name lang="pl">Silnik trójfazowy</name>
+        <name lang="pt">Motor trifásico</name>
+        <name lang="pt_BR">motor trifásico</name>
+        <name lang="ro">Motor monofazat</name>
+        <name lang="ru">Однофазный эл. мотор</name>
+        <name lang="sk">Jednofázový motor</name>
+        <name lang="sl">Enofazni motor</name>
+        <name lang="sr">Једнофазни мотор</name>
+        <name lang="sv">Enfasmotor</name>
+        <name lang="tr">Tek fazlı motor</name>
+        <name lang="uk">Однофазний двигун</name>
+        <name lang="zh">单相电动机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="U2" x="2" y="-45" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="20" y1="-50" x2="20" y2="-23" x3="14" y3="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="PE" x="22" y="-45" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="M" x="-5" y="-2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-20" y="-20" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-51" y="-11.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{3afac6d2-0ab0-4395-883d-25092cbcf9f0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-50" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1 ~" x="-8" y="8" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="U1" x="-18" y="-45" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-21" y="-41" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="-31" x2="45" y2="-31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="-29" x2="45" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-30" y="99" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{82cbe610-484f-4b00-977a-774877ace119}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>function</info_name>
+        </dynamic_text>
+        <dynamic_text x="-25" y="23" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{786fb0d7-59c9-4f4f-913b-d023822c8ddb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>0,37kW
+2800 rpm
+2,4A
+230V/50Hz</text>
+        </dynamic_text>
+        <polygon x1="-20" y1="-50" x2="-20" y2="-23" x3="-14" y3="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-20" y1="-40" x2="40" y2="-40" x3="40" y3="-31" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="40" y1="-29" x2="40" y2="-22" x3="18" y3="-9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{6a233a5c-48d4-486e-bb7e-69190a856b3c}" name="" x="20" y="-50" orientation="n" type="Generic"/>
+        <terminal uuid="{c85db54b-0416-4e38-aa0e-a61ef4d572d7}" name="" x="0" y="-50" orientation="n" type="Generic"/>
+        <terminal uuid="{910af916-e6cc-4ec7-b17f-b7e557acba90}" name="" x="-20" y="-50" orientation="n" type="Generic"/>
+    </description>
+</definition>

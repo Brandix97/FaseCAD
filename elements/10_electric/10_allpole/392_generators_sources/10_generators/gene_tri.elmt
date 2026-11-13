@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="31" hotspot_y="30">
+    <uuid uuid="{a97d128e-f585-a0c4-8491-4017be8e4164}"/>
+    <names>
+        <name lang="ar">مُولد ثلاثي الأوجه</name>
+        <name lang="ca">Generador trifàsic</name>
+        <name lang="cs">Třífázový generátor</name>
+        <name lang="da">Tre-fasegenerator</name>
+        <name lang="de">Drehstromgenerator</name>
+        <name lang="el">Τριφασική γεννήτρια</name>
+        <name lang="en">Three-phase generator</name>
+        <name lang="es">Generador trifasico</name>
+        <name lang="fi">Kolmivaihegeneraattori</name>
+        <name lang="fr">Génératrice triphasée</name>
+        <name lang="hr">Trofazni generator</name>
+        <name lang="hu">Háromfázisú generátor</name>
+        <name lang="it">Generatore trifase</name>
+        <name lang="ja">三相発電機</name>
+        <name lang="ko">3상 발전기</name>
+        <name lang="mn">Гурван фазын генератор</name>
+        <name lang="nb">Trefasegenerator</name>
+        <name lang="nl">Generator driefase AC3</name>
+        <name lang="nl_BE">Generator driefase AC3</name>
+        <name lang="pl">Generator trójfazowy</name>
+        <name lang="pt">Gerador trifásico</name>
+        <name lang="pt_BR">gerador trifásico</name>
+        <name lang="ro">Generator trifazat</name>
+        <name lang="ru">Трёхфазный генератор</name>
+        <name lang="sk">Trojfázový generátor</name>
+        <name lang="sl">Trifazni generator</name>
+        <name lang="sr">Трофазни генератор</name>
+        <name lang="sv">Trefasgenerator</name>
+        <name lang="tr">Üç fazlı jeneratör</name>
+        <name lang="uk">Трифазний генератор</name>
+        <name lang="zh">三相发电机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-15" y="-25" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="G" x="-10.25" y="-2" rotation="0" font="Liberation Sans,18,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="18" y="-17.75" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7d5098c6-219f-4144-aeb6-04d294649614}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="20" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="20" x2="10" y2="1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="20" x2="-10" y2="1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{2e4221fc-45e7-4ced-9a05-7d2078406463}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{5f850b01-b7cf-423f-b8b4-cedc7e538adb}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{971298f8-0fae-47df-8884-9b988ff0a4bc}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

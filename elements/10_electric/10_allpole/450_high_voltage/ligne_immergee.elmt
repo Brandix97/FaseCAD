@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{5d94d3a1-67c6-7635-4cf6-f9889173f66d}"/>
+    <names>
+        <name lang="ar">خط مغمور</name>
+        <name lang="ca">Línia immersa</name>
+        <name lang="cs">Mořský kabel, ponořený kabel</name>
+        <name lang="da">Neddykket ledning</name>
+        <name lang="de">Leiter im Gewässer,Seekabel</name>
+        <name lang="el">Βυθισμένη γραμμή</name>
+        <name lang="en">Line immersed</name>
+        <name lang="es">Línea sumergida</name>
+        <name lang="fi">Vedenalainen johto</name>
+        <name lang="fr">Ligne immergée</name>
+        <name lang="hr">Vod uronjen</name>
+        <name lang="hu">Víz alatti vezeték</name>
+        <name lang="it">Linea immersa</name>
+        <name lang="ja">水底線</name>
+        <name lang="ko">수중 선로</name>
+        <name lang="mn">Усанд дүрсэн шугам</name>
+        <name lang="nb">Linje nedgravd</name>
+        <name lang="nl">Onderwater lijn</name>
+        <name lang="nl_BE">Ondergedoken lijn</name>
+        <name lang="pl">Linia podwodna</name>
+        <name lang="pt">Linha imersa</name>
+        <name lang="pt_BR">Linha imersa</name>
+        <name lang="ro">Linie imersată</name>
+        <name lang="ru">Погруженная линия</name>
+        <name lang="sk">Vedenie ponorené</name>
+        <name lang="sl">Vod potopljen</name>
+        <name lang="sr">Вод уроњен</name>
+        <name lang="sv">Ledning nedsänkt</name>
+        <name lang="tr">Daldırılmış hat</name>
+        <name lang="uk">Лінія у воді</name>
+        <name lang="zh">浸没线路</name>
+    </names>
+    <informations>EN 60617: 11-03-02</informations>
+    <description>
+        <arc x="2" y="-13" width="10" height="10" start="225" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="2" y="-12.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5b082506-cec3-4268-9695-9108e9410e19}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="9" y="-13" width="10" height="10" start="225" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ee127562-32c8-45ef-ad78-02f8a5097f92}" name="" x="30" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{9a7b3f09-c091-4d8d-9962-889b6e7d1490}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="39" hotspot_y="20">
+    <uuid uuid="{f341c264-9b33-d981-c7c5-d39da7d83870}"/>
+    <names>
+        <name lang="ca">Connector baixant</name>
+        <name lang="es">Conector Bajante</name>
+        <name lang="pt_BR">Conector de descida</name>
+        <name lang="zh">立管连接器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-2.83" y1="4.91" x2="0.25" y2="7.94" x3="-2.83" y3="11.57" x4="-3.85" y4="12.18" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-3.5" y1="10.47" x2="-3.5" y2="15.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="4.95" x2="-15.5" y2="3.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="3.64" x2="-19.46" y2="3.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-26" y="-2.93" width="6" height="7.22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.5" y1="12.18" x2="-11" y2="4.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.25" y="16.09" width="9.75" height="4.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.25" y="-10.15" width="9.75" height="4.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.54" y1="4.3" x2="-8.78" y2="0.36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.78" y1="0.36" x2="-15.51" y2="-2.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.51" y1="-2.27" x2="-20" y2="-2.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.75" y1="-5.55" x2="4.75" y2="15.13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.5" y1="3.82" x2="-3.5" y2="-5.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="9" y="3.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{29e24b76-8df4-4fd3-bb1c-7f5235b31700}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b62ecf09-ba18-4322-93e9-205007317281}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{f8c73791-6c2f-4487-958b-a5a4cfa96731}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{faf6fc65-573f-4aab-b629-e9a5413a8dcf}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

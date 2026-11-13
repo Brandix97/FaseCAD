@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="11" hotspot_y="30">
+    <uuid uuid="{d5fdffc2-3efe-858c-cdd0-a713e2565eed}"/>
+    <names>
+        <name lang="ar">محول أو نبضة تيار، مع ثلاثة موصلات أولية عابرة</name>
+        <name lang="ca">Transformador o pols de corrent, amb tres conductors primaris pasants</name>
+        <name lang="cs">Proudový transformátor se třemi primáry</name>
+        <name lang="da">Transformator eller strømpuls, med tre gennemgående primære ledere</name>
+        <name lang="de">Stromwandler, Impulswandler</name>
+        <name lang="el">Μετασχηματιστής ή παλμών έντασης, με τρεις διερχόμενους πρωτεύοντες αγωγούς</name>
+        <name lang="en">Transformer or current pulse, with three through primary conductors</name>
+        <name lang="es">Transformador de corriente o de impulsos, con tres conductores primarios pasantes</name>
+        <name lang="fi">Muuntaja tai virtapulssi, kolmella läpivientiprimäärijohtimella</name>
+        <name lang="fr">Transformateur d'impulsion ou de courant, avec trois conducteurs primaires traversants</name>
+        <name lang="hr">Transformator ili strujni impuls, s tri provučena primarna vodiča</name>
+        <name lang="hu">Áram- vagy impulzusváltó, három átvezetett primer vezetékkel</name>
+        <name lang="it">Trasformatore d'impulso o di corrente, 3 conduttori primari</name>
+        <name lang="ja">変圧器又は電流パルス、3つの貫通一次導体付き</name>
+        <name lang="ko">관통형 1차 도체 3개가 있는 변류기 또는 펄스 변압기</name>
+        <name lang="mn">Трансформатор эсвэл гүйдлийн импульс, гурван дамжин өнгөрөх анхдагч дамжуулагчтай</name>
+        <name lang="nb">Transformator eller strømpuls, med tre gjennomgående primærledere</name>
+        <name lang="nl">Stroomtrafo 3 geleiders</name>
+        <name lang="nl_BE">Transformator of stroompuls, met drie doorvoer primaire geleiders</name>
+        <name lang="pl">Przekładnik (forma 1)</name>
+        <name lang="pt">Transformador de corrente ou impulso, com três condutores primários passantes</name>
+        <name lang="pt_BR">Transformador de pulso ou de corrente, com tres condutoues primarios passantes</name>
+        <name lang="ro">Transformator de curent sau impuls, cu trei conductoare primare de trecere</name>
+        <name lang="ru">Трансформатор тока или импульсный, с тремя проходными первичными проводниками</name>
+        <name lang="sk">Transformátor alebo prúdový impulz, s tromi priechodnými primárnymi vodičmi</name>
+        <name lang="sl">Transformator ali tokovni impulz, s tremi prehodnimi primarnimi vodniki</name>
+        <name lang="sr">Трансформатор или струјни импулс, са три проводника кроз примар</name>
+        <name lang="sv">Transformator eller strömpuls, med tre genomgående primärledare</name>
+        <name lang="tr">Transformatör veya akım darbesi, üç geçişli primer iletkenli</name>
+        <name lang="uk">Трансформатор струму або імпульсний, з трьома первинними провідниками наскрізь</name>
+        <name lang="zh">电流互感器2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-5.05" y1="1.95" x2="4.95" y2="-2.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="6" y="-28.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3e8daa87-7554-47db-8b47-e7b749e5287a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-8" y="-8" width="16" height="16" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="5" x2="15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12" y1="5" x2="17" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="3" x="1" y="6" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="8" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{522aedb5-8e6b-4322-955b-161dc50dfe6a}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{1598bc3b-2f75-4886-8797-6fdda3dc2e64}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{2f9e95b3-934f-435e-a2e7-de4ddce0f3e3}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

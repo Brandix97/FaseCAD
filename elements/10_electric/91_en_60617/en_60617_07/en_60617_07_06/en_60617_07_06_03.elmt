@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="80" hotspot_x="7" hotspot_y="50">
+    <uuid uuid="{56c40a44-79c3-c707-fa4e-98230cbb0e5e}"/>
+    <names>
+        <name lang="ar">ملامس فصل، رجوع تلقائي</name>
+        <name lang="ca">Interrupció de contacte, retorn automàtic</name>
+        <name lang="cs">Vypínací kontakt se samočinným návratem</name>
+        <name lang="da">Brydekontakt, automatisk retur</name>
+        <name lang="de">Öffner mit selbsttätigem Rückgang</name>
+        <name lang="el">Επαφή ανοίγματος, αυτόματη επαναφορά</name>
+        <name lang="en">Break contact, automatic return</name>
+        <name lang="es">Contacto de apertura, retorno automático</name>
+        <name lang="fi">Avauskosketin, automaattinen palautus</name>
+        <name lang="fr">Retour automatique, contact à ouverture</name>
+        <name lang="hr">Mirni kontakt, automatski povrat</name>
+        <name lang="hu">Nyitóérintkező, automatikus visszatérés</name>
+        <name lang="it">Contatto di apertura, ritorno automatico</name>
+        <name lang="ja">ブレーク接点，自動復帰</name>
+        <name lang="ko">브레이크 접점, 자동 복귀</name>
+        <name lang="mn">Салах контакт, автомат буцалт</name>
+        <name lang="nb">Hvilekontakt, automatisk retur</name>
+        <name lang="nl">Verbreekcontact, automatische terugkeer</name>
+        <name lang="nl_BE">Verbrekingscontact, automatische terugkeer</name>
+        <name lang="pl">Zestyk rozwierny, powrót samoczynny</name>
+        <name lang="pt">Contacto de abertura, retorno automático</name>
+        <name lang="pt_BR">Contato NF com retorno automático</name>
+        <name lang="ro">Contact de repaus, revenire automată</name>
+        <name lang="ru">Размыкающий контакт, автоматический возврат</name>
+        <name lang="sk">Kľudový kontakt, automatický návrat</name>
+        <name lang="sl">Mirovni kontakt, samodejni povratek</name>
+        <name lang="sr">Мирни контакт, аутоматски повратак</name>
+        <name lang="sv">Brytande kontakt, automatisk återgång</name>
+        <name lang="tr">Açma kontağı, otomatik dönüş</name>
+        <name lang="uk">Розмикальний контакт, автоматичне повернення</name>
+        <name lang="zh">接线端子03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{67563cbf-9053-4544-98f6-daf7b6c29814}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-20" x2="4" y2="-23" x3="0" y3="-26" x4="0" y4="-21" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{55f9f2aa-0735-4870-a1d8-18d4e33b0327}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{7c355b60-24e0-49e7-b0ec-e35d56b3be12}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

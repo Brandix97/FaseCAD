@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="22">
+    <uuid uuid="{411590dd-f640-cc2a-43e4-2e88cc748a28}"/>
+    <names>
+        <name lang="ar">فرن</name>
+        <name lang="ca">Forn elèctric</name>
+        <name lang="cs">Elektrická kamna</name>
+        <name lang="da">Elovn</name>
+        <name lang="de">Elektrischer Ofen</name>
+        <name lang="el">Ηλεκτρικός φούρνος</name>
+        <name lang="en">Electric oven</name>
+        <name lang="es">Horno eléctrico</name>
+        <name lang="fi">Sähköuuni</name>
+        <name lang="fr">Four électrique</name>
+        <name lang="hr">Električna pećnica</name>
+        <name lang="hu">Elektromos sütő</name>
+        <name lang="it">Forno elettrico</name>
+        <name lang="ja">電気オーブン</name>
+        <name lang="ko">전기 오븐</name>
+        <name lang="mn">Цахилгаан шарагч</name>
+        <name lang="nb">Elektrisk stekeovn</name>
+        <name lang="nl">Elektrische oven</name>
+        <name lang="nl_BE">Elektrische oven</name>
+        <name lang="pl">Piekarnik elektryczny</name>
+        <name lang="pt">Forno eléctrico</name>
+        <name lang="pt_BR">Forno elétrico</name>
+        <name lang="ro">Cuptor electric</name>
+        <name lang="ru">Духовой шкаф</name>
+        <name lang="sk">Elektrická rúra</name>
+        <name lang="sl">Električna pečica</name>
+        <name lang="sr">Електрична пећница</name>
+        <name lang="sv">Elugn</name>
+        <name lang="tr">Elektrikli fırın</name>
+        <name lang="uk">Електрична духова шафа</name>
+        <name lang="zh">烤箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="11" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1258b6ee-0ac9-4970-aa89-13557e58da6d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-3.16" y="12.84" width="6.32" height="6.32" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="-12" y="-1" width="24" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="-1" x2="-12" y2="23" x3="12" y3="23" x4="12" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-13" x2="0" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{72a72b85-3224-4575-b452-b200717c70d6}" name="" x="0" y="-13" orientation="n" type="Generic"/>
+    </description>
+</definition>

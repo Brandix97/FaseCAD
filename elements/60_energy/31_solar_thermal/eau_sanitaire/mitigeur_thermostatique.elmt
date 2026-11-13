@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="26" hotspot_y="17">
+    <uuid uuid="{c4fb8560-ea3b-3c6b-c035-7896253a6d6c}"/>
+    <names>
+        <name lang="ar">صمّام خلط ترموستاتي ECS</name>
+        <name lang="ca">Vàlvula mescladora termostàtica ECS</name>
+        <name lang="cs">Termostatický uzávěr ECS</name>
+        <name lang="da">Termostatisk blandeventil brugsvand</name>
+        <name lang="de">Thermostatisches Mischventil ECS</name>
+        <name lang="el">Θερμοστατική βαλβίδα ανάμιξης ECS</name>
+        <name lang="en">Thermostatic mixing valve ECS</name>
+        <name lang="es">Válvula termostática de mezcla ECS</name>
+        <name lang="fi">Termostaattinen sekoitusventtiili ECS</name>
+        <name lang="fr">Mitigeur thermostatique ECS</name>
+        <name lang="hr">Termostatski miješajući ventil PTV</name>
+        <name lang="hu">Termosztatikus keverőszelep HMV</name>
+        <name lang="it">Valvola miscelatrice termostatica</name>
+        <name lang="ja">サーモスタット混合弁 ECS</name>
+        <name lang="ko">온도 조절 혼합 밸브 ECS</name>
+        <name lang="mn">Термостатик холигч хавхлага ECS</name>
+        <name lang="nb">Termostatisk blandeventil ECS</name>
+        <name lang="nl">Mengklep thermostatisch</name>
+        <name lang="nl_BE">Thermostatische mengklep SWW</name>
+        <name lang="pl">Zawór termostatyczny CWU</name>
+        <name lang="pt">Válvula misturadora termostática AQS</name>
+        <name lang="pt_BR">ThermoeEstaticoo mixing valvula ECS</name>
+        <name lang="ro">Supapă de amestec termostatică ACM</name>
+        <name lang="ru">Термостатический смесительный клапан ГВС</name>
+        <name lang="sk">Termostatický zmiešavací ventil TÚV</name>
+        <name lang="sl">Termostatski mešalni ventil ECS</name>
+        <name lang="sr">Термостатски вентил за мешање ПТВ</name>
+        <name lang="sv">Termostatisk blandningsventil VV</name>
+        <name lang="tr">Termostatik karışım valfi KSH</name>
+        <name lang="uk">Термостатичний змішувальний клапан ГВП</name>
+        <name lang="zh">恒温混水阀</name>
+    </names>
+    <informations>Le mitigeur thermostatique posé en sortie de ballon permet de distribuer l'eau chaude sanitaire à une température constante.</informations>
+    <description>
+        <ellipse x="-13" y="-13" width="26" height="26" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-7" y="-38.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a09daf6c-eb1f-4a86-9ab9-5b6701a263be}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7" y="-9" width="14" height="16" start="42" angle="97" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="°C" x="-4" y="-2" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-8" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-6" x2="6" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-6" x2="-6" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="EF" x="12" y="-10" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="EC" x="-17" y="-10" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="13" y="-1" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1" y="13" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-1" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="1" x2="-6" y2="10" x3="6" y3="10" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="10" y1="-5" x2="10" y2="6" x3="1" y3="0" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-10" y1="-6" x2="-10" y2="6" x3="-1" y3="0" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{72c129f0-22cf-4f2f-b5a0-00263dd16f45}" name="" x="14" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{fc4dcf14-3b8a-40fc-8cb7-626d08d691bf}" name="" x="0" y="14" orientation="s" type="Generic"/>
+        <terminal uuid="{386e2c34-54d4-4bac-a795-a7c6d826e716}" name="" x="-14" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

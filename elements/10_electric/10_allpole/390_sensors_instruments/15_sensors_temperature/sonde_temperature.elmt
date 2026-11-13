@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="14">
+    <uuid uuid="{97ef1380-e022-975c-e6f6-5e4dfaf3c266}"/>
+    <names>
+        <name lang="ar">حسّاس حرارة</name>
+        <name lang="ca">Sensor de temperatura</name>
+        <name lang="cs">Snímač teploty 2 vodiče</name>
+        <name lang="da">Temperatursensor</name>
+        <name lang="de">Temperaturfühler</name>
+        <name lang="el">Αισθητήρας θερμοκρασίας</name>
+        <name lang="en">Temperature sensor</name>
+        <name lang="es">Sensor de temperatura</name>
+        <name lang="fi">Lämpötila-anturi</name>
+        <name lang="fr">Sonde de temperature</name>
+        <name lang="hr">Senzor temperature</name>
+        <name lang="hu">Hőmérséklet érzékelő</name>
+        <name lang="it">Sonda di temperatura</name>
+        <name lang="ja">温度センサ</name>
+        <name lang="ko">온도 센서</name>
+        <name lang="mn">Температурын мэдрэгч</name>
+        <name lang="nb">Temperatursensor</name>
+        <name lang="nl">Temperatuur sensor</name>
+        <name lang="nl_BE">Temperatuursensor</name>
+        <name lang="pl">Czujnik temperatury</name>
+        <name lang="pt">Sensor de temperatura</name>
+        <name lang="pt_BR">Sensor de temperatura</name>
+        <name lang="ro">Senzor de temperatură</name>
+        <name lang="ru">Датчик температуры</name>
+        <name lang="sk">Teplotný snímač</name>
+        <name lang="sl">Temperaturni senzor</name>
+        <name lang="sr">Сензор температуре</name>
+        <name lang="sv">Temperaturgivare</name>
+        <name lang="tr">Sıcaklık sensörü</name>
+        <name lang="uk">Датчик температури</name>
+        <name lang="zh">温度探头</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-26" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1927b85f-c493-42a2-affd-b42db99c8cce}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{60b450b4-30c4-4ede-a2f9-fbcd8d663e81}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>S_</text>
+        </dynamic_text>
+        <rect x="-10" y="-5" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <polygon x1="-10" y1="10" x2="-5" y2="10" x3="5" y3="-10" x4="10" y4="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{f7f478a5-097b-43e9-8539-efcc9548e0ec}" name="1" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{ae9ff55e-33a9-45e2-9460-4f427d8b15c5}" name="2" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,43 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="15" hotspot_y="35">
+    <uuid uuid="{9a87899e-9b38-5d79-ad53-72bef489ee81}"/>
+    <names>
+        <name lang="de">Einphasentransformator</name>
+        <name lang="en">Single-phase transformer</name>
+        <name lang="es">Transformador monofásico</name>
+        <name lang="fr">Transformateur monophasé</name>
+        <name lang="it">Trasformatore monofase</name>
+        <name lang="pt">Transformador monofásico</name>
+        <name lang="tr">Tek fazlı transformatör</name>
+        <name lang="zh">单相变压器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <ellipse x="-12" y="-20" width="24" height="24" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-12" y="-4" width="24" height="24" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-14.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="30" x2="-10" y2="14.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12.5" y="-32.6" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2aabd986-4f03-592c-9568-e835f030c704}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1U1</text>
+        </dynamic_text>
+        <dynamic_text x="-12.5" y="17.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{daafb7e3-19d5-5926-95e9-ce66711e8b3a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2U1</text>
+        </dynamic_text>
+        <line x1="10" y1="-30" x2="10" y2="-14.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="30" x2="10" y2="14.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7.5" y="-32.6" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6d1abcfe-c176-5951-b379-50acc0b24049}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1U2</text>
+        </dynamic_text>
+        <dynamic_text x="7.5" y="17.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f4714084-64e8-57d4-afba-5c485b4bc8b0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2U2</text>
+        </dynamic_text>
+        <dynamic_text x="-21" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ab8110d0-2f15-5684-b42c-5e6e8ab8a4f3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5e204ef8-ad38-53a5-983b-d2d13f51f7f2}" name="1U1" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{62644e58-5c9e-559d-a804-8f1a826fbee1}" name="2U1" x="-10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{29f7bfc6-18ba-58c9-93b2-6bfc86dca8b1}" name="1U2" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{93b718b8-b169-5559-a975-c886cb8b7e67}" name="2U2" x="10" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

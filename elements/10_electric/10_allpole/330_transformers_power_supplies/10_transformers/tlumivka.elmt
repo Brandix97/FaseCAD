@@ -1,0 +1,53 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="15">
+    <uuid uuid="{251cf01a-ae5c-5362-2527-466dd81ba378}"/>
+    <names>
+        <name lang="ar">مُحوّل</name>
+        <name lang="ca">Transformador</name>
+        <name lang="cs">Tlumivka s jádrem</name>
+        <name lang="da">Transformer</name>
+        <name lang="de">Spule mit Kern</name>
+        <name lang="el">Μετασχηματιστής</name>
+        <name lang="en">Transformer</name>
+        <name lang="es">Transformador</name>
+        <name lang="fi">Muuntaja</name>
+        <name lang="fr">Transformateur</name>
+        <name lang="hr">Transformator</name>
+        <name lang="hu">Transzformátor</name>
+        <name lang="it">Trasformatore</name>
+        <name lang="ja">変圧器</name>
+        <name lang="ko">변압기</name>
+        <name lang="mn">Трансформатор</name>
+        <name lang="nb">Transformator</name>
+        <name lang="nl">Transformator</name>
+        <name lang="nl_BE">Transformator</name>
+        <name lang="pl">Transformator (forma 2)</name>
+        <name lang="pt">Transformador</name>
+        <name lang="pt_BR">Transformador</name>
+        <name lang="ro">Transformator</name>
+        <name lang="ru">Трансформатор</name>
+        <name lang="sk">Transformátor</name>
+        <name lang="sl">Transformator</name>
+        <name lang="sr">Трансформатор</name>
+        <name lang="sv">Transformator</name>
+        <name lang="tr">Transformatör</name>
+        <name lang="uk">Трансформатор</name>
+        <name lang="zh">扼流圈</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-20" y="-5" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-5" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-5" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="10" y="-5" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-10" x2="-4" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:eleve;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:eleve;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-46" y="-20" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{5c02f2f0-17c0-4d09-8dca-24b1182962ad}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="-20" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="20" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4be4ef83-90c0-42ea-bb99-46ec8279a815}" name="" x="-20" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{93686765-ccb3-4dff-a58b-04814173e817}" name="" x="20" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

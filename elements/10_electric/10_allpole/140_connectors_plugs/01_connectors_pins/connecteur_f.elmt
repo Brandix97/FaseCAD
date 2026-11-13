@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="21">
+    <uuid uuid="{e9e6ff3d-42c8-0f2f-7375-35dddc0ce001}"/>
+    <names>
+        <name lang="ar">موصل أنثوي</name>
+        <name lang="ca">Connector femella</name>
+        <name lang="cs">Kontakt zásuvka</name>
+        <name lang="da">Hunstik</name>
+        <name lang="de">Steckverbindung Buchse</name>
+        <name lang="el">Θηλυκός σύνδεσμος</name>
+        <name lang="en">Female connector</name>
+        <name lang="es">Conector hembra</name>
+        <name lang="fi">Naarasliitin</name>
+        <name lang="fr">Connecteur femelle</name>
+        <name lang="hr">Ženski konektor</name>
+        <name lang="hu">Anya csatlakozó</name>
+        <name lang="it">Connettore femmina</name>
+        <name lang="ja">メスコネクタ</name>
+        <name lang="ko">암 커넥터</name>
+        <name lang="mn">Эмэгтэй холбогч</name>
+        <name lang="nb">Hunnkontakt</name>
+        <name lang="nl">Contact vrouw</name>
+        <name lang="nl_BE">Vrouwelijke connector</name>
+        <name lang="pl">Gniazdo</name>
+        <name lang="pt">Conector fêmea</name>
+        <name lang="pt_BR">Conector fêmea</name>
+        <name lang="ro">Conector mamă</name>
+        <name lang="ru">Гнездо (нов.)</name>
+        <name lang="sk">Konektor samica</name>
+        <name lang="sl">Ženski konektor</name>
+        <name lang="sr">Женски конектор</name>
+        <name lang="sv">Honkontakt</name>
+        <name lang="tr">Dişi konnektör</name>
+        <name lang="uk">Гніздо</name>
+        <name lang="zh">连接器（母）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="4" y="-19.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7733c3d5-cb89-458e-8c29-686d9cd4b74a}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3" y="0" width="6" height="6" start="96" angle="84" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3" y="0" width="6" height="6" start="359" angle="84" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{9497f6ad-4f68-4a12-af69-7e3a346b48d3}" name="" x="0" y="-11" orientation="n" type="Generic"/>
+    </description>
+</definition>

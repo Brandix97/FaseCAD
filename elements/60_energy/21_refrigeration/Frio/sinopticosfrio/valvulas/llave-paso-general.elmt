@@ -1,0 +1,18 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{6b53c6fb-1395-30f9-1007-8119b45d8d6a}"/>
+    <names>
+        <name lang="ca">Vàlvula de pas general</name>
+        <name lang="es">Llave de paso general</name>
+        <name lang="pt_BR">Llave de paso general</name>
+        <name lang="zh">通用截止阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{464ea7f6-57b8-46c5-a17e-d0c881bf5d6f}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{54bcacdd-a530-49ff-9df1-b5aa5d2f2c9c}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

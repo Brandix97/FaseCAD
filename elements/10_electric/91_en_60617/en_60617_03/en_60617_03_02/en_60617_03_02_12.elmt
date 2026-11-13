@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="50" hotspot_x="50" hotspot_y="20">
+    <uuid uuid="{f50e9c55-e5ad-c031-e372-9539af69d046}"/>
+    <names>
+        <name lang="ar">تغيير تسلسل الأوجه</name>
+        <name lang="ca">Canvi de seqüència de fases</name>
+        <name lang="cs">Změna pořadí fází</name>
+        <name lang="da">Ændring af faselølge</name>
+        <name lang="de">Leiterverbindungen, Tausch von Leitern
+Wechsel von Polarität</name>
+        <name lang="el">Αλλαγή σειράς φάσεων</name>
+        <name lang="en">Change of phase sequence</name>
+        <name lang="es">Cambio de secuencia de fases</name>
+        <name lang="fi">Vaihejärjestyksen muutos</name>
+        <name lang="fr">Permutation des conducteurs
+Inversion de polarité</name>
+        <name lang="hr">Promjena slijeda faza</name>
+        <name lang="hu">Fázissorrend változása</name>
+        <name lang="it">Cambio di sequenza delle fasi</name>
+        <name lang="ja">相順の変更</name>
+        <name lang="ko">상 순서 변경</name>
+        <name lang="mn">Фазын дарааллын өөрчлөлт</name>
+        <name lang="nb">Endring av faserekkefølge</name>
+        <name lang="nl">Wijziging van fasenvolgorde</name>
+        <name lang="nl_BE">Wijziging van fasenvolgorde</name>
+        <name lang="pl">Zmiana kolejności faz</name>
+        <name lang="pt">Mudança de sequência de fases</name>
+        <name lang="pt_BR">Alteração da sequência de fases</name>
+        <name lang="ro">Schimbare a succesiunii fazelor</name>
+        <name lang="ru">Изменение порядка чередования фаз</name>
+        <name lang="sk">Zmena sledu fáz</name>
+        <name lang="sl">Sprememba zaporedja faz</name>
+        <name lang="sr">Промена редоследа фаза</name>
+        <name lang="sv">Ändring av fasföljd</name>
+        <name lang="tr">Faz sırası değişimi</name>
+        <name lang="uk">Зміна порядку фаз</name>
+        <name lang="zh">接线端子12</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{55d3284e-36e1-4ad5-a4f0-ed885c51e11b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-40" y1="0" x2="60" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-40" y1="10" x2="-30" y2="10" x3="-10" y3="-10" x4="0" y4="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="-10" x2="40" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L1" x="-10" y="-10" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="30" y1="-10" x2="50" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-10" x2="60" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L3" x="-40" y="20" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{8a9536fe-0ffd-4be3-b3e4-70332ee15dcc}" name="" x="60" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{fad16c71-4005-42f0-be75-8c78b049f6c4}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

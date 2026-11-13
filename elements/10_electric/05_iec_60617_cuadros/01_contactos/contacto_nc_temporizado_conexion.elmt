@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="slave" width="30" height="50" hotspot_x="18" hotspot_y="25">
+    <uuid uuid="{3f666a44-bf6b-56c6-b417-09630a6ee04b}"/>
+    <names>
+        <name lang="de">Öffner, ansprechverzögert</name>
+        <name lang="en">Break contact, on-delay (delayed opening)</name>
+        <name lang="es">Contacto NC temporizado a la conexión</name>
+        <name lang="fr">Contact à ouverture temporisé au travail</name>
+        <name lang="it">Contatto NC ritardato all'eccitazione</name>
+        <name lang="pt">Contacto NF temporizado à ligação</name>
+        <name lang="tr">NK kontak, çekmede gecikmeli</name>
+        <name lang="zh">通电延时断开常闭触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">delayOn</kindInformation>
+        <kindInformation name="state">NC</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="9" y2="-12.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{fb2bee1b-b612-5314-a283-29202abbca38}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>55</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{fe689977-6d83-5946-a8ed-449a9200f053}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>56</text>
+        </dynamic_text>
+        <line x1="4.8" y1="-2" x2="-14.66" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.2" y1="2" x2="-14.66" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-15" y="-6" width="12" height="12" start="120" angle="120" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-24" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9616921d-3302-5ca4-8e5f-cb6946503904}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4f86ed41-0378-5aa3-807b-3bcfc4fc17ca}" name="55" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{87404058-4513-5a46-b575-4100db008e6b}" name="56" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

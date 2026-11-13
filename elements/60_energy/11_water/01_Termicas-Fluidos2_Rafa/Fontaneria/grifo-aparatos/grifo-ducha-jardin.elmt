@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="130" hotspot_x="39" hotspot_y="71">
+    <uuid uuid="{5de33599-f5b0-5a65-ed81-c678d1330cbe}"/>
+    <names>
+        <name lang="ar">صنبور دش الحديقة</name>
+        <name lang="ca">Aixeta de dutxa de jardí</name>
+        <name lang="cs">Zahradní sprchová baterie</name>
+        <name lang="da">Haveslangebruser</name>
+        <name lang="de">Gartenduschhahn</name>
+        <name lang="el">Βρύση ντους κήπου</name>
+        <name lang="en">Garden shower faucet</name>
+        <name lang="es">Grifo de Ducha para jardín</name>
+        <name lang="fi">Puutarhasuihkuhana</name>
+        <name lang="hr">Vrtna tuš slavina</name>
+        <name lang="hu">Kerti zuhany csaptelep</name>
+        <name lang="it">Rubinetto doccia da giardino</name>
+        <name lang="ja">庭用シャワー水栓</name>
+        <name lang="ko">정원 샤워 수도꼭지</name>
+        <name lang="mn">Цэцэрлэгийн шүршүүрийн усны цорго</name>
+        <name lang="nb">Hagedusjkran</name>
+        <name lang="nl">Tuinbouwkraan</name>
+        <name lang="nl_BE">Tuinregendouche</name>
+        <name lang="pl">Bateria ogrodowa z prysznicem</name>
+        <name lang="pt">Torneira de duche de jardim</name>
+        <name lang="pt_BR">Garden shower faucet</name>
+        <name lang="ro">Robinet de duș de grădină</name>
+        <name lang="ru">Садовый душевой смеситель</name>
+        <name lang="sk">Záhradná sprchová batéria</name>
+        <name lang="sl">Vrtna prha</name>
+        <name lang="sr">Баштенска туш славина</name>
+        <name lang="sv">Trädgårdsduschkran</name>
+        <name lang="tr">Bahçe duş musluğu</name>
+        <name lang="uk">Садовий душовий кран</name>
+        <name lang="zh">花园淋浴龙头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-8.94" y1="47.28" x2="-7.66" y2="47.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-14.71" y="-69.5" width="14.33" height="17.72" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-0.38" y1="-17.58" x2="-0.38" y2="-60.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.88" y="-13.19" width="4.23" height="5.63" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-12" y="-13.94" width="21.3" height="6.94" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.06" y1="47.28" x2="8.34" y2="47.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.11" y="-14.7" width="9.26" height="0.5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6.85" y="46.38" width="1.75" height="3.62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4.93" y="-11.5" width="2" height="2.44" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.06" y1="49.09" x2="8.34" y2="49.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4.72" y1="-7.75" x2="7.21" y2="-7.75" x3="8.41" y3="-10.38" x4="7.12" y4="-13.15" x5="4.72" y5="-13.15" x6="3.48" y6="-10.38" x7="4.63" y7="-7.75" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-10.88" y="-13.38" width="4.23" height="5.63" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-9.15" y="46.38" width="1.75" height="3.62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.68" y="-16.46" width="4.19" height="1.76" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.94" y1="49.09" x2="-7.66" y2="49.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.57" y="-17.22" width="5.51" height="0.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-17.52" x2="-3" y2="-59.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-11.84" y="-66.59" width="8.82" height="11.9" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-15.15" y="-60.5" width="3.75" height="2.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9.82" y="-11.69" width="2" height="2.44" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-10" y1="-7.94" x2="-7.55" y2="-7.94" x3="-6.34" y3="-10.57" x4="-7.63" y4="-13.33" x5="-10" y5="-13.33" x6="-11.28" y6="-10.57" x7="-10.13" y7="-7.94" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-15" y="43" width="27" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-7" width="5" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-33" y1="47" x2="34" y2="47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="9" y="-0.5" z="25" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cb5bd983-17b6-4b74-933f-962a98a18b35}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{8f47ccc6-a794-4df7-a6f0-805fb8f7c6d9}" name="" x="-8" y="51" orientation="s" type="Generic"/>
+        <terminal uuid="{a4f104a0-f2f6-4dde-85bc-7cc5052b9669}" name="" x="8" y="51" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,40 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="27">
+    <uuid uuid="{6bf3a504-f608-7da6-1fc0-3828a7c1285c}"/>
+    <names>
+        <name lang="ar">كوع متساوي PVC ضغط</name>
+        <name lang="ca">Pressió de PVC igual en T</name>
+        <name lang="cs">T rovné PVC tlakové</name>
+        <name lang="da">Lige T PVC tryk</name>
+        <name lang="de">T-Stück gleich PVC Druck</name>
+        <name lang="el">Ταφ ίσο PVC πίεσης</name>
+        <name lang="en">Equal tee PVC pressure</name>
+        <name lang="fr">Té égal PVC Pression</name>
+        <name lang="pt_BR">Té égal PVC Pression</name>
+        <name lang="zh">PVC压力管三通130</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-7" y="-16" width="14" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <rect x="8" y="-7" width="8" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <rect x="-16" y="-7" width="8" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:none" antialias="false"/>
+        <dynamic_text x="-7" y="9.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f41c3a58-15e2-4b87-a541-b20fcbfe2884}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="7" y="-11" width="4" height="4" start="180" angle="90" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="true"/>
+        <arc x="-11" y="-11" width="4" height="4" start="270" angle="90" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="7" x2="15" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-8" x2="-5" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-8" x2="5" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-7" x2="-16" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="16" y1="-7" x2="16" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-7" x2="-10" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-16" x2="7" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-10" x2="-7" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-10" x2="7" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-7" x2="15" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b94ff562-12a4-4ed3-8d7e-62dd502e54a9}" name="" x="0" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{ef3dfc5a-6483-42d3-a6ce-63fd01842859}" name="" x="16" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{f1fbd714-762d-4e32-8a43-f9eac68e0a8b}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

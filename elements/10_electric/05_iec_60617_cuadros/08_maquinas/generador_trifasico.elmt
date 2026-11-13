@@ -1,0 +1,44 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="18" hotspot_y="32">
+    <uuid uuid="{e9f9a05f-374e-5708-a932-1c91edab4641}"/>
+    <names>
+        <name lang="de">Drehstromgenerator</name>
+        <name lang="en">Three-phase generator</name>
+        <name lang="es">Generador trifásico</name>
+        <name lang="fr">Générateur triphasé</name>
+        <name lang="it">Generatore trifase</name>
+        <name lang="pt">Gerador trifásico</name>
+        <name lang="tr">Üç fazlı jeneratör</name>
+        <name lang="zh">三相发电机</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12.8" y="-31.88" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{23bbbfaf-3ede-5dc5-bde5-88f7cb596959}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>U1</text>
+        </dynamic_text>
+        <line x1="0" y1="-30" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2.8" y="-31.88" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{47ec6e94-1ef8-54d1-a5d5-4be1ca904cc6}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>V1</text>
+        </dynamic_text>
+        <line x1="10" y1="-30" x2="10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7.2" y="-31.88" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b13c4d4e-665a-5a3d-aa10-58eab02e3c43}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>W1</text>
+        </dynamic_text>
+        <line x1="15" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="16" y="-11.1" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{14a0d842-8a1f-5aa8-a8fd-1248a2fb99a1}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>PE</text>
+        </dynamic_text>
+        <text x="0" y="2.83" text="G" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{222def2d-fb1a-5c3a-ad49-798d6da3d5b2}"/>
+        <text x="0" y="11.4" text="3~" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{d3c6345a-3986-57f2-88a9-881e04a57e03}"/>
+        <dynamic_text x="-24" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c778b214-7bbc-5b46-aa08-7a83f32633da}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{eab29f6c-c19e-5335-b77b-991b828282f9}" name="U1" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{bb1ba8b3-7e7b-5b58-8939-d065953ee550}" name="V1" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{f17357eb-9146-5219-a8b7-3e96c58f45e7}" name="W1" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{168fb93a-83d1-5dc9-8ea2-6f33b7b2a580}" name="PE" x="30" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

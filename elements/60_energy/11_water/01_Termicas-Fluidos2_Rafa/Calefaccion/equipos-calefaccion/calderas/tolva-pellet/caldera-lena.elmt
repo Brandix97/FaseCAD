@@ -1,0 +1,44 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="26" hotspot_y="37">
+    <uuid uuid="{3c739bd3-a90d-1c50-55a1-7aba68bf14a9}"/>
+    <names>
+        <name lang="ca">Caldera de llenya</name>
+        <name lang="es">Caldera de Leña</name>
+        <name lang="it">Caldaia a legna</name>
+        <name lang="pt_BR">Caldera de Leña</name>
+        <name lang="zh">柴火锅炉</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="11" y="-8" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="19" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16" y="-25" width="31" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="16" y="19" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="16" y="-21" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19" y="25" width="37" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="-18" width="22" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11" y="-15" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9" y="-11" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-7" y="-11" width="4" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="-27" width="33" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="8" x2="5" y2="8" x3="9" y3="18" x4="-9" y4="18" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-2" y="7" width="4" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="17" x2="14" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="14" x2="14" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="6" width="21" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11" y="-32" width="2" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="13" y1="-29" x2="15" y2="-29" x3="17" y3="-31" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="17" y1="-31" x2="13" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-21" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9" y1="-21" x2="-7" y2="-24" x3="-7" y3="-21" x4="-4" y4="-24" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-15" y="-8" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3e9635f0-fe0c-430d-ae8e-e5f7a13ae11d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{9eaee42a-0106-4eaa-a5c3-af6a1c23df1b}" name="" x="-19" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{661bf3be-cfee-4451-bd00-e6a509d10e10}" name="" x="-19" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{28ab4596-8e59-44dc-be0b-0c1d15b591aa}" name="" x="-9" y="-28" orientation="n" type="Generic"/>
+        <terminal uuid="{cee2efd0-d5ed-4fff-beac-7c17aae58df7}" name="" x="17" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{36298bae-4112-4ef2-8b6d-67081b544889}" name="" x="17" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

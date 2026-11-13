@@ -1,0 +1,62 @@
+<definition version="0.80" type="element" link_type="terminal" width="50" height="90" hotspot_x="30" hotspot_y="63">
+    <uuid uuid="{c8a6e1b8-cfbd-e804-c019-e2eb2ef3d882}"/>
+    <names>
+        <name lang="ar">موزّع موصل أسلاك 2 إدخال-4 إخراج</name>
+        <name lang="ca">Terminal de derivació 2 entrades, 4 sortides</name>
+        <name lang="cs">Rozbočovací svorka 2 vstupy, 4 výstupy</name>
+        <name lang="da">Ledningsstik fordeler 2 indgang-4 udgang</name>
+        <name lang="de">2 Potenziale: 2 In, 4 Out</name>
+        <name lang="el">Διακλαδωτής συνδέσμου καλωδίων 2 είσοδοι-4 έξοδοι</name>
+        <name lang="en">Wire Connector Splitter 2 Input-4 Output</name>
+        <name lang="es">Distribuidor de conector de cable 2 entradas-4 salidas</name>
+        <name lang="fi">Johliliittimen jakaja 2 tulo-4 lähtö</name>
+        <name lang="hr">Razdjelnik kabelskog konektora 2 ulaz-4 izlaz</name>
+        <name lang="hu">Kötőelem elosztó 2 bemenet, 4 kimenet</name>
+        <name lang="it">Ripartitore connettore filo 2 ingressi-4 uscite</name>
+        <name lang="ja">電線コネクタスプリッター 2入力-4出力</name>
+        <name lang="ko">전선 커넥터 분배기 2 입력-4 출력</name>
+        <name lang="mn">Утас холбогч салгагч 2 оролт-4 гаралт</name>
+        <name lang="nb">Ledningskobling splitter 2 inngang-4 utgang</name>
+        <name lang="nl">Draadconnector splitter 2 ingang-4 uitgang</name>
+        <name lang="nl_BE">Draadconnector splitter 2 ingang-4 uitgang</name>
+        <name lang="pl">Rozdzielacz złącza przewodu 2 wejść-4 wyjść</name>
+        <name lang="pt">Derivação de conector de fios 2 entradas-4 saídas</name>
+        <name lang="pt_BR">Conector divisor de fios 2 entradas-4 saídas</name>
+        <name lang="ro">Distribuitor conector de fir 2 intrări-4 ieșiri</name>
+        <name lang="ru">Разветвитель соединителя проводов 2 вход-4 выход</name>
+        <name lang="sk">Rozdeľovač drôtového konektora 2 vstupov-4 výstupov</name>
+        <name lang="sl">Razdelilnik žičnega konektorja 2 vhod-4 izhod</name>
+        <name lang="sr">Раздвајач кабловског конектора 2 улаз-4 излаз</name>
+        <name lang="sv">Trådanslutning förgrenare 2 ingång-4 utgång</name>
+        <name lang="tr">Kablo konnektörü ayırıcı 2 giriş-4 çıkış</name>
+        <name lang="uk">Розгалужувач з'єднувача проводів 2 входів-4 виходів</name>
+        <name lang="zh">2进4出接线分线器</name>
+    </names>
+    <informations>Author convertor: Mario Luongo</informations>
+    <description>
+        <rect x="-18" y="-56.5" width="26" height="36" rx="1" ry="1" style="line-style:normal;line-weight:normal;filling:lightgray;color:gray" antialias="false"/>
+        <rect x="-14" y="-57" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-27" y="-20.5" width="44" height="40" rx="1" ry="1" style="line-style:normal;line-weight:normal;filling:lightgray;color:gray" antialias="false"/>
+        <rect x="-14" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLBlueDeepSkyBlue;color:white" antialias="false"/>
+        <rect x="6" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLBlueDeepSkyBlue;color:white" antialias="false"/>
+        <rect x="-24" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <line x1="-10" y1="-5" x2="-10" y2="-41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="5" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="-10" y1="-5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-57" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLBlueDeepSkyBlue;color:white" antialias="false"/>
+        <line x1="0" y1="-5" x2="0" y2="-41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{1abbfb90-0717-455e-a789-76639730ccf5}" name="" x="-10" y="-41" orientation="n" type="Generic"/>
+        <terminal uuid="{3f89f462-c81c-47dd-a912-2d2c8fc73c30}" name="" x="0" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{b6b6837c-1fb0-4d51-b82e-f75652e7bf95}" name="" x="-10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{eb338493-235e-4448-9ddd-9b9f761b4e59}" name="" x="-20" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{5bc3f241-865f-4fce-a096-cc053e70df2c}" name="" x="10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{a96067c4-a9b6-49bb-808f-55c9df70322c}" name="" x="0" y="-41" orientation="n" type="Generic"/>
+    </description>
+</definition>

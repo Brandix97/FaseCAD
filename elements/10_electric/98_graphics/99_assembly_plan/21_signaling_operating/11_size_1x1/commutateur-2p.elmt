@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="50" height="70" hotspot_x="28" hotspot_y="23">
+    <uuid uuid="{186fe202-b944-fa90-fa87-21a25f43bbce}"/>
+    <names>
+        <name lang="ar"></name>
+        <name lang="ca">Canvi de 2P</name>
+        <name lang="cs">Přepínač 2 polohy</name>
+        <name lang="da">Kontakt 2P</name>
+        <name lang="de"></name>
+        <name lang="el"></name>
+        <name lang="en"></name>
+        <name lang="es">Conmutador 2P</name>
+        <name lang="fi">Kytkin 2P</name>
+        <name lang="fr">Commut 2P</name>
+        <name lang="hr">Preklopka 2P</name>
+        <name lang="hu">Kapcsoló 2P</name>
+        <name lang="it"></name>
+        <name lang="ja">切替スイッチ 2P</name>
+        <name lang="ko">스위치 2P</name>
+        <name lang="mn">Сонгогч 2Б</name>
+        <name lang="nb">Velger 2P</name>
+        <name lang="nl"></name>
+        <name lang="nl_BE">Commut 2P</name>
+        <name lang="pl"></name>
+        <name lang="pt">Comut 2P</name>
+        <name lang="pt_BR">Commut 2 pinos</name>
+        <name lang="ro">Comutator 2P</name>
+        <name lang="ru">Переключатель 2П</name>
+        <name lang="sk">Prepínač 2P</name>
+        <name lang="sl">Izbirno stikalo 2P</name>
+        <name lang="sr">Комутатор 2П</name>
+        <name lang="sv">Vridströmbrytare 2L</name>
+        <name lang="tr">Komütatör 2K</name>
+        <name lang="uk">Перемикач 2П</name>
+        <name lang="zh">两位置选择开关</name>
+    </names>
+    <informations>PFIT 589</informations>
+    <description>
+        <ellipse x="-12.5" y="-12.5" width="25" height="25" style="line-style:normal;line-weight:hight;filling:black;color:gray" antialias="false"/>
+        <text text="14" x="5" y="20" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="10" y="-10" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="4.5" y="22.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="24" x2="6" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="24" x2="10" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="23" x2="8" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="26" x2="11" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-12.5" y="22.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="24" x2="-11" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="24" x2="-7" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="10" y="9" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{0a7ec1aa-56f5-4d4e-85fa-f35ad1211760}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <line x1="-9" y1="23" x2="-9" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-27" y="9" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{8fadd307-1947-412a-aa64-234fd56d371c}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <line x1="-12" y1="26" x2="-6" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-8" x2="2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:white;color:white" antialias="false"/>
+        <text text="0" x="-17" y="-10" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="13" x="-12" y="20" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{23101aba-6363-4f5c-8efb-5f273f844c95}" name="" x="-9" y="35" orientation="s" type="Generic"/>
+        <terminal uuid="{fec5ebd7-c2f4-4e1a-96a8-65ffc9ccfa68}" name="" x="8" y="35" orientation="s" type="Generic"/>
+    </description>
+</definition>

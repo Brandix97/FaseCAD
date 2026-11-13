@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="19" hotspot_y="10">
+    <uuid uuid="{0552a4fc-72e8-5913-f80e-4ec5eb3bd9a6}"/>
+    <names>
+        <name lang="ca">Evaporador cúbic</name>
+        <name lang="es">Evaporador cúbico-1</name>
+        <name lang="pt_BR">Evapouadou cúbico-1</name>
+        <name lang="zh">蒸发器1</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="2" y1="-5" x2="2" y2="-8.33" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7.4" y1="-5" x2="7.4" y2="-8.33" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-5" x2="12" y2="-8.33" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="23" y="-4" width="3" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="16" x2="22" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="-4" width="3" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-4" width="21" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-11" y1="-2" x2="-15" y2="-2" x3="-15" y3="16" x4="-11" y4="16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-8" y1="-2" x2="22" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="27" y1="-2" x2="30" y2="-2" x3="30" y3="16" x4="27" y4="16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-4" y="-1" width="2" height="4" start="70" angle="220" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-1" x2="4" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="3" x2="4" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="4" y="1" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="1" x2="12" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="2" x2="12" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="11" y="-1" width="3" height="4" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-5" x2="-3" y2="-8.33" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{3db0cf74-c6e8-4de4-a7b4-65c14af2743e}" name="" x="31" y="2" orientation="e" type="Generic"/>
+        <terminal uuid="{4345361f-217f-45d0-9360-170f76b1e451}" name="" x="31" y="13" orientation="e" type="Generic"/>
+    </description>
+</definition>

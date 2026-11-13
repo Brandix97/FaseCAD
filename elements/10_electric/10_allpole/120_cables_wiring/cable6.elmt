@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="3">
+    <uuid uuid="{efc32e23-b58b-4200-1782-17a97163d294}"/>
+    <names>
+        <name lang="ar">كابل 3G</name>
+        <name lang="ca">cable 3G</name>
+        <name lang="cs">Kabel 3G</name>
+        <name lang="da">Kabel 3G</name>
+        <name lang="de">Kabel 3G</name>
+        <name lang="el">Καλώδιο 3G</name>
+        <name lang="en">Cable 3G</name>
+        <name lang="es">Cable 3G</name>
+        <name lang="fi">Kaapeli 3G</name>
+        <name lang="fr">Cable 3G</name>
+        <name lang="hr">Kabel 3G</name>
+        <name lang="hu">Kábel 2 + PE</name>
+        <name lang="it">Cavo ? 3G</name>
+        <name lang="ja">ケーブル 3G</name>
+        <name lang="ko">케이블 3G</name>
+        <name lang="mn">Кабель 3G</name>
+        <name lang="nb">Kabel 3G</name>
+        <name lang="nl">Kabel 3G</name>
+        <name lang="nl_BE">Kabel 3G</name>
+        <name lang="pl">Przewód trójżyłowy</name>
+        <name lang="pt">Cabo 3G</name>
+        <name lang="pt_BR">Cabo 3G</name>
+        <name lang="ro">Cablu 3G</name>
+        <name lang="ru">Кабель 3G</name>
+        <name lang="sk">Kábel 3G</name>
+        <name lang="sl">Kabel 3G</name>
+        <name lang="sr">Кабл 3G</name>
+        <name lang="sv">Kabel 3G</name>
+        <name lang="tr">Kablo 3G</name>
+        <name lang="uk">Кабель 3G</name>
+        <name lang="zh">6芯电缆</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-23.05" y1="7.95" x2="-19.05" y2="11.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3.05" y1="7.95" x2="0.95" y2="11.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="1" x="0" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="21" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="17" y1="8" x2="21" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-72" y="-7.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{10780c83-197d-49cd-aec6-47275db2c70d}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-21" y1="10" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="GNYE" x="-21" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-52" y="-8.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b5f382ec-4935-4c23-866e-215e07d5fbd4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+    </description>
+</definition>

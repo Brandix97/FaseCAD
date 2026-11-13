@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="10" height="30" hotspot_x="5" hotspot_y="15">
+    <uuid uuid="{a6b83e71-1d61-5b79-b795-10823d134782}"/>
+    <names>
+        <name lang="de">Schutzleiterklemme (PE)</name>
+        <name lang="en">Protective earth terminal (PE)</name>
+        <name lang="es">Borne de tierra (PE)</name>
+        <name lang="fr">Borne de terre (PE)</name>
+        <name lang="it">Morsetto di terra (PE)</name>
+        <name lang="pt">Borne de terra (PE)</name>
+        <name lang="tr">Koruma topraklama klemensi (PE)</name>
+        <name lang="zh">保护接地端子 (PE)</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">ground</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-10" x2="0" y2="-2.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="2.5" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="-7.6" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{959a2800-83c1-5322-85fe-f03565c50bd1}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>PE</text>
+        </dynamic_text>
+        <dynamic_text x="-11" y="-10.49" z="3" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5736b5a7-7213-5b2a-8445-088fbaafe593}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f6e04bcb-9c6f-5968-9ca6-59332412d0ef}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{c485efe7-751d-5011-9311-18e25f3ada41}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

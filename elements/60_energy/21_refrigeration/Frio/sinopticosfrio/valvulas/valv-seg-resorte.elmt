@@ -1,0 +1,25 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="13">
+    <uuid uuid="{829fa68f-af49-5753-d7d0-0c678df0741c}"/>
+    <names>
+        <name lang="ca">Vàlvula de seguretat ressort</name>
+        <name lang="es">Valvula seguridad resorte</name>
+        <name lang="pt_BR">Valvula seguridad resoute</name>
+        <name lang="zh">弹簧安全阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="4.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e0ad3960-110b-4021-b19f-8b1987d55c31}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-1" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-1" x2="0" y2="-5" x3="3" y3="-6" x4="-3" y4="-7" x5="3" y5="-8" x6="-3" y6="-9" x7="1" y7="-10" x8="1" y8="-11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{f384ca37-7c72-4fdf-b2c9-46e63709c13f}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{160cc6e9-d973-4a3e-8443-b4de1056bec5}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

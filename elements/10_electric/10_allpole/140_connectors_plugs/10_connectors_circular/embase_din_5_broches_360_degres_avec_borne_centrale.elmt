@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="35" hotspot_y="22">
+    <uuid uuid="{e6e982d6-3b66-12ce-d56b-bc16acd31c9e}"/>
+    <names>
+        <name lang="ar">قاعدة DIN ب 5 أطراف توصيل 360 درجة  بما فيها طرف مركزي</name>
+        <name lang="ca">Presa DIN de 5 pins 360 graus amb terminal central</name>
+        <name lang="cs">Kulatá zástrčka DIN 5 kolíků 360 stupňů se středovým kolíčkem</name>
+        <name lang="da">5-pin DIN-bøsning 360 grader med central klemme</name>
+        <name lang="de">Rundstecker 5-polig 360°</name>
+        <name lang="el">Υποδοχή DIN 5 ακροδεκτών 360 μοιρών με κεντρικό ακροδέκτη</name>
+        <name lang="en">5-pin DIN socket 360 degrees with central terminal</name>
+        <name lang="es">Socket de 5 pines a 360 grados con pin plano central</name>
+        <name lang="fi">5-napainen DIN-pistorasia 360 astetta keskiliittimellä</name>
+        <name lang="fr">Embase DIN 5 broches 360 degrés avec borne centrale</name>
+        <name lang="hr">5-pinska DIN utičnica 360 stupnjeva sa središnjom stezaljkom</name>
+        <name lang="hu">5 tűs DIN csatlakozó 360 fok középső csatlakozóval</name>
+        <name lang="it">DIN 5 Pin 360° con pin centrale</name>
+        <name lang="ja">5ピン DIN ソケット 360 度 中央端子付き</name>
+        <name lang="ko">5-핀 DIN 소켓 360도, 중앙 단자 포함</name>
+        <name lang="mn">5-пин DIN залгуур 360 градус төв клеммтэй</name>
+        <name lang="nb">5-pinners DIN-kontakt 360 grader med midtklemme</name>
+        <name lang="nl">DIN 5 Pin 360° centraal pin</name>
+        <name lang="nl_BE">5-pin DIN-contactdoos 360 graden met middenklem</name>
+        <name lang="pl">Złącze DIN, pięciostykowe</name>
+        <name lang="pt">Tomada DIN de 5 pinos 360 graus com terminal central</name>
+        <name lang="pt_BR">Tomada DIN 5 pinos 360 graus com borne central</name>
+        <name lang="ro">Priza DIN cu 5 pini 360 grade cu bornă centrală</name>
+        <name lang="ru">5-штырьковое гнездо DIN 360 градусов с центральной клеммой</name>
+        <name lang="sk">5-kolíková DIN zásuvka 360 stupňov so stredovou svorkou</name>
+        <name lang="sl">5-polna vtičnica DIN 360 stopinj z osrednjo sponko</name>
+        <name lang="sr">5-пинска DIN утичница 360 степени са централном клемом</name>
+        <name lang="sv">5-polig DIN-hylsa 360 grader med central anslutning</name>
+        <name lang="tr">Merkezi klemensli 5 pimli DIN priz 360 derece</name>
+        <name lang="uk">5-контактне гніздо DIN 360 градусів з центральною клемою</name>
+        <name lang="zh">DIN底座5针360度带中心端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-25" y1="-10" x2="-13" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="8.05" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c067c83c-bebc-4529-b9cb-c19f93312168}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-20" y="-20" width="40" height="40" start="96" angle="348" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="25" y1="-10" x2="13" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="5" x="-25" y="-11.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="1" y="29.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="22" y="-11.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="22" y="8.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="-25.5" y="8.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="30" x2="0" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="10" x2="13" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="10" x2="-13" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-20" x2="-2" y2="-16" x3="2" y3="-16" x4="2" y4="-20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-12.5" y="-12.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="7.5" y="-12.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="7.5" y="7.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-12.5" y="7.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{062a2bc5-c639-441a-b0a3-8c46092019f3}" name="" x="26" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{acace415-632d-4c55-8ea5-f1a3196d70a6}" name="" x="0" y="31" orientation="s" type="Generic"/>
+        <terminal uuid="{f5e47eed-4fa0-4f76-8ec1-32f310b6f4ec}" name="" x="-26" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{f30f1521-106c-4d0c-85e5-9dcae22e2df8}" name="" x="-26" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{f2084e2b-d8e2-4b5f-8a70-5129b87d5de4}" name="" x="26" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

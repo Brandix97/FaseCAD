@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="master" width="60" height="60" hotspot_x="39" hotspot_y="30">
+    <uuid uuid="{3fffe2ff-ca38-82f7-301b-e642db8d1422}"/>
+    <names>
+        <name lang="ar">مفتاح عزل</name>
+        <name lang="ca">trencar aïllador</name>
+        <name lang="cs">Pojistkový odpínač 2P</name>
+        <name lang="da">skilleafbryder</name>
+        <name lang="de">Lasttrenner 3-polig</name>
+        <name lang="el">διακόπτης αποζεύκτης</name>
+        <name lang="en">break isolator</name>
+        <name lang="es">Seccionador</name>
+        <name lang="fi">erotuskatkaisija</name>
+        <name lang="fr">Sectionneur monophasé</name>
+        <name lang="hr">Rastavni prekidač</name>
+        <name lang="hu">Szakaszoló kapcsoló 2 pólusú</name>
+        <name lang="it">Sezionatore 3P</name>
+        <name lang="ja">断路器</name>
+        <name lang="ko">단로 스위치</name>
+        <name lang="mn">Салгагч таслуур</name>
+        <name lang="nb">skillebryter</name>
+        <name lang="nl">Lastschakelaar</name>
+        <name lang="nl_BE">Scheidingsschakelaar</name>
+        <name lang="pl">Odłącznik</name>
+        <name lang="pt">Seccionador</name>
+        <name lang="pt_BR">Chave seccionadora</name>
+        <name lang="ro">separator de rupere</name>
+        <name lang="ru">Разъеденитель</name>
+        <name lang="sk">odpojovač</name>
+        <name lang="sl">Ločilno stikalo</name>
+        <name lang="sr">раставни прекидач</name>
+        <name lang="sv">brytare isolator</name>
+        <name lang="tr">ayırıcı şalter</name>
+        <name lang="uk">Роз'єднувач</name>
+        <name lang="zh">单相隔离开关</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-15" y1="-10" x2="-10" y2="10" x3="-10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4" y1="-6" x2="8" y2="-7" x3="11" y3="6" x4="7" y4="7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="-10" x2="10" y2="10" x3="10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="36" y="-9.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4778c75b-a8ab-46cd-942f-3bdbb31fce01}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="-20" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-10" x2="-12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="-6" x2="-12" y2="-7" x3="-9" y3="6" x4="-13" y4="7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-25" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="10" x2="-30" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-33" y1="-5" x2="-25" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-26.5" y="8.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{a91295cc-a01c-42e2-899a-05aa8fdcc848}" name="" x="10" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{b6016776-4d97-4fc1-95fd-234773d12bf6}" name="" x="10" y="21" orientation="s" type="Generic"/>
+        <terminal uuid="{2b978797-5eeb-440f-bfdc-ee707c024dca}" name="" x="-10" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{3e13a74b-1698-4300-a99b-4d5d951d392d}" name="" x="-10" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

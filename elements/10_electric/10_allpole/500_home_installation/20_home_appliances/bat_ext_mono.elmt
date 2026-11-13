@@ -1,0 +1,79 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="177">
+    <uuid uuid="{c57232a4-29cb-31ea-47ce-196e38e29513}"/>
+    <names>
+        <name lang="ar">مبنى خارجي 1P+N</name>
+        <name lang="ca">Edifici exterior 1P+N</name>
+        <name lang="cs">Externí budova 1f</name>
+        <name lang="da">Ekstern bygning 1P+N</name>
+        <name lang="de">Außengebäude 1P+N</name>
+        <name lang="el">Εξωτερικό κτίριο 1P+N</name>
+        <name lang="en">External building 1P+N</name>
+        <name lang="es">Edificio exterior 1P+N</name>
+        <name lang="fi">Ulkorakennus 1P+N</name>
+        <name lang="fr">Bât Ext mono</name>
+        <name lang="hr">Vanjska zgrada 1P+N</name>
+        <name lang="hu">Külső épület 1F+N</name>
+        <name lang="it">Edificio esterno 1P+N</name>
+        <name lang="ja">外部建物 1P+N</name>
+        <name lang="ko">외부 건물 1P+N</name>
+        <name lang="mn">Гадаад барилга 1P+N</name>
+        <name lang="nb">Ekstern bygning 1P+N</name>
+        <name lang="nl">Extern gebouw 1P+N</name>
+        <name lang="nl_BE">Buiten gebouw 1P+N</name>
+        <name lang="pl">Budynek zewnętrzny 1P+N</name>
+        <name lang="pt">Edifício exterior 1P+N</name>
+        <name lang="pt_BR">Edificação externa monofásica</name>
+        <name lang="ro">Clădire exterioară 1P+N</name>
+        <name lang="ru">Наружная постройка 1P+N</name>
+        <name lang="sk">Vonkajšia budova 1P+N</name>
+        <name lang="sl">Zunanja zgradba 1P+N</name>
+        <name lang="sr">Спољна зграда 1P+N</name>
+        <name lang="sv">Yttre byggnad 1P+N</name>
+        <name lang="tr">Harici bina 1P+N</name>
+        <name lang="uk">Зовнішня будівля 1P+N</name>
+        <name lang="zh">室外建筑单相</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{2ee02e1d-a5ea-421a-b439-e3a0ead41c27}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{70653ff3-98e3-4dd1-bff0-f5db820e5260}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-160" x2="35" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="85" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-140" x2="40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-100" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-100" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-100" x2="50" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-125" x2="70" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-125" x2="70" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-170" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="58" y="-12" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{be33f398-4de3-4bb9-b2b9-2917aa820c30}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text> mm²</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="39" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{b19f3d05-3fd9-4e86-8784-f9d35c2fb994}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{52e4fc03-f95f-49d0-8bf9-b0325fd4ad7f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="41" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{d70238fe-9e72-4b3f-a3ab-491ba8e3372c}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Bâtiment extérieur</text>
+        </dynamic_text>
+        <terminal uuid="{7952be86-3060-4cc0-a781-ac00d7e59a10}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{2c7f1e9b-9e1f-4e67-b3f6-57af9d1e7f67}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{523f90d3-a9c6-4f37-a8c3-a96ba3d9e03d}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

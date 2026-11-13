@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{0f50bae5-bacd-ff53-c0a2-23820771e3cc}"/>
+    <names>
+        <name lang="ar">الكابلات الكهربائية</name>
+        <name lang="ca">cable elèctric</name>
+        <name lang="cs">elektrický kabel</name>
+        <name lang="da">elektrisk kabel</name>
+        <name lang="de">Stromkabel</name>
+        <name lang="el">ηλεκτρικό καλώδιο</name>
+        <name lang="en">electric cable</name>
+        <name lang="es">cable eléctrico</name>
+        <name lang="fi">sähkökaapeli</name>
+        <name lang="fr">câble électrique</name>
+        <name lang="hr">električni kabel</name>
+        <name lang="hu">elektromos kábel</name>
+        <name lang="it">cavo elettrico</name>
+        <name lang="ja">電気ケーブル</name>
+        <name lang="ko">전기 케이블</name>
+        <name lang="mn">цахилгаан кабель</name>
+        <name lang="nb">elektrisk kabel</name>
+        <name lang="nl">elektrische kabel</name>
+        <name lang="nl_BE">elektrische kabel</name>
+        <name lang="pl">kabel elektryczny</name>
+        <name lang="pt">cabo elétrico</name>
+        <name lang="pt_BR">Cabo elétrico</name>
+        <name lang="ro">cablu electric</name>
+        <name lang="ru">электрический кабель</name>
+        <name lang="sk">Elektrický kábel</name>
+        <name lang="sl">električni kabel</name>
+        <name lang="sr">електрични кабл</name>
+        <name lang="sv">Elkabel</name>
+        <name lang="tr">elektrik kablosu</name>
+        <name lang="uk">електричний кабель</name>
+        <name lang="zh">电缆</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9396bf49-b4ff-4be1-be10-4580393e4488}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="6" y1="5" x2="0" y2="5" x3="5" y3="-5" x4="11" y4="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{7b060bcc-2a46-4261-95df-7330eeee9bbc}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{17d2759e-b3b4-4062-bb6e-8d19495d6cd5}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

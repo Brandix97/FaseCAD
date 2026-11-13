@@ -1,0 +1,58 @@
+<definition type="element" link_type="simple" hotspot_x="24" hotspot_y="4" width="50" height="30" version="0.100.1">
+    <uuid uuid="{184f0e94-b4d5-4766-b222-eda9fad8befe}"/>
+    <names>
+        <name lang="ar">كابل متعدد الأسلاك 3 قطب Demux</name>
+        <name lang="ca">Demultiplexador de cable multifilar de 3 fils</name>
+        <name lang="cs">Vícežilový kabel 3-pólový Demux</name>
+        <name lang="da">Flerleder kabel 3-polet Demux</name>
+        <name lang="de">Mehrleiterkabel 3-polig Demux</name>
+        <name lang="el">Πολυαγωγικό καλώδιο 3 πόλων Demux</name>
+        <name lang="en">Multi wire cable 3-pole Demux</name>
+        <name lang="es">Cable multifilar 3 polos Demux</name>
+        <name lang="fi">Monijohdinkaapeli 3-napainen Demux</name>
+        <name lang="fr">Multiconducteur câble 3 cond. Demux</name>
+        <name lang="hr">Višežilni kabel 3-polni Demux</name>
+        <name lang="hu">Többeres kábel 3 pólusú Demux</name>
+        <name lang="it">Cavo multipolare 3 poli Demux</name>
+        <name lang="ja">多芯ケーブル 3極 デマルチプレクサ</name>
+        <name lang="ko">다심 케이블 3극 디먹스</name>
+        <name lang="mn">Олон утаст кабель 3-туйлт Demux</name>
+        <name lang="nb">Flerlederkabel 3-pol Demux</name>
+        <name lang="nl">Meerdraadskabel 3-polig Demux</name>
+        <name lang="nl_BE">Meeraderige kabel 3-polig Demux</name>
+        <name lang="pl">Przewód wielożyłowy 3-biegunowy Demux</name>
+        <name lang="pt">Cabo multifilar 3 polos Demux</name>
+        <name lang="pt_BR">Cabo multipolar 3 polos - demultiplexador</name>
+        <name lang="ro">Cablu multifilar 3-polar Demux</name>
+        <name lang="ru">Многожильный кабель 3-полюсный демультиплексор</name>
+        <name lang="sk">Viacvodičový kábel 3-pólový demultiplexor</name>
+        <name lang="sl">Večžilni kabel 3-polni Demux</name>
+        <name lang="sr">Вишежилни кабл 3-полни Демукс</name>
+        <name lang="sv">Flerledarkabel 3-polig Demux</name>
+        <name lang="tr">Çok telli kablo 3-kutuplu Demux</name>
+        <name lang="uk">Багатожильний кабель 3-полюсний демультиплексор</name>
+        <name lang="zh">多芯电缆 3 极解复用器</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: Moritz Scholjegerdes</informations>
+    <description>
+        <line end1="none" end2="none" y1="10" antialias="false" y2="19" style="line-style:normal;line-weight:normal;filling:none;color:red" x1="20" length1="1.5" x2="20" length2="1.5"/>
+        <line end1="none" end2="none" y1="10" antialias="false" y2="19" style="line-style:normal;line-weight:normal;filling:none;color:red" x1="0" length1="1.5" x2="0" length2="1.5"/>
+        <line end1="none" end2="none" y1="10" antialias="false" y2="0" style="line-style:normal;line-weight:hight;filling:none;color:red" x1="0" length1="1.5" x2="0" length2="1.5"/>
+        <line end1="none" end2="none" y1="10" antialias="false" y2="19" style="line-style:normal;line-weight:normal;filling:none;color:red" x1="-20" length1="1.5" x2="-20" length2="1.5"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-22" y="8" z="6" rotation="0" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{e46e13a6-bd57-4e2c-ae86-88f5b3b06724}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-2" y="8" z="7" rotation="0" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{bf028a8d-7e59-4a45-9aab-68c28a8c53d8}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="18" y="8" z="8" rotation="0" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{13a77a0d-7120-4bd3-9141-511b67dc16d7}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignTop">
+            <text>3</text>
+        </dynamic_text>
+        <line end1="none" end2="none" y1="10" antialias="false" y2="10" style="line-style:normal;line-weight:hight;filling:none;color:red" x1="-20" length1="1.5" x2="20" length2="1.5"/>
+        <terminal type="Generic" x="0" y="0" name="Cable" uuid="{d8eec378-4372-40e7-82e9-929b410f0cc6}" orientation="n"/>
+        <terminal type="Generic" x="0" y="20" name="2" uuid="{bdcdeb19-edde-489d-a8d3-49a125d42644}" orientation="s"/>
+        <terminal type="Generic" x="-20" y="20" name="1" uuid="{77245c5b-82fd-4b52-b521-50417b3cd63a}" orientation="s"/>
+        <terminal type="Generic" x="20" y="20" name="3" uuid="{994f9c2c-dcef-46be-8261-be2436d135b2}" orientation="s"/>
+    </description>
+</definition>

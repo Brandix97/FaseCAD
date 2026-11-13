@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{3828286e-464e-5043-b721-0492f2f2fd55}"/>
+    <names>
+        <name lang="de">Betriebsstundenzähler</name>
+        <name lang="en">Hour meter</name>
+        <name lang="es">Contador de horas</name>
+        <name lang="fr">Compteur horaire</name>
+        <name lang="it">Contaore</name>
+        <name lang="pt">Contador de horas</name>
+        <name lang="tr">Çalışma saati sayacı</name>
+        <name lang="zh">计时器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-5" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="6.39" text="h" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{1a5c84ea-4209-562b-896e-2bbd58527e3f}"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-19" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{567f0bd9-822e-559b-b54f-350e67259ae5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{73da53b2-f46d-5b8a-95c6-6f09395a4a3b}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{4264e903-8702-5ad5-aa3b-bb6f569a6763}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

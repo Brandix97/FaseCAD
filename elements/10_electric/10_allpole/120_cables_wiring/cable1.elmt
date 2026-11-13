@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="40" hotspot_x="76" hotspot_y="20">
+    <uuid uuid="{6f5138a0-5dbc-5510-e0f6-447ef9ae9fcd}"/>
+    <names>
+        <name lang="ar">كايبل ثلاثي الطور + تأريض</name>
+        <name lang="ca">Cable trifàsic + terra</name>
+        <name lang="cs">Kabel 4G</name>
+        <name lang="da">Kabel 3 faser+jord</name>
+        <name lang="de">Kabel 4G</name>
+        <name lang="el">Καλώδιο 3 φάσεων+γείωσης</name>
+        <name lang="en">Cable 3 phases+earth</name>
+        <name lang="es">Cable 3 fases+tierra</name>
+        <name lang="fr">Cable 3 phases+terre</name>
+        <name lang="hu">Kábel 3 + PE</name>
+        <name lang="it">Cavo 3 fasi + terra</name>
+        <name lang="pl">Oznaczenie przewodu czterożyłowego</name>
+        <name lang="pt_BR">Cabo 3 fases+terra</name>
+        <name lang="ru">Кабель 3 жилы + PE</name>
+        <name lang="zh">1芯电缆</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-12.05" y1="7.95" x2="-8.05" y2="11.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="2" x="-9" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="12" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="26.95" y1="7.95" x2="30.95" y2="11.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8" y1="8" x2="12" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="GNYE" x="32" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-68" y="2.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3f2b12f4-8640-48e4-a5eb-ac4c2d5eb23e}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text>210007
+4G1,5 mm²
+               4m</text>
+        </dynamic_text>
+        <line x1="-39.94" y1="10" x2="37.93" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-32" y1="8" x2="-28" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="1" x="-28" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-61" y="-8.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{88fb9954-aa57-4245-bfc7-dbb1a65850c3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>+</text>
+        </dynamic_text>
+    </description>
+</definition>

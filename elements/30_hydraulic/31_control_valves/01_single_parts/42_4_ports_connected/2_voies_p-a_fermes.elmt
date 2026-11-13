@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="20" hotspot_y="42">
+    <uuid uuid="{160c4dbc-f2c8-3c30-ad40-d4dac1172ed7}"/>
+    <names>
+        <name lang="ar">مسارات -P-A  مُغلقة 2</name>
+        <name lang="ca">4 B -u003e T connectat</name>
+        <name lang="cs">4 cesty - P-A zavřené - spojené</name>
+        <name lang="da">4 B -&amp;gt; T forbundet</name>
+        <name lang="de">4 B -&amp;gt; T verbunden</name>
+        <name lang="el">4 B -&amp;gt; T συνδεδεμένο</name>
+        <name lang="en">4 B -&gt; T connected</name>
+        <name lang="es">4 B -&amp;gt; T conectadas</name>
+        <name lang="fi">4 B -&amp;gt; T kytketty</name>
+        <name lang="fr">4 voies - P-A fermés - connectées</name>
+        <name lang="hr">4 B -&amp;gt; T spojen</name>
+        <name lang="hu">4 B -&amp;gt; T összekötve</name>
+        <name lang="it">4 porte - P-A chiuse - connesse</name>
+        <name lang="ja">4 B -&amp;gt; T 接続</name>
+        <name lang="ko">4 B -&amp;gt; T 연결됨</name>
+        <name lang="mn">4 B -&amp;gt; T холбогдсон</name>
+        <name lang="nb">4 B -&amp;gt; T koblet</name>
+        <name lang="nl">4  B -&gt; T</name>
+        <name lang="nl_BE">4 B -&amp;gt; T verbonden</name>
+        <name lang="pl">4 drogi - P-A zamknięte - połączone</name>
+        <name lang="pt">4 B -&amp;gt; T ligadas</name>
+        <name lang="pt_BR">4 vias B para T conectadas</name>
+        <name lang="ro">4 B -&amp;gt; T conectate</name>
+        <name lang="ru">4 B -&amp;gt; T соединено</name>
+        <name lang="sk">4 B -&amp;gt; T spojených</name>
+        <name lang="sl">4 B -&amp;gt; T povezano</name>
+        <name lang="sr">4 B -&amp;gt; T повезано</name>
+        <name lang="sv">4 B -&amp;gt; T ansluten</name>
+        <name lang="tr">4 B -&amp;gt; T bağlı</name>
+        <name lang="uk">4 B -&amp;gt; T з'єднано</name>
+        <name lang="zh">2通P-A关闭</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-21" y="-19.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{33ab5b18-f1cc-40ee-bfa5-411a9d068b86}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-30" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-20" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-30" x2="20" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-15" x2="2" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-20" x2="20" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="5" x2="2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="18" y1="5" x2="22" y2="5" x3="20" y3="10" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <dynamic_text x="-10" y="-35" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{66542531-bd23-467a-b3d3-e01f28cbd985}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>a</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="6" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a8f042bf-3742-43b4-9034-76343bfaf53f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>t</text>
+        </dynamic_text>
+        <dynamic_text x="-10" y="6" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e2dc0d8d-1ab5-4c06-ba84-c1f3139406fd}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>p</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="-35" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8fbd2198-d137-48e6-ba85-682b49c7647e}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>b</text>
+        </dynamic_text>
+        <terminal uuid="{0e11fef2-2874-4290-8965-d20e57a5a730}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{b3790edd-f47a-44f5-b370-58b9a9db0b70}" name="" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{dcfa93f5-e90a-419f-9a63-d16dab24eb3f}" name="" x="20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{71500857-f9de-4439-8d46-d8e0dfb4ba83}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

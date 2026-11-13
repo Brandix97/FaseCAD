@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="40" hotspot_y="35">
+    <uuid uuid="{a8e84d59-1484-f9a1-2ff7-2aa8b91eaeb3}"/>
+    <names>
+        <name lang="ca">Grup de gasoil</name>
+        <name lang="es">Grupo Gasoil</name>
+        <name lang="pt_BR">Grupo Gasoil</name>
+        <name lang="zh">柴油机组</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <arc x="8" y="-25" width="6" height="3" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8.12" y1="-8.42" x2="3.21" y2="-8.42" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-8.12" x2="8" y2="8.13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.12" y1="8.58" x2="3.21" y2="8.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="1.32" y1="8.32" x2="-10.1" y2="2.35" x3="-10.1" y3="14.29" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="1.32" y1="-8.68" x2="-10.1" y2="-14.65" x3="-10.1" y3="-2.71" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <ellipse x="-15.18" y="-16.66" width="17.79" height="15.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-15.18" y="0.34" width="17.79" height="15.95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15.91" y1="-8.47" x2="-20.31" y2="-8.47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.91" y1="8.53" x2="-20.31" y2="8.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="-8.12" x2="-21" y2="8.13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="0" x2="-22" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-9" x2="8" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="2" y="-28" width="12" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="-25" width="6" height="3" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-25" y="-29" width="41" height="47" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="0" x2="18" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-24" y="-40" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7e267e33-5522-43bd-96ac-b958795aa5d8}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2bc951ef-eb77-4517-8819-767ca06dff72}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{631587fe-a173-4627-9c03-0fbfac5a3978}" name="" x="18" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

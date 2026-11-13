@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="22">
+    <uuid uuid="{d11d0aac-922b-43d1-4f82-8a050ccbcda8}"/>
+    <names>
+        <name lang="ar">ثلاّجة بجزء للتجميد</name>
+        <name lang="ca">Nevera amb congelador</name>
+        <name lang="cs">Lednička s mrazákem</name>
+        <name lang="da">Køleskab med fryser</name>
+        <name lang="de">Kühlschrank mit Gefrierfach</name>
+        <name lang="el">Ψυγειοκαταψύκτης</name>
+        <name lang="en">Refrigerator with freezer</name>
+        <name lang="es">Refrigerador con congelador</name>
+        <name lang="fi">Jääkaappi pakastimella</name>
+        <name lang="fr">Réfrigérateur avec partie congélateur</name>
+        <name lang="hr">Hladnjak sa zamrzivačem</name>
+        <name lang="hu">Hűtőszekrény fagyasztóval</name>
+        <name lang="it">Frigorifero / congelatore</name>
+        <name lang="ja">冷凍庫付き冷蔵庫</name>
+        <name lang="ko">냉동실 포함 냉장고</name>
+        <name lang="mn">Хөлдөөгчтэй хөргөгч</name>
+        <name lang="nb">Kjøleskap med fryser</name>
+        <name lang="nl">Koelkast met vriezer</name>
+        <name lang="nl_BE">Koelkast met diepvriesvak</name>
+        <name lang="pl">Chłodziarka z zamrażarką</name>
+        <name lang="pt">Frigorífico com congelador</name>
+        <name lang="pt_BR">Refrigerador com congelador</name>
+        <name lang="ro">Frigider cu congelator</name>
+        <name lang="ru">Холодильник с морозильной камерой</name>
+        <name lang="sk">Chladnička s mrazničkou</name>
+        <name lang="sl">Hladilnik z zamrzovalnikom</name>
+        <name lang="sr">Фрижидер са замрзивачем</name>
+        <name lang="sv">Kylskåp med frys</name>
+        <name lang="tr">Donduruculu buzdolabı</name>
+        <name lang="uk">Холодильник з морозильною камерою</name>
+        <name lang="zh">带冷冻室的冰箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="6" y1="4" x2="8" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="10" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{38602ada-e5d9-47bc-b6f4-143778a627ad}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-12" y="-1" width="24" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="2" x2="8" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="-1" x2="-12" y2="23" x3="12" y3="23" x4="12" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="3" x2="9" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="4" x2="-6" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="1" x2="7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="2" x2="-6" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="3" x2="-5" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="1" x2="-7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="4" x2="1" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="18" x2="2" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="2" x2="1" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="14" x2="2" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.06" y1="3" x2="1.94" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="16" x2="3" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="1" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="13" x2="0" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-13" x2="0" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ecb25a4a-7f04-4f09-b10a-d438a8e6658e}" name="" x="0" y="-13" orientation="n" type="Generic"/>
+    </description>
+</definition>

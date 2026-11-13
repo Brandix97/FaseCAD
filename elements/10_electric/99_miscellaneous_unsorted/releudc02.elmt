@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="80" hotspot_x="18" hotspot_y="40">
+    <uuid uuid="{073111df-9885-cb26-1f8c-17661f6330d6}"/>
+    <names>
+        <name lang="ar">مرحل DC 01</name>
+        <name lang="ca">Relé DC 01</name>
+        <name lang="cs">Relé DC 01</name>
+        <name lang="da">Relæ DC 01</name>
+        <name lang="de">Relais DC 01</name>
+        <name lang="el">Ρελέ DC 01</name>
+        <name lang="en">Relay DC 01</name>
+        <name lang="es">Relé DC 01</name>
+        <name lang="fi">Rele DC 01</name>
+        <name lang="fr">Relais DC 01</name>
+        <name lang="hr">Relej DC 01</name>
+        <name lang="hu">DC 01 relé</name>
+        <name lang="it">Relè DC 01</name>
+        <name lang="ja">リレー DC 01</name>
+        <name lang="ko">릴레이 DC 01</name>
+        <name lang="mn">Реле DC 01</name>
+        <name lang="nb">Relé DC 01</name>
+        <name lang="nl">Relais DC 01</name>
+        <name lang="nl_BE">Relais DC 01</name>
+        <name lang="pl">Przekaźnik DC 01</name>
+        <name lang="pt">Relé DC 01</name>
+        <name lang="pt_BR">Relé DC 01</name>
+        <name lang="ro">Releu DC 01</name>
+        <name lang="ru">Реле пост. тока 01</name>
+        <name lang="sk">Relé DC 01</name>
+        <name lang="sl">Rele DC 01</name>
+        <name lang="sr">Релеј DC 01</name>
+        <name lang="sv">Relä DC 01</name>
+        <name lang="tr">Röle DC 01</name>
+        <name lang="uk">Реле постійного струму 01</name>
+        <name lang="zh">直流继电器02</name>
+    </names>
+    <informations>Angelescu Constantin
+titus0818@yahoo.com</informations>
+    <description>
+        <dynamic_text x="48" y="-21.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f8156a4a-0279-4dc5-a9de-4677ee4570a7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="33.27" y1="-6.46" x2="33.27" y2="-4.28" x3="34.95" y3="-5.49" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="37.83" y1="-6.65" x2="37.83" y2="-4.5" x3="36.36" y3="-5.36" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <rect x="-9" y="-20" width="18" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="-6.46" x2="20" y2="-4.28" x3="21.68" y3="-5.49" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="20" y1="-4.46" x2="20" y2="18.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="33.27" y1="-4.45" x2="33.27" y2="19.44" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="24.56" y1="-6.65" x2="24.56" y2="-4.41" x3="22.94" y3="-5.3" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="24.43" y1="-4.28" x2="24.43" y2="-2.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.43" y1="-1.67" x2="28.85" y2="-1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="28.85" y1="-1.86" x2="28.85" y2="19.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="37.69" y1="-4.28" x2="37.69" y2="-2.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="37.69" y1="-2.1" x2="42.12" y2="-2.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="42.12" y1="-2.29" x2="42.12" y2="19.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="ND" x="19" y="-7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ND" x="32" y="-7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-14" y1="15" x2="-14" y2="5" x3="14" y3="-5" x4="14" y4="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{70bb35b5-a8aa-4fff-81c8-fed08eba7fb1}" name="1" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{0c3d1455-9d80-4cd7-b5fe-e7a38a20dd7f}" name="3" x="33" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{780f254c-352d-4e50-8fe0-efbfdbffd539}" name="4" x="42" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{0e0cd08f-114b-4940-b631-f91e2322ab39}" name="A2" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{034ce984-acd3-47ce-b4a3-bd289229c16b}" name="2" x="29" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{f8e14119-d8bf-402c-959d-7370f3aeff43}" name="A1" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,53 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="40" hotspot_x="28" hotspot_y="9">
+    <uuid uuid="{80437b03-a09e-82e2-6ff7-fa2d1ae96ee1}"/>
+    <names>
+        <name lang="ar">القابض الزاوية مغلق عادة</name>
+        <name lang="ca">pinça angular normalment tancada</name>
+        <name lang="cs">úhlové chapadlo normálně zavřené</name>
+        <name lang="da">vinkelgriber normalt lukket</name>
+        <name lang="de">winkelgreifer normal geschlossen</name>
+        <name lang="el">γωνιακή λαβή κανονικά κλειστή</name>
+        <name lang="en">angle gripper normally closed</name>
+        <name lang="es">Pinza angular normalmente cerrada</name>
+        <name lang="fi">kulmatarttuja normaalisti kiinni</name>
+        <name lang="fr">pince d'angle normalement fermée</name>
+        <name lang="hr">kutna hvataljka normalno zatvorena</name>
+        <name lang="hu">szögfogó normál esetben zárva</name>
+        <name lang="it">pinza angolare normalmente chiusa</name>
+        <name lang="ja">アングルグリッパーは通常閉</name>
+        <name lang="ko">앵글 그리퍼 상시 폐쇄형</name>
+        <name lang="mn">өнцгийн атгагч нь ихэвчлэн хаалттай байдаг</name>
+        <name lang="nb">vinkelgriper normalt lukket</name>
+        <name lang="nl">haakse grijper normaal gesloten</name>
+        <name lang="nl_BE">hoekgrijper normaal gesloten</name>
+        <name lang="pl">chwytak kątowy normalnie zamknięty</name>
+        <name lang="pt">pinça angular normalmente fechada</name>
+        <name lang="pt_BR">pinça angular normalmente fechada</name>
+        <name lang="ro">prindere unghiulară normal închisă</name>
+        <name lang="ru">угловой захват нормально закрытый</name>
+        <name lang="sk">Uhlový uchopovač normálne zatvorený</name>
+        <name lang="sl">kotni prijemal normalno zaprt</name>
+        <name lang="sr">угаона хватаљка нормално затворена</name>
+        <name lang="sv">vinkelgrepp normalt stängd</name>
+        <name lang="tr">açılı tutucu normalde kapalı</name>
+        <name lang="uk">кутовий захват нормально закритий</name>
+        <name lang="zh">角型常闭夹爪气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-24" y="-25" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="13" y1="1" x2="18" y2="1" x3="21" y3="-1" x4="24" y4="1" x5="26" y5="1" x6="28" y6="1" x7="28" y7="4" x8="26" y8="4" x9="24" y9="4" x10="21" y10="4" x11="18" y11="4" x12="13" y12="4" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="13" y1="6" x2="18" y2="6" x3="21" y3="6" x4="24" y4="6" x5="26" y5="6" x6="28" y6="6" x7="28" y7="9" x8="26" y8="9" x9="24" y9="9" x10="21" y10="11" x11="18" y11="9" x12="13" y12="9" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-17" y="-3" width="7" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="13" x2="-20" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-22" y1="13" x2="-18" y2="13" x3="-20" y3="9" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="12" y1="13" x2="10" y2="17" x3="8" y3="13" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-23" y="-3" width="36" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="12.7" y1="12.56" x2="9.1" y2="-2.82" x3="4.58" y3="12.75" x4="0.07" y4="-3" x5="-5" y5="13" x6="-9.49" y6="-2.56" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

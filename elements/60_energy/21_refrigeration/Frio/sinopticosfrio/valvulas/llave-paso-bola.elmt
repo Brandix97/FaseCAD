@@ -1,0 +1,19 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{9eb11470-3228-e760-324b-ac0e6719e2d2}"/>
+    <names>
+        <name lang="ca">Vàlvula de pas de bola</name>
+        <name lang="es">Llave de paso bola</name>
+        <name lang="pt_BR">Llave de paso bola</name>
+        <name lang="zh">球阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-1" y="-1" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <terminal uuid="{ccfa5b54-5890-4daa-9b8a-406f1619345b}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{600c67cf-13dc-46dc-83ea-baf2c216b043}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

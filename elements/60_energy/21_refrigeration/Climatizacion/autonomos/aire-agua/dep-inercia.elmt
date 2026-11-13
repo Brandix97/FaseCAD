@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="90" hotspot_x="19" hotspot_y="50">
+    <uuid uuid="{857095c4-b46c-6606-5830-78cd7b5ef525}"/>
+    <names>
+        <name lang="ca">Dipòsit inercial</name>
+        <name lang="es">Depósito inercial</name>
+        <name lang="pt_BR">Depósito inercial</name>
+        <name lang="zh">蓄能罐</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-15" y="-35" width="31" height="11" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="16" y1="-29" x2="16" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-7" y="23" width="8" height="8" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15" y="16" width="31" height="11" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="-29" x2="-15" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="12" y1="25" x2="15" y2="34.19" x3="13" y3="34.19" x4="9" y4="26.84" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-1" y="-39" width="3" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-40" width="7" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-11" y1="25" x2="-14" y2="34" x3="-11" y3="34" x4="-8" y4="27" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-5" y="25" width="4" height="4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-5" y="28" width="1" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-8" y="-22" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f064bd5a-460a-4492-954a-2ccb9843536a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{48b67f93-242f-4534-88ae-cf09ad361abb}" name="" x="1" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{48644bee-635b-420d-a6ab-0c570b17d583}" name="" x="-6" y="30" orientation="w" type="Generic"/>
+    </description>
+</definition>

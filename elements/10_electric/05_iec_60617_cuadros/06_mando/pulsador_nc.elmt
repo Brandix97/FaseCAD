@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="16" hotspot_y="25">
+    <uuid uuid="{0ee47660-443b-50bc-a5a5-43a1ae07ef64}"/>
+    <names>
+        <name lang="de">Taster, Öffner</name>
+        <name lang="en">Push-button, NC</name>
+        <name lang="es">Pulsador NC</name>
+        <name lang="fr">Bouton-poussoir, NF</name>
+        <name lang="it">Pulsante NC</name>
+        <name lang="pt">Botão de pressão NF</name>
+        <name lang="tr">Buton, NK</name>
+        <name lang="zh">按钮，常闭</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="9" y2="-12.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{48a49a36-2f2c-5b2b-80b0-e30c61b4cf89}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>21</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{707b3040-359b-599d-98b7-6d29a4adf8c9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>22</text>
+        </dynamic_text>
+        <line x1="-12" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9" y1="-4" x2="-12" y2="-4" x3="-12" y3="4" x4="-9" y4="4" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-21" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a5e23bfd-fbcb-54a8-b4b7-8fb7ad5a776d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{34cacb30-8d36-562c-9386-00638e892f8f}" name="21" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d57ed9c8-228e-5a0d-bf59-b3f722b362e0}" name="22" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

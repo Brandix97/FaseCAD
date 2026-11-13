@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="slave" width="40" height="70" hotspot_x="30" hotspot_y="38">
+    <uuid uuid="{396c9ee4-ac1e-8544-db68-0b9029470d0c}"/>
+    <names>
+        <name lang="ar">مفتاح مُؤقت راحة</name>
+        <name lang="ca">Repòs de l'interruptor cronometrat</name>
+        <name lang="cs">Přepínací kontakt zpožděný odpad</name>
+        <name lang="da">Tidskontakt hvilestilling</name>
+        <name lang="de">Zeitschalter rückfallverzögert</name>
+        <name lang="el">Χρονικός διακόπτης ηρεμίας</name>
+        <name lang="en">Timed switch rest</name>
+        <name lang="es">Interruptor temporizado de reposo</name>
+        <name lang="fi">Viivästetty kytkin lepo</name>
+        <name lang="fr">Inverseur temporisé repos</name>
+        <name lang="hr">Vremenski prekidač mirovanja</name>
+        <name lang="hu">Időzített érintkező nyugalmi</name>
+        <name lang="it">Contatto temporizzato a riposo</name>
+        <name lang="ja">タイマースイッチ 復帰</name>
+        <name lang="ko">지연 스위치 복귀</name>
+        <name lang="mn">Хугацаат унтраалга амралт</name>
+        <name lang="nb">Tidsbryter hvile</name>
+        <name lang="nl">Timercontact rust</name>
+        <name lang="nl_BE">Vertraagd contact rust</name>
+        <name lang="pl">Zestyk z opóźnieniem przy odwzbudzeniu</name>
+        <name lang="pt">Temporizador de repouso</name>
+        <name lang="pt_BR">Contato reversível temporizado no retorno</name>
+        <name lang="ro">Comutator temporizat repaus</name>
+        <name lang="ru">Контакт с задержкой при возврате</name>
+        <name lang="sk">Časovaný spínač pokojový</name>
+        <name lang="sl">Časovno stikalo mirovanje</name>
+        <name lang="sr">Тајмерски прекидач мировања</name>
+        <name lang="sv">Tidsbrytare vila</name>
+        <name lang="tr">Zamanlı şalter dinlenme</name>
+        <name lang="uk">Перемикач з витримкою часу розімкнений</name>
+        <name lang="zh">转换延时复位触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">delayOff</kindInformation>
+        <kindInformation name="state">SW</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-15" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="13" y="-14" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{dd065329-11d6-ee15-147b-0aa59463d5c6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="2" x2="-8" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-20" x2="-20" y2="-8" x3="-12" y3="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-3" y="-28" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{b98023aa-5aaa-ea5e-c182-e6a64ba02dd8}" font="Liberation Sans,4,-1,5,0,0,0,0,0,0,Regular">
+            <text>18</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{49cfd373-5d65-b478-59ba-a3ad692a89e7}" font="Liberation Sans,4,-1,5,0,0,0,0,0,0,Regular">
+            <text>15</text>
+        </dynamic_text>
+        <dynamic_text x="-22" y="-28" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{e6780a2e-fe7e-6979-d326-b75a27c0a5e5}" font="Liberation Sans,4,-1,5,0,0,0,0,0,0,Regular">
+            <text>16</text>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="-8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-27.65" y="-2.95" width="8" height="8" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{8753a471-4880-4383-ac4c-4b77b5320692}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{913f4ab3-11fc-458c-b2a3-f1e6490b23ae}" name="" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{fe456d35-2e37-4b3f-aa2a-8bdee8d43b13}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

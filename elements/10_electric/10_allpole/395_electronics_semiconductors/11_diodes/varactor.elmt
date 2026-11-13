@@ -1,0 +1,75 @@
+<definition version="0.90" type="element" link_type="simple" width="20" height="50" hotspot_x="7" hotspot_y="30">
+    <uuid uuid="{b19ec78d-2b9c-e641-f51b-2992ebd0d922}"/>
+    <names>
+        <name lang="ar">دايود مكثّف متغيّر (فاراكتور)</name>
+        <name lang="ca">Díode de capacitat variable Varactor</name>
+        <name lang="cs">Varaktor</name>
+        <name lang="da">Variabel kapacitansdiode
+Varactor</name>
+        <name lang="de">Kapazitätsdiode</name>
+        <name lang="el">Δίοδος μεταβλητής χωρητικότητας
+Varactor</name>
+        <name lang="en">Variable capacitance diode
+Varactor</name>
+        <name lang="es">Diodo de capacidad variable
+Varactor</name>
+        <name lang="fi">Kapasitanssidiodi
+Varaktori</name>
+        <name lang="fr">Diode à capacité variable
+Varactor</name>
+        <name lang="hr">Promjenjiva kapacitivna dioda
+Varaktor</name>
+        <name lang="hu">Változtatható kapacitású dióda
+Varikap</name>
+        <name lang="it">Diodo a capacità variabile
+Varactor</name>
+        <name lang="ja">可変容量ダイオード
+バラクタ</name>
+        <name lang="ko">가변 용량 다이오드
+바리캡</name>
+        <name lang="mn">Хувьсах багтаамжийн диод
+Варактор</name>
+        <name lang="nb">Variabel kapasitansdiode
+Varaktor</name>
+        <name lang="nl">Diode capaciteit</name>
+        <name lang="nl_BE">Varicapdiode
+Varactor</name>
+        <name lang="pl">Dioda pojemnościowa. (Waraktor)</name>
+        <name lang="pt">Díodo de capacidade variável
+Varicap</name>
+        <name lang="pt_BR">Diodo de capacitância variável (varactor)</name>
+        <name lang="ro">Diodă cu capacitate variabilă
+Varactor</name>
+        <name lang="ru">Варикап
+Варикап</name>
+        <name lang="sk">Varikap
+Varaktor</name>
+        <name lang="sl">Spremenljiva kapacitivna dioda
+Varaktor</name>
+        <name lang="sr">Променљива капацитивна диода
+Варактор</name>
+        <name lang="sv">Variabel kapacitansdiod
+Varaktor</name>
+        <name lang="tr">Değişken kapasiteli diyot
+Varaktör</name>
+        <name lang="uk">Варикап
+Варикап</name>
+        <name lang="zh">变容二极管</name>
+    </names>
+    <informations>EN 60617: 05-03-04</informations>
+    <description>
+        <dynamic_text x="11" y="-13.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{05c9e117-e7ab-4067-a4e9-e60950127eb1}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="8" y1="-5" x2="8" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-3" x2="10" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-5" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="0" x2="8" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-10" x2="5" y2="-10" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b4cc4219-c8cb-4508-9621-3ed0cab5a07a}" name="A" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{0014b006-f7c8-4002-aef8-cafafdfeef41}" name="K" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

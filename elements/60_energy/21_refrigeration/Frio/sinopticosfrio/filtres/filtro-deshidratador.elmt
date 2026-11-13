@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="30" hotspot_y="9">
+    <uuid uuid="{c3f1589a-faaf-3405-0574-724736f913c0}"/>
+    <names>
+        <name lang="ca">Silenciador</name>
+        <name lang="es">Silenciador</name>
+        <name lang="pt_BR">Filtro desidratador</name>
+        <name lang="zh">干燥过滤器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-5" y1="-4.23" x2="-5" y2="1.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="0.49" x2="9.75" y2="0.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-0.45" x2="2" y2="4.45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15.75" y="-5" width="21.75" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19.5" y1="0.49" x2="-15.75" y2="0.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="10.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{99e3a533-a391-438d-8816-475b16df8096}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-12" y1="-0.41" x2="-12" y2="4.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{01ad6295-6f39-41de-b01f-a926fbce7ae3}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{f11841e9-fe4f-4638-9e46-7791802aefa7}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

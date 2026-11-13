@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="master" width="30" height="60" hotspot_x="21" hotspot_y="30">
+    <uuid uuid="{57dcaa3a-4138-a558-500a-ef52741340a2}"/>
+    <names>
+        <name lang="ar">زرّ توقف طارئ (NF)</name>
+        <name lang="ca">Pulsador</name>
+        <name lang="cs">Nouzové zastavení</name>
+        <name lang="da">Trykknap</name>
+        <name lang="de">Pilzdrucktaster Schliesser</name>
+        <name lang="el">Μπουτόν, φωτειζόμενο</name>
+        <name lang="en">Push-button</name>
+        <name lang="es">Pulsador con enclave</name>
+        <name lang="fi">Painike</name>
+        <name lang="fr">Arret d'urgence (NF)</name>
+        <name lang="hr">Pritisni gumb</name>
+        <name lang="hu">Nyomógomb</name>
+        <name lang="it">Arresto d'emergenza</name>
+        <name lang="ja">押しボタン</name>
+        <name lang="ko">푸시 버튼</name>
+        <name lang="mn">Товчлуур</name>
+        <name lang="nb">Trykknapp</name>
+        <name lang="nl">Noodstop drukknop (NO)</name>
+        <name lang="nl_BE">Drukknop</name>
+        <name lang="pl">Łącznik przyciskowy (przycisk bezpieczeństwa)</name>
+        <name lang="pt">Botão de pressão (NA)</name>
+        <name lang="pt_BR">Botão de pressão</name>
+        <name lang="ro">Buton</name>
+        <name lang="ru">Кнопка (НР)</name>
+        <name lang="sk">Tlačidlo</name>
+        <name lang="sl">Tipkalo</name>
+        <name lang="sr">Тастер</name>
+        <name lang="sv">Tryckknapp</name>
+        <name lang="tr">Buton</name>
+        <name lang="uk">Кнопка</name>
+        <name lang="zh">急停按钮（常开）</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">commutator</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10.25" y1="-2" x2="-7.25" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-17.25" y="-5" width="8" height="10" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.25" y1="-2" x2="-10.25" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2.75" y="-9.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ccf2cfe5-c19e-4eea-b3a8-f61902e908d5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-13.25" y1="-5" x2="-13.25" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-13.25" y1="0" x2="-3.25" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e69d6f90-5aa3-47ba-a909-ada829725546}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{4de769d9-4456-46f9-838c-482df2fc7a70}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

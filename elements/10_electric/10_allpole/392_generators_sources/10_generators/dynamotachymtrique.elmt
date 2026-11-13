@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="23" hotspot_y="40">
+    <uuid uuid="{ffa28cc3-19cb-a6fa-adbd-7c092bc75c8f}"/>
+    <names>
+        <name lang="ar">مولّد سرعة</name>
+        <name lang="ca">Tacodinamo</name>
+        <name lang="cs">Tachodynamo</name>
+        <name lang="da">Tachodynamo</name>
+        <name lang="de">Dynamo</name>
+        <name lang="el">Ταχοδυναμό</name>
+        <name lang="en">Tachodynamo</name>
+        <name lang="es">Dinamo tacómetro</name>
+        <name lang="fi">Takodynamo</name>
+        <name lang="fr">Dynamo-tachymétrique</name>
+        <name lang="hr">Tahodinamo</name>
+        <name lang="hu">Tachodinamó</name>
+        <name lang="it">Dinamo tachimetrica</name>
+        <name lang="ja">タコジェネレータ</name>
+        <name lang="ko">타코다이나모</name>
+        <name lang="mn">Таходинам</name>
+        <name lang="nb">Tachodynamo</name>
+        <name lang="nl">Tachodynamo</name>
+        <name lang="nl_BE">Tachodynamo</name>
+        <name lang="pl">Prądnica tachometryczna</name>
+        <name lang="pt">Tacodinamo</name>
+        <name lang="pt_BR">Gerador tacométrico</name>
+        <name lang="ro">Tahodinam</name>
+        <name lang="ru">Тахогенератор</name>
+        <name lang="sk">Tachodynamo</name>
+        <name lang="sl">Tahodinamo</name>
+        <name lang="sr">Таходинамо</name>
+        <name lang="sv">Tachodynamo</name>
+        <name lang="tr">Takodinamo</name>
+        <name lang="uk">Тахогенератор</name>
+        <name lang="zh">测速发电机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="20" y="-9" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{567081e7-cb95-4ac7-a3dd-9d9c1f9f3230}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-30" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-15" width="10" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="-12.5" y="-12.5" width="25" height="25" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <text text="DT" x="-9" y="5" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{0b02c5b0-f6d6-403e-b325-e78fa040a9fe}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{4af7d167-13a5-4681-9a6a-cee782dfa9b3}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,53 @@
+<definition type="element" link_type="thumbnail" hotspot_x="25" hotspot_y="25" width="50" height="50" version="0.100.1">
+    <uuid uuid="{80fc4708-83a3-48c4-9d17-115625d897d9}"/>
+    <names>
+        <name lang="ar">مفتاح ضاغط</name>
+        <name lang="ca">Pulsador</name>
+        <name lang="cs">Tlačítko</name>
+        <name lang="da">Trykknap grøn</name>
+        <name lang="de">Druckknopf grün</name>
+        <name lang="el">Μπουτόν</name>
+        <name lang="en">Pushbutton green</name>
+        <name lang="es">Pulsador verde</name>
+        <name lang="fi">Vihreä painonappi</name>
+        <name lang="fr">Bouton poussoir vert</name>
+        <name lang="hr">Pritisni gumb zeleni</name>
+        <name lang="hu">Nyomógomb zöld</name>
+        <name lang="it">Pulsante verde</name>
+        <name lang="ja">緑押しボタン</name>
+        <name lang="ko">녹색 푸시버튼</name>
+        <name lang="mn">Ногоон товчлуур</name>
+        <name lang="nb">Trykknapp grønn</name>
+        <name lang="nl">Drukknop</name>
+        <name lang="nl_BE">Drukknop groen</name>
+        <name lang="pl">Przycisk</name>
+        <name lang="pt">Botão de pressão verde</name>
+        <name lang="pt_BR">Botão de pressão verde</name>
+        <name lang="ro">Buton verde</name>
+        <name lang="ru">Кнопка зелёная</name>
+        <name lang="sk">Zelené tlačidlo</name>
+        <name lang="sl">Zeleno tipkalo</name>
+        <name lang="sr">Зелени тастер</name>
+        <name lang="sv">Tryckknapp grön</name>
+        <name lang="tr">Yeşil buton</name>
+        <name lang="uk">Кнопка зелена</name>
+        <name lang="zh">绿色按钮1</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-7" y="-44" z="1" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{fa464140-136b-4196-8abf-31394cfe8c9a}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <circle x="-22" y="-22" antialias="true" style="line-style:normal;line-weight:normal;filling:green;color:black" diameter="44"/>
+        <circle x="-14" y="-14" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="28"/>
+        <circle x="-20" y="-20" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="40"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-19" y="18" z="5" rotation="0" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular" text_width="-1" uuid="{0aa830cd-6125-437f-b0e6-92601c3840ef}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text x="-5" y="10" font="Liberation Sans,20,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" text="I"/>
+    </description>
+</definition>

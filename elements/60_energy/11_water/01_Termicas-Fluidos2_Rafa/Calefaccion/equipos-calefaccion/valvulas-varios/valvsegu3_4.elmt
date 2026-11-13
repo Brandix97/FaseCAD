@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="20">
+    <uuid uuid="{61dbf573-2398-175e-7ff9-51543d3cce71}"/>
+    <names>
+        <name lang="ar">صمّام أمان</name>
+        <name lang="ca">Vàlvula de seguretat</name>
+        <name lang="cs">Pojistný ventil</name>
+        <name lang="da">Soupape de sécurité</name>
+        <name lang="de">Sicherheitsventil</name>
+        <name lang="el">Βαλβίδα ασφαλείας</name>
+        <name lang="en">Safety valve</name>
+        <name lang="es">Válv. seguridad</name>
+        <name lang="fi">Varoventtiili</name>
+        <name lang="fr">Soupape de sécurité</name>
+        <name lang="hr">Sigurnosni ventil</name>
+        <name lang="hu">Biztonsági szelep</name>
+        <name lang="it">Valvola di sicurezza</name>
+        <name lang="ja">安全弁</name>
+        <name lang="ko">안전 밸브</name>
+        <name lang="mn">Аюулгүйн хавхлага</name>
+        <name lang="nb">Sikkerhetsventil</name>
+        <name lang="nl">Veiligheidsklep</name>
+        <name lang="nl_BE">Veiligheidsklep</name>
+        <name lang="pl">Zawór bezpieczeństwa</name>
+        <name lang="pt">Válvula de segurança</name>
+        <name lang="pt_BR">Válv. seguridad</name>
+        <name lang="ro">Supapă de siguranță</name>
+        <name lang="ru">Предохранительный клапан</name>
+        <name lang="sk">Poistný ventil</name>
+        <name lang="sl">Varnostni ventil</name>
+        <name lang="sr">Сигурносни вентил</name>
+        <name lang="sv">Säkerhetsventil</name>
+        <name lang="tr">Emniyet valfi</name>
+        <name lang="uk">Запобіжний клапан</name>
+        <name lang="zh">跟踪阀3_4</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-3" y1="5.65" x2="4" y2="3.35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="7.95" x2="4" y2="5.65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-3.24" y="-15.52" width="8" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <rect x="-3.75" y="0.68" width="7.79" height="7.66" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.15" y1="-8.92" x2="8.86" y2="-8.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.15" y1="-0.12" x2="8.86" y2="-0.12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.92" y1="-8.88" x2="8.92" y2="-0.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.07" y1="-8.92" x2="4" y2="-7.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.07" y1="-0.12" x2="4" y2="-2.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.07" y1="-9.05" x2="6.07" y2="-10.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.76" y1="-10.52" x2="6" y2="-10.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.76" y1="0.68" x2="6" y2="0.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.07" y1="0.62" x2="6.07" y2="-0.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.8" y1="-10.52" x2="-4.8" y2="0.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-28" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{988aaa2d-4bea-4825-a209-15ccffcba9a1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-3" y1="3.35" x2="4" y2="1.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1a603f65-f9fc-4d9a-9046-1e64bfd4a5d4}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{2e898fcb-ab2b-47b9-bed0-4799ad84df94}" name="" x="10" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

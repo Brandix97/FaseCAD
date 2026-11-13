@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="21">
+    <uuid uuid="{a8333aa2-4b34-c4ad-f6a8-78a73d323037}"/>
+    <names>
+        <name lang="ar">"صمّام أمان" يمين</name>
+        <name lang="ca">Vàlvula de seguretat dreta</name>
+        <name lang="cs">Bezpečnostní uzávěr (pravý)</name>
+        <name lang="da">Sikkerhedsventil "højre"</name>
+        <name lang="de">Sicherheitsventil "rechts"</name>
+        <name lang="el">Βαλβίδα ασφαλείας "δεξιά"</name>
+        <name lang="en">Safety Valve "right"</name>
+        <name lang="es">Válvula de seguridad "derecha"</name>
+        <name lang="fi">Varoventtiili "oikea"</name>
+        <name lang="fr">Soupape de Sécurité "droite"</name>
+        <name lang="hr">Sigurnosni ventil "desno"</name>
+        <name lang="hu">Biztonsági szelep "jobb"</name>
+        <name lang="it">Valvola di sicurezza DX</name>
+        <name lang="ja">安全弁「右」</name>
+        <name lang="ko">안전 밸브 "오른쪽"</name>
+        <name lang="mn">Аюулгүй байдлын хавхлага "баруун"</name>
+        <name lang="nb">Sikkerhetsventil "høyre"</name>
+        <name lang="nl">Overdrukklep</name>
+        <name lang="nl_BE">Veiligheidsklep "rechts"</name>
+        <name lang="pl">Zawór bezpieczeństwa</name>
+        <name lang="pt">Válvula de segurança "direita"</name>
+        <name lang="pt_BR">Segurança valvula &amp;quot;direita&amp;quot;</name>
+        <name lang="ro">Supapă de siguranță "dreapta"</name>
+        <name lang="ru">Предохранительный клапан "справа"</name>
+        <name lang="sk">Poistný ventil "vpravo"</name>
+        <name lang="sl">Varnostni ventil "desno"</name>
+        <name lang="sr">Сигурносни вентил "десно"</name>
+        <name lang="sv">Säkerhetsventil "höger"</name>
+        <name lang="tr">Emniyet valfi "sağ"</name>
+        <name lang="uk">Запобіжний клапан "праворуч"</name>
+        <name lang="zh">安全阀_01d</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="0" y1="0" x2="10" y2="-6" x3="10" y3="6" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="0" x2="-6" y2="10" x3="6" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-12" y="-29" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3bb683bc-dc69-4def-9477-2fefa3b0bece}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="0" x2="0" y2="-4" x3="-3" y3="-6" x4="3" y4="-8" x5="-3" y5="-9" x6="3" y6="-11" x7="-3" y7="-12" x8="3" y8="-14" x9="0" y9="-15" x10="0" y10="-17" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{ef302529-3303-4160-9e92-15c68d68b86d}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{21422b40-46e9-4086-adc4-d3797a921d14}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

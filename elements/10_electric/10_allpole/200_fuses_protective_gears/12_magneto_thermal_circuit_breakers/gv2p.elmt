@@ -1,0 +1,93 @@
+<definition version="0.100.0" type="element" link_type="master" width="90" height="100" hotspot_x="58" hotspot_y="50">
+    <uuid uuid="{eae7fbc6-02e3-12b8-6aef-5b44940f5a4f}"/>
+    <names>
+        <name lang="ar">قاطع مغناطيسي-حراري GV</name>
+        <name lang="ca">Interruptor magnetotèrmic GV</name>
+        <name lang="cs">Motorový spouštěč 3P</name>
+        <name lang="da">Motorværn</name>
+        <name lang="de">Motorschutzschalter</name>
+        <name lang="el">Θερμομαγνητικό</name>
+        <name lang="en">Magneto-thermal circuit breaker GV</name>
+        <name lang="es">Disyuntor termico magnetico 3P mando rotatorio</name>
+        <name lang="fi">Magneto-termisen katkaisijan GV</name>
+        <name lang="fr">Disjoncteur Magnéto-thermique GV</name>
+        <name lang="hr">Magnetotermički prekidač GV</name>
+        <name lang="hu">Motorvédő kapcsoló GV2P</name>
+        <name lang="it">Interr. magneto-termico</name>
+        <name lang="ja">電磁熱動式遮断器 GV</name>
+        <name lang="ko">열동.자기식 모터 보호 차단기 GV</name>
+        <name lang="mn">Магнит-дулааны хэлхээ таслагч GV</name>
+        <name lang="nb">Magnetotermisk effektbryter GV</name>
+        <name lang="nl">Motorbeveiligingsschakelaar GV</name>
+        <name lang="nl_BE">Magneto-thermische stroomonderbreker GV</name>
+        <name lang="pl">Wyłącznik silnikowy</name>
+        <name lang="pt">Disjuntor magnetotérmico GV</name>
+        <name lang="pt_BR">Disjuntor termomagnético GV</name>
+        <name lang="ro">Întrerupător magnetotermic GV</name>
+        <name lang="ru">Магнито-тепловые прерыватели</name>
+        <name lang="sk">Magnetotermický istič GV</name>
+        <name lang="sl">Magnetotermični odklopnik GV</name>
+        <name lang="sr">Магнетно-термички прекидач GV</name>
+        <name lang="sv">Magnetotermisk dvärgbrytare GV</name>
+        <name lang="tr">Manyeto-termik devre kesici GV</name>
+        <name lang="uk">Магнітотермічний автоматичний вимикач GV</name>
+        <name lang="zh">GV2P电机断路器</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-56" y1="-12" x2="-53" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="14" x2="20" y2="10" x3="25" y3="10" x4="25" y4="4" x5="20" y5="4" x6="20" y6="-6" x7="13" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="14" x2="0" y2="10" x3="5" y3="10" x4="5" y4="4" x5="0" y5="4" x6="0" y6="-6" x7="-7" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="I>" x="16" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5&#10;L3" x="24" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3&#10;L2" x="4" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4&#10;T2" x="4" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-30" y="0" width="60" height="28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="6&#10;T3" x="24" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2&#10;T1" x="-16" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="I>" x="-4" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-18" y1="-33" x2="-22" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-33" x2="-18" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-33" x2="-2" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-33" x2="2" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22" y1="-33" x2="18" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="-33" x2="22" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="50" y="-12" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ef14cea7-d6ae-45f3-a600-a557ed236b54}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-30" y1="14" x2="30" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-10" y2="27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I>" x="-24" y="25" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-20" y1="40" x2="-20" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="40" x2="0" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="40" x2="20" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1&#10;L1" x="-16" y="-40" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-20" y1="14" x2="-20" y2="10" x3="-15" y3="10" x4="-15" y4="4" x5="-20" y5="4" x6="-20" y6="-6" x7="-27" y7="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-20" y1="-27" x2="-20" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-27" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-27" x2="20" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-46" y="-22" width="12" height="12" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-34" y1="-16" x2="-53" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-53" y1="-20" x2="-53" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-10" x2="-40" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-34" y1="-16" x2="16" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-30" y1="21" x2="-40" y2="21" x3="-40" y3="-10" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <line x1="-30" y1="7" x2="-40" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-53" y1="-20" x2="-50" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-27" x2="-18" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-27" x2="2" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="-27" x2="22" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{51a1d7a5-5fcb-4e0d-9dfd-1f1b79e4c048}" name="5" x="20" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{49fa4a54-1223-4ad7-abac-a5cb747670be}" name="6" x="20" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{17706ff5-f429-4069-ad2d-f4746b290fc5}" name="4" x="0" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{eb77fd47-5491-4852-82ed-dbf8fa65e22b}" name="1" x="-20" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{aae89003-6097-4abf-af20-ee35bd165efb}" name="3" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{7101d9dc-2deb-437d-b0ad-a7282d261e9e}" name="2" x="-20" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

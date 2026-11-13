@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="20" hotspot_x="70" hotspot_y="10">
+    <uuid uuid="{7ca1adc4-8125-757b-5e9f-4ff673174af3}"/>
+    <names>
+        <name lang="ar">خرزة فرّيت</name>
+        <name lang="ca">Perla de ferrita</name>
+        <name lang="cs">Feritový korálek  na vodiči</name>
+        <name lang="da">Ferritperle</name>
+        <name lang="de">Ferrit-Perle auf einem Leiter</name>
+        <name lang="el">Φερρίτης</name>
+        <name lang="en">Ferrite bead</name>
+        <name lang="es">Cuenta de ferrita</name>
+        <name lang="fi">Ferriittihelmi</name>
+        <name lang="fr">Perle de ferrite sur un conducteur</name>
+        <name lang="hr">Feritna perla</name>
+        <name lang="hu">Ferritgyöngy</name>
+        <name lang="it">Perla di ferrite</name>
+        <name lang="ja">フェライトビーズ</name>
+        <name lang="ko">페라이트 비드</name>
+        <name lang="mn">Феррит бөмбөлгүүд</name>
+        <name lang="nb">Ferrittperle</name>
+        <name lang="nl">Ferrietkraal</name>
+        <name lang="nl_BE">Ferrietkraal</name>
+        <name lang="pl">Koralik ferrytowy</name>
+        <name lang="pt">Conta-ferrite</name>
+        <name lang="pt_BR">Núcleo de ferrite</name>
+        <name lang="ro">Perlă de ferită</name>
+        <name lang="ru">Ферритовый сердечник</name>
+        <name lang="sk">Feritové jadro</name>
+        <name lang="sl">Feritna perla</name>
+        <name lang="sr">Феритно зрно</name>
+        <name lang="sv">Ferritpärla</name>
+        <name lang="tr">Ferrit boncuk</name>
+        <name lang="uk">Феритовий сердечник</name>
+        <name lang="zh">接线端子排10</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f9379bdf-9e43-4bb7-b6f8-c71f04ac5064}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-60" y1="0" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-40" y1="5" x2="-40" y2="-5" x3="-20" y3="-5" x4="-20" y4="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{d0f7189d-ff4c-4b25-9fab-2dfac529c2b4}" name="" x="-60" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{9280f792-5a63-4981-a9c1-8e88af48b73e}" name="" x="0" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

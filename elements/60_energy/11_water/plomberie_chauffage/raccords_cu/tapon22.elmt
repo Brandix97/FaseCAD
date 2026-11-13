@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="11" hotspot_y="14">
+    <uuid uuid="{17a72a8b-58ef-15d7-c17e-22688ef5513c}"/>
+    <names>
+        <name lang="ar">سدادة 22</name>
+        <name lang="ca">Tap 22</name>
+        <name lang="cs">Zátka 22</name>
+        <name lang="da">Prop 22</name>
+        <name lang="de">Kappe 22</name>
+        <name lang="el">Πώμα 22</name>
+        <name lang="en">Cap 22</name>
+        <name lang="es">Tapón 22</name>
+        <name lang="fr">Bouchon 22</name>
+        <name lang="pt_BR">Tapón 22</name>
+        <name lang="zh">堵头22</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="9.58" y="-10" width="4.46" height="3.84" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="9.58" y="7.31" width="4.46" height="3.84" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14.15" y1="-7.26" x2="14.15" y2="9.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="11.2" y1="-10" x2="1.07" y2="-10" x3="1.07" y3="11.14" x4="11.2" y4="11.14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="2" y="7" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{49350a03-a9d7-48b1-9d7f-a5df0d0c2587}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{33c347c8-6ba6-4723-a95d-f47473123649}" name="" x="-1" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

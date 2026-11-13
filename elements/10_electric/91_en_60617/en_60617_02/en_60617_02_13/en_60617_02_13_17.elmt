@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="11" hotspot_y="10">
+    <uuid uuid="{06fb80b2-d01d-fcd8-9145-16c7625b7d69}"/>
+    <names>
+        <name lang="ar">مشغل (يُشغل بحدبة/محيط حدبة)</name>
+        <name lang="ca">Actuador (accionat per perfil de lleva/lleva)</name>
+        <name lang="cs">Profil vačky</name>
+        <name lang="da">Aktuator (betjent ved knast/knastprofil)</name>
+        <name lang="de">Nockenprofil</name>
+        <name lang="el">Ενεργοποιητής (λειτουργία με έκκεντρο/προφίλ έκκεντρου)</name>
+        <name lang="en">Actuator (operated by cam/cam profile)</name>
+        <name lang="es">Accionado por perfil de leva</name>
+        <name lang="fi">Toimilaite (nokalla/nokkaprofiililla käytettävä)</name>
+        <name lang="fr">Profil de came</name>
+        <name lang="hr">Aktuator (aktiviran brijegom/brijeg profilom)</name>
+        <name lang="hu">Működtető (bütyök/bütyökprofil által működtetett)</name>
+        <name lang="it">Attuatore (azionato da camma/profilo di camma)</name>
+        <name lang="ja">操作機構（カム／カムプロファイルによる操作）</name>
+        <name lang="ko">액추에이터 (캠/캠 프로파일로 작동)</name>
+        <name lang="mn">Идэвхжүүлэгч (кам/кам профилын тусламжтайгаар ажилладаг)</name>
+        <name lang="nb">Aktuator (betjent med kam/kamprofil)</name>
+        <name lang="nl">Bediener (bediend door nok/nokprofiel)</name>
+        <name lang="nl_BE">Bekrachtiger (bediend door nok/nokprofiel)</name>
+        <name lang="pl">Napęd (sterowany przez krzywkę/profil krzywki)</name>
+        <name lang="pt">Atuador (acionado por came/perfil de came)</name>
+        <name lang="pt_BR">Atuador (operado pou came/perfil de came)</name>
+        <name lang="ro">Acționare (acționată prin camă/profil de camă)</name>
+        <name lang="ru">Привод (управляемый кулачком/кулачковым профилем)</name>
+        <name lang="sk">Ovládač (ovládaný vačkou/vačkovým profilom)</name>
+        <name lang="sl">Aktuator (upravljan z odmikačem/profilom odmikača)</name>
+        <name lang="sr">Актуатор (покретан брегом/брегастом контуром)</name>
+        <name lang="sv">Ställdon (manövrerat med kam/kamprofil)</name>
+        <name lang="tr">Aktüatör (kam/kam profili ile çalıştırılan)</name>
+        <name lang="uk">Привод (керований кулачком/кулачковим профілем)</name>
+        <name lang="zh">17 端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-6" y="-6" width="12" height="12" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="2.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0c4918e6-caa0-42c8-8144-3cbb82367e56}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="6" y="-4" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="7" x2="3" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="4" x2="6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="5" x2="4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="-7.5" width="10" height="3" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-6" x2="-4" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-6" x2="4" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

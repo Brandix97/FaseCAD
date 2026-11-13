@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="17" hotspot_y="20">
+    <uuid uuid="{2f8f865f-2d5c-c091-cde2-a449bcb1009a}"/>
+    <names>
+        <name lang="ar">إناء حالة مفتوحة</name>
+        <name lang="ca">Gerro obert d'esdeveniments</name>
+        <name lang="cs">Otvor nádoba otevřena</name>
+        <name lang="da">Begivenhed Åben vase</name>
+        <name lang="de">Ereignis Offenes Gefäß</name>
+        <name lang="el">Δοχείο ανοικτού τύπου</name>
+        <name lang="en">Event Open Vase</name>
+        <name lang="es">Vaso abierto</name>
+        <name lang="fi">Tapahtuma avoin säiliö</name>
+        <name lang="fr">Event Vase Ouvert</name>
+        <name lang="hr">Događaj otvorena posuda</name>
+        <name lang="hu">Nyitott tartály esemény</name>
+        <name lang="it">Uscita vaso aperto</name>
+        <name lang="ja">イベントオープンバイス</name>
+        <name lang="ko">개방형 팽창 탱크</name>
+        <name lang="mn">Нээлттэй савны үйл явдал</name>
+        <name lang="nb">Hendelse åpen vase</name>
+        <name lang="nl">Afblaaspunt</name>
+        <name lang="nl_BE">Open expansievat</name>
+        <name lang="pl">Wylot otwartego naczynia wzbiorczego</name>
+        <name lang="pt">Vaso aberto de evento</name>
+        <name lang="pt_BR">Event aberto Vase</name>
+        <name lang="ro">Vas deschis eveniment</name>
+        <name lang="ru">Событие открытого сосуда</name>
+        <name lang="sk">Uzavretá expanzná nádoba</name>
+        <name lang="sl">Odprta posoda z dogodkom</name>
+        <name lang="sr">Догађај Отворена посуда</name>
+        <name lang="sv">Händelse öppen vas</name>
+        <name lang="tr">Açık genleşme kabı</name>
+        <name lang="uk">Подія відкритий бак</name>
+        <name lang="zh">排气口_01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{69b2477e-cd7b-4cdf-b725-519e7a81e774}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{97ca1331-5cd8-420e-a1ef-f52e69be0c9c}" name="" x="-10" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

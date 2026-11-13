@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="7" hotspot_y="30">
+    <uuid uuid="{d5fce9ef-8c3d-c191-a634-30fd54ebca38}"/>
+    <names>
+        <name lang="ar">صفّارة</name>
+        <name lang="ca">Zumbador</name>
+        <name lang="cs">Bzučák</name>
+        <name lang="da">Summer</name>
+        <name lang="de">Summer</name>
+        <name lang="el">Βομβητής</name>
+        <name lang="en">Buzzer</name>
+        <name lang="es">Zumbador</name>
+        <name lang="fi">Summeri</name>
+        <name lang="fr">Buzzer</name>
+        <name lang="hr">Zujalica</name>
+        <name lang="hu">Berregő</name>
+        <name lang="it">Cicalino</name>
+        <name lang="ja">ブザー</name>
+        <name lang="ko">부저</name>
+        <name lang="mn">Дуут дохио</name>
+        <name lang="nb">Summer</name>
+        <name lang="nl">Zoemer</name>
+        <name lang="nl_BE">Zoemer</name>
+        <name lang="pl">Brzęczyk</name>
+        <name lang="pt">Bezouro</name>
+        <name lang="pt_BR">Buzzer</name>
+        <name lang="ro">Buzzer</name>
+        <name lang="ru">Зуммер</name>
+        <name lang="sk">Bzučiak</name>
+        <name lang="sl">Brenčalo</name>
+        <name lang="sr">Зујалица</name>
+        <name lang="sv">Summer</name>
+        <name lang="tr">Zil</name>
+        <name lang="uk">Зуммер</name>
+        <name lang="zh">蜂鸣器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="35" y="-9.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6362b602-4916-4e58-a1cb-e80ff8f0fd02}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="20" y="-10" width="20" height="20" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="-10" x2="30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="21" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="21" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e861ed02-a3f7-4a12-900e-5a3b00ea017f}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{f005e194-e46d-49bd-ad80-3a6978165f4b}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

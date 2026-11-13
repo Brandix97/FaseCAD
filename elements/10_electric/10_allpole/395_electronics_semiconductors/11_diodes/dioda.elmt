@@ -1,0 +1,56 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="70" hotspot_x="23" hotspot_y="37">
+    <uuid uuid="{8cfbce12-cdea-0c9d-5206-dba1988d59eb}"/>
+    <names>
+        <name lang="ar">دايود أنبوبي</name>
+        <name lang="ca">díode-tub</name>
+        <name lang="cs">Dioda</name>
+        <name lang="da">diode-rør</name>
+        <name lang="de">Röhrendiode</name>
+        <name lang="el">δίοδος-λυχνία</name>
+        <name lang="en">diode-tube</name>
+        <name lang="es">diodo-tubo</name>
+        <name lang="fi">diodi-putki</name>
+        <name lang="fr">diode</name>
+        <name lang="hr">dioda-cijev</name>
+        <name lang="hu">dióda-cső</name>
+        <name lang="it">diodo</name>
+        <name lang="ja">ダイオード管</name>
+        <name lang="ko">다이오드-진공관</name>
+        <name lang="mn">диод-хоолой</name>
+        <name lang="nb">diode-rør</name>
+        <name lang="nl">diode-buis</name>
+        <name lang="nl_BE">diode-buis</name>
+        <name lang="pl">Dioda</name>
+        <name lang="pt">díodo-válvula</name>
+        <name lang="pt_BR">Tubo diodo</name>
+        <name lang="ro">dioda</name>
+        <name lang="ru">диод-лампа</name>
+        <name lang="sk">dióda-elektrónka</name>
+        <name lang="sl">dioda-cev</name>
+        <name lang="sr">диода-цев</name>
+        <name lang="sv">diodrör</name>
+        <name lang="tr">diyot-tüp</name>
+        <name lang="uk">Діод-лампа</name>
+        <name lang="zh">二极管</name>
+    </names>
+    <informations>titus
+titus0818@yahoo.com</informations>
+    <description>
+        <line x1="-10" y1="-5" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12" y="1" width="24" height="18" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12" y1="10" x2="30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-6" y="7" width="12" height="7" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="11" x2="-6" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="11" x2="6" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-21" y="-21" width="42" height="41" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="22" y="-18" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ecd61113-da9a-4ab6-aed3-e860ea749dab}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{96a36af1-a638-4b22-8e63-df78c76e359d}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{3fd2be95-5d2f-4e6a-bde0-12c3504c7a39}" name="" x="30" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{2ebe52b2-3612-4891-8c22-e6dc242ef4b1}" name="" x="6" y="25" orientation="s" type="Generic"/>
+        <terminal uuid="{65abdbdf-9fa5-4366-a2d6-5e78cb09d765}" name="" x="-6" y="25" orientation="s" type="Generic"/>
+    </description>
+</definition>

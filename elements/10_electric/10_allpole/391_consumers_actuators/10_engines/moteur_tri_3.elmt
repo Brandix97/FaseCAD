@@ -1,0 +1,52 @@
+<definition version="0.90" type="element" link_type="simple" width="50" height="70" hotspot_x="31" hotspot_y="29">
+    <uuid uuid="{2a494c78-e391-39c9-39dc-68223383834a}"/>
+    <names>
+        <name lang="ar">محرّك ثلاثي الأوجه</name>
+        <name lang="ca">Motor trifàsic</name>
+        <name lang="cs">Trojfázový motor</name>
+        <name lang="da">Trefaset motor</name>
+        <name lang="de">Drehstrom Motor</name>
+        <name lang="el">Τριφασικός κινητήρας</name>
+        <name lang="en">Three-phase engine</name>
+        <name lang="es">Motor trifásico</name>
+        <name lang="fi">Kolmivaihemoottori</name>
+        <name lang="fr">Moteur triphasé</name>
+        <name lang="hr">Trofazni motor</name>
+        <name lang="hu">Háromfázisú motor</name>
+        <name lang="it">Motore trifase</name>
+        <name lang="ja">三相エンジン</name>
+        <name lang="ko">삼상 모터</name>
+        <name lang="mn">Гурван фазын хөдөлгүүр</name>
+        <name lang="nb">Trefasemotor</name>
+        <name lang="nl">Draaistroommotor</name>
+        <name lang="nl_BE">Driefasige motor</name>
+        <name lang="pl">Silnik trójfazowy</name>
+        <name lang="pt">Motor trifásico</name>
+        <name lang="pt_BR">motor trifásico</name>
+        <name lang="ro">Motor trifazat</name>
+        <name lang="ru">Трёхфазный эл. мотор</name>
+        <name lang="sk">Trojfázový motor</name>
+        <name lang="sl">Trifazni motor</name>
+        <name lang="sr">Трофазни мотор</name>
+        <name lang="sv">Trefasmotor</name>
+        <name lang="tr">Üç fazlı motor</name>
+        <name lang="uk">Трифазний двигун</name>
+        <name lang="zh">三相电动机3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="M" x="-10.25" y="18" rotation="0" font="Liberation Sans,18,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-15" y="-5" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="-10" y2="-1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="15" y="0" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ac12b22c-a631-4677-84e8-e28a48f771c4}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e1cbdf90-6f70-4728-9842-7954afc83741}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{af4f9b3e-3aa7-4e7b-9c8f-4fa9f8cdcda0}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{31e6976c-ec1d-4600-ab87-1efb0bb8aeff}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

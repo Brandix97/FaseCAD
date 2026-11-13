@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="29" hotspot_y="25">
+    <uuid uuid="{52d87f5c-6497-5f7f-8bc9-e5dd4a0dd3e3}"/>
+    <names>
+        <name lang="de">Not-Halt (Pilztaster, rastend, Zwangsöffnung)</name>
+        <name lang="en">Emergency stop (mushroom head, latching, positive opening)</name>
+        <name lang="es">Parada de emergencia (seta, enclavamiento, apertura positiva)</name>
+        <name lang="fr">Arrêt d'urgence (coup de poing, accrochage, ouverture positive)</name>
+        <name lang="it">Arresto di emergenza (a fungo, ritenuta, apertura positiva)</name>
+        <name lang="pt">Paragem de emergência (cogumelo, encravamento, abertura positiva)</name>
+        <name lang="tr">Acil stop (mantar başlı, kilitlemeli, pozitif açma)</name>
+        <name lang="zh">急停按钮（蘑菇头，自锁，强制断开）</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="9" y2="-12.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2c5165f6-a1ff-554a-b60f-f9af6b192145}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>11</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e781b469-74fd-505c-9d88-a4ab94a317ee}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>12</text>
+        </dynamic_text>
+        <line x1="-22" y1="0" x2="-9.5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.5" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9.5" y="-3.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-8.5" y1="0" x2="-6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.5" y1="0" x2="-6" y2="1.2" x3="-6" y3="-1.2" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="-17" y1="0" x2="-15" y2="3" x3="-13" y3="0" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-22" y1="-5" x2="-22" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-27" y="-5" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-36" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{00c31341-774a-5d10-a387-446ea0158213}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b82aa287-a956-5c9b-8a19-1d989887c05f}" name="11" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d7e66077-6752-534e-82c9-7c7ead130c68}" name="12" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

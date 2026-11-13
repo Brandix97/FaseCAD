@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{bd30e317-1732-5af0-99ba-e5c7df0fa4c0}"/>
+    <names>
+        <name lang="de">Überspannungsableiter</name>
+        <name lang="en">Surge arrester</name>
+        <name lang="es">Protector contra sobretensiones</name>
+        <name lang="fr">Parafoudre</name>
+        <name lang="it">Scaricatore di sovratensioni</name>
+        <name lang="pt">Descarregador de sobretensões</name>
+        <name lang="tr">Aşırı gerilim koruyucu</name>
+        <name lang="zh">电涌保护器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-8" width="8" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-8" x2="0" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="3" x2="-2.5" y2="-1" x3="2.5" y3="-1" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{87527458-e45f-5b27-8f9f-a67bf96bf983}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>L</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{30118471-49d3-5d40-a3ee-3167fc87ec40}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>PE</text>
+        </dynamic_text>
+        <dynamic_text x="-13" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5182fd2a-ebc7-5c37-b8d3-b05f5cb9cc6b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d90d1a34-e31f-504b-9917-64d7964b22c8}" name="L" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{ce502502-8f3e-55d5-af32-7a277ef79b95}" name="PE" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

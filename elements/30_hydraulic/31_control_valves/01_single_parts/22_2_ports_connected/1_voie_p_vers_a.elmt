@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="70" hotspot_x="20" hotspot_y="32">
+    <uuid uuid="{e16ce37b-a6dd-45ab-e004-b32c0b90ff66}"/>
+    <names>
+        <name lang="ar">فوهات موصولة 2</name>
+        <name lang="ca">2 ports oberts</name>
+        <name lang="cs">2 otvory otevřené</name>
+        <name lang="da">2 porte åbne</name>
+        <name lang="de">2 Anschlüsse offen</name>
+        <name lang="el">2 θύρες ανοικτές</name>
+        <name lang="en">2 ports open</name>
+        <name lang="es">2 puertos abiertos</name>
+        <name lang="fi">2 porttia auki</name>
+        <name lang="fr">2 orifices passants</name>
+        <name lang="hr">2 priključka otvorena</name>
+        <name lang="hu">2 utas nyitva</name>
+        <name lang="it">2 porte aperte</name>
+        <name lang="ja">2 ポート 開</name>
+        <name lang="ko">2 포트 열림</name>
+        <name lang="mn">2 порт нээлттэй</name>
+        <name lang="nb">2 porter åpne</name>
+        <name lang="nl">2 P -&gt; A</name>
+        <name lang="nl_BE">2 poorten open</name>
+        <name lang="pl">2 drogi, otwarty</name>
+        <name lang="pt">2 vias abertas</name>
+        <name lang="pt_BR">2 vias abertas</name>
+        <name lang="ro">2 porturi deschise</name>
+        <name lang="ru">2 отверстий открыто</name>
+        <name lang="sk">2 portov otvorených</name>
+        <name lang="sl">2 vrata odprta</name>
+        <name lang="sr">2 портова отворено</name>
+        <name lang="sv">2 portar öppna</name>
+        <name lang="tr">2 port açık</name>
+        <name lang="uk">2 отворів відкрито</name>
+        <name lang="zh">1路P到A</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-6.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{20382c28-463e-4623-bfb8-2d386e032da6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-10" y="-25" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{315381fc-5b4f-4145-bb70-c8368e630201}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>a</text>
+        </dynamic_text>
+        <rect x="-15" y="-10" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="16" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e8263488-08a3-43cc-b757-6672557e4a7f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>p</text>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.05" y1="-9.95" x2="-1.95" y2="-4.95" x3="2.05" y3="-4.95" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <terminal uuid="{3adb0fb7-2311-4595-9b8f-323088fd5d35}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{f0c4ee75-937b-44bd-af7e-5c7c9fc19c29}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

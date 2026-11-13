@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="15" hotspot_y="13">
+    <uuid uuid="{10fa54c1-2244-bcad-d594-7bdea3179e87}"/>
+    <names>
+        <name lang="ar">رابط T  مستقيم</name>
+        <name lang="ca">Samarretes correctes</name>
+        <name lang="cs">Spojovací článek T</name>
+        <name lang="da">Højre T-stykker</name>
+        <name lang="de">T-Stück</name>
+        <name lang="el">Ταυ δεξιά</name>
+        <name lang="en">Right tees</name>
+        <name lang="es">T recta</name>
+        <name lang="fi">Oikeat T-kappaleet</name>
+        <name lang="fr">Tés Droit</name>
+        <name lang="hr">Desni T-komadi</name>
+        <name lang="hu">Jobb T-idom</name>
+        <name lang="it">Raccordo a T</name>
+        <name lang="ja">右チーズ</name>
+        <name lang="ko">직각 티</name>
+        <name lang="mn">Баруун тройник</name>
+        <name lang="nb">Høyre T-rør</name>
+        <name lang="nl">T stuk recht</name>
+        <name lang="nl_BE">T-stuk rechts</name>
+        <name lang="pl">Złączka T</name>
+        <name lang="pt">Tês direitos</name>
+        <name lang="pt_BR">direita tees</name>
+        <name lang="ro">Tee dreapta</name>
+        <name lang="ru">Тройники правые</name>
+        <name lang="sk">Pravé T-kusy</name>
+        <name lang="sl">Desni T-kosi</name>
+        <name lang="sr">Десне тројке</name>
+        <name lang="sv">Höger T-rör</name>
+        <name lang="tr">Düz te</name>
+        <name lang="uk">Трійники праві</name>
+        <name lang="zh">直三通</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-1" y="-23" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b7cc18f3-9c72-4df3-809e-35022dc0eace}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-6" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="0" x2="6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{2afe2022-bb3d-4072-8d61-21e915e41faa}" name="" x="0" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{08f67c90-16e4-47b9-b451-3e086dfb41f7}" name="" x="6" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{27d45c7b-9080-4afd-8ed1-41d9a409fcd6}" name="" x="-6" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.90" type="element" link_type="simple" width="100" height="60" hotspot_x="52" hotspot_y="20">
+    <uuid uuid="{1a84933f-db3d-ab28-847b-a86ffb078187}"/>
+    <names>
+        <name lang="ar">صمام تعبئة يعمل بالهواء المضغوط</name>
+        <name lang="ca">Vàlvula d'ompliment, accionada pneumàticament</name>
+        <name lang="cs">Plnicí ventil, pneumaticky ovládaný</name>
+        <name lang="da">Påfyldningsventil, pneumatisk betjent</name>
+        <name lang="de">Füllventil, pneumatisch betätigt</name>
+        <name lang="el">Βαλβίδα πλήρωσης, με πνευματική λειτουργία</name>
+        <name lang="en">Filling valve, pneumatically operated</name>
+        <name lang="es">Válvula de llenado, accionada neumáticamente</name>
+        <name lang="fi">Täyttöventtiili, pneumaattisesti ohjattu</name>
+        <name lang="fr">Vanne de remplissage à commande pneumatique</name>
+        <name lang="hr">Ventil za punjenje, pneumatski</name>
+        <name lang="hu">Töltőszelep, pneumatikus működtetésű</name>
+        <name lang="it">Valvola di riempimento ad azionamento pneumatico</name>
+        <name lang="ja">空気圧作動式充填バルブ</name>
+        <name lang="ko">충전 밸브, 공압 작동식</name>
+        <name lang="mn">Дүүргэх хавхлага, пневматикаар ажилладаг</name>
+        <name lang="nb">Påfyllingsventil, pneumatisk betjent</name>
+        <name lang="nl">Vulklep, pneumatisch bediend</name>
+        <name lang="nl_BE">Vulklep, pneumatisch bediend</name>
+        <name lang="pl">Zawór napełniający, sterowany pneumatycznie</name>
+        <name lang="pt">Válvula de enchimento, operada pneumaticamente</name>
+        <name lang="pt_BR">valvula de enchimento, operada pneumaticamente</name>
+        <name lang="ro">Supapa de umplere, actionata pneumatic</name>
+        <name lang="ru">Заправочный клапан с пневматическим приводом</name>
+        <name lang="sk">Plniaci ventil, pneumaticky ovládaný</name>
+        <name lang="sl">Polnilni ventil, pnevmatsko voden</name>
+        <name lang="sr">Вентил за пуњење, пнеуматски</name>
+        <name lang="sv">Fyllnadsventil, pneumatiskt manövrerad</name>
+        <name lang="tr">Doldurma valfi, pnömatik olarak çalıştırılan</name>
+        <name lang="uk">Заливний клапан, з пневматичним керуванням</name>
+        <name lang="zh">2位2通阀10</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="36" y="-18" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{662dfc3e-969f-4b23-9a11-fadd8fb9ee76}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="20" y1="0" x2="-10" y2="0" x3="-20" y3="-10" x4="-50" y4="-10" x5="-50" y5="20" x6="-34" y6="20" closed="false" antialias="false" style="line-style:dotted;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="35" y1="17" x2="45" y2="17" x3="45" y3="23" x4="35" y4="23" x5="35" y5="17" x6="45" y6="17" x7="41" y7="20" x8="45" y8="23" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="23" y1="10" x2="25" y2="12" x3="27" y3="8" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="-25" y1="20" x2="-27" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="35.11" y1="7.3" x2="37" y2="13" x3="38" y3="7" x4="40" y4="13" x5="41" y5="7" x6="43" y6="13" x7="44.17" y7="7.42" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="5" y="5" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="12" y="5" width="6" height="20" start="310" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-34.5" y1="23" x2="-34.5" y2="17" x3="-27.5" y3="20" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="14.5" y1="20.5" x2="25" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9.95" y1="5.05" x2="-11.5" y2="10.09" x3="-8.49" y3="10.07" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="22" y="5" width="6" height="20" start="130" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-25" y="5" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="24" x2="-10" y2="9" end1="none" end2="none" length1="0" length2="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="20" y1="-5" x2="20" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d23e04b7-b453-4d7b-9ad4-b97379b23628}" name="" x="20" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{bccfeb08-0219-487f-a082-5e61c0c05839}" name="" x="20" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

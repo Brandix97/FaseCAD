@@ -1,0 +1,60 @@
+<definition type="element" link_type="thumbnail" hotspot_x="39" hotspot_y="39" width="80" height="80" version="0.100.1">
+    <uuid uuid="{961d6ce5-4bbb-469f-bfcd-7faf3fd28964}"/>
+    <names>
+        <name lang="ar">توقيف طارئ</name>
+        <name lang="ca">Etiqueta - Parada d'emergència - fr</name>
+        <name lang="cs">Štítek - Nouzové zastavení - fr</name>
+        <name lang="da">Etiket - Nødstop - fr</name>
+        <name lang="de">Schild Not-Aus französisch</name>
+        <name lang="el">Στάση κινδύνου - Γαλλικά</name>
+        <name lang="en">Label - Emergency stop - fr</name>
+        <name lang="es">Etiqueta - Paro de emergencia - fr</name>
+        <name lang="fi">Kilpi - Hätäpysäytys - fr</name>
+        <name lang="fr">Etiquette - Arrêt d'urgence - fr</name>
+        <name lang="hr">Oznaka - Nužno zaustavljanje - fr</name>
+        <name lang="hu">Címke - Vészleállítás - fr</name>
+        <name lang="it">Etichetta - Arresto d'emergenza - fr</name>
+        <name lang="ja">ラベル - 非常停止 - fr</name>
+        <name lang="ko">라벨 - 비상 정지 - fr</name>
+        <name lang="mn">Шошго - Яаралтай зогсоол - fr</name>
+        <name lang="nb">Etikett - Nødstopp - fr</name>
+        <name lang="nl">Label Noodstop (fr)</name>
+        <name lang="nl_BE">Label - Noodstop - fr</name>
+        <name lang="pl">Etykieta - Zatrzymanie awaryjne - fr</name>
+        <name lang="pt">Etiqueta - Paragem de emergência - fr</name>
+        <name lang="pt_BR">Identificação - botão de emergência - fr</name>
+        <name lang="ro">Etichetă - Oprire de urgență - fr</name>
+        <name lang="ru">Табличка - Аварийный стоп - fr</name>
+        <name lang="sk">Štítok - Núdzové zastavenie - fr</name>
+        <name lang="sl">Etiketa - zasilni izklop - fr</name>
+        <name lang="sr">Налепница - Нужно заустављање - fr</name>
+        <name lang="sv">Etikett - Nödstopp - fr</name>
+        <name lang="tr">Etiket - Acil durdurma - fr</name>
+        <name lang="uk">Табличка - Аварійний зупин - fr</name>
+        <name lang="zh">标签AU FR 2x2</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-7" y="-61.95" z="1" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{91e353af-87b3-455d-9674-d85317811c5d}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <circle x="-37.5" y="-37.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" diameter="75"/>
+        <circle x="-20" y="-20" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="40"/>
+        <text x="26.85" y="20.43" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="299" color="#000000" text="C"/>
+        <text x="16.79" y="29.63" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="322" color="#000000" text="N"/>
+        <text x="4.12" y="33.37" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="-14" color="#000000" text="E"/>
+        <text x="-10.5" y="31.95" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="11" color="#000000" text="G"/>
+        <text x="-22.24" y="25.45" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="33" color="#000000" text="R"/>
+        <text x="-30.93" y="15.45" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="54" color="#000000" text="U"/>
+        <text x="-34.57" y="0.46" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="79" color="#000000" text="D'"/>
+        <text x="33" y="8.59" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="277" color="#000000" text="E"/>
+        <text x="15" y="-18.56" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="48" color="#000000" text="T"/>
+        <text x="7" y="-23" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="27" color="#000000" text="Ê"/>
+        <text x="-4" y="-24" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" text="R"/>
+        <text x="-13.8" y="-19.53" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="336" color="#000000" text="R"/>
+        <text x="-21" y="-12" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" rotation="307" color="#000000" text="A"/>
+    </description>
+</definition>

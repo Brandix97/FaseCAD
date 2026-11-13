@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="16" hotspot_y="34">
+    <uuid uuid="{5c080ade-2a71-832c-79b7-fb14d2571d7d}"/>
+    <names>
+        <name lang="ar">اسم عنصر جديد</name>
+        <name lang="ca">Fletxa 2</name>
+        <name lang="cs">Směr 2</name>
+        <name lang="da">Pil 2</name>
+        <name lang="de">Pfeil 2</name>
+        <name lang="el">Βέλος 2</name>
+        <name lang="en">Arrow 2</name>
+        <name lang="es">Flecha 2</name>
+        <name lang="fi">Nuoli 2</name>
+        <name lang="fr">Fleche 2</name>
+        <name lang="hr">Strelica 2</name>
+        <name lang="hu">Nyíl 2</name>
+        <name lang="it">Freccia 2</name>
+        <name lang="ja">矢印 2</name>
+        <name lang="ko">화살표 2</name>
+        <name lang="mn">Сум 2</name>
+        <name lang="nb">Pil 2</name>
+        <name lang="nl">Pijl 2</name>
+        <name lang="nl_BE">Pijl 2</name>
+        <name lang="pl">Kierunek 2</name>
+        <name lang="pt">Seta 2</name>
+        <name lang="pt_BR">Arrow 2</name>
+        <name lang="ro">Săgeată 2</name>
+        <name lang="ru">Стрелка 2</name>
+        <name lang="sk">Šípka 2</name>
+        <name lang="sl">Puščica 2</name>
+        <name lang="sr">Стрелица 2</name>
+        <name lang="sv">Pil 2</name>
+        <name lang="tr">Ok 2</name>
+        <name lang="uk">Стрілка 2</name>
+        <name lang="zh">箭头2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="-31" x2="-11" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="16" y="-14.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e71435b1-bb61-42e6-a760-95749e28201b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-12.49" y1="29.57" x2="-9.46" y2="30.86" x3="-11.94" y3="32.36" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

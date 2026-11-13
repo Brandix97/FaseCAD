@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="20" hotspot_y="12">
+    <uuid uuid="{7b63a971-41f5-57ff-ed68-6fd78d669abf}"/>
+    <names>
+        <name lang="ar">مضخة صرف صحي بصمّام</name>
+        <name lang="ca">Bomba i vàlvula sanitària</name>
+        <name lang="cs">Sanitární cirkulační pumpa se zvratným uzávěrem</name>
+        <name lang="da">Sanitærpumpe og ventil</name>
+        <name lang="de">Pumpe mit Rückschlagventil</name>
+        <name lang="el">Αντλία υγιεινής με βαλβίδα</name>
+        <name lang="en">Sanitary pump and valve</name>
+        <name lang="es">Bomba sanitaria y válvula</name>
+        <name lang="fi">Käyttövesipumppu ja venttiili</name>
+        <name lang="fr">Circulateur Sanitaire et clapet</name>
+        <name lang="hr">Sanitarna pumpa i ventil</name>
+        <name lang="hu">Egészségügyi szivattyú és szelep</name>
+        <name lang="it">Circolatore e valvola</name>
+        <name lang="ja">衛生ポンプ及び弁</name>
+        <name lang="ko">위생 펌프 및 밸브</name>
+        <name lang="mn">Ариун цэврийн насос ба хавхлага</name>
+        <name lang="nb">Sanitærpumpe og ventil</name>
+        <name lang="nl">Pomp met terugslagklep</name>
+        <name lang="nl_BE">Sanitaire pomp en klep</name>
+        <name lang="pl">Pompa cyrkulacyjna CWU z zaworem zwrotnym</name>
+        <name lang="pt">Bomba sanitária e válvula</name>
+        <name lang="pt_BR">Bomba sanitaria e valvula</name>
+        <name lang="ro">Pompă sanitară și supapă</name>
+        <name lang="ru">Санитарный насос с клапаном</name>
+        <name lang="sk">Sanitárne čerpadlo a ventil</name>
+        <name lang="sl">Sanitarna črpalka in ventil</name>
+        <name lang="sr">Санитарна пумпа и вентил</name>
+        <name lang="sv">Sanitärpump och ventil</name>
+        <name lang="tr">Sıhhi pompa ve vana</name>
+        <name lang="uk">Санітарний насос і клапан</name>
+        <name lang="zh">卫生循环泵带止回阀_01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="0" x2="-7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="0" x2="13" y2="-3" x3="13" y3="3" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="8" y1="-5" x2="8" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4" y1="0" x2="-2" y2="-4" x3="-2" y3="4" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-8" y1="10" x2="6" y2="10" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7" y="-7" width="14" height="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-11" y="-22.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1db71639-409f-447b-b8f8-fddca61ca8f3}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{00c8c242-41be-482d-bcc7-2fd2a357b242}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{729f1400-b001-4a74-ac1d-3daf0ad93715}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{a0cd5458-b627-4ab8-8545-81d76d82dbf1}" name="" x="0" y="7" orientation="s" type="Generic"/>
+    </description>
+</definition>

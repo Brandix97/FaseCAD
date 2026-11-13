@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="660" height="20" hotspot_x="5" hotspot_y="5">
+    <uuid uuid="{ea914d12-f56a-d7e5-02c1-235029b2cf08}"/>
+    <names>
+        <name lang="ar">سطر جدول تسمية</name>
+        <name lang="ca">Nomenclatura de taula de línies</name>
+        <name lang="cs">Řádek nomenklaturní tabulky</name>
+        <name lang="da">Linje tabel stykliste</name>
+        <name lang="de">Formularzeile</name>
+        <name lang="el">Γραμμή πίνακα</name>
+        <name lang="en">Line tableau nomenclature</name>
+        <name lang="es">Nomenclatura lineas del cuadro</name>
+        <name lang="fi">Rivi taulukko nimikkeistö</name>
+        <name lang="fr">Ligne de tableau de nomenclature</name>
+        <name lang="hr">Linija tablice nomenklature</name>
+        <name lang="hu">Nómenklatúra táblázat sor</name>
+        <name lang="it">Riga della tabella per elenco</name>
+        <name lang="ja">部品表 行</name>
+        <name lang="ko">라인 명세표</name>
+        <name lang="mn">Мөрийн нэршил хүснэгт</name>
+        <name lang="nb">Linje tabell nomenklatur</name>
+        <name lang="nl">wijziging invulling</name>
+        <name lang="nl_BE">Lijnstuk tabel onderdelenlijst</name>
+        <name lang="pl">Tabliczka rysunkowa - wiersz</name>
+        <name lang="pt">Linha de tabela de nomenclatura</name>
+        <name lang="pt_BR">Line tableau nomenclature</name>
+        <name lang="ro">Nomenclator linie tabel</name>
+        <name lang="ru">Строка таблицы спецификации</name>
+        <name lang="sk">Riadok tabuľky kusovníka</name>
+        <name lang="sl">Vrstica kosovnice</name>
+        <name lang="sr">Линија табеле номенклатуре</name>
+        <name lang="sv">Rad tabell förteckning</name>
+        <name lang="tr">Satır tablo nomenklatür</name>
+        <name lang="uk">Рядок таблиці номенклатури</name>
+        <name lang="zh">行标签_明细表</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{462a9ab8-5c5f-4065-8468-54a1ac14278a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="107" y="-3" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{dea4d5dd-d247-4ff8-84cb-2ad61fc3a7b5}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <dynamic_text x="407" y="-3" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{626ac00e-44d4-439c-ae1d-e8d2f5e5f5e9}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <dynamic_text x="7" y="-3" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{40a0af25-d2ef-45e6-b72d-05b7d5ec07cd}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <rect x="0" y="0" width="650" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="0" width="100" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="0" width="400" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

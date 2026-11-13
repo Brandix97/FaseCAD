@@ -1,0 +1,55 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="40" hotspot_x="13" hotspot_y="27">
+    <uuid uuid="{2af5409c-5e66-c359-b806-ff998299115c}"/>
+    <names>
+        <name lang="ar">دوران المحرك يسارًا + سرعة متغيرة</name>
+        <name lang="ca">Motor girant a l'esquerra + velocitat variable</name>
+        <name lang="cs">Otáčení motoru doleva + variabilní rychlost</name>
+        <name lang="da">Motor drejer til venstre + variabel hastighed</name>
+        <name lang="de">Motor linksdrehend + variable Drehzahl</name>
+        <name lang="el">Στροφή κινητήρα αριστερά + μεταβλητή ταχύτητα</name>
+        <name lang="en">Motor turning left + variable speed</name>
+        <name lang="es">Motor girando a la izquierda + velocidad variable</name>
+        <name lang="fi">Moottori pyörii vasemmalle + säädettävä nopeus</name>
+        <name lang="fr">Moteur tournant à gauche + vitesse variable</name>
+        <name lang="hr">Motor okreće lijevo + promjenjiva brzina</name>
+        <name lang="hu">Motor balra forgás + változó sebesség</name>
+        <name lang="it">Motore che gira a sinistra + velocità variabile</name>
+        <name lang="ja">モーターが左に曲がる+可変速度</name>
+        <name lang="ko">모터 좌회전 + 가변 속도</name>
+        <name lang="mn">Мотор зүүн эргэх + хувьсах хурд</name>
+        <name lang="nb">Motor til venstre + variabel hastighet</name>
+        <name lang="nl">Motor draait naar links + variabele snelheid</name>
+        <name lang="nl_BE">Motor draait linksom + variabel toerental</name>
+        <name lang="pl">Silnik obracający się w lewo + zmienna prędkość</name>
+        <name lang="pt">Motor virando para a esquerda + velocidade variável</name>
+        <name lang="pt_BR">motor virando para a esquerda + velocidade variável</name>
+        <name lang="ro">Motor care virează la stânga + turație variabilă</name>
+        <name lang="ru">Двигатель поворачивается влево + переменная скорость</name>
+        <name lang="sk">Motor sa otáča doľava + regulácia otáčok</name>
+        <name lang="sl">Motor zavija levo + spremenljiva hitrost</name>
+        <name lang="sr">Мотор скреће лево + променљива брзина</name>
+        <name lang="sv">Motor roterar vänster + varvtalsreglering</name>
+        <name lang="tr">Motor sola dönüyor + değişken hız</name>
+        <name lang="uk">Двигун обертається вліво + змінна швидкість</name>
+        <name lang="zh">电机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-20" y="-34" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{386a23c2-0051-4fac-9fee-f1d46ed7364d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="14.15" y1="-18.31" x2="9.88" y2="-15.82" x3="12.08" y3="-13.77" x4="14.25" y4="-18.31" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="0" y1="-20" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="6" x2="11" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="18" y="-22" width="35" height="35" start="143" angle="70" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2.9" y1="-14.58" x2="-2.56" y2="-14.63" x3="0" y3="-8.81" x4="2.85" y4="-14.47" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-3" x2="22" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="24.27" y1="7.94" x2="19.65" y2="5.89" x3="21.79" y3="4.16" x4="24.27" y4="7.63" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="10" y1="-7" x2="22" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{7450114d-3dbd-433b-924b-496b74d25710}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

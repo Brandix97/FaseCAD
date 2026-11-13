@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="39" hotspot_y="27">
+    <uuid uuid="{07014165-2f21-7465-0a95-e3e58d36a0a1}"/>
+    <names>
+        <name lang="ar">مضخة</name>
+        <name lang="ca">Grup de pressió</name>
+        <name lang="cs">Pumpa</name>
+        <name lang="da">Trykgruppe</name>
+        <name lang="de">Druckerhöhungsanlage</name>
+        <name lang="el">Αντλία</name>
+        <name lang="en">Pressure group</name>
+        <name lang="es">Grupo de Presión</name>
+        <name lang="fi">Paineryhmä</name>
+        <name lang="fr">Groupe de pompe</name>
+        <name lang="hr">Tlačna grupa</name>
+        <name lang="hu">Nyomásfokozó csoport</name>
+        <name lang="it">Gruppo di pressione</name>
+        <name lang="ja">圧力グループ</name>
+        <name lang="ko">가압 그룹</name>
+        <name lang="mn">Даралтын бүлэг</name>
+        <name lang="nb">Trykkgruppe</name>
+        <name lang="nl">Drukgroep</name>
+        <name lang="nl_BE">Drukgroep</name>
+        <name lang="pl">Zestaw podnoszący ciśnienie</name>
+        <name lang="pt">Grupo de pressão</name>
+        <name lang="pt_BR">Grupo de pressão</name>
+        <name lang="ro">Grup de presiune</name>
+        <name lang="ru">Повысительная установка</name>
+        <name lang="sk">Tlaková skupina</name>
+        <name lang="sl">Tlačna skupina</name>
+        <name lang="sr">Пумпа за повећање притиска</name>
+        <name lang="sv">Tryckgrupp</name>
+        <name lang="tr">Basınç grubu</name>
+        <name lang="uk">Насосна група</name>
+        <name lang="zh">增压机组</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <arc x="10" y="-17" width="6" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0.05" y1="-10.69" x2="-12.55" y2="-18.16" x3="-12.55" y3="-3.22" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="0.05" y1="10.31" x2="-12.55" y2="2.84" x3="-12.55" y3="17.78" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <ellipse x="-18.16" y="-20.68" width="19.62" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-18.16" y="0.32" width="19.62" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-28.94" y1="0" x2="20.61" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4" y="-24" width="12" height="17" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="-7" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4" y="-17" width="6" height="4" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-25" y="-38" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e8071100-2f1d-4720-a8e2-6e4638e68d26}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{61ca211a-9536-4848-9e83-c317f529284f}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{cf81211e-09ce-4769-8ab9-ebf3d862e219}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

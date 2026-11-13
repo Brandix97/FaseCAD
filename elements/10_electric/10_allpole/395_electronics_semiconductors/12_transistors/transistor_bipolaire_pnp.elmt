@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{f634a25c-56d4-8896-261b-bc1c2d0a3043}"/>
+    <names>
+        <name lang="ar">ترنزيستور ثنائي القطبيّة PNP</name>
+        <name lang="ca">Transistor bipolar pnp</name>
+        <name lang="cs">Bipolární tranzistor PNP</name>
+        <name lang="da">Bipolar transistor pnp</name>
+        <name lang="de">Bipolartransistor PNP</name>
+        <name lang="el">Διπολικό τρανζίστορ pnp</name>
+        <name lang="en">Bipolar transistor pnp</name>
+        <name lang="es">Transistor bipolar pnp</name>
+        <name lang="fi">Bipolaaritransistori pnp</name>
+        <name lang="fr">Transistor bipolaire pnp</name>
+        <name lang="hr">Bipolarni tranzistor pnp</name>
+        <name lang="hu">Bipoláris tranzisztor pnp</name>
+        <name lang="it">Transistor bipolare PNP</name>
+        <name lang="ja">バイポーラトランジスタ pnp</name>
+        <name lang="ko">양극 트랜지스터 pnp</name>
+        <name lang="mn">Хоёр туйлт транзистор pnp</name>
+        <name lang="nb">Bipolar transistor pnp</name>
+        <name lang="nl">Transistor bipolare PNP</name>
+        <name lang="nl_BE">Bipolaire transistor pnp</name>
+        <name lang="pl">Tranzystor biopolarny pnp</name>
+        <name lang="pt">Transístor bipolar pnp</name>
+        <name lang="pt_BR">Transistor bipolar PNP</name>
+        <name lang="ro">Tranzistor bipolar PNP</name>
+        <name lang="ru">Биполярный транзистор pnp</name>
+        <name lang="sk">Bipolárny tranzistor pnp</name>
+        <name lang="sl">Bipolarni tranzistor pnp</name>
+        <name lang="sr">Биполарни транзистор pnp</name>
+        <name lang="sv">Bipolär transistor pnp</name>
+        <name lang="tr">Bipolar transistör pnp</name>
+        <name lang="uk">Біполярний транзистор pnp</name>
+        <name lang="zh">双极型PNP晶体管</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="1" y1="-3" x2="3" y2="-8" x3="6" y3="-5" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="1" y1="3" x2="10" y2="12" x3="10" y3="20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="1" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="1" y1="-3" x2="10" y2="-12" x3="10" y3="-20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="1" y1="-5" x2="1" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="14" y="-8.83" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{505e05bc-b731-4a1b-8deb-6c0c85828c92}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{44ba73f6-a1b9-467b-bd45-1ea2a6b53859}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d84ef76e-2925-4532-bcc0-6e0cb238b14c}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8777c4fb-42ea-4c65-8977-f3682d9e6362}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

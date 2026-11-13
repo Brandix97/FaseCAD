@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="13" hotspot_y="19">
+    <uuid uuid="{de0c5ec7-ff4a-8d47-b048-7576a6957090}"/>
+    <names>
+        <name lang="ar">مروحة</name>
+        <name lang="ca">Ventilador</name>
+        <name lang="cs">Ventilátor</name>
+        <name lang="da">Ventilator</name>
+        <name lang="de">Ventilator</name>
+        <name lang="el">Ανεμιστήρας</name>
+        <name lang="en">Fan</name>
+        <name lang="es">Ventilador</name>
+        <name lang="fi">Tuuletin</name>
+        <name lang="fr">Ventilateur</name>
+        <name lang="hr">Ventilator</name>
+        <name lang="hu">Ventilátor</name>
+        <name lang="it">Ventilatore</name>
+        <name lang="ja">ファン</name>
+        <name lang="ko">팬</name>
+        <name lang="mn">Сэнс</name>
+        <name lang="nb">Vifte</name>
+        <name lang="nl">Ventilator</name>
+        <name lang="nl_BE">Ventilator</name>
+        <name lang="pl">Wentylator</name>
+        <name lang="pt">Ventilador</name>
+        <name lang="pt_BR">Ventiladou</name>
+        <name lang="ro">Ventilator</name>
+        <name lang="ru">Вентилятор</name>
+        <name lang="sk">Ventilátor</name>
+        <name lang="sl">Ventilator</name>
+        <name lang="sr">Вентилатор</name>
+        <name lang="sv">Fläkt</name>
+        <name lang="tr">Fan</name>
+        <name lang="uk">Вентилятор</name>
+        <name lang="zh">风扇</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <ellipse x="-4" y="-4.65" width="8" height="7.41" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="-8.35" x2="11.5" y2="-8.35" x3="11.5" y3="-2.33" x4="8" y4="-2.33" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-8" y="-8.35" width="16" height="14.35" start="88" angle="280" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-6" y="4.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{39165b21-5109-408a-a380-4ac307e0ab5a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{8ecf0c11-87bb-46ff-99d3-70ef654dba6c}" name="" x="-1" y="-9" orientation="n" type="Generic"/>
+    </description>
+</definition>

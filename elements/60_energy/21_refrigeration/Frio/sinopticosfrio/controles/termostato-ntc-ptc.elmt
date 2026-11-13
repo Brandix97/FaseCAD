@@ -1,0 +1,19 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="12" hotspot_y="21">
+    <uuid uuid="{170934fb-0c96-8256-7db2-46375d741939}"/>
+    <names>
+        <name lang="ca">Termòstat de sonda NTC-PTC</name>
+        <name lang="es">Termostato sonda NTC-PTC</name>
+        <name lang="pt_BR">Termostato sonda NTC-PTC</name>
+        <name lang="zh">NTC/PTC温控器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-6" y="-17.28" width="12" height="8.43" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="T" x="-4" y="-11" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-8.84" x2="0" y2="-0.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-6" x2="15" y2="-1.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="6" y1="-14.46" x2="15" y2="-14.46" x3="15" y3="-6" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{19e26d9f-8765-477a-8670-e108a5273239}" name="" x="0" y="-1" orientation="s" type="Generic"/>
+    </description>
+</definition>

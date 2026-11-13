@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="42" hotspot_y="41">
+    <uuid uuid="{e0a2a718-6772-004f-ff14-ef8ecc06b573}"/>
+    <names>
+        <name lang="ar">جهاز فصل إلكتروني بملامس NO/NC</name>
+        <name lang="ca">Dispositiu de commutació electrònic amb contacte NA/NC</name>
+        <name lang="cs">Elektronicky řízený přepínací kontakt</name>
+        <name lang="da">Elektronisk koblingsenhed med NO/NC-kontakt</name>
+        <name lang="de">Wechsler Halbleiter betätigt</name>
+        <name lang="el">Ηλεκτρονική διάταξη διακοπής με επαφή NO/NC</name>
+        <name lang="en">Electronic switching device with NO/NC contact</name>
+        <name lang="es">Dispositivo de conmutado electrónico con contacto NA/NC</name>
+        <name lang="fi">Elektroninen kytkinlaite, NO/NC-kosketin</name>
+        <name lang="fr">Dispositif de commande à semi-conducteur  NO/NC</name>
+        <name lang="hr">Elektronički sklopni uređaj s NO/NC kontaktom</name>
+        <name lang="hu">Elektronikus kapcsolókészülék NO/NC érintkezővel</name>
+        <name lang="it">Contatto a comando elettronico (NO/NC)</name>
+        <name lang="ja">NO/NC接点付き電子開閉装置</name>
+        <name lang="ko">전자식 스위칭 소자, NO/NC 접점</name>
+        <name lang="mn">NO/NC контакттай цахим унтраалгын төхөөрөмж</name>
+        <name lang="nb">Elektronisk bryter med NO/NC-kontakt</name>
+        <name lang="nl">Electronisch contact (NC/NO)</name>
+        <name lang="nl_BE">Elektronisch schakeltoestel met NO/NC-contact</name>
+        <name lang="pl">Zestyk przełączny sterowany elektronicznie</name>
+        <name lang="pt">Dispositivo de comutação eletrónico com contacto NO/NC</name>
+        <name lang="pt_BR">Dispositivo de comutação eletrônica com contato NA/NF</name>
+        <name lang="ro">Dispozitiv electronic de comutare cu contact NO/NC</name>
+        <name lang="ru">Электронное коммутационное устройство с НР/НЗ контактом</name>
+        <name lang="sk">Elektronické spínacie zariadenie s kontaktom NO/NC</name>
+        <name lang="sl">Elektronska stikalna naprava s kontaktom NO/NC</name>
+        <name lang="sr">Електронски прекидачки уређај са NO/NC контактом</name>
+        <name lang="sv">Elektronisk kopplingsenhet med NO/NC-kontakt</name>
+        <name lang="tr">NO/NC kontaklı elektronik anahtarlama cihazı</name>
+        <name lang="uk">Електронний комутаційний пристрій з НР/НЗ контактом</name>
+        <name lang="zh">半导体驱动常开常闭触点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-40" y="-15" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-10" x2="-5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-26" y1="-13" x2="-30" y2="-11" x3="-30" y3="-9" x4="-26" y4="-7" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-20" y1="-19" x2="-7" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-13" x2="-30" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-34" y1="-10" x2="-30" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="10" x2="0" y2="0" x3="-10" y3="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-10" y="-2" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{acd638cf-1684-4b17-a234-cc0b7faaa6b7}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-34" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ea1c4601-c548-430a-bbdb-3f9a6d4e5d41}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-10" y="-34" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e1a59a07-c4d8-4ba0-8847-d059b72c276f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="1" y="-22" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c1bd8583-423f-4ba0-bc19-23c700ee7add}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="-30" x2="-20" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{818de975-ba8f-4e71-a875-708840e4321a}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{fe222e35-fcc2-41b8-bf76-159c4eaed6e7}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{145d883f-d341-4ef4-9071-77d50e82ac04}" name="" x="-20" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

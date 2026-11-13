@@ -1,0 +1,43 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="70" hotspot_x="47" hotspot_y="33">
+    <uuid uuid="{3c553d03-a342-08c0-abdb-5fbfa185933e}"/>
+    <names>
+        <name lang="ar">محرك مؤازر</name>
+        <name lang="ca">Servomotor</name>
+        <name lang="cs">DC servomotor</name>
+        <name lang="da">Servomotor</name>
+        <name lang="de">Servo</name>
+        <name lang="el">Σερβοκινητήρας</name>
+        <name lang="en">Servo motor</name>
+        <name lang="es">Servo motor</name>
+        <name lang="fr">Servo Moteur</name>
+        <name lang="pt_BR">Servomotor</name>
+        <name lang="zh">伺服电动机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-30" y="-30" width="60" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-30" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="50" y="-10" width="20" height="20" start="280" angle="160" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="M" x="10" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="5" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="+" x="-24" y="-17" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Out" x="-27" y="6" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="-" x="-22" y="24" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="-20" x2="-40" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="0" x2="-40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="20" x2="-40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="4" x2="17" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="6" x2="17" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="55" y="-5" width="10" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="-54.5" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3cbec759-1d35-4cd7-9db2-c5e49dab27b0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="61" y1="-10" x2="0" y2="-20" x3="0" y3="20" x4="61" y4="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{4f1130fb-13a6-49d4-a366-9e626403d124}" name="" x="-40" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{27c47fa4-e6fe-45ba-9690-a3dda84a0786}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{3b4f62e7-6835-4b0b-bb2d-679ee6c7be5f}" name="" x="-40" y="20" orientation="w" type="Generic"/>
+    </description>
+</definition>

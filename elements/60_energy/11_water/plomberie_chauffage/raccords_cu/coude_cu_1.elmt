@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="22" hotspot_y="31">
+    <uuid uuid="{83d9908f-aa03-1910-d8e2-7d7aacb3c14d}"/>
+    <names>
+        <name lang="ar">كوع نحاس رقم 1</name>
+        <name lang="ca">Cu colze n°1</name>
+        <name lang="cs">Koleno Cu č. 1</name>
+        <name lang="da">Kobberbøjning nr. 1</name>
+        <name lang="de">Bogen Cu Nr. 1</name>
+        <name lang="el">Γωνία Cu n° 1</name>
+        <name lang="en">Copper elbow no. 1</name>
+        <name lang="fr">Coude Cu n° 1</name>
+        <name lang="pt_BR">Coude Cu n° 1</name>
+        <name lang="zh">铜弯头1</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <dynamic_text x="-13" y="-48.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bcef7198-61c7-4a96-8500-08f2fa69b0f4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-5" y="-15" width="20" height="20" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15" y="-25" width="40" height="40" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="25" y1="-14" x2="15" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2" y="4" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="14" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2" y1="4" x2="-4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="4" x2="-4" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="16" x2="2" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="5" x2="4" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-6" x2="15" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-6" x2="15" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-6" x2="25" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{849ac14e-39f0-4ec1-8440-2ea514c3eb32}" name="" x="-4" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{17b4ae30-02fc-4919-bcb9-a84ab80d2a06}" name="" x="20" y="-14" orientation="n" type="Generic"/>
+    </description>
+</definition>

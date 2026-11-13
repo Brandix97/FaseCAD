@@ -1,0 +1,19 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="9" hotspot_y="11">
+    <uuid uuid="{6ce693fb-0bb1-6e1a-0a87-fee859eab122}"/>
+    <names>
+        <name lang="ca">Estufa mòbil</name>
+        <name lang="es">Estufa móvil</name>
+        <name lang="pt_BR">Estufa móvil</name>
+        <name lang="zh">移动式取暖器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-4" y1="-7" x2="-4" y2="9" x3="6" y3="9" x4="6" y4="1" x5="1" y5="-7" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-6" y="-20" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c08a11dd-7a69-41f8-83b4-033db56e2ece}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f23675b0-5110-42fe-8ece-c056d33baf0d}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

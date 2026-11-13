@@ -1,0 +1,53 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="40" hotspot_x="39" hotspot_y="10">
+    <uuid uuid="{a843da3d-8467-205d-b761-93c5af5a1503}"/>
+    <names>
+        <name lang="ar">مزدوج الفعل + فرامل نهاية الشوط على جانب واحد + مغناطيس</name>
+        <name lang="ca">Doble efecte + fre de final de carrera per un costat + imant</name>
+        <name lang="cs">Dvojčinná + brzda konce zdvihu na jedné straně + magnet</name>
+        <name lang="da">Dobbeltvirkende + afslutningsbremse på den ene side + magnet</name>
+        <name lang="de">Doppeltwirkend + Endlagenbremse einseitig + Magnet</name>
+        <name lang="el">Διπλής δράσης + φρένο στο τέλος της διαδρομής στη μία πλευρά + μαγνήτης</name>
+        <name lang="en">Double-acting + end-of-stroke brake on one side + magnet</name>
+        <name lang="es">Doble efecto + freno de final de carrera en un lado + imán</name>
+        <name lang="fi">Kaksitoiminen + iskunpään jarru toisella puolella + magneetti</name>
+        <name lang="fr">Double effet + frein de fin de course d'un côté + aimant</name>
+        <name lang="hr">Dvostruko djelovanje + kočnica na kraju hoda s jedne strane + magnet</name>
+        <name lang="hu">Kettős működésű + löketvégi fék az egyik oldalon + mágnes</name>
+        <name lang="it">Doppio effetto + freno di fine corsa su un lato + magnete</name>
+        <name lang="ja">複動式+片側のストロークエンドブレーキ+マグネット</name>
+        <name lang="ko">복동 + 한쪽 스트로크 끝 브레이크 + 자석</name>
+        <name lang="mn">Давхар үйлдэлтэй + нэг талдаа харвалтын төгсгөлийн тоормос + соронз</name>
+        <name lang="nb">Dobbeltvirkende + sluttbrems på den ene siden + magnet</name>
+        <name lang="nl">Dubbelwerkend + eindeslagrem eenzijdig + magneet</name>
+        <name lang="nl_BE">Dubbelwerkend + eindslagrem aan één zijde + magneet</name>
+        <name lang="pl">Dwustronnego działania + hamulec krańcowy po jednej stronie + magnes</name>
+        <name lang="pt">Dupla ação + freio de fim de curso de um lado + ímã</name>
+        <name lang="pt_BR">Dupla ação + freio de fim de curso de um lado + ímã</name>
+        <name lang="ro">Frână cu dublă acțiune + capăt de cursă pe o parte + magnet</name>
+        <name lang="ru">Двустороннего действия + тормоз в конце хода с одной стороны + магнит</name>
+        <name lang="sk">Dvojčinný + koncová brzda na jednej strane + magnet</name>
+        <name lang="sl">Dvostransko delovanje + zavora na koncu hoda na eni strani + magnet</name>
+        <name lang="sr">Двоструко дејство + кочница на крају хода на једној страни + магнет</name>
+        <name lang="sv">Dubbelverkande + ändlägesbroms på ena sidan + magnet</name>
+        <name lang="tr">Bir tarafta çift etkili + strok sonu freni + mıknatıs</name>
+        <name lang="uk">Двосторонньої дії + гальмо кінця ходу з одного боку + магніт</name>
+        <name lang="zh">双作用磁性气缸10</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-25" y1="1" x2="-25" y2="9" x3="-25" y3="1" x4="-24" y4="1" x5="-24" y5="9" x6="-23" y6="9" x7="-23" y7="7" x8="-24" y8="6" x9="-24" y9="4" x10="-23" y10="3" x11="-23" y11="1" x12="-25" y12="1" x13="-25" y13="9" x14="-24" y14="9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-30" y="1" width="3" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-27" y="-5" width="6" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-33" y3="15" x4="-33" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="27" y1="3" x2="-21" y2="3" x3="-21" y3="7" x4="27" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{216a971f-60fa-46f5-994b-b0908eebb6fd}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

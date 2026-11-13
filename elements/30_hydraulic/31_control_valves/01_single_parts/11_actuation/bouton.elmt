@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="19" hotspot_y="7">
+    <uuid uuid="{b97ac3c2-aab1-d509-6bc9-a25d3dffb001}"/>
+    <names>
+        <name lang="ar">زرّ</name>
+        <name lang="ca">Botó</name>
+        <name lang="cs">Tlačítko</name>
+        <name lang="da">Knap</name>
+        <name lang="de">Taster</name>
+        <name lang="el">Κουμπί</name>
+        <name lang="en">Button</name>
+        <name lang="es">Pulsador</name>
+        <name lang="fi">Painike</name>
+        <name lang="fr">Bouton</name>
+        <name lang="hr">Tipkalo</name>
+        <name lang="hu">Nyomógomb</name>
+        <name lang="it">Pulsante</name>
+        <name lang="ja">ボタン</name>
+        <name lang="ko">버튼</name>
+        <name lang="mn">Товч</name>
+        <name lang="nb">Knapp</name>
+        <name lang="nl">Drukknop</name>
+        <name lang="nl_BE">Drukknop</name>
+        <name lang="pl">Przycisk</name>
+        <name lang="pt">Botão</name>
+        <name lang="pt_BR">Botão</name>
+        <name lang="ro">Buton</name>
+        <name lang="ru">Кнопка</name>
+        <name lang="sk">Tlačidlo</name>
+        <name lang="sl">Gumb</name>
+        <name lang="sr">Дугме</name>
+        <name lang="sv">Knapp</name>
+        <name lang="tr">Buton</name>
+        <name lang="uk">Кнопка</name>
+        <name lang="zh">按钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-23.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8c692660-56cd-493d-b0a3-6a92963293e0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-13" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-3" x2="-13" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

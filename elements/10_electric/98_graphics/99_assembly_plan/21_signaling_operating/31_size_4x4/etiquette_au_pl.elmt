@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="150" height="150" hotspot_x="68" hotspot_y="61">
+    <uuid uuid="{f48d388a-90c8-7bfb-96f0-423e19c5afab}"/>
+    <names>
+        <name lang="ar">توقيف طارئ</name>
+        <name lang="ca">Etiqueta - Parada d'emergència - pl</name>
+        <name lang="cs">Štítek - Nouzové zastavení - pl</name>
+        <name lang="da">Etiket - Nødstop - pl</name>
+        <name lang="de">Schild Not-Aus polnisch</name>
+        <name lang="el">Ετικέτα - Στάση κινδύνου - Πολωνικά</name>
+        <name lang="en">Label - Emergency stopping - pl</name>
+        <name lang="es">Etiqueta - Paro de emergencia - pl</name>
+        <name lang="fi">Kilpi - Hätäpysäytys - pl</name>
+        <name lang="fr">Etiquette - Arrêt d'urgence - pl</name>
+        <name lang="hr">Oznaka - Nužno zaustavljanje - pl</name>
+        <name lang="hu">Címke - Vészleállítás - pl</name>
+        <name lang="it">Etichetta - Zatrzymanie awaryjne (pl)</name>
+        <name lang="ja">ラベル - 非常停止 - pl</name>
+        <name lang="ko">라벨 - 비상 정지 - pl</name>
+        <name lang="mn">Шошго - Яаралтай зогсоол - pl</name>
+        <name lang="nb">Etikett - Nødstopp - pl</name>
+        <name lang="nl">Label Noodstop (pl)</name>
+        <name lang="nl_BE">Label - Noodstop - pl</name>
+        <name lang="pl">Etykieta - Zatrzymanie awaryjne - pl</name>
+        <name lang="pt">Etiqueta - Paragem de emergência - pl</name>
+        <name lang="pt_BR">identificacao - Emergencia sSuperiorping - pl</name>
+        <name lang="ro">Etichetă - Oprire de urgență - pl</name>
+        <name lang="ru">Табличка - Аварийная остановка - pl</name>
+        <name lang="sk">Štítok - Núdzové zastavenie - pl</name>
+        <name lang="sl">Etiketa - zasilna ustavitev - pl</name>
+        <name lang="sr">Налепница - Нужно заустављање - pl</name>
+        <name lang="sv">Etikett - Nödstopp - pl</name>
+        <name lang="tr">Etiket - Acil durdurma - pl</name>
+        <name lang="uk">Табличка - Аварійний зупин - pl</name>
+        <name lang="zh">波兰语标签</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-91.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e16582ec-15f8-48f4-93e3-d110668effea}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-57.5" y="-57.5" width="135" height="135" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-30" y="-30" width="80" height="80" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="Y" x="63" y="39.23" rotation="291" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="47.85" y="56.44" rotation="314" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="J" x="32.27" y="66.19" rotation="333" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Y" x="12.46" y="70.52" rotation="351" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="R" x="-9.18" y="67.77" rotation="11" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="A" x="-25.51" y="59.13" rotation="29" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="W" x="-43.19" y="41.13" rotation="50" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="A" x="-50" y="22.74" rotation="72" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="K" x="55.16" y="-1.35" rotation="85" font="Liberation Sans,14,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="I" x="52.69" y="-8.9" rotation="70" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="43.63" y="-23.17" rotation="53" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Z" x="30.95" y="-31.68" rotation="33" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="C" x="11.51" y="-37.13" rotation="10" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Ą" x="-8.86" y="-32.94" rotation="-15" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Ł" x="-23.64" y="-23.09" rotation="321" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Y" x="-33.34" y="-8.56" rotation="301" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="W" x="-38.13" y="11.49" rotation="280" font="Liberation Sans,16,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+    </description>
+</definition>

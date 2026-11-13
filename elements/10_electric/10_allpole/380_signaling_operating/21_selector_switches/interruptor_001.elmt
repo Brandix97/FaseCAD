@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="32" hotspot_y="40">
+    <uuid uuid="{5af2784f-5253-37d9-4ea0-bd44f797e9e5}"/>
+    <names>
+        <name lang="ar">مفتاح دوّار 1-0-2</name>
+        <name lang="ca">Interruptor de 3 posicions inclòs neutre</name>
+        <name lang="cs">Třípolohový přepínač s nulou uprostřed (1-0-2), ovládaný klíčkem</name>
+        <name lang="da">Afbryder 3 positioner inklusive neutral</name>
+        <name lang="de">Drehschalter 3 Positionen Schlüsselbetätigung</name>
+        <name lang="el">Διακόπτης 3 θέσεων, 1-0-2 με κλειδί</name>
+        <name lang="en">Switch 3 positions including neutral</name>
+        <name lang="es">Interruptor 3 posiciones incluso neutro</name>
+        <name lang="fi">Kytkin 3 asentoa sisältäen nollan</name>
+        <name lang="fr">Interrupteur rotatif 1-0-2</name>
+        <name lang="hr">Sklopka 3 položaja uključujući neutralni</name>
+        <name lang="hu">Kapcsoló 3 állás semleges helyzettel</name>
+        <name lang="it">Selettore a chiave, 3 posizioni 1-0-2</name>
+        <name lang="ja">ニュートラルを含むスイッチ 3位置</name>
+        <name lang="ko">스위치 3 위치 (중립 포함)</name>
+        <name lang="mn">Унтраалга 3 байрлал, төвийг оролцуулан</name>
+        <name lang="nb">Bryter 3 posisjoner inkludert nøytral</name>
+        <name lang="nl">Sleutelschakelaar 3 pos (NO/NO)</name>
+        <name lang="nl_BE">Schakelaar 3 standen inclusief neutraal</name>
+        <name lang="pl">Łącznik obrotowy przełączny, otwarty w pozycji pośredniej, uruchamiany kluczykiem</name>
+        <name lang="pt">Interruptor 3 posições com neutro</name>
+        <name lang="pt_BR">Chave rotativa 3 posições incluindo neutro</name>
+        <name lang="ro">Comutator 3 poziții cu neutru</name>
+        <name lang="ru">Переключатель 3-х позиционный со средним положением</name>
+        <name lang="sk">Prepínač 3 polôh vrátane neutrálu</name>
+        <name lang="sl">Stikalo 3 položajev z nevtralnim položajem</name>
+        <name lang="sr">Прекидач 3 положаја укључујући неутрални</name>
+        <name lang="sv">Brytare 3 lägen inklusive nolläge</name>
+        <name lang="tr">Nötr dahil şalter 3 konum</name>
+        <name lang="uk">Перемикач 3 положень з нейтральним</name>
+        <name lang="zh">开关001</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-7" y1="-10" x2="-4" y2="-10" x3="-2" y3="-7" x4="0" y4="-10" x5="10" y5="-10" closed="false" antialias="true" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <line x1="-26" y1="-10" x2="-11" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-28" y1="-10" x2="-29" y2="-6" x3="-25" y3="-6" x4="-26" y4="-10" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-9" y1="-7" x2="-5" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-9" y1="-14" x2="-9" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-29.24" y="-14.24" width="4.47" height="4.47" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="0" x="-10.5" y="-16" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="-16" y="-15" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-9" y1="-7" x2="-13" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-23" y1="-6" x2="-20" y2="-6" x3="-20" y3="-14" x4="-17" y4="-14" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <dynamic_text x="25" y="-20" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5ff025a9-37f8-47a2-bbaa-8d36d0bc0aa0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="2" x="-5" y="-15" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="10" y1="-14" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="9" y="-16" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="0" y1="0" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-17" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d65ca240-35a9-4e1d-bc11-fefe8af197b7}" name="" x="20" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{a9ffca0f-6df8-4022-8988-a367b4e82d8c}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{b966f0ca-af8d-414a-976f-bec417aca5d3}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

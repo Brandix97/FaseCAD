@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="14" hotspot_y="17">
+    <uuid uuid="{9baa7daa-d817-45cf-5956-f7c83023167a}"/>
+    <names>
+        <name lang="ca">Llum d'emergència</name>
+        <name lang="es">Luz de emergencia</name>
+        <name lang="pt_BR">Luz de emergencia</name>
+        <name lang="zh">冷藏室灯2</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="7" y="-9" width="4" height="11" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-1" y="-5" width="4" height="11" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="12" y="-12" width="4" height="11" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8" y="-1" width="4" height="11" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="14" y1="-12" x2="9" y2="-12" x3="-11" y3="-2" x4="-11" y4="10" x5="-6" y5="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-11" y1="-1" x2="-7" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-1" x2="14" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-1" x2="-5" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{abe387a8-ea00-489d-92b2-399793246303}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-4" y1="4" x2="16" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-7" x2="18" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-2" x2="23" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="3" x2="12" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8371b09d-f8da-4b39-9238-56b5b88ff4e4}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

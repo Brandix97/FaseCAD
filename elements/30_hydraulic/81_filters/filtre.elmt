@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="35" hotspot_y="25">
+    <uuid uuid="{f6ad05b3-0761-7477-7a14-bf83e247a334}"/>
+    <names>
+        <name lang="ar">مُرشّح</name>
+        <name lang="ca">Filtre</name>
+        <name lang="cs">Filtr</name>
+        <name lang="da">Filter</name>
+        <name lang="de">Filter</name>
+        <name lang="el">Φίλτρο</name>
+        <name lang="en">Filter</name>
+        <name lang="es">Filtro</name>
+        <name lang="fi">Suodatin</name>
+        <name lang="fr">Filtre</name>
+        <name lang="hr">Filter</name>
+        <name lang="hu">Szűrő</name>
+        <name lang="it">Filtro</name>
+        <name lang="ja">フィルタ</name>
+        <name lang="ko">필터</name>
+        <name lang="mn">Шүүлтүүр</name>
+        <name lang="nb">Filter</name>
+        <name lang="nl">Filter</name>
+        <name lang="nl_BE">Filter</name>
+        <name lang="pl">Filtr</name>
+        <name lang="pt">Filtro</name>
+        <name lang="pt_BR">Filtro</name>
+        <name lang="ro">Filtru</name>
+        <name lang="ru">Фильтр</name>
+        <name lang="sk">Filter</name>
+        <name lang="sl">Filter</name>
+        <name lang="sr">Филтер</name>
+        <name lang="sv">Filter</name>
+        <name lang="tr">Filtre</name>
+        <name lang="uk">Фільтр</name>
+        <name lang="zh">过滤器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="19" y="-26.83" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ad4a526a-8834-4753-afba-d765bfe038f2}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-19.25" x2="0" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.11" y1="-19.83" x2="20" y2="0.11" x3="0.11" y3="20" x4="-19.93" y4="0" x5="0" y5="-19.93" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-19.93" y1="0" x2="-27.11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19.62" y1="0" x2="27.32" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e6c22fbc-0d98-43b2-b229-a1c859297b89}" name="" x="27" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{b22df9b1-87f1-4f18-a8ca-62834c2c208e}" name="" x="-27" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

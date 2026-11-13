@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="next_report" width="20" height="20" hotspot_x="12" hotspot_y="13">
+    <uuid uuid="{1635aa8d-b3ff-ebb5-96ee-6be8ce975432}"/>
+    <names>
+        <name lang="ar">مرجع ملف (عمودي)</name>
+        <name lang="ca">Bobina de referència v</name>
+        <name lang="cs">Odkaz - cívka (svisle)</name>
+        <name lang="da">Arkhenvisning spole v</name>
+        <name lang="de">Spule / Referenz (vertikal)</name>
+        <name lang="el">Πηνίο αναφοράς κ</name>
+        <name lang="en">Reference coil v</name>
+        <name lang="es">Referencia bobina v</name>
+        <name lang="fi">Viittauskela v</name>
+        <name lang="fr">Reference bobine v</name>
+        <name lang="hr">Referentna zavojnica v</name>
+        <name lang="hu">Tekercs hivatkozás v</name>
+        <name lang="it">Riferimento bobine / (verticale)</name>
+        <name lang="ja">コイル参照 v</name>
+        <name lang="ko">코일 참조 v</name>
+        <name lang="mn">Ороомгийн лавлагаа v</name>
+        <name lang="nb">Referansespole v</name>
+        <name lang="nl">Referentie volgend spoel</name>
+        <name lang="nl_BE">Verwijzing spoel v</name>
+        <name lang="pl">Odsyłacz 4 (pionowo)</name>
+        <name lang="pt">Referência bobina v</name>
+        <name lang="pt_BR">Reference Bobina v</name>
+        <name lang="ro">Referință bobină v</name>
+        <name lang="ru">Ссылка на катушку в</name>
+        <name lang="sk">Odkaz na cievku v</name>
+        <name lang="sl">Sklic na tuljavo v</name>
+        <name lang="sr">Референца калема v</name>
+        <name lang="sv">Hänvisning spole v</name>
+        <name lang="tr">Bobin referansı v</name>
+        <name lang="uk">Посилання на котушку v</name>
+        <name lang="zh">线圈垂直参考</name>
+    </names>
+    <informations>Author: Computer Shooter
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="3" y1="-4" x2="3" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-4" width="6" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="1" x2="3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-3.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{be8a63c6-4cfa-42af-9cee-0ccab54a2eb4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>/</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="8">
+    <uuid uuid="{74bbe749-a97c-bb7c-424e-7975936ab906}"/>
+    <names>
+        <name lang="ar">صمّام ضدّ الرجع بزنبرك</name>
+        <name lang="ca">Vàlvula de retenció a la molla</name>
+        <name lang="cs">Pružinový pojistný ventil</name>
+        <name lang="da">Kontraventil med fjeder</name>
+        <name lang="de">Rückschlagventil Feder</name>
+        <name lang="el">Ανεπίστροφη βαλβίδα με ελατήριο</name>
+        <name lang="en">Check valve to spring</name>
+        <name lang="es">Válvula de retención a resorte</name>
+        <name lang="fi">Takaiskuventtiili jouselle</name>
+        <name lang="fr">Clapet anti-retour à Ressort</name>
+        <name lang="hr">Nepovratni ventil s oprugom</name>
+        <name lang="hu">Visszacsapó szelep rugóhoz</name>
+        <name lang="it">Valvola di ritegno</name>
+        <name lang="ja">スプリング式チェックバルブ</name>
+        <name lang="ko">스프링식 역류 밸브</name>
+        <name lang="mn">Пүршт буцах хавхлага</name>
+        <name lang="nb">Tilbakeslagsventil med fjær</name>
+        <name lang="nl">Terugslagklep met veer</name>
+        <name lang="nl_BE">Terugslagklep met veer</name>
+        <name lang="pl">Zawór zwrotny sprężynowy</name>
+        <name lang="pt">Válvula de retenção com mola</name>
+        <name lang="pt_BR">Check valvula to spring</name>
+        <name lang="ro">Supapă de reținere cu arc</name>
+        <name lang="ru">Обратный клапан с пружиной</name>
+        <name lang="sk">Spätný ventil pružinový</name>
+        <name lang="sl">Povratni ventil z vzmetjo</name>
+        <name lang="sr">Неповратни вентил са опругом</name>
+        <name lang="sv">Backventil med fjäder</name>
+        <name lang="tr">Yaylı çek valf</name>
+        <name lang="uk">Зворотний клапан пружинний</name>
+        <name lang="zh">止回阀02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-5" y1="3" x2="-5" y2="-3" x3="-6" y3="3" x4="-7" y4="-3" x5="-8" y5="3" x6="-9" y6="-3" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="4" y1="-6" x2="4" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="10" y2="10" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4" y1="-5" x2="4" y2="0" x3="-4" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-19" y="-23.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{babb036f-847d-4371-aea3-58b9c2550758}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="3" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9c984efc-821a-4b1c-b701-99a2a002d4dd}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{cf78c4a2-d122-4c92-8394-e2e3c239719c}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

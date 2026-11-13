@@ -1,0 +1,83 @@
+<definition version="0.100.0" type="element" link_type="master" width="140" height="300" hotspot_x="14" hotspot_y="297">
+    <uuid uuid="{e9f27607-5ca3-0985-7ad6-4c16d1b40c44}"/>
+    <names>
+        <name lang="ar">مبنى خارجي أحادي</name>
+        <name lang="ca">Suport Mono Ext</name>
+        <name lang="cs">Externí budova 1f</name>
+        <name lang="da">Udvendig bygning mono</name>
+        <name lang="de">Gebäude Außen mono</name>
+        <name lang="el">Εξωτ. κτίριο μονοφασικό</name>
+        <name lang="en">Ext. bldg single-phase</name>
+        <name lang="es">Edificio exterior 1P+N</name>
+        <name lang="fr">Bât Ext mono</name>
+        <name lang="pt_BR">Edificação externa monofásica</name>
+        <name lang="zh">室外单相建筑</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <line x1="65" y1="-224" x2="55" y2="-214" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-244" x2="60" y2="-240" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-45" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{79dffd20-9a85-4bcf-96b2-0715e581ce59}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <polygon x1="60" y1="-257" x2="60" y2="-260" x3="55" y3="-280" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="65" y1="-218" x2="55" y2="-208" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-64" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{fe1f2b88-bdb5-4f09-badb-dbdaa54d7854}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="66" y="-278.83" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8d3b1318-0b2c-4502-94b9-cc791d0276ca}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="60" y1="-240" x2="60" y2="-176" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="56" y="-249.5" width="8" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-252" x2="60" y2="-250" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-170" x2="120" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <line x1="60" y1="-253" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="64" y="-225" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="35" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="64" y1="-257" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="85" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-257" x2="64" y2="-257" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-290" x2="60" y2="-280" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-140" x2="40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-100" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="62" y1="-282" x2="58" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="80" y1="-100" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="58" y1="-282" x2="62" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="57" y1="-270" x2="50" y2="-270" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-175" x2="60" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-270" x2="50" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-100" x2="50" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-247" x2="64" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-125" x2="70" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-255" x2="64" y2="-255" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-125" x2="70" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="58" y="-13" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1e00b284-83d6-417c-8361-4330b828a18c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text> mm²</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-14.5" z="39" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a1b66f84-0451-4ad9-8ae1-527256a6407f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-29.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{999baa60-d1c5-4580-a5db-d99edf87c3df}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-82.5" z="41" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7c613d90-135a-4fd8-91ec-bf6511e8dfbe}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Bâtiment extérieur</text>
+        </dynamic_text>
+        <dynamic_text x="70" y="-232.5" z="42" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{fede9739-b870-4c4c-8077-22fa48c70518}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <ellipse x="58" y="-172" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{0aa73345-de36-4a66-b3e4-bfd19a779748}" name="" x="60" y="-290" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="5" hotspot_y="25">
+    <uuid uuid="{fd463c2e-7609-5b16-b4e0-1ff6545e82ac}"/>
+    <names>
+        <name lang="de">Sicherungen, 3-polig</name>
+        <name lang="en">Fuses, 3 poles</name>
+        <name lang="es">Fusibles, 3 polos</name>
+        <name lang="fr">Fusibles, 3 pôles</name>
+        <name lang="it">Fusibili, 3 poli</name>
+        <name lang="pt">Fusíveis, 3 polos</name>
+        <name lang="tr">Sigortalar, 3 kutuplu</name>
+        <name lang="zh">熔断器，3极</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-9" width="6" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="1" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{dcf556ba-c1c1-56cc-bf6d-2b8a135a8e98}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="1" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c481c1c8-8bb6-57d7-9436-bfaf70e7ab8d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <line x1="20" y1="-20" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="17" y="-9" width="6" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="21" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{81f73af8-f65e-5ec6-9dc3-2dcbf6655968}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="21" y="8.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1bee759b-4923-573d-b150-3623b7af435c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <line x1="40" y1="-20" x2="40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="37" y="-9" width="6" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="41" y="-24.1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a322fe2d-51c1-5aa1-8bea-014c21ed37b6}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text x="41" y="8.4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4933caa7-0a5d-5a34-b364-d36a2eee2073}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <dynamic_text x="-12" y="-10.49" z="8" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3f438c0b-6825-511e-bcfd-7e20d3a7bcfb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e4c88723-3fc4-571b-a9e9-83dc7e8c5968}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{8bd165b6-c702-5960-a963-ab7465ac7754}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{55744b29-a47c-5635-991c-fe2a85cef59e}" name="3" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{fb67d2f0-412d-5aa2-831d-f0932fe8512c}" name="4" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{4459a399-cc42-54f0-ac16-39d492eeacaa}" name="5" x="40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c26ee163-a62b-5796-bc7c-ebe658627a2b}" name="6" x="40" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

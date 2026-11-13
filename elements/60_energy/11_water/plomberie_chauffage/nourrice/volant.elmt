@@ -1,0 +1,32 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="10" hotspot_y="3">
+    <uuid uuid="{f2d0b145-90d7-c035-b199-b495907c41ef}"/>
+    <names>
+        <name lang="ar">عجلة</name>
+        <name lang="ca">Volant</name>
+        <name lang="cs">Kolo</name>
+        <name lang="da">Håndhjul</name>
+        <name lang="de">Handrad</name>
+        <name lang="el">Χειροτροχός</name>
+        <name lang="en">Handwheel</name>
+        <name lang="fr">Volant</name>
+        <name lang="it">Volante</name>
+        <name lang="pt_BR">Volant</name>
+        <name lang="zh">手轮</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <dynamic_text x="-8" y="-59.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{47813228-8539-4dfc-aaf6-cdd43bbba815}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-8" y1="13" x2="8" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="7" width="16" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <ellipse x="-8" y="-1" width="16" height="14" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <line x1="0" y1="13" x2="0" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="13" x2="-5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="6" x2="5" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="6" x2="-8" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="6" x2="8" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="14" width="6" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

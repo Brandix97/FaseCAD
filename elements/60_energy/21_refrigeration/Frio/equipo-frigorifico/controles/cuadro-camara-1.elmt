@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="38" hotspot_y="28">
+    <uuid uuid="{f38eb2b1-b892-b147-2cd3-6e253ab0de84}"/>
+    <names>
+        <name lang="ca">Quadre càmbra</name>
+        <name lang="es">Cuadro cámara</name>
+        <name lang="pt_BR">Cuadro cámara</name>
+        <name lang="zh">冷库控制箱1</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-14" y1="26" x2="-14" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="26" x2="23" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="26" x2="-3" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="26" x2="10" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Vc" x="-15" y="22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Ve" x="-5" y="22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="23" y1="-19" x2="23" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Pr" x="8" y="22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Sol" x="18" y="22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Ter" x="-26" y="-7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-12.59" y="-4.25" width="14.46" height="3.75" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10.14" y="6.75" width="4.34" height="3.75" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <rect x="-30.26" y="-13.25" width="56.26" height="38.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="7.21" y="6.75" width="4.34" height="3.75" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <rect x="-15.48" y="-5.5" width="20.24" height="6.25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8.65" y="8" width="1.45" height="3.75" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <rect x="-8.7" y="8" width="1.45" height="3.75" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <ellipse x="20.22" y="5.27" width="2.39" height="2.39" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="21" y="3.68" width="0.8" height="5.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1.47" y="6.75" width="4.34" height="3.75" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <rect x="0" y="8" width="1.45" height="3.75" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <polygon x1="16.54" y1="-6.25" x2="19.43" y2="-8.75" x3="19.43" y3="-6.25" x4="23.77" y4="-11.25" x5="20.88" y5="-10" x6="22.33" y6="-8.75" x7="23.77" y7="-11.25" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-29" y1="26" x2="-29" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Co" x="-29" y="22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-24" y1="-19" x2="-24" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-30" y="-3" z="26" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{493a75b6-9aa7-4d16-9335-91fac62fc316}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2a1cc6d4-3f7f-4f5a-84cd-0f3e5a30eb1b}" name="" x="-29" y="33" orientation="s" type="Generic"/>
+        <terminal uuid="{7d1a97d5-e867-4905-84aa-8a5a77649851}" name="" x="-14" y="33" orientation="s" type="Generic"/>
+        <terminal uuid="{e5716ee7-2b4d-409b-946d-9daaf6debded}" name="" x="-3" y="33" orientation="s" type="Generic"/>
+        <terminal uuid="{b84ed825-4d6c-444c-9598-36c68f6417db}" name="" x="10" y="33" orientation="s" type="Generic"/>
+        <terminal uuid="{02a272cd-6073-4475-baf2-a94a9839f7eb}" name="" x="23" y="33" orientation="s" type="Generic"/>
+        <terminal uuid="{7aba8b50-49ca-4265-964d-87eb9ec4c1fb}" name="" x="-24" y="-19" orientation="n" type="Generic"/>
+        <terminal uuid="{99235d20-828e-4f30-b162-120e3c2631ea}" name="" x="23" y="-19" orientation="n" type="Generic"/>
+    </description>
+</definition>

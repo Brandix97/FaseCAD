@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{4a4b6b52-12d9-c22b-1df3-96ddf5ce324f}"/>
+    <names>
+        <name lang="ar">سهم أسود</name>
+        <name lang="ca">Fletxa Negra</name>
+        <name lang="cs">Černá šipka</name>
+        <name lang="da">Sort pil</name>
+        <name lang="de">Schwarzer Pfeil</name>
+        <name lang="el">Μαύρο βέλος</name>
+        <name lang="en">Black arrow</name>
+        <name lang="es">Flecha negra</name>
+        <name lang="fr">Fléche noire</name>
+        <name lang="pt_BR">Flecha negra</name>
+        <name lang="zh">流向</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-14" y1="-2.63" x2="-14" y2="3.68" x3="4" y3="3.68" x4="4" y4="10" x5="13" y5="0.53" x6="4" y6="-8.95" x7="4" y7="-2.63" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+    </description>
+</definition>

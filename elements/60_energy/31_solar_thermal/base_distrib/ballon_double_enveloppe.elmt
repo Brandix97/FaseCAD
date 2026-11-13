@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="70" hotspot_x="59" hotspot_y="34">
+    <uuid uuid="{9d864b73-691e-39dd-4227-27fab465d447}"/>
+    <names>
+        <name lang="ar">بالون بغلاف مُضاعف C</name>
+        <name lang="ca">C matràs amb camisa</name>
+        <name lang="cs">C zásobník s dvojitým pláštěm</name>
+        <name lang="da">C kappekolbe</name>
+        <name lang="de">Mantelgefäß C</name>
+        <name lang="el">Φιάλη C με μανδύα</name>
+        <name lang="en">C jacketed flask</name>
+        <name lang="es">C bola doble cubierta</name>
+        <name lang="fi">C vaippasäiliö</name>
+        <name lang="fr">C ballon double enveloppe</name>
+        <name lang="hr">C posuda s plaštem</name>
+        <name lang="hu">C köpenyes tartály</name>
+        <name lang="it">C Scambiatore</name>
+        <name lang="ja">Cジャケット付きフラスコ</name>
+        <name lang="ko">C 재킷 플라스크</name>
+        <name lang="mn">C бүрхүүлтэй колб</name>
+        <name lang="nb">C kappet kolbe</name>
+        <name lang="nl">type C tank met uitwendig wisselaar</name>
+        <name lang="nl_BE">C-mantelvat</name>
+        <name lang="pl">C zasobnik z podwójnym płaszczem</name>
+        <name lang="pt">Frasco encamisado C</name>
+        <name lang="pt_BR">C jacketed flask</name>
+        <name lang="ro">Vas cu manta C</name>
+        <name lang="ru">Сосуд C с рубашкой</name>
+        <name lang="sk">C plášťová nádoba</name>
+        <name lang="sl">Posoda C s plaščem</name>
+        <name lang="sr">Ц посуда са омотачем</name>
+        <name lang="sv">C mantlad behållare</name>
+        <name lang="tr">C ceketli şişe</name>
+        <name lang="uk">Бак C з сорочкою</name>
+        <name lang="zh">双夹套水箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="C" x="-39" y="-18" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-12" y="-56.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e07c6dfb-bc39-4c73-a6ca-bacaafba42fb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="5" y1="-22" x2="42" y2="-22" x3="42" y3="-10" x4="38" y4="-6" x5="45" y5="-2" x6="39" y6="3" x7="44" y7="6" x8="38" y8="10" x9="42" y9="13" x10="42" y10="24" x11="2" y11="24" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="7" y1="-15" x2="30" y2="-15" x3="30" y3="-5" x4="24" y4="0" x5="34" y5="5" x6="25" y6="10" x7="30" y7="15" x8="30" y8="20" x9="7" y9="20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-14" y1="-10" x2="-19" y2="-10" x3="-19" y3="31" x4="19" y4="31" x5="19" y5="-10" x6="14" y6="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-14" y="-29.5" width="28" height="58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="33" y1="24" x2="36" y2="21" x3="36" y3="27" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-26" y1="20" x2="-23" y2="17" x3="-23" y3="23" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="31" y="20" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-28" y="16" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="solaire" x="-49" y="6" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="chauff." x="31" y="17" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ECS" x="25" y="-6" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ballon" x="-7" y="-7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-17" y1="0" x2="-37" y2="0" x3="-27" y3="5" x4="-37" y4="10" x5="-27" y5="15" x6="-37" y6="20" x7="-17" y7="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

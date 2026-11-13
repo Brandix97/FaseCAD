@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{8561612a-ee6d-a57e-d69e-40f6b851408a}"/>
+    <names>
+        <name lang="ar">ثايريستور رباعي الأطراف مكبوح في الإنحياز العكسي</name>
+        <name lang="ca">Tiristor de bloqueig invers tipus tetrode</name>
+        <name lang="cs">Tetrodový tyristor, blokující obráceně</name>
+        <name lang="da">Spærrende thyristortetrode</name>
+        <name lang="de">rückwärts sperrende Thyristortetriode</name>
+        <name lang="el">Θυρίστορ τετρόδου ανάστροφης αποκοπής</name>
+        <name lang="en">Reverse blocking thyristor tetrode type</name>
+        <name lang="es">Tiristor tetrodo de bloqueo inverso</name>
+        <name lang="fi">Estosuunnassa estävä tyristoritetrodi</name>
+        <name lang="fr">Thyristor tétrode bloqué en inverse</name>
+        <name lang="hr">Reverzno blokirajući tiristor tetrodnog tipa</name>
+        <name lang="hu">Záróirányú tirisztor tetróda típus</name>
+        <name lang="it">Tiristore tetrodo bloccato nel sen-so inverso di conduzione</name>
+        <name lang="ja">逆阻止四極サイリスタ</name>
+        <name lang="ko">역방향 차단 4극 사이리스터형</name>
+        <name lang="mn">Урвуу хаах тиристор тетрод төрөл</name>
+        <name lang="nb">Reverssperrende tyristor tetrodetype</name>
+        <name lang="nl">Thyristor tetrode</name>
+        <name lang="nl_BE">Sperthyristor tetrode type in omgekeerde richting</name>
+        <name lang="pl">Tyrystor tetrodowy blokujący wstecznie</name>
+        <name lang="pt">Tiristor de bloqueio inverso tipo tetrodo</name>
+        <name lang="pt_BR">Tiristor tetrodo de bloqueio reverso</name>
+        <name lang="ro">Tiristor tetrodă cu blocare inversă</name>
+        <name lang="ru">Обратно запирающий тетродный тиристор</name>
+        <name lang="sk">Tyristorový tetródový typ s reverzným blokovaním</name>
+        <name lang="sl">Povratno zaporni tiristor tetrodnega tipa</name>
+        <name lang="sr">Повратно непроводни тиристор тетродног типа</name>
+        <name lang="sv">Spärrbacktyristor tetrodtyp</name>
+        <name lang="tr">Ters bloklama tristör tetrot tipi</name>
+        <name lang="uk">Зворотноблокуючий тиристор тетродного типу</name>
+        <name lang="zh">晶闸管_10</name>
+    </names>
+    <informations>EN 60617: 05-04-10</informations>
+    <description>
+        <dynamic_text x="16" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{426b0c8c-9fc8-4003-9bfb-f754c258fdd5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="20" y1="0" x2="16" y2="0" x3="12" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="-20" x2="4" y2="-20" x3="8" y3="-15" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-20" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-15" x2="15" y2="-15" x3="10" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{230590db-4662-461c-be59-a1f225af360e}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b2ec7a05-db8d-4887-bc45-710fd04d4c5c}" name="" x="10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{82b6b5c4-07d7-4942-90b5-e0893a0556a6}" name="" x="0" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{9ea592c9-555c-42ae-abe7-30bb373ba6ad}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

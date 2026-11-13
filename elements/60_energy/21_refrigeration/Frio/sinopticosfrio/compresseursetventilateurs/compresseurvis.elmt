@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{676a5dbc-c9c5-f141-1a6f-a7bb20a1a065}"/>
+    <names>
+        <name lang="ar">ضاغط ببرغي</name>
+        <name lang="ca">Compressor de cargol</name>
+        <name lang="cs">Šroubový kompresor</name>
+        <name lang="da">Skruekompressor</name>
+        <name lang="de">Schraubenverdichter</name>
+        <name lang="el">Κοχλιωτός συμπιεστής</name>
+        <name lang="en">Screw compressor</name>
+        <name lang="es">Compresor de tornillo</name>
+        <name lang="fi">Ruuvikompressori</name>
+        <name lang="fr">Compresseur à vis</name>
+        <name lang="hr">Vijčani kompresor</name>
+        <name lang="hu">Csavarkompresszor</name>
+        <name lang="it">Compressore a vite</name>
+        <name lang="ja">スクリュー圧縮機</name>
+        <name lang="ko">스크류 압축기</name>
+        <name lang="mn">Шурагт компрессор</name>
+        <name lang="nb">Skruekompressor</name>
+        <name lang="nl">Schroef compressor</name>
+        <name lang="nl_BE">Schroefcompressor</name>
+        <name lang="pl">Kompresor śrubowy</name>
+        <name lang="pt">Compressor de parafuso</name>
+        <name lang="pt_BR">Screw Compressãor</name>
+        <name lang="ro">Compresor cu șurub</name>
+        <name lang="ru">Винтовой компрессор</name>
+        <name lang="sk">Skrutkový kompresor</name>
+        <name lang="sl">Vijačni kompresor</name>
+        <name lang="sr">Вијчани компресор</name>
+        <name lang="sv">Skruvkompressor</name>
+        <name lang="tr">Vidalı kompresör</name>
+        <name lang="uk">Гвинтовий компресор</name>
+        <name lang="zh">螺杆压缩机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{45f5b471-bf84-456e-b751-18b1c0fa4471}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-13" x2="13" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="13" x2="13" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="-5" x2="5" y2="0" x3="0" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-4" y1="-5" x2="1" y2="0" x3="-4" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{56ca0133-da2e-4f44-b2a5-1222fae6b0fd}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{16d738f8-5998-49d7-8d54-3586383059ff}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

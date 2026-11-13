@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="100" hotspot_x="45" hotspot_y="95">
+    <uuid uuid="{c207e7d7-dc65-7a46-9bb8-45014393a4dd}"/>
+    <names>
+        <name lang="ar">كاثود كهروضوئي</name>
+        <name lang="ca">Càtode fotoelèctric</name>
+        <name lang="cs">Fotoelektrická katoda</name>
+        <name lang="da">Fotoelektrisk katode</name>
+        <name lang="de">photoelektrische Kathode</name>
+        <name lang="el">Φωτοηλεκτρική κάθοδος</name>
+        <name lang="en">Photoelectric cathode</name>
+        <name lang="es">Cátodo fotoeléctrico</name>
+        <name lang="fi">Valosähköinen katodi</name>
+        <name lang="fr">Cathode photoélectrique</name>
+        <name lang="hr">Fotoelektrična katoda</name>
+        <name lang="hu">Fotoelektromos katód</name>
+        <name lang="it">Catodo fotoelettrico</name>
+        <name lang="ja">光電陰極</name>
+        <name lang="ko">광전 음극</name>
+        <name lang="mn">Фотоэлектрик катод</name>
+        <name lang="nb">Fotoelektrisk katode</name>
+        <name lang="nl">Fotoelektrische kathode</name>
+        <name lang="nl_BE">Photoelectric cathode</name>
+        <name lang="pl">Katoda fotoelektryczna</name>
+        <name lang="pt">Cátodo fotoelétrico</name>
+        <name lang="pt_BR">Catodo fotoelétrico</name>
+        <name lang="ro">Catod fotoelectric</name>
+        <name lang="ru">Фотоэлектрический катод</name>
+        <name lang="sk">Fotoelektrická katóda</name>
+        <name lang="sl">Fotoelektrična katoda</name>
+        <name lang="sr">Фотоелектрична катода</name>
+        <name lang="sv">Fotoelektrisk katod</name>
+        <name lang="tr">Fotoelektrik katot</name>
+        <name lang="uk">Фотоелектричний катод</name>
+        <name lang="zh">接线端子08</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fe8ceb08-6fe8-4aee-8c01-44a2ac6e1fe8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-40" y="-90" width="40" height="40" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-50" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

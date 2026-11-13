@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="20" hotspot_x="40" hotspot_y="10">
+    <uuid uuid="{61f60487-0225-50e8-44ea-6ed1bb357962}"/>
+    <names>
+        <name lang="ar">أنبوب 50</name>
+        <name lang="ca">Tub 50</name>
+        <name lang="cs">Trubka 50</name>
+        <name lang="da">Rør 50</name>
+        <name lang="de">Rohr 50</name>
+        <name lang="el">Σωλήνας 50</name>
+        <name lang="en">Pipe 50</name>
+        <name lang="fr">Tube 50</name>
+        <name lang="pt_BR">Tube 50</name>
+        <name lang="zh">管-50</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-11" y="-8" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3b52f920-f903-4a0e-a516-4d68b44e4100}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-30" y="-7" width="60" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{3653155e-b012-4fa3-bf4f-c5ce579e500b}" name="" x="-31" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{dc25607c-ef70-4fc0-9ed7-80dc30701fcb}" name="" x="31" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="13" hotspot_y="25">
+    <uuid uuid="{10b86deb-ea90-5036-8ae4-bb9856b1e7b9}"/>
+    <names>
+        <name lang="de">Sicherungs-Trennschalter, 1-polig</name>
+        <name lang="en">Fuse-disconnector, 1 pole</name>
+        <name lang="es">Fusible-seccionador, 1 polo</name>
+        <name lang="fr">Fusible-sectionneur, 1 pôle</name>
+        <name lang="it">Fusibile-sezionatore, 1 polo</name>
+        <name lang="pt">Fusível-seccionador, 1 polo</name>
+        <name lang="tr">Sigortalı ayırıcı, 1 kutuplu</name>
+        <name lang="zh">熔断器式隔离器，1极</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-10" x2="3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4.19" y1="-7.46" x2="-9.01" y2="-5.53" x3="-3.81" y3="7.46" x4="1.01" y4="5.53" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f852ce76-5e58-5c03-b1e8-ee1226701766}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6f6cb6c8-a456-5432-9155-0952a7c81ad5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-18.01" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a71dfa11-128f-5cef-a5d4-ba2b37329bf4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{652671b1-c9cc-5c8f-aa26-3ea18f4d36d5}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{923068df-bf11-5b07-b88c-073422ebe936}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

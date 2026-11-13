@@ -1,0 +1,44 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="70" hotspot_x="20" hotspot_y="35">
+    <uuid uuid="{25475860-a80f-5b38-b09c-f09c67d58b93}"/>
+    <names>
+        <name lang="de">Wechselstromzähler</name>
+        <name lang="en">Energy meter, single-phase</name>
+        <name lang="es">Contador de energía monofásico</name>
+        <name lang="fr">Compteur d'énergie monophasé</name>
+        <name lang="it">Contatore di energia monofase</name>
+        <name lang="pt">Contador de energia monofásico</name>
+        <name lang="tr">Tek fazlı enerji sayacı</name>
+        <name lang="zh">单相电能表</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <rect x="-15" y="-15" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-9" x2="15" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="6.89" text="Wh" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{10c8064d-cb0b-5806-81b0-d9d9311b6215}"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="15" x2="-10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12.5" y="-32.6" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b45854f3-99f1-5e87-8b3f-da5896dea485}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-12.5" y="17.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{073e7d5e-3f2f-5508-ad98-a9985ca6c64c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <line x1="10" y1="-30" x2="10" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="15" x2="10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7.5" y="-32.6" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b9932c5a-e43a-5e1b-8203-5ab94ef43eb9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <dynamic_text x="7.5" y="17.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3fd3833d-2871-5807-ba76-10600ae44c87}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <dynamic_text x="-24" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7dc757f1-4061-540d-b825-6d1471bf6563}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a3b2b585-1d01-520c-9f33-73684843aa07}" name="1" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{eb153a25-f589-5ed7-b37f-d3c29980fd7e}" name="3" x="-10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{672a9ac1-c28d-5733-ab97-46b1604907ce}" name="4" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{528e3480-c3b4-5cbb-9025-d95082cc3262}" name="6" x="10" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="35" hotspot_y="32">
+    <uuid uuid="{996c5ec7-db45-f626-c8a1-87b290293274}"/>
+    <names>
+        <name lang="ar">جرس بضربة واحدة</name>
+        <name lang="ca">Campana d'un sol cop</name>
+        <name lang="cs">Yvonek s jedním úderem, Gong</name>
+        <name lang="da">Enkeltslags klokke</name>
+        <name lang="de">Gong, Einschlagwecker</name>
+        <name lang="el">Κουδούνι μονής κρούσης</name>
+        <name lang="en">Single-stroke bell</name>
+        <name lang="es">Timbre de una sola pulsación</name>
+        <name lang="fi">Yksittäisiskukello</name>
+        <name lang="fr">Sonnerie à un coup</name>
+        <name lang="hr">Zvono s jednim udarcem</name>
+        <name lang="hu">Egylöketű csengő</name>
+        <name lang="it">Campanella a singola suonata</name>
+        <name lang="ja">単打ベル</name>
+        <name lang="ko">단타 종</name>
+        <name lang="mn">Нэг цохилтын хонх</name>
+        <name lang="nb">Enkeltslagsbjelle</name>
+        <name lang="nl">Enkelvoudige bel</name>
+        <name lang="nl_BE">Enkelvoudige bel</name>
+        <name lang="pl">Dzwonek jednouderzeniowy</name>
+        <name lang="pt">Campainha de um toque</name>
+        <name lang="pt_BR">simples-stroke bell</name>
+        <name lang="ro">Clopot cu o singură lovitură</name>
+        <name lang="ru">Одноударный звонок</name>
+        <name lang="sk">Jednoúderový zvonček</name>
+        <name lang="sl">Enkratni zvonec</name>
+        <name lang="sr">Звоно са једним ударом</name>
+        <name lang="sv">Enkelslagsringklocka</name>
+        <name lang="tr">Tek vuruşlu zil</name>
+        <name lang="uk">Одноударний дзвінок</name>
+        <name lang="zh">端子板</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3ae34d1b-03d8-4239-b56c-a3ca3495cf89}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-30" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-30" y="-30" width="40" height="40" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-10" x2="-20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{bf265faf-2b14-4096-b490-4665dedc45a7}" name="" x="-20" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{7bcadb72-55db-45f3-ab13-7b40b25e3867}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="30" hotspot_y="27">
+    <uuid uuid="{8e79d8c5-6340-820e-256a-3c1b100b29f0}"/>
+    <names>
+        <name lang="ca">Compressor rotatiu</name>
+        <name lang="es">Compresor Rotativo</name>
+        <name lang="pt_BR">Compresou Rotativo</name>
+        <name lang="zh">旋转式压缩机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-18" y="-12" width="22" height="11" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="-13" x2="-7" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2" y="21" width="13" height="11" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9" y1="-13" x2="-9" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="26" x2="11" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-19" x2="-8" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="32.52" x2="4" y2="-5.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-18" y="28" width="22" height="11" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-18" y1="32.56" x2="-18" y2="-6.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="0" y="22" width="9" height="8" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9" y1="26" x2="9" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="25" x2="13" y2="30" end1="none" end2="simple" length1="1.5" length2="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-13" y1="38" x2="-15" y2="40" x3="-17" y3="40" x4="-18" y4="40" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-1" y1="38" x2="2" y2="40" x3="5" y3="40" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="3" y="30" width="4" height="2" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-19" y1="4" x2="5.05" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-22.51" x2="-11" y2="-18.45" end1="simple" end2="none" length1="1" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12" y="21" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{96f633d4-18a1-4cae-be1a-716e8ce4e366}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-9" y1="-12" x2="-9" y2="-16" x3="-17" y3="-16" x4="-17" y4="-9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{2f7201e3-b77d-41dd-85cc-b44d459e148e}" name="" x="10" y="19" orientation="n" type="Generic"/>
+        <terminal uuid="{22b5bd77-7a65-4f52-b7d9-3ad302f46cb4}" name="" x="-20" y="-11" orientation="w" type="Generic"/>
+        <terminal uuid="{f1818c12-3c2f-4e4d-aaff-6444b987b695}" name="" x="-8" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

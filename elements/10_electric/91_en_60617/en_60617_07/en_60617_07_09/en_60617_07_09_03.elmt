@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="80" hotspot_x="35" hotspot_y="50">
+    <uuid uuid="{d863a9f4-27ec-7ede-f68f-dc0b0d3ea78a}"/>
+    <names>
+        <name lang="ar">مفتاح حراري، ذاتي التشغيل، ملامس فصل</name>
+        <name lang="ca">Interruptor tèrmic, autooperatiu, trencament de contacte</name>
+        <name lang="cs">Samočinný teplotní spínač, vypínací kontakt</name>
+        <name lang="da">Termisk afbryder, selvbetjent, brydekontakt</name>
+        <name lang="de">Öffner mit selbsttätiger thermischer Betätigung</name>
+        <name lang="el">Θερμικός διακόπτης, αυτολειτουργούμενος, επαφή ανοίγματος</name>
+        <name lang="en">Thermal switch, self-operating, break contact</name>
+        <name lang="es">Interruptor térmico, autoaccionado, contacto de apertura</name>
+        <name lang="fi">Termokytkin, itsetoimiva, avauskosketin</name>
+        <name lang="fr">Interrupteur agissant par effet thermique direct
+(par exemple bilame), contact à ouverture</name>
+        <name lang="hr">Termička sklopka, samodjelujuća, mirni kontakt</name>
+        <name lang="hu">Termikus kapcsoló, önműködő, nyitóérintkező</name>
+        <name lang="it">Interruttore termico, autoazionato, contatto di apertura</name>
+        <name lang="ja">熱スイッチ，自動操作，ブレーク接点</name>
+        <name lang="ko">열 스위치, 자동 작동, 브레이크 접점</name>
+        <name lang="mn">Дулааны унтраалга, өөрөө ажилладаг, салах контакт</name>
+        <name lang="nb">Termisk bryter, selvvirkende, hvilekontakt</name>
+        <name lang="nl">Thermische schakelaar, zelfwerkend, verbreekcontact</name>
+        <name lang="nl_BE">Thermische schakelaar, zelfwerkend, verbreekcontact</name>
+        <name lang="pl">Łącznik termiczny, samoczynny, zestyk rozwierny</name>
+        <name lang="pt">Interruptor térmico, auto-operado, contacto de abertura</name>
+        <name lang="pt_BR">Interruptor térmico automático, contato NF</name>
+        <name lang="ro">Întrerupător termic, cu autoadministrare, contact de repaus</name>
+        <name lang="ru">Термовыключатель, самосрабатывающий, размыкающий контакт</name>
+        <name lang="sk">Tepelný spínač, samovoľne pôsobiaci, kľudový kontakt</name>
+        <name lang="sl">Termično stikalo, samodelujoče, mirovni kontakt</name>
+        <name lang="sr">Термички прекидач, самоделујући, мирни контакт</name>
+        <name lang="sv">Termisk brytare, självverkande, brytande kontakt</name>
+        <name lang="tr">Termik şalter, kendinden kumandalı, açma kontağı</name>
+        <name lang="uk">Термічний вимикач, самодійний, розмикальний контакт</name>
+        <name lang="zh">接线端子排3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{32af1c5c-1b2e-47cd-86e1-8dd0750b95a7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-30" y1="-10" x2="-20" y2="-10" x3="-20" y3="-20" x4="-10" y4="-20" x5="-10" y5="-10" x6="3" y6="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{1b05d06d-52da-4637-b6e1-e9938eeb55f1}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{ab60afd5-4f09-490e-bd77-8b53fff70fbd}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

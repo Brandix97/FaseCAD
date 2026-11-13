@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="18" hotspot_y="25">
+    <uuid uuid="{38d64f8b-000c-7387-f14b-6e4949f42e8f}"/>
+    <names>
+        <name lang="ar">سدادة 1/2"</name>
+        <name lang="ca">Tap 1/2"</name>
+        <name lang="cs">Zátka 1/2"</name>
+        <name lang="da">Prop 1/2"</name>
+        <name lang="de">Stopfen 1/2"</name>
+        <name lang="el">Τάπα 1/2"</name>
+        <name lang="en">Cap 1/2"</name>
+        <name lang="es">Tapón 1/2"</name>
+        <name lang="fr">Bouchon 1/2"</name>
+        <name lang="pt_BR">Tapón 1/2"</name>
+        <name lang="zh">1/2英寸堵头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-5.08" y="5.42" width="6.06" height="7.4" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="6.16" width="7.9" height="11.84" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-10.55" y="-6.42" width="7.9" height="11.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="1.09" y="-12.34" width="7.82" height="24.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.69" y1="-7.16" x2="1.48" y2="-7.16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="1.9" y="-17.51" width="7" height="10.36" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1.52" y1="6.16" x2="6.65" y2="6.16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2.78" y="-7.16" width="6.14" height="13.32" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-6.42" x2="-6.61" y2="5.42" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-6.61" y1="-5.68" x2="-8.19" y2="4.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.45" y1="-6.42" x2="-4" y2="5.42" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-8.19" y1="-6.42" x2="-9.76" y2="5.42" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-4.08" y="-13.82" width="5.06" height="7.4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-10" y="-26" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4db2aa57-42f4-47bd-9aab-ea7a80ef0544}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5f340c01-be09-4cbb-9090-94e658b02367}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

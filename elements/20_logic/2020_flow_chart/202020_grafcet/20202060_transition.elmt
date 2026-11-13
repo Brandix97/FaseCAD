@@ -1,0 +1,55 @@
+<definition version="0.100" type="element" link_type="simple" width="40" height="40" hotspot_x="21" hotspot_y="20">
+    <uuid uuid="{7981b8f4-4cd2-bb8a-50f6-275c1dea7a8c}"/>
+    <names>
+        <name lang="ar">انتقال</name>
+        <name lang="ca">transició</name>
+        <name lang="cs">přechod</name>
+        <name lang="da">overgang</name>
+        <name lang="de">Überleitung</name>
+        <name lang="el">μετάβαση</name>
+        <name lang="en">transition</name>
+        <name lang="es">transición</name>
+        <name lang="fi">siirtymä</name>
+        <name lang="fr">passage</name>
+        <name lang="hr">tranzicija</name>
+        <name lang="hu">átmenet</name>
+        <name lang="it">transizione</name>
+        <name lang="ja">遷移</name>
+        <name lang="ko">전이</name>
+        <name lang="mn">шилжилт</name>
+        <name lang="nb">overgang</name>
+        <name lang="nl">overgang</name>
+        <name lang="nl_BE">transitie</name>
+        <name lang="pl">przemiana</name>
+        <name lang="pt">transição</name>
+        <name lang="pt_BR">transição</name>
+        <name lang="ro">tranziție</name>
+        <name lang="ru">переход</name>
+        <name lang="sk">prechod</name>
+        <name lang="sl">prehod</name>
+        <name lang="sr">прелаз</name>
+        <name lang="sv">övergång</name>
+        <name lang="tr">geçiş</name>
+        <name lang="uk">Перехід</name>
+        <name lang="zh">转换</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="7" y="-23" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b7937da0-4f6d-e4b2-5174-034e7a989e55}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="13" y="0" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{39894d12-ca9f-67b9-198b-0246b60b5029}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="0" x2="-12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:eleve;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{87615fac-d610-4f22-b474-4c67f1f70f54}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{adaedd18-3058-44ab-a96d-a7da6204a774}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{fac5ebcb-3d3e-4434-af6e-9a329e73af89}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{8e33c1eb-7d94-477d-9d2d-12b85ffd6dde}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

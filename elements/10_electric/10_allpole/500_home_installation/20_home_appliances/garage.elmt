@@ -1,0 +1,77 @@
+<definition version="0.80" type="element" link_type="simple" width="130" height="190" hotspot_x="7" hotspot_y="181">
+    <uuid uuid="{7c1fab6d-6500-7dfd-58b3-e7ffe4ce1c16}"/>
+    <names>
+        <name lang="ar">مرآب</name>
+        <name lang="ca">Garatge</name>
+        <name lang="cs">Garáž</name>
+        <name lang="da">Garage</name>
+        <name lang="de">Garage</name>
+        <name lang="el">Γκαράζ</name>
+        <name lang="en">Garage</name>
+        <name lang="es">Garaje</name>
+        <name lang="fi">Autotalli</name>
+        <name lang="fr">Garage</name>
+        <name lang="hr">Garaža</name>
+        <name lang="hu">Garázs</name>
+        <name lang="it">Garage</name>
+        <name lang="ja">ガレージ</name>
+        <name lang="ko">차고</name>
+        <name lang="mn">Гараж</name>
+        <name lang="nb">Garasje</name>
+        <name lang="nl">Garage</name>
+        <name lang="nl_BE">Garage</name>
+        <name lang="pl">Garaż</name>
+        <name lang="pt">Garagem</name>
+        <name lang="pt_BR">Garagem</name>
+        <name lang="ro">Garaj</name>
+        <name lang="ru">Гараж</name>
+        <name lang="sk">Garáž</name>
+        <name lang="sl">Garaža</name>
+        <name lang="sr">Гаража</name>
+        <name lang="sv">Garage</name>
+        <name lang="tr">Garaj</name>
+        <name lang="uk">Гараж</name>
+        <name lang="zh">车库</name>
+    </names>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{9d833fe0-b4c0-48d5-bf15-1bb2f99cb9a8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>20</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{4ed9d8a6-7bce-4a95-848b-866e0356a908}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Garage" x="2" y="-69" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-160" x2="35" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="85" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-140" x2="40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-100" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-100" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-170" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.5" y1="-100" x2="45.5" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.93" y1="-125" x2="74.07" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="74.5" y1="-125" x2="74.5" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.93" y1="-120" x2="74.07" y2="-120" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-110" x2="74" y2="-110" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-105" x2="74" y2="-105" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-115" x2="74" y2="-115" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="25" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{da209880-e9c6-4f64-904f-e19a1ce60e18}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="26" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{19a4bae2-83c1-4ea3-951d-181b5ad25a79}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <terminal uuid="{8dae2627-0b48-4054-aa90-68363a2f6c6e}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{fb108633-7f5e-4865-a6ee-331379ddd9cb}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{60fe2106-6f98-4e73-8c27-38b5805e2047}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+    </description>
+</definition>

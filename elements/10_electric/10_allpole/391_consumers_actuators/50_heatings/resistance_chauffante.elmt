@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{0be87f60-ca1a-a407-f1fe-0365b429d1ae}"/>
+    <names>
+        <name lang="ar">مقاومة تسخين</name>
+        <name lang="ca">Escalfament de resistència</name>
+        <name lang="cs">Výkonový odpor</name>
+        <name lang="da">Modstandsvarme</name>
+        <name lang="de">Heizwiderstand</name>
+        <name lang="el">Αντίσταση θέρμανσης</name>
+        <name lang="en">Resistance heating</name>
+        <name lang="es">Resistor térmico</name>
+        <name lang="fi">Vastuslämmitys</name>
+        <name lang="fr">Résistance chauffante</name>
+        <name lang="hr">Otpor grijača</name>
+        <name lang="hu">Ellenállásfűtés</name>
+        <name lang="it">Resistenza di riscaldamento</name>
+        <name lang="ja">抵抗加熱</name>
+        <name lang="ko">저항 가열</name>
+        <name lang="mn">Эсэргүүцэл халаалт</name>
+        <name lang="nb">Motstandsvarme</name>
+        <name lang="nl">Verwarmingsweerstand</name>
+        <name lang="nl_BE">Weerstandsverwarming</name>
+        <name lang="pl">Grzejnik rezystancyjny</name>
+        <name lang="pt">Resistência de aquecimento</name>
+        <name lang="pt_BR">Resistência de aquecimento</name>
+        <name lang="ro">Încălzire prin rezistență</name>
+        <name lang="ru">Нагревательное сопротивление</name>
+        <name lang="sk">Odporové vykurovanie</name>
+        <name lang="sl">Upornostni grelec</name>
+        <name lang="sr">Отпорно грејање</name>
+        <name lang="sv">Motståndsvärme</name>
+        <name lang="tr">Dirençli ısıtma</name>
+        <name lang="uk">Нагрівання опором</name>
+        <name lang="zh">加热电阻</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-15" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-5" width="30" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-25" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{75ce7728-d6e0-4ab8-9d82-484bd773f5ae}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="10" y1="-5" x2="10" y2="5" x3="5" y3="5" x4="5" y4="-5" x5="0" y5="-5" x6="0" y6="5" x7="-5" y7="5" x8="-5" y8="-5" x9="-10" y9="-5" x10="-10" y10="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{60de9acf-1a0f-4bf8-8468-ed5cd6dcec18}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{f822f3e9-6025-41f9-8c79-b7dc0dc00584}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="80" hotspot_x="34" hotspot_y="40">
+    <uuid uuid="{0e676be4-a91b-d9fb-916b-3288ebf68209}"/>
+    <names>
+        <name lang="ar">سخّان ECS بلوحات</name>
+        <name lang="ca">Plaques escalfadores ECS</name>
+        <name lang="cs">Deskový ohřívač ECS</name>
+        <name lang="da">Brugsvandsbeholder med plader</name>
+        <name lang="de">Warmwasserbereiter Platten</name>
+        <name lang="el">Θερμαντήρας ECS με πλάκες</name>
+        <name lang="en">ECS heater plates</name>
+        <name lang="es">placas calefactoras ECS</name>
+        <name lang="fi">ECS levykiuas</name>
+        <name lang="fr">Réchauffeur ECS à Plaques</name>
+        <name lang="hr">PTV pločasti grijač</name>
+        <name lang="hu">HMV fűtő lemezes</name>
+        <name lang="it">Riscaldatore ACS a placche</name>
+        <name lang="ja">ECSヒータープレート</name>
+        <name lang="ko">ECS 판형 히터</name>
+        <name lang="mn">ECS халаагч хавтан</name>
+        <name lang="nb">ECS varmeapparat plater</name>
+        <name lang="nl">Tank met plaatwisselaar</name>
+        <name lang="nl_BE">SWW-boiler met platen</name>
+        <name lang="pl">Płytowy wymiennik CWU</name>
+        <name lang="pt">Aquecedor AQS de placas</name>
+        <name lang="pt_BR">ECS heater plates</name>
+        <name lang="ro">Încălzitor ACM cu plăci</name>
+        <name lang="ru">Пластинчатый нагреватель ГВС</name>
+        <name lang="sk">Ohrievač TÚV doskový</name>
+        <name lang="sl">Ploščni grelec ECS</name>
+        <name lang="sr">ПТВ плочасти грејач</name>
+        <name lang="sv">VV-beredare plattor</name>
+        <name lang="tr">KSH plakalı ısıtıcı</name>
+        <name lang="uk">Нагрівач ГВП пластинчастий</name>
+        <name lang="zh">板式生活热水换热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="23.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d8ae2710-331d-4050-b07d-8ade3da59092}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="ECS" x="25" y="-18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="EF" x="25" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-26.55" y1="30" x2="-19.55" y2="30" end1="triangle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27.55" y1="-30" x2="-20.55" y2="-30" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="19" y="-31" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="-31" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="29" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="19" y="29" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-20" y="-33" width="40" height="65" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="20" y1="-30" x2="10" y2="-30" x3="-5" y3="-20" x4="10" y4="-10" x5="-5" y5="0" x6="10" y6="10" x7="-5" y7="20" x8="10" y8="30" x9="20" y9="30" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-20" y1="-30" x2="5" y2="-30" x3="-10" y3="-20" x4="5" y4="-10" x5="-10" y5="0" x6="5" y6="10" x7="-10" y7="20" x8="5" y8="30" x9="-20" y9="30" closed="false" antialias="true" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <text text="Plaques" x="18" y="9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{3c548839-8b66-4253-8105-08fb28aa11b2}" name="" x="20" y="30" orientation="e" type="Generic"/>
+        <terminal uuid="{b0722922-bb1d-48d7-b29a-573575ca00df}" name="" x="-20" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{6b8d7545-743f-4828-b114-736c23518d45}" name="" x="20" y="-30" orientation="e" type="Generic"/>
+        <terminal uuid="{24c175eb-d31c-4916-863f-702706de84b7}" name="" x="-20" y="30" orientation="w" type="Generic"/>
+    </description>
+</definition>

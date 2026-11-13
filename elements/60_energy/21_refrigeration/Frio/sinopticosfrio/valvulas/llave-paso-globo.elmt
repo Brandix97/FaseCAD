@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{a61b060d-d83a-54a1-a41a-2efd9e636ec9}"/>
+    <names>
+        <name lang="ca">Vàlvula de pas globus</name>
+        <name lang="es">Llave de paso globo</name>
+        <name lang="pt_BR">Llave de paso globo</name>
+        <name lang="zh">截止阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="3" y1="2" x2="7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-5" x2="7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-2" x2="7" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-5" x2="-6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="-5" x2="-2" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="5" x2="-2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a0dd6df1-0598-4e16-be8a-16f026819881}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{5392f7b4-f570-49bb-bb94-fb685b7b1929}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

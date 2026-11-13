@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="3">
+    <uuid uuid="{d7129065-bd6b-775b-cf5f-aaa24f1e99bc}"/>
+    <names>
+        <name lang="ar">طرف خرج</name>
+        <name lang="ca">Contacte femení</name>
+        <name lang="cs">Výstupní svorka</name>
+        <name lang="da">Hun kontakt</name>
+        <name lang="de">Steckverbindung Buchse</name>
+        <name lang="el">Ακροδέκτης εξόδου</name>
+        <name lang="en">Female contact</name>
+        <name lang="es">Terminal de salida</name>
+        <name lang="fi">Naaraskosketin</name>
+        <name lang="fr">contact femelle</name>
+        <name lang="hr">Ženski kontakt</name>
+        <name lang="hu">Nőstény érintkező</name>
+        <name lang="it">Terminale di uscita</name>
+        <name lang="ja">メスコンタクト</name>
+        <name lang="ko">암 접점</name>
+        <name lang="mn">Эмэгтэй контакт</name>
+        <name lang="nb">Hunnkontakt</name>
+        <name lang="nl">Contact vrouw</name>
+        <name lang="nl_BE">Vrouwelijk contact</name>
+        <name lang="pl">Gniazdo</name>
+        <name lang="pt">Terminal de saída</name>
+        <name lang="pt_BR">Borne de saída</name>
+        <name lang="ro">Contact mamă</name>
+        <name lang="ru">Гнездо (стар.)</name>
+        <name lang="sk">Kontakt samica</name>
+        <name lang="sl">Ženski kontakt</name>
+        <name lang="sr">Женски контакт</name>
+        <name lang="sv">Honkontakt</name>
+        <name lang="tr">Dişi kontak</name>
+        <name lang="uk">Гніздовий контакт</name>
+        <name lang="zh">接线端子_S</name>
+    </names>
+    <informations>EN 60617: 03-03-02</informations>
+    <description>
+        <polygon x1="-4" y1="-1" x2="0" y2="5" x3="4" y3="-1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="5" y="-12.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{77962b78-4a7a-4f9e-9c91-6cdf318945e4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="5.5" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{5c6ee763-ad6b-4008-a7e9-c0c4beb1db54}" name="1" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

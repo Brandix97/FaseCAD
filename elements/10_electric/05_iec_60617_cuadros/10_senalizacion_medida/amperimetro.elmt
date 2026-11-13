@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{0c992188-3496-586a-91b0-a6e27846c243}"/>
+    <names>
+        <name lang="de">Amperemeter</name>
+        <name lang="en">Ammeter</name>
+        <name lang="es">Amperímetro</name>
+        <name lang="fr">Ampèremètre</name>
+        <name lang="it">Amperometro</name>
+        <name lang="pt">Amperímetro</name>
+        <name lang="tr">Ampermetre</name>
+        <name lang="zh">电流表</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="4.86" text="A" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{26046d8f-a1db-596b-99c4-f2211487e1a5}"/>
+        <dynamic_text x="-19" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6fad1b9d-3b69-5053-9483-32cbc929f9f2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3d7d93fc-ec92-530c-a443-cf37109e0c37}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{ab5a69d6-5dc0-5985-8b85-39f885ff452c}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

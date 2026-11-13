@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="20" hotspot_x="40" hotspot_y="10">
+    <uuid uuid="{eae5812d-8f02-99c2-2c20-e0bdc6f7996e}"/>
+    <names>
+        <name lang="ca">Connector flexible</name>
+        <name lang="es">Conector flexible</name>
+        <name lang="pt_BR">Conector flexivel</name>
+        <name lang="zh">柔性出口</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-11.27" y1="5.13" x2="-9.58" y2="4.45" x3="-9.58" y3="-2.32" x4="-7.89" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-2.82" y1="5.13" x2="-1.13" y2="4.45" x3="-1.13" y3="-2.32" x4="0.56" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-7.89" y1="5.13" x2="-6.2" y2="4.45" x3="-6.2" y3="-2.32" x4="-4.51" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="7.33" y1="5.13" x2="9" y2="4.45" x3="9" y3="-2.32" x4="10.71" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="2.25" y1="5.13" x2="3.94" y2="4.45" x3="3.94" y3="-2.32" x4="5.64" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-4.51" y1="5.13" x2="-2.82" y2="4.45" x3="-2.82" y3="-2.32" x4="-1.13" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="20" y="-3" width="8.45" height="6.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="14.09" y="-4.35" width="5.92" height="9.48" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-28.18" y="-3" width="8.45" height="6.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="9" y1="5.13" x2="10.71" y2="4.45" x3="10.71" y3="-2.32" x4="12.4" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-19.73" y="-4.35" width="5.92" height="9.48" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1.13" y1="5.13" x2="0.56" y2="4.45" x3="0.56" y3="-2.32" x4="2.25" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-6.2" y1="5.13" x2="-4.51" y2="4.45" x3="-4.51" y3="-2.32" x4="-2.82" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-9.58" y1="5.13" x2="-7.89" y2="4.45" x3="-7.89" y3="-2.32" x4="-6.2" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="5.64" y1="5.13" x2="7.33" y2="4.45" x3="7.33" y3="-2.32" x4="9" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-13.81" y1="-3.74" x2="-13" y2="-4.35" x3="12.4" y3="-4.35" x4="14.09" y4="-3.74" x5="14.09" y5="4.79" x6="11.55" y6="5.4" x7="-12.12" y7="5.4" x8="-13.81" y8="4.79" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="3.94" y1="5.13" x2="5.64" y2="4.45" x3="5.64" y3="-2.32" x4="7.33" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="0.56" y1="5.13" x2="2.25" y2="4.45" x3="2.25" y3="-2.32" x4="3.94" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-13" y1="5.13" x2="-11.27" y2="4.45" x3="-11.27" y3="-2.32" x4="-9.58" y4="-3.68" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <dynamic_text x="-6" y="0" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9e28f762-7ab9-461d-b29c-b416d7489c35}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d2f2b57a-efec-4e2d-b4b6-13a9dbf4e905}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{3f6f8975-e2ae-4ba6-ab80-482fd4f10d28}" name="" x="29" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

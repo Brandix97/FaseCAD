@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="12" hotspot_y="22">
+    <uuid uuid="{7680259f-598f-e5aa-0da1-399fdb7ae0e1}"/>
+    <names>
+        <name lang="ca">Presostato diferencial Oli</name>
+        <name lang="es">Presotato dif.Aceite</name>
+        <name lang="pt_BR">Presotato dif.Aceite</name>
+        <name lang="zh">油压差开关</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-7" y="-7" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-12" width="10" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-14" width="5" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-1" width="4" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="1" x2="2" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="1" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="6" x2="1" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-3" width="8" height="13" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="13" width="10" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="19" width="5" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="13" y="0" width="1" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7" y="10" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c89eca36-9d01-4864-8403-20b81b15ac00}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="7" y="6" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <terminal uuid="{85ddffb7-9535-401e-94ed-7fbdcae8564e}" name="" x="0" y="21" orientation="s" type="Generic"/>
+        <terminal uuid="{8ef2e74b-5bd8-412d-b539-2d2f9a8ded5f}" name="" x="17" y="4" orientation="e" type="Generic"/>
+        <terminal uuid="{cf380cc6-328d-4b6d-8b5b-84113783eaed}" name="" x="0" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

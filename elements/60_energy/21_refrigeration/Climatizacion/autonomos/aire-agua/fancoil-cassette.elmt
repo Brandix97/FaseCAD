@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="50" hotspot_x="41" hotspot_y="29">
+    <uuid uuid="{c06b8d49-9230-915b-62ad-b346bfc09ac2}"/>
+    <names>
+        <name lang="ca">Ventilador de bobina (fancoil) Casset</name>
+        <name lang="es">Fancoil Cassette</name>
+        <name lang="pt_BR">Fancoil Cassette</name>
+        <name lang="zh">风机盘管-卡式</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-11" y1="17" x2="44" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="10" x2="41" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="36" y1="10" x2="42" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="10" x2="-16" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30.12" y="-0.59" width="7.07" height="2.34" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-24" y1="3" x2="-32" y2="4" x3="-32" y3="5" x4="34" y4="5" x5="34" y5="4" x6="26" y6="3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-30.12" y="-11.29" width="7.07" height="2.34" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-32" y1="5" x2="-15" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="34" y1="4" x2="52" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="19" x2="52" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="-2.3" x2="45" y2="12.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="31" y1="-14" x2="45" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="8" x2="33" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="10" x2="-15" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-17" y1="10" x2="-11" y2="15" x3="37" y3="15" x4="31" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-20" y1="-17" x2="-20" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="31" y1="-14" x2="31" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22" y1="-17" x2="22" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="3" x2="-23" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-23" y1="-14" x2="-20" y2="-18" x3="22" y3="-18" x4="31" y4="-14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-23" y1="3" x2="27" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-2" x2="49" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="25" y1="-16" x2="30" y2="-14" x3="28" y3="-17" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-21.95" y1="-15" x2="-20.6" y2="-16.63" x3="-26" y3="-18.25" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="34" y="-6" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="35" y1="-3" x2="37" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-11" y="-14" z="27" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{72fd0dba-7c0b-4779-b3f7-5a76b9c41c9b}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-27.35" y="-9.78" width="1.54" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-28" y="-15" width="3" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1f6baee3-90da-499f-a9ec-5271ca201a00}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{120668f2-46a1-40de-8d22-db593caed111}" name="" x="42" y="-7" orientation="e" type="Generic"/>
+        <terminal uuid="{72d81a85-d57f-4646-9c44-264d6b75472d}" name="" x="-30" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{8dcb786c-c086-4373-a858-cec405f5a4a8}" name="" x="-14" y="-22" orientation="w" type="Generic"/>
+    </description>
+</definition>

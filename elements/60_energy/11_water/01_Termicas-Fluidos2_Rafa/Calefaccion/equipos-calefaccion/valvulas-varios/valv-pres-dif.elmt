@@ -1,0 +1,80 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="80" hotspot_x="20" hotspot_y="46">
+    <uuid uuid="{0ca21012-01f7-31c4-815f-31ada3f5dadf}"/>
+    <names>
+        <name lang="ar">صمّام ضغط تفاضلي</name>
+        <name lang="ca">Vàlvula de pressió diferencial</name>
+        <name lang="cs">Ventil diferenčního tlaku</name>
+        <name lang="da">Vanne pression différentielle</name>
+        <name lang="de">Differenzdruckventil</name>
+        <name lang="el">Βαλβίδα διαφορικής πίεσης</name>
+        <name lang="en">Differential pressure valve</name>
+        <name lang="es">Válvula pres. diferencial</name>
+        <name lang="fr">Vanne pression différentielle</name>
+        <name lang="pt_BR">valvula pres. diferencial</name>
+        <name lang="zh">压差阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="11.2" y="-16.56" width="2.68" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="14" y="24.94" width="2.44" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3.95" y="-16.56" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5.83" y1="-16.56" x2="-3.28" y2="-16.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5.95" y="24.94" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7.49" y="-16.56" width="2.66" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7.34" y1="24.94" x2="-5" y2="24.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-8.88" y="24.94" width="2.44" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.89" y1="-16.56" x2="15.46" y2="-16.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.83" y1="-22.94" x2="-3.28" y2="-22.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.57" y1="24.94" x2="17.9" y2="24.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.95" y="-27" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7.34" y1="18.55" x2="-5" y2="18.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="14.42" y="-16.56" width="2.68" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5.95" y="14.49" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17" y="24.94" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.89" y1="-22.94" x2="15.46" y2="-22.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.57" y1="18.55" x2="17.9" y2="18.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.46" y="-22.94" width="1.95" height="6.38" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7.49" y="-27" width="3.19" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5.46" y="18.55" width="1.95" height="6.38" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8.88" y="14.49" width="2.93" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="14.42" y="-27" width="2.68" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7.49" y="-22.94" width="2.12" height="6.38" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17" y="14.49" width="2.44" height="4.06" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8.88" y="18.55" width="1.95" height="6.38" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="15" y="-22.94" width="2.15" height="6.38" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="11.2" y="-27" width="3.22" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17.45" y="18.55" width="1.95" height="6.38" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-7" y1="-27" x2="-2.18" y2="-27" x3="-1.65" y3="-25.84" x4="-1.65" y4="-13.65" x5="-2.18" y5="-12.49" x6="-7" y6="-12.49" x7="-7.49" y7="-13.65" x8="-7.49" y8="-25.84" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="14" y="14.49" width="2.93" height="4.06" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-8.39" y1="14.49" x2="-4" y2="14.49" x3="-3.51" y3="15.65" x4="-3.51" y4="27.84" x5="-4" y5="29" x6="-8.39" y6="29" x7="-8.88" y7="27.84" x8="-8.88" y8="15.65" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="11.2" y="-22.94" width="2.15" height="6.38" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="14" y="18.55" width="1.95" height="6.38" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="11.74" y1="-27" x2="16.57" y2="-27" x3="17.1" y3="-25.84" x4="17.1" y4="-13.65" x5="16.57" y5="-12.49" x6="11.74" y6="-12.49" x7="11.2" y7="-13.65" x8="11.2" y8="-25.84" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-1.5" y1="-14.84" x2="0.24" y2="-14.84" x3="0.94" y3="-15.4" x4="9" y4="-15.4" x5="9.65" y5="-14.84" x6="11.05" y6="-14.84" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="14.53" y1="14.49" x2="18.91" y2="14.49" x3="19.4" y3="15.65" x4="19.4" y4="27.84" x5="18.91" y5="29" x6="14.53" y6="29" x7="14" y7="27.84" x8="14" y8="15.65" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-3.51" y1="26.68" x2="-1.08" y2="26.68" x3="-0.1" y3="26.1" x4="11.11" y4="26.1" x5="12.09" y5="26.68" x6="14" y6="26.68" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="6.73" y1="5.78" x2="13.06" y2="9.85" x3="9.65" y3="16.81" x4="11.6" y4="16.81" x5="12.58" y5="16.23" x6="13.55" y6="16.23" x7="14" y7="16.23" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="6.73" y1="5.78" x2="1.85" y2="15.65" x3="8.19" y3="19.13" x4="9.65" y4="16.81" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-3.51" y1="16.23" x2="-2.05" y2="16.23" x3="-1.56" y3="16.23" x4="-0.59" y4="16.81" x5="-0.59" y5="13.91" x6="-2.54" y6="11" x7="-0.1" y7="8.68" x8="1.85" y8="11.59" x9="3.8" y9="11.59" x10="3.31" y10="12.17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-0.76" y1="9" x2="-1.88" y2="7" x3="-3.38" y3="8.47" x4="-2.26" y4="10.43" x5="-2.26" y5="9.94" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="6.73" y1="5.78" x2="9.16" y2="4.62" x3="12.58" y3="6.94" x4="13.06" y4="9.85" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10.14" y1="5.2" x2="11.11" y2="3.46" x3="12.58" y3="4.62" x4="11.6" y4="6.36" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="12.58" y1="4.62" x2="16" y2="5.78" x3="17" y3="4" x4="9.65" y4="-1.18" x5="8.68" y5="0.56" x6="11.11" y6="3.46" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:blue;color:black"/>
+        <line x1="8.68" y1="0.56" x2="16" y2="5.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.73" y1="5.78" x2="3.31" y2="12.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-0.59" y1="16.81" x2="1.36" y2="19.13" x3="3.31" y3="16.81" x4="3.31" y4="16.23" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-1.63" y1="-25.2" x2="0" y2="-25.2" x3="0.85" y3="-24.35" x4="2.5" y4="-24.35" x5="2.5" y5="-27.74" x6="3.33" y6="-27.74" x7="3.33" y7="-31.12" x8="5.8" y8="-31.12" x9="5.8" y9="-27.74" x10="6.63" y10="-27.74" x11="6.63" y11="-24.35" x12="9.1" y12="-24.35" x13="9.93" y13="-25.2" x14="10.75" y14="-25.2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="2.13" y1="-23.5" x2="2.88" y2="-22.65" x3="5.13" y3="-22.65" x4="6.63" y4="-24.35" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="-2.13" y="-41.28" width="6.5" height="7.62" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="4.38" y1="-36.93" x2="4.38" y2="-31.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-2.63" y1="-37.05" x2="-2.63" y2="7.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <dynamic_text x="4.38" y="-9.06" z="54" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{59425a39-3351-457c-8f3f-2421b40652a8}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e92a5b27-9356-4b1e-be8a-ce1ff53114ca}" name="" x="-10" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{883f52c2-2a08-4d31-89c1-0f38ed4414f6}" name="" x="19" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{8816d47c-1f7c-4f12-bf52-9c17424701e8}" name="" x="-8" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{c363a032-89a5-478e-978d-8558de0a2c14}" name="" x="19" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

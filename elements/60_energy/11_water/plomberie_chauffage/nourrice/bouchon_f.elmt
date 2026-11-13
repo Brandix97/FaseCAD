@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="6" hotspot_y="10">
+    <uuid uuid="{ebf5776f-4449-2560-a6a3-d489071cbb18}"/>
+    <names>
+        <name lang="ar">سدادة أنثى</name>
+        <name lang="ca">Endoll femení</name>
+        <name lang="cs">Zátka samice</name>
+        <name lang="da">Hunprop</name>
+        <name lang="de">Kappe Innengewinde</name>
+        <name lang="el">Πώμα θηλυκό</name>
+        <name lang="en">Female plug</name>
+        <name lang="fr">Bouchon Femelle</name>
+        <name lang="it">Tappo F</name>
+        <name lang="pt_BR">Bouchon Femelle</name>
+        <name lang="zh">堵头（母）</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="0" y="-7" width="7" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <line x1="5" y1="-4" x2="0" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7" y="-25.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{79470c6c-eb3c-416d-8bbf-7b5dfa972688}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="3" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="3" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="3" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

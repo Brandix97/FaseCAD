@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="15" hotspot_y="35">
+    <uuid uuid="{87817f88-13d0-1042-b0a7-4a5265c2da5f}"/>
+    <names>
+        <name lang="ar">اسم عنصر جديد</name>
+        <name lang="ca">Fletxa 3</name>
+        <name lang="cs">Směr 3</name>
+        <name lang="da">Pil 3</name>
+        <name lang="de">Pfeil 3</name>
+        <name lang="el">Βέλος 3</name>
+        <name lang="en">Arrow 3</name>
+        <name lang="es">Flecha 3</name>
+        <name lang="fi">Nuoli 3</name>
+        <name lang="fr">Fleche 3</name>
+        <name lang="hr">Strelica 3</name>
+        <name lang="hu">Nyíl 3</name>
+        <name lang="it">Freccia 3</name>
+        <name lang="ja">矢印 3</name>
+        <name lang="ko">화살표 3</name>
+        <name lang="mn">Сум 3</name>
+        <name lang="nb">Pil 3</name>
+        <name lang="nl">Pijl 3</name>
+        <name lang="nl_BE">Pijl 3</name>
+        <name lang="pl">Kierunek 3</name>
+        <name lang="pt">Seta 3</name>
+        <name lang="pt_BR">Arrow 3</name>
+        <name lang="ro">Săgeată 3</name>
+        <name lang="ru">Стрелка 3</name>
+        <name lang="sk">Šípka 3</name>
+        <name lang="sl">Puščica 3</name>
+        <name lang="sr">Стрелица 3</name>
+        <name lang="sv">Pil 3</name>
+        <name lang="tr">Ok 3</name>
+        <name lang="uk">Стрілка 3</name>
+        <name lang="zh">箭头3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-11" y1="-31" x2="10" y2="31" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="8" y="-16.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bc341330-47ee-40e0-99c9-ce2d0f130519}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{2da411a6-65b6-a2da-e164-e46dda3b5f9c}"/>
+    <names>
+        <name lang="ar">مروحة طرديّة</name>
+        <name lang="ca">Ventilador centrífug</name>
+        <name lang="cs">Odstředivý ventilátor</name>
+        <name lang="da">Centrifugalventilator</name>
+        <name lang="de">Radiallüfter</name>
+        <name lang="el">Φυγοκεντρικός ανεμιστήρας</name>
+        <name lang="en">Centrifugal fan</name>
+        <name lang="es">Ventilador centrífugo</name>
+        <name lang="fi">Keskipakopuhallin</name>
+        <name lang="fr">Ventilateur centrifuge</name>
+        <name lang="hr">Centrifugalni ventilator</name>
+        <name lang="hu">Centrifugál ventilátor</name>
+        <name lang="it">Ventilatore centrifugo</name>
+        <name lang="ja">遠心ファン</name>
+        <name lang="ko">원심 팬</name>
+        <name lang="mn">Төвөөс зугтах сэнс</name>
+        <name lang="nb">Sentrifugalvifte</name>
+        <name lang="nl">Centrifugaal ventilator</name>
+        <name lang="nl_BE">Centrifugaalventilator</name>
+        <name lang="pl">Wentylatot odsrodkowy</name>
+        <name lang="pt">Ventilador centrífugo</name>
+        <name lang="pt_BR">Centrifugal fan</name>
+        <name lang="ro">Ventilator centrifugal</name>
+        <name lang="ru">Центробежный вентилятор</name>
+        <name lang="sk">Radiálny ventilátor</name>
+        <name lang="sl">Centrifugalni ventilator</name>
+        <name lang="sr">Центрифугални вентилатор</name>
+        <name lang="sv">Centrifugalfläkt</name>
+        <name lang="tr">Santrifüj fan</name>
+        <name lang="uk">Відцентровий вентилятор</name>
+        <name lang="zh">离心风机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d2ba6b6d-4907-4f2e-ad31-389c1428fce0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <arc x="-12" y="-5" width="12" height="12" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="3" x2="-10" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-7" y="-12" width="12" height="12" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="0" width="12" height="12" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="5" width="2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12" y="-7" width="12" height="12" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-7" width="2" height="2" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2" y="-2" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="0" y="-2.5" width="9" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-13" x2="13" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="13" x2="13" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{c9219234-8d2f-4978-ac12-34f61df86142}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{6cbdf269-f4df-4005-b90d-956cadf406aa}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

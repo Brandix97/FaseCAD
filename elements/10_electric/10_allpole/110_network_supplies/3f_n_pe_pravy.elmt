@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="100" hotspot_x="21" hotspot_y="38">
+    <uuid uuid="{7f53d1e4-8851-4c10-4009-0020d7ed6487}"/>
+    <names>
+        <name lang="ar">مصدر ثلاثي القطبيّة + PEN</name>
+        <name lang="ca">Font tripolar + N + PE</name>
+        <name lang="cs">Přípojnice 3f+N+PE pravá</name>
+        <name lang="da">Tre-polet kilde + N + PE</name>
+        <name lang="de">Drehstrom + PEN</name>
+        <name lang="el">Τριφασικό + PEN</name>
+        <name lang="en">Three-pole source + N + PE</name>
+        <name lang="es">Fuente tripolar + PEN</name>
+        <name lang="fi">Kolmivaiheinen lähde + N + PE</name>
+        <name lang="fr">Source tripolaire + PEN</name>
+        <name lang="hr">Tropolni izvor + N + PE</name>
+        <name lang="hu">3F + N + PE</name>
+        <name lang="it">Sorgente tripolare + PEN</name>
+        <name lang="ja">三極電源 + N + PE</name>
+        <name lang="ko">삼극 전원 + N + PE</name>
+        <name lang="mn">Гурван туйлын эх үүсвэр + N + PE</name>
+        <name lang="nb">Trepolet kilde + N + PE</name>
+        <name lang="nl">driefasen + aardenul</name>
+        <name lang="nl_BE">Driefasige bron + N + PE</name>
+        <name lang="pl">Linia trójfazowa (PEN)</name>
+        <name lang="pt">Fonte tripolar + N + PE</name>
+        <name lang="pt_BR">Fonte tripolar + N + PE</name>
+        <name lang="ro">Sursă tripolară + N + PE</name>
+        <name lang="ru">Трёхполюсный + PEN</name>
+        <name lang="sk">Trojpólový zdroj + N + PE</name>
+        <name lang="sl">Tripolni vir + N + PE</name>
+        <name lang="sr">Трополски извор + N + PE</name>
+        <name lang="sv">Trepolig källa + N + PE</name>
+        <name lang="tr">Üç kutuplu kaynak + N + PE</name>
+        <name lang="uk">Триполюсне джерело + N + PE</name>
+        <name lang="zh">三相N PE右</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-60.45" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{1955f25e-b33b-4106-8b36-46862006122c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="PE" x="7" y="53" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="7" y="33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-10" y1="50" x2="0" y2="50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L3" x="7" y="13" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L2" x="7" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L1" x="7" y="-27" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-10" y1="-30" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="30" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8512acc7-2986-4e56-a5fa-1511f5ce77d2}" name="PE" x="-10" y="50" orientation="w" type="Generic"/>
+        <terminal uuid="{fefd1338-0ddf-4793-a2eb-3d8f66cfbe5b}" name="L1" x="-10" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{56769562-6014-40c8-b5de-152aca0797d3}" name="L2" x="-10" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{9a3c1ea1-e75f-4b30-9a9c-5de353ad0625}" name="N" x="-10" y="30" orientation="w" type="Generic"/>
+        <terminal uuid="{f89635c1-4198-497c-a2ce-74b80b63fe67}" name="L3" x="-10" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

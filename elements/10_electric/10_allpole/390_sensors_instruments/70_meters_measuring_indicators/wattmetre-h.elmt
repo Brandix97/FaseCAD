@@ -1,0 +1,54 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="12">
+    <uuid uuid="{c508c060-bccf-3ba2-79b4-116404d02087}"/>
+    <names>
+        <name lang="ar">واتميتر أفقي</name>
+        <name lang="ca">Wattmetre horitzontal</name>
+        <name lang="cs">Wattmetr, vodorovný</name>
+        <name lang="da">Vandret wattmeter</name>
+        <name lang="de">Wattmeter waagerecht</name>
+        <name lang="el">Βατόμετρο οριζόντιο</name>
+        <name lang="en">Horizontal wattmeter</name>
+        <name lang="es">Vatímetro horizontal</name>
+        <name lang="fi">Vaakasuora wattimittari</name>
+        <name lang="fr">Wattmètre horizontal</name>
+        <name lang="hr">Vodoravni vatmetar</name>
+        <name lang="hu">Vízszintes wattmérő</name>
+        <name lang="it">Wattmetro orizzontale</name>
+        <name lang="ja">横型電力計</name>
+        <name lang="ko">수평형 전력계</name>
+        <name lang="mn">Хэвтээ ваттметр</name>
+        <name lang="nb">Horisontal wattmeter</name>
+        <name lang="nl">Wattmeter</name>
+        <name lang="nl_BE">Horizontale wattmeter</name>
+        <name lang="pl">Watomierz (poziomo)</name>
+        <name lang="pt">Wattímetro horizontal</name>
+        <name lang="pt_BR">Wattímetro Horizontal</name>
+        <name lang="ro">Wattmetru orizontal</name>
+        <name lang="ru">Ватметр (горизонтальный)</name>
+        <name lang="sk">Horizontálny wattmeter</name>
+        <name lang="sl">Vodoravni vatmeter</name>
+        <name lang="sr">Хоризонтални ватметар</name>
+        <name lang="sv">Horisontell wattmeter</name>
+        <name lang="tr">Yatay vatmetre</name>
+        <name lang="uk">Горизонтальний ватметр</name>
+        <name lang="zh">功率表-水平</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="7.5" y1="7.5" x2="10" y2="15" x3="10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="7" y="-25" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a677ee07-8959-4bbe-833d-bcc9d4aff584}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-7.5" y1="7.5" x2="-10" y2="15" x3="-10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-5" y1="-6" x2="-2.5" y2="6" x3="0" y3="0" x4="2.5" y4="6" x5="5" y5="-6" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{b5b1c0b7-e9cd-4a03-a06f-005c736e568f}" name="I_out" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c9f7fedf-b4b5-4e48-8a6b-47df4890f92c}" name="V2" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{cc430b12-83c8-44a3-8c71-8075dbcd1b1f}" name="V1" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{fad49f2a-ef89-4b4c-b586-911e057d2e28}" name="I_in" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

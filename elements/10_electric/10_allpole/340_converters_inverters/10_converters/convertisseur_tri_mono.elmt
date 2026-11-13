@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="35" hotspot_y="35">
+    <uuid uuid="{67227d7f-c67f-2fc1-5911-f60aa64280a0}"/>
+    <names>
+        <name lang="ar">محول ثلاثي الأوجه - أحادي الوجه</name>
+        <name lang="ca">Convertidor trifàsic monofàsic</name>
+        <name lang="cs">Měnič třífázový/jednofázový proud</name>
+        <name lang="da">Trefaset konverter enfaset</name>
+        <name lang="de">Umrichter AC/AC 3-phasig</name>
+        <name lang="el">Μετατροπέας τριφασικό AC/ μονοφασικό AC</name>
+        <name lang="en">Three phase converter single phase</name>
+        <name lang="es">Convertidor trifasico a monofasico</name>
+        <name lang="fi">Kolmivaihemuunnin yksivaiheinen</name>
+        <name lang="fr">Convertisseur tri mono</name>
+        <name lang="hr">Trofazni pretvarač jednofazni</name>
+        <name lang="hu">Háromfázisú átalakító egyfázisú</name>
+        <name lang="it">Convertitore AC trifase / AC monofase</name>
+        <name lang="ja">三相コンバータ単相</name>
+        <name lang="ko">삼상 컨버터 단상</name>
+        <name lang="mn">Гурван фазын хөрвүүлэгч нэг фаз</name>
+        <name lang="nb">Trefaseomformer enfase</name>
+        <name lang="nl">Wisselspanning driefase &gt; wisselspanning eenfase AC3&gt;AC1</name>
+        <name lang="nl_BE">Wisselspanning drie fasen &gt; wisselspanning een fase AC3&gt;AC1</name>
+        <name lang="pl">Przekształtnik prądu przemiennego</name>
+        <name lang="pt">Conversor trifásico monofásico</name>
+        <name lang="pt_BR">Conversor trifásico para monofásico</name>
+        <name lang="ro">Convertizor trifazat monofazat</name>
+        <name lang="ru">Трёхфазный преобразователь в однофазный</name>
+        <name lang="sk">Trojfázový menič jednofázový</name>
+        <name lang="sl">Trifazni pretvornik enofazni</name>
+        <name lang="sr">Трофазни конвертор једнофазни</name>
+        <name lang="sv">Trefasomvandlare enfas</name>
+        <name lang="tr">Üç fazlı dönüştürücü tek fazlı</name>
+        <name lang="uk">Трифазний перетворювач в однофазний</name>
+        <name lang="zh">三相-单相转换器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-17" y="-56.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e168ac14-3f53-4ae9-85b9-9c2181f7d372}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-30" width="40" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="11.5" y="10.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="-30" x2="-20" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="6.5" y="10.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-25" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-20" x2="-25" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-11.5" y="-25.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="25" y1="10" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-10" x2="25" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="20" x2="-20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16.5" y="-25.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{ea4abdc0-21d3-4219-971b-ca46f833f8ab}" name="" x="-25" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{5f190280-a6c2-443b-8000-03320da87917}" name="" x="-26" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{11ccaa12-14f6-489c-9119-cd14d68bf872}" name="" x="25" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{d261c2f6-7f2b-474a-a064-e9f9c9d3fe3a}" name="" x="25" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{c6d1a02c-20b0-4392-b89c-60972779d130}" name="" x="-25" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

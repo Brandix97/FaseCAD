@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{c4d9ca95-43b3-4346-d60e-1679db7e9b4d}"/>
+    <names>
+        <name lang="ar">وصلة أنبوب رقم 243 GCU</name>
+        <name lang="ca">Mugró núm. 243 GCU</name>
+        <name lang="cs">Nátrubek č. 243 GCU</name>
+        <name lang="da">Nippel nr. 243 GCU</name>
+        <name lang="de">Nippel Nr. 243 GCU</name>
+        <name lang="el">Νίπλ n° 243 GCU</name>
+        <name lang="en">Nipple no. 243 GCU</name>
+        <name lang="fr">Mamelon n° 243 GCU</name>
+        <name lang="pt_BR">Mamelon n° 243 GCU</name>
+        <name lang="zh">外接头_243_gcu</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <polygon x1="2" y1="-6" x2="9" y2="-6" x3="9" y3="6" x4="2" y4="6" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:brun"/>
+        <polygon x1="-2" y1="-5" x2="-9" y2="-5" x3="-9" y3="5" x4="-2" y4="5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:brun"/>
+        <line x1="-5" y1="-5" x2="-3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-8" y1="-5" x2="-6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-9" y1="-5" x2="-7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <dynamic_text x="-7" y="0.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4d607ce1-882f-414f-a1dd-011103c8ea55}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-2" y="-8" width="4" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:brun" antialias="false"/>
+        <line x1="-2" y1="-3" x2="2" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-2" y1="3" x2="2" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-9" y1="0" x2="-8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-7" y1="-5" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-6" y1="-5" x2="-4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-4" y1="-5" x2="-2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-3" y1="-5" x2="-2" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <terminal uuid="{7bcf39c3-ba17-4aa6-bdee-af321d0b87b3}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{8a053f17-2ead-4519-a82b-dba090a21bca}" name="" x="9" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

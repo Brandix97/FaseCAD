@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="320" height="50" hotspot_x="89" hotspot_y="22">
+    <uuid uuid="{64608378-040a-d797-9814-f0f3728fa720}"/>
+    <names>
+        <name lang="ar">اسطوانة بفعل مزدوج</name>
+        <name lang="ca">Cilindres de doble efecte: tija de pistó de doble extrem</name>
+        <name lang="cs">Dvojčinný souměrný válec</name>
+        <name lang="da">Dobbeltvirkende cylindre - dobbelt stempelstang</name>
+        <name lang="de">Doppeltwirkende Zylinder - beidseitige Kolbenstange</name>
+        <name lang="el">Έμβολα διπλής ενεργείας - με ράβδο εμβόλου διπλής απόληξης</name>
+        <name lang="en">Double acting cylinders -double ended piston rod</name>
+        <name lang="es">Pistón hidráulico de accionamiento doble y doble vastago</name>
+        <name lang="fi">Kaksitoimiset sylinterit - mäntä tanko molemmista päistä</name>
+        <name lang="fr">Vérin symétrique double effet</name>
+        <name lang="hr">Dvostruko djelovanje cilindri - dvostrana klipnjača</name>
+        <name lang="hu">Kettős működésű hengerek - kétoldali dugattyúrúd</name>
+        <name lang="it">Pistone doppia azione - doppia testa</name>
+        <name lang="ja">複動シリンダ - 両側ピストンロッド</name>
+        <name lang="ko">복동 실린더 - 양측 피스톤 로드</name>
+        <name lang="mn">Хоёр үйлдэлт цилиндр - хоёр талдаа поршений саваа</name>
+        <name lang="nb">Dobbeltvirkende sylindre - dobbel stempelstang</name>
+        <name lang="nl">Cylinder 2zijdig</name>
+        <name lang="nl_BE">Dubbelwerkende cilinders - zuigerstang aan beide zijden</name>
+        <name lang="pl">Siłownik symetryczny podwójny</name>
+        <name lang="pt">Cilindros de dupla ação - haste de pistão passante</name>
+        <name lang="pt_BR">Cilindro de dupla ação - haste dupla</name>
+        <name lang="ro">Cilindri cu dublă acțiune - tijă de piston cu două capete</name>
+        <name lang="ru">Цилиндры двустороннего действия - двусторонний поршневой шток</name>
+        <name lang="sk">Dvojčinné valce - piestna tyč na oboch stranách</name>
+        <name lang="sl">Dvostransko delujoči cilindri - dvostranska batnica</name>
+        <name lang="sr">Двострано дејство цилиндри - клипњача са обе стране</name>
+        <name lang="sv">Dubbelverkande cylindrar - kolvstång i båda ändar</name>
+        <name lang="tr">Çift etkili silindirler - çift taraflı piston kolu</name>
+        <name lang="uk">Циліндри двосторонньої дії - з наскрізним штоком</name>
+        <name lang="zh">对称双作用缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-49" y="-43.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b0c6e4a8-7055-460f-8c28-f7408b835656}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="70" y1="-10" x2="80" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="70" y1="10" x2="80" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="59" y="-10" width="20" height="20" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="59" y="-10" width="20" height="20" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-76.25" y1="-3.25" x2="-65.5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-76.25" y1="3.25" x2="-65.5" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="65" y="-4" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="67" y="-2" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-83" y="-4" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="10" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="10" x2="-60" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-10" x2="25" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-35" y1="-10" x2="-35" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-75" y1="0" x2="59" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-10" x2="55" y2="-10" x3="55" y3="10" x4="-5" y4="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-65" y1="-10" x2="-5" y2="-10" x3="-5" y3="10" x4="-65" y4="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="80" y1="-20" x2="120" y2="-20" x3="120" y3="20" x4="80" y4="20" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="120" y1="-5" x2="135" y2="-5" x3="135" y3="5" x4="120" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="155" y1="-10" x2="215" y2="-10" x3="215" y3="10" x4="155" y4="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="190" y1="-10" x2="190" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="135" y1="0" x2="225" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{508b6a07-2298-42c2-9ad7-577f7de76565}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{bf20cc26-2363-4de2-be67-9f9cd4400450}" name="" x="-60" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="18" hotspot_y="30">
+    <uuid uuid="{c0e78115-69c8-261b-52ba-e96097f5de0f}"/>
+    <names>
+        <name lang="ar">ترموستات مضاد للفيلقية</name>
+        <name lang="ca">Termòstat antilegionel·la</name>
+        <name lang="cs">Termostat proti legionelle</name>
+        <name lang="da">Legionella-termostat</name>
+        <name lang="de">Anti-Legionellen-Thermostat</name>
+        <name lang="el">Θερμοστάτης κατά της λεγιονέλλας</name>
+        <name lang="en">Anti-legionella thermostat</name>
+        <name lang="es">Termostato anti-legionella</name>
+        <name lang="fi">Legionella-termostaatti</name>
+        <name lang="fr">Thermostat anti-legionnelle</name>
+        <name lang="hr">Antilegionela termostat</name>
+        <name lang="hu">Legionella elleni termosztát</name>
+        <name lang="it">Termostato anti legionella</name>
+        <name lang="ja">レジオネラ対策サーモスタット</name>
+        <name lang="ko">레지오넬라 방지 온도 조절기</name>
+        <name lang="mn">Легионеллагийн эсрэг термостат</name>
+        <name lang="nb">Anti-legionella termostat</name>
+        <name lang="nl">Antilegionella thermostaat</name>
+        <name lang="nl_BE">Antilegionellathermostaat</name>
+        <name lang="pl">Termostat antylegionella</name>
+        <name lang="pt">Termóstato antilegionela</name>
+        <name lang="pt_BR">Anti-legionella thermostat</name>
+        <name lang="ro">Termostat anti-legionella</name>
+        <name lang="ru">Термостат защиты от легионеллы</name>
+        <name lang="sk">Termostat proti legionele</name>
+        <name lang="sl">Termostat proti legioneli</name>
+        <name lang="sr">Термостат против легионеле</name>
+        <name lang="sv">Legionellatermostat</name>
+        <name lang="tr">Lejyonella önleyici termostat</name>
+        <name lang="uk">Термостат проти легіонели</name>
+        <name lang="zh">军团菌温控器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-0.95" y="-1.18" width="3.38" height="1.1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.73" y="-12.16" width="3.38" height="2.93" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="9" y="-1.18" width="3.38" height="1.1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.73" y="-7" width="3.38" height="2.93" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="2.18" y="-8.5" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8.18" y="-16.55" width="13.73" height="11" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-6.27" y="-15.09" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.73" y1="-10.7" x2="12.11" y2="-10.7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9" y="-17.28" width="15.21" height="12.44" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1.84" y1="-10.15" x2="-0.78" y2="-11.06" x3="-5" y3="-14.72" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-0.78" y1="-10.15" x2="4.5" y2="-12" x3="-0.78" y3="-11.06" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-8" y="-11.43" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.84" y="-16.37" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.84" y="-6.67" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.06" y="-8.32" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="4.08" y="-11.43" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="2.39" y="-14.72" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10.71" y="-20.21" width="24.51" height="17.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.73" y="-17.28" width="3.38" height="2.93" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.57" y1="-15.09" x2="12.11" y2="-17.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.73" y1="-6.3" x2="12.11" y2="-4.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10.71" y="-1.18" width="3.38" height="1.1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12.4" y="-21.68" width="28.73" height="20.49" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.4" y1="-21.68" x2="-8.23" y2="-24.6" x3="18.39" y3="-24.6" x4="15.78" y4="-21.68" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18.5" y1="-23.87" x2="18.5" y2="-4.11" x3="16.24" y3="-1.18" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-15" y="-37.37" z="26" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{78e40e68-0701-4402-a7f7-200182d3e7b2}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{070c02cb-5e0f-4563-ad06-eaf86d010c50}" name="" x="-10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{0fdcf125-3091-49d7-9e1d-6773f5f0ae3e}" name="" x="10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{36fc8558-75ad-40f1-8a38-4c69315efe6d}" name="" x="1" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

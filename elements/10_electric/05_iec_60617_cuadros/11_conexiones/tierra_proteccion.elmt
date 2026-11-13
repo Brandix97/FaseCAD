@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="14">
+    <uuid uuid="{01ce2f80-80fe-511d-af75-0b77f5d6f319}"/>
+    <names>
+        <name lang="de">Schutzerde</name>
+        <name lang="en">Protective earth</name>
+        <name lang="es">Tierra de protección</name>
+        <name lang="fr">Terre de protection</name>
+        <name lang="it">Terra di protezione</name>
+        <name lang="pt">Terra de proteção</name>
+        <name lang="tr">Koruma topraklaması</name>
+        <name lang="zh">保护接地</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-10" x2="0" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8" y="-4" width="16" height="16" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="1" x2="5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="4" x2="3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.2" y1="7" x2="1.2" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-17" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8922bf6d-3b95-5b5e-809a-1e7958ec8391}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2d4b5c72-6015-5149-b044-21354e415355}" name="PE" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="13">
+    <uuid uuid="{c1765c18-7486-da0d-ebb3-da39a3d7fa03}"/>
+    <names>
+        <name lang="ar">بطارية خليّة واحدة</name>
+        <name lang="ca">Bateria un element</name>
+        <name lang="cs">Baterie 1 článek</name>
+        <name lang="da">Batteri ét element</name>
+        <name lang="de">Batterie 1 Element</name>
+        <name lang="el">Μπαταρία (1 στοιχείο)</name>
+        <name lang="en">Battery one element</name>
+        <name lang="es">Bateria 1 elemento</name>
+        <name lang="fi">Akku yksi kenno</name>
+        <name lang="fr">Pile 1 élément</name>
+        <name lang="hr">Baterija jedan element</name>
+        <name lang="hu">Akkumulátor egy cella</name>
+        <name lang="it">Batteria (un elemento)</name>
+        <name lang="ja">電池 単一素子</name>
+        <name lang="ko">배터리 1셀</name>
+        <name lang="mn">Нэг элементтэй батерей</name>
+        <name lang="nb">Batteri ett element</name>
+        <name lang="nl">Batterij 1 element DC</name>
+        <name lang="nl_BE">Batterij 1 element DC</name>
+        <name lang="pl">Ogniwo elektrochemiczne</name>
+        <name lang="pt">Bateria de um elemento</name>
+        <name lang="pt_BR">Bateria de 1 elemento</name>
+        <name lang="ro">Baterie cu un element</name>
+        <name lang="ru">Батарея один элемент</name>
+        <name lang="sk">Batéria jeden článok</name>
+        <name lang="sl">Baterija en element</name>
+        <name lang="sr">Батерија један елемент</name>
+        <name lang="sv">Batteri ett element</name>
+        <name lang="tr">Tek elemanlı akü</name>
+        <name lang="uk">Батарея один елемент</name>
+        <name lang="zh">单电池</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="20" y1="0" x2="3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="-27.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9c42ee67-df86-4e5a-a55b-ba1b52d22a47}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-3" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-9" x2="-3" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-6" width="3" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <text text="-" x="6" y="6.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="+" x="-11" y="6.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{7c71aefc-f08b-4f70-9d3c-f3620e03ac76}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{9717e1c4-91f6-4676-ac01-ff537e298383}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

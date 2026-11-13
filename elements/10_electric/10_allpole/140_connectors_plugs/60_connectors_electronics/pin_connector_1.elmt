@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="10" hotspot_y="13">
+    <uuid uuid="{f96f26a3-7781-6c63-ca3f-5c643ce123f1}"/>
+    <names>
+        <name lang="ar">وصلة , 1 دبوس</name>
+        <name lang="ca">Connector, 1 pin</name>
+        <name lang="cs">Spojka, 1 kolík</name>
+        <name lang="da">Stik, 1 pin</name>
+        <name lang="de">Steckverbindung 1 Anschluss</name>
+        <name lang="el">Σύνδεσμος, 1 ακροδέκτης</name>
+        <name lang="en">Connector, 1 pin</name>
+        <name lang="es">Conexión 1 pin</name>
+        <name lang="fi">Liitin, 1 nasta</name>
+        <name lang="fr">Connecteur ,1 broche</name>
+        <name lang="hr">Konektor, 1 pin</name>
+        <name lang="hu">1 tűs csatlakozó</name>
+        <name lang="it">Connettore, 1 pin</name>
+        <name lang="ja">コネクタ、1 ピン</name>
+        <name lang="ko">커넥터, 1 핀</name>
+        <name lang="mn">Холбогч, 1 пин</name>
+        <name lang="nb">Kontakt, 1 pinn</name>
+        <name lang="nl">Connector 1 pin</name>
+        <name lang="nl_BE">Connector, 1 pin</name>
+        <name lang="pl">Złącze jednostykowe</name>
+        <name lang="pt">Conector, 1 pinos</name>
+        <name lang="pt_BR">Conector, 1 pino</name>
+        <name lang="ro">Conector, 1 pini</name>
+        <name lang="ru">Соединитель, 1 штырьков</name>
+        <name lang="sk">Konektor, 1 kolík</name>
+        <name lang="sl">Konektor, 1 pol</name>
+        <name lang="sr">Конектор, 1 пинова</name>
+        <name lang="sv">Kontakt, 1 stift</name>
+        <name lang="tr">Konnektör, 1 pim</name>
+        <name lang="uk">Роз'єм, 1 контактів</name>
+        <name lang="zh">针式连接器1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-5.5" y="8.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eb82c49e-0158-4035-a616-2c05eead7cf4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-5" y1="-5" x2="5" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="5" x2="5" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{404a6463-80b7-41ab-8242-467c874515c9}" name="" x="0" y="-6" orientation="n" type="Generic"/>
+    </description>
+</definition>

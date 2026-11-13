@@ -1,0 +1,71 @@
+<definition version="0.90" type="element" link_type="simple" width="100" height="50" hotspot_x="68" hotspot_y="20">
+    <uuid uuid="{69bee1f2-0a72-ccf0-d7b2-7dc01cc0301d}"/>
+    <names>
+        <name lang="ar">قابض مزدوج + اسطوانة دوارة + مغناطيس</name>
+        <name lang="ca">Doble pinça + cilindre rotatiu + imant</name>
+        <name lang="cs">Dvojité chapadlo + rotační válec + magnet</name>
+        <name lang="da">Dobbelt griber + roterende cylinder + magnet</name>
+        <name lang="de">Doppelgreifer + Drehzylinder + Magnet</name>
+        <name lang="el">Διπλή λαβή + περιστροφικός κύλινδρος + μαγνήτης</name>
+        <name lang="en">Double gripper + rotary cylinder + magnet</name>
+        <name lang="es">Pinza doble + cilindro rotativo + imán</name>
+        <name lang="fi">Kaksoistarttuja + kääntösylinteri + magneetti</name>
+        <name lang="fr">Double pince + cylindre rotatif + aimant</name>
+        <name lang="hr">Dvostruka hvataljka + rotacijski cilindar + magnet</name>
+        <name lang="hu">Dupla megfogó + forgóhenger + mágnes</name>
+        <name lang="it">Doppia pinza + cilindro rotante + magnete</name>
+        <name lang="ja">ダブルグリッパー+ロータリーシリンダー+マグネット</name>
+        <name lang="ko">더블 그리퍼 + 회전 실린더 + 자석</name>
+        <name lang="mn">Давхар атгагч + эргэдэг цилиндр + соронз</name>
+        <name lang="nb">Dobbel griper + roterende sylinder + magnet</name>
+        <name lang="nl">Dubbele grijper + roterende cilinder + magneet</name>
+        <name lang="nl_BE">Dubbele grijper + roterende cilinder + magneet</name>
+        <name lang="pl">Podwójny chwytak + cylinder obrotowy + magnes</name>
+        <name lang="pt">Garra dupla + cilindro rotativo + ímã</name>
+        <name lang="pt_BR">Garra dupla + cilindro rotativo + ímã</name>
+        <name lang="ro">Grip dublu + cilindru rotativ + magnet</name>
+        <name lang="ru">Двойной захват + поворотный цилиндр + магнит</name>
+        <name lang="sk">Dvojitý uchopovač + rotačný valec + magnet</name>
+        <name lang="sl">Dvojni prijemal + vrtljivi cilinder + magnet</name>
+        <name lang="sr">Двострука хватаљка + ротациони цилиндар + магнет</name>
+        <name lang="sv">Dubbelgrepp + vridcylinder + magnet</name>
+        <name lang="tr">Çift tutucu + döner silindir + mıknatıs</name>
+        <name lang="uk">Подвійний захват + поворотний циліндр + магніт</name>
+        <name lang="zh">双作用夹爪气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-46" y1="10" x2="-45" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-45" y1="8" x2="-41" y2="10" x3="-45" y3="12" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-47" y1="0" x2="-45" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-57" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-45" y1="-5.48" x2="-45" y2="14.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-35.49" y="3" width="12.49" height="3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-45" y1="-2" x2="-41" y2="0" x3="-45" y3="2" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <arc x="-55.5" y="-5.5" width="20" height="20" start="273" angle="174" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-78" y="17" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{b02d570c-9419-476f-95e6-dc0900d156cd}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="13" y1="-3" x2="18" y2="-3" x3="21" y3="-5" x4="24" y4="-3" x5="26" y5="-3" x6="28" y6="-3" x7="28" y7="0" x8="26" y8="0" x9="24" y9="0" x10="21" y10="2" x11="18" y11="0" x12="13" y12="0" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="10" y1="13" x2="10" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-34.17" y1="-5.88" x2="-32.12" y2="-1.85" x3="-30" y3="-3.58" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="13" y1="10" x2="18" y2="10" x3="21" y3="8" x4="24" y4="10" x5="26" y5="10" x6="28" y6="10" x7="28" y7="13" x8="26" y8="13" x9="24" y9="13" x10="21" y10="15" x11="18" y11="13" x12="13" y12="13" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-34.23" y1="17" x2="-32.32" y2="12.92" x3="-30" y3="14.66" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <rect x="-17" y="-3" width="7" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="13" x2="-20" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-22" y1="13" x2="-18" y2="13" x3="-20" y3="9" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="8" y1="13" x2="10" y2="9" x3="12" y3="13" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-14.52" y1="1.06" x2="-14.52" y2="9.06" x3="-14.52" y3="1.06" x4="-13.52" y4="1.06" x5="-13.52" y5="9.06" x6="-12.52" y6="9.06" x7="-12.52" y7="7.06" x8="-13.52" y8="6.06" x9="-13.52" y9="4.06" x10="-12.52" y10="3.06" x11="-12.52" y11="1.06" x12="-14.52" y12="1.06" x13="-14.52" y13="9.06" x14="-13.52" y14="9.06" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-23" y="-3" width="36" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-64" y="-12" width="35" height="35" start="331" angle="61" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{de73745d-d228-4f0e-9cc1-137e246cb3d4}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8a58159a-f527-4d79-9885-5f165a9f47a8}" name="" x="-50" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{c1bd59cc-b755-477d-bfe3-90acba52c70d}" name="" x="-50" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

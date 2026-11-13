@@ -1,0 +1,75 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="171">
+    <uuid uuid="{4d0ef2f1-2831-6d8f-6139-bb1bffc8130f}"/>
+    <names>
+        <name lang="ar">هوائي</name>
+        <name lang="ca">Antena</name>
+        <name lang="cs">Anténa</name>
+        <name lang="da">Antenne</name>
+        <name lang="de">Antenne</name>
+        <name lang="el">Κεραία</name>
+        <name lang="en">Antenna</name>
+        <name lang="es">Antena</name>
+        <name lang="fi">Antenni</name>
+        <name lang="fr">Antenne</name>
+        <name lang="hr">Antena</name>
+        <name lang="hu">Antenna</name>
+        <name lang="it">Antenna</name>
+        <name lang="ja">アンテナ</name>
+        <name lang="ko">안테나</name>
+        <name lang="mn">Антенн</name>
+        <name lang="nb">Antenne</name>
+        <name lang="nl">Antenne</name>
+        <name lang="nl_BE">Antenne</name>
+        <name lang="pl">Antena</name>
+        <name lang="pt">Antena</name>
+        <name lang="pt_BR">Antena</name>
+        <name lang="ro">Antenă</name>
+        <name lang="ru">Антенна</name>
+        <name lang="sk">Anténa</name>
+        <name lang="sl">Antena</name>
+        <name lang="sr">Антена</name>
+        <name lang="sv">Antenn</name>
+        <name lang="tr">Anten</name>
+        <name lang="uk">Антена</name>
+        <name lang="zh">天线</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <ellipse x="48" y="-160" width="24" height="43" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{be78db24-5e41-4f8b-9df4-8db6b2cb7aba}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c9db7be2-509a-4bbf-a57e-442a16ea6dc1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Coffret</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="50" y="-158" width="20" height="40" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-118" x2="86" y2="-128" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="82" y="-132" width="4" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="80" y="-133" width="2" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-28.5" z="35" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{339d5edc-12c4-4bc4-82e7-a3d75ad60465}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="36" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{daeb4642-6352-4272-acd0-2a6a0c58ebca}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{0516c709-7754-4515-9b92-d333812618bf}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Antenne</text>
+        </dynamic_text>
+        <line x1="60" y1="-110" x2="60" y2="-116" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-160" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-160" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{512f7c12-3641-44a1-993f-a6cca9f2b375}" name="" x="60" y="-110" orientation="s" type="Generic"/>
+        <terminal uuid="{a7186089-1b70-4a30-b3a8-1a23d89abb2e}" name="" x="50" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{26208b89-66a0-4ff8-a5e4-d5da7fa4eed7}" name="" x="70" y="-160" orientation="n" type="Generic"/>
+    </description>
+</definition>

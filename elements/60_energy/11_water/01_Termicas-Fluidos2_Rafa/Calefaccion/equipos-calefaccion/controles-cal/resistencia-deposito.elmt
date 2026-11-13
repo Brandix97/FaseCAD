@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="16" hotspot_y="50">
+    <uuid uuid="{1a200a75-6dde-b61e-3942-7cff7c63cf0c}"/>
+    <names>
+        <name lang="ar">خزان مقاومة</name>
+        <name lang="ca">Resistència de dipòsit</name>
+        <name lang="cs">Odporová nádrž</name>
+        <name lang="da">Modstandstank</name>
+        <name lang="de">Heizwiderstand</name>
+        <name lang="el">Δεξαμενή αντίστασης</name>
+        <name lang="en">Resistance tank</name>
+        <name lang="es">Resistencia de depósito</name>
+        <name lang="fi">Vastussäiliö</name>
+        <name lang="fr">Résistance électrique</name>
+        <name lang="hr">Spremnik s grijačem</name>
+        <name lang="hu">Ellenállás tartály</name>
+        <name lang="it">Serbatoio con resistenza</name>
+        <name lang="ja">抵抗タンク</name>
+        <name lang="ko">저항 탱크</name>
+        <name lang="mn">Эсэргүүцлийн сав</name>
+        <name lang="nb">Motstandstank</name>
+        <name lang="nl">Weerstandstank</name>
+        <name lang="nl_BE">Weerstandstank</name>
+        <name lang="pl">Zbiornik z grzałką</name>
+        <name lang="pt">Depósito com resistência</name>
+        <name lang="pt_BR">Tanque de resistencia</name>
+        <name lang="ro">Rezervor cu rezistență</name>
+        <name lang="ru">Бак с ТЭНом</name>
+        <name lang="sk">Odporová nádrž</name>
+        <name lang="sl">Rezervoar z grelcem</name>
+        <name lang="sr">Резервоар са грејачем</name>
+        <name lang="sv">Motståndstank</name>
+        <name lang="tr">Direnç tankı</name>
+        <name lang="uk">Бак із нагрівальним елементом</name>
+        <name lang="zh">储罐电阻</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="0" y="-46" width="2" height="49" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="11" x2="-2" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="6" width="15" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-13" y="3" width="25" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="1" y="10" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-4" y="9" width="2" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="10" x2="-3" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-46" width="2" height="49" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="10" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="-19.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4b5ed835-b521-487c-8346-01d9ec5644a3}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{784fda08-d463-4db8-871e-360851cdffc8}" name="" x="-9" y="11" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{c8cf63d1-18ad-351e-64e9-150d2af1af34}"/>
+    <names>
+        <name lang="ar">ترنزيستور أحادي القطبية موسفت قناة MOSFET N</name>
+        <name lang="ca">MOSFET de transistor unipolar</name>
+        <name lang="cs">Unipolární tranzistor MOSFET</name>
+        <name lang="da">Unipolar transistor MOSFET</name>
+        <name lang="de">Unipolar Transistor MOSFET</name>
+        <name lang="el">Μονοπολικό τρανζίστορ MOSFET</name>
+        <name lang="en">Unipolar transistor MOSFET</name>
+        <name lang="es">Transistor unipolar MOSFET</name>
+        <name lang="fi">Unipolaaritransistori MOSFET</name>
+        <name lang="fr">Transistor unipolaire MOSFET</name>
+        <name lang="hr">Unipolarni tranzistor MOSFET</name>
+        <name lang="hu">Unipoláris tranzisztor MOSFET</name>
+        <name lang="it">Transistor unipolare MOSFET</name>
+        <name lang="ja">ユニポーラトランジスタ MOSFET</name>
+        <name lang="ko">단극 트랜지스터 MOSFET</name>
+        <name lang="mn">Нэг туйлт транзистор MOSFET</name>
+        <name lang="nb">Unipolar transistor MOSFET</name>
+        <name lang="nl">Transistor unipolare MOSFET</name>
+        <name lang="nl_BE">Unipolaire transistor MOSFET</name>
+        <name lang="pl">Tranzystor unipolarny MOSFET</name>
+        <name lang="pt">Transístor unipolar MOSFET</name>
+        <name lang="pt_BR">Transistor MOSFET unipolar canal N</name>
+        <name lang="ro">Tranzistor unipolar MOSFET</name>
+        <name lang="ru">Униполярный транзистор MOSFET</name>
+        <name lang="sk">Unipolárny tranzistor MOSFET</name>
+        <name lang="sl">Unipolarni tranzistor MOSFET</name>
+        <name lang="sr">Униполарни транзистор MOSFET</name>
+        <name lang="sv">Unipolär transistor MOSFET</name>
+        <name lang="tr">Unipolar transistör MOSFET</name>
+        <name lang="uk">Уніполярний транзистор MOSFET</name>
+        <name lang="zh">N沟道MOSFET</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="4" y1="0" x2="8" y2="-2" x3="8" y3="2" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="2" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="6" y1="0" x2="10" y2="0" x3="10" y3="20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4" y1="-4" x2="10" y2="-4" x3="10" y3="-20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="4" y1="4" x2="10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="3" x2="4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-1" x2="4" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-5" x2="4" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-5" x2="2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="13" y="-8.83" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2f28ba64-5e0b-4f67-a599-34d5480e5080}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d7f357e5-f5d0-423b-9472-dcca16c22afc}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{857a9d69-9adb-4f4d-843d-88607a425e6a}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{9d2c050a-4312-416f-8737-0cf16a850538}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

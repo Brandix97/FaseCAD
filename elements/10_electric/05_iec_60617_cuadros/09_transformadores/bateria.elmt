@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{44f9fc90-c031-561e-a0b9-5a4de4e348fa}"/>
+    <names>
+        <name lang="de">Batterie</name>
+        <name lang="en">Battery</name>
+        <name lang="es">Batería</name>
+        <name lang="fr">Batterie</name>
+        <name lang="it">Batteria</name>
+        <name lang="pt">Bateria</name>
+        <name lang="tr">Akü</name>
+        <name lang="zh">蓄电池</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-2" x2="8" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="2" x2="4" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="2" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ea930500-e9eb-5814-b967-4d45df8ccf6b}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>+</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6971f352-0993-50da-9023-8760208a6aec}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>-</text>
+        </dynamic_text>
+        <dynamic_text x="-17" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{97a2aaa6-0ecc-5365-8665-f815c0ea697b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c06ad47d-1897-5ae0-a4bd-0c12027adda8}" name="+" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{63c68f9b-4f28-5bed-9c7c-a4ebbe862750}" name="-" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

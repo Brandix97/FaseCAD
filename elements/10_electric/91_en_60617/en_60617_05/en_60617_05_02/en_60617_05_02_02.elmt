@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="10" height="30" hotspot_x="7" hotspot_y="25">
+    <uuid uuid="{0a8bf5c2-e0c9-f6eb-0cc2-d74465dfbcf8}"/>
+    <names>
+        <name lang="ar">تأثير النفق</name>
+        <name lang="ca">Efecte túnel</name>
+        <name lang="cs">Tunelový jev</name>
+        <name lang="da">Tunneleffekt</name>
+        <name lang="de">Tunnel-Effekt</name>
+        <name lang="el">Φαινόμενο σήραγγας</name>
+        <name lang="en">Tunnel effect</name>
+        <name lang="es">Efecto túnel</name>
+        <name lang="fi">Tunneli-ilmiö</name>
+        <name lang="fr">Effet tunnel</name>
+        <name lang="hr">Tunelski efekt</name>
+        <name lang="hu">Alagúteffektus</name>
+        <name lang="it">Effetto tunnel</name>
+        <name lang="ja">トンネル効果</name>
+        <name lang="ko">터널 효과</name>
+        <name lang="mn">Туннелийн эффект</name>
+        <name lang="nb">Tunneleffekt</name>
+        <name lang="nl">Tunneleffect</name>
+        <name lang="nl_BE">Tuneleffect</name>
+        <name lang="pl">Efekt tunelowy</name>
+        <name lang="pt">Efeito túnel</name>
+        <name lang="pt_BR">Efeito túnel</name>
+        <name lang="ro">Efect tunel</name>
+        <name lang="ru">Туннельный эффект</name>
+        <name lang="sk">Tunelový jav</name>
+        <name lang="sl">Tunelski pojav</name>
+        <name lang="sr">Тунел ефекат</name>
+        <name lang="sv">Tunneleffekt</name>
+        <name lang="tr">Tünel etkisi</name>
+        <name lang="uk">Тунельний ефект</name>
+        <name lang="zh">接线端子02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1c944cbe-6363-41bc-a32f-71f14ce93839}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="-20" x2="0" y2="-20" x3="0" y3="0" x4="-5" y4="0" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="60" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{2f0504fc-b86a-0cb6-4002-f6bcd9734083}"/>
+    <names>
+        <name lang="ar">PTC</name>
+        <name lang="ca">PTC</name>
+        <name lang="cs">PTC</name>
+        <name lang="da">PTC</name>
+        <name lang="de">PTC</name>
+        <name lang="el">PTC</name>
+        <name lang="en">PTC</name>
+        <name lang="es">PTC</name>
+        <name lang="fi">PTC</name>
+        <name lang="fr">PTC</name>
+        <name lang="hr">PTC</name>
+        <name lang="hu">PTC</name>
+        <name lang="it">PTC</name>
+        <name lang="ja">PTC</name>
+        <name lang="ko">PTC</name>
+        <name lang="mn">PTC</name>
+        <name lang="nb">PTC</name>
+        <name lang="nl">PTC</name>
+        <name lang="nl_BE">PTC</name>
+        <name lang="pl">PTC</name>
+        <name lang="pt">PTC</name>
+        <name lang="pt_BR">PTC</name>
+        <name lang="ro">PTC</name>
+        <name lang="ru">PTC</name>
+        <name lang="sk">PTC</name>
+        <name lang="sl">PTC</name>
+        <name lang="sr">PTC</name>
+        <name lang="sv">PTC</name>
+        <name lang="tr">PTC</name>
+        <name lang="uk">PTC</name>
+        <name lang="zh">正温度系数热敏电阻</name>
+    </names>
+    <informations>EN 60617: 04-01-04</informations>
+    <description>
+        <dynamic_text x="8" y="-18.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{a8e69c5a-8390-49e3-8ae7-4ecfdc998a76}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="T" x="-11" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-4" x2="-11" y2="-10" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-4" x2="-8" y2="-10" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <terminal uuid="{c7e51b81-8463-48ea-8ce9-c9e0ee06f975}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{93dabc0a-a6e8-4c0a-8d1c-c67b65a575e3}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

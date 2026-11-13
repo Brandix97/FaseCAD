@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="50" hotspot_x="40" hotspot_y="31">
+    <uuid uuid="{f65fdacf-6595-6bc1-3ad5-55cdbed40f52}"/>
+    <names>
+        <name lang="ar">كوع نحاس 22-15-22</name>
+        <name lang="ca">Te Cu 22-15-22</name>
+        <name lang="cs">T Cu 22-15-22</name>
+        <name lang="da">Kobber-T 22-15-22</name>
+        <name lang="de">T-Stück Cu 22-15-22</name>
+        <name lang="el">Ταφ Cu 22-15-22</name>
+        <name lang="en">Copper tee 22-15-22</name>
+        <name lang="es">Te Cu 22-15-22</name>
+        <name lang="fr">Te Cu 22-15-22</name>
+        <name lang="pt_BR">Te Cu 22-15-22</name>
+        <name lang="zh">三通22-15-22</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-26.46" y="-9.43" width="10.88" height="20.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.93" y="-21.94" width="14.52" height="7.74" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.89" y1="9" x2="15.09" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.51" y1="-13.58" x2="-4.51" y2="-7.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.7" y1="-7.05" x2="-4.9" y2="-7.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.2" y1="-7.05" x2="15.21" y2="-7.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.17" y1="-13.58" x2="5.17" y2="-7.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.38" y1="-1.69" x2="-4.51" y2="-7.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.61" y1="-1.69" x2="5.17" y2="-7.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="27.17" y1="1" x2="27.17" y2="-9" x3="18.32" y3="-9" x4="15.79" y4="-7" x5="15.79" y5="10" x6="18.32" y6="12" x7="27.17" y7="12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="27.17" y1="-7" x2="19.58" y2="-7" x3="19.58" y3="9" x4="19.58" y4="10" x5="27.17" y5="10" closed="false" antialias="false" style="line-style:dotted;line-weight:normal;filling:none;color:red"/>
+        <dynamic_text x="-9.51" y="4" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a3f74950-120d-4bae-8142-30d85cdb4f86}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e1df69b3-7aa2-4e3b-a2e4-03655010b69b}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{6e9ef882-fa0a-4011-8bc9-4cdd1f555c15}" name="" x="30" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{e3ae690c-d7ec-4a18-9425-6dc64139edd4}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

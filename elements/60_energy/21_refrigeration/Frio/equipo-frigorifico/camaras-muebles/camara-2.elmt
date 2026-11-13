@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="80" hotspot_x="46" hotspot_y="49">
+    <uuid uuid="{b2f5b4f0-78c9-8805-8701-8e02932c9b7f}"/>
+    <names>
+        <name lang="ca">Cambra</name>
+        <name lang="es">Cámara-2</name>
+        <name lang="pt_BR">Cámara-2</name>
+        <name lang="zh">冷库2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-21.29" y1="-29.48" x2="-21.29" y2="26.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-17.81" y="-27.24" width="7.22" height="6" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="42.24" y1="-29.48" x2="42.24" y2="26.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-40.64" y="-35.39" width="89.49" height="62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="12.73" y="-16" width="24.83" height="42.41" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="28.54" y="8.82" width="4.51" height="2.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40.64" y1="-29.48" x2="48.85" y2="-29.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-32.25" y="-28.73" width="25.28" height="9" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-30.45" y="-27.24" width="7.22" height="6" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8.05" y1="-29.48" x2="8.05" y2="26.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="24" y="8.82" width="4.51" height="2.23" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5.16" y="-55.19" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{474a5030-af81-474a-88ce-80504e315eeb}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ec30215a-6e99-4063-9c9c-c8a01b3b412b}" name="" x="-30" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{42bcfb9b-fd70-43e2-809c-f52cfb270b05}" name="" x="-10" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

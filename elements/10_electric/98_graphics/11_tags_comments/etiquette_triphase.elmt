@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="37" hotspot_y="18">
+    <uuid uuid="{d28ffd3d-d970-9b4c-9a07-15d7e6e0b57b}"/>
+    <names>
+        <name lang="ar">علامة مصدر ثلاثي الأطوار</name>
+        <name lang="ca">Etiqueta tres fases</name>
+        <name lang="cs">Štítek - tři fáze</name>
+        <name lang="da">Etiket trefase</name>
+        <name lang="de">Etikett Drehstrom</name>
+        <name lang="el">Ετικέτα τριφασικού</name>
+        <name lang="en">Label three phase</name>
+        <name lang="es">Etiqueta trifásico</name>
+        <name lang="fi">Merkintä kolmivaihe</name>
+        <name lang="fr">Courant alternatif etiquette</name>
+        <name lang="hr">Oznaka tri faze</name>
+        <name lang="hu">Háromfázisú címke</name>
+        <name lang="it">Etichetta trifase alternata</name>
+        <name lang="ja">ラベル 三相</name>
+        <name lang="ko">3상 라벨</name>
+        <name lang="mn">Гурван фазын шошго</name>
+        <name lang="nb">Etikett trefase</name>
+        <name lang="nl">Label 3 fasen 400 Volt</name>
+        <name lang="nl_BE">Label driefasig</name>
+        <name lang="pl">Prąd przemienny trójfazowy</name>
+        <name lang="pt">Etiqueta trifásica</name>
+        <name lang="pt_BR">identificacao three Fase</name>
+        <name lang="ro">Etichetă trifazat</name>
+        <name lang="ru">Обозначение трёх фаз</name>
+        <name lang="sk">Označenie trojfázové</name>
+        <name lang="sl">Oznaka trifazno</name>
+        <name lang="sr">Ознака трофазни</name>
+        <name lang="sv">Etikett trefas</name>
+        <name lang="tr">Üç faz etiketi</name>
+        <name lang="uk">Мітка три фази</name>
+        <name lang="zh">三相标签</name>
+    </names>
+    <informations>EN 60617: 02-02-07</informations>
+    <description>
+        <dynamic_text x="-25" y="-7" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7a480f0b-dad7-41f2-834f-2668a5303eaa}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>3N</text>
+        </dynamic_text>
+        <arc x="3.5" y="2.8" width="5" height="5" start="240" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6.5" y="2.2" width="5" height="5" start="60" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="3" x2="4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="6" y="-7" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3016761c-1451-4560-8d95-a1057a9c89a3}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="25" hotspot_y="17">
+    <uuid uuid="{bb7cf242-a1cc-45fc-7718-42433ecbe085}"/>
+    <names>
+        <name lang="ca">Aixeta de pas de gas</name>
+        <name lang="es">Llave corte gas</name>
+        <name lang="pt_BR">Llave coute gas</name>
+        <name lang="zh">截止阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-8.76" y="-1.07" width="2.42" height="2.47" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.36" y1="2.64" x2="11.45" y2="2.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-12.21" y1="2.64" x2="-9.12" y2="2.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.37" y="-1.76" width="4.15" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-12.54" y="-3.55" width="3.78" height="7.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.21" y1="-2.31" x2="-9.12" y2="-2.31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="5.76" y="-1.07" width="2.42" height="2.47" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8" y="-3.55" width="3.78" height="7.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.36" y1="-2.31" x2="11.45" y2="-2.31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-5.14" y="-4.42" width="9.69" height="9.29" start="130" angle="280" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2.71" y1="-3.78" x2="-1.5" y2="-11.2" x3="-0.29" y3="-11.2" x4="0.92" y4="-11.2" x5="2.13" y5="-3.78" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-6.34" y="-6.25" width="12.1" height="12.36" start="120" angle="300" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-6" y="3.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{03c47d66-f1b2-43b3-b376-356c34573813}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{01cbc32f-bd3c-4905-bc3b-6cedb3c08b95}" name="" x="-14" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{bfdfbbcf-a39e-4b2f-8952-f4187052e785}" name="" x="13" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

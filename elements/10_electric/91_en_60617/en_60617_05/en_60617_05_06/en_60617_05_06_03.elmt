@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="70" hotspot_x="27" hotspot_y="60">
+    <uuid uuid="{0aa938a3-2d67-e24e-d1c5-89a14583ee0e}"/>
+    <names>
+        <name lang="ar">خلية ضوئية جهدية</name>
+        <name lang="ca">Cèl·lula fotovoltaica</name>
+        <name lang="cs">Fotoelektrický článek</name>
+        <name lang="da">Fotovoltaisk celle</name>
+        <name lang="de">Photozelle</name>
+        <name lang="el">Φωτοβολταϊκό στοιχείο</name>
+        <name lang="en">Photovoltaic cell</name>
+        <name lang="es">Célula fotovoltaica</name>
+        <name lang="fi">Valokenno</name>
+        <name lang="fr">Cellule photovoltaïque</name>
+        <name lang="hr">Fotonaponska ćelija</name>
+        <name lang="hu">Fotovoltaikus cella</name>
+        <name lang="it">Cella fotovoltaica</name>
+        <name lang="ja">光電池</name>
+        <name lang="ko">광전지</name>
+        <name lang="mn">Фотовольт эс</name>
+        <name lang="nb">Fotovoltaisk celle</name>
+        <name lang="nl">Fotovoltaïsche cel</name>
+        <name lang="nl_BE">Photovoltaic cell</name>
+        <name lang="pl">Ogniwo fotowoltaiczne</name>
+        <name lang="pt">Célula fotovoltaica</name>
+        <name lang="pt_BR">Celula fotovoltaica</name>
+        <name lang="ro">Celulă fotovoltaică</name>
+        <name lang="ru">Фотоэлектрический элемент</name>
+        <name lang="sk">Fotovoltaický článok</name>
+        <name lang="sl">Fotonapetostna celica</name>
+        <name lang="sr">Фотоволтаична ћелија</name>
+        <name lang="sv">Fotovoltaisk cell</name>
+        <name lang="tr">Fotovoltaik hücre</name>
+        <name lang="uk">Фотоелектричний елемент</name>
+        <name lang="zh">接线端子03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{627184fc-879d-43d9-bdb2-4abe1e65b895}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-22" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-50" x2="0" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-40" x2="-10" y2="-30" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-25" y1="-35" x2="-15" y2="-25" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-5" y1="-28" x2="5" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-22" x2="10" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{79418445-7be1-4862-b9a7-8e79ae1a57bd}" name="" x="0" y="-50" orientation="n" type="Generic"/>
+        <terminal uuid="{604839a2-c56d-4368-a582-3198d67e22e6}" name="" x="0" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="9" hotspot_y="13">
+    <uuid uuid="{d971b4b8-b717-12e7-895d-53f557533be3}"/>
+    <names>
+        <name lang="ar">مُفرّغ هواء</name>
+        <name lang="ca">Purgador </name>
+        <name lang="cs">Odvzdušňovací ventil</name>
+        <name lang="da">Purgeur</name>
+        <name lang="de">Entlüfter</name>
+        <name lang="el">Εξαεριστικό</name>
+        <name lang="en">Bleed valve</name>
+        <name lang="es">Purgador</name>
+        <name lang="fr">Purgeur</name>
+        <name lang="pt_BR">Purgadou</name>
+        <name lang="zh">排气阀1_2外螺纹</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-1.6" y1="6.92" x2="2.8" y2="6.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4.48" y1="-8.39" x2="4.48" y2="-10.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5.37" y1="-8.39" x2="5.37" y2="-10.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3.32" y1="-8.39" x2="3.32" y2="-10.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-1.79" y="5.95" width="4.77" height="4.26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.6" y1="8.66" x2="2.8" y2="8.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1.6" y1="10.21" x2="2.8" y2="9.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-2.7" y="3.43" width="6.6" height="2.52" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.9" y="-7" width="11" height="10.46" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="2.62" y="-8" width="2.38" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="1.88" y="-10.72" width="3.85" height="2.71" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.43" y1="-8.39" x2="2.43" y2="-10.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4.9" y1="-5.1" x2="5.92" y2="-5.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10.34" y="-19.88" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4e6eee8b-e54b-4549-a239-9e97c7f808d1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{afe4a2d9-303b-4619-9d64-80ed6a2da2f8}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

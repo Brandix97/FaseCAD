@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="50" height="30" hotspot_x="30" hotspot_y="15">
+    <uuid uuid="{39e7ed0c-d18f-c1be-9006-690bf22a5b56}"/>
+    <names>
+        <name lang="ar">أنبوب PER معزول</name>
+        <name lang="ca">Tub PER aïllat</name>
+        <name lang="cs">Trubka PER izolovaná</name>
+        <name lang="da">PER-rør isoleret</name>
+        <name lang="de">Rohr PER isoliert</name>
+        <name lang="el">Σωλήνας PER μονωμένος</name>
+        <name lang="en">Insulated PEX pipe</name>
+        <name lang="fr">Tube PER isolé</name>
+        <name lang="pt_BR">Tube PER isolé</name>
+        <name lang="zh">红色绝缘PER管</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Baboune41</informations>
+    <description>
+        <arc x="-23" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-19" y1="-1" x2="-18" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="-5" y="-12" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-18" y="-5" width="26" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:red" antialias="false"/>
+        <arc x="1" y="-12" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-14" y="4.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{42792afc-d28f-4958-99e3-e3a48ff7e507}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-17" y="-12" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="6" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="0" x2="-1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-11" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-11" y="-12" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-18" y1="-5" x2="-21" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-17" y="6" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-17" y1="-12" x2="7" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="PER" x="-13" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-17" y1="-6" x2="7" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="6" x2="7" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="12" x2="-22" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="5" x2="-19" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-20" y1="4" x2="-19" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-20" y1="3" x2="-19" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-20" y1="2" x2="-19" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-18" y1="1" x2="-19" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-16" y1="-12" x2="-23" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:white" antialias="false"/>
+        <line x1="-17" y1="-12" x2="-24" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:white" antialias="false"/>
+        <terminal uuid="{6eec269d-1a96-44f6-97a6-1b739b62513f}" name="" x="-19" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{66c967c4-c5fe-4f42-b89d-2f210b49539c}" name="" x="8" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

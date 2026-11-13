@@ -1,0 +1,40 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="19">
+    <uuid uuid="{46fc896c-696d-689b-7ac8-6c8a4186360d}"/>
+    <names>
+        <name lang="ar">تقليص بفلنجات</name>
+        <name lang="ca">Reducció brides</name>
+        <name lang="cs">Redukce přírubová</name>
+        <name lang="da">Reduktion med flanger</name>
+        <name lang="de">Reduzierstück</name>
+        <name lang="el">Συστολή με φλάντζες</name>
+        <name lang="en">Flanged reducer</name>
+        <name lang="es">Reducción bridas</name>
+        <name lang="fr">Réduction à brides</name>
+        <name lang="pt_BR">Reducción bridas</name>
+        <name lang="zh">大小头法兰</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-21.2" y="-17.45" width="2.5" height="34.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="14.12" y="-6.95" width="2.47" height="2.95" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="14.12" y="4.83" width="2.47" height="2.95" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18.13" y="-12.89" width="4.5" height="4.93" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="16.56" y="-9.41" width="1.93" height="18.66" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.72" y1="4.83" x2="14.94" y2="4.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-18.13" y="9" width="4.5" height="5.48" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.71" y1="-4.06" x2="15" y2="-4.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.53" y1="9" x2="-2.2" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="8.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{8a6a6103-25f4-4146-a4ff-b13fb74e5cbc}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-15.55" y1="-8" x2="-2.05" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-8" x2="7" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="5" x2="-2" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-5" x2="-2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-2" x2="7" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{63a92f58-7128-49d3-abc9-207f99a23ffb}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{29f25a08-ae7e-4bbf-876c-1276268c2f67}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="12" hotspot_y="10">
+    <uuid uuid="{e6beb366-aaae-5198-bc99-de4966ca2514}"/>
+    <names>
+        <name lang="ar">سدادة نحاس رقم 300</name>
+        <name lang="ca">Endoll de Cu n° 300</name>
+        <name lang="cs">Zátka Cu č. 300</name>
+        <name lang="da">Kobberprop nr. 300</name>
+        <name lang="de">Kappe Cu Nr. 300</name>
+        <name lang="el">Πώμα Cu n° 300</name>
+        <name lang="en">Copper cap no. 300</name>
+        <name lang="fr">Bouchon Cu n° 300</name>
+        <name lang="pt_BR">Bouchon Cu n° 300</name>
+        <name lang="zh">铜堵头300</name>
+    </names>
+    <informations>Baboune41-2016</informations>
+    <description>
+        <dynamic_text x="-3" y="-43.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cec38157-6de4-464f-8a67-d6e14d1bfc2c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="2" y="-6" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="4" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2" y1="-6" x2="-4" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-6" x2="-4" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="6" x2="2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-5" x2="4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-4" x2="4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{eb347a53-e432-492a-96ba-3de2fbc243b9}" name="" x="-4" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

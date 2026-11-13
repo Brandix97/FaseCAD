@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="previous_report" width="50" height="30" hotspot_x="37" hotspot_y="19">
+    <uuid uuid="{d03e7f37-52e1-e133-bced-c2cc49c0db6f}"/>
+    <names>
+        <name lang="ar">مرجع مُلامس NO  (أفقي)</name>
+        <name lang="ca">Contacte de referència NO (horitzontal)</name>
+        <name lang="cs">Odkaz - kontakt NO (vodorovně)</name>
+        <name lang="da">Arkhenvisning kontakt NO (vandret)</name>
+        <name lang="de">Schließer-Kontakt (NO) horizontal</name>
+        <name lang="el">Επαφή αναφοράς NO (οριζόντια)</name>
+        <name lang="en">Reference contact NO (horizontal)</name>
+        <name lang="es">Contacto NA horizontal</name>
+        <name lang="fi">Viittauskosketin NO (vaakasuora)</name>
+        <name lang="fr">Reference contact NO h</name>
+        <name lang="hr">Referentni kontakt NO (vodoravan)</name>
+        <name lang="hu">Érintkező hivatkozás NO (vízszintes)</name>
+        <name lang="it">Rif. contatto NO / (orizzontale)</name>
+        <name lang="ja">接点 NO 参照（水平）</name>
+        <name lang="ko">접점 NO 참조 (수평)</name>
+        <name lang="mn">NO контактын лавлагаа (хэвтээ)</name>
+        <name lang="nb">Referansekontakt NO (horisontal)</name>
+        <name lang="nl">Referentie vorig contact (NO)</name>
+        <name lang="nl_BE">Verwijzing contact NO (horizontaal)</name>
+        <name lang="pl">Odsyłacz - zestyk zwierny (poziomo)</name>
+        <name lang="pt">Referência contacto NA (horizontal)</name>
+        <name lang="pt_BR">Reference contato NA (Horizontal)</name>
+        <name lang="ro">Referință contact NO (orizontal)</name>
+        <name lang="ru">Ссылка на контакт НО (горизонтальная)</name>
+        <name lang="sk">Odkaz na kontakt NO (horizontálny)</name>
+        <name lang="sl">Sklic na kontakt NO (vodoravno)</name>
+        <name lang="sr">Референца контакта NO (хоризонтална)</name>
+        <name lang="sv">Hänvisning kontakt NO (horisontell)</name>
+        <name lang="tr">NO kontak referansı (yatay)</name>
+        <name lang="uk">Посилання на контакт NO (горизонтальне)</name>
+        <name lang="zh">常开触点2水平参考</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-8" y1="7" x2="0" y2="5" x3="3" y3="5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="5" x2="-8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="-5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a378b54b-ea62-49a2-9343-40c9a8796edd}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>/</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-10" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{eb4559f4-5754-404c-8c2d-2cc7095f0b47}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="5" y="-10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4b2d5095-edf9-4b18-aaf4-c979255366ad}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+    </description>
+</definition>

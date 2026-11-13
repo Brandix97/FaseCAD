@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="master" width="80" height="60" hotspot_x="31" hotspot_y="30">
+    <uuid uuid="{2d99f348-35e6-2ea8-45c2-726708d5e2bc}"/>
+    <names>
+        <name lang="ar">مُرحّل استاتيكي</name>
+        <name lang="ca">Relé d'estat sòlid</name>
+        <name lang="cs">Solid State relé</name>
+        <name lang="da">Solid State-relæ</name>
+        <name lang="de">Relais elektronisch</name>
+        <name lang="el">Ηλεκτρονικό ρελέ</name>
+        <name lang="en">Solid State relay</name>
+        <name lang="es">Relé estático (SSR)</name>
+        <name lang="fi">Puolijohderele</name>
+        <name lang="fr">Relais solide statique</name>
+        <name lang="hr">Poluvodički relej</name>
+        <name lang="hu">Szilárd test relé</name>
+        <name lang="it">Relè statico</name>
+        <name lang="ja">ソリッドステートリレー</name>
+        <name lang="ko">무접점 릴레이</name>
+        <name lang="mn">Хагас дамжуулагч реле</name>
+        <name lang="nb">Solid State-relé</name>
+        <name lang="nl">Elektronisch relais</name>
+        <name lang="nl_BE">Solid State relais</name>
+        <name lang="pl">Przekaźnik statyczny</name>
+        <name lang="pt">Relé de estado sólido</name>
+        <name lang="pt_BR">Relé de estado sólido</name>
+        <name lang="ro">Releu cu semiconductori</name>
+        <name lang="ru">Твердотельное реле</name>
+        <name lang="sk">Polovodičové relé</name>
+        <name lang="sl">Polprevodniški rele</name>
+        <name lang="sr">Полупроводнички релеј</name>
+        <name lang="sv">Halvledarrelä</name>
+        <name lang="tr">Katı Hal rölesi</name>
+        <name lang="uk">Твердотільне реле</name>
+        <name lang="zh">固态继电器</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-26" y="-10" width="70" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="5" x2="39" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="18" y1="-5" x2="13" y2="5" x3="23" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-0.8" y1="-5.5" x2="1.2" y2="0.5" x3="-6.8" y3="-4.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="11" y1="-5" x2="39" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-20" x2="25" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-20" x2="-16" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.8" y1="-5.5" x2="5.2" y2="-1.5" end1="none" end2="triangle" length1="1.5" length2="0.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="25" y1="20" x2="25" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="20" x2="-16" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1" y1="1.5" x2="1" y2="7.5" x3="-7" y3="2.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="27" y1="-5" x2="37" y2="-5" x3="32" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-21" y1="-5" x2="-11" y2="-5" x3="-16" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1" y1="1.5" x2="5" y2="5.5" end1="none" end2="triangle" length1="1.5" length2="0.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="-21" y1="5" x2="-11" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="47.5" y="-5.17" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{69a1434e-08df-4cd7-86d7-1bb704be0451}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f74a6309-adaf-47bc-b74c-4723f073b8c3}" name="" x="-16" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{2a061549-f113-49e3-abe4-0117612697d0}" name="" x="-16" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{dfe174ee-3b7c-47e2-aff2-98d127c02a9e}" name="" x="25" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a5fef449-6109-4905-bbfd-290ab22544d5}" name="" x="25" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

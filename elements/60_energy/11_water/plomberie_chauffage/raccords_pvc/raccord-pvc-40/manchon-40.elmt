@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{132d8734-fb9a-6533-6d98-3115a6c331df}"/>
+    <names>
+        <name lang="ar">جلبة PVC 40</name>
+        <name lang="ca">Funda de PVC 40</name>
+        <name lang="cs">Objímka PVC 40</name>
+        <name lang="da">PVC-muffe 40</name>
+        <name lang="de">Muffe PVC 40</name>
+        <name lang="el">Χιτώνιο PVC 40</name>
+        <name lang="en">PVC sleeve 40</name>
+        <name lang="fr">Manchon PVC 40</name>
+        <name lang="pt_BR">Manchon PVC 40</name>
+        <name lang="zh">管箍-40</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-14" y="3" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e903effc-dd64-4208-8237-f855232e20b5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-8" y="-7" width="16" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-7" x2="0" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="7" x2="0" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f6b40005-ffed-46db-acda-03b0ea72c41a}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{673325eb-e022-48db-b6c4-bcfcd2be78dc}" name="" x="9" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

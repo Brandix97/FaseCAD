@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="21">
+    <uuid uuid="{1dc29989-614c-13b7-3cde-7c44d91de71a}"/>
+    <names>
+        <name lang="ar">حاوية في الهواء الطلق</name>
+        <name lang="ca">Conductes sota nivell</name>
+        <name lang="cs">Otevřená nádrž</name>
+        <name lang="da">Rørføring under niveau</name>
+        <name lang="de">Leitungen unterhalb des Flüssigkeitsspiegels</name>
+        <name lang="el">Σωληνώσεις κάτω από τη στάθμη</name>
+        <name lang="en">Pipings under level</name>
+        <name lang="es">Tuberia debajo de nivel</name>
+        <name lang="fi">Putkistot tason alapuolella</name>
+        <name lang="fr">Bâche à l'air libre</name>
+        <name lang="hr">Cjevovodi ispod razine</name>
+        <name lang="hu">Szint alatti csővezetékek</name>
+        <name lang="it">Tubazioni sotto livello</name>
+        <name lang="ja">液面下の配管</name>
+        <name lang="ko">레벨 아래 배관</name>
+        <name lang="mn">Түвшний доорх хоолой</name>
+        <name lang="nb">Rørføring under nivå</name>
+        <name lang="nl">Onder niveau</name>
+        <name lang="nl_BE">Leidingen onder niveau</name>
+        <name lang="pl">Zbiornik otwarty</name>
+        <name lang="pt">Tubagens sob o nível</name>
+        <name lang="pt_BR">Tubulações abaixo do nível</name>
+        <name lang="ro">Conducte sub nivel</name>
+        <name lang="ru">Трубопроводы под уровнем</name>
+        <name lang="sk">Potrubie pod hladinou</name>
+        <name lang="sl">Cevovodi pod nivojem</name>
+        <name lang="sr">Цевоводи испод нивоа</name>
+        <name lang="sv">Rörledningar under nivå</name>
+        <name lang="tr">Seviye altı boru tesisatı</name>
+        <name lang="uk">Трубопроводи під рівнем</name>
+        <name lang="zh">开放式油箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="10" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.92" y1="13.37" x2="13.92" y2="0.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.76" y1="13.45" x2="13.92" y2="13.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.76" y1="0.08" x2="-13.76" y2="13.45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="15" y="-2.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3b764a17-fab6-41db-8727-14dd0064a525}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{1a7d7aea-53a4-42e0-bded-b81825b13808}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

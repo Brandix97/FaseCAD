@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="20" hotspot_x="30" hotspot_y="13">
+    <uuid uuid="{9dbf4e20-7f61-6fec-7458-041ade8984d8}"/>
+    <names>
+        <name lang="ar">وصلة 6 دبابيس</name>
+        <name lang="ca">Connector, 6 pins</name>
+        <name lang="cs">Spojka, 6 kolíků</name>
+        <name lang="da">Stik, 6 pin</name>
+        <name lang="de">Steckverbindung 6 Anschlüsse</name>
+        <name lang="el">Σύνδεσμος, 6 ακροδέκτες</name>
+        <name lang="en">Connector, 6 pin</name>
+        <name lang="es">Conexión 6 pines</name>
+        <name lang="fi">Liitin, 6 nasta</name>
+        <name lang="fr">Connecteur ,6 broches</name>
+        <name lang="hr">Konektor, 6 pin</name>
+        <name lang="hu">6 tűs csatlakozó</name>
+        <name lang="it">Connettore, 6 pin</name>
+        <name lang="ja">コネクタ、6 ピン</name>
+        <name lang="ko">커넥터, 6 핀</name>
+        <name lang="mn">Холбогч, 6 пин</name>
+        <name lang="nb">Kontakt, 6 pinn</name>
+        <name lang="nl">Connector 6 pin</name>
+        <name lang="nl_BE">Connector, 6 pin</name>
+        <name lang="pl">Złącze pięciostykowe</name>
+        <name lang="pt">Conector, 6 pinos</name>
+        <name lang="pt_BR">Conector, 6 pinos</name>
+        <name lang="ro">Conector, 6 pini</name>
+        <name lang="ru">Соединитель, 6 штырьков</name>
+        <name lang="sk">Konektor, 6 kolík</name>
+        <name lang="sl">Konektor, 6 pol</name>
+        <name lang="sr">Конектор, 6 пинова</name>
+        <name lang="sv">Kontakt, 6 stift</name>
+        <name lang="tr">Konnektör, 6 pim</name>
+        <name lang="uk">Роз'єм, 6 контактів</name>
+        <name lang="zh">针式连接器6</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-25.5" y="8.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{11a76dfb-1644-4142-a83d-3b94723ddde6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-25" y1="-5" x2="-15" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="5" x2="-15" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-5" x2="35" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-5" x2="25" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-5" x2="5" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-5" x2="-5" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="5" x2="35" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="5" x2="25" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="5" x2="5" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="5" x2="-5" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="25" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="15" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-5" x2="15" y2="5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="5" x2="15" y2="-5" end1="simple" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="5" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{bbf4a72e-8f70-491e-8b51-4a3bfab2605c}" name="" x="-20" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{87735dfe-3da2-4218-9e17-213829ed63c2}" name="" x="-10" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{62c62372-61c1-4824-af5b-74905c48d970}" name="" x="0" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{1574ad65-f3c9-442d-adbd-cdcac10e549f}" name="" x="10" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{11e876ad-d71d-46fc-bb98-0b4fab795f13}" name="" x="20" y="-6" orientation="n" type="Generic"/>
+        <terminal uuid="{cd2fdbc7-0758-4d7b-aca6-98c79968fcb6}" name="" x="30" y="-6" orientation="n" type="Generic"/>
+    </description>
+</definition>

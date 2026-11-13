@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="70" hotspot_x="20" hotspot_y="35">
+    <uuid uuid="{9a13e55a-7dbd-5dbb-8163-37144eca358e}"/>
+    <names>
+        <name lang="de">Netzteil AC/DC</name>
+        <name lang="en">Power supply AC/DC</name>
+        <name lang="es">Fuente de alimentación CA/CC</name>
+        <name lang="fr">Alimentation CA/CC</name>
+        <name lang="it">Alimentatore CA/CC</name>
+        <name lang="pt">Fonte de alimentação CA/CC</name>
+        <name lang="tr">AC/DC güç kaynağı</name>
+        <name lang="zh">交流/直流电源</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <rect x="-15" y="-15" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="15" x2="15" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text x="-7" y="-2.14" text="~" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{73a6e772-3402-5dd6-bb1b-9d622b39b4e1}"/>
+        <line x1="3" y1="7" x2="11" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="15" x2="-10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12.5" y="-32.6" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8a57b4e6-9dd5-56b7-b0d6-4f4d99a1202c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>L</text>
+        </dynamic_text>
+        <dynamic_text x="-12.5" y="17.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7a0e39ba-7315-5321-b4d5-190db048e50b}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>+</text>
+        </dynamic_text>
+        <line x1="10" y1="-30" x2="10" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="15" x2="10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7.5" y="-32.6" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{00568b46-c574-563f-adcb-b29e2b21af1d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>N</text>
+        </dynamic_text>
+        <dynamic_text x="7.5" y="17.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7d2d384c-bb3e-52be-baba-676bbced3056}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>-</text>
+        </dynamic_text>
+        <dynamic_text x="-24" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9f3dc52c-6448-572b-bc2a-c6008f163cdb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{14c6899f-8afe-5601-8443-2cc3b79076d8}" name="L" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{5abff914-aea1-53eb-b07d-0357ad25105a}" name="+" x="-10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{cd2e83b3-b6e3-5ce6-8748-d7cd68820ae8}" name="N" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{65133165-b978-5de5-b829-0d5eabc0d3fd}" name="-" x="10" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

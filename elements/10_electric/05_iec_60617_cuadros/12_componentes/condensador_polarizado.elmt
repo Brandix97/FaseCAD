@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{9890fd5a-728e-5020-9c00-4e8ac38a28f0}"/>
+    <names>
+        <name lang="de">Gepolter Kondensator</name>
+        <name lang="en">Polarized capacitor</name>
+        <name lang="es">Condensador polarizado</name>
+        <name lang="fr">Condensateur polarisé</name>
+        <name lang="it">Condensatore polarizzato</name>
+        <name lang="pt">Condensador polarizado</name>
+        <name lang="tr">Kutuplu kondansatör</name>
+        <name lang="zh">极性电容器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="2" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="6" y="-3.6" text="+" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{3c4d445f-d982-5993-9629-0c9e9d540a03}"/>
+        <line x1="-7" y1="-2" x2="7" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="2" x2="7" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3b2775b8-1ab3-5752-abb6-540fbdafc7d5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{04833639-425c-5904-861a-a4664d87e899}" name="+" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{78d27c3d-1adf-56ba-9608-0408984f3bb1}" name="-" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

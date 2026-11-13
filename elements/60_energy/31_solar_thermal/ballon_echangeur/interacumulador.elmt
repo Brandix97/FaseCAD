@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="60" hotspot_x="46" hotspot_y="31">
+    <uuid uuid="{6b256b5e-f7b2-b76b-b5de-d18ec230afbc}"/>
+    <names>
+        <name lang="ar">خزان ماء أفقي</name>
+        <name lang="ca">Interacumulador horitzontal</name>
+        <name lang="cs">Vodorovný zásobnik ECS</name>
+        <name lang="da">Horisontal brugsvand</name>
+        <name lang="de">Warmwasser horizontal</name>
+        <name lang="el">DHW οριζόντιο</name>
+        <name lang="en">Horizontal DHW</name>
+        <name lang="es">Interacumulador Horiz.</name>
+        <name lang="fi">Käyttövesi vaakasuora</name>
+        <name lang="fr">Ballon ECS horizontal</name>
+        <name lang="hr">Horizontalni PTV</name>
+        <name lang="hu">Vízszintes HMV</name>
+        <name lang="it">Scambiatore orizzontale ACS</name>
+        <name lang="ja">横型温水器</name>
+        <name lang="ko">수평 DHW</name>
+        <name lang="mn">Хэвтээ DHW</name>
+        <name lang="nb">Horisontal DHW</name>
+        <name lang="nl">Horizontale boiler</name>
+        <name lang="nl_BE">Horizontale SWW</name>
+        <name lang="pl">Zasobnik poziomy CWU</name>
+        <name lang="pt">AQS horizontal</name>
+        <name lang="pt_BR">Horizontal DHW</name>
+        <name lang="ro">ACM orizontal</name>
+        <name lang="ru">Горизонтальный ГВС</name>
+        <name lang="sk">Horizontálny TÚV</name>
+        <name lang="sl">Horizontalni bojler</name>
+        <name lang="sr">Хоризонтални ПТВ</name>
+        <name lang="sv">Horisontell VVB</name>
+        <name lang="tr">Yatay KSH</name>
+        <name lang="uk">ГВП горизонтальний</name>
+        <name lang="zh">缓冲水箱</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="49.29" y1="-13.64" x2="52.57" y2="-13.64" x3="52.57" y3="-11.22" x4="49.76" y4="-11.22" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="49.29" y1="11.83" x2="52.57" y2="11.83" x3="52.57" y3="9.45" x4="49.76" y4="9.45" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="39.6" y="16.91" width="1.87" height="3.61" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-32.52" y="-22.77" width="4.21" height="3.61" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-33.45" y="-19.16" width="77.14" height="36.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.6" y="-19.16" width="13.09" height="36.07" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-40" y="-19.16" width="13.09" height="36.07" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-31" y1="-19" x2="-20" y2="-10" x3="-15" y3="10" x4="-10" y4="-10" x5="-5" y5="10" x6="0" y6="-10" x7="5" y7="10" x8="10" y8="-10" x9="15" y9="10" x10="20" y10="-10" x11="25" y11="10" x12="30" y12="-10" x13="35" y13="10" x14="40" y14="16" closed="false" antialias="false" style="line-style:dashdotted;line-weight:normal;filling:none;color:red"/>
+        <dynamic_text x="3" y="-23" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{31e49acd-7168-4dcb-824d-4ce33079ed3f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{31ab41b9-3520-4be1-920c-c38a2a4a2304}" name="" x="-31" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{e79ec9c4-a5da-411b-a02b-f793704e1bc7}" name="" x="41" y="21" orientation="s" type="Generic"/>
+        <terminal uuid="{6e23b3e7-83ea-42a3-8cae-0f023ef3a836}" name="" x="53" y="-12" orientation="e" type="Generic"/>
+        <terminal uuid="{8da65014-6b9b-4baf-ad62-93e68dd10e8f}" name="" x="53" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

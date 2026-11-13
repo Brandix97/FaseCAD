@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="80" hotspot_x="25" hotspot_y="40">
+    <uuid uuid="{1500ba93-0555-fdf0-e6e5-dd66e697c7c1}"/>
+    <names>
+        <name lang="ar">حسّاس مغناطيسي NO</name>
+        <name lang="ca">Sensor magnètic 3 terminals NO</name>
+        <name lang="cs">Magnetický snímač NC 3 vodiče</name>
+        <name lang="da">Magnetisk sensor 3 klemmer NO</name>
+        <name lang="de">Magnetischer Sensor 3-Leiter Öffner</name>
+        <name lang="el">Μαγνητικός αισθητήρας, 3 ακροδέκτες, ανοικτή επαφή</name>
+        <name lang="en">Magnetic sensor 3 terminals NO</name>
+        <name lang="es">Sensor magnetico 3 terminales NA</name>
+        <name lang="fi">Magneettinen anturi 3 napaa NO</name>
+        <name lang="fr">Capteur magnetique NO</name>
+        <name lang="hr">Magnetski senzor 3 priključka NO</name>
+        <name lang="hu">Mágneses érzékelő 3 csatlakozó NO</name>
+        <name lang="it">Sensore magnetico a 3 terminali NO</name>
+        <name lang="ja">磁気センサ 3 端子 NO</name>
+        <name lang="ko">자기 센서 3 터미널 NO</name>
+        <name lang="mn">Соронзон мэдрэгч 3 терминал NO</name>
+        <name lang="nb">Magnetisk sensor 3 terminaler NO</name>
+        <name lang="nl">Magnetisch 3 (NO)</name>
+        <name lang="nl_BE">Magnetsensor 3 draden NO</name>
+        <name lang="pl">Czujnik magnetyczny trójprzewodowy, zwierny</name>
+        <name lang="pt">Sensor magnético 3 terminais NO</name>
+        <name lang="pt_BR">Sensor magnético 3 bornes NA</name>
+        <name lang="ro">Senzor magnetic 3 borne NO</name>
+        <name lang="ru">Магнитный датчик 3 клеммы НР</name>
+        <name lang="sk">Magnetický snímač 3 svorky NO</name>
+        <name lang="sl">Magnetni senzor 3 sponke NO</name>
+        <name lang="sr">Магнетни сензор 3 прикључка NO</name>
+        <name lang="sv">Magnetisk givare 3 anslutningar NO</name>
+        <name lang="tr">Manyetik sensör 3 terminal NO</name>
+        <name lang="uk">Магнітний датчик 3 клем NO</name>
+        <name lang="zh">磁传感器2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-9" y1="9" x2="-7" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="23" y="-12" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{59ab74d2-0f1f-4616-a118-d0c9341c9769}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-9.05" y1="12.95" x2="-7.05" y2="12.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="9" x2="-9" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-10" x2="6" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="BR" x="-8" y="-20" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="BK" x="2" y="22" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="BL" x="12" y="-20" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="30" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-11" x2="-6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-11" x2="-10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-16" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-16" x2="-10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-16" width="40" height="31" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="6" y1="-7" x2="13" y2="-10" x3="18" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="3" y1="-10" x2="6" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="-13" x2="-18" y2="-3" x3="-8" y3="7" x4="2" y4="-3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{8b232fef-e1c4-4b4e-b51e-9604ad563f75}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{4385a27a-a2e7-4eef-be3d-3b024d4b882a}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{3d4acfcf-a9d5-4efb-b7df-5cb69964dda0}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

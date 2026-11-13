@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="50" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{e195c580-b245-c99f-9c26-fe00894b4b47}"/>
+    <names>
+        <name lang="ar">مُنبّه</name>
+        <name lang="ca">Banya</name>
+        <name lang="cs">Houkačka</name>
+        <name lang="da">Horn</name>
+        <name lang="de">Warnhupe</name>
+        <name lang="el">Κόρνα</name>
+        <name lang="en">Horn</name>
+        <name lang="es">Bocina</name>
+        <name lang="fi">Torvi</name>
+        <name lang="fr">Avertisseur</name>
+        <name lang="hr">Truba</name>
+        <name lang="hu">Kürt</name>
+        <name lang="it">Tromba</name>
+        <name lang="ja">ホーン</name>
+        <name lang="ko">혼</name>
+        <name lang="mn">Хорн</name>
+        <name lang="nb">Horn</name>
+        <name lang="nl">Toeter</name>
+        <name lang="nl_BE">Hoorn</name>
+        <name lang="pl">Buczek</name>
+        <name lang="pt">Buzina</name>
+        <name lang="pt_BR">Buzina</name>
+        <name lang="ro">Claxon</name>
+        <name lang="ru">Горн</name>
+        <name lang="sk">Húkačka</name>
+        <name lang="sl">Trobenta</name>
+        <name lang="sr">Сирена</name>
+        <name lang="sv">Horn</name>
+        <name lang="tr">Korna</name>
+        <name lang="uk">Гудок</name>
+        <name lang="zh">报警器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-12" width="12" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <polygon x1="6" y1="5" x2="36" y2="10" x3="26" y3="-10" x4="6" y4="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <dynamic_text x="41" y="-8.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e8358a96-3528-4d52-b12c-4411b54a3e10}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{8c091f38-cbe7-4a39-b20f-8395634b930b}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{bc5f0ef2-6810-4390-abea-292b295a6d81}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

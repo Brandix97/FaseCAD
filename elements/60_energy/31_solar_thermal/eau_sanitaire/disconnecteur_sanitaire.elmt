@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="29" hotspot_y="19">
+    <uuid uuid="{fe017e3b-0cdc-2aad-b9fc-32e0272d7c84}"/>
+    <names>
+        <name lang="ar">صمّام منع تسريب</name>
+        <name lang="ca">Refluig</name>
+        <name lang="cs">Zpětný tok</name>
+        <name lang="da">Tilbagestrømning</name>
+        <name lang="de">Rückfluss</name>
+        <name lang="el">Αντεπιστροφή</name>
+        <name lang="en">Backflow</name>
+        <name lang="es">Desconectador</name>
+        <name lang="fi">Takaisinvirtaus</name>
+        <name lang="fr">Disconnecteur</name>
+        <name lang="hr">Povratni tok</name>
+        <name lang="hu">Visszafolyás</name>
+        <name lang="it">Riflusso</name>
+        <name lang="ja">逆流</name>
+        <name lang="ko">역류</name>
+        <name lang="mn">Буцах урсгал</name>
+        <name lang="nb">Tilbakeslag</name>
+        <name lang="nl">Terugstroombeveiliging</name>
+        <name lang="nl_BE">Terugstroming</name>
+        <name lang="pl">Zawór odcinający powrót CWU</name>
+        <name lang="pt">Retorno</name>
+        <name lang="pt_BR">Backflow</name>
+        <name lang="ro">Reversiune</name>
+        <name lang="ru">Обратный поток</name>
+        <name lang="sk">Spätný prietok</name>
+        <name lang="sl">Povratni tok</name>
+        <name lang="sr">Повратни ток</name>
+        <name lang="sv">Backflöde</name>
+        <name lang="tr">Geri akış</name>
+        <name lang="uk">Зворотний потік</name>
+        <name lang="zh">卫生断流器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="0" x2="0" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-35" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c3d7c298-57d3-4339-b781-1441a94e6db5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-5" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-17" y1="-7" x2="-17" y2="7" x3="-6" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-25" y="-15" width="50" height="30" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="disconnecteur" x="-18" y="-9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-23" y="-1" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-18" y1="0" x2="-21" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="0" x2="22" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="22" y="-1" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1" y="11" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="16" y="-7" width="1" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-7" width="1" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-7" x2="5" y2="7" x3="16" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{224ff6ae-2c30-4877-8c38-1adc72ca7c2c}" name="" x="23" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{1ce05d34-b4ea-4fd4-b892-29aca7fd63e9}" name="" x="-22" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{bf31dffa-bba8-46e2-aba6-48690dc3a137}" name="" x="0" y="12" orientation="s" type="Generic"/>
+    </description>
+</definition>

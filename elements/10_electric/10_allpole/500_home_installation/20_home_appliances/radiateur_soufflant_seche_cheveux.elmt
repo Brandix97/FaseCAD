@@ -1,0 +1,59 @@
+<definition version="0.80" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{a7ce45dd-6d88-9b11-b64e-d376b01acab3}"/>
+    <names>
+        <name lang="ar">مشعاع نافخ - مجفف شعر</name>
+        <name lang="ca">Escalfador de ventilador assecador de cabell</name>
+        <name lang="cs">Vysoušeč vlasů, fén na vlasy</name>
+        <name lang="da">Varmeblæser hårtørrer</name>
+        <name lang="de">Gebläseheizkörper</name>
+        <name lang="el">Στεγνωτήρας μαλλιών</name>
+        <name lang="en">Fan heater hairdryer</name>
+        <name lang="es">Calefactor secamanos</name>
+        <name lang="fi">Puhallinlämmitin hiustenkuivaaja</name>
+        <name lang="fr">Radiateur soufflant sèche cheveux</name>
+        <name lang="hr">Ventilatorski grijač sušilo za kosu</name>
+        <name lang="hu">Ventilátoros fűtőberendezés hajszárító</name>
+        <name lang="it">Asciuga capelli</name>
+        <name lang="ja">ファンヒーター ヘアドライヤー</name>
+        <name lang="ko">팬 히터 헤어드라이어</name>
+        <name lang="mn">Сэнсэн халаагч үс хатаагч</name>
+        <name lang="nb">Vifteovn hårføner</name>
+        <name lang="nl">Ventilator verwarmer</name>
+        <name lang="nl_BE">Ventilatorverwarming haardroger</name>
+        <name lang="pl">Suszarka do włosów</name>
+        <name lang="pt">Aquecedor ventilado secador de cabelo</name>
+        <name lang="pt_BR">Aquecedor ventilado / secador de cabelo</name>
+        <name lang="ro">Uscător de păr cu aer cald</name>
+        <name lang="ru">Тепловентилятор фен</name>
+        <name lang="sk">Teplovzdušný ventilátor fén</name>
+        <name lang="sl">Ventilatorski grelec sušilnik za lase</name>
+        <name lang="sr">Вентилаторски грејач фен</name>
+        <name lang="sv">Värmefläkt hårtork</name>
+        <name lang="tr">Fanlı ısıtıcı saç kurutma makinesi</name>
+        <name lang="uk">Тепловентилятор фен</name>
+        <name lang="zh">吹风机式散热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="12" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{cead8dbc-bbb1-475f-bdfc-ea74fbe0d0bd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7.5" y="12.59" width="4" height="4" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="12.56" x2="-5" y2="16.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="12.56" x2="5" y2="16.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="3.56" y="12.59" width="4" height="4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-12" y="-1" width="6" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6" y="-1" width="6" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-1" width="6" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-1" width="6" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="-1" x2="-12" y2="23" x3="12" y3="23" x4="12" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="-10" x2="-10" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="0" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-2" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e5493254-cd3d-4b0f-8db6-db69a81b207f}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{7156d3ab-469c-49c2-bc30-dd9ee1a513b3}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{abee7d33-4181-4424-9133-2f9e1dabfdd7}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="28">
+    <uuid uuid="{1e1d5f7e-bee2-2d9f-e7ba-934d4a58dfa0}"/>
+    <names>
+        <name lang="ar">شبكة</name>
+        <name lang="ca">Reixa sobrepressió</name>
+        <name lang="cs">Mřížka</name>
+        <name lang="da">Rist</name>
+        <name lang="de">Gitter</name>
+        <name lang="el">Σχάρα</name>
+        <name lang="en">Grille</name>
+        <name lang="es">Rejilla sobrepresión</name>
+        <name lang="fi">Säleikkö</name>
+        <name lang="fr">Grille</name>
+        <name lang="hr">Rešetka</name>
+        <name lang="hu">Rács</name>
+        <name lang="it">Griglia</name>
+        <name lang="ja">グリル</name>
+        <name lang="ko">그릴</name>
+        <name lang="mn">Сараалж</name>
+        <name lang="nb">Rist</name>
+        <name lang="nl">Rooster</name>
+        <name lang="nl_BE">Rooster</name>
+        <name lang="pl">Kratka</name>
+        <name lang="pt">Grelha</name>
+        <name lang="pt_BR">Rejilla sobrepresión</name>
+        <name lang="ro">Grilă</name>
+        <name lang="ru">Решётка</name>
+        <name lang="sk">Mriežka</name>
+        <name lang="sl">Rešetka</name>
+        <name lang="sr">Решетка</name>
+        <name lang="sv">Galler</name>
+        <name lang="tr">Izgara</name>
+        <name lang="uk">Решітка</name>
+        <name lang="zh">过压格栅</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="10.44" y1="-19" x2="13.25" y2="-17.15" x3="13.25" y3="-14.31" x4="-4.56" y4="-1.07" x5="-4.56" y5="-2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10.44" y1="-12.42" x2="13.25" y2="-10.53" x3="13.25" y3="-7.69" x4="-4.56" y4="5.54" x5="-4.56" y5="4.6" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="13.25" y1="-10.53" x2="-4.56" y2="1.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="10.44" y1="-4.86" x2="13.25" y2="-3" x3="13.25" y3="-0.13" x4="-4.56" y4="13.11" x5="-4.56" y5="12.16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="13.25" y1="-3" x2="-4.56" y2="9.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-9.25" y1="-8.64" x2="-4.56" y2="-8.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.25" y1="15" x2="-4.56" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="14.19" y1="-21.88" x2="-4.56" y2="-8.64" x3="-4.56" y3="15" x4="14.19" y4="0.82" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="9.5" y1="-21.88" x2="14.19" y2="-21.88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="9.5" y1="-21.88" x2="-9.25" y2="-8.64" x3="-9.25" y3="15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="13.25" y1="-17.15" x2="-4.56" y2="-4.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="12.31" y="-8.55" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{7da47692-80ae-4fe4-95b8-88a3bb8dc945}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e9022089-5fe2-5878-32ef-2de8e49d02de}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

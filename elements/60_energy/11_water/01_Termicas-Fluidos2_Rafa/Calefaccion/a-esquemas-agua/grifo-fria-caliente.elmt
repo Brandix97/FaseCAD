@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="21">
+    <uuid uuid="{d6985649-b40e-61ac-f88c-0f70a9608ff6}"/>
+    <names>
+        <name lang="ar">صنبور ماء ساخن وبارد</name>
+        <name lang="ca">Aixeta calenta i freda</name>
+        <name lang="cs">Kohout teplé a studené vody</name>
+        <name lang="da">Varm- og koldtvandshane</name>
+        <name lang="de">Warm- und Kaltwasserhahn</name>
+        <name lang="el">Βρύση ζεστού και κρύου νερού</name>
+        <name lang="en">Warm and cold faucet</name>
+        <name lang="es">Grifo fria y caliente</name>
+        <name lang="fi">Lämmin- ja kylmävesihana</name>
+        <name lang="hr">Slavina tople i hladne vode</name>
+        <name lang="hu">Meleg és hidegvíz csap</name>
+        <name lang="it">Rubinetto acqua calda e fredda</name>
+        <name lang="ja">温水冷水栓</name>
+        <name lang="ko">온냉수 밸브</name>
+        <name lang="mn">Халуун хүйтэн кран</name>
+        <name lang="nb">Varm og kald kran</name>
+        <name lang="nl">Warm- en koudwaterkraan</name>
+        <name lang="nl_BE">Warm- en koudwaterkraan</name>
+        <name lang="pl">Kran z ciepłą i zimną wodą</name>
+        <name lang="pt">Bica de água quente e fria</name>
+        <name lang="pt_BR">Warm e cold faucet</name>
+        <name lang="ro">Robinet de apă caldă și rece</name>
+        <name lang="ru">Смеситель горячей и холодной воды</name>
+        <name lang="sk">Kohútik teplej a studenej vody</name>
+        <name lang="sl">Pipa za toplo in hladno vodo</name>
+        <name lang="sr">Славина за топлу и хладну воду</name>
+        <name lang="sv">Varm- och kallvattenkran</name>
+        <name lang="tr">Sıcak ve soğuk su musluğu</name>
+        <name lang="uk">Кран гарячої та холодної води</name>
+        <name lang="zh">冷热水龙头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="10" y1="-7.9" x2="10" y2="0.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.51" y1="-7.9" x2="-9.51" y2="0.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10.68" y1="1.31" x2="1.26" y2="1.31" x3="1.26" y3="12.93" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="1.26" y1="1.31" x2="12" y2="1.31" x3="1.26" y3="12.93" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-8" y="11.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c4776b39-eb8d-43c8-acdf-e3bf61a64269}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{98fc5a10-ee78-406e-ac49-d55482b4919f}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{d5bcda68-16fa-4318-852b-00cf536b82c1}" name="" x="10" y="-9" orientation="n" type="Generic"/>
+    </description>
+</definition>

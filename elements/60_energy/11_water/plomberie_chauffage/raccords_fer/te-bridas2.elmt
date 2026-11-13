@@ -1,0 +1,43 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="60" hotspot_x="31" hotspot_y="35">
+    <uuid uuid="{3d62c4d6-791e-4027-a503-1b5f2c543e0c}"/>
+    <names>
+        <name lang="ar">كوع بفلنجات</name>
+        <name lang="ca">T amb brides</name>
+        <name lang="cs">Příruba T</name>
+        <name lang="da">T-stykke med flanger</name>
+        <name lang="de">T-Stück mit Flansch</name>
+        <name lang="el">Ταυ με φλάντζες</name>
+        <name lang="en">Flanged tee</name>
+        <name lang="es">Te bridas</name>
+        <name lang="fr">Té à brides</name>
+        <name lang="pt_BR">Te bridas</name>
+        <name lang="zh">三通法兰2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-23.2" y="-16.45" width="4.5" height="34.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="13.36" y="-11.89" width="4.5" height="5.48" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18.13" y="-11.89" width="4.5" height="5.48" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-11.38" y="-20.11" width="4.5" height="5.48" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="13.36" y="10" width="4.5" height="5.48" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18.13" y="10" width="4.5" height="5.48" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="17.8" y="-16.45" width="3.5" height="34.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="6.61" y="-20.11" width="4.5" height="5.48" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="10" x2="14.67" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.85" y1="-6.41" x2="-7.94" y2="-6.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.57" y1="-6.41" x2="14.63" y2="-6.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.89" y1="-16.63" x2="-6.89" y2="-7.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.61" y1="-17.45" x2="6.61" y2="-7.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.61" y1="-6.41" x2="2.11" y2="-1.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.89" y1="-6.41" x2="-2.39" y2="-1.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14.63" y="-23" width="29" height="2.68" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-5" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{e14e1901-a800-4524-9edc-d54084b1c99a}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{38340281-fe6d-4222-9971-ce230f70e41c}" name="" x="22" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{437a4ada-52ca-4713-b057-001401747748}" name="" x="-24" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{58331d96-a09d-4583-8498-655b2b68cdb6}" name="" x="0" y="-24" orientation="n" type="Generic"/>
+    </description>
+</definition>

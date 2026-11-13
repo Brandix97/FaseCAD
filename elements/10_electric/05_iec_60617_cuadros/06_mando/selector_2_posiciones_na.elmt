@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="28" hotspot_y="25">
+    <uuid uuid="{01a02f1e-9013-51df-aa18-4a87e94aeb01}"/>
+    <names>
+        <name lang="de">Wahlschalter, 2 Stellungen, Schließer</name>
+        <name lang="en">Selector switch, 2 positions, NO</name>
+        <name lang="es">Selector de 2 posiciones NA</name>
+        <name lang="fr">Commutateur 2 positions, NO</name>
+        <name lang="it">Selettore a 2 posizioni NA</name>
+        <name lang="pt">Seletor de 2 posições NA</name>
+        <name lang="tr">2 konumlu seçici, NA</name>
+        <name lang="zh">两位选择开关，常开</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{43b1a3e6-165c-5d71-9b73-52d9ecd9f6c2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{32108b41-0cf8-5acf-8769-ee64950bee64}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+        <line x1="-22" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-14" y1="0" x2="-12" y2="3" x3="-10" y3="0" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-19" y1="-4" x2="-22" y2="-4" x3="-22" y3="4" x4="-25" y4="4" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-34" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{891d5fe4-e3d5-5aad-8715-8a9d76e949ea}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{666546a6-1a15-5d6f-bbc9-3a7f24112905}" name="13" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{ce06feb8-b6fe-55a4-8cb9-669e79f6ddcc}" name="14" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

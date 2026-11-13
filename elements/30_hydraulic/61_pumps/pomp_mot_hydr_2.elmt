@@ -1,0 +1,70 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="70" hotspot_x="7" hotspot_y="40">
+    <uuid uuid="{0c6e89cb-2855-789f-7a47-c94f3b0d9223}"/>
+    <names>
+        <name lang="ar">مضخّة محرّكة هيدروليكية 2</name>
+        <name lang="ca">Motor hidràulic de la bomba 2</name>
+        <name lang="cs">Čerpadlo - vodní motor 2</name>
+        <name lang="da">Pumpe hydraulikmotor 2</name>
+        <name lang="de">Pumpe Hydraulikmotor 2</name>
+        <name lang="el">Αντλία υδραυλικού κινητήρα 2</name>
+        <name lang="en">Pump hydraulic motor 2</name>
+        <name lang="es">Motor de bomba hidráulica, dirección de flujo ajustable, volumen de trabajo variable con fuga, controlado por potencia muscular, giro bidireccional</name>
+        <name lang="fi">Pumppu hydraulimoottori 2</name>
+        <name lang="fr">Pompe-moteur hydraulique 2</name>
+        <name lang="hr">Pumpa hidraulički motor 2</name>
+        <name lang="hu">Szivattyú hidraulikus motor 2</name>
+        <name lang="it">Pompa idraulica motore 2</name>
+        <name lang="ja">ポンプ 油圧モーター 2</name>
+        <name lang="ko">펌프 유압 모터 2</name>
+        <name lang="mn">Насос гидравлик мотор 2</name>
+        <name lang="nb">Pumpe hydraulisk motor 2</name>
+        <name lang="nl">Pomp motor 2</name>
+        <name lang="nl_BE">Pomp hydraulische motor 2</name>
+        <name lang="pl">Pompa-silnik hydrauliczny o zmiennym kierunku przepływu, o zmiennej objętości roboczej z odprowadzeniem przecieków, sterowany siłą mięśni, o dwóch kierunkach obrotów</name>
+        <name lang="pt">Bomba motor hidráulico 2</name>
+        <name lang="pt_BR">Bomba/motor hidraulico 2</name>
+        <name lang="ro">Pompă motor hidraulic 2</name>
+        <name lang="ru">Насос гидравлический мотор 2</name>
+        <name lang="sk">Čerpadlo hydraulický motor 2</name>
+        <name lang="sl">Črpalka hidravlični motor 2</name>
+        <name lang="sr">Пумпа хидраулични мотор 2</name>
+        <name lang="sv">Pump hydraulmotor 2</name>
+        <name lang="tr">Pompa hidrolik motor 2</name>
+        <name lang="uk">Насос гідравлічний двигун 2</name>
+        <name lang="zh">液压泵马达2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-36.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7f40a4d0-d276-45a9-98aa-3dc331e6962d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="15" y="-20" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="45" y1="17" x2="45" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="21" x2="10" y2="15" x3="50" y3="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="45" y1="19" x2="45" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26" y1="-6" x2="34" y2="-6" x3="30" y3="-13" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="38" y1="20" x2="52" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26" y1="-19" x2="34" y2="-19" x3="30" y3="-13" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="38" y1="15" x2="38" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26" y1="9" x2="34" y2="9" x3="30" y3="2" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="52" y1="15" x2="52" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="13" x2="-5" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26" y1="-4" x2="34" y2="-4" x3="30" y3="2" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-5" y1="21" x2="10" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="17" x2="10" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="42" y1="7" x2="41" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="45" y1="12" x2="45" y2="10" x3="44" y3="9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="45" y1="-23" x2="48" y2="-20" x3="51" y3="-26" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="54" y1="6" x2="57" y2="3" x3="60" y3="9" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="54" y1="-16" x2="57" y2="-13" x3="60" y3="-19" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="52" y="-20" width="30" height="30" start="135" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="10" x2="30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="-4" x2="60" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="-6" x2="60" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-30" x2="30" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d33c851c-d1ba-471e-86fd-c8cb44e26f49}" name="" x="30" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{2bedbbf3-3502-4676-89c4-38471ba27f67}" name="" x="30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

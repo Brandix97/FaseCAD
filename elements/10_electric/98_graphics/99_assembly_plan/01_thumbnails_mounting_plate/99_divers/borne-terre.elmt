@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="30" height="100" hotspot_x="15" hotspot_y="50">
+    <uuid uuid="{cae02835-f2c2-3871-f817-d979e93ec960}"/>
+    <names>
+        <name lang="ar">طرف (أرضي)</name>
+        <name lang="ca">Terminal (connexió a terra)</name>
+        <name lang="cs">Svorka uzemnění</name>
+        <name lang="da">Klemme (jord)</name>
+        <name lang="de">Klemme (Erdung)</name>
+        <name lang="el">Ακροδέκτης (γείωσης)</name>
+        <name lang="en">Terminal (Grounding)</name>
+        <name lang="es">Clema (Aterrizada)</name>
+        <name lang="fi">Liitin (maadoitus)</name>
+        <name lang="fr">Borne (terre)</name>
+        <name lang="hr">Stezaljka (uzemljenje)</name>
+        <name lang="hu">Sorkapocs földelő</name>
+        <name lang="it">Morsetto (terra)</name>
+        <name lang="ja">端子 (接地)</name>
+        <name lang="ko">단자 (접지)</name>
+        <name lang="mn">Терминал (Газрын холболт)</name>
+        <name lang="nb">Klemme (jording)</name>
+        <name lang="nl">Klem (aarding)</name>
+        <name lang="nl_BE">Klem (aarding)</name>
+        <name lang="pl">Zacisk uziemiający</name>
+        <name lang="pt">Terminal (Ligação à terra)</name>
+        <name lang="pt_BR">Borne de aterramento</name>
+        <name lang="ro">Bornă (împământare)</name>
+        <name lang="ru">Клемма (заземление)</name>
+        <name lang="sk">Svorka (uzemnenie)</name>
+        <name lang="sl">Sponka (ozemljitev)</name>
+        <name lang="sr">Клема (уземљење)</name>
+        <name lang="sv">Anslutning (jord)</name>
+        <name lang="tr">Klemens (Topraklama)</name>
+        <name lang="uk">Клема (заземлення)</name>
+        <name lang="zh">接地端子</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-2.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="-12" width="16" height="24" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:yellow;color:black" antialias="false"/>
+        <dynamic_text x="-13" y="14" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="true" text_from="UserText" uuid="{9d2ed0c4-2abf-4590-b4c6-50cd202a949d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <line x1="-1" y1="29" x2="1" y2="31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="31" x2="1" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-40" width="20" height="80" rx="0" ry="0" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="28" x2="0" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="25" x2="1" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="30" x2="2" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="23" x2="3" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="21" x2="5" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="21" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-11" x2="7" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <line x1="-7" y1="-11" x2="7" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <line x1="-7" y1="-3" x2="7" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <line x1="-7" y1="4" x2="0" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <ellipse x="-2.5" y="-33.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-32" x2="1" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-38" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{7d603595-2e27-4800-8a6e-3475471b23af}" font="Liberation Sans,6,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <line x1="-1" y1="-30" x2="1" y2="-32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-33" x2="0" y2="-29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-31" x2="2" y2="-31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4cdfc9da-ad48-4d82-8cfd-f046d6c4c1e6}" name="" x="0" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{324e213a-40f4-491c-97f7-97be0de05064}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

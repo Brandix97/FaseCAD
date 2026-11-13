@@ -1,0 +1,78 @@
+<definition version="0.90" type="element" link_type="simple" width="80" height="80" hotspot_x="40" hotspot_y="40">
+    <uuid uuid="{0be93925-54f1-f4bf-2d53-645a965ec309}"/>
+    <names>
+        <name lang="ar">منظم ضغط يدوي</name>
+        <name lang="ca">Regulador manual de pressió</name>
+        <name lang="cs">Manuální regulátor tlaku</name>
+        <name lang="da">Manuel trykregulator</name>
+        <name lang="de">Druckregler manuell</name>
+        <name lang="el">Χειροκίνητος ρυθμιστής πίεσης</name>
+        <name lang="en">Manual pressure regulator</name>
+        <name lang="es">Regulador de presión manual</name>
+        <name lang="fi">Manuaalinen paineensäädin</name>
+        <name lang="fr">Régulateur de pression manuel</name>
+        <name lang="hr">Ručni regulator tlaka</name>
+        <name lang="hu">Manuális nyomásszabályozó</name>
+        <name lang="it">Regolatore di pressione manuale</name>
+        <name lang="ja">手動圧力調整器</name>
+        <name lang="ko">수동 압력 조절기</name>
+        <name lang="mn">Гарын авлагын даралт зохицуулагч</name>
+        <name lang="nb">Manuell trykkregulator</name>
+        <name lang="nl">Handmatige drukregelaar</name>
+        <name lang="nl_BE">Handmatige drukregelaar</name>
+        <name lang="pl">Ręczny regulator ciśnienia</name>
+        <name lang="pt">Regulador de pressão manual</name>
+        <name lang="pt_BR">Regulador de pressão manual</name>
+        <name lang="ro">Regulator manual de presiune</name>
+        <name lang="ru">Ручной регулятор давления</name>
+        <name lang="sk">Ručný regulátor tlaku</name>
+        <name lang="sl">Ročni regulator tlaka</name>
+        <name lang="sr">Ручни регулатор притиска</name>
+        <name lang="sv">Manuell tryckregulator</name>
+        <name lang="tr">Manuel basınç regülatörü</name>
+        <name lang="uk">Ручний регулятор тиску</name>
+        <name lang="zh">50101341 调压阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-2" y="-26" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ffd7b79d-b788-2436-f5f6-c5f9aefbfd4b}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="14" y="-1" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{22ddbabc-5d29-2d52-8d05-526990ee6ff7}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-3" y="11" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5f77413e-1b0c-ef99-72c6-ac9f8e7f093b}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-23" y="-14" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{78e6497d-798e-8a26-5158-ba8e0387d0f9}" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="20" y="-5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bfe59f45-5c4e-503e-5eec-53d3b6e2e9c5}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f869fa09-43cd-f1a1-23df-f6e669da29af}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-25" y1="-10" x2="-15" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="10" x2="25" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-4" x2="26" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="26.69" y1="-14.17" x2="24.52" y2="-16.48" x3="28.95" y3="-18.76" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="15.11" y1="-12.7" x2="17" y2="-7" x3="18" y3="-13" x4="20" y4="-7" x5="21" y5="-13" x6="23" y6="-7" x7="24.17" y7="-12.58" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="14" x2="-10" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-15" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="-9.5" x2="-12" y2="-9.5" x3="-10" y3="-14.5" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="0" y1="15" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9cdf5999-9fa2-4013-bfe6-f30c2648910f}" name="" x="30" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{d5ff4a09-864f-40d5-961a-c637a98e74d8}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{49467864-0711-4c34-91d8-b9e9a9503f02}" name="" x="-30" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{82f67b50-2f71-42c4-8ba6-a890cf9b525d}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

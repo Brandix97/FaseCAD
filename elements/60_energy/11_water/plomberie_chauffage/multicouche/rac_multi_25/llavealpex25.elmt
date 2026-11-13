@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="36" hotspot_y="37">
+    <uuid uuid="{1f0dcd50-e6ea-b099-abd7-81fc208446fb}"/>
+    <names>
+        <name lang="ca">Aixeta pas 25</name>
+        <name lang="es">Llave paso25</name>
+        <name lang="pt_BR">Llave paso25</name>
+        <name lang="zh">铝塑管截止阀25</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="2" y1="-16" x2="2" y2="-7.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.42" y1="-4.75" x2="8.45" y2="-4.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14.5" y="-9.75" width="2.2" height="18.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-27.7" y="-7.25" width="13.2" height="13.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-29.9" y="-4.75" width="2.2" height="8.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9.7" y="-9.75" width="2.2" height="18.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-7" y="-33.83" width="11" height="9.83" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-32.42" x2="1" y2="-26.11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-32.42" x2="-4" y2="-26.11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-8" y1="-24" x2="-22" y2="-16" x3="18" y3="-16" x4="4" y4="-24" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="11.9" y="-7.25" width="13.2" height="13.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="25.1" y="-4.75" width="2.2" height="8.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.3" y1="4" x2="9.7" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-4.75" x2="-6.95" y2="-4.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.6" y1="-16" x2="-4.6" y2="-7.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.6" y1="-7.25" x2="-6.8" y2="-4.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-7.25" x2="4.2" y2="-4.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="2" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{26420b17-1d22-40b7-b6ff-503a306613d9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ef2c24d3-f347-4cb8-b5f1-3ac1916f030b}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{23bb3c15-4996-44e7-aae3-7c98399b884e}" name="" x="26" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

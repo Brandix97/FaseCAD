@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="25">
+    <uuid uuid="{e9b1a250-d765-e2e5-2ccd-d0f98f5cd4be}"/>
+    <names>
+        <name lang="ar">مقطع : محول مستمر/ مستمر</name>
+        <name lang="ca">Directe u003e Directe</name>
+        <name lang="cs">Měnič DC/DC</name>
+        <name lang="da">Jævnstrøm &amp;gt; Jævnstrøm</name>
+        <name lang="de">Umformer DC/DC</name>
+        <name lang="el">Συνεχές &gt; Συνεχές</name>
+        <name lang="en">Direct &gt; Direct</name>
+        <name lang="es">Continua &gt; Continua</name>
+        <name lang="fi">Tasavirta &amp;gt; Tasavirta</name>
+        <name lang="fr">Continu &gt; Continu</name>
+        <name lang="hr">Istosmjerna &amp;gt; Istosmjerna</name>
+        <name lang="hu">Egyenáram &amp;gt; Egyenáram</name>
+        <name lang="it">DC &gt; DC</name>
+        <name lang="ja">直流 &amp;gt; 直流</name>
+        <name lang="ko">직류 &amp;gt; 직류</name>
+        <name lang="mn">Шууд &amp;gt; Шууд</name>
+        <name lang="nb">Likestrøm &amp;gt; Likestrøm</name>
+        <name lang="nl">Gelijkspanning &gt; gelijkspanning DC&gt;DC</name>
+        <name lang="nl_BE">Gelijkspanning &gt; gelijkspanning DC&gt;DC</name>
+        <name lang="pl">Przekształtnik prądu stałego</name>
+        <name lang="pt">Contínua &gt; Contínua</name>
+        <name lang="pt_BR">Conversor de CC para CC</name>
+        <name lang="ro">Continuu &amp;gt; Continuu</name>
+        <name lang="ru">Пост. ток &gt; Пост. ток</name>
+        <name lang="sk">Jednosmerné &amp;gt; Jednosmerné</name>
+        <name lang="sl">Enosmerni &amp;gt; Enosmerni</name>
+        <name lang="sr">Једносмерна &amp;gt; Једносмерна</name>
+        <name lang="sv">Likström &amp;gt; Likström</name>
+        <name lang="tr">Doğru &amp;gt; Doğru</name>
+        <name lang="uk">Постійний &amp;gt; постійний</name>
+        <name lang="zh">直流-直流</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-11" y="-41.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e0d09063-d3b6-4436-a632-0fc84c518fef}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-15" y1="-10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15" y1="-20" x2="15" y2="-20" x3="15" y3="10" x4="-15" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="4" x2="12.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="4" x2="9.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="4" x2="6.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="6" x2="12.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-17" x2="-12.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-17" x2="-9.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-17" x2="-6.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-15" x2="-12.5" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14.5" y1="-19.5" x2="-14.5" y2="9.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{9e82c8e6-4605-44b1-9b5e-2af02e3cf336}" name="" x="21" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{141c831b-d7cf-44e8-a654-2faec03bafef}" name="" x="21" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{a53fe560-4ef3-4433-9dc3-f8bed45fb5bc}" name="" x="-21" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{a7dbe4db-e5f5-4838-9da7-a694d2691caf}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="60" hotspot_x="11" hotspot_y="30">
+    <uuid uuid="{b4effcf4-0a8d-64ba-6eaf-d0624e1fe7ed}"/>
+    <names>
+        <name lang="ar">مقاومة مرتبطة بالجهد (فاريستور)</name>
+        <name lang="ca">Varistor</name>
+        <name lang="cs">Varistor</name>
+        <name lang="da">Varistor</name>
+        <name lang="de">Varistor</name>
+        <name lang="el">Βαρίστορ</name>
+        <name lang="en">Varistor</name>
+        <name lang="es">Varistor</name>
+        <name lang="fi">Varistori</name>
+        <name lang="fr">Varistance</name>
+        <name lang="hr">Varistor</name>
+        <name lang="hu">Varisztor</name>
+        <name lang="it">Varistore</name>
+        <name lang="ja">バリスタ</name>
+        <name lang="ko">바리스터</name>
+        <name lang="mn">Варистор</name>
+        <name lang="nb">Varistor</name>
+        <name lang="nl">Varistor VDR</name>
+        <name lang="nl_BE">Varistor</name>
+        <name lang="pl">Warystor</name>
+        <name lang="pt">Varistor</name>
+        <name lang="pt_BR">Varistor</name>
+        <name lang="ro">Varistor</name>
+        <name lang="ru">Варистор</name>
+        <name lang="sk">Varistor</name>
+        <name lang="sl">Varistor</name>
+        <name lang="sr">Варистор</name>
+        <name lang="sv">Varistor</name>
+        <name lang="tr">Varistör</name>
+        <name lang="uk">Варистор</name>
+        <name lang="zh">压敏电阻</name>
+    </names>
+    <informations>EN 60617: 04-01-04</informations>
+    <description>
+        <line x1="0" y1="20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="U" x="9" y="10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="7" y1="10" x2="7" y2="5" x3="-7" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="6" y="-11.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{570cd854-578d-4c4b-bd2a-3498353e46b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4410c57c-3796-4696-b63b-d8d5a0c9b788}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{09a3060b-a0fd-41ad-b605-f5c0ae63901e}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

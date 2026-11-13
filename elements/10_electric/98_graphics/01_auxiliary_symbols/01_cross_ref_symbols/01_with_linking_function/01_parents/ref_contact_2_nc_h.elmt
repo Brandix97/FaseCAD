@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="next_report" width="70" height="20" hotspot_x="39" hotspot_y="18">
+    <uuid uuid="{9fc1c43c-fdf7-f4cf-4523-f1f411950e91}"/>
+    <names>
+        <name lang="ar">مرجع مُلامس NC  (أفقي)</name>
+        <name lang="ca">Contacte de referència NC (horitzontal)</name>
+        <name lang="cs">Odkaz - kontakt NC (vodorovně)</name>
+        <name lang="da">Arkhenvisning kontakt NC (vandret)</name>
+        <name lang="de">Öffner-Kontakt (NC)</name>
+        <name lang="el">Επαφή αναφοράς NC (οριζόντια)</name>
+        <name lang="en">Reference contact NC (horizontal)</name>
+        <name lang="es">Referencia contacto NC horizontal</name>
+        <name lang="fi">Viittauskosketin NC (vaakasuora)</name>
+        <name lang="fr">Reference contact NC h</name>
+        <name lang="hr">Referentni kontakt NC (vodoravan)</name>
+        <name lang="hu">Érintkező hivatkozás NC (vízszintes)</name>
+        <name lang="it">Rif. contatto NC / (orizzontale)</name>
+        <name lang="ja">接点 NC 参照（水平）</name>
+        <name lang="ko">접점 NC 참조 (수평)</name>
+        <name lang="mn">NC контактын лавлагаа (хэвтээ)</name>
+        <name lang="nb">Referansekontakt NC (horisontal)</name>
+        <name lang="nl">Referentie volgend contact (NC)</name>
+        <name lang="nl_BE">Verwijzing contact NC (horizontaal)</name>
+        <name lang="pl">Odsyłacz - zestyk rozwierny (poziomo)</name>
+        <name lang="pt">Referência contacto NF (horizontal)</name>
+        <name lang="pt_BR">Reference contato NF (Horizontal)</name>
+        <name lang="ro">Referință contact NC (orizontal)</name>
+        <name lang="ru">Ссылка на контакт НЗ (горизонтальная)</name>
+        <name lang="sk">Odkaz na kontakt NC (horizontálny)</name>
+        <name lang="sl">Sklic na kontakt NC (vodoravno)</name>
+        <name lang="sr">Референца контакта NC (хоризонтална)</name>
+        <name lang="sv">Hänvisning kontakt NC (horisontell)</name>
+        <name lang="tr">NC kontak referansı (yatay)</name>
+        <name lang="uk">Посилання на контакт NC (горизонтальне)</name>
+        <name lang="zh">常闭触点2水平参考</name>
+    </names>
+    <informations>Author: Computer Shooter
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-8" y1="-2" x2="0" y2="0" x3="3" y3="0" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-8" y1="-2" x2="-8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="22" y="-11" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f1d3c4ab-e4f7-443d-ac55-93c219e72053}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>/</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{aa3fd1af-fc27-4158-94e1-9b283bdf8124}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>11</text>
+        </dynamic_text>
+        <dynamic_text x="5" y="-10" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6e68609b-db96-42b4-896c-7c616967b80a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>12</text>
+        </dynamic_text>
+    </description>
+</definition>

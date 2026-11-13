@@ -1,0 +1,71 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="171">
+    <uuid uuid="{73fa5a90-43c8-12bb-c585-f15bb98abe4a}"/>
+    <names>
+        <name lang="ar">ماء ساخن صحي أحادي</name>
+        <name lang="ca">Aigua calenta sanitària mono</name>
+        <name lang="cs">Ohřívač vody</name>
+        <name lang="da">Varmt brugsvand mono</name>
+        <name lang="de">Warmwasser mono</name>
+        <name lang="el">Ζεστό Νερό Χρήσης μονοφασικό</name>
+        <name lang="en">Domestic hot water single-phase</name>
+        <name lang="es">Agua caliente sanitaria 1P+N</name>
+        <name lang="fr">Eau Chaude Sanitaire mono</name>
+        <name lang="pt_BR">Ógua quente sanitária monofásica</name>
+        <name lang="zh">单相热水</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <arc x="48.5" y="-128" width="7" height="18" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="63.5" y="-128" width="7" height="18" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="63.5" y="-146" width="7" height="18" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="48.5" y="-146" width="7" height="18" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{abf12eca-4d7e-48eb-b018-ff6b146adb31}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>20</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{447cf34c-90aa-41d2-b794-e53e9f877ce3}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="45" y="-151" width="30" height="45" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="45" y="-156" width="10" height="10" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="65" y="-156" width="10" height="10" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="65" y="-111" width="10" height="10" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-111" width="10" height="10" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="50" y1="-156" x2="70" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-101" x2="70" y2="-101" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="-151" x2="45" y2="-106" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="75" y1="-151" x2="75" y2="-106" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="54" y="-105" width="10" height="8" start="180" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="56" y="-105" width="10" height="8" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="59" y1="-97" x2="62" y2="-97" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-101.83" x2="50" y2="-99.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-101.77" x2="70" y2="-99.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="56.5" y="-128" width="7" height="18" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="56.5" y="-146" width="7" height="18" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="28" y="-13.5" z="52" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{f28e51c2-c03f-4de8-af8d-aa10f7f0f541}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="53" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{2182ee66-f21b-4abd-a214-dd5422e9c0f9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="54" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{fb969d63-7233-457c-9a6c-8a5818ca87c8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Eau Chaude Sanitaire</text>
+        </dynamic_text>
+        <line x1="50" y1="-160" x2="50" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-160" x2="70" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-160" x2="70" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{05a1c801-1b11-40b1-9a05-200a470324a3}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{dcbab1b9-5d74-4f63-8d5c-05fcd19b3eaf}" name="" x="50" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{761a1d0e-5324-4454-b72f-89d8e33ca53c}" name="" x="70" y="-160" orientation="n" type="Generic"/>
+    </description>
+</definition>

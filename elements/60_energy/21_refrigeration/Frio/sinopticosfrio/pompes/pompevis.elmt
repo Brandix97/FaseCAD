@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{904b9966-5827-2ee6-4887-3170d98a0da6}"/>
+    <names>
+        <name lang="ar">مضخّة لولبية</name>
+        <name lang="ca">Bomba de cargol</name>
+        <name lang="cs">Šroubové čerpadlo</name>
+        <name lang="da">Skruepumpe</name>
+        <name lang="de">Schraubenpumpe</name>
+        <name lang="el">Κοχλιωτή αντλία</name>
+        <name lang="en">Screw pump</name>
+        <name lang="es">Bomba de tornillo</name>
+        <name lang="fi">Ruuvipumppu</name>
+        <name lang="fr">Pompe à vis</name>
+        <name lang="hr">Vijčana pumpa</name>
+        <name lang="hu">Csavarszivattyú</name>
+        <name lang="it">Pompa a vite</name>
+        <name lang="ja">スクリューポンプ</name>
+        <name lang="ko">스크류 펌프</name>
+        <name lang="mn">Шурагт насос</name>
+        <name lang="nb">Skrupumpe</name>
+        <name lang="nl">Schroefpomp</name>
+        <name lang="nl_BE">Schroefpomp</name>
+        <name lang="pl">Pompa śrubowa</name>
+        <name lang="pt">Bomba de parafuso</name>
+        <name lang="pt_BR">Bomba de parafuso</name>
+        <name lang="ro">Pompă cu șurub</name>
+        <name lang="ru">Винтовой насос</name>
+        <name lang="sk">Skrutkové čerpadlo</name>
+        <name lang="sl">Vijačna črpalka</name>
+        <name lang="sr">Вијчана пумпа</name>
+        <name lang="sv">Skruvpump</name>
+        <name lang="tr">Vidalı pompa</name>
+        <name lang="uk">Гвинтовий насос</name>
+        <name lang="zh">螺杆泵</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cfe0bc73-3804-4cab-b09f-f4035a8362e8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <line x1="15" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-5" x2="5" y2="0" x3="0" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-4" y1="-5" x2="1" y2="0" x3="-4" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{9105b2fe-8362-4dce-a1b0-7431dda6d8fa}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{483a517d-7626-4f21-97d0-f33891bf7f0b}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

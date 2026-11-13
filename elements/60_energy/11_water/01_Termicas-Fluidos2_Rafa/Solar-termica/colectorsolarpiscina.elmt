@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="47" hotspot_y="40">
+    <uuid uuid="{0fd33dc5-9452-5015-b911-95c9e8206b0f}"/>
+    <names>
+        <name lang="ar">لاقط شمسي مسبح</name>
+        <name lang="ca">Captador solar de piscina</name>
+        <name lang="cs">Solární kolektor bazénu</name>
+        <name lang="da">Pool-solfanger</name>
+        <name lang="de">Schwimmbad-Solarkollektor</name>
+        <name lang="el">Ηλιακός συλλέκτης πισίνας</name>
+        <name lang="en">Pool solar capturator</name>
+        <name lang="es">Captador solar para piscina</name>
+        <name lang="fi">Uima-altaan aurinkokeräin</name>
+        <name lang="fr">Capteur solaire piscine</name>
+        <name lang="hr">Solarni kolektor za bazen</name>
+        <name lang="hu">Medence napkollektor</name>
+        <name lang="it">Collettore solare per piscina</name>
+        <name lang="ja">プール用太陽熱集熱器</name>
+        <name lang="ko">수영장 태양열 집열기</name>
+        <name lang="mn">Бассейны нарны коллектор</name>
+        <name lang="nb">Bassengsolfanger</name>
+        <name lang="nl">Zwembad zonnecollector</name>
+        <name lang="nl_BE">Zwembad zonnecollector</name>
+        <name lang="pl">Kolektor słoneczny basenowy</name>
+        <name lang="pt">Coletor solar de piscina</name>
+        <name lang="pt_BR">Pool solar capturatou</name>
+        <name lang="ro">Captator solar de piscină</name>
+        <name lang="ru">Солнечный коллектор для бассейна</name>
+        <name lang="sk">Bazénový solárny kolektor</name>
+        <name lang="sl">Sončni kolektor za bazen</name>
+        <name lang="sr">Соларни колектор за базен</name>
+        <name lang="sv">Poolsolfångare</name>
+        <name lang="tr">Havuz güneş kolektörü</name>
+        <name lang="uk">Сонячний колектор для басейну</name>
+        <name lang="zh">泳池太阳能集热器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-35.58" y="-27.95" width="46.9" height="46.33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-39.5" y="18.92" width="2.52" height="2.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="12.67" y="18.92" width="2.65" height="2.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.73" y1="-27.22" x2="-17.73" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="-12.48" y1="-27.22" x2="-12.48" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <text text="Captador 2,5x1" x="-26.48" y="17.33" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-23" y1="-27.22" x2="-23" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <rect x="-36.28" y="18.37" width="48.51" height="3.63" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.23" y1="-27.22" x2="-7.23" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="3.27" y1="-27.22" x2="3.27" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="8.52" y1="-27.22" x2="8.52" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="-2" y1="-27.22" x2="-2" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="-28.23" y1="-27.22" x2="-28.23" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <line x1="13.77" y1="-27.22" x2="13.77" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <rect x="-40.2" y="-31" width="2.52" height="2.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="12" y="-31" width="2.65" height="2.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-37" y="-31.58" width="48.51" height="3.63" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-33.48" y1="-27.22" x2="-33.48" y2="16.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <dynamic_text x="-19" y="-45.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a0f92fd6-821a-4e22-a477-fd244623d809}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{6b341240-8f24-4a42-9684-3047323a06f3}" name="" x="-40" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{16f7f45d-d748-4f2a-bbc9-cb43ca0b41ed}" name="" x="15" y="-30" orientation="e" type="Generic"/>
+        <terminal uuid="{70ff2833-554d-42ab-88a2-d253af2364bc}" name="" x="-40" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{bf3d4d6d-941e-43f2-af76-6cb79fa0a10b}" name="" x="15" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

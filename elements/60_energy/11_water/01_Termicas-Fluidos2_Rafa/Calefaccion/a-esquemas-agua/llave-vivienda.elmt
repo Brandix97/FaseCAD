@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="29" hotspot_y="20">
+    <uuid uuid="{de862760-a7f2-3f55-9b28-3e78a98062d8}"/>
+    <names>
+        <name lang="ar">صنبور منزلي</name>
+        <name lang="ca">Aixeta de la llar</name>
+        <name lang="cs">Domovní kohout</name>
+        <name lang="da">husholdningsarmatur</name>
+        <name lang="de">Hauswasserhahn</name>
+        <name lang="el">Βρύση οικιακή</name>
+        <name lang="en">household faucet</name>
+        <name lang="es">LLave para vivenda</name>
+        <name lang="fi">Talousvesihana</name>
+        <name lang="hr">Kućna slavina</name>
+        <name lang="hu">Háztartási csap</name>
+        <name lang="it">Rubinetto domestico</name>
+        <name lang="ja">家庭用栓</name>
+        <name lang="ko">가정용 밸브</name>
+        <name lang="mn">Ахуйн кран</name>
+        <name lang="nb">husholdningskran</name>
+        <name lang="nl">Huishoudkraan</name>
+        <name lang="nl_BE">Huishoudkraan</name>
+        <name lang="pl">Kran domowy</name>
+        <name lang="pt">Torneira doméstica</name>
+        <name lang="pt_BR">household faucet</name>
+        <name lang="ro">Robinet menajer</name>
+        <name lang="ru">Бытовой кран</name>
+        <name lang="sk">Domový kohútik</name>
+        <name lang="sl">Gospodinjska pipa</name>
+        <name lang="sr">Кућна славина</name>
+        <name lang="sv">Hushållskran</name>
+        <name lang="tr">Evsel musluk</name>
+        <name lang="uk">Побутовий кран</name>
+        <name lang="zh">住宅阀门</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-13" y1="-10" x2="-13" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-10" x2="-18" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="4" x2="-8.83" y2="-5.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-1" x2="-13" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.3" y1="4" x2="10.3" y2="-5.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="-5.92" x2="10.07" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="4" x2="10.07" y2="-5.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.62" y1="-1.2" x2="0.62" y2="-10.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.29" y1="-10.18" x2="6" y2="-10.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="-10" x2="15" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-10" x2="14" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-1" x2="11" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="0.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{47a87867-8fa9-4d10-a489-2d4821e51fd1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4f09bee0-9244-4d39-96c3-d0255e3ce28d}" name="" x="-18" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{dc10cf67-6ed9-43ac-951b-dbb082da9c83}" name="" x="19" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

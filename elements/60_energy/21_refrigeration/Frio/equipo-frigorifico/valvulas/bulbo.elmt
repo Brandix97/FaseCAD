@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="31" hotspot_y="40">
+    <uuid uuid="{a4476ca6-7530-bbb7-d72f-fb956e1805a9}"/>
+    <names>
+        <name lang="ca">Bulb de vàlvula d'expansió</name>
+        <name lang="es">Bulbo valv.exp.</name>
+        <name lang="pt_BR">Bulbo valv.exp.</name>
+        <name lang="zh">感温包</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-3" y="-4" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="0" y="-7" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3.43" y1="0" x2="8.23" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.5" y1="-10" x2="3.5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="0" y="-3" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12" y="-10" width="6" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-8.86" y1="0" x2="-4.07" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="5" y="-10" width="6" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-10" x2="-4" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-3" y="-9" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4.11" y1="1" x2="3.12" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="0.08" y="-24" width="8.92" height="7.8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0.08" y1="-19.36" x2="0.08" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="0" x2="19" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-4" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eca8b9dd-e3ee-475f-9954-341cdf053ad2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4c0a900d-e932-4bcb-a4ab-34675ce682b4}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{260116b5-d5de-4d44-9f1a-63b5a25e559e}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{08d2a70f-d2bf-49c1-9f8e-0a7fc2fbea4a}" name="" x="19" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

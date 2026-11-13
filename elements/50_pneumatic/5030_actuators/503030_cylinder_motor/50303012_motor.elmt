@@ -1,0 +1,58 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="50" hotspot_x="12" hotspot_y="20">
+    <uuid uuid="{cf0b997d-d4ee-cc2e-a8b6-866d6fe007f5}"/>
+    <names>
+        <name lang="ar">محرك كلا اتجاهي الدوران + سرعة متغيرة</name>
+        <name lang="ca">Motor ambdós sentits de gir + velocitat variable</name>
+        <name lang="cs">Motor oba směry otáčení + variabilní rychlost</name>
+        <name lang="da">Motor begge omdrejningsretninger + variabel hastighed</name>
+        <name lang="de">Motor beide Drehrichtungen + variable Drehzahl</name>
+        <name lang="el">Κινητήρας και στις δύο κατευθύνσεις περιστροφής + μεταβλητή ταχύτητα</name>
+        <name lang="en">Motor both directions of rotation + variable speed</name>
+        <name lang="es">Motor ambos sentidos de giro + velocidad variable</name>
+        <name lang="fi">Moottori molempiin pyörimissuuntiin + säädettävä nopeus</name>
+        <name lang="fr">Moteur deux sens de rotation + vitesse variable</name>
+        <name lang="hr">Motor u oba smjera vrtnje + promjenjiva brzina</name>
+        <name lang="hu">Motor mindkét forgásirányban + változtatható fordulatszám</name>
+        <name lang="it">Motore in entrambi i sensi di rotazione + velocità variabile</name>
+        <name lang="ja">モーター両回転方向+可変速度</name>
+        <name lang="ko">모터 양방향 회전 + 가변 속도</name>
+        <name lang="mn">Хөдөлгүүрийн хоёр чиглэлийн эргэлт + хувьсах хурд</name>
+        <name lang="nb">Motor begge rotasjonsretninger + variabel hastighet</name>
+        <name lang="nl">Motor beide draairichtingen + variabele snelheid</name>
+        <name lang="nl_BE">Motor beide draairichtingen + variabel toerental</name>
+        <name lang="pl">Silnik w obu kierunkach obrotów + zmienna prędkość</name>
+        <name lang="pt">Motor nos dois sentidos de rotação + velocidade variável</name>
+        <name lang="pt_BR">motor nos dois sentidos de rotação + velocidade variável</name>
+        <name lang="ro">Motor ambele sensuri de rotatie + viteza variabila</name>
+        <name lang="ru">Двигатель оба направления вращения + регулируемая скорость</name>
+        <name lang="sk">Motor oba smery otáčania + regulácia otáčok</name>
+        <name lang="sl">Motor v obe smeri vrtenja + spremenljiva hitrost</name>
+        <name lang="sr">Мотор у оба смера ротације + променљива брзина</name>
+        <name lang="sv">Motor båda rotationsriktningarna + varvtalsreglering</name>
+        <name lang="tr">Motor her iki dönüş yönü + değişken hız</name>
+        <name lang="uk">Двигун обертається в обох напрямках + змінна швидкість</name>
+        <name lang="zh">电机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-20" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{386a23c2-0051-4fac-9fee-f1d46ed7364d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="13.39" y1="-7.62" x2="9.13" y2="-5.12" x3="11.32" y3="-3.07" x4="13.49" y4="-7.62" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="0" y1="15" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="16" x2="10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="18" y="-11" width="35" height="35" start="143" angle="70" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2.94" y1="-4.58" x2="-2.52" y2="-4.63" x3="0.08" y3="1.19" x4="2.88" y4="-4.47" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="7" x2="22" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="24.27" y1="18.94" x2="19.65" y2="16.89" x3="21.79" y3="15.16" x4="24.27" y4="18.63" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="24.93" y1="-8" x2="20.58" y2="-5.07" x3="22.93" y3="-3.32" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="10" y1="3" x2="22" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-5" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2.94" y1="14.58" x2="2.53" y2="14.64" x3="-0.07" y3="8.82" x4="-2.88" y4="14.47" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{7450114d-3dbd-433b-924b-496b74d25710}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{8c314fc9-c749-4ab9-93f4-1c85f676afdd}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

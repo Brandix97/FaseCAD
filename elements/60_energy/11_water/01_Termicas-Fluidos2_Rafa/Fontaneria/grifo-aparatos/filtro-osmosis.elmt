@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="28" hotspot_y="20">
+    <uuid uuid="{a43ce423-bd3a-12e9-86f6-38c0091c9a7a}"/>
+    <names>
+        <name lang="ar">مُرشّح التناضح</name>
+        <name lang="ca">Filtre d'osmosi</name>
+        <name lang="cs">Filtr osmózy</name>
+        <name lang="da">Osmosefilter</name>
+        <name lang="de">Osmosefilter</name>
+        <name lang="el">Φίλτρο αντίστροφης όσμωσης</name>
+        <name lang="en">Osmosis filter</name>
+        <name lang="es">Filtro ósmosis</name>
+        <name lang="fi">Käänteisosmoosisuodatin</name>
+        <name lang="fr">Filtre osmoseur</name>
+        <name lang="hr">Filtar za osmozu</name>
+        <name lang="hu">Ozmózis szűrő</name>
+        <name lang="it">Filtro a osmosi</name>
+        <name lang="ja">逆浸透フィルタ</name>
+        <name lang="ko">역삼투 필터</name>
+        <name lang="mn">Осмос шүүлтүүр</name>
+        <name lang="nb">Osmosefilter</name>
+        <name lang="nl">Osmosefilter</name>
+        <name lang="nl_BE">Osmosefilter</name>
+        <name lang="pl">Filtr osmotyczny</name>
+        <name lang="pt">Filtro de osmose</name>
+        <name lang="pt_BR">Filtro de osmose</name>
+        <name lang="ro">Filtru de osmoză</name>
+        <name lang="ru">Фильтр обратного осмоса</name>
+        <name lang="sk">Osmotický filter</name>
+        <name lang="sl">Osmozni filter</name>
+        <name lang="sr">Филтер за осмозу</name>
+        <name lang="sv">Osmosfilter</name>
+        <name lang="tr">Osmoz filtresi</name>
+        <name lang="uk">Фільтр зворотного осмосу</name>
+        <name lang="zh">反渗透过滤器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-12" y1="3" x2="-12" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-5" x2="8" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="7" y="-9" width="2" height="4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-21" y="1" width="9" height="3" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="7" y1="1" x2="8" y2="15" x3="11" y3="15" x4="13" y4="1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9" y="-3" width="27" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="1" x2="1" y2="15" x3="4" y3="15" x4="6" y4="1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-7" y1="1" x2="-6" y2="15" x3="-3" y3="15" x4="-1" y4="1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-7" y="-9" width="2" height="4" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="-9" x2="8" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="12" y="-9" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="9" y="-8" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-5" width="1" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7" y="-5" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-21" y="10" width="9" height="3" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-21" y1="3" x2="-21" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="7" x2="-11" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16" y="-2" width="9" height="5" start="70" angle="110" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="10" y="-5" width="8" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12" y="-4.5" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1353dbdb-2a96-4a78-9f2b-77c55707729c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d2c753ca-78a0-4fd9-85c7-efb9bc9ce749}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{0f8f437b-7d9e-4a26-8baf-7613ece56068}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,72 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="210" hotspot_x="50" hotspot_y="104">
+    <uuid uuid="{304f57fd-d6d3-12bf-55ad-fdb45fbbad4a}"/>
+    <names>
+        <name lang="ar">بالون جامع sksw ecs</name>
+        <name lang="ca">tanc cobinned sksw ecs</name>
+        <name lang="cs">Kombinovaný zásobník SKSW ECS</name>
+        <name lang="da">tank cobinned sksw ecs</name>
+        <name lang="de">Kombispeicher SKSW ECS</name>
+        <name lang="el">δεξαμενή συνδυασμένη sksw ecs</name>
+        <name lang="en">tank cobinned sksw ecs</name>
+        <name lang="es">balón combinado sksw ecs</name>
+        <name lang="fi">säiliö yhdistetty sksw ecs</name>
+        <name lang="fr">ballon combinée sksw ecs</name>
+        <name lang="hr">kombinirani spremnik sksw ptv</name>
+        <name lang="hu">kombinált tartály sksw hmv</name>
+        <name lang="it">Serbatoio combinato di acqua calda</name>
+        <name lang="ja">タンク複合 sksw ecs</name>
+        <name lang="ko">탱크 복합 sksw ecs</name>
+        <name lang="mn">хосолсон сав sksw ecs</name>
+        <name lang="nb">tank kombinert sksw ecs</name>
+        <name lang="nl">tank met wisselaar</name>
+        <name lang="nl_BE">gecombineerde boiler sksw ecs</name>
+        <name lang="pl">Zasobnik kombinowany CWU</name>
+        <name lang="pt">depósito combinado sksw aqs</name>
+        <name lang="pt_BR">Tanque combinado SKSW ECS</name>
+        <name lang="ro">rezervor combinat sksw acm</name>
+        <name lang="ru">бак комбинированный sksw гвс</name>
+        <name lang="sk">kombinovaný zásobník tuv</name>
+        <name lang="sl">kombinirana posoda sksw ecs</name>
+        <name lang="sr">резервоар комбиновани сксв птв</name>
+        <name lang="sv">tank kombinerad sksw vv</name>
+        <name lang="tr">tank kombine sksw ksh</name>
+        <name lang="uk">бак комбінований сksw ГВП</name>
+        <name lang="zh">太阳能集热器-0</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="Ballon SKS" x="-25" y="94" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-7" y="98.05" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bc86bc73-358c-4849-93e1-81b9677d1df6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-40" y1="72" x2="-40" y2="83" x3="40" y3="83" x4="40" y4="72" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="20" y1="-95" x2="20" y2="50" x3="-26" y3="50" x4="25" y4="40" x5="-26" y5="30" x6="25" y6="20" x7="-26" y7="10" x8="24" y8="0" x9="-26" y9="-10" x10="24" y10="-20" x11="-25" y11="-24" x12="24" y12="-28" x13="-25" y13="-30" x14="24" y14="-32" x15="-25" y15="-34" x16="24" y16="-36" x17="-25" y17="-38" x18="24" y18="-39" x19="-25" y19="-41" x20="24" y20="-42" x21="-25" y21="-44" x22="24" y22="-45" x23="-25" y23="-47" x24="24" y24="-48" x25="-25" y25="-50" x26="24" y26="-51" x27="-25" y27="-53" x28="24" y28="-54" x29="-25" y29="-56" x30="24" y30="-57" x31="-25" y31="-59" x32="23" y32="-60" x33="-25" y33="-62" x34="24" y34="-63" x35="-25" y35="-65" x36="24" y36="-66" x37="-25" y37="-68" x38="24" y38="-70" x39="-25" y39="-72" x40="23" y40="-73" x41="-25" y41="-75" x42="23" y42="-76" x43="-25" y43="-78" x44="23" y44="-79" x45="-25" y45="-81" x46="23" y46="-82" x47="-20" y47="-84" x48="-20" y48="-95" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="18" y="-96" width="4" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-96" width="4" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-42" y="-15" width="10" height="79" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-39.5" y="-62.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-26" y1="-83" x2="-26" y2="-90" x3="-30" y3="-90" x4="-30" y4="-92" x5="30" y5="-92" x6="30" y6="-90" x7="26" y7="-90" x8="26" y8="-83" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-45" y="-69" width="90" height="133" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-45" y="48" width="90" height="33" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-45" y="-86" width="90" height="33" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="34.5" y="-12.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="34.5" y="22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="34.5" y="57.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="34.5" y="-62.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-39.5" y="-12.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-39.5" y="22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-39.5" y="57.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{d0fee667-013e-4489-83c3-cb30f09e44f5}" name="" x="-37" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{f756603f-7aca-4cdb-9c35-afbed80cd1bb}" name="" x="-37" y="-60" orientation="w" type="Generic"/>
+        <terminal uuid="{33103933-0d8d-4972-be3d-a5b2e7afe5bb}" name="" x="-20" y="-94" orientation="n" type="Generic"/>
+        <terminal uuid="{733a95d4-c5e6-41e9-ae8c-e4b1041f4eea}" name="" x="-37" y="25" orientation="w" type="Generic"/>
+        <terminal uuid="{9d777abf-e095-40c5-b910-32b3b4cb81a7}" name="" x="37" y="-60" orientation="e" type="Generic"/>
+        <terminal uuid="{665e251f-4aea-4a69-9b67-694bbb95d7bc}" name="" x="20" y="-94" orientation="n" type="Generic"/>
+        <terminal uuid="{c2341655-8d9e-48fe-9822-dae8d448feba}" name="" x="37" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{cccc4b54-ba2e-4a35-a9e9-be7916018e06}" name="" x="37" y="60" orientation="e" type="Generic"/>
+        <terminal uuid="{b1879ba1-140a-4428-b78b-1e284ceef041}" name="" x="37" y="25" orientation="e" type="Generic"/>
+        <terminal uuid="{7121a2bf-0c5c-41cf-bbe4-bab6fdcd975e}" name="" x="-37" y="60" orientation="w" type="Generic"/>
+    </description>
+</definition>

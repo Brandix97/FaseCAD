@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="40" hotspot_x="40" hotspot_y="12">
+    <uuid uuid="{01be3c3f-e8e6-cd6d-cfd3-41ef78055c66}"/>
+    <names>
+        <name lang="ar">اسطوانة غير متماثلة مزدوج الفعل مع قضيب مُوجّه لليمين</name>
+        <name lang="ca">Cilindres de doble efecte a la dreta</name>
+        <name lang="cs">Dvojčinný nesouměrný válec, osa natočená vpravo</name>
+        <name lang="da">Dobbeltvirkende cylindre højre</name>
+        <name lang="de">Doppeltwirkende Zylinder rechts</name>
+        <name lang="el">Έμβολο διπλής ενεργείας, δεξιά</name>
+        <name lang="en">Double acting cylinders right</name>
+        <name lang="es">Piston derecho de accionamiento doble</name>
+        <name lang="fi">Kaksitoimiset sylinterit oikea</name>
+        <name lang="fr">Vérin assymétrique double effet tige orientée à droite</name>
+        <name lang="hr">Dvostruko djelovanje cilindri desno</name>
+        <name lang="hu">Kettős működésű hengerek jobb</name>
+        <name lang="it">Pistone a doppia azione Dx</name>
+        <name lang="ja">複動シリンダ 右</name>
+        <name lang="ko">복동 실린더 우측</name>
+        <name lang="mn">Баруун тийш давхар үйлдэлтэй цилиндр</name>
+        <name lang="nb">Dobbeltvirkende sylindre høyre</name>
+        <name lang="nl">Cilinder dubbelwerkend</name>
+        <name lang="nl_BE">Dubbelwerkende cilinders rechts</name>
+        <name lang="pl">Siłownik asymetryczny podwójnego działania</name>
+        <name lang="pt">Cilindros de dupla ação direitos</name>
+        <name lang="pt_BR">Cilindro de dupla ação - haste à direita</name>
+        <name lang="ro">Cilindri cu dublă acțiune dreapta</name>
+        <name lang="ru">Цилиндры двустороннего действия справа</name>
+        <name lang="sk">Dvojčinné valce vpravo</name>
+        <name lang="sl">Dvostransko delujoči cilindri desno</name>
+        <name lang="sr">Двострано дејство цилиндри десно</name>
+        <name lang="sv">Dubbelverkande cylindrar höger</name>
+        <name lang="tr">Çift etkili silindirler sağ</name>
+        <name lang="uk">Циліндри двосторонньої дії правий</name>
+        <name lang="zh">非对称双作用缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-31.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{34e9000b-be93-45c8-b9f3-0843c58dcbfc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-35" y1="-10" x2="25" y2="-10" x3="25" y3="10" x4="-35" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="10" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="10" x2="-30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-10" x2="-25" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="0" x2="35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f0d2671c-2a87-4776-917e-06f35aa7439b}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{ee153d17-2321-4740-a6c1-05c9fdf0fe5e}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

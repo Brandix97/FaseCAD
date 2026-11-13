@@ -1,0 +1,72 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{c6844809-7943-4124-268d-fc91ff26b8a5}"/>
+    <names>
+        <name lang="ar">متنوّع 10 A</name>
+        <name lang="ca">Diversos 10 A</name>
+        <name lang="cs">Různé 10 A 1f</name>
+        <name lang="da">Diverse 10 A</name>
+        <name lang="de">Divers 10 A</name>
+        <name lang="el">Διάφορα 10 A</name>
+        <name lang="en">Miscellaneous 10 A</name>
+        <name lang="es">Varios 10 A</name>
+        <name lang="fi">Muut 10 A</name>
+        <name lang="fr">Divers 10 A</name>
+        <name lang="hr">Razno 10 A</name>
+        <name lang="hu">Egyéb 10 A</name>
+        <name lang="it">Varie 10 A</name>
+        <name lang="ja">その他 10 A</name>
+        <name lang="ko">기타 10 A</name>
+        <name lang="mn">Төрөл бүрийн 10 A</name>
+        <name lang="nb">Diverse 10 A</name>
+        <name lang="nl">Diversen 10 A</name>
+        <name lang="nl_BE">Diversen 10 A</name>
+        <name lang="pl">Różne 10 A</name>
+        <name lang="pt">Diversos 10 A</name>
+        <name lang="pt_BR">Circuito diverso 10 A</name>
+        <name lang="ro">Diverse 10 A</name>
+        <name lang="ru">Разное 10 А</name>
+        <name lang="sk">Ostatné 10 A</name>
+        <name lang="sl">Razno 10 A</name>
+        <name lang="sr">Разно 10 A</name>
+        <name lang="sv">Diverse 10 A</name>
+        <name lang="tr">Muhtelif 10 A</name>
+        <name lang="uk">Різне 10 A</name>
+        <name lang="zh">10A杂项</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="number" show="1">1</kindInformation>
+        <kindInformation name="type" show="1">protection</kindInformation>
+        <kindInformation name="state" show="1">NO</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{a88986f9-5515-44e7-a657-c664eb47e2b8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{036b3092-b86c-49ab-9727-5a6b3beb2360}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-150" x2="30" y2="-110" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-110" x2="90" y2="-110" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-150" x2="90" y2="-110" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-81.5" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c73d6444-e020-4545-b878-6a94d76d4683}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Désignation</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="31" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{8f56e559-3e8f-4830-9da1-f805297c98af}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="34" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{44540b89-cb6e-41c1-a276-607d5c2aa4c0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <terminal uuid="{4ac6c3e2-422e-444f-a672-dc32c6b3051d}" name="" x="60" y="-110" orientation="s" type="Generic"/>
+        <terminal uuid="{a60b80d0-408a-4f52-bd6b-609dae4ca192}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{7affc2fe-0e65-4c98-ac9d-41043d1a5d8d}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

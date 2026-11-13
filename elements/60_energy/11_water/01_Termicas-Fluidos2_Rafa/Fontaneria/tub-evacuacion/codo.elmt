@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{ff746537-a872-ca2c-578f-3ef803118266}"/>
+    <names>
+        <name lang="ar">كوع</name>
+        <name lang="ca">Colze</name>
+        <name lang="cs">Koleno</name>
+        <name lang="da">Bøjning</name>
+        <name lang="de">Winkel</name>
+        <name lang="el">Γωνία</name>
+        <name lang="en">Elbow</name>
+        <name lang="es">Codo</name>
+        <name lang="fi">Kulmakappale</name>
+        <name lang="fr">Coude</name>
+        <name lang="hr">Koljeno</name>
+        <name lang="hu">Könyök</name>
+        <name lang="it">Gomito</name>
+        <name lang="ja">エルボ</name>
+        <name lang="ko">엘보</name>
+        <name lang="mn">Өнцөг</name>
+        <name lang="nb">Bend</name>
+        <name lang="nl">Elleboog</name>
+        <name lang="nl_BE">Bocht</name>
+        <name lang="pl">Kolanko</name>
+        <name lang="pt">Cotovelo</name>
+        <name lang="pt_BR">Codo</name>
+        <name lang="ro">Cot</name>
+        <name lang="ru">Угол</name>
+        <name lang="sk">Koleno</name>
+        <name lang="sl">Koleno</name>
+        <name lang="sr">Колено</name>
+        <name lang="sv">Böj</name>
+        <name lang="tr">Dirsek</name>
+        <name lang="uk">Кут</name>
+        <name lang="zh">弯头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="13" y="-3" width="2.2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4" y="4" width="2.2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6.5" y="-6" width="10.5" height="10.75" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4" y="13" width="2.2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-16" y="-15.29" width="29" height="29.31" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="-3" width="2.2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2" y1="-2" x2="2" y2="-8" x3="15.2" y3="-8" x4="15.2" y4="-2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="3.1" y1="-1" x2="13" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.72" y1="5.9" x2="-1.72" y2="14.11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.2" y1="4" x2="-8.2" y2="4" x3="-8.2" y3="15" x4="-3.2" y4="15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="8" y="4.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6a2584e4-c9fb-4153-994d-5ab3f64bfffe}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c1a25fff-41e3-474d-9918-b94e2338ac34}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{b022b7ee-d164-448d-91e6-73a47a5272e2}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

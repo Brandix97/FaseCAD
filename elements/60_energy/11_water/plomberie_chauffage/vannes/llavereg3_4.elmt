@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="39" hotspot_y="43">
+    <uuid uuid="{24b6d40d-651e-dc2b-eee6-0c2d95a8f721}"/>
+    <names>
+        <name lang="ar">صمام 3/4" F-F</name>
+        <name lang="ca">Vàlvula de comporta 3/4" F-F</name>
+        <name lang="cs">Ventil 3/4" F-F</name>
+        <name lang="da">Ventil 3/4" F-F</name>
+        <name lang="de">Ventil 3/4" IG-IG</name>
+        <name lang="el">Βάννα 3/4" F-F</name>
+        <name lang="en">Valve 3/4" F-F</name>
+        <name lang="es">Valv compuerta 3/4" H-H</name>
+        <name lang="fr">Vanne 3/4" F-F</name>
+        <name lang="pt_BR">Valv compuerta 3/4" H-H</name>
+        <name lang="zh">截止阀3/4英寸</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-8.28" y1="-6.28" x2="-8.28" y2="-13.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20.05" y="-22.67" width="11.94" height="11.71" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6" y="5.52" width="3.4" height="4.31" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-25.57" y="5.52" width="3.4" height="4.31" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-6" y="-8.65" width="8.5" height="18.49" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.11" y="-6.6" width="2.12" height="13.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-4.33" x2="2.21" y2="-4.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="5.52" x2="2.21" y2="5.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-6" y="-4.33" width="3.4" height="9.86" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6" y="-8.65" width="3.4" height="4.31" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-30.67" y="-8.65" width="8.5" height="18.49" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20.05" y="0.59" width="11.94" height="11.71" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-17.16" y="-31.26" width="5.76" height="2.93" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-24.21" y="-39.15" width="20.15" height="1.76" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15.11" y="-37.38" width="1.64" height="6.12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22.17" y="-6.08" width="2.12" height="13.25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.52" y1="-31.26" x2="-15.52" y2="-28.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.64" y1="-31.26" x2="-12.64" y2="-28.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30.36" y1="-4.33" x2="-24.17" y2="-4.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30.36" y1="5.52" x2="-24.18" y2="5.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-25.57" y="-4.33" width="3.4" height="9.86" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-25.57" y="-8.65" width="3.4" height="4.31" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-30.25" y1="-8.65" x2="-30.67" y2="-4.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30.67" y1="5.52" x2="-30.25" y2="9.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.09" y1="-8.65" x2="2.51" y2="-4.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.51" y1="5.52" x2="2.09" y2="9.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17.09" y="-28.05" width="5.8" height="5.66" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19.95" y1="-6.28" x2="-19.95" y2="-13.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22.12" y="-16.43" width="15.44" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-23.67" y="9.15" z="30" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{adf9c060-c67c-426f-9126-5e40780a45f5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7eee0658-75e3-433b-3c6f-c5dfe4b6b521}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{d13fc996-8629-a567-b798-50e4fb7f5452}" name="" x="2" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

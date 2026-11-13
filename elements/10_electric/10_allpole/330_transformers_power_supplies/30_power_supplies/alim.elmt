@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="35" hotspot_y="55">
+    <uuid uuid="{d3b2ec22-126b-b52e-b437-ce68f1ef0703}"/>
+    <names>
+        <name lang="ar">موحد محكوم</name>
+        <name lang="ca">Rectificador</name>
+        <name lang="cs">Napájecí zdroj AC/DC s pojistkou</name>
+        <name lang="da">Ensretter</name>
+        <name lang="de">Netzteil AC/DC</name>
+        <name lang="el">Ανορθωτής</name>
+        <name lang="en">Rectiﬁer</name>
+        <name lang="es">Rectificador</name>
+        <name lang="fi">Tasasuuntaaja</name>
+        <name lang="fr">Redresseur</name>
+        <name lang="hr">Ispravljač</name>
+        <name lang="hu">Egyenirányító</name>
+        <name lang="it">Raddrizzatore AC/DC</name>
+        <name lang="ja">整流器</name>
+        <name lang="ko">정류기</name>
+        <name lang="mn">Шулуутгагч</name>
+        <name lang="nb">Likretter</name>
+        <name lang="nl">Gelijkrichter AC1/DC</name>
+        <name lang="nl_BE">Gelijkrichter AC1/DC</name>
+        <name lang="pl">Zasilacz</name>
+        <name lang="pt">Retificador</name>
+        <name lang="pt_BR">Retificador AC/DC</name>
+        <name lang="ro">Redresor</name>
+        <name lang="ru">Выпрямитель</name>
+        <name lang="sk">Usmerňovač</name>
+        <name lang="sl">Usmernik</name>
+        <name lang="sr">Исправљач</name>
+        <name lang="sv">Likriktare</name>
+        <name lang="tr">Doğrultucu</name>
+        <name lang="uk">Випрямляч</name>
+        <name lang="zh">电源</name>
+    </names>
+    <informations>EN 60617: 06-14-03</informations>
+    <description>
+        <rect x="-30" y="-40" width="60" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="33" y="-36.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e989c9b7-5fe9-48b1-9c40-472c783df247}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-12" y1="-4" x2="-8" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-4" x2="12" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-10" x2="23" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="0" x2="30" y2="-40" end1="simple" end2="simple" length1="0" length2="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-19.5" y="-35.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-24.5" y="-35.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-25" y1="-28" x2="-14" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="13" y="-12" width="9" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-6" x2="10" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-45" x2="-10" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-45" x2="10" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{84a5d2cf-1cdc-48de-8c62-1118ea289151}" name="" x="-10" y="-45" orientation="n" type="Generic"/>
+        <terminal uuid="{ea4fb903-0f01-41dc-8cd4-3776771da8f3}" name="" x="10" y="-45" orientation="n" type="Generic"/>
+        <terminal uuid="{bede6507-a855-4cc2-bb31-1decef5f8b99}" name="" x="-10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{5a2c9d45-359d-4c27-baf4-2879a5dff15c}" name="" x="10" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

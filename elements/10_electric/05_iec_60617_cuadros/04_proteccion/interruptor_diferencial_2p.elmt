@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="32" hotspot_y="25">
+    <uuid uuid="{ca84ab4b-abbe-57e3-b175-78ac77645a58}"/>
+    <names>
+        <name lang="de">Fehlerstrom-Schutzschalter (RCCB), 2-polig</name>
+        <name lang="en">Residual current device (RCCB), 2 poles</name>
+        <name lang="es">Interruptor diferencial, 2 polos</name>
+        <name lang="fr">Interrupteur différentiel, 2 pôles</name>
+        <name lang="it">Interruttore differenziale, 2 poli</name>
+        <name lang="pt">Interruptor diferencial, 2 polos</name>
+        <name lang="tr">Kaçak akım rölesi, 2 kutuplu</name>
+        <name lang="zh">剩余电流动作断路器，2极</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4a1f80a3-0baa-5865-ab70-51be7e24bc3f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="18.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b61988d7-c289-5114-8524-2c533892c5d0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="20" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3fe634ad-e780-527e-bd55-481dcd6affdc}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>N</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="18.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4a6bce1a-3550-574c-8d2c-a79de8026820}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>N</text>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-6" width="14" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="-23" y="2.92" text="IΔ" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{83298a42-d206-5739-a7b4-69590d2e7adf}"/>
+        <line x1="-16" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="13.5" width="32" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-6" y1="16" x2="-23" y2="16" x3="-23" y3="6" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-39" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{33f92c51-0fb7-504c-ad5b-520b8811d68e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{21ad0216-771c-5201-998d-83429d1dec59}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{7c966e0e-64e4-5b74-a3bc-7190b32a812d}" name="2" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{9c638e6f-de6e-5333-b2fc-699cfc73e705}" name="N" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{7798a7db-ba9f-5585-bd4a-99d366043563}" name="N" x="20" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

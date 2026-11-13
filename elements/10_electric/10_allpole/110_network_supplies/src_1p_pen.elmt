@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="23" hotspot_y="19">
+    <uuid uuid="{4c37e7cd-bc10-cb1c-e442-400321acdc50}"/>
+    <names>
+        <name lang="ar">مصدر وحيد القطبية +PEN</name>
+        <name lang="ca">Font unipolar + PEN</name>
+        <name lang="cs">Přípojnice 1f+PEN</name>
+        <name lang="da">En-polet kilde +PEN</name>
+        <name lang="de">Wechselstrom + PEN</name>
+        <name lang="el">Μονοφασικό +PEN</name>
+        <name lang="en">Single-pole source +PEN</name>
+        <name lang="es">Fuente unipolo + PEN</name>
+        <name lang="fi">Yksivaiheinen lähde +PEN</name>
+        <name lang="fr">Source unipolaire + PEN</name>
+        <name lang="hr">Jednopolni izvor + PEN</name>
+        <name lang="hu">F + PEN</name>
+        <name lang="it">Sorgente unipolare + PEN</name>
+        <name lang="ja">単極電源 +PEN</name>
+        <name lang="ko">단극 전원 +PEN</name>
+        <name lang="mn">Нэг туйлын эх үүсвэр +PEN</name>
+        <name lang="nb">Enpolet kilde + PEN</name>
+        <name lang="nl">1 fase + aardenul</name>
+        <name lang="nl_BE">Eenfasige bron + PEN</name>
+        <name lang="pl">Linia jednofazowa (TN-C)</name>
+        <name lang="pt">Fonte unipolar +PEN</name>
+        <name lang="pt_BR">Fonte unipolar + PEN</name>
+        <name lang="ro">Sursă unipolară + PEN</name>
+        <name lang="ru">Однополюсный + PEN</name>
+        <name lang="sk">Jednopólový zdroj +PEN</name>
+        <name lang="sl">Enopolni vir + PEN</name>
+        <name lang="sr">Једнополски извор + PEN</name>
+        <name lang="sv">Enpolig källa +PEN</name>
+        <name lang="tr">Tek kutuplu kaynak + PEN</name>
+        <name lang="uk">Однополюсне джерело +PEN</name>
+        <name lang="zh">单相PEN线电源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-35.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0b4466b2-6a70-44c1-81d5-678b8ee89e6a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="PEN" x="-16" y="12" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L" x="-15" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{f37e0814-af5f-4551-919d-72bed4e8e964}" name="L" x="10" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{bbccf87f-6c55-48a8-bca4-767c83c14335}" name="PEN" x="10" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

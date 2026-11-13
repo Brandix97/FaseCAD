@@ -1,0 +1,81 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="171">
+    <uuid uuid="{f1a0e098-e21b-5e33-0ea7-20b3a4390655}"/>
+    <names>
+        <name lang="ar">تكييف، وحدة داخلية</name>
+        <name lang="ca">Aire condicionat, unitat interior</name>
+        <name lang="cs">Klimatizace, vnitřní jednotka</name>
+        <name lang="da">Klimaanlæg, indedel</name>
+        <name lang="de">Klimaanlage, Inneneinheit</name>
+        <name lang="el">Κλιματισμός, εσωτερική μονάδα</name>
+        <name lang="en">Air conditioning, indoor unit</name>
+        <name lang="es">Climatización, unidad interior</name>
+        <name lang="fi">Ilmastointi, sisäyksikkö</name>
+        <name lang="fr">Climatiseur Unité Int</name>
+        <name lang="hr">Klimatizacija, unutarnja jedinica</name>
+        <name lang="hu">Légkondicionáló, beltéri egység</name>
+        <name lang="it">Climatizzazione, unità interna</name>
+        <name lang="ja">空調、室内機</name>
+        <name lang="ko">에어컨 실내기</name>
+        <name lang="mn">Агааржуулагч, дотоод нэгж</name>
+        <name lang="nb">Klimaanlegg, innedel</name>
+        <name lang="nl">Airconditioning, binnenunit</name>
+        <name lang="nl_BE">Airconditioning, binnenunit</name>
+        <name lang="pl">Klimatyzator, jednostka wewnętrzna</name>
+        <name lang="pt">Ar condicionado, unidade interior</name>
+        <name lang="pt_BR">Unidade interna de ar-condicionado</name>
+        <name lang="ro">Aer condiționat, unitate interioară</name>
+        <name lang="ru">Кондиционирование, внутренний блок</name>
+        <name lang="sk">Klimatizácia, vnútorná jednotka</name>
+        <name lang="sl">Klimatska naprava, notranja enota</name>
+        <name lang="sr">Клима уређај, унутрашња јединица</name>
+        <name lang="sv">Luftkonditionering, inomhusdel</name>
+        <name lang="tr">Klima, iç ünite</name>
+        <name lang="uk">Кондиціонування повітря, внутрішній блок</name>
+        <name lang="zh">室内空调</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+        <kindInformation show="1" name="number">1</kindInformation>
+        <kindInformation show="1" name="state">NO</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="27" y="-148" width="66" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{69d819bf-0e9f-46bf-97fd-61f8e5b6b0d1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>16</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{20747a6d-c636-4fde-b6bf-3ea713eb4368}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="25" y="-150" width="70" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-147" x2="93" y2="-147" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-145" x2="93" y2="-145" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-143" x2="93" y2="-143" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-141" x2="93" y2="-141" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-139" x2="93" y2="-139" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="-137" x2="93" y2="-137" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="34" y="-99" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="84" y="-99" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="42" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{4dfb2bae-d25a-4e4d-be54-c0f978f3c1f2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="43" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{14bbebcc-464b-41a3-a3c2-5f3aa2a401b5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="44" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{27c9656b-1f3e-4778-a487-f3c52b26c30d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Climatiseur Unité Int.</text>
+        </dynamic_text>
+        <line x1="50" y1="-160" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-160" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{144d8081-1cbf-4fff-9227-290d6baa887f}" name="" x="70" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{cb015e43-949c-4f32-b8b6-3667c144e8ff}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{775e3f50-23c1-42f9-9d94-8968521d6b0e}" name="" x="50" y="-160" orientation="n" type="Generic"/>
+    </description>
+</definition>

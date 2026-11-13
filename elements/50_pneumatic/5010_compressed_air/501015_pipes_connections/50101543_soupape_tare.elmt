@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{7302171b-7112-f9b7-fae8-bc45e8a1a451}"/>
+    <names>
+        <name lang="ar">صمّام معياري</name>
+        <name lang="ca">Vàlvula calibrada</name>
+        <name lang="cs">Přesně nastavený ventil</name>
+        <name lang="da">Kalibreret ventil</name>
+        <name lang="de">Ventil Kalibriert</name>
+        <name lang="el">Ρυθμιζόμενη βαλβίδα</name>
+        <name lang="en">Calibrated valve</name>
+        <name lang="es">Válvula calibrada</name>
+        <name lang="fi">Kalibroitu venttiili</name>
+        <name lang="fr">Soupape tarré</name>
+        <name lang="hr">Kalibrirani ventil</name>
+        <name lang="hu">Kalibrált szelep</name>
+        <name lang="it">Valvola tarata</name>
+        <name lang="ja">調整弁</name>
+        <name lang="ko">교정 밸브</name>
+        <name lang="mn">Тохируулсан хавхлага</name>
+        <name lang="nb">Kalibrert ventil</name>
+        <name lang="nl">Klep gekalibreerd</name>
+        <name lang="nl_BE">Gekalibreerde klep</name>
+        <name lang="pl">Odpowietrznik chwilowy o zadanej wartości</name>
+        <name lang="pt">Válvula calibrada</name>
+        <name lang="pt_BR">Válvula calibrada</name>
+        <name lang="ro">Supapă calibrată</name>
+        <name lang="ru">Калиброванный клапан</name>
+        <name lang="sk">Kalibrovaný ventil</name>
+        <name lang="sl">Umerjeni ventil</name>
+        <name lang="sr">Калибрисани вентил</name>
+        <name lang="sv">Kalibrerad ventil</name>
+        <name lang="tr">Kalibreli valf</name>
+        <name lang="uk">Калібрований клапан</name>
+        <name lang="zh">安全阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="11" y="-23.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5be19ace-f669-4f8a-ade6-51e17f88af57}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="5" y1="-25" x2="5" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-25" x2="10" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-13" x2="5" y2="-18" x3="10" y3="-13" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="2" y="-16" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="-10" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.85" y="-1.15" width="2.3" height="2.3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="-10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{213e3618-8ada-4a01-9739-d79546006977}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b449de20-4584-4856-92ef-3c631c2372f1}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="50" height="30" hotspot_x="29" hotspot_y="19">
+    <uuid uuid="{e4e61c34-df2d-9238-b877-432a07c83464}"/>
+    <names>
+        <name lang="ar">أنبوب PE غاز</name>
+        <name lang="ca">Tub de gas PE</name>
+        <name lang="cs">Trubka PE plyn</name>
+        <name lang="da">PE-rør gas</name>
+        <name lang="de">Rohr PE Gas</name>
+        <name lang="el">Σωλήνας PE αερίου</name>
+        <name lang="en">PE gas pipe</name>
+        <name lang="fr">Tube PE gaz</name>
+        <name lang="it">Tube gas PE</name>
+        <name lang="pt_BR">Tube PE gaz</name>
+        <name lang="zh">PE燃气管</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Baboune41-2016</informations>
+    <description>
+        <line x1="9" y1="0" x2="-18" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:yellow" antialias="false"/>
+        <polygon x1="-15" y1="-5" x2="10" y2="-5" x3="10" y3="5" x4="-20" y4="5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-11" y="1.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f9931379-cf33-480a-99a2-27d8cded5910}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="PE" x="-12" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-15" y1="-8" x2="-22" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:white" antialias="false"/>
+        <line x1="-15" y1="-4" x2="10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="4" x2="10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-10.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f90b6d97-231a-47b9-8b2b-e4d5721debb5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>25</text>
+        </dynamic_text>
+        <terminal uuid="{6a480ad7-a0e9-485b-8e64-df1a64dc4b91}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c4261bba-3ac1-4d5f-94cd-c12e48fe4e95}" name="" x="-18" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

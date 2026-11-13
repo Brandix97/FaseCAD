@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{7f897685-c162-1263-8ea9-7e62131a1585}"/>
+    <names>
+        <name lang="ar">مسارات  - P -&gt; T  مُتّصلة 2</name>
+        <name lang="ca">4 ports - P -u003e T connectats</name>
+        <name lang="cs">4 cesty - P -&gt; T spojené</name>
+        <name lang="da">4 porte - P -&amp;gt; T forbundet</name>
+        <name lang="de">4 Anschlüsse - P -&amp;gt; T verbunden</name>
+        <name lang="el">4 θύρες - P -&amp;gt; T συνδεδεμένες</name>
+        <name lang="en">4 ports - P -&gt; T connected</name>
+        <name lang="es">4 vías - P -&amp;gt; T conectadas</name>
+        <name lang="fi">4 porttia - P -&amp;gt; T kytketty</name>
+        <name lang="fr">4 voies - P -&gt; T Relies</name>
+        <name lang="hr">4 priključka - P -&amp;gt; T spojen</name>
+        <name lang="hu">4 utas - P -&amp;gt; T összekötve</name>
+        <name lang="it">4 porte - P -&gt; T connesse</name>
+        <name lang="ja">4ポート - P -&amp;gt; T接続</name>
+        <name lang="ko">4 포트 - P -&amp;gt; T 연결됨</name>
+        <name lang="mn">4 порт - P -&amp;gt; T холбогдсон</name>
+        <name lang="nb">4 porter - P -&amp;gt; T koblet</name>
+        <name lang="nl">4 P -&gt; T</name>
+        <name lang="nl_BE">4 poorten - P -&amp;gt; T verbonden</name>
+        <name lang="pl">4 drogi - P -&gt; T połączone</name>
+        <name lang="pt">4 vias - P -&amp;gt; T ligadas</name>
+        <name lang="pt_BR">4 vias P para T conectadas</name>
+        <name lang="ro">4 porturi - P -&amp;gt; T conectate</name>
+        <name lang="ru">4 отверстий - P -&amp;gt; T соединено</name>
+        <name lang="sk">4 portov - P -&amp;gt; T spojených</name>
+        <name lang="sl">4 vrat - P -&amp;gt; T povezano</name>
+        <name lang="sr">4 портова - P -&amp;gt; T повезано</name>
+        <name lang="sv">4 portar - P -&amp;gt; T ansluten</name>
+        <name lang="tr">4 port - P -&amp;gt; T bağlı</name>
+        <name lang="uk">4 отворів - P -&amp;gt; T з'єднано</name>
+        <name lang="zh">2位 通路P-T 连接</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-27" y="-6.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7fddb13d-ef47-4b36-8793-4fd361cba64b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="5" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="5" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="5" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-10" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-10" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-5" x2="12" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="-5" x2="-8" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{069ab7ae-7ba7-476a-a565-9c6958be0076}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{9791fdb9-6521-431b-9991-75f9b990cd6f}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{cb3927a1-caeb-441e-b4f2-f051fb07917e}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{96a0640d-667c-4cd6-9471-099d2e7992ed}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

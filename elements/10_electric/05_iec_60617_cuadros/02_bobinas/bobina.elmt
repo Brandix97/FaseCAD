@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="master" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{d0c4708f-80fa-50bf-b485-6883f8aa0a4d}"/>
+    <names>
+        <name lang="de">Spule (Schütz oder Relais)</name>
+        <name lang="en">Coil (contactor or relay)</name>
+        <name lang="es">Bobina de contactor o relé</name>
+        <name lang="fr">Bobine de contacteur ou de relais</name>
+        <name lang="it">Bobina di contattore o relè</name>
+        <name lang="pt">Bobina de contactor ou relé</name>
+        <name lang="tr">Bobin (kontaktör veya röle)</name>
+        <name lang="zh">线圈（接触器或继电器）</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12" y="-6" width="24" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="6" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-21.6" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{141f14da-98c4-5245-b777-936eac9c208f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="6.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0e401b95-6a22-5188-82c7-ca2dbb0359bd}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-21" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{868e8745-0b34-5787-9e7a-103168dae4b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3b0b00f4-3712-519e-b02d-b5a3dc18af79}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{536c1303-8dd3-5156-884c-e99557213391}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{d93ebe1c-55ee-5035-ada8-374fd602c598}"/>
+    <names>
+        <name lang="de">Voltmeter</name>
+        <name lang="en">Voltmeter</name>
+        <name lang="es">Voltímetro</name>
+        <name lang="fr">Voltmètre</name>
+        <name lang="it">Voltmetro</name>
+        <name lang="pt">Voltímetro</name>
+        <name lang="tr">Voltmetre</name>
+        <name lang="zh">电压表</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="4.86" text="V" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{8120b7e3-33ec-5cec-8cc5-1b7bfd5c2f9c}"/>
+        <dynamic_text x="-19" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{016fc79e-8d01-55a3-abb3-d8c5a69192b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{342f1c43-044a-5210-833e-639bdb2741f4}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{dc933e68-9f4d-5fe1-ad99-c90d9df57284}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

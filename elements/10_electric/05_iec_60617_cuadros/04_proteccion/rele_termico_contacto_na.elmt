@@ -1,0 +1,40 @@
+<definition version="0.100.0" type="element" link_type="slave" width="30" height="50" hotspot_x="25" hotspot_y="25">
+    <uuid uuid="{29a8216e-dd71-5967-b818-af944d92d0e9}"/>
+    <names>
+        <name lang="de">Schließer des Überlastrelais (97-98)</name>
+        <name lang="en">Overload relay contact NO (97-98)</name>
+        <name lang="es">Contacto NA del relé térmico (97-98)</name>
+        <name lang="fr">Contact NO du relais thermique (97-98)</name>
+        <name lang="it">Contatto NA del relè termico (97-98)</name>
+        <name lang="pt">Contacto NA do relé térmico (97-98)</name>
+        <name lang="tr">Termik röle NA kontağı (97-98)</name>
+        <name lang="zh">热继电器常开触点 (97-98)</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3b504428-be16-5da5-881b-d5837382e511}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>97</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a7e04097-deac-55a4-8b08-f02cddf3d8dd}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>98</text>
+        </dynamic_text>
+        <line x1="-8" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-5" width="12" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.5" y1="-5" x2="-12.5" y2="-3" x3="-15.5" y3="-3" x4="-15.5" y4="3" x5="-12.5" y5="3" x6="-12.5" y6="5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-29" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{097d0edc-228b-580d-be17-0000e649b77b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7a4c9e61-2a82-50b9-afe6-54d9a2f57bab}" name="97" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{eaf098e6-97f3-5343-a295-27e12d449020}" name="98" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="150" height="90" hotspot_x="55" hotspot_y="50">
+    <uuid uuid="{71295997-bdb5-66e4-cc5a-7f05121025b4}"/>
+    <names>
+        <name lang="ar">خزان ديزل أفقي</name>
+        <name lang="ca">Dipòsit de gasoil horitzontal</name>
+        <name lang="cs">Horizontální nádrž na naftu</name>
+        <name lang="da">Horisontal dieseltank</name>
+        <name lang="de">Horizontaler Dieseltank</name>
+        <name lang="el">Οριζόντια δεξαμενή πετρελαίου</name>
+        <name lang="en">Horizontal diesel tank</name>
+        <name lang="es">Depósito gasoil horizontal</name>
+        <name lang="fi">Vaakasuora dieselpolttoainesäiliö</name>
+        <name lang="fr">Cuve fioul horizontal</name>
+        <name lang="hr">Horizontalni spremnik dizela</name>
+        <name lang="hu">Vízszintes dízel tartály</name>
+        <name lang="it">Serbatoio gasolio orizzontale</name>
+        <name lang="ja">横形灯油タンク</name>
+        <name lang="ko">수평형 디젤 탱크</name>
+        <name lang="mn">Хэвтээ дизель сав</name>
+        <name lang="nb">Horisontal dieseltank</name>
+        <name lang="nl">Horizontale dieseltank</name>
+        <name lang="nl_BE">Horizontale dieseltank</name>
+        <name lang="pl">Poziomy zbiornik oleju napędowego</name>
+        <name lang="pt">Depósito de gasóleo horizontal</name>
+        <name lang="pt_BR">Tanque horizontal de diesel</name>
+        <name lang="ro">Rezervor de motorină orizontal</name>
+        <name lang="ru">Горизонтальный дизельный бак</name>
+        <name lang="sk">Horizontálna naftová nádrž</name>
+        <name lang="sl">Vodoravni rezervoar za dizel</name>
+        <name lang="sr">Хоризонтални резервоар за дизел</name>
+        <name lang="sv">Horisontell dieseltank</name>
+        <name lang="tr">Yatay dizel tankı</name>
+        <name lang="uk">Горизонтальний дизельний бак</name>
+        <name lang="zh">柴油储罐1</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="81" y1="-25" x2="81" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="-39" width="2" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10.47" y1="-28" x2="-10.47" y2="-32" x3="-8.95" y3="-29" x4="-12" y4="-29" x5="-10.47" y5="-32" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-1" y="-39" width="2" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-39" width="2" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-48.77" y="-24.93" width="17.3" height="55.13" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="72.3" y="-24.93" width="17.3" height="55.13" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10.65" y1="-35" x2="10.65" y2="28.47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <polygon x1="-34.72" y1="30.2" x2="-34.72" y2="34.4" x3="-29.48" y3="34.4" x4="-24.24" y4="30.2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="70.1" y1="30.2" x2="70.1" y2="34.4" x3="64.86" y3="34.4" x4="59.62" y4="30.2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-18" y="-35" width="37" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="13" y1="-27" x2="13" y2="-31" x3="14" y3="-28" x4="12" y4="-28" x5="13" y5="-31" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-2" y1="-32" x2="-2" y2="-28" x3="-1" y3="-31" x4="-3" y4="-31" x5="-2" y5="-28" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-40" y1="-25" x2="-15" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16" y1="-25" x2="80" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="30" x2="81" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-25" x2="-40" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-14.78" y1="-34" x2="-14.78" y2="-25" x3="-11.7" y3="-22" x4="-2.47" y4="-20" x5="3.69" y5="-20" x6="12.92" y6="-22" x7="16" y7="-25" x8="16" y8="-34" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="38" y="-16" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9404eda0-6c1d-4be1-b4a9-7ed1c4f489a2}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-48" y1="9" x2="-47" y2="16" x3="-46" y3="20" x4="-45" y4="23" x5="-44" y5="26" x6="-43" y6="28" x7="-41" y7="29" x8="81" y8="29" x9="83" y9="29" x10="85" y10="27" x11="87" y11="21" x12="88" y12="16" x13="89" y13="9" antialias="false" style="line-style:normal;line-weight:normal;filling:brun;color:black"/>
+        <terminal uuid="{751e407f-db82-4250-b3e7-5ffec076444a}" name="" x="10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{5dfac80b-964c-41e0-9794-c19466d6cfcf}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{4f2f1e3b-2412-431e-822c-82b637c870b7}" name="" x="-10" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

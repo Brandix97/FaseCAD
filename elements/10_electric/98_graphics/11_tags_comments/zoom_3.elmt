@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="70" hotspot_x="42" hotspot_y="26">
+    <uuid uuid="{144def81-81e9-6bc8-d45a-fc0dea248d70}"/>
+    <names>
+        <name lang="ar">Zoom 2</name>
+        <name lang="ca">Comenta</name>
+        <name lang="cs">Komentář</name>
+        <name lang="da">Kommentar</name>
+        <name lang="de">Kommentar</name>
+        <name lang="el">Σχόλιο</name>
+        <name lang="en">Comment</name>
+        <name lang="es">Zoom 2</name>
+        <name lang="fi">Kommentti</name>
+        <name lang="fr">Commentaire</name>
+        <name lang="hr">Komentar</name>
+        <name lang="hu">Megjegyzés</name>
+        <name lang="it">Zoom 2</name>
+        <name lang="ja">コメント</name>
+        <name lang="ko">주석</name>
+        <name lang="mn">Тайлбар</name>
+        <name lang="nb">Kommentar</name>
+        <name lang="nl">Commentaar</name>
+        <name lang="nl_BE">Commentaar</name>
+        <name lang="pl">Szczegóły elementu</name>
+        <name lang="pt">Comentário</name>
+        <name lang="pt_BR">Comment</name>
+        <name lang="ro">Comentariu</name>
+        <name lang="ru">Комментарий</name>
+        <name lang="sk">Komentár</name>
+        <name lang="sl">Komentar</name>
+        <name lang="sr">Коментар</name>
+        <name lang="sv">Kommentar</name>
+        <name lang="tr">Yorum</name>
+        <name lang="uk">Коментар</name>
+        <name lang="zh">缩放3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-11" y1="20" x2="-40" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-27" y="-16.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{68c2f777-2712-41d5-a965-1a67794c137d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-40" y1="40" x2="1" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.33" y1="20" x2="17.72" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="20" x2="-40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="19.4" x2="-40" y2="-1.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="0" x2="-40" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="20" x2="46" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

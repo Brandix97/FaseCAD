@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="30" height="30" hotspot_x="18" hotspot_y="10">
+    <uuid uuid="{77777239-1791-943b-8f79-8174e74bb962}"/>
+    <names>
+        <name lang="ar">وصلة</name>
+        <name lang="ca">Empalme</name>
+        <name lang="cs">Spojka</name>
+        <name lang="da">Samling</name>
+        <name lang="de">Spleiß</name>
+        <name lang="el">Συστροφή</name>
+        <name lang="en">Splice</name>
+        <name lang="es">Empalme</name>
+        <name lang="fi">Jatkos</name>
+        <name lang="fr">Epissure</name>
+        <name lang="hr">Spajanje</name>
+        <name lang="hu">Egyesítő három vezetékhez</name>
+        <name lang="it">Spaziatura</name>
+        <name lang="ja">接続</name>
+        <name lang="ko">접속</name>
+        <name lang="mn">Холболт</name>
+        <name lang="nb">Skjøt</name>
+        <name lang="nl">Lassen</name>
+        <name lang="nl_BE">Split</name>
+        <name lang="pl">Połączenie 3</name>
+        <name lang="pt">Derivação</name>
+        <name lang="pt_BR">Emenda de condutores / Conexão rápida</name>
+        <name lang="ro">Îmbinare</name>
+        <name lang="ru">Сращивание</name>
+        <name lang="sk">Spojka</name>
+        <name lang="sl">Spajanje</name>
+        <name lang="sr">Спојница</name>
+        <name lang="sv">Skarv</name>
+        <name lang="tr">Ek yeri</name>
+        <name lang="uk">Зрощення</name>
+        <name lang="zh">拼接</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="1.5" y="-1.45" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{b653b162-d4c8-4660-a5ca-e6ca05a56de9}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="4" y1="0" x2="-10" y2="0" x3="-5" y3="0" x4="0" y4="5" x5="0" y5="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{1d3bb613-e8e2-4bcd-8515-ff9a0459b3c3}" name="3" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{367dd739-791b-4d8f-9e49-4a70fd990b19}" name="1" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{f75b8c8d-508b-4346-a6df-8cda82201d98}" name="2" x="4" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

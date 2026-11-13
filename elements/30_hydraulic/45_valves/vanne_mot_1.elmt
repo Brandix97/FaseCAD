@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="20" hotspot_y="11">
+    <uuid uuid="{ba73ea36-70e3-4d76-051b-cf94445ba04e}"/>
+    <names>
+        <name lang="ar">صمّام  مُزوّد بمُحرّك</name>
+        <name lang="ca">Vàlvula motoritzada</name>
+        <name lang="cs">Klapka řízená motorem</name>
+        <name lang="da">Motorventil</name>
+        <name lang="de">Motorventil</name>
+        <name lang="el">Μοτοριζόμενη βαλβίδα</name>
+        <name lang="en">Motorized valve</name>
+        <name lang="es">Válvula motorizada</name>
+        <name lang="fi">Moottoriventtiili</name>
+        <name lang="fr">Vanne motorisée</name>
+        <name lang="hr">Motorizirani ventil</name>
+        <name lang="hu">Motoros szelep</name>
+        <name lang="it">Valvola motorizzata</name>
+        <name lang="ja">電動弁</name>
+        <name lang="ko">모터 구동 밸브</name>
+        <name lang="mn">Моторт хавхлага</name>
+        <name lang="nb">Motorisert ventil</name>
+        <name lang="nl">Klep motor</name>
+        <name lang="nl_BE">Gemotoriseerde klep</name>
+        <name lang="pl">Zawór zasuwowy odcinający sterowany silnikiem</name>
+        <name lang="pt">Válvula motorizada</name>
+        <name lang="pt_BR">Válvula motorizada</name>
+        <name lang="ro">Supapă motorizată</name>
+        <name lang="ru">Клапан с электроприводом</name>
+        <name lang="sk">Motorizovaný ventil</name>
+        <name lang="sl">Motorizirani ventil</name>
+        <name lang="sr">Моторизовани вентил</name>
+        <name lang="sv">Motorventil</name>
+        <name lang="tr">Motorlu valf</name>
+        <name lang="uk">Клапан з електроприводом</name>
+        <name lang="zh">电动阀1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="18" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{04d2df97-8422-44d8-90a6-43898b6d7152}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="0" y="-10" width="20" height="20" start="225" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="2.5" y="-7.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="M" x="6" y="4" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="16" y1="6" x2="18" y2="8" x3="20" y3="3" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="2" y1="8" x2="4" y2="6" x3="0" y3="3" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="9" y1="19" x2="9" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="19" x2="11" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="20" x2="30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="26" x2="10" y2="20" x3="20" y3="14" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="14" x2="0" y2="26" x3="10" y3="20" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{e77cde20-5a7f-406c-aa80-0fc989b6621f}" name="" x="-10" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{5176f5c9-ab86-42ff-8e4d-6f28e540850a}" name="" x="30" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

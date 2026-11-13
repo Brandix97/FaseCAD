@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="70" hotspot_x="30" hotspot_y="40">
+    <uuid uuid="{9271a3c2-d3af-7ffa-9318-001e27ef3b2d}"/>
+    <names>
+        <name lang="ar">محرّك توالي مستمرّ</name>
+        <name lang="ca">Motor sèrie DC</name>
+        <name lang="cs">Sériový DC motor</name>
+        <name lang="da">Seriemotor jævnstrøm</name>
+        <name lang="de">Gleichstrom-Reihenschlußmotor</name>
+        <name lang="el">Σειριακό μοτέρ συνεχούς</name>
+        <name lang="en">Series motor DC</name>
+        <name lang="es">Motor serie DC</name>
+        <name lang="fi">Sarjamoottori DC</name>
+        <name lang="fr">Moteur série,DC</name>
+        <name lang="hr">Serijski istosmjerni motor</name>
+        <name lang="hu">Soros DC motor</name>
+        <name lang="it">Motore CC</name>
+        <name lang="ja">直流直巻電動機</name>
+        <name lang="ko">직권 DC 모터</name>
+        <name lang="mn">Цуваа мотор DC</name>
+        <name lang="nb">Seriemotor DC</name>
+        <name lang="nl">Motor DC Serie</name>
+        <name lang="nl_BE">Seriemotor DC</name>
+        <name lang="pl">Silnik szeregowy prądu stałego</name>
+        <name lang="pt">Motor DC em série</name>
+        <name lang="pt_BR">motor CC serie</name>
+        <name lang="ro">Motor serie de curent continuu</name>
+        <name lang="ru">Двигатель постоянного тока последовательного возбуждения</name>
+        <name lang="sk">Sériový DC motor</name>
+        <name lang="sl">Enosmerni serijski motor</name>
+        <name lang="sr">Серијски DC мотор</name>
+        <name lang="sv">Seriemotor DC</name>
+        <name lang="tr">Seri motor DC</name>
+        <name lang="uk">Двигун постійного струму послідовного збудження</name>
+        <name lang="zh">直流串励电动机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-20" y1="-30" x2="-20" y2="10" x3="-15" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="20" y1="1" x2="20" y2="10" x3="16" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="6" y1="14" x2="10" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="14" x2="2" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="14" x2="-3" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="12" x2="10" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-15" y="-5" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="16.5" y="-19" width="7" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="M" x="-4" y="7" rotation="0" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="16.5" y="-9" width="7" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="16.5" y="-4" width="7" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="19" y="4" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{06e0c25f-3421-4b7e-825a-7b83dbf850ad}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="16.5" y="-14" width="7" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="-29" x2="20" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a9066f02-f0a2-48f3-b290-132dbed97039}" name="" x="20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{1607e1bc-e022-4a95-9f28-cf8fe61be35d}" name="" x="-20" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

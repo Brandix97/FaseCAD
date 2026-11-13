@@ -1,0 +1,74 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="130" hotspot_x="21" hotspot_y="30">
+    <uuid uuid="{5ceb4092-71f1-fa19-f774-4799e47c1dcd}"/>
+    <names>
+        <name lang="ar">قاطع بالسحب DM1-Z</name>
+        <name lang="ca">Interruptor automàtic extraïble DM1-Z</name>
+        <name lang="cs">Vývod s výsuvným vypínačem a DM-1Z</name>
+        <name lang="da">DM1-Z udtrækkelig automatsikring</name>
+        <name lang="de">DM1-Z Einschub-Leistungsschalter</name>
+        <name lang="el">Αποσπώμενος διακόπτης DM1-Z</name>
+        <name lang="en">DM1-Z withdrawable circuit breaker</name>
+        <name lang="es">Disyuntor extraíble DM1-Z</name>
+        <name lang="fi">DM1-Z ulosvedettävä katkaisija</name>
+        <name lang="fr">Disjoncteur debrochable DM1-Z</name>
+        <name lang="hr">DM1-Z izvlačivi prekidač</name>
+        <name lang="hu">DM1-Z kihúzható megszakító</name>
+        <name lang="it">Sezionatore DM1-Z</name>
+        <name lang="ja">DM1-Z 引出形遮断器</name>
+        <name lang="ko">DM1-Z 인출형 차단기</name>
+        <name lang="mn">DM1-Z татагдах хэлхээ таслагч</name>
+        <name lang="nb">DM1-Z uttrekkbar effektbryter</name>
+        <name lang="nl">Onderbreker uittrekbaar DM1-Z</name>
+        <name lang="nl_BE">DM1-Z uittrekbare vermogensschakelaar</name>
+        <name lang="pl">Wyłącznik wysuwny DM1-Z</name>
+        <name lang="pt">Disjuntor extraível DM1-Z</name>
+        <name lang="pt_BR">Disjuntor extraível DM1-Z</name>
+        <name lang="ro">Disjunctor extractibil DM1-Z</name>
+        <name lang="ru">Выкатной автоматический выключатель DM1-Z</name>
+        <name lang="sk">Vysúvateľný istič DM1-Z</name>
+        <name lang="sl">DM1-Z izvlečni odklopnik</name>
+        <name lang="sr">DM1-Z извлачиви прекидач</name>
+        <name lang="sv">DM1-Z utdragbar dvärgbrytare</name>
+        <name lang="tr">DM1-Z çekmeli devre kesici</name>
+        <name lang="uk">Висувний автоматичний вимикач DM1-Z</name>
+        <name lang="zh">可抽出式断路器DM1-Z</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="23" y="18.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c65b3472-2dc8-481e-bbff-f6e15f252658}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="10" y1="38" x2="10" y2="34" x3="3" y3="26" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="42" x2="8" y2="38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="42" x2="12" y2="38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="43" x2="10" y2="86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="24" x2="10" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="26" x2="8" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="26" x2="12" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="11" x2="12" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="11" x2="8" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="39" x2="8" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.95" y1="13.95" x2="11.95" y2="17.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="39" x2="12" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.95" y1="13.95" x2="7.95" y2="17.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="4.9" y="47.9" width="10.2" height="10.2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="1.7" y1="-8" x2="10" y2="6" x3="10" y3="12" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-5" x2="-10.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="-3" x2="-11.8" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-7" x2="-13.8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="-3" x2="-17.8" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-5" x2="-15.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.7" y1="-10" x2="11.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="77" x2="4.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.7" y1="72" x2="4.7" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.95" y1="72" x2="2.95" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.3" y1="77" x2="2.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10.3" y="72" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.7" y1="-20" x2="9.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4da2a9fc-aea0-4f86-9b43-7f4532e09f23}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{2b0682c9-ef5f-48df-9f7d-83d58505f4fc}" name="" x="10" y="90" orientation="s" type="Generic"/>
+        <terminal uuid="{f6d530d7-5101-445e-a53a-9dce0d6f6176}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

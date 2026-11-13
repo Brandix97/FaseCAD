@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="2" hotspot_y="10">
+    <uuid uuid="{d2443321-00a4-f1a1-8790-552aeb9c389e}"/>
+    <names>
+        <name lang="ar">مصدر طاقة نيوماتية</name>
+        <name lang="ca">Font d'energia pneumàtica</name>
+        <name lang="cs">Zdroje vzduchové energie</name>
+        <name lang="da">Pneumatisk energikilde</name>
+        <name lang="de">Druckluftquelle</name>
+        <name lang="el">Πηγή πνευματικής ενέργειας</name>
+        <name lang="en">Pneumatic energy source</name>
+        <name lang="es">Fuente de energía neumática</name>
+        <name lang="fi">Pneumaattinen energialähde</name>
+        <name lang="fr">Source d'énergie pneumatique</name>
+        <name lang="hr">Izvor pneumatske energije</name>
+        <name lang="hu">Sűrítettlevegő-forrás</name>
+        <name lang="it">Alimentazione motore</name>
+        <name lang="ja">空気圧エネルギー源</name>
+        <name lang="ko">공압 에너지 공급원</name>
+        <name lang="mn">Пневматик энергийн эх үүсвэр</name>
+        <name lang="nb">Pneumatisk energikilde</name>
+        <name lang="nl">Toevoer lucht</name>
+        <name lang="nl_BE">Pneumatische energiebron</name>
+        <name lang="pl">Źródło energii pneumatycznej, symbol ogólny uprzoszczony</name>
+        <name lang="pt">Fonte de energia pneumática</name>
+        <name lang="pt_BR">Fonte de energia pneumática</name>
+        <name lang="ro">Sursă de energie pneumatică</name>
+        <name lang="ru">Источник пневматической энергии</name>
+        <name lang="sk">Zdroj pneumatickej energie</name>
+        <name lang="sl">Vir pnevmatske energije</name>
+        <name lang="sr">Извор пнеуматске енергије</name>
+        <name lang="sv">Pneumatisk energikälla</name>
+        <name lang="tr">Pnömatik enerji kaynağı</name>
+        <name lang="uk">Джерело пневматичної енергії</name>
+        <name lang="zh">气源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="4" y="-20.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d4b1ace1-e3dc-486b-b2a5-0bbdb7234b12}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="5" x2="10" y2="0" x3="0" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{80922545-03a6-4f12-83c4-e963a497feae}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

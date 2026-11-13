@@ -1,0 +1,38 @@
+<definition version="0.90" type="element" link_type="simple" width="100" height="100" hotspot_x="13" hotspot_y="88">
+    <uuid uuid="{54481afd-5df2-a0c4-f0e8-f50dc8d81467}"/>
+    <names>
+        <name lang="ar">تصنيف الطاقة</name>
+        <name lang="ca">Qualificació energètica</name>
+        <name lang="cs">Energetická klasifikace</name>
+        <name lang="da">Energiklassificering</name>
+        <name lang="de">Energieeffizienzklasse</name>
+        <name lang="el">Ενεργειακή κατάταξη</name>
+        <name lang="en">Energy classification</name>
+        <name lang="es">Calificacion energética</name>
+        <name lang="fr">Classification énergétique</name>
+        <name lang="pt_BR">Calificacion energética</name>
+        <name lang="zh">评级</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-5.5" y1="-5" x2="-5.5" y2="5" x3="71" y3="5" x4="76.5" y4="0" x5="71" y5="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="-5.5" y1="-19" x2="-5.5" y2="-9" x3="58" y3="-9" x4="61.44" y4="-14" x5="56.82" y5="-19" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:red"/>
+        <polygon x1="-5.5" y1="-31" x2="-5.5" y2="-21" x3="39.45" y3="-21" x4="44.31" y4="-26" x5="38.23" y5="-31" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <polygon x1="-5.5" y1="-44" x2="-5.5" y2="-34" x3="27.3" y3="-34" x4="33.37" y4="-39" x5="27.3" y5="-44" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <polygon x1="-5.5" y1="-56" x2="-5.5" y2="-46" x3="15.88" y3="-46" x4="22.56" y4="-51" x5="17.22" y5="-56" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:red"/>
+        <polygon x1="-5.5" y1="-68" x2="-5.5" y2="-58" x3="9" y3="-58" x4="16.18" y4="-63" x5="9" y5="-68" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <text text="F" x="-0.64" y="-10" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <text text="G" x="-0.64" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <text text="E" x="-0.64" y="-23" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <polygon x1="-5.5" y1="-80" x2="-5.5" y2="-70" x3="1.73" y3="-70" x4="9" y4="-75" x5="1.73" y5="-80" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <text text="D" x="-0.64" y="-36" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <text text="C" x="-0.64" y="-48" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <text text="B" x="-0.64" y="-60" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <text text="A" x="-0.31" y="-72" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#ffffff"/>
+        <rect x="-11" y="-86" width="95" height="96" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="38" y="-79.5" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c2e8ebd0-ab83-4797-ab49-ea3c1048e1ab}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="40" hotspot_x="8" hotspot_y="9">
+    <uuid uuid="{f4527423-304a-73fb-d5d5-2ed904b279fb}"/>
+    <names>
+        <name lang="ar">صمام أمان</name>
+        <name lang="ca">Vàlvula de seguretat</name>
+        <name lang="cs">Bezpečnostní ventil</name>
+        <name lang="da">Sikkerhedsventil</name>
+        <name lang="de">Sicherheitsventil</name>
+        <name lang="el">Βάννα ασφαλείας</name>
+        <name lang="en">Safety valve</name>
+        <name lang="es">Válvula de seguridad</name>
+        <name lang="fi">Varoventtiili</name>
+        <name lang="fr">Vanne de sécurité</name>
+        <name lang="hr">Sigurnosni ventil</name>
+        <name lang="hu">Biztonsági szelep</name>
+        <name lang="it">Valvola di sicurezza</name>
+        <name lang="ja">安全弁</name>
+        <name lang="ko">안전 밸브</name>
+        <name lang="mn">Аюулгүйн хавхлага</name>
+        <name lang="nb">Sikkerhetsventil</name>
+        <name lang="nl">Veiligheidsklep</name>
+        <name lang="nl_BE">Veiligheidsklep</name>
+        <name lang="pl">Zawór bezpieczeństwa</name>
+        <name lang="pt">Válvula de segurança</name>
+        <name lang="pt_BR">valvula de seguridad</name>
+        <name lang="ro">Supapă de siguranță</name>
+        <name lang="ru">Предохранительный клапан</name>
+        <name lang="sk">Poistný ventil</name>
+        <name lang="sl">Varnostni ventil</name>
+        <name lang="sr">Сигурносни вентил</name>
+        <name lang="sv">Säkerhetsventil</name>
+        <name lang="tr">Emniyet valfi</name>
+        <name lang="uk">Запобіжний клапан</name>
+        <name lang="zh">安全阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="9.3" y1="9" x2="9.3" y2="-0.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="-6" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="14" x2="6" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="6" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="9" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-1" x2="9" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="9" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="1" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-2" x2="-4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="15" x2="0" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-20" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{670b4806-fc21-4aea-8434-312e0d37c645}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{019ac69e-93ca-44c1-bb8f-8e13a53c2291}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

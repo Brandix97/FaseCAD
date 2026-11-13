@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="100" hotspot_x="50" hotspot_y="50">
+    <uuid uuid="{632c25d2-0730-4a68-b898-abce4a60f5b7}"/>
+    <names>
+        <name lang="ar">قنطرة قرايتز</name>
+        <name lang="ca">Pont de Graetz</name>
+        <name lang="cs">Graetzův můstek</name>
+        <name lang="da">Graetz-bro</name>
+        <name lang="de">Graetz-Brücke</name>
+        <name lang="el">Γέφυρα Graetz</name>
+        <name lang="en">Graetz bridge</name>
+        <name lang="es">Puente Graetz</name>
+        <name lang="fi">Graetz-silta</name>
+        <name lang="fr">Pont de Graetz</name>
+        <name lang="hr">Graetzov most</name>
+        <name lang="hu">Graetz híd</name>
+        <name lang="it">Ponte di Graetz</name>
+        <name lang="ja">グレーツブリッジ</name>
+        <name lang="ko">Graetz 브리지</name>
+        <name lang="mn">Graetz гүүр</name>
+        <name lang="nb">Graetz-bro</name>
+        <name lang="nl">Diode brug graetz</name>
+        <name lang="nl_BE">Graetz-brug</name>
+        <name lang="pl">Mostek Graetz`a</name>
+        <name lang="pt">Ponte de Graetz</name>
+        <name lang="pt_BR">Ponte de Graetz</name>
+        <name lang="ro">Punte Graetz</name>
+        <name lang="ru">Мост Гретца</name>
+        <name lang="sk">Graetzov mostík</name>
+        <name lang="sl">Graetzov most</name>
+        <name lang="sr">Грецов мост</name>
+        <name lang="sv">Graetz-brygga</name>
+        <name lang="tr">Graetz köprüsü</name>
+        <name lang="uk">Міст Гретца</name>
+        <name lang="zh">桥式整流器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="21" y1="-3" x2="21" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="0" x2="24" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="0" x2="-17" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="0" x2="-39" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="0" x2="39" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="0" y2="39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="-11" x2="-30" y2="0" x3="-19" y3="11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="19" x2="0" y2="30" x3="11" y3="19" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="19" y1="-11" x2="30" y2="0" x3="19" y3="11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="-19" x2="0" y2="-30" x3="11" y3="-19" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="0" y="17.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-21.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="-23" x2="-7" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="17.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-21.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-11" y1="19" x2="-14" y2="7" x3="-23" y3="16" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="-19" x2="-14" y2="-7" x3="-23" y3="-16" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-7" y1="15" x2="-16" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="7" x2="23" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="19" y1="-11" x2="16" y2="-23" x3="7" y3="-14" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="24" y="-40.83" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9e99d712-4dcc-44c5-891f-9d397fc59532}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="19" y1="11" x2="16" y2="23" x3="7" y3="14" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="23" y1="-15" x2="14" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{382206ec-8068-4355-81e8-80fbec13eeed}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{874b0577-ba6b-4333-ac15-86834d96f2e9}" name="" x="0" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{1d6ff22e-d8eb-4941-8770-9450a47e35b9}" name="" x="40" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{ad79fdca-f082-4c3f-b163-796ce35707aa}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{3a99b09d-14d0-10ef-5d0f-2ca03b00a015}"/>
+    <names>
+        <name lang="ar">مسارات -P-A  مُغلقة</name>
+        <name lang="ca">4 ports -P-A tancat</name>
+        <name lang="cs">4 cesty - P-A zavřené</name>
+        <name lang="da">4 porte -P-A lukket</name>
+        <name lang="de">4 Anschlüsse -P-A geschlossen</name>
+        <name lang="el">4 θύρες -P-A κλειστές</name>
+        <name lang="en">4 ports -P-A close</name>
+        <name lang="es">4 vías -P-A cerradas</name>
+        <name lang="fi">4 porttia -P-A kiinni</name>
+        <name lang="fr">4 voies - P-A fermés</name>
+        <name lang="hr">4 priključka -P-A zatvorena</name>
+        <name lang="hu">4 utas -P-A zárva</name>
+        <name lang="it">4 porte - P-A chiuse</name>
+        <name lang="ja">4ポート -P-A閉</name>
+        <name lang="ko">4 포트 -P-A 닫힘</name>
+        <name lang="mn">4 порт -P-A хаалттай</name>
+        <name lang="nb">4 porter -P-A lukket</name>
+        <name lang="nl">4  B -&gt; T</name>
+        <name lang="nl_BE">4 poorten -P-A gesloten</name>
+        <name lang="pl">4 drogi - P-A zamknięte</name>
+        <name lang="pt">4 vias -P-A fechadas</name>
+        <name lang="pt_BR">4 vias P-A fechadas</name>
+        <name lang="ro">4 porturi -P-A închise</name>
+        <name lang="ru">4 отверстий -P-A закрыто</name>
+        <name lang="sk">4 portov -P-A zatvorených</name>
+        <name lang="sl">4 vrat -P-A zaprta</name>
+        <name lang="sr">4 портова -P-A затворено</name>
+        <name lang="sv">4 portar -P-A stängda</name>
+        <name lang="tr">4 port -P-A kapalı</name>
+        <name lang="uk">4 отворів -P-A закрито</name>
+        <name lang="zh">2位 通路P-A 封闭</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-10" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-33" y="-9.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5e3ce220-d7e5-48f4-84ac-44e378b31b08}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="16" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="15" x2="12" y2="15" x3="10" y3="20" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="-10.08" y1="14.95" x2="-10.08" y2="19.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.08" y1="14.95" x2="-8.08" y2="14.95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="-5" x2="-8" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{3a822674-ac97-46c3-ba9a-8c746c9e6428}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{727d5597-fe79-416d-8926-ce764dc2b529}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{dd81f7e3-fc36-4e8b-9b55-c233a96704f6}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{27320ec8-50e7-417e-9a2d-64de12b43053}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

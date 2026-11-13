@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{a72d3771-c5ee-f741-c796-3cbe136a5db5}"/>
+    <names>
+        <name lang="ar">جلبة رقم 270 DD</name>
+        <name lang="ca">Màniga n° 270 DD</name>
+        <name lang="cs">Objímka č. 270 DD</name>
+        <name lang="da">Muffe nr. 270 DD</name>
+        <name lang="de">Muffe Nr. 270 DD</name>
+        <name lang="el">Χιτώνιο n° 270 DD</name>
+        <name lang="en">Sleeve no. 270 FF</name>
+        <name lang="fr">Manchon n° 270 DD</name>
+        <name lang="pt_BR">Manchon n° 270 DD</name>
+        <name lang="zh">套管铁270</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-7" y="7.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{91f99c95-6593-49da-b1bd-7c3cea26c86b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-10" y="-9" width="2" height="2" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="7" width="2" height="2" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="8" y="-9" width="2" height="2" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="8" y="7" width="2" height="2" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-7" x2="-10" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-7" x2="-8" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-7" x2="10" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-7" x2="8" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-7" x2="7" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="7" x2="7" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{bf2e417d-b299-488e-b47b-64ac6366da4e}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{faa11028-ac1a-4bc3-859c-b00787462b26}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

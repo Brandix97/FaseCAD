@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{7cc93b28-c7f3-1190-5a0e-ededbcc23088}"/>
+    <names>
+        <name lang="ar">بيديه</name>
+        <name lang="ca">Bidet</name>
+        <name lang="cs">Bidet</name>
+        <name lang="da">Bidet</name>
+        <name lang="de">Bidet</name>
+        <name lang="el">Μπιντές</name>
+        <name lang="en">Bidet</name>
+        <name lang="es">Bidé</name>
+        <name lang="fi">Bidee</name>
+        <name lang="fr">Bidet</name>
+        <name lang="hr">Bide</name>
+        <name lang="hu">Bidé</name>
+        <name lang="it">Bidet</name>
+        <name lang="ja">ビデ</name>
+        <name lang="ko">비데</name>
+        <name lang="mn">Биде</name>
+        <name lang="nb">Bidet</name>
+        <name lang="nl">Bidet</name>
+        <name lang="nl_BE">Bidet</name>
+        <name lang="pl">Bidet</name>
+        <name lang="pt">Bidé</name>
+        <name lang="pt_BR">Bidé</name>
+        <name lang="ro">Bideu</name>
+        <name lang="ru">Биде</name>
+        <name lang="sk">Bidet</name>
+        <name lang="sl">Bide</name>
+        <name lang="sr">Биде</name>
+        <name lang="sv">Bidet</name>
+        <name lang="tr">Bide</name>
+        <name lang="uk">Біде</name>
+        <name lang="zh">坐浴盆</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="1.94" y1="-16" x2="4" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5.63" y1="-17" x2="-3.56" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1.94" y1="-17" x2="4" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="11.56" y1="-19.65" x2="11.56" y2="-14.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.63" y1="-16" x2="-3.56" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-9.06" y="-18" width="3.44" height="2.48" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.94" y="-18" width="2.75" height="2.48" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="-18" x2="-3.56" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-15.53" x2="-3.56" y2="-15.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.63" y1="-17.51" x2="-3.56" y2="-17.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-13.88" y="-11.07" width="26.13" height="31.69" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12.5" y1="-19.67" x2="-12.5" y2="-14.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-18" y="-20.48" width="35.06" height="43.58" start="135" angle="270" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3.56" y="-2.65" width="5.5" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12" y1="-20" x2="11.11" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.5" y="-18" width="2.06" height="8.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4" y="-18" width="3.44" height="2.48" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1.25" y="-18" width="2.75" height="2.48" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2.63" y1="-18" x2="6.06" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.63" y1="-15.53" x2="6.06" y2="-15.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.94" y1="-17.51" x2="4" y2="-17.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-0.5" y="1.9" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{99a62a35-fe71-4be8-b16e-5f37f77779dd}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d2feea19-5058-4984-b6be-e94dc9cd4b2a}" name="" x="-11" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a799f5d8-d9a1-44ae-99ca-2dad44abf158}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

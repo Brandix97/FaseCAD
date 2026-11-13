@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="17" hotspot_y="9">
+    <uuid uuid="{6dc79152-5d47-32b3-3d30-093376929ab5}"/>
+    <names>
+        <name lang="ar">حنفية ماء</name>
+        <name lang="ca">Vàlvula d'extracció ECS</name>
+        <name lang="cs">Vodovodní uzávěr ECS</name>
+        <name lang="da">Brugsvandsafspærringsventil</name>
+        <name lang="de">Warmwasser-Absperrventil</name>
+        <name lang="el">Βαλβίδα εκροής ECS</name>
+        <name lang="en">ECS draw-off valve</name>
+        <name lang="es">Válvula de extracción ECS</name>
+        <name lang="fi">ECS ottoventtiili</name>
+        <name lang="fr">robinet puisage ECS</name>
+        <name lang="hr">Zaporni ventil PTV</name>
+        <name lang="hu">HMV elzárószelep</name>
+        <name lang="it">Rubinetto acqua calda sanitaria ACS</name>
+        <name lang="ja">ECS抽出口弁</name>
+        <name lang="ko">ECS 인출 밸브</name>
+        <name lang="mn">ECS татах хавхлага</name>
+        <name lang="nb">ECS avtappingsventil</name>
+        <name lang="nl">Tapkraan</name>
+        <name lang="nl_BE">SWW-aftapkraan</name>
+        <name lang="pl">Zawór CWU</name>
+        <name lang="pt">Válvula de descarga AQS</name>
+        <name lang="pt_BR">ECS draw-off valvula</name>
+        <name lang="ro">Robinet de golire ACM</name>
+        <name lang="ru">Запорный клапан ГВС</name>
+        <name lang="sk">Vypúšťací ventil TÚV</name>
+        <name lang="sl">Zaporni ventil za odvzem ECS</name>
+        <name lang="sr">ПТВ вентил за испуштање</name>
+        <name lang="sv">VV-avtappningsventil</name>
+        <name lang="tr">KSH çekme valfi</name>
+        <name lang="uk">Клапан відбору ГВП</name>
+        <name lang="zh">生活热水龙头</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="8" y="-15.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{33f61eb3-c8f2-4ddb-ad49-d4e58b784d3e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7" y="0" width="12" height="4" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6" y="-0.5" width="12" height="5" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="3" x2="3" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-3" x2="2" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-1" x2="0" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-0.5" x2="-8" y2="-0.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="0" x2="-8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="3" x2="8" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="3" x2="6" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="3" x2="5" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{225be28e-f9fd-4ad4-98f1-26c31863fce7}" name="" x="-8" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="16" hotspot_y="25">
+    <uuid uuid="{bacf85b7-e52d-592b-b60a-6da54563c714}"/>
+    <names>
+        <name lang="de">Varistor</name>
+        <name lang="en">Varistor (VDR)</name>
+        <name lang="es">Varistor</name>
+        <name lang="fr">Varistance</name>
+        <name lang="it">Varistore</name>
+        <name lang="pt">Varístor</name>
+        <name lang="tr">Varistör</name>
+        <name lang="zh">压敏电阻器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="9" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-9" width="6" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="9" x2="-6" y2="9" x3="7" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text x="-8" y="-1.6" text="U" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{e00c2df5-d406-5acc-adf2-572bf2f63c6e}"/>
+        <dynamic_text x="-19.89" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ca153ae4-c6ae-5ee7-8747-61d17b47aaed}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e54d244c-ebf6-55ff-ad06-5bcbc2cf3c7a}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c8086ebe-f66a-5077-8b95-04dfb7142f2b}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

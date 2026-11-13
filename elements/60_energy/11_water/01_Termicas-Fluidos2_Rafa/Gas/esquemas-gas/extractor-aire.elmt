@@ -1,0 +1,23 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="9">
+    <uuid uuid="{bf4f8048-d1af-8be3-f3a5-e36b1823f3c2}"/>
+    <names>
+        <name lang="ca">Extractor d'aire</name>
+        <name lang="es">Extractor de aire</name>
+        <name lang="pt_BR">Extractou de aire</name>
+        <name lang="zh">排风扇</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-5.48" y1="3.23" x2="-1.72" y2="3.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="8.42" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="-2.53" width="12" height="11.53" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-1.95" x2="0" y2="1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="1.72" y1="3.23" x2="5.48" y2="3.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-14" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1994d5dd-2be8-4247-93a0-c385294ce393}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7db32d28-b5ff-444f-843b-873e7b743dff}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

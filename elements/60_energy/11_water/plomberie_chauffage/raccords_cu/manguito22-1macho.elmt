@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="19">
+    <uuid uuid="{d165f3ec-aa50-c1bb-4367-7800799779e2}"/>
+    <names>
+        <name lang="ca">Maneguet 22-1" M</name>
+        <name lang="es">Manguito 22-1" M</name>
+        <name lang="pt_BR">Manguito 22-1" M</name>
+        <name lang="zh">外丝接头22-1</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-6.67" y1="6.59" x2="1.36" y2="6.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.48" y1="-7.55" x2="-12.85" y2="7.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-7.1" y="6.59" width="2.85" height="7.41" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-11.49" y1="-7.55" x2="-9.87" y2="7.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="3.75" y="9.06" width="4.75" height="4.94" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-8.78" y1="-7.55" x2="-7.16" y2="7.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17.73" y="-9.05" width="10.85" height="18.05" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11.3" y="-9.71" width="6.78" height="19.72" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="18" y1="-11.22" x2="8.19" y2="-11.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.09" y1="11.53" x2="18.09" y2="-11.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.88" y1="11.53" x2="17.31" y2="11.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.19" y1="-7.55" x2="-15.56" y2="7.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.07" y1="-7.3" x2="9.07" y2="7.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-13.18" width="10.75" height="27.18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.86" y1="-5.77" x2="1.56" y2="-5.77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-7.1" y="-13.18" width="2.85" height="7.41" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7.15" y="-5.77" width="2.9" height="12.36" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3.75" y="-13.18" width="4.75" height="4.94" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="0" y="12" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c67ab85c-0f01-498a-9c7f-bda7ec45d61e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{1958e558-196c-4125-bf80-8c1763be6e33}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{9da9e59f-28fd-4388-8a57-82d67d66ec6d}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

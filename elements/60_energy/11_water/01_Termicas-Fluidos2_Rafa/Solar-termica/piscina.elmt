@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="130" height="40" hotspot_x="79" hotspot_y="21">
+    <uuid uuid="{10dcb35e-371a-8b1c-d374-6fac7fdd88ed}"/>
+    <names>
+        <name lang="ar">مسبح مكيّف</name>
+        <name lang="ca">Piscina climatitzada</name>
+        <name lang="cs">Klimatizovaný bazén</name>
+        <name lang="da">Klimatiseret pool</name>
+        <name lang="de">Beheiztes Schwimmbad</name>
+        <name lang="el">Κλιματιζόμενη πισίνα</name>
+        <name lang="en">Climatized pool</name>
+        <name lang="es">Piscina climatizada</name>
+        <name lang="fi">Ilmastoitu uima-allas</name>
+        <name lang="fr">Piscine climatizée</name>
+        <name lang="hr">Klimatizirani bazen</name>
+        <name lang="hu">Klímázott medence</name>
+        <name lang="it">Piscina climatizzata</name>
+        <name lang="ja">温水プール</name>
+        <name lang="ko">온수 수영장</name>
+        <name lang="mn">Уур амьсгалжуулсан бассейн</name>
+        <name lang="nb">Klimatisert basseng</name>
+        <name lang="nl">Geklimatiseerd zwembad</name>
+        <name lang="nl_BE">Geklimatiseerd zwembad</name>
+        <name lang="pl">Basen klimatyzowany</name>
+        <name lang="pt">Piscina climatizada</name>
+        <name lang="pt_BR">Climatized pool</name>
+        <name lang="ro">Piscină climatizată</name>
+        <name lang="ru">Бассейн с климат-контролем</name>
+        <name lang="sk">Klimatizovaný bazén</name>
+        <name lang="sl">Klimatiziran bazen</name>
+        <name lang="sr">Климатизовани базен</name>
+        <name lang="sv">Klimatiserad pool</name>
+        <name lang="tr">Klimalı havuz</name>
+        <name lang="uk">Басейн з клімат-контролем</name>
+        <name lang="zh">游泳池</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="28.6" y1="-1.34" x2="28.6" y2="2.07" x3="34.2" y3="-1.34" x4="34.2" y4="2.07" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="34.8" y1="-9" x2="40.06" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="34.8" y1="0.12" x2="40.06" y2="0.12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22.9" y1="0.12" x2="28.16" y2="0.12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4.72" y="-3.23" width="10.55" height="5.74" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-4.66" y1="-17" x2="-75" y2="-17" x3="-75" y3="-5.52" x4="-17.56" y4="6" x5="-5.83" y5="6" x6="-5.83" y6="-17" antialias="false" style="line-style:normal;line-weight:normal;filling:blue;color:black"/>
+        <line x1="-9.15" y1="11.7" x2="-3.43" y2="11.7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4.72" y="2.52" width="10.55" height="5.74" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4.67" y1="-0.93" x2="4.67" y2="4.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.27" y1="0.22" x2="15.27" y2="4.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.55" y1="1.37" x2="16.44" y2="1.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.38" y1="3.66" x2="22.17" y2="3.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22.3" y1="3.56" x2="22.3" y2="-12.31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22.3" y1="-12.41" x2="-7" y2="-12.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22.9" y1="-9" x2="28.16" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.35" y1="6" x2="-9.35" y2="11.7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-3.49" y="8.83" width="5.86" height="5.17" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2.29" y1="11.7" x2="10.2" y2="11.7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.58" y1="11.7" x2="10.58" y2="8.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1.78" y1="9" x2="2.37" y2="11.49" x3="-1.78" y3="14" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="20.2" y1="-6.45" x2="24.4" y2="-6.45" x3="20.2" y3="-4.18" x4="24.4" y4="-4.18" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="28.6" y1="-10.43" x2="28.6" y2="-7" x3="34.2" y3="-10.43" x4="34.2" y4="-7" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-66" y="-33" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0a210fa2-9c7b-4fcf-a2f9-db20deaa069e}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7f7e9709-7912-4697-a858-62fe0881a714}" name="" x="41" y="-9" orientation="e" type="Generic"/>
+        <terminal uuid="{2cb15129-8783-48c5-b404-b8dd45882bce}" name="" x="41" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

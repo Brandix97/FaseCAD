@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="60" hotspot_x="38" hotspot_y="30">
+    <uuid uuid="{e1ca1ac9-786f-f058-4bf5-ed715ff1151e}"/>
+    <names>
+        <name lang="ar">مكبح مغناطيسي</name>
+        <name lang="ca">Fre magnètic</name>
+        <name lang="cs">Elektromagnetická brzda</name>
+        <name lang="da">Magnetbremse</name>
+        <name lang="de">Bremse magnetisch</name>
+        <name lang="el">Μαγνητικό φρένο</name>
+        <name lang="en">Magnetic brake</name>
+        <name lang="es">Freno magnetico</name>
+        <name lang="fi">Magneettijarru</name>
+        <name lang="fr">Frein magnetique Moteur</name>
+        <name lang="hr">Magnetska kočnica</name>
+        <name lang="hu">Mágneses fék</name>
+        <name lang="it">Freno elettromagnetico</name>
+        <name lang="ja">電磁ブレーキ</name>
+        <name lang="ko">전자 브레이크</name>
+        <name lang="mn">Соронзон тоормос</name>
+        <name lang="nb">Magnetbrems</name>
+        <name lang="nl">Rem Magnetisch</name>
+        <name lang="nl_BE">Magnetische rem</name>
+        <name lang="pl">Hamulec elektromagnetyczny</name>
+        <name lang="pt">Freio magnético</name>
+        <name lang="pt_BR">Freio magnético</name>
+        <name lang="ro">Frână magnetică</name>
+        <name lang="ru">Магнитный тормоз</name>
+        <name lang="sk">Magnetická brzda</name>
+        <name lang="sl">Magnetna zavora</name>
+        <name lang="sr">Магнетна кочница</name>
+        <name lang="sv">Magnetbroms</name>
+        <name lang="tr">Manyetik fren</name>
+        <name lang="uk">Магнітне гальмо</name>
+        <name lang="zh">制动器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-12.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="27.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="-20" x2="-7" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-20" x2="33" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="wh" x="6" y="-6" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="27" y1="-20" x2="13" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="bl" x="28" y="-6" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-30" y1="20" x2="-30" y2="-20" x3="-36" y3="-27" x4="-36" y4="27" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-15" y="1" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{17aeb0fd-e935-4a97-9b45-5c72107fb910}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <line x1="40" y1="20" x2="40" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="20" x2="-20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-65" y="-11" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{65a21ef4-0c95-4941-9601-78cd94ab3a9b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-13" y1="-20" x2="-20" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-20" x2="-20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="7.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="rd" x="-14" y="-6" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{1c7ed5c8-7dc7-42d4-bb5b-2d2388728419}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{41712d0a-1035-4205-8379-337850b5a63e}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d57fb1cc-e0e6-4a7f-8a66-7334b874df09}" name="" x="30" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

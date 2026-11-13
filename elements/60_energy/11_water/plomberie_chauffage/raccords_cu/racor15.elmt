@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{8ff631bc-09d7-f6a7-dc10-87d7445a5624}"/>
+    <names>
+        <name lang="ca">Ràcord 18-3/4"</name>
+        <name lang="es">Rácor 18-3/4"</name>
+        <name lang="pt_BR">Rácou 18-3/4&quot;</name>
+        <name lang="zh">接头15</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-3.53" y="4.93" width="4.21" height="8.07" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="5.36" y="-6.67" width="12.16" height="13.62" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0.68" y="-5.16" width="4.68" height="11.1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7.61" y="-5.16" width="9.9" height="10.59" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-8.2" y="-9.19" width="8.88" height="19.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.66" y1="-4.15" x2="-7.73" y2="-4.15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.06" y="-12.22" width="3.74" height="8.07" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7.69" y1="4.93" x2="-1.7" y2="4.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.59" y="-4.15" width="3.27" height="9.08" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-11" y="10" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{020b036b-79b2-48c5-95f0-a489af809264}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d2099434-88bd-45b5-b513-8e1c80055440}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{c73dec27-6a9b-4685-8412-1ff19b2b4de1}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

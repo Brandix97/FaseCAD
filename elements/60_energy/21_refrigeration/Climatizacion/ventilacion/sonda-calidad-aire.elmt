@@ -1,0 +1,38 @@
+<definition version="0.80" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="18">
+    <uuid uuid="{e0274cb8-6b3c-7e8f-3e5f-18e5def66ff9}"/>
+    <names>
+        <name lang="ar">مسبار جودة الهواء</name>
+        <name lang="ca">Sonda de qualitat de l'aire</name>
+        <name lang="cs">Sonda kvality vzduchu</name>
+        <name lang="da">føler luftkvalitet</name>
+        <name lang="de">Luftqualitätssonde</name>
+        <name lang="el">Αισθητήρας ποιότητας αέρα</name>
+        <name lang="en">air quality sensor</name>
+        <name lang="es">Sonda calidad aire</name>
+        <name lang="fr">sonde qualité de l'air</name>
+        <name lang="pt_BR">Sonda calidad aire</name>
+        <name lang="zh">空气质量探头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-7.8" y1="-3.25" x2="-7.8" y2="6.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.4" y1="-3.25" x2="-6.4" y2="6.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10.54" y1="6.17" x2="4.87" y2="6.17" x3="4.87" y3="4.82" antialias="false" style="line-style:normal;line-weight:normal;filling:blue;color:blue"/>
+        <ellipse x="5" y="-0.89" width="5.75" height="5.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-11.37" y="-8.28" width="24.5" height="16.32" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.49" y1="0.39" x2="7.89" y2="1.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="-7.43" x2="-12" y2="8.58" x3="13.14" y3="8.58" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-3" y="-7" width="12" height="3.2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-3.2" y="-0.89" width="5.75" height="5.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2.72" y1="0.39" x2="-0.33" y2="1.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="2.07" y1="6.17" x2="-3.6" y2="6.17" x3="-3.6" y3="4.82" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <dynamic_text x="-15" y="4.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{83fafca0-8807-46b9-9f0b-3fcbf4d4e5f9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-9.2" y1="-3.25" x2="-9.2" y2="6.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{97da591e-daea-48a1-8c16-5a2686dae8c5}" name="" x="-9" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{3967bc57-cb62-4219-bb90-a113b8ba7aee}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="30" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{ce2a5d2d-704a-413f-94a3-822cec0badcf}"/>
+    <names>
+        <name lang="ar">زرّ دوّار متمركز</name>
+        <name lang="ca">Girar el botó centrat</name>
+        <name lang="cs">Otočný ovladač ve středové pozici</name>
+        <name lang="da">Drejeknap centreret</name>
+        <name lang="de">Knebeischalter Mittelstellung</name>
+        <name lang="el">Περιστροφικός διακόπτης, κέντρο</name>
+        <name lang="en">Turning button centered</name>
+        <name lang="es">Pulsador giratorio centrado</name>
+        <name lang="fi">Keskitetty kiertonappi</name>
+        <name lang="fr">Bouton tournant centré</name>
+        <name lang="hr">Okretni gumb centriran</name>
+        <name lang="hu">Középre álló forgatógomb</name>
+        <name lang="it">Pulsante rotativo centrato</name>
+        <name lang="ja">中央回転ボタン</name>
+        <name lang="ko">중앙 회전 버튼</name>
+        <name lang="mn">Төвлөрсөн эргэлдэх товчлуур</name>
+        <name lang="nb">Dreieknapp sentrert</name>
+        <name lang="nl">knop draai stand 0</name>
+        <name lang="nl_BE">Draaiknop gecentreerd</name>
+        <name lang="pl">Łącznik obrotowy przełączny otwarty w pozycji pośredniej</name>
+        <name lang="pt">Botão rotativo centrado</name>
+        <name lang="pt_BR">Turning button Centraled</name>
+        <name lang="ro">Buton rotativ centrat</name>
+        <name lang="ru">Поворотная кнопка по центру</name>
+        <name lang="sk">Otočné tlačidlo v strede</name>
+        <name lang="sl">Vrtljivo tipkalo na sredini</name>
+        <name lang="sr">Обртни тастер центриран</name>
+        <name lang="sv">Vridknapp centrerad</name>
+        <name lang="tr">Ortalanmış döner buton</name>
+        <name lang="uk">Поворотна кнопка по центру</name>
+        <name lang="zh">中心旋钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-36.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8a4ed6c6-8cf9-4c6d-be43-3b157f330f27}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-2" y="-9" width="4" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11" y="-11" width="22" height="22" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-2" y="-9" width="4" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+    </description>
+</definition>

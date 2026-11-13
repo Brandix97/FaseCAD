@@ -1,0 +1,81 @@
+<definition version="0.90" type="element" link_type="simple" width="80" height="50" hotspot_x="45" hotspot_y="32">
+    <uuid uuid="{6cb9ebca-6455-0c21-1d18-b5ed8a2af050}"/>
+    <names>
+        <name lang="ar">2/2p_nc [pneu]-[spring]</name>
+        <name lang="ca">2/2p_nc [pneu]-[spring]</name>
+        <name lang="cs">2/2p_nc [pneu]-[spring]</name>
+        <name lang="da">2/2p_nc [pneu]-[spring]</name>
+        <name lang="de">2/2p_nc [pneu]-[spring]</name>
+        <name lang="el">2/2p_nc [pneu]-[spring]</name>
+        <name lang="en">2/2p_nc [pneu]-[spring]</name>
+        <name lang="es">2/2p_nc [pneu]-[spring]</name>
+        <name lang="fi">2/2p_nc [pneu]-[jousi]</name>
+        <name lang="fr">2/2p_nc [pneu]-[spring]</name>
+        <name lang="hr">2/2p_nc [pneu]-[spring]</name>
+        <name lang="hu">2/2p_nc [pneu]-[spring]</name>
+        <name lang="it">2/2p_nc [pneu]-[spring]</name>
+        <name lang="ja">2/2p_nc [pneu]-[spring]</name>
+        <name lang="ko">2/2p_nc [공압]-[스프링]</name>
+        <name lang="mn">2/2p_nc [pneu]-[spring]</name>
+        <name lang="nb">2/2p_nc [pneu]-[spring]</name>
+        <name lang="nl">2/2p_nc [pneu]-[spring]</name>
+        <name lang="nl_BE">2/2p_nc [pneu]-[spring]</name>
+        <name lang="pl">2/2p_nc [pneu]-[spring]</name>
+        <name lang="pt">2/2p_nc [pneu]-[spring]</name>
+        <name lang="pt_BR">2/2p_nc [pneu]-[spring]</name>
+        <name lang="ro">2/2p_nc [pneu]-[spring]</name>
+        <name lang="ru">2/2p_nc [pneu]-[spring]</name>
+        <name lang="sk">2/2p_nc [pneu]-[spring]</name>
+        <name lang="sl">2/2p_nc [pneu]-[spring]</name>
+        <name lang="sr">2/2p_nc [pneu]-[spring]</name>
+        <name lang="sv">2/2p_nc [pneu]-[fjäder]</name>
+        <name lang="tr">2/2p_nc [pneu]-[spring]</name>
+        <name lang="uk">2/2p_nc [пневм.]-[пружина]</name>
+        <name lang="zh">2位2通阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="8" y1="-10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18" y1="-16.5" x2="16" y2="-16.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="6.5" x2="17" y2="6.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-30" y1="-7" x2="-30" y2="3" x3="-39" y3="3" x4="-39" y4="-7" x5="-30" y5="-7" x6="-30" y6="3" x7="-36" y7="3" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-28" y1="-4" x2="-25.61" y2="-5.29" x3="-28.48" y3="-7.63" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="-9.95" y1="-14.95" x2="-11.95" y2="-9.95" x3="-7.95" y3="-9.95" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="-37" y1="1" x2="-32" y2="-2" x3="-37" y3="-5" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <line x1="-20" y1="5" x2="-20.09" y2="-29.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-15" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21.39" y1="-27.14" x2="-21.39" y2="-26.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-10" y2="-11" end1="none" end2="none" length1="0" length2="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <polygon x1="-23" y1="2" x2="-27" y2="2" x3="-29" y3="0" x4="-27" y4="-2" x5="-23" y5="-2" x6="-21" y6="0" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="0" y="-15" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-29" y1="-20" x2="-29" y2="-30" x3="-20" y3="-30" x4="-20" y4="-20" x5="-29" y5="-20" x6="-29" y6="-30" x7="-20.32" y7="-20.27" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="10" y1="5" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-30" y1="-3" x2="-20" y2="-3" x3="-20" y3="3" x4="-30" y4="3" x5="-30" y5="-3" x6="-30" y6="3" x7="-30" y7="-3" x8="-24" y8="-3" x9="-20" y9="-3" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="8" y1="0" x2="12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="4" x2="-27" y2="-5" end1="none" end2="none" length1="0" length2="0" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="10" y1="-15" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-24.39" y="-28.64" width="3" height="3" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="20.11" y1="-2.7" x2="22" y2="3" x3="23" y3="-3" x4="25" y4="3" x5="26" y5="-3" x6="28" y6="3" x7="29.17" y7="-2.58" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="F" x="-28" y="-22" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#707070"/>
+        <line x1="-24.39" y1="-27.14" x2="-24.39" y2="-26.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-21" y="-40" z="31" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d04c7fdf-ed99-8589-c449-0ae9fe62584a}" font="Liberation Sans,7,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-27" y="-21" z="32" text_width="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{68fbf19c-ff0e-5fee-ed58-228a59fbb50f}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text>.</text>
+        </dynamic_text>
+        <dynamic_text x="17" y="-20" z="32" text_width="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3208891a-30aa-2480-1707-c87e64b959b0}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text>.</text>
+        </dynamic_text>
+        <dynamic_text x="3" y="-25" z="32" text_width="0" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{09a061bf-e5d6-c432-b1af-cdddf1df401f}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="3" y="2" z="32" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{46094a6a-6af5-aefc-b4f3-97312ccbcc12}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <terminal uuid="{cd1228b7-ce2b-4176-b8ae-56e60a0ec85c}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{0d5afb67-53af-4352-927f-0f355bde32a3}" name="" x="10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

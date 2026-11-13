@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="30" hotspot_x="38" hotspot_y="18">
+    <uuid uuid="{ac10a4e8-77db-c44a-bbbf-91428c01495a}"/>
+    <names>
+        <name lang="ar">سبليت جداري-D</name>
+        <name lang="ca">Split paret-D</name>
+        <name lang="cs">Split nástěnný-D</name>
+        <name lang="da">Split væg-D</name>
+        <name lang="de">Split Wand-D</name>
+        <name lang="el">Split τοίχου-D</name>
+        <name lang="en">Wall-mounted split-D</name>
+        <name lang="es">Split pared-D</name>
+        <name lang="fr">Split pared-D</name>
+        <name lang="pt_BR">Split pared-D</name>
+        <name lang="zh">壁挂分体机D</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-25.12" y1="-9.32" x2="23" y2="-9.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-28" y="-11.71" width="53.9" height="13.87" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25.12" y1="-7.32" x2="23" y2="-7.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-25.2" y="0.08" width="44.1" height="2.08" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="21.7" y="-0.61" width="2.1" height="1.39" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-25.12" y1="-10.32" x2="23" y2="-10.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-4.2" y="-5.47" width="5.6" height="2.08" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-28" y1="-2" x2="25.9" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-21" y="-24.76" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8a9e0c97-8ead-45a2-994c-10232a4870b9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{74eca88a-1c4d-4f8b-9a3b-85854c383e4b}" name="" x="-17" y="4" orientation="s" type="Generic"/>
+        <terminal uuid="{992ccc14-0235-459a-b9b4-6aba58daf37b}" name="" x="23" y="-4" orientation="n" type="Generic"/>
+        <terminal uuid="{2345cd0f-25fb-4cfe-ba98-3e0ee995ad0b}" name="" x="-30" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{bfa086a2-970a-42fd-bd6e-f2cafc801129}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

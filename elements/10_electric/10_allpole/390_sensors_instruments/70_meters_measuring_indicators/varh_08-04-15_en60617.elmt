@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="22" hotspot_y="35">
+    <uuid uuid="{de8184c2-2428-0f00-251e-375a8076a719}"/>
+    <names>
+        <name lang="ar">عدّاد طاقة تفاعلية</name>
+        <name lang="ca">comptador d'energia reactiva</name>
+        <name lang="cs">Jalový elektroměr</name>
+        <name lang="da">reaktiv energimåler</name>
+        <name lang="de">Blindverbrauchszähler</name>
+        <name lang="el">Μετρητής αέργου ισχύος (βαρόμετρο)</name>
+        <name lang="en">reactive energy meter</name>
+        <name lang="es">Contador de energía reactiva</name>
+        <name lang="fi">Loisteenergiamittari</name>
+        <name lang="fr">Varheuremètre</name>
+        <name lang="hr">Mjerač jalove energije</name>
+        <name lang="hu">Meddő energia mérő</name>
+        <name lang="it">Misuratore di varh</name>
+        <name lang="ja">無効電力量計</name>
+        <name lang="ko">무효 전력량계</name>
+        <name lang="mn">Реактив энергийн тоолуур</name>
+        <name lang="nb">Reaktiv energimåler</name>
+        <name lang="nl">VAr energie meter</name>
+        <name lang="nl_BE">reactieve-energiemeter</name>
+        <name lang="pl">Licznik warogodzin</name>
+        <name lang="pt">Contador de energia reativa</name>
+        <name lang="pt_BR">Medidor de energia reativa</name>
+        <name lang="ro">Contor de energie reactivă</name>
+        <name lang="ru">Счетчик реактивной энергии</name>
+        <name lang="sk">Merač jalovej energie</name>
+        <name lang="sl">Števec jalove energije</name>
+        <name lang="sr">Мерач реактивне енергије</name>
+        <name lang="sv">Reaktiv energimätare</name>
+        <name lang="tr">Reaktif enerji sayacı</name>
+        <name lang="uk">Лічильник реактивної енергії</name>
+        <name lang="zh">无功电能表_08-04-15_en60617</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="15" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ee384187-ce94-40e1-9bb1-19e429231644}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-14" width="30" height="26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-22" width="30" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="varh" x="-12" y="4" rotation="0" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{afb0c719-5b9a-4f4e-b848-25ab938d1169}" name="" x="0" y="-27" orientation="n" type="Generic"/>
+        <terminal uuid="{e09d181d-03ad-45c5-921d-389fb301b419}" name="" x="0" y="17" orientation="s" type="Generic"/>
+    </description>
+</definition>

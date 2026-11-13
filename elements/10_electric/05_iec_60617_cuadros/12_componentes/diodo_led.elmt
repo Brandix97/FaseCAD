@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="7" hotspot_y="25">
+    <uuid uuid="{d0a714fe-ad76-52a3-a731-fa5ae3164932}"/>
+    <names>
+        <name lang="de">Leuchtdiode (LED)</name>
+        <name lang="en">Light-emitting diode (LED)</name>
+        <name lang="es">Diodo LED</name>
+        <name lang="fr">Diode électroluminescente (LED)</name>
+        <name lang="it">Diodo LED</name>
+        <name lang="pt">Díodo emissor de luz (LED)</name>
+        <name lang="tr">Işık yayan diyot (LED)</name>
+        <name lang="zh">发光二极管</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-4" x2="5" y2="-4" x3="0" y3="4" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="4" x2="5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{64fa3cdf-cf78-5358-ae90-e3dcf71edf33}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>A</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ef97c437-7906-5cf7-8667-09500d70c8f4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>K</text>
+        </dynamic_text>
+        <line x1="6" y1="-3" x2="10" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="11.5" y1="-8.5" x2="10.51" y2="-5.95" x3="8.95" y3="-7.51" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="6" y1="1" x2="10" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="11.5" y1="-4.5" x2="10.51" y2="-1.95" x3="8.95" y3="-3.51" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-14" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{09eabc9c-9381-5ca7-8a6e-dfe02c3ec7a6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{839ca457-0d68-52ad-b303-1f83900ee525}" name="A" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{e58f82c0-a44a-51e9-a834-eaab8aaddbdb}" name="K" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

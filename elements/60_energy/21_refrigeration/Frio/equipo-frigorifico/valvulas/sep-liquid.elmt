@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{3d014cb7-3de7-16ab-3610-5943c288e52d}"/>
+    <names>
+        <name lang="ca">Separador de líquids</name>
+        <name lang="es">Separador líquido</name>
+        <name lang="pt_BR">Separadou líquido</name>
+        <name lang="zh">气液分离器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-10" y="-14" width="20" height="7" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18" y="-23" width="13" height="10" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-10" y="-10" width="20" height="31" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="18" width="20" height="7" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-18" x2="-5" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="5" y="-23" width="13" height="10" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="-18" x2="5" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="26" x2="8" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-14" x2="5" y2="-5" x3="7" y3="-4" x4="8" y4="-4" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-5" y1="-14" x2="-5" y2="-6" x3="-7" y3="-4" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{91e763aa-8997-4aa5-9217-f027b5420b59}" name="" x="-12" y="-23" orientation="w" type="Generic"/>
+        <terminal uuid="{565df8bd-1cde-468a-9aaf-0590b958360e}" name="" x="12" y="-23" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="19" hotspot_y="35">
+    <uuid uuid="{0aa8cec5-c2cf-c431-eef4-c9e4f4d291b0}"/>
+    <names>
+        <name lang="ar">محوّل أحادي الوجه</name>
+        <name lang="ca">Transductor monofàsic</name>
+        <name lang="cs">Jednofázový transformátor</name>
+        <name lang="da">Enfaset transducer</name>
+        <name lang="de">Transformator einphasig</name>
+        <name lang="el">Μονοφασικός μετασχηματιστής</name>
+        <name lang="en">Single phase transducer</name>
+        <name lang="es">Transformador monofásico</name>
+        <name lang="fi">Yksivaiheinen muunnin</name>
+        <name lang="fr">Transformateur monophasé</name>
+        <name lang="hr">Jednofazni transduktor</name>
+        <name lang="hu">Egyfázisú átalakító</name>
+        <name lang="it">Trasformatore monofase</name>
+        <name lang="ja">単相変成器</name>
+        <name lang="ko">단상 변환기</name>
+        <name lang="mn">Нэг фазын хувиргагч</name>
+        <name lang="nb">Enfaset transduser</name>
+        <name lang="nl">eenfase transformator</name>
+        <name lang="nl_BE">Eenfasige transducer</name>
+        <name lang="pl">Transformator jednofazowy</name>
+        <name lang="pt">Transformador monofásico</name>
+        <name lang="pt_BR">Transformador monofásico</name>
+        <name lang="ro">Transductor monofazat</name>
+        <name lang="ru">Однофазный трансформатор</name>
+        <name lang="sk">Jednofázový transduktor</name>
+        <name lang="sl">Enofazni transduktor</name>
+        <name lang="sr">Једнофазни трансдуктор</name>
+        <name lang="sv">Enfasig transduktor</name>
+        <name lang="tr">Tek fazlı dönüştürücü</name>
+        <name lang="uk">Однофазний трансдуктор</name>
+        <name lang="zh">单相变压器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="20" y="7.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4a1b32dc-292f-490a-8af3-7aa6c1aade4e}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>___V</text>
+        </dynamic_text>
+        <ellipse x="-5" y="-5" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="20" y="-19.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3250fa83-eb02-4556-8393-41d085e6a947}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>___V</text>
+        </dynamic_text>
+        <ellipse x="-5" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18" y="-9.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{29507af0-0272-43d5-a611-2153d545553a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-25" x2="0" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="14" x2="0" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-25" x2="10" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="14" x2="10" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1d46e9e1-2ecf-4676-a23e-9a65d8656d6a}" name="" x="0" y="-26" orientation="n" type="Generic"/>
+        <terminal uuid="{0b82d507-9403-4df9-8400-5539a8e96c34}" name="" x="10" y="26" orientation="s" type="Generic"/>
+        <terminal uuid="{d33d56c6-14bb-48a2-8481-bdf75492d23d}" name="" x="0" y="26" orientation="s" type="Generic"/>
+        <terminal uuid="{62508378-6771-4a49-81fe-0730dddaaa7b}" name="" x="10" y="-26" orientation="n" type="Generic"/>
+        <terminal uuid="{700bfd5e-f023-4025-9879-e14ceaa4655c}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

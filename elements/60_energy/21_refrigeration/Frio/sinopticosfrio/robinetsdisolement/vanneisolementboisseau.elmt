@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{bbdab3c2-6549-1397-e91a-591bb4dd0c08}"/>
+    <names>
+        <name lang="ar">صمام الكرة</name>
+        <name lang="ca">Vàlvula de bola</name>
+        <name lang="cs">Kuličkový ventil</name>
+        <name lang="da">Kugleventil</name>
+        <name lang="de">Kugelventil</name>
+        <name lang="el">Σφαιροειδής βαλβίδα</name>
+        <name lang="en">Ball valve</name>
+        <name lang="es">Válvula de bola</name>
+        <name lang="fi">Palloventtiili</name>
+        <name lang="fr">Vanne à boisseau</name>
+        <name lang="hr">Kuglasti ventil</name>
+        <name lang="hu">Golyóscsap</name>
+        <name lang="it">Valvola a sfera</name>
+        <name lang="ja">ボールバルブ</name>
+        <name lang="ko">볼 밸브</name>
+        <name lang="mn">Бөмбөлөг хавхлага</name>
+        <name lang="nb">Kuleventil</name>
+        <name lang="nl">Kogelklep</name>
+        <name lang="nl_BE">Kogelkraan</name>
+        <name lang="pl">Zawór kulowy</name>
+        <name lang="pt">Válvula de esfera</name>
+        <name lang="pt_BR">Ball valvula</name>
+        <name lang="ro">Robinet cu bilă</name>
+        <name lang="ru">Шаровой клапан</name>
+        <name lang="sk">Guľový ventil</name>
+        <name lang="sl">Krogelni ventil</name>
+        <name lang="sr">Кугласти вентил</name>
+        <name lang="sv">Kulventil</name>
+        <name lang="tr">Küresel vana</name>
+        <name lang="uk">Кульовий клапан</name>
+        <name lang="zh">旋塞隔离阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-6" y="-9.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0c43db85-0f7f-4e66-bc48-0786f9c9bffe}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="0" x2="11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-5" x2="10" y2="5" x3="10" y3="-5" x4="-10" y4="5" x5="-10" y5="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <ellipse x="-4" y="-4" width="8" height="8" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <terminal uuid="{44b9005c-b0ab-4253-bd71-f5361210f335}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{35adb99d-1b89-4174-9f7d-fdd6a2282043}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,66 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{6433dde8-e659-fe89-9852-0db7b6dbe03d}"/>
+    <names>
+        <name lang="ar">تدفّق مزدوج</name>
+        <name lang="ca">Doble flux</name>
+        <name lang="cs">Rekuperace</name>
+        <name lang="da">Dobbelt flux</name>
+        <name lang="de">Doppelstrom</name>
+        <name lang="el">Διπλής ροής</name>
+        <name lang="en">Double flow</name>
+        <name lang="es">Ventilación de doble flujo</name>
+        <name lang="fr">Double Flux</name>
+        <name lang="pt_BR">Ventilação de duplo fluxo</name>
+        <name lang="zh">双向流</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="state">NO</kindInformation>
+        <kindInformation show="1" name="number">1</kindInformation>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{b3849c14-e0ad-41d2-a1a8-9cb3031e0621}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{80ad2513-2563-485c-a8bc-27ba594e4453}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="30" y="-145" width="60" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="20" y="-110" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="90" y="-110" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="20" y="-140" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="75" y="-155" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-105" x2="40" y2="-105" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-105" x2="80" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-135.5" x2="80" y2="-165.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="109.58" y1="-105" x2="80.42" y2="-105" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-105" x2="40" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-135" x2="10" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-166" x2="78" y2="-163" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-166" x2="82" y2="-163" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="110" y1="-105" x2="107" y2="-107" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="110" y1="-105" x2="107" y2="-103" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="47" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{60eb3b1d-bf0e-4f1a-ac12-1aeadb8d9a48}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="48" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{b429e0a9-ca43-48fe-b119-63115a319e14}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="49" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{12c3fd3f-a16a-4ee8-9371-14d6efb2064e}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Double flux</text>
+        </dynamic_text>
+        <line x1="50" y1="-145" x2="50" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-145" x2="70" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{af362965-a238-4407-8c92-12dcb6e90f62}" name="" x="60" y="-95" orientation="s" type="Generic"/>
+        <terminal uuid="{d8be0cf9-8eb2-49a5-b9fa-b0a536a0149e}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{f3ba218e-ae2b-4a78-ad11-bbbafe2bf1c4}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

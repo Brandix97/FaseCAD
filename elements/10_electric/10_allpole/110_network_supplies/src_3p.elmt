@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="21" hotspot_y="28">
+    <uuid uuid="{33e6721a-835a-40ef-1124-a118e45b72c5}"/>
+    <names>
+        <name lang="ar">مصدر ثلاثي القطبيّة</name>
+        <name lang="ca">Font de tres pols</name>
+        <name lang="cs">Přípojnice 3f</name>
+        <name lang="da">Tre-polet kilde</name>
+        <name lang="de">Drehstrom</name>
+        <name lang="el">Τριφασικό</name>
+        <name lang="en">Three-pole source</name>
+        <name lang="es">Fuente tripolar</name>
+        <name lang="fi">Kolmivaiheinen lähde</name>
+        <name lang="fr">Source tripolaire</name>
+        <name lang="hr">Tropolni izvor</name>
+        <name lang="hu">3F</name>
+        <name lang="it">Sorgente tripolare</name>
+        <name lang="ja">三極電源</name>
+        <name lang="ko">삼극 전원</name>
+        <name lang="mn">Гурван туйлын эх үүсвэр</name>
+        <name lang="nb">Trepolet kilde</name>
+        <name lang="nl">3fasen</name>
+        <name lang="nl_BE">Driefasige bron</name>
+        <name lang="pl">Linia trójfazowa (trójprzewodowa)</name>
+        <name lang="pt">Fonte tripolar</name>
+        <name lang="pt_BR">Fonte tripolar</name>
+        <name lang="ro">Sursă tripolară</name>
+        <name lang="ru">Трёхполюсный</name>
+        <name lang="sk">Trojpólový zdroj</name>
+        <name lang="sl">Tripolni vir</name>
+        <name lang="sr">Трополски извор</name>
+        <name lang="sv">Trepolig källa</name>
+        <name lang="tr">Üç kutuplu kaynak</name>
+        <name lang="uk">Триполюсне джерело</name>
+        <name lang="zh">三相电源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-2" y="-46.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ed455d12-2580-42c2-b1d9-110a5f44c563}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L3" x="-12" y="23" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L2" x="-12" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L1" x="-12" y="-17" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4cc635ae-94c9-4c7b-8651-761927e3d8ac}" name="L1" x="10" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{f5d0482f-6b6e-4005-bb82-65de7d02c6c9}" name="L2" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{362176a0-0262-4761-a4f7-3f4ce364209e}" name="L3" x="10" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

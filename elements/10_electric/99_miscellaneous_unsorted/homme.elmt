@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="15" hotspot_y="20">
+    <uuid uuid="{57c87d52-3e97-2e4a-ed62-4ae326daf298}"/>
+    <names>
+        <name lang="ar">شخص</name>
+        <name lang="ca">Humans</name>
+        <name lang="cs">Člověk</name>
+        <name lang="da">Menneske</name>
+        <name lang="de">Mensch</name>
+        <name lang="el">Άνθρωπος</name>
+        <name lang="en">Human</name>
+        <name lang="es">Ser humano</name>
+        <name lang="fi">Ihminen</name>
+        <name lang="fr">Humain</name>
+        <name lang="hr">Čovjek</name>
+        <name lang="hu">Ember</name>
+        <name lang="it">Uomo</name>
+        <name lang="ja">人体</name>
+        <name lang="ko">인체</name>
+        <name lang="mn">Хүн</name>
+        <name lang="nb">Menneske</name>
+        <name lang="nl">Persoon</name>
+        <name lang="nl_BE">Persoon</name>
+        <name lang="pl">Człowiek</name>
+        <name lang="pt">Ser humano</name>
+        <name lang="pt_BR">Ser humano</name>
+        <name lang="ro">Om</name>
+        <name lang="ru">Человек</name>
+        <name lang="sk">Človek</name>
+        <name lang="sl">Človek</name>
+        <name lang="sr">Човек</name>
+        <name lang="sv">Människa</name>
+        <name lang="tr">İnsan</name>
+        <name lang="uk">Людина</name>
+        <name lang="zh">人机界面</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="0" y1="20" x2="5" y2="7" x3="10" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="17" y="-7.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e0a6d19e-9acd-49b4-9aee-de2ca2a0a9ed}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="0" x2="0" y2="0" x3="5" y3="-5" x4="10" y4="0" x5="15" y5="0" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="2" y1="26" x2="8" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="24" x2="10" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="22" x2="12" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="1.5" y="-15.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="7" x2="5" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{38d4e55c-f378-4fa5-afa7-2e54730be20e}" name="1" x="-6" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{08358429-373e-49dc-8dc4-bc952046ddb8}" name="2" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

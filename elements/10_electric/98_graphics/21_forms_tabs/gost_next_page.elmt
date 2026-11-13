@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="670" height="70" hotspot_x="661" hotspot_y="54">
+    <uuid uuid="{54dab09e-c329-5acf-906e-53544b4a36e6}"/>
+    <names>
+        <name lang="ar">عنوان GOST الصفحة التالية</name>
+        <name lang="ca">Títol GOST pàgina següent</name>
+        <name lang="cs">GOST - další stránka</name>
+        <name lang="da">GOST-titel næste side</name>
+        <name lang="de">GOST Schriftfeld Folgeseite</name>
+        <name lang="el">Τίτλος GOST επόμενης σελίδας</name>
+        <name lang="en">GOST title next page</name>
+        <name lang="es">Portada GOST página siguiente</name>
+        <name lang="fi">GOST-otsikko seuraava sivu</name>
+        <name lang="hr">GOST naslovna sljedeća stranica</name>
+        <name lang="hu">GOST következő oldal</name>
+        <name lang="it">Cartiglio GOST pagina successiva</name>
+        <name lang="ja">GOST 表題欄 次頁</name>
+        <name lang="ko">GOST 표지 다음 페이지</name>
+        <name lang="mn">GOST гарчгийн дараагийн хуудас</name>
+        <name lang="nb">GOST tittelside neste side</name>
+        <name lang="nl">GOST titel volgende pagina</name>
+        <name lang="nl_BE">GOST titel volgende pagina</name>
+        <name lang="pl">GOST - strona kolejna</name>
+        <name lang="pt">Página seguinte de título GOST</name>
+        <name lang="pt_BR">GOST title next page</name>
+        <name lang="ro">Pagina de titlu GOST pagina următoare</name>
+        <name lang="ru">Штамп ГОСТ малый</name>
+        <name lang="sk">GOST titulná ďalšia strana</name>
+        <name lang="sl">GOST naslov naslednja stran</name>
+        <name lang="sr">GOST насловна следећа страна</name>
+        <name lang="sv">GOST titelsida nästa sida</name>
+        <name lang="tr">GOST başlık sonraki sayfa</name>
+        <name lang="uk">Титульний аркуш ГОСТ наступна сторінка</name>
+        <name lang="zh">GOST续页</name>
+    </names>
+    <informations>Евгений Козлов &lt;evgeny@qelectrotech.org&gt;</informations>
+    <description>
+        <line x1="-455" y1="5" x2="-455" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-645" y="-78.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a14c8c5c-5669-488f-acc5-34b7097fab8f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-625" y1="5" x2="-625" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-420" y1="5" x2="-420" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-650" y="-49" width="655" height="54" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-650" y1="-31" x2="-420" y2="-31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-509" y1="5" x2="-509" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-590" y1="5" x2="-590" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Дата" x="-451" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="5" x2="-30" y2="-49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-650" y1="-13" x2="-420" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-24" x2="-30" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="2.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3430b7ed-e91d-4f6a-9c03-877a708afdaf}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Лист" x="-26" y="-31" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Изм" x="-648" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Лист" x="-621" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="№ докум." x="-579" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Подп." x="-499" y="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+    </description>
+</definition>

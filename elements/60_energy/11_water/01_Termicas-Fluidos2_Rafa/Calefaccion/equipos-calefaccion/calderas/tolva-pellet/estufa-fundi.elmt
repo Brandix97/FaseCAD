@@ -1,0 +1,43 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="29" hotspot_y="28">
+    <uuid uuid="{5418260d-91d7-973e-28ab-8bc889e014ed}"/>
+    <names>
+        <name lang="ar">مدفأة حديد</name>
+        <name lang="ca">Estufa de ferro colat</name>
+        <name lang="cs">Litínový kotel</name>
+        <name lang="da">Støbejernsbrændeovn</name>
+        <name lang="de">Gussofen</name>
+        <name lang="el">Σόμπα μαντεμιού</name>
+        <name lang="en">Cast iron stove</name>
+        <name lang="es">Estufa fundición</name>
+        <name lang="fr">Poêle fonte</name>
+        <name lang="it">Stufa in ghisa</name>
+        <name lang="pt_BR">Estufa fundición</name>
+        <name lang="zh">铸铁炉</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-6" y1="1" x2="2" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="1" x2="5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-13" width="41" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="12" width="28" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="14" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-20.51" y1="10" x2="-21.63" y2="18" x3="-23.88" y3="18" x4="-25" y4="28" x5="-16" y5="20" x6="21" y6="20" x7="26.6" y7="28" x8="25.48" y8="18" x9="23.23" y9="18" x10="21" y10="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-16" y1="7" x2="16" y2="7" x3="17" y3="5" x4="17" y4="-8" x5="16" y5="-10" x6="-15" y6="-10" x7="-16" y7="-9" x8="-16" y8="6" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-16" y="-5" width="0" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="14" y="-3" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="14" y1="-2" x2="12" y2="-1" x3="12" y3="4" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="1" x2="-2" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-15" width="45" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-15" x2="-4" y2="-20" x3="3" y3="-20" x4="5" y4="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-13" y="17.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{20a209c8-6931-4f82-b4a1-dc2663174c0b}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-12" y="-1.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{053a02b8-e3b9-4291-ae7b-d660e3857771}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7d9f1338-351a-4a59-9e9e-c7a2bdccd442}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

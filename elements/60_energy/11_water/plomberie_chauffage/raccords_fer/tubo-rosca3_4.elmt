@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="30" hotspot_x="40" hotspot_y="16">
+    <uuid uuid="{cbb98a7e-e34a-7a31-2a86-baf9a0662af5}"/>
+    <names>
+        <name lang="ar">أنبوب 3/4"</name>
+        <name lang="ca">Tub roscat de 3/4"</name>
+        <name lang="cs">Trubka 3/4"</name>
+        <name lang="da">Rør 3/4"</name>
+        <name lang="de">Rohr mit Gewinde, 3/4"</name>
+        <name lang="el">Σωλήνας 3/4"</name>
+        <name lang="en">Pipe 3/4"</name>
+        <name lang="es">Tubo rosca 3/4"</name>
+        <name lang="fr">Tube 3/4"</name>
+        <name lang="pt_BR">Tubo rosca 3/4"</name>
+        <name lang="zh">管螺纹3/4</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-30" y="-10.16" width="60" height="17.16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="7" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="7" x2="21" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="7" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="7" x2="23" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="7" x2="-28" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="7" x2="-26" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="7" x2="25" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="29" y1="7" x2="27" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="7" x2="-24" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="6" x2="-22" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-12" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eb88f40f-ebc3-48a9-a413-bb0643a84e12}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ece7dd36-fcff-4b93-8242-d6555b03ef0e}" name="" x="-30" y="-1" orientation="w" type="Generic"/>
+        <terminal uuid="{f87cb050-b277-4cf6-85aa-01a89b63bff7}" name="" x="30" y="-1" orientation="e" type="Generic"/>
+    </description>
+</definition>

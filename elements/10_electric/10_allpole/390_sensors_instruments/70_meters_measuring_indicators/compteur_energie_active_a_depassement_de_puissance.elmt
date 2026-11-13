@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="22" hotspot_y="35">
+    <uuid uuid="{27e76657-ea2b-57e4-cc47-854bb9981a95}"/>
+    <names>
+        <name lang="ar">عدّاد طاقة فعّالة مع تجاوز قدرة</name>
+        <name lang="ca">Excés de watt-hora</name>
+        <name lang="cs">Měřič překročení spotřeby</name>
+        <name lang="da">Overskudswatt-timemåler</name>
+        <name lang="de">Überverbrauchszähler, Spitzenzähler</name>
+        <name lang="el">Μετρητής βατ/ώρα πλεονάσματος</name>
+        <name lang="en">Excess watt-hour meter</name>
+        <name lang="es">Contador de vatios-hora en exceso</name>
+        <name lang="fi">Ylivuototuntimittari</name>
+        <name lang="fr">Compteur à énergie active à dépassement de puissance</name>
+        <name lang="hr">Mjerač viška vat-sati</name>
+        <name lang="hu">Túlfogyasztás wattóra mérő</name>
+        <name lang="it">Contatore di energia attiva a supero di potenza</name>
+        <name lang="ja">過積算電力量計</name>
+        <name lang="ko">과전력량계</name>
+        <name lang="mn">Илүүдэл ватт-цаг тоолуур</name>
+        <name lang="nb">Overskudd watt-time måler</name>
+        <name lang="nl">Overcapaciteit teller</name>
+        <name lang="nl_BE">Overmatige wattuurmeter</name>
+        <name lang="pl">Licznik watogodzin szczytowy</name>
+        <name lang="pt">Contador de watts-hora de excesso</name>
+        <name lang="pt_BR">Medidor de excesso de energia ativa</name>
+        <name lang="ro">Contor de watt-oră în exces</name>
+        <name lang="ru">Счетчик избыточной энергии</name>
+        <name lang="sk">Merač nadmernej watthodiny</name>
+        <name lang="sl">Števec presežka vatnih ur</name>
+        <name lang="sr">Мерач вишка ват-часова</name>
+        <name lang="sv">Överförbrukningsmätare</name>
+        <name lang="tr">Aşırı vat-saat sayacı</name>
+        <name lang="uk">Лічильник надлишкових ват-годин</name>
+        <name lang="zh">有功电能表（超功率）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="P >" x="-10" y="7" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="14" y="-19" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e00a8cdd-f35a-4781-ad02-7261ce2dc0ea}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Wh" x="-10" y="-3" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-15" y="-12" width="30" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-20" width="30" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{84dd7edc-ae78-4c12-8d35-9b3cb5cb41e2}" name="" x="0" y="-24" orientation="n" type="Generic"/>
+        <terminal uuid="{cc04988b-a308-4681-84d5-9dbc0f84d61c}" name="" x="0" y="14" orientation="s" type="Generic"/>
+    </description>
+</definition>

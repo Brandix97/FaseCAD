@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="24" hotspot_y="17">
+    <uuid uuid="{a16ef3e0-df96-99e0-596c-89950b6b73dd}"/>
+    <names>
+        <name lang="ar">متحكّم شمسي 3</name>
+        <name lang="ca">Controlador solar 3</name>
+        <name lang="cs">Solární regulátor 3</name>
+        <name lang="da">Solstyring 3</name>
+        <name lang="de">Solarregler 3</name>
+        <name lang="el">Ηλιακός ελεγκτής 3</name>
+        <name lang="en">Solar controller 3</name>
+        <name lang="es">Controlador solar 3</name>
+        <name lang="fi">Aurinkosäädin 3</name>
+        <name lang="hr">Solarni regulator 3</name>
+        <name lang="hu">Napkollektor vezérlő 3</name>
+        <name lang="it">Controllore solare 3</name>
+        <name lang="ja">ソーラーコントローラー 3</name>
+        <name lang="ko">태양열 컨트롤러 3</name>
+        <name lang="mn">Нарны хянагч 3</name>
+        <name lang="nb">Solkontroller 3</name>
+        <name lang="nl">Zonneregelaar 3</name>
+        <name lang="nl_BE">Zonneregelaar 3</name>
+        <name lang="pl">Regulator solarny 3</name>
+        <name lang="pt">Controlador solar 3</name>
+        <name lang="pt_BR">Solar controller 3</name>
+        <name lang="ro">Controller solar 3</name>
+        <name lang="ru">Солнечный контроллер 3</name>
+        <name lang="sk">Solárny regulátor 3</name>
+        <name lang="sl">Sončni krmilnik 3</name>
+        <name lang="sr">Соларни контролер 3</name>
+        <name lang="sv">Solkontroll 3</name>
+        <name lang="tr">Güneş kontrol cihazı 3</name>
+        <name lang="uk">Сонячний контролер 3</name>
+        <name lang="zh">控制器3</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <text text="S1" x="-6" y="6" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="S2" x="2" y="6" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="6" y="7" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="7" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-13" y="-4.13" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="-13" y="-0.71" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="-17" y="-12" width="25" height="19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="9" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="5" y="9" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-9" width="12" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <ellipse x="-13" y="-8.13" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="-6" y="-8" width="10" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="-1" y="3" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-16" y="7" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="9" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12" y="-26.5" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d18949c0-8e71-47c9-8b94-f178bba71417}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="B" x="-16" y="6" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{5ed418db-2dfd-42b8-a0a4-63d592932986}" name="" x="-14" y="12" orientation="s" type="Generic"/>
+        <terminal uuid="{6569a02a-55f7-4baa-a3cc-655c3596179a}" name="" x="-3" y="12" orientation="s" type="Generic"/>
+        <terminal uuid="{34a45f5b-f3d5-407a-b826-37c38e847b1b}" name="" x="7" y="12" orientation="s" type="Generic"/>
+    </description>
+</definition>

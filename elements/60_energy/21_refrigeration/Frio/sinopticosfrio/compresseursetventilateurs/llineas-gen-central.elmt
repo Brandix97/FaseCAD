@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="30" hotspot_x="40" hotspot_y="16">
+    <uuid uuid="{067895ce-fa45-5c2d-9f86-69a637838efd}"/>
+    <names>
+        <name lang="ca">Línies frigorífiques central</name>
+        <name lang="es">Líneas frig. Central</name>
+        <name lang="pt_BR">Líneas frig. Central</name>
+        <name lang="zh">中央发电线</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-26.11" y1="1" x2="-8.89" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="25.5" y="-1" width="1.4" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="25.5" y="-9" width="1.4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="1" x2="26" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-28" y="-9" width="2" height="4" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-28" y="-1" width="2" height="2" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1.43" y1="-9" x2="-1.43" y2="-11" x3="-6.28" y3="-11" x4="-6.28" y4="5" x5="-8.7" y5="5" x6="-8.7" y6="-13" x7="1" y7="-13" x8="1" y8="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="8" y="1" width="1" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-9" x2="-9" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-9" x2="26" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-5" x2="-9" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-5" x2="26" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-1" x2="-9" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-1" x2="26" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12" y="-24" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c07061e4-1f6e-42c2-a29e-afdebcdf6061}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{715fd2b8-9717-414c-a397-0e9b72b9fa45}" name="" x="9" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{72a781db-34d9-49ae-ae7c-c2e888ef525a}" name="" x="-29" y="-7" orientation="w" type="Generic"/>
+        <terminal uuid="{ba8247c9-d0e9-48d0-8d59-92885675c65e}" name="" x="28" y="-7" orientation="e" type="Generic"/>
+        <terminal uuid="{076eaa0b-fe27-4583-9fcd-e7fff9cb8908}" name="" x="28" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{39ce72ff-6c04-4ee9-afe9-16d65ece41a7}" name="" x="-7" y="6" orientation="s" type="Generic"/>
+        <terminal uuid="{00a369da-38fa-473a-a643-e9390314e108}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,106 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="200" hotspot_x="40" hotspot_y="109">
+    <uuid uuid="{ddda52b9-d1fb-d513-1614-1f1cc62cf489}"/>
+    <names>
+        <name lang="ar">دائرة مدمجة 20 دبوس , مُرقّمة</name>
+        <name lang="ca">Circuit integrat, 20 pins, numerat</name>
+        <name lang="cs">Integrovaný obvod, 20 pinů</name>
+        <name lang="da">Integreret kredsløb, 20 ben, nummereret</name>
+        <name lang="de">Integrierte Schaltung 20 Anschlüsse nummeriert</name>
+        <name lang="el">Ολοκληρωμένο κύκλωμα 20 ακροδεκτών, αριθμημένο</name>
+        <name lang="en">Integrated Circuit, 20 pins, numbered</name>
+        <name lang="es">Circuito integrado, 20 pines, numerado</name>
+        <name lang="fi">Integroitu piiri, 20 nastaa, numeroitu</name>
+        <name lang="fr">Circuit integré 20 broches, numerotées</name>
+        <name lang="hr">Integrirani krug, 20 pinova, numerirano</name>
+        <name lang="hu">Integrált áramkör, 20 láb, számozott</name>
+        <name lang="it">Circuito integrato, 20 pin numerati</name>
+        <name lang="ja">集積回路、20 ピン、番号付き</name>
+        <name lang="ko">집적 회로, 20 핀, 번호 매김</name>
+        <name lang="mn">Интеграл хэлхээ, 20 зүү, дугаарласан</name>
+        <name lang="nb">Integrert krets, 20 pinner, nummerert</name>
+        <name lang="nl">IC 20 pin nummers</name>
+        <name lang="nl_BE">Geïntegreerde schakeling, 20 pinnen, genummerd</name>
+        <name lang="pl">Układ scalony, 20 nóżek (ponumerowany)</name>
+        <name lang="pt">Circuito integrado, 20 pinos, numerado</name>
+        <name lang="pt_BR">Circuito integrado, 20 pinos, numerado</name>
+        <name lang="ro">Circuit integrat, 20 pini, numerotat</name>
+        <name lang="ru">Микросхема, 20 выводов, с нумерацией</name>
+        <name lang="sk">Integrovaný obvod, 20 pinov, číslovaný</name>
+        <name lang="sl">Integrirano vezje, 20 nožic, oštevilčeno</name>
+        <name lang="sr">Интегрисано коло, 20 пинова, нумерисано</name>
+        <name lang="sv">Integrerad krets, 20 stift, numrerad</name>
+        <name lang="tr">Entegre devre, 20 pin, numaralı</name>
+        <name lang="uk">Інтегральна схема, 20 виводів, з нумерацією</name>
+        <name lang="zh">20引脚集成电路（窄体）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="10" x="-19" y="80.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="21" y1="60" x2="30" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="60" x2="-21" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-60" x2="-21" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="11" x="9" y="80.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="9" x="-18" y="60.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="21" y1="80" x2="30" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="80" x2="-21" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="20" x2="-21" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="12" x="9" y="60.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="13" x="10" y="41.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="14" x="10.5" y="20.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="15" x="10" y="0.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="16" x="10" y="-19.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="6" x="-18" y="0.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="40" x2="-21" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-20" x2="30" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="2" x="-19" y="-78.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5" x="-18" y="-19.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="21" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1" x="-19" y="-98.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="8" x="-18" y="40.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="0" x2="-21" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="20" x2="30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="19" x="10" y="-78.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="7" x="-18" y="20.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="-20" x2="-21" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="40" x2="30" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="4" x="-18.5" y="-38.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-30" y1="-40" x2="-21" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-80" x2="-21" y2="-80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-100" x2="-21" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-100" x2="30" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-80" x2="30" y2="-80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-60" x2="30" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-40" x2="30" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.5" y="-107" width="5" height="5" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="20" x="10" y="-98.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="-19" y="-58.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-30.5" y="89.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6cb45700-8a1e-4fda-9203-c20b3e3dcdc8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="17" x="10" y="-38.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-20" y="-105" width="40" height="190" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="18" x="10" y="-58.33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{b7444ebe-f1ee-4224-8b79-20ac7a3379c7}" name="" x="31" y="-100" orientation="e" type="Generic"/>
+        <terminal uuid="{14351ef4-1470-443d-9fa3-9b5401f63c2e}" name="" x="31" y="-80" orientation="e" type="Generic"/>
+        <terminal uuid="{ad11486a-9a8c-4b26-9fdb-c04f4c035f64}" name="" x="31" y="-60" orientation="e" type="Generic"/>
+        <terminal uuid="{e4470920-e308-4c23-b432-2770fe6b087b}" name="" x="31" y="-40" orientation="e" type="Generic"/>
+        <terminal uuid="{308e0152-969d-4cc3-82f8-2f4ec9113905}" name="" x="-31" y="-100" orientation="w" type="Generic"/>
+        <terminal uuid="{b019ba67-10b0-41f5-bcd9-e4f0ba4b1a87}" name="" x="-31" y="-40" orientation="w" type="Generic"/>
+        <terminal uuid="{64cf1092-dc46-4258-ad1f-af7a5e71ea7e}" name="" x="-31" y="-80" orientation="w" type="Generic"/>
+        <terminal uuid="{b1783180-89bf-4296-ad93-01e75cb89b2a}" name="" x="31" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{56e1d8ca-58d6-4441-9cf4-8e9df5084123}" name="" x="31" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{17be23b4-9f62-414b-9cd7-712840c7c126}" name="" x="31" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{f8eb3fe4-9f10-4ca1-89f1-4f39059a6fe3}" name="" x="31" y="40" orientation="e" type="Generic"/>
+        <terminal uuid="{63f4ee0b-3e61-4673-b9f2-8b9d3024c61c}" name="" x="-31" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{cec27c40-383d-4f62-bfaa-7b1bfae641fd}" name="" x="-31" y="40" orientation="w" type="Generic"/>
+        <terminal uuid="{08f47012-4e5b-4e37-a9c0-912ca99c7827}" name="" x="-31" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{fa4591a9-d79c-4a98-b8f8-ca3582997fcc}" name="" x="-31" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{608d6daa-22f0-4045-b1cf-d837478ce772}" name="" x="-31" y="-60" orientation="w" type="Generic"/>
+        <terminal uuid="{d0103607-a1a0-4d58-a360-aa0023405f2f}" name="" x="-31" y="80" orientation="w" type="Generic"/>
+        <terminal uuid="{005d734a-b6ac-4478-95ec-175c40e4dd4c}" name="" x="-31" y="60" orientation="w" type="Generic"/>
+        <terminal uuid="{d63b7edf-23ec-4e68-9e15-61f4d1c5a634}" name="" x="31" y="60" orientation="e" type="Generic"/>
+        <terminal uuid="{c4a3cd48-d2c6-423b-adf1-78817a3020ad}" name="" x="31" y="80" orientation="e" type="Generic"/>
+    </description>
+</definition>

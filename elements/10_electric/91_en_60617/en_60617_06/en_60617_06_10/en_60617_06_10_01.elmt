@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="190" hotspot_x="86" hotspot_y="172">
+    <uuid uuid="{96f9d847-55d2-1c74-2edf-00ffccb3d439}"/>
+    <names>
+        <name lang="ar">محول أحادي الوجه بملفين وشاشة</name>
+        <name lang="ca">Transformador monofàsic amb dos bobinatges i pantalla</name>
+        <name lang="cs">Jednofázový transformátor
+se dvěma vinutími a stíněním</name>
+        <name lang="da">Enkeltfaset transformer med to viklinger og skærm</name>
+        <name lang="de">Einphasentransformator mit zwei Wicklungen
+und Schirm</name>
+        <name lang="el">Μονοφασικός μετασχηματιστής με δύο τυλίγματα και θωράκιση</name>
+        <name lang="en">Single-phase transformer with two windings and screen</name>
+        <name lang="es">Transformador monofásico con dos devanados y pantalla</name>
+        <name lang="fi">Yksivaihemuuntaja, kaksi käämiä ja suoja</name>
+        <name lang="fr">Transformateur monophasé à deux
+enroulements avec écran</name>
+        <name lang="hr">Jednofazni transformator s dva namota i zaslonom</name>
+        <name lang="hu">Egyfázisú transzformátor két tekercseléssel és árnyékolással</name>
+        <name lang="it">Trasformatore monofase a due avvolgimenti con schermo</name>
+        <name lang="ja">二巻線及びシールド付き単相変圧器</name>
+        <name lang="ko">2권선 및 스크린이 있는 단상 변압기</name>
+        <name lang="mn">Нэг фазын трансформатор хоёр ороомогтой, дэлгэцтэй</name>
+        <name lang="nb">Enfasetransformator med to viklinger og skjerm</name>
+        <name lang="nl">Eenfase transformator met twee wikkelingen en scherm</name>
+        <name lang="nl_BE">Eenfase transformator met twee wikkelingen en scherm</name>
+        <name lang="pl">Transformator jednofazowy z dwoma uzwojeniami i ekranem</name>
+        <name lang="pt">Transformador monofásico com dois enrolamentos e ecrã</name>
+        <name lang="pt_BR">Transformador monofásico de dois enrolamentos com blindagem</name>
+        <name lang="ro">Transformator monofazat cu două înfășurări și ecran</name>
+        <name lang="ru">Однофазный трансформатор с двумя обмотками и экраном</name>
+        <name lang="sk">Jednofázový transformátor s dvoma vinutiami a tienením</name>
+        <name lang="sl">Enofazni transformator z dvema navitjema in zaslonom</name>
+        <name lang="sr">Једнофазни трансформатор са два намотаја и екраном</name>
+        <name lang="sv">Enfastransformator med två lindningar och skärm</name>
+        <name lang="tr">İki sargılı ve ekranlı tek fazlı transformatör</name>
+        <name lang="uk">Однофазний трансформатор з двома обмотками та екраном</name>
+        <name lang="zh">接线端子01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d068712b-9fbf-4fb0-8522-c0bfcbc1776a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-60" y="-120" width="60" height="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-150" x2="-30" y2="-120" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Form 1 / Forme 1" x="-74" y="-160" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-60" y="-80" width="60" height="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-20" x2="-30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-130" x2="-20" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-135" x2="-20" y2="-145" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="0" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-70" x2="0" y2="-70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a379f799-ab22-41b0-aa3a-31114b1925f8}" name="" x="-30" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{7296e4c7-a602-46f3-bafc-e5fdf81af71a}" name="" x="-30" y="-150" orientation="n" type="Generic"/>
+    </description>
+</definition>

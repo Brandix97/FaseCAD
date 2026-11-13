@@ -1,0 +1,28 @@
+<definition version="0.90" type="element" link_type="simple" width="110" height="40" hotspot_x="57" hotspot_y="17">
+    <uuid uuid="{3ba3018e-4c76-52be-f681-2ae4949bad6b}"/>
+    <names>
+        <name lang="ar">محرك مؤازر V2V FDC</name>
+        <name lang="ca">Servomotor V2V FDC</name>
+        <name lang="cs">Servomotor V2V</name>
+        <name lang="da">Servomotor V2V FDC</name>
+        <name lang="de">Stellantrieb V2V FDC</name>
+        <name lang="el">Σερβοκινητήρας V2V FDC</name>
+        <name lang="en">Servo motor V2V FDC</name>
+        <name lang="fr">Servomoteur V2V FDC</name>
+        <name lang="pt_BR">Servomotor V2V FDC</name>
+        <name lang="zh">伺服电机 FDC 元件</name>
+    </names>
+    <informations>S.DEFFAUX</informations>
+    <description>
+        <text text="N" x="-45" y="5" rotation="359" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="FDC" x="20" y="4" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="0" y1="0" x2="-4" y2="10" x3="4" y3="10" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="-20" y1="10" x2="-16" y2="0" x3="-24" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <rect x="-50" y="-10" width="100" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{bc4a4212-db22-4cbe-94f2-f9cb1ca5e2f5}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{25856fc8-a4f9-424d-8ce9-2c622b33a013}" name="" x="-20" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{e1ff28ca-3f4b-472b-9242-32632655ab02}" name="" x="-40" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{273ab8b4-9e35-446a-a0e5-8588738dbd61}" name="" x="40" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{2cd0f02f-9fc9-488f-b0b5-506296460149}" name="" x="20" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="37" hotspot_y="35">
+    <uuid uuid="{a87d71d5-048a-8265-1001-ab2b12deab49}"/>
+    <names>
+        <name lang="ar">رابط حلزوني</name>
+        <name lang="ca">Acoblador helicoïdal</name>
+        <name lang="cs">Spirálový vazebí člen</name>
+        <name lang="da">Spiralkobler</name>
+        <name lang="de">Kupplung Spirale</name>
+        <name lang="el">Ελικοειδής συζεύκτης</name>
+        <name lang="en">Helical coupler</name>
+        <name lang="es">Acoplador helicoidal</name>
+        <name lang="fi">Kierrekytkin</name>
+        <name lang="fr">Hélice de couplage</name>
+        <name lang="hr">Helikoidni spojnik</name>
+        <name lang="hu">Helikális csatoló</name>
+        <name lang="it">Accoppiatore elicoidale</name>
+        <name lang="ja">ヘリカル結合器</name>
+        <name lang="ko">나선형 커플러</name>
+        <name lang="mn">Спираль холбогч</name>
+        <name lang="nb">Helisk kobler</name>
+        <name lang="nl">Helische koppeling</name>
+        <name lang="nl_BE">Helical coupler</name>
+        <name lang="pl">Sprzęgacz helikalny</name>
+        <name lang="pt">Acoplador helicoidal</name>
+        <name lang="pt_BR">Acoplador helicoidal</name>
+        <name lang="ro">Cuplor elicoidal</name>
+        <name lang="ru">Спиральный ответвитель</name>
+        <name lang="sk">Špirálový väzobný člen</name>
+        <name lang="sl">Helični spojnik</name>
+        <name lang="sr">Хеликоидна спрега</name>
+        <name lang="sv">Helisk kopplare</name>
+        <name lang="tr">Helezonik kuplör</name>
+        <name lang="uk">Спіральний елемент зв'язку</name>
+        <name lang="zh">接线端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <arc x="-35" y="-31" width="10" height="10" start="50" angle="265" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-17" width="10" height="10" start="47" angle="268" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="5" y="2.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3c048f85-fd00-4008-b7e9-5915276bc4f4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-35" y="-24" width="10" height="10" start="47" angle="268" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="0" x2="-30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-35" y="-10" width="10" height="10" start="47" angle="223" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

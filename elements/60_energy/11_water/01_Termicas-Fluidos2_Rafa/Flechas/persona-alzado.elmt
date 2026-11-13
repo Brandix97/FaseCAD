@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="90" hotspot_x="31" hotspot_y="60">
+    <uuid uuid="{d6f1a6d9-6c64-1bb7-10c3-1cce7ef98230}"/>
+    <names>
+        <name lang="ca"></name>
+        <name lang="es">Persona en alzado</name>
+          <name lang="pt_BR">Persona en alzado</name>
+        <name lang="zh">人-正视图</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-1.48" y1="-4.69" x2="-1.48" y2="22.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10.32" y="-34.38" width="22.1" height="30.19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.48" y1="22" x2="-12.53" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.73" y1="-39.57" x2="0.73" y2="-35.21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.15" y1="-4.19" x2="5.15" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.15" y1="26" x2="-5.9" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.9" y1="-24.31" x2="-28" y2="-14.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.32" y1="-16.26" x2="-21.37" y2="-6.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5.68" y1="-57.32" x2="-5.68" y2="-51.68" x3="-10.76" y3="-46.05" x4="-5.68" y4="-46.05" x5="-5.68" y5="-43.23" x6="-5.68" y6="-40.41" x7="9.57" y7="-40.41" x8="9.57" y8="-57.32" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-3.69" y="-52.49" width="4.42" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1.48" y="-40.36" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{99ae5d42-1d70-4ec9-90f8-874008e450e9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{857f6e83-43b2-4a26-bce5-e6a252f6e1a9}" name="" x="10" y="-19" orientation="n" type="Generic"/>
+    </description>
+</definition>

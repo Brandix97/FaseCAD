@@ -1,0 +1,110 @@
+<definition version="0.100.0" type="element" link_type="master" width="140" height="310" hotspot_x="14" hotspot_y="301">
+    <uuid uuid="{0456bd75-79e6-d740-acd6-cb782b3ad89c}"/>
+    <names>
+        <name lang="ar">تهوية ميكانيكية مراقبة</name>
+        <name lang="ca">VMC</name>
+        <name lang="cs">Ventilátor</name>
+        <name lang="da">VMC</name>
+        <name lang="de">Kontrollierte Wohnraumlüftung</name>
+        <name lang="el">VMC</name>
+        <name lang="en">VMC</name>
+        <name lang="es">VMC</name>
+        <name lang="fi">VMC</name>
+        <name lang="fr">VMC</name>
+        <name lang="hr">VMC</name>
+        <name lang="hu">VMC</name>
+        <name lang="it">VMC</name>
+        <name lang="ja">換気システム</name>
+        <name lang="ko">VMC</name>
+        <name lang="mn">VMC</name>
+        <name lang="nb">VMC</name>
+        <name lang="nl">VMC</name>
+        <name lang="nl_BE">VMC</name>
+        <name lang="pl">Wentylacja mechaniczna</name>
+        <name lang="pt">VMC</name>
+        <name lang="pt_BR">Ventilação mecÓ¢nica controlada</name>
+        <name lang="ro">VMC</name>
+        <name lang="ru">Приточно-вытяжная вентиляция</name>
+        <name lang="sk">VMC</name>
+        <name lang="sl">Prezračevanje</name>
+        <name lang="sr">VMC</name>
+        <name lang="sv">VMC</name>
+        <name lang="tr">VMC</name>
+        <name lang="uk">Припливно-витяжна вентиляція</name>
+        <name lang="zh">机械通风</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <line x1="65" y1="-224" x2="55" y2="-214" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-244" x2="60" y2="-240" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="60" y1="-257" x2="60" y2="-260" x3="55" y3="-280" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="29" y="-45" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7fb496b7-bf35-4c7e-8884-b1666a3a84f1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-64" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f6b90fef-d6d3-4951-9c45-8992f2803271}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Combles</text>
+        </dynamic_text>
+        <line x1="65" y1="-218" x2="55" y2="-208" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-240" x2="60" y2="-175" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="56" y="-249.5" width="8" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-252" x2="60" y2="-250" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-253" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="64" y="-225" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="-170" x2="120" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:green" antialias="false"/>
+        <line x1="64" y1="-257" x2="64" y2="-253" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-257" x2="64" y2="-257" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-290" x2="60" y2="-280" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-176" x2="60" y2="-95" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="62" y1="-282" x2="58" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="-125" x2="90" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="30" y="-130" width="30" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="58" y1="-282" x2="62" y2="-278" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="57" y1="-270" x2="50" y2="-270" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="55" y="-155" width="10" height="30" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="50" y1="-270" x2="50" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="60" y="-130" width="30" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="50" y1="-247" x2="64" y2="-247" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="55" y="-125" width="10" height="30" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="50" y1="-255" x2="64" y2="-255" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="30" y="-155" width="60" height="60" start="20" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="70" y="-233.5" z="36" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ac2a2c20-03fe-4b90-8ecd-990514736625}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <arc x="30" y="-155" width="60" height="60" start="290" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="66" y="-278.83" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1920b129-e017-440e-bca9-c6311bb1cd6b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="30" y="-154" width="60" height="60" start="200" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="30" y="-155" width="60" height="60" start="110" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="20" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="290" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="200" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-141" width="30" height="30" start="110" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="36.5" y="-147.5" width="45" height="45" start="15" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.5" y="-147.5" width="45" height="45" start="290" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.5" y="-147.5" width="45" height="45" start="200" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="38.5" y="-147.5" width="45" height="45" start="110" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="28" y="-14.5" z="49" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8283f68b-f9f2-4ee4-b79e-74bcafa82396}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-29.5" z="50" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5f0942eb-2c08-4fd0-a739-c5c29dec6857}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-82.5" z="51" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{768c22bb-1ef1-45f1-8e1f-75e4d3a6b673}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>VMC</text>
+        </dynamic_text>
+        <ellipse x="58" y="-172" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{e6162a30-8f79-4496-95fe-c90819d69545}" name="" x="60" y="-290" orientation="n" type="Generic"/>
+    </description>
+</definition>

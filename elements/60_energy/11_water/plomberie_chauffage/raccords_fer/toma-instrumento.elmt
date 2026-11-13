@@ -1,0 +1,25 @@
+<definition height="40" hotspot_x="9" hotspot_y="22" link_type="simple" type="element" version="0.100.1" width="20">
+    <uuid uuid="{347b7cc5-212d-4353-82a0-2bc2c2878eec}"/>
+    <names>
+        <name lang="ca">Presa instrument</name>
+        <name lang="de">Anschluss für Druckmessgerät</name>
+        <name lang="es">Toma instrumento</name>
+        <name lang="pt_BR">Toma instrumento</name>
+        <name lang="zh">仪表取压口</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:red" x1="-5" x2="5" y1="-10" y2="-12"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:red" x1="-5" x2="5" y1="-14" y2="-16"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:red" x1="-5" x2="5" y1="-8" y2="-10"/>
+        <rect antialias="false" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="5" x="-2.5" y="-6"/>
+        <rect antialias="false" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="15" x="-7.5" y="-16"/>
+        <rect antialias="false" height="7" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" width="10" x="-5" y="-15"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:red" x1="-5" x2="5" y1="-12" y2="-14"/>
+        <dynamic_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{0cc9599c-5bff-4be3-90d3-19da71bf5c26}" x="8" y="-25" z="8">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal name="1" orientation="s" type="Generic" uuid="{86823246-82c2-41df-983f-6dc5404e9fb8}" x="0" y="10"/>
+    </description>
+</definition>

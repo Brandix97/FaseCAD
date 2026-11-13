@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="40" hotspot_x="41" hotspot_y="29">
+    <uuid uuid="{25ab4517-a003-219a-139e-4ffac715a0ef}"/>
+    <names>
+        <name lang="ar">خزّان 1000ل</name>
+        <name lang="ca">Intercanviador d'immersió de 1000L</name>
+        <name lang="cs">Zásobník 1000L</name>
+        <name lang="da">Opbevaringstank 1000L</name>
+        <name lang="de">Speichertank 1000L</name>
+        <name lang="el">Δεξαμενή αποθήκευσης 1000L</name>
+        <name lang="en">Storage tank 1000L</name>
+        <name lang="es">Intercamiador inmersión</name>
+        <name lang="fi">Säiliö 1000L</name>
+        <name lang="fr">Ballon Stockage 1000L</name>
+        <name lang="hr">Spremnik 1000L</name>
+        <name lang="hu">Tárolótartály 1000L</name>
+        <name lang="it">Serbatoio 1000L</name>
+        <name lang="ja">貯蔵タンク 1000L</name>
+        <name lang="ko">저장 탱크 1000L</name>
+        <name lang="mn">Хадгалах сав 1000Л</name>
+        <name lang="nb">Lagringstank 1000L</name>
+        <name lang="nl">Opslagtank 1000L</name>
+        <name lang="nl_BE">Boiler 1000L</name>
+        <name lang="pl">Zasobnik 1000L</name>
+        <name lang="pt">Depósito 1000L</name>
+        <name lang="pt_BR">Tanque de armazenamento 1000L</name>
+        <name lang="ro">Rezervor 1000L</name>
+        <name lang="ru">Бак-термос 1000л</name>
+        <name lang="sk">Zásobník 1000L</name>
+        <name lang="sl">Hranilnik 1000L</name>
+        <name lang="sr">Резервоар 1000Л</name>
+        <name lang="sv">Ackumulatortank 1000L</name>
+        <name lang="tr">Depolama tankı 1000L</name>
+        <name lang="uk">Бак 1000л</name>
+        <name lang="zh">浸入式换热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-30.5" y="-1.41" width="2.94" height="3.44" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22.06" y1="-1.69" x2="29.93" y2="-1.69" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-8.36" y1="-12" x2="29.49" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="28.57" y="-6.85" width="5.15" height="5.16" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <arc x="-11.86" y="-12" width="5.15" height="5.16" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-8.36" y1="-6.85" x2="29.49" y2="-6.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-26.56" y="-24.34" width="2.94" height="29.81" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30.5" y="-21" width="2.94" height="3.44" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-23.62" y="-19.76" width="5.88" height="20.65" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22.07" y1="-17.17" x2="29.21" y2="-17.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="27.83" y="-17.17" width="5.88" height="5.16" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <dynamic_text x="3" y="-29.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e10af0de-8e46-425b-af33-ad16b6355d49}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{6de5c3e4-e378-4d81-a299-5956c7ea914c}" name="" x="-31" y="-19" orientation="w" type="Generic"/>
+        <terminal uuid="{5cc67d03-e811-493f-bd87-5f608bf68dd4}" name="" x="-31" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

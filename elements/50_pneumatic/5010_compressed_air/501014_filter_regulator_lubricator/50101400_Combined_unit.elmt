@@ -1,0 +1,70 @@
+<definition version="0.90" type="element" link_type="simple" width="130" height="90" hotspot_x="30" hotspot_y="50">
+    <uuid uuid="{4f37d05a-397d-248e-9a9a-6a6753b29821}"/>
+    <names>
+        <name lang="ar">وحدة صيانة + فلتر + فاصل مياه يدوي</name>
+        <name lang="ca">Unitat de manteniment + filtre + separador d'aigua manual</name>
+        <name lang="cs">Údržbová jednotka + filtr + ruční odlučovač vody</name>
+        <name lang="da">Vedligeholdelsesenhed + filter + manuel vandudskiller</name>
+        <name lang="de">Wartungseinheit + Filter + manuellem Wasserabscheider</name>
+        <name lang="el">Μονάδα συντήρησης + φίλτρο + χειροκίνητος διαχωριστής νερού</name>
+        <name lang="en">Maintenance unit + filter + manual water separator</name>
+        <name lang="es">Unidad de mantenimiento + filtro + separador de agua manual</name>
+        <name lang="fi">Huoltoyksikkö + suodatin + manuaalinen vedenerotin</name>
+        <name lang="fr">Unité de maintenance + filtre + séparateur d'eau manuel</name>
+        <name lang="hr">Jedinica za održavanje + filter + ručni separator vode</name>
+        <name lang="hu">Karbantartó egység + szűrő + kézi vízleválasztó</name>
+        <name lang="it">Unità di manutenzione + filtro + separatore d'acqua manuale</name>
+        <name lang="ja">メンテナンスユニット+フィルター+手動水分離器</name>
+        <name lang="ko">유지 보수 장치 + 필터 + 수동 물 분리기</name>
+        <name lang="mn">Засвар үйлчилгээний хэсэг + шүүлтүүр + гар ус тусгаарлагч</name>
+        <name lang="nb">Vedlikeholdsenhet + filter + manuell vannutskiller</name>
+        <name lang="nl">Onderhoudsunit + filter + handmatige waterafscheider</name>
+        <name lang="nl_BE">Onderhoudseenheid + filter + handmatige waterafscheiding</name>
+        <name lang="pl">Jednostka konserwacyjna + filtr + ręczny separator wody</name>
+        <name lang="pt">Unidade de manutenção + filtro + separador de água manual</name>
+        <name lang="pt_BR">Unidade de manutenção + filtro + separadou de água manual</name>
+        <name lang="ro">Unitate de intretinere + filtru + separator manual de apa</name>
+        <name lang="ru">Блок обслуживания + фильтр + ручной водоотделитель</name>
+        <name lang="sk">Jednotka údržby + filter + ručný odlučovač vody</name>
+        <name lang="sl">Vzdrževalna enota + filter + ročni separator vode</name>
+        <name lang="sr">Јединица за одржавање + филтер + ручни сепаратор воде</name>
+        <name lang="sv">Underhållsenhet + filter + manuell vattenavskiljare</name>
+        <name lang="tr">Bakım ünitesi + filtre + manuel su ayırıcı</name>
+        <name lang="uk">Блок підготовки + фільтр + ручне відділення води</name>
+        <name lang="zh">组合单元</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="52" y1="-29" x2="67" y2="-37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="65" y1="0" x2="86" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="66" y1="-37" x2="67" y2="-35" x3="71" y3="-39" x4="65" y4="-38" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="60" y1="-25" x2="55" y2="-27" x3="65" y3="-29" x4="55" y4="-31" x5="65" y5="-33" x6="55" y6="-35" x7="60" y7="-37" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="50" y1="7" x2="50" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="71" y1="14" x2="71" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="15" x2="10" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="0" x2="60" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="65" y1="0" x2="60" y2="-2" x3="60" y3="2" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="50" y1="15" x2="50" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="55" y1="15" x2="50" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="63" y1="15" x2="58" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="71" y1="12" x2="71" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="71" y1="15" x2="66" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="5" x2="66" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="35" y="-25" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-7" x2="10" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-14" x2="10" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="0" x2="10" y2="-15" x3="25" y3="0" x4="10" y4="15" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="2" y1="7" x2="18" y2="7" end1="circle" end2="circle" length1="0.1" length2="0.1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-45" width="90" height="65" rx="0" ry="0" style="line-style:dashdotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-50" z="24" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0b23f950-3387-4436-ba54-1e414b2828dd}" font="Liberation Sans,7,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{78e12a2d-1122-4791-82c2-1f1b141d1dfb}" name="" x="10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{f9bf62cf-453d-46c8-9fb1-8a7d2ca74f4f}" name="" x="90" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{6e57fcf4-c58e-42e3-ab4a-58ab76fdd45d}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

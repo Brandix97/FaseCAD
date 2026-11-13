@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="slave" width="40" height="60" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{2de0fe69-bdf1-051f-4d0b-35950c937ee7}"/>
+    <names>
+        <name lang="ar">مُلامس NO-NC</name>
+        <name lang="ca">Contacte senzill</name>
+        <name lang="cs">Přepínací kontakt</name>
+        <name lang="da">Enkel kontakt</name>
+        <name lang="de">Wechsler</name>
+        <name lang="el">Απλή μεταγωγική επαφή</name>
+        <name lang="en">Simple contact</name>
+        <name lang="es">Contacto simple</name>
+        <name lang="fi">Yksinkertainen kosketin</name>
+        <name lang="fr">Contact NO - NC</name>
+        <name lang="hr">Jednostavni kontakt</name>
+        <name lang="hu">Egyszerű érintkező</name>
+        <name lang="it">Contatto semplice (NC/NO)</name>
+        <name lang="ja">単純接点</name>
+        <name lang="ko">단순 접점</name>
+        <name lang="mn">Энгийн контакт</name>
+        <name lang="nb">Enkel kontakt</name>
+        <name lang="nl">enkel contact (NC/NO)</name>
+        <name lang="nl_BE">Eenvoudig contact</name>
+        <name lang="pl">Zestyk przełączny przerwowy</name>
+        <name lang="pt">Contacto simples (NO)</name>
+        <name lang="pt_BR">Contato simples</name>
+        <name lang="ro">Contact simplu</name>
+        <name lang="ru">Проктой контакт (НР)</name>
+        <name lang="sk">Jednoduchý kontakt</name>
+        <name lang="sl">Enostavni kontakt</name>
+        <name lang="sr">Прости контакт</name>
+        <name lang="sv">Enkelkontakt</name>
+        <name lang="tr">Basit kontak</name>
+        <name lang="uk">Простий контакт</name>
+        <name lang="zh">常开触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">SW</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-15" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="13" y="-15.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e766279e-cb99-4d71-af02-0703dafac73d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-20" x2="-20" y2="-8" x3="-12" y3="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{69c4792e-5b2e-4c9e-8d01-eff45bc26593}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{f149fc7c-a2ce-4407-afe4-02f03d29f571}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{4c5fcd5c-fb7a-4e66-a115-017554a9bead}" name="" x="-20" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

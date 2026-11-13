@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="50" hotspot_x="48" hotspot_y="20">
+    <uuid uuid="{d6f55007-367d-2568-5521-64435b511e0b}"/>
+    <names>
+        <name lang="ca">Condensador d'aigua</name>
+        <name lang="es">Condensador agua</name>
+        <name lang="pt_BR">Condensadou agua</name>
+        <name lang="zh">水冷式冷凝器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-28.75" y="-8.34" width="1" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="23.25" y="9.66" width="7" height="6" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="16" y1="-9" x2="21.75" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-28.4" y1="-7.52" x2="26.7" y2="-7.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-39.75" y="-5.34" width="5" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="18.25" y="15.49" width="3.75" height="4.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-39.75" y="6.66" width="5" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26.65" y1="-5" x2="26.65" y2="13.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-34.75" y="-10.32" width="5.6" height="29" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.4" y1="15.44" x2="26.7" y2="15.44" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-11.17" width="3.5" height="4.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-9" x2="-18.5" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-28.75" y="16.66" width="0" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-31.75" y1="-10.34" x2="-31.75" y2="18.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-36.75" y="-8.34" width="1" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35.75" y="1.66" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-28.75" y="1.66" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35.75" y="15.66" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-28.75" y="15.66" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="24.25" y="-7.34" width="6" height="6" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30.25" y1="-4.34" x2="30.25" y2="11.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0ef1ab21-34e0-4f86-ba68-b1ad871a4f8d}" name="" x="-20" y="-12" orientation="n" type="Generic"/>
+        <terminal uuid="{9e910809-075b-4971-b0f3-deefa59f61c4}" name="" x="20" y="21" orientation="s" type="Generic"/>
+        <terminal uuid="{c0f21cbf-c577-4a17-aac7-11a2cb357200}" name="" x="-41" y="-3" orientation="w" type="Generic"/>
+        <terminal uuid="{0bcba498-5b7e-4c2d-b7d4-ade70d8d5f11}" name="" x="-41" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.90" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{2ad4bc44-d301-aea8-2feb-8ab7c9fced7b}"/>
+    <names>
+        <name lang="ar">دايود نفقي</name>
+        <name lang="ca">Díode de túnel</name>
+        <name lang="cs">Tunelová/Esakiho dioda</name>
+        <name lang="da">Tunneldiode</name>
+        <name lang="de">Tunneldiode</name>
+        <name lang="el">Δίοδος σήραγγας</name>
+        <name lang="en">Tunnel diode</name>
+        <name lang="es">Diodo túnel</name>
+        <name lang="fi">Tunnelidiodi</name>
+        <name lang="fr">Diode tunnel</name>
+        <name lang="hr">Tunelska dioda</name>
+        <name lang="hu">Alagútdióda</name>
+        <name lang="it">Diodo tunnel</name>
+        <name lang="ja">トンネルダイオード</name>
+        <name lang="ko">터널 다이오드</name>
+        <name lang="mn">Туннель диод</name>
+        <name lang="nb">Tunneldiode</name>
+        <name lang="nl">Diode tunnel</name>
+        <name lang="nl_BE">Tunneldiode</name>
+        <name lang="pl">Dioda tunelowa</name>
+        <name lang="pt">Díodo túnel</name>
+        <name lang="pt_BR">Diodo túnel</name>
+        <name lang="ro">Diodă tunnel</name>
+        <name lang="ru">Туннельный диод</name>
+        <name lang="sk">Tunelová dióda</name>
+        <name lang="sl">Tunelska dioda</name>
+        <name lang="sr">Тунел диода</name>
+        <name lang="sv">Tunneldiod</name>
+        <name lang="tr">Tünel diyot</name>
+        <name lang="uk">Тунельний діод</name>
+        <name lang="zh">隧道二极管</name>
+    </names>
+    <informations>EN 60617: 05-03-05</informations>
+    <description>
+        <dynamic_text x="8" y="-13.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b5c39bd4-b103-4b1e-be0b-05e6421c6196}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="0" x2="-5" y2="-10" x3="5" y3="-10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-5" y1="-3" x2="-5" y2="0" x3="5" y3="0" x4="5" y4="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{a6366073-5106-4ab8-843e-294d19658730}" name="K" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{cc260186-c7aa-4320-9469-c9b8e9ec4b78}" name="A" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

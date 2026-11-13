@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{1889bcc1-64d4-5214-95cb-137af24869d5}"/>
+    <names>
+        <name lang="de">Kondensator</name>
+        <name lang="en">Capacitor</name>
+        <name lang="es">Condensador</name>
+        <name lang="fr">Condensateur</name>
+        <name lang="it">Condensatore</name>
+        <name lang="pt">Condensador</name>
+        <name lang="tr">Kondansatör</name>
+        <name lang="zh">电容器</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="2" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-2" x2="7" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="2" x2="7" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e0669c25-db3e-5ce2-8d99-23bf7bc8ab9d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4ec5fed3-f953-55eb-8e86-5d2082fd5aa9}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{fed9b3b8-8993-5a8f-b5f9-5c3806e8e449}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="15" hotspot_y="10">
+    <uuid uuid="{8f601af4-751f-7519-d875-ab44362518bd}"/>
+    <names>
+        <name lang="ar">ترنزيستور حقلي ذو وصلة بقناة من نوع N</name>
+        <name lang="ca">Transistor d'efecte de camp d'unió amb canal tipus N</name>
+        <name lang="cs">Tranzistor řízený polem s kanálem typu N (JFET)</name>
+        <name lang="da">Junction-felteffekttransistor med N-type kanal</name>
+        <name lang="de">Sperrschicht-Feldeffekt-Transistor (JFET) mit
+N-Kana</name>
+        <name lang="el">Τρανζίστορ επαφής πεδίου με κανάλι τύπου N</name>
+        <name lang="en">Junction field effect transistor with N-type channel</name>
+        <name lang="es">Transistor de efecto de campo de unión con canal de tipo N</name>
+        <name lang="fi">Liitoskanavatransistori, N-tyypin kanava</name>
+        <name lang="fr">Transistor à effet de champ à grille-jonction
+avec canal de type N</name>
+        <name lang="hr">Spojni tranzistor s efektom polja s N-kanalom</name>
+        <name lang="hu">Junction térvezérlésű tranzisztor N-típusú csatornával</name>
+        <name lang="it">Transistor a effetto di campo a giunzione con canale di tipo N</name>
+        <name lang="ja">N型チャネルの接合型電界効果トランジスタ</name>
+        <name lang="ko">N형 채널 접합 전계 효과 트랜지스터</name>
+        <name lang="mn">Жанкцийн талбайн эффект транзистор N төрлийн сувагтай</name>
+        <name lang="nb">Junction field effect transistor med N-type kanal</name>
+        <name lang="nl">Junctie-veldeffecttransistor met N-type kanaal</name>
+        <name lang="nl_BE">Junctieveldeffecttransistor met N-type kanaal</name>
+        <name lang="pl">Tranzystor polowy złączowy z kanałem typu N</name>
+        <name lang="pt">Transístor de efeito de campo de junção com canal tipo N</name>
+        <name lang="pt_BR">Transistor de efeito de campo de junção com canal tipo N</name>
+        <name lang="ro">Tranzistor cu efect de câmp cu joncțiune cu canal de tip N</name>
+        <name lang="ru">Полевой транзистор с управляющим p-n переходом с каналом N-типа</name>
+        <name lang="sk">Hradlový tranzistor riadený poľom s kanálom typu N</name>
+        <name lang="sl">Spajalni poljski tranzistor z N-kanalom</name>
+        <name lang="sr">Спојни транзистор са ефектом поља са N-каналом</name>
+        <name lang="sv">Junction-fälteffekttransistor med N-typ kanal</name>
+        <name lang="tr">N tipi kanallı jonksiyon alan etkili transistör</name>
+        <name lang="uk">Польовий транзистор з p-n переходом і каналом N-типу</name>
+        <name lang="zh">接线端子09</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="25" y="32.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d29b6525-b1b8-48fd-a370-f73bd9c62730}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="30" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="10" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="20" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="15" x2="5" y2="20" x3="0" y3="25" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

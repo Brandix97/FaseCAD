@@ -1,0 +1,67 @@
+<definition version="0.100" type="element" link_type="simple" width="90" height="50" hotspot_x="60" hotspot_y="25">
+    <uuid uuid="{b568b0ca-1272-23ca-1bdf-4c25d48cecb9}"/>
+    <names>
+        <name lang="ar">أم لا (NOR)</name>
+        <name lang="ca">O NO (NOR)</name>
+        <name lang="cs">NEBO NE (NOR)</name>
+        <name lang="da">ELLER IKKE (NOR)</name>
+        <name lang="de">ODER NICHT (NOR)</name>
+        <name lang="el">Ή ΟΧΙ (NOR)</name>
+        <name lang="en">OR NOT (NOR)</name>
+        <name lang="es">O NO (NOR)</name>
+        <name lang="fi">TAI EI (NOR)</name>
+        <name lang="fr">OU NON (NOR)</name>
+        <name lang="hr">ILI NE (NOR)</name>
+        <name lang="hu">VAGY NEM (NOR)</name>
+        <name lang="it">O NO (NOR)</name>
+        <name lang="ja">か否か (NOR)</name>
+        <name lang="ko">OR NOT (NOR)</name>
+        <name lang="mn">ЭСВЭЛ БИШ (NOR)</name>
+        <name lang="nb">ELLER IKKE (NOR)</name>
+        <name lang="nl">OF NIET (NOR)</name>
+        <name lang="nl_BE">OR NOT (NOR)</name>
+        <name lang="pl">ALBO NIE (NOR)</name>
+        <name lang="pt">OU NÃO (NOR)</name>
+        <name lang="pt_BR">OU NÓO (Nou)</name>
+        <name lang="ro">SAU NU (NOR)</name>
+        <name lang="ru">ИЛИ НЕ (NOR)</name>
+        <name lang="sk">OR NOT (NOR)</name>
+        <name lang="sl">ALI NE (NOR)</name>
+        <name lang="sr">ИЛИ НЕ (NOR)</name>
+        <name lang="sv">ELLER ICKE (NOR)</name>
+        <name lang="tr">YA DA DEĞİL (NOR)</name>
+        <name lang="uk">OR NOT (NOR)</name>
+        <name lang="zh">或非门</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-30.5" y="-11" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{87953432-44f0-e58d-8003-d32adc872cf8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-31" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{01c9fd49-bb6d-c7ee-d894-0108a98ca2cd}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <dynamic_text x="-10.5" y="-7" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4024fdc3-4b18-ce50-0957-d6842321a8d9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <dynamic_text x="12.5" y="-21" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{782085f1-4169-5aff-41aa-ec70d58788db}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+        </dynamic_text>
+        <ellipse x="10.49" y="-2" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="9.5" y="5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b4d9967b-6660-bd0e-f7a8-1c0efe44a80e}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-29.5" y1="-10" x2="-15.8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-30.5" y="-20" width="40" height="40" start="271" angle="179" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-23.69" y1="20" x2="-11" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-53.5" y="-22.5" width="40" height="45" start="298" angle="123" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-24.21" y1="-20" x2="-10.5" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-29.5" y1="10" x2="-16" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{66c93b66-8a3a-45ba-9f88-f842986c1319}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{e5f73fc6-6765-4b0c-8e52-1ee900aecd04}" name="" x="-31" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{a11cba2f-5f6c-4557-a66d-222cc34e8ce4}" name="" x="-31" y="-10" orientation="w" type="Generic"/>
+    </description>
+</definition>

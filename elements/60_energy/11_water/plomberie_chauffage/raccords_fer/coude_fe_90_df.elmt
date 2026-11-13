@@ -1,0 +1,39 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="35" hotspot_y="15">
+    <uuid uuid="{816f5c05-cbf0-6873-2d50-f34bca7145d7}"/>
+    <names>
+        <name lang="ar">كوع رقم 90 DF</name>
+        <name lang="ca">Colze no 90 DF</name>
+        <name lang="cs">Koleno č. 90 DF</name>
+        <name lang="da">Bøjning nr. 90 DF</name>
+        <name lang="de">Winkel Nr. 90 DF</name>
+        <name lang="el">Γωνία n° 90 DF</name>
+        <name lang="en">Elbow no. 90 FF</name>
+        <name lang="fr">Coude n° 90 DF</name>
+        <name lang="pt_BR">Coude n° 90 DF</name>
+        <name lang="zh">弯头铁90双母</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-7" y="16.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5f359ea3-267c-4307-aebe-e3465dfb062e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-13" y="7" width="16" height="16" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-27" y="-7" width="44" height="44" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-29" y="21" width="2" height="2" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-13" y="21" width="2" height="2" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-27" y1="21" x2="-13" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="16" x2="-27" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="16" x2="-13" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="23" x2="-13" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="1" y="-9" width="2" height="2" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="7" width="2" height="2" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3" y1="-7" x2="3" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-7" x2="1" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="7" x2="-4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-7" x2="-4" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{45668a03-6e5d-4799-9d96-1f990add9c6c}" name="" x="-20" y="23" orientation="s" type="Generic"/>
+        <terminal uuid="{21669a5a-b8bf-4a21-b926-d611c2ab22a0}" name="" x="3" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

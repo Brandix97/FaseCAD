@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="110" hotspot_x="45" hotspot_y="105">
+    <uuid uuid="{d2c112e9-bdb0-981f-80bd-9781b5e94a34}"/>
+    <names>
+        <name lang="ar">رأس شبكة بدون هوائي محلي</name>
+        <name lang="ca">Capçal sense antena local</name>
+        <name lang="cs">Místo příjmu bez lokální antény</name>
+        <name lang="da">Hovedstation uden lokal antenne</name>
+        <name lang="de">Kabelkopf (Empfangsstelle) ohne Ortsantenne</name>
+        <name lang="el">Κεφαλή δικτύου χωρίς τοπική κεραία</name>
+        <name lang="en">Head end without local antenna</name>
+        <name lang="es">Cabecera sin antena local</name>
+        <name lang="fi">Päätepiste ilman paikallista antennia</name>
+        <name lang="fr">Tête de réseau sans antenne locale</name>
+        <name lang="hr">Glavna točka bez lokalne antene</name>
+        <name lang="hu">Fejállomás helyi antenna nélkül</name>
+        <name lang="it">Testa di rete senza antenna locale</name>
+        <name lang="ja">ローカルアンテナなしヘッドエンド</name>
+        <name lang="ko">국부 안테나가 없는 헤드 엔드</name>
+        <name lang="mn">Орон нутгийн антеннгүй толгойн төгсгөл</name>
+        <name lang="nb">Hodestasjon uten lokal antenne</name>
+        <name lang="nl">Kopstation zonder lokale antenne</name>
+        <name lang="nl_BE">Kopstation zonder lokale antenne</name>
+        <name lang="pl">Głowica bez anteny lokalnej</name>
+        <name lang="pt">Cabeçalho sem antena local</name>
+        <name lang="pt_BR">Head Extremidade sem local antenna</name>
+        <name lang="ro">Cap de rețea fără antenă locală</name>
+        <name lang="ru">Головная станция без местной антенны</name>
+        <name lang="sk">Hlavová stanica bez miestnej antény</name>
+        <name lang="sl">Glavna postaja brez lokalne antene</name>
+        <name lang="sr">Челни уређај без локалне антене</name>
+        <name lang="sv">Huvudstation utan lokal antenn</name>
+        <name lang="tr">Yerel antensiz baş uç</name>
+        <name lang="uk">Головна станція без місцевої антени</name>
+        <name lang="zh">接线端子排02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{755122d9-d60f-4397-95e7-0d7a14055623}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-40" y="-70" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-30" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-100" x2="-20" y2="-70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-37" y1="-60" x2="-3" y2="-60" x3="-20" y3="-30" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

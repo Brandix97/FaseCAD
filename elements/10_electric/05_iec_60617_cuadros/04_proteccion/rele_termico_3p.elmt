@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="master" width="60" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{59ed2516-d42b-5ad7-8f54-773c0a66430a}"/>
+    <names>
+        <name lang="de">Thermisches Überlastrelais, 3-polig</name>
+        <name lang="en">Thermal overload relay, 3 poles</name>
+        <name lang="es">Relé térmico, 3 polos</name>
+        <name lang="fr">Relais thermique, 3 pôles</name>
+        <name lang="it">Relè termico, 3 poli</name>
+        <name lang="pt">Relé térmico, 3 polos</name>
+        <name lang="tr">Termik aşırı yük rölesi, 3 kutuplu</name>
+        <name lang="zh">热过载继电器，3极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <rect x="-6" y="-7" width="12" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-20" x2="0" y2="-4" x3="-3" y3="-4" x4="-3" y4="4" x5="0" y5="4" x6="0" y6="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3ba58eeb-4218-5aea-81eb-90d9a5add8a0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8a971594-c7ee-50e3-90f3-e6a2a8ed67d9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <rect x="14" y="-7" width="12" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="-20" x2="20" y2="-4" x3="17" y3="-4" x4="17" y4="4" x5="20" y5="4" x6="20" y6="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="18" y="-24.1" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{dbb7fdd1-4c83-5e19-95b1-bd7840f9a517}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="8.4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{69992bf3-a781-5b81-a1a5-ac7d95066e0f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <line x1="6" y1="0" x2="14" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="34" y="-7" width="12" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="40" y1="-20" x2="40" y2="-4" x3="37" y3="-4" x4="37" y4="4" x5="40" y5="4" x6="40" y6="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="38" y="-24.1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ef428960-8320-50f5-a255-d804ae4fa6a1}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5</text>
+        </dynamic_text>
+        <dynamic_text x="38" y="8.4" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{eaac4c88-f87b-5b0f-ac2b-560e88067a21}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>6</text>
+        </dynamic_text>
+        <line x1="26" y1="0" x2="34" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-15" y="-10.49" z="8" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{720f2ff1-bd45-58d4-a9d9-8f8402d84485}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a212b29c-57ca-567e-9c9a-8775b5ea19a1}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{abbcd0ce-07a9-5f96-92b3-e9dd0855249b}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{f6941fca-c9f8-5e38-ada7-6fa0e4c0c503}" name="3" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c56d68ea-8b8b-5ab0-aa6c-ce573c4d4f05}" name="4" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{4f93a128-e86f-5cb9-9dc8-18c400a1a574}" name="5" x="40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c6dc01bd-f346-5946-a5cb-97397f7fbb1a}" name="6" x="40" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

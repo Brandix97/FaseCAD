@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{47223483-c701-fed0-44cd-3537e42f4b6e}"/>
+    <names>
+        <name lang="ar">وصلة تفريع T</name>
+        <name lang="ca">Derivació en forma de T</name>
+        <name lang="cs">Odbočovací T-kus</name>
+        <name lang="da">Afgreningstee</name>
+        <name lang="de">Abzweig-T-Stück</name>
+        <name lang="el">Ταυ διακλάδωσης</name>
+        <name lang="en">Branch tee</name>
+        <name lang="es">Derivación-Te</name>
+        <name lang="fr">Té de dérivation</name>
+        <name lang="pt_BR">Derivación-Te</name>
+        <name lang="zh">三通分支</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-1" y="-2" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{68dd738a-a1f7-4947-bf5b-d75ba200c242}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-3" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1428d2e7-2dcb-4d50-a2df-4a6d0ba488f6}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{6f0d838b-37cc-4f0e-8a64-f30fd826d73e}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{315740a5-668e-4959-986c-8cede74495a4}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

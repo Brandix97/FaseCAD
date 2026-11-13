@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="65" hotspot_y="45">
+    <uuid uuid="{c51e4896-b577-79d0-6ad4-204d54404187}"/>
+    <names>
+        <name lang="ar">مرحل تيار عكسي</name>
+        <name lang="ca">Relé de corrent inversa</name>
+        <name lang="cs">Relé na zpětný proud</name>
+        <name lang="da">Omvendt strømrelæ</name>
+        <name lang="de">Rückstromrelais</name>
+        <name lang="el">Ρελέ αντίστροφου ρεύματος</name>
+        <name lang="en">Reverse current relay</name>
+        <name lang="es">Relé de corriente inversa</name>
+        <name lang="fi">Vastavirtarele</name>
+        <name lang="fr">Relais à retour de courant</name>
+        <name lang="hr">Relej povratne struje</name>
+        <name lang="hu">Ellenáramú relé</name>
+        <name lang="it">Relè a corrente inversa</name>
+        <name lang="ja">逆電流継電器</name>
+        <name lang="ko">역전류 릴레이</name>
+        <name lang="mn">Урвуу гүйдлийн реле</name>
+        <name lang="nb">Retningsstrømrelé</name>
+        <name lang="nl">Terugstroomrelais</name>
+        <name lang="nl_BE">Terugstroomrelais</name>
+        <name lang="pl">Przekaźnik prądu zwrotnego</name>
+        <name lang="pt">Relé de corrente inversa</name>
+        <name lang="pt_BR">Relé de corrente reversa</name>
+        <name lang="ro">Releu de curent invers</name>
+        <name lang="ru">Реле обратного тока</name>
+        <name lang="sk">Relé spätného prúdu</name>
+        <name lang="sl">Rele povratnega toka</name>
+        <name lang="sr">Релеј повратне струје</name>
+        <name lang="sv">Backströmsrelä</name>
+        <name lang="tr">Ters akım rölesi</name>
+        <name lang="uk">Реле зворотного струму</name>
+        <name lang="zh">接线端子02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d2d7fc88-4f0c-4470-9eb3-611a3f9f25d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-60" y="-40" width="60" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I" x="-46" y="-15" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-15" y1="-20" x2="-30" y2="-20" x3="-24" y3="-22" x4="-24" y4="-18" x5="-30" y5="-20" x6="-24" y6="-20" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+    </description>
+</definition>

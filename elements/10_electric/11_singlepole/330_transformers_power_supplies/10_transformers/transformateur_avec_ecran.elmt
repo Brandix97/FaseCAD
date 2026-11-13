@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="14" hotspot_y="35">
+    <uuid uuid="{734eabab-47da-2be0-e6f9-68896d8e848e}"/>
+    <names>
+        <name lang="ar">مُحوّل بشاشة</name>
+        <name lang="ca">Transformador monofàsic amb pantalla</name>
+        <name lang="cs">Jednofázový transformátor se stíněním</name>
+        <name lang="da">Enfaset transformer med skærm</name>
+        <name lang="de">Transformator einphasig mit zwei Wicklungen und Schirm</name>
+        <name lang="el">Μονοφασικός μετασχηματιστής με θωράκιση</name>
+        <name lang="en">Single phase transformer with screen</name>
+        <name lang="es">Transformador monofásico con regilla</name>
+        <name lang="fi">Yksivaiheinen muuntaja suojauksella</name>
+        <name lang="fr">Transformateur avec écran</name>
+        <name lang="hr">Jednofazni transformator sa zaslonom</name>
+        <name lang="hu">Egyfázisú transzformátor árnyékolással</name>
+        <name lang="it">Trasformatore monofase a due av-volgimenti con schermo</name>
+        <name lang="ja">シールド付き単相変圧器</name>
+        <name lang="ko">차폐형 단상 변압기</name>
+        <name lang="mn">Дэлгэцтэй нэг фазын трансформатор</name>
+        <name lang="nb">Enfaset transformator med skjerm</name>
+        <name lang="nl">enkelfase transformator met scherm</name>
+        <name lang="nl_BE">Eenfasige transformator met scherm</name>
+        <name lang="pl">Transformator ekranowany</name>
+        <name lang="pt">Transformador monofásico com blindagem</name>
+        <name lang="pt_BR">Transformador monofásico com blindagem</name>
+        <name lang="ro">Transformator monofazat cu ecran</name>
+        <name lang="ru">Однофазный трансформатор с экраном</name>
+        <name lang="sk">Jednofázový transformátor so tienením</name>
+        <name lang="sl">Enofazni transformator z zaslonom</name>
+        <name lang="sr">Једнофазни трансформатор са екраном</name>
+        <name lang="sv">Enfasig transformator med skärm</name>
+        <name lang="tr">Ekranlı tek fazlı transformatör</name>
+        <name lang="uk">Однофазний трансформатор з екраном</name>
+        <name lang="zh">带屏蔽的变压器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-11" y1="0" x2="13" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-5" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-10" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-25" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="15" x2="0" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0f983394-ce92-4598-af53-7a2c55ad2bb8}" name="" x="0" y="-26" orientation="n" type="Generic"/>
+        <terminal uuid="{2f216a26-c749-485e-9e08-34936fbfab35}" name="" x="0" y="26" orientation="s" type="Generic"/>
+    </description>
+</definition>

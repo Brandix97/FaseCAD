@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="10" hotspot_y="40">
+    <uuid uuid="{fe659340-2e70-8fe1-a8ae-c3419bc93302}"/>
+    <names>
+        <name lang="ar">محول تيار، قلبان مع ملف ثانوي على كل قلب</name>
+        <name lang="ca">Transformador de corrent, dos nuclis amb un bobinatge secundari a cada nucli</name>
+        <name lang="cs">Dvoujádrový proudový transformátor</name>
+        <name lang="da">Strømtransformator, to kerner med en sekundærvikling på hver kerne</name>
+        <name lang="de">Stromwandler 2 Kerne</name>
+        <name lang="el">Μετασχηματιστής έντασης, δύο πυρήνες με ένα δευτερεύον τύλιγμα σε κάθε πυρήνα</name>
+        <name lang="en">Current transformer, two cores with a secondary winding on each core</name>
+        <name lang="es">Transformador de corriente, dos núcleos con un devanado secundario en cada núcleo</name>
+        <name lang="fi">Virtamuuntaja, kaksi sydäntä, kummassakin sydämessä toisiokäämi</name>
+        <name lang="fr">Transformateur de courant, à deux noyaux avec un enroulement secondaire sur chaque noyau</name>
+        <name lang="hr">Strujni transformator, dvije jezgre s sekundarnim namotom na svakoj jezgri</name>
+        <name lang="hu">Áramváltó, két mag, mindegyiken egy szekunder tekercs</name>
+        <name lang="it">Trasformatore d'impulso o di corrente, 2 secondari con nuclei separati</name>
+        <name lang="ja">変流器、各コアに二次巻線を持つ2つのコア</name>
+        <name lang="ko">코어마다 2차 권선이 있는 2코어 변류기</name>
+        <name lang="mn">Гүйдлийн трансформатор, хоёр цөмтэй, цөм бүр дээр хоёрдогч ороомогтой</name>
+        <name lang="nb">Strømtransformator, to kjerner med en sekundærvikling på hver kjerne</name>
+        <name lang="nl">Stroomtrafo dubbel</name>
+        <name lang="nl_BE">Stroomtransformator, twee kernen met een secundaire wikkeling op elke kern</name>
+        <name lang="pl">Przekładnik (forma 2)</name>
+        <name lang="pt">Transformador de corrente, dois núcleos com um enrolamento secundário em cada núcleo</name>
+        <name lang="pt_BR">Transformador de corrente, dois núcleos com enrolamento secundário em cada núcleo</name>
+        <name lang="ro">Transformator de curent, două nuclee cu o înfășurare secundară pe fiecare nucleu</name>
+        <name lang="ru">Трансформатор тока, два сердечника с вторичной обмоткой на каждом сердечнике</name>
+        <name lang="sk">Prúdový transformátor, dve jadrá s jedným sekundárnym vinutím na každom jadre</name>
+        <name lang="sl">Tokovni transformator, dve jedri z sekundarnim navitjem na vsakem jedru</name>
+        <name lang="sr">Струјни трансформатор, два језгра са секундарним намотајем на сваком језгру</name>
+        <name lang="sv">Strömtransformator, två kärnor med en sekundärlindning på varje kärna</name>
+        <name lang="tr">Akım transformatörü, her çekirdekte bir sekonder sargılı iki çekirdek</name>
+        <name lang="uk">Трансформатор струму, два осердя з вторинною обмоткою на кожному осерді</name>
+        <name lang="zh">电流互感器3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <arc x="-2.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-20" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="0" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="-43.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{da9394fd-f559-4418-8521-445661bf3754}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-20" x2="-5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="-5" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{855974bd-582d-47fc-84ad-26686fb7b7bc}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{f3245789-309b-4e38-b889-75a313ee21bb}" name="" x="10" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{ad4712c1-31e5-4ae9-b6fb-585be9735aae}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{8d9a705f-1203-41df-84eb-7cc7d3054bbc}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{5de7ab97-66d9-4d39-8646-197927982e97}" name="" x="10" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{6a0f8410-e8d7-4bc4-bd21-37df9ca0ffc6}" name="" x="10" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

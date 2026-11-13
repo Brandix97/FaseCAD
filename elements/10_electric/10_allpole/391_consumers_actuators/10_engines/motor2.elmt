@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="40" height="60" hotspot_x="25" hotspot_y="30">
+    <uuid uuid="{9e2a8a2a-1252-76bb-13af-682e67cfe12d}"/>
+    <names>
+        <name lang="ar">مُحرّك</name>
+        <name lang="ca">Motor</name>
+        <name lang="cs">Motor</name>
+        <name lang="da">Motor</name>
+        <name lang="de">Motor</name>
+        <name lang="el">Ηλεκτροκινητήρας</name>
+        <name lang="en">Motor</name>
+        <name lang="es">Motor</name>
+        <name lang="fi">Moottori</name>
+        <name lang="fr">Moteur</name>
+        <name lang="hr">Motor</name>
+        <name lang="hu">Motor</name>
+        <name lang="it">Motore</name>
+        <name lang="ja">電動機</name>
+        <name lang="ko">모터</name>
+        <name lang="mn">Мотор</name>
+        <name lang="nb">Motor</name>
+        <name lang="nl">Motor</name>
+        <name lang="nl_BE">Motor</name>
+        <name lang="pl">Silnik</name>
+        <name lang="pt">Motor</name>
+        <name lang="pt_BR">motor</name>
+        <name lang="ro">Motor</name>
+        <name lang="ru">Двигатель</name>
+        <name lang="sk">Motor</name>
+        <name lang="sl">Motor</name>
+        <name lang="sr">Мотор</name>
+        <name lang="sv">Motor</name>
+        <name lang="tr">Motor</name>
+        <name lang="uk">Двигун</name>
+        <name lang="zh">电动机2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="M" x="-8" y="7" rotation="0" font="Liberation Sans,14,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-11" y="-11" width="22" height="22" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="11" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="3" y="2" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{218e821d-82b8-4ba0-b76c-874afdc8d41c}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{47830481-2ecc-43a6-898c-a7056bd40608}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{6612936f-5e82-4522-972f-7a13dac13f4d}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

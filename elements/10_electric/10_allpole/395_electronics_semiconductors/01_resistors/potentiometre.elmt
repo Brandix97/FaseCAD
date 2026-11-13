@@ -1,0 +1,51 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="60" hotspot_x="18" hotspot_y="30">
+    <uuid uuid="{96530069-82b5-e77e-5abe-0db0bbfc8b0f}"/>
+    <names>
+        <name lang="ar">بوتونسيومتر</name>
+        <name lang="ca">Potenciòmetre</name>
+        <name lang="cs">Potenciometr</name>
+        <name lang="da">Potentiometer</name>
+        <name lang="de">Potentiometer</name>
+        <name lang="el">Ποτενσιόμετρο</name>
+        <name lang="en">Potentiometer</name>
+        <name lang="es">Potenciómetro</name>
+        <name lang="fi">Potentiometri</name>
+        <name lang="fr">Potentiomètre</name>
+        <name lang="hr">Potenciometar</name>
+        <name lang="hu">Potenciométer</name>
+        <name lang="it">Potenziometro</name>
+        <name lang="ja">ポテンショメータ</name>
+        <name lang="ko">전위차계</name>
+        <name lang="mn">Потенциометр</name>
+        <name lang="nb">Potensiometer</name>
+        <name lang="nl">Potentiometer</name>
+        <name lang="nl_BE">Potentiometer</name>
+        <name lang="pl">Potencjometr</name>
+        <name lang="pt">Potenciômetro</name>
+        <name lang="pt_BR">Potenciometro</name>
+        <name lang="ro">Potențiometru</name>
+        <name lang="ru">Потенциометр</name>
+        <name lang="sk">Potenciometer</name>
+        <name lang="sl">Potenciometer</name>
+        <name lang="sr">Потенциометар</name>
+        <name lang="sv">Potentiometer</name>
+        <name lang="tr">Potansiyometre</name>
+        <name lang="uk">Потенціометр</name>
+        <name lang="zh">电位器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <dynamic_text x="7" y="-11.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{570cd854-578d-4c4b-bd2a-3498353e46b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="8" y2="6" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4410c57c-3796-4696-b63b-d8d5a0c9b788}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{09a3060b-a0fd-41ad-b605-f5c0ae63901e}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8ba87c90-dfb1-4918-8bf0-cdc0e965d9d0}" name="S" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

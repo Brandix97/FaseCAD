@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="17" hotspot_y="10">
+    <uuid uuid="{6d82451e-29a8-c80a-60b1-931e85619ef3}"/>
+    <names>
+        <name lang="ar">تقليص نحاس DF</name>
+        <name lang="ca">Reducció de coure DF</name>
+        <name lang="cs">Redukce měděná DF</name>
+        <name lang="da">Kobberreduktion DF</name>
+        <name lang="de">Reduktion Kupfer IG</name>
+        <name lang="el">Συστολή χαλκού DF</name>
+        <name lang="en">Copper reducer FF</name>
+        <name lang="fr">Réduction Cuivre DF</name>
+        <name lang="pt_BR">Réduction Cuivre DF</name>
+        <name lang="zh">铜异径管内丝内丝</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="-3" y="-43.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{20d8aece-b73e-49cd-9fe9-d344b88a2ddd}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="11" y1="-3" x2="5" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2.5" y="-6" width="1" height="1" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2.5" y="5" width="1" height="1" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2" y1="-6" x2="-5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-6" x2="-6" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="6" x2="2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.5" y1="-6" x2="3.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="3.5" y="-4" width="1" height="1" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3.5" y="3" width="1" height="1" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12" y1="-3" x2="12" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="3" x2="5" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.5" y1="-5" x2="3.5" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.5" y1="4" x2="3.5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8c0cd307-c39f-4505-b9ad-0c42fcf86820}" name="" x="-6" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{14b196bb-6f02-4b41-9806-029a5ef05e58}" name="" x="12" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

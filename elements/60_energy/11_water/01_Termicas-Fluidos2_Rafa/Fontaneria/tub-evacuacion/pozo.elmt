@@ -1,0 +1,23 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{9f797914-5cba-b414-3e48-010a65060d11}"/>
+    <names>
+        <name lang="ca">Pou</name>
+        <name lang="es">Pozo</name>
+        <name lang="pt_BR">Pozo</name>
+        <name lang="zh">检查井</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="15.4" y="-3" width="3.2" height="6.22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.8" y="-27.1" width="16.8" height="0.78" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-2.2" y1="-26.32" x2="-6.2" y2="-19.33" x3="-6.2" y3="4" x4="15.4" y4="4" x5="15.4" y5="-19.33" x6="11.4" y6="-26.32" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9.4" y="-3.78" width="3.2" height="6.22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0.2" y="-20.33" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c5672f49-46c9-4b79-b81e-74d7425918e5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4f74980c-24ca-4568-94f8-42b1c552759a}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{cbe4198d-f231-4f51-b6e8-4a59f420abe0}" name="" x="19" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

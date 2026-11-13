@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="3" hotspot_y="6">
+    <uuid uuid="{3a914654-69d0-b8ee-539d-8200eaf69154}"/>
+    <names>
+        <name lang="ar">مرجع مُلامس NO  (عمودي)</name>
+        <name lang="ca">Contacte de referència NO (vertical)</name>
+        <name lang="cs">Odkaz kontakt NO (svisle)</name>
+        <name lang="da">Arkhenvisning kontakt NO (lodret)</name>
+        <name lang="de">Schließer-Kontakt (NO) vertikal</name>
+        <name lang="el">Επαφή αναφοράς NO (κατακόρυφη)</name>
+        <name lang="en">Reference contact NO (vertical)</name>
+        <name lang="es">Contacto NA vertical</name>
+        <name lang="fi">Viittauskosketin NO (pystysuora)</name>
+        <name lang="fr">Reference contact NO v</name>
+        <name lang="hr">Referentni kontakt NO (okomit)</name>
+        <name lang="hu">Érintkező hivatkozás NO (függőleges)</name>
+        <name lang="it">Rif. contatto NO / (verticale)</name>
+        <name lang="ja">接点 NO 参照（垂直）</name>
+        <name lang="ko">접점 NO 참조 (수직)</name>
+        <name lang="mn">NO контактын лавлагаа (босоо)</name>
+        <name lang="nb">Referansekontakt NO (vertikal)</name>
+        <name lang="nl">Referentie contact (NO)</name>
+        <name lang="nl_BE">Verwijzing contact NO (verticaal)</name>
+        <name lang="pl">Odsyłacz - zestyk zwierny (poziomo)</name>
+        <name lang="pt">Referência contacto NA (vertical)</name>
+        <name lang="pt_BR">Reference contato NA (vertical)</name>
+        <name lang="ro">Referință contact NO (vertical)</name>
+        <name lang="ru">Ссылка на контакт НО (вертикальная)</name>
+        <name lang="sk">Odkaz na kontakt NO (vertikálny)</name>
+        <name lang="sl">Sklic na kontakt NO (navpično)</name>
+        <name lang="sr">Референца контакта NO (вертикална)</name>
+        <name lang="sv">Hänvisning kontakt NO (vertikal)</name>
+        <name lang="tr">NO kontak referansı (dikey)</name>
+        <name lang="uk">Посилання на контакт NO (вертикальне)</name>
+        <name lang="zh">常开触点2_垂直</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="2" y1="7" x2="10" y2="5" x3="13" y3="5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="5" x2="2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="3" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f707a95a-29f6-455a-9bd2-c949c6f7348e}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

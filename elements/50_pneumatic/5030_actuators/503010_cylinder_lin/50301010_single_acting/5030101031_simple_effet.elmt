@@ -1,0 +1,52 @@
+<definition version="0.90" type="element" link_type="simple" width="110" height="40" hotspot_x="37" hotspot_y="10">
+    <uuid uuid="{0eb6869c-6c31-b429-fd09-1e14f072eb06}"/>
+    <names>
+        <name lang="ar">التمثيل المفرد + الربيع + المغناطيس</name>
+        <name lang="ca">Simple efecte + molla + imant</name>
+        <name lang="cs">Jednočinné + pružina + magnet</name>
+        <name lang="da">Enkeltvirkende + fjeder + magnet</name>
+        <name lang="de">Einfachwirkend + Feder + Magnet</name>
+        <name lang="el">Μονής δράσης + ελατήριο + μαγνήτης</name>
+        <name lang="en">Single acting + spring + magnet</name>
+        <name lang="es">Simple efecto + resorte + imán</name>
+        <name lang="fi">Yksitoiminen + jousi + magneetti</name>
+        <name lang="fr">Simple effet + ressort + aimant</name>
+        <name lang="hr">Jednostruko djelovanje + opruga + magnet</name>
+        <name lang="hu">Egyszeres működésű + rugó + mágnes</name>
+        <name lang="it">Semplice effetto + molla + magnete</name>
+        <name lang="ja">単動+スプリング+マグネット</name>
+        <name lang="ko">단동 + 스프링 + 자석</name>
+        <name lang="mn">Нэг үйлдэлтэй + пүрш + соронз</name>
+        <name lang="nb">Enkeltvirkende + fjær + magnet</name>
+        <name lang="nl">Enkelwerkend + veer + magneet</name>
+        <name lang="nl_BE">Enkelwerkend + veer + magneet</name>
+        <name lang="pl">Jednostronnego działania + sprężyna + magnes</name>
+        <name lang="pt">Simples ação + mola + ímã</name>
+        <name lang="pt_BR">Simples ação + mola + ímã</name>
+        <name lang="ro">Simpla actiune + arc + magnet</name>
+        <name lang="ru">Одностороннего действия + пружина + магнит</name>
+        <name lang="sk">Jednočinný + pružina + magnet</name>
+        <name lang="sl">Enosmerno delovanje + vzmet + magnet</name>
+        <name lang="sr">Једноструко дејство + опруга + магнет</name>
+        <name lang="sv">Enkelverkande + fjäder + magnet</name>
+        <name lang="tr">Tek etkili + yay + mıknatıs</name>
+        <name lang="uk">Односторонньої дії + пружина + магніт</name>
+        <name lang="zh">单作用气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="12" y1="1" x2="12" y2="9" x3="13" y3="9" x4="13" y4="1" x5="14" y5="1" x6="14" y6="9" x7="15" y7="9" x8="15" y8="7" x9="14" y9="6" x10="14" y10="4" x11="15" y11="3" x12="15" y12="1" x13="13" y13="1" x14="12" y14="1" x15="12" y15="9" x16="14" y16="9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32.65" y1="2.14" x2="-30" y2="-4" x3="-26" y3="14" x4="-20" y4="-4" x5="-16" y5="14" x6="-11" y6="-4" x7="-7" y7="14" x8="-2" y8="-4" x9="3" y9="14" x10="7" y10="-4" x11="9.77" y11="2.5" x12="7.51" y12="-2.83" x13="9.62" y13="2.15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="69" y1="3" x2="17" y2="3" x3="17" y3="7" x4="69" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="10" y="-5" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-33" y3="15" x4="-33" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-28" y1="15" x2="-30" y2="19" x3="-32" y3="15" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

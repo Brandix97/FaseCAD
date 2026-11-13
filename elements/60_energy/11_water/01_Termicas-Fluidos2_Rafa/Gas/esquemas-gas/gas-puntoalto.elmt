@@ -1,0 +1,23 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="12">
+    <uuid uuid="{fdfa4996-9e44-2b20-de94-cfade592fa92}"/>
+    <names>
+        <name lang="ca">Punt alt</name>
+        <name lang="es">Punto alto</name>
+        <name lang="pt_BR">Punto alto</name>
+        <name lang="zh">燃气高点</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-10.05" y1="0" x2="9.06" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-2" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-6" x2="7" y2="-6" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.12" y1="-6" x2="-7.11" y2="-6" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-26" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{22dbb6cf-97b0-4578-824f-bb29f6a89495}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{bd4c19b6-f144-4142-a678-86020d104dfb}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{965a43f5-34c5-4e0d-811b-4c1ca624cf1f}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

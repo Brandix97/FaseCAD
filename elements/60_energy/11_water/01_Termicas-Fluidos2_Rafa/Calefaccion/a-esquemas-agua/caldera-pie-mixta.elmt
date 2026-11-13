@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="29" hotspot_y="18">
+    <uuid uuid="{a6dd7f91-eaaa-560f-b401-5757b482784d}"/>
+    <names>
+        <name lang="ar">مرجل أرضي مختلط</name>
+        <name lang="ca">Caldera de terra mixta</name>
+        <name lang="cs">Kotel na tuhá paliva kombinovaný</name>
+        <name lang="da">Chaudiére au sol mixte</name>
+        <name lang="de">Bodenkessel gemischt</name>
+        <name lang="el">Επιδαπέδιος λέβητας μίξης</name>
+        <name lang="en">Floor-standing combined boiler</name>
+        <name lang="es">Caldera pié Mixta</name>
+        <name lang="fr">Chaudiére au sol mixte</name>
+        <name lang="pt_BR">Caldera pié Mixta</name>
+        <name lang="zh">落地两用锅炉</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <text text="Cal" x="-12" y="0" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-13" y="-8.09" width="35.75" height="27.51" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16.75" y="5.8" width="3.19" height="4.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-22" y1="13" x2="-17" y2="13" x3="-17" y3="4" x4="-21" y4="4" x5="-24" y5="7" x6="-24" y6="13" x7="-23" y7="13" x8="-21" y8="13" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="23" y="1" width="1" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="-9" x2="10" y2="-6" x3="17" y3="-4" x4="10" y4="-2" x5="17" y5="0" x6="10" y6="3" x7="17" y7="4" x8="10" y8="7" x9="20" y9="7" x10="20" y10="-9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="ACS" x="11" y="13" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-5" y="20.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{506a827e-949b-4d2b-beac-34c649aa627e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ee978340-038c-499c-aeb3-97b5fe446202}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{32381fe9-315e-487d-b7dd-db0f3dae9aa5}" name="" x="-4" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{aa2e4211-04a3-4869-a1c7-8dbb7a46ebfa}" name="" x="-19" y="14" orientation="s" type="Generic"/>
+        <terminal uuid="{62cda4fe-92b3-4e95-bab7-1f4a46b3de36}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{4e54ab12-a6fb-4965-bc53-c482072328f0}" name="" x="20" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="31" hotspot_y="40">
+    <uuid uuid="{252a5392-4b1b-5041-a8f9-3fdfd633acda}"/>
+    <names>
+        <name lang="ar">مُبدّل ب3 وضعيات (1-0-2)</name>
+        <name lang="ca">Interruptor de 3 posicions inclòs neutre</name>
+        <name lang="cs">Třípolohový přepínač s nulou uprostřed (1-0-2)</name>
+        <name lang="da">Afbryder 3 positioner inklusive neutral</name>
+        <name lang="de">Drehschalter 3 Positionen</name>
+        <name lang="el">Διακόπτης 3 θέσεων, 1-0-2</name>
+        <name lang="en">Switch 3 positions including neutral</name>
+        <name lang="es">Interruptor 3 posiciones incluso neutro</name>
+        <name lang="fi">Kytkin 3 asentoa sisältäen nollan</name>
+        <name lang="fr">Interrupteur rotatif 1-0-2</name>
+        <name lang="hr">Sklopka 3 položaja uključujući neutralni</name>
+        <name lang="hu">Kapcsoló 3 állás semleges helyzettel</name>
+        <name lang="it">Selettore a 3 posizioni, 1-0-2</name>
+        <name lang="ja">ニュートラルを含むスイッチ 3位置</name>
+        <name lang="ko">스위치 3 위치 (중립 포함)</name>
+        <name lang="mn">Унтраалга 3 байрлал, төвийг оролцуулан</name>
+        <name lang="nb">Bryter 3 posisjoner inkludert nøytral</name>
+        <name lang="nl">Keuzeschakelaar 3 pos met 0 (1-0-2) (NO/NO)</name>
+        <name lang="nl_BE">Schakelaar 3 standen inclusief neutraal</name>
+        <name lang="pl">Łącznik obrotowy przełączny z położeniem neutralnym</name>
+        <name lang="pt">Interruptor 3 posições com neutro</name>
+        <name lang="pt_BR">Chave rotativa 3 posições incluindo neutro</name>
+        <name lang="ro">Comutator 3 poziții cu neutru</name>
+        <name lang="ru">Переключатель 3-х позиционный со средним положением</name>
+        <name lang="sk">Prepínač 3 polôh vrátane neutrálu</name>
+        <name lang="sl">Stikalo 3 položajev z nevtralnim položajem</name>
+        <name lang="sr">Прекидач 3 положаја укључујући неутрални</name>
+        <name lang="sv">Brytare 3 lägen inklusive nolläge</name>
+        <name lang="tr">Nötr dahil şalter 3 konum</name>
+        <name lang="uk">Перемикач 3 положень з нейтральним</name>
+        <name lang="zh">按钮开关1-0-2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-16" y1="-15" x2="-16" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1" y1="-8" x2="-5" y2="-8" x3="-6" y3="-6" x4="-7" y4="-8" x5="-10" y5="-8" x6="-11" y6="-6" x7="-12" y7="-8" x8="-15" y8="-8" x9="-16" y9="-6" x10="-17" y10="-8" x11="-21" y11="-8" x12="-25" y12="-8" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <text text="1-0-2" x="-17" y="-17.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-6" y1="-15" x2="-6" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-15" x2="-11" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-28" y1="-3" x2="-25" y2="-3" x3="-25" y3="-13" x4="-22" y4="-13" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <dynamic_text x="12" y="-19.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c06ddb32-fc35-43bc-b258-7fa797e8d5f0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-13" x2="0" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="-16" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-17" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{89232a77-9b3b-40d4-a0e3-f70659314cb0}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{eebfed10-5c94-4316-a609-8a9de60cbc79}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{6ea06acc-bcea-4846-b900-80794123296e}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

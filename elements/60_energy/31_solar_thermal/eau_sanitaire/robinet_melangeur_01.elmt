@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="15">
+    <uuid uuid="{d5d19511-7161-e5a2-2a16-69ddfdcb5f39}"/>
+    <names>
+        <name lang="ar">خلاّط حنفيّة</name>
+        <name lang="ca">Aixeta mescladora</name>
+        <name lang="cs">Směšovací baterie</name>
+        <name lang="da">Et-grebsbatteri</name>
+        <name lang="de">Mischbatterie</name>
+        <name lang="el">Μπαταρία ανάμιξης</name>
+        <name lang="en">Mixer tap</name>
+        <name lang="es">Válvula mezcladora</name>
+        <name lang="fi">Sekoittaja</name>
+        <name lang="fr">Robinet melangeur</name>
+        <name lang="hr">Miješalica</name>
+        <name lang="hu">Keverőcsaptelep</name>
+        <name lang="it">Miscelatrore</name>
+        <name lang="ja">混合栓</name>
+        <name lang="ko">혼합 수도꼭지</name>
+        <name lang="mn">Холигч кран</name>
+        <name lang="nb">Blandebatteri</name>
+        <name lang="nl">Mengkraan</name>
+        <name lang="nl_BE">Mengkraan</name>
+        <name lang="pl">Bateria mieszająca</name>
+        <name lang="pt">Misturadora</name>
+        <name lang="pt_BR">Mixer tap</name>
+        <name lang="ro">Baterie de amestec</name>
+        <name lang="ru">Смеситель</name>
+        <name lang="sk">Zmiešavacia batéria</name>
+        <name lang="sl">Mešalna pipa</name>
+        <name lang="sr">Мешалица</name>
+        <name lang="sv">Blandare</name>
+        <name lang="tr">Karıştırıcı musluk</name>
+        <name lang="uk">Змішувальний кран</name>
+        <name lang="zh">混合龙头01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="4" y="-17.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{79635588-eca4-4503-bd47-0e9545070376}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="2" y1="-9" x2="3" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="2" x2="-2" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-3" x2="-4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="-3" x2="3" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4" y1="-3" x2="1" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3" y1="-3" x2="-2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1" y1="2" x2="1" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-1.5" y="-12" width="3" height="12" start="60" angle="200" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2" y1="-10" x2="5" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-10" x2="1" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{974e2d6d-ab73-4741-9e8d-072642d5a02a}" name="" x="1" y="7" orientation="s" type="Generic"/>
+        <terminal uuid="{c4c74c1a-e0ba-48c7-8e03-3f09fa098221}" name="" x="-2" y="7" orientation="s" type="Generic"/>
+    </description>
+</definition>

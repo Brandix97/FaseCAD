@@ -1,0 +1,111 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="90" hotspot_x="60" hotspot_y="40">
+    <uuid uuid="{a5637f55-0ae3-333c-4395-a0d9c9aa7d63}"/>
+    <names>
+        <name lang="ar">مُحوّل ثلاثي الأوجه Yyd</name>
+        <name lang="ca">Transformador trifàsic Yyd</name>
+        <name lang="cs">Třífázový transformátor Yyd, hvězda hvězda trojúhelník</name>
+        <name lang="da">Tre-faset transformer Yyd</name>
+        <name lang="de">Transformator Stern/Stern/Dreieck</name>
+        <name lang="el">Τριφασικός μετασχηματιστής, αστέρας-αστέρας-τρίγωνο</name>
+        <name lang="en">Three-phase transformer Yyd</name>
+        <name lang="es">Transformador trifásico Yyd</name>
+        <name lang="fi">Kolmivaiheinen muuntaja Yyd</name>
+        <name lang="fr">Transformateur triphasé, couplage étoile-étoile-triangle</name>
+        <name lang="hr">Trofazni transformator Yyd</name>
+        <name lang="hu">Háromfázisú transzformátor Yyd</name>
+        <name lang="it">Trasformatore 3F Yyd</name>
+        <name lang="ja">三相変圧器 Yyd</name>
+        <name lang="ko">삼상 변압기 Yyd</name>
+        <name lang="mn">Гурван фазын трансформатор Yyd</name>
+        <name lang="nb">Trefaset transformator Yyd</name>
+        <name lang="nl">driefase transformator ster ster driehoek)</name>
+        <name lang="nl_BE">Driefasige transformator Yyd</name>
+        <name lang="pl">Transformator trójfazowy Yyd (forma 2)</name>
+        <name lang="pt">Transformador trifásico Yyd</name>
+        <name lang="pt_BR">Transformador trifásico Yyd</name>
+        <name lang="ro">Transformator trifazat Yyd</name>
+        <name lang="ru">Трёхфазный трансформатор Yyd</name>
+        <name lang="sk">Trojfázový transformátor Yyd</name>
+        <name lang="sl">Trifazni transformator Yyd</name>
+        <name lang="sr">Трофазни трансформатор Yyd</name>
+        <name lang="sv">Trefasig transformator Yyd</name>
+        <name lang="tr">Üç fazlı transformatör Yyd</name>
+        <name lang="uk">Трифазний трансформатор Yyd</name>
+        <name lang="zh">三相Yyd变压器2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="30" y1="10" x2="45" y2="10" x3="45" y3="35" x4="49" y4="35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="27.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-32.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="27.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-52.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-22.5" y="-20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="27.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-32.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-52.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-32.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="47.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-52.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="27.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="15" x2="30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-22.5" y="-25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="15" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="47.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-52.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="47.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="47.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-22.5" y="-15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="10" y1="10" x2="25" y2="10" x3="25" y3="35" x4="29" y4="35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-32.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="50" y1="15" x2="50" y2="5" x3="5" y3="5" x4="5" y4="35" x5="9" y5="35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="17.5" y="-20" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-22.5" y="-10" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="50" y1="40" x2="50" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="15" x2="-30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="40" x2="30" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.5" y="-10" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="40" x2="10" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="15" x2="-50" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12.5" y="25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="0" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-25" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="30" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-25" x2="-20" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="17.5" y="-25" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17.5" y="-15" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17.5" y="-10" width="5" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-25" x2="20" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="54" y="-7.5" z="54" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{538ac9a8-6db0-4abf-9c07-a9c25f7955f4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="40" x2="-10" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="40" x2="-30" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="40" x2="-50" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="10" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="15" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{41f4ded3-4af8-44b6-8288-06ffa52b0ccc}" name="" x="20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{5fad6c8a-3e75-47d2-98f7-e8420553c90c}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{fe2b6c0a-dbf9-4cc7-8139-ff6a27eb71df}" name="" x="-20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{d2940741-fd74-405a-bf09-2cd21fc3e3a3}" name="" x="-10" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{f2981928-9045-4a0a-9384-6cb22078887e}" name="" x="-30" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{4e74dd74-ab70-412e-b365-4144cb6c3db2}" name="" x="-50" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{47ca9b41-0a13-4659-9e00-0d057add216d}" name="" x="50" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{b669368f-9f3c-4453-b16b-e06bc79b37d2}" name="" x="30" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{6c61544b-e56c-4ec7-9398-5d605b274a6b}" name="" x="10" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,57 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="70" hotspot_x="33" hotspot_y="29">
+    <uuid uuid="{11181111-4d65-3293-408a-b095e0fa679c}"/>
+    <names>
+        <name lang="ar">محرّك ثلاثي الأوجه</name>
+        <name lang="ca">Motor trifàsic</name>
+        <name lang="cs">Jednofázový motor</name>
+        <name lang="da">Trefaset motor</name>
+        <name lang="de">Drehstrom Motor</name>
+        <name lang="el">Τριφασικός κινητήρας</name>
+        <name lang="en">Three-phase engine</name>
+        <name lang="es">Motor mono cond.</name>
+        <name lang="fi">Kolmivaihemoottori</name>
+        <name lang="fr">Moteur monophase condensateur</name>
+        <name lang="hr">Trofazni motor</name>
+        <name lang="hu">Háromfázisú motor</name>
+        <name lang="it">Motore trifase</name>
+        <name lang="ja">三相エンジン</name>
+        <name lang="ko">삼상 모터</name>
+        <name lang="mn">Гурван фазын хөдөлгүүр</name>
+        <name lang="nb">Trefasemotor</name>
+        <name lang="nl">Draaistroommotor</name>
+        <name lang="nl_BE">Driefasige motor</name>
+        <name lang="pl">Silnik trójfazowy</name>
+        <name lang="pt">Motor trifásico</name>
+        <name lang="pt_BR">motor trifásico</name>
+        <name lang="ro">Motor trifazat</name>
+        <name lang="ru">Трёхфазный эл. мотор</name>
+        <name lang="sk">Trojfázový motor</name>
+        <name lang="sl">Trifazni motor</name>
+        <name lang="sr">Трофазни мотор</name>
+        <name lang="sv">Trefasmotor</name>
+        <name lang="tr">Üç fazlı motor</name>
+        <name lang="uk">Трифазний двигун</name>
+        <name lang="zh">电容起动单相电动机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="9" y1="-10" x2="19" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="M" x="-10.25" y="18" rotation="0" font="Liberation Sans,18,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-15" y="-5" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-7" x2="14" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="-10" y2="-1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="16" y="9" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5c04b26a-2e85-4a82-833d-6df0021f09b3}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="9" y1="-7" x2="19" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-16" x2="14" y2="-16" x3="14" y3="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="18" y="-15.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b815a8df-e9dd-495b-a33e-a1be858d99f0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_F</text>
+        </dynamic_text>
+        <terminal uuid="{3ec3d3de-14d7-47ed-826b-bf85638b1e5f}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a5a48f3b-b695-4849-9987-515d2e709162}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

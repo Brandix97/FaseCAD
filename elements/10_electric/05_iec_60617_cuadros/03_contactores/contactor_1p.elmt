@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="slave" width="20" height="50" hotspot_x="13" hotspot_y="25">
+    <uuid uuid="{cc816b05-01f1-5e2a-ac5b-d55b4cdd9705}"/>
+    <names>
+        <name lang="de">Schütz-Hauptkontakte, 1-polig</name>
+        <name lang="en">Contactor main contacts, 1 pole</name>
+        <name lang="es">Contactos principales de contactor, 1 polo</name>
+        <name lang="fr">Contacts principaux de contacteur, 1 pôle</name>
+        <name lang="it">Contatti principali di contattore, 1 polo</name>
+        <name lang="pt">Contactos principais de contactor, 1 polo</name>
+        <name lang="tr">Kontaktör ana kontakları, 1 kutuplu</name>
+        <name lang="zh">接触器主触点，1极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">power</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-15" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9a86aa07-770f-5dd4-9f28-6b98145965ff}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{7fb56194-ac28-5b1a-b76b-431a02ba0d0d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-17" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e105efe5-ea5b-59b9-962a-397845ce6b41}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7ec4145e-6f3d-51af-bc13-867bf552c738}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{80703611-a29b-5d42-96e2-3e2afac9350c}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

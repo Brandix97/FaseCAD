@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="50" height="30" hotspot_x="30" hotspot_y="15">
+    <uuid uuid="{b132e762-6c97-9d83-856b-fe0e07d122f6}"/>
+    <names>
+        <name lang="ar">أنبوب متعدد الطبقات معزول</name>
+        <name lang="ca">Tub aïllat multicapa</name>
+        <name lang="cs">Izolovaná vícevrstvá trubka</name>
+        <name lang="da">Isoleret multilagsrør</name>
+        <name lang="de">Mehrschichtrohr isoliert</name>
+        <name lang="el">Πολυστρωματικός σωλήνας μονωμένος</name>
+        <name lang="en">Insulated multilayer pipe</name>
+        <name lang="fr">Tube Multicouche isolé</name>
+        <name lang="it">Tubo Multistrato isolato</name>
+        <name lang="pt_BR">Tube Multicouche isolé</name>
+        <name lang="zh">多路保温管</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Baboune41</informations>
+    <description>
+        <arc x="-5" y="-12" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-23" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-19" y1="-1" x2="-18" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <arc x="1" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="-12" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-18" y="-5" width="26" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:lightgray;color:lightgray" antialias="false"/>
+        <arc x="-17" y="-12" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="0" x2="-1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="6" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <text text="Multi" x="-13" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-11" y="-12" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-11" y="6" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-17" y1="-12" x2="7" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="5" x2="-19" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <arc x="-17" y="6" width="6" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="4" x2="-19" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <line x1="-17" y1="-6" x2="7" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="6" x2="7" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="4.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d2f487c7-3ea9-4633-806b-ef8fcf3d423f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="3" x2="-19" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <line x1="-20" y1="2" x2="-19" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <line x1="7" y1="12" x2="-22" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-18" y1="1" x2="-19" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:lightgray" antialias="false"/>
+        <line x1="8" y1="-5" x2="-18" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-4" x2="-18" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="4" x2="-21" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="5" x2="-21" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-12" x2="-23" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:white" antialias="false"/>
+        <line x1="-17" y1="-12" x2="-24" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:white" antialias="false"/>
+        <terminal uuid="{c714768f-1161-4f2f-adb2-1016ace832e8}" name="" x="-19" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b308fa32-77e9-42c4-b5df-d1b2cc44e572}" name="" x="8" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

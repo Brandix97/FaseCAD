@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="7" hotspot_y="10">
+    <uuid uuid="{0a9fae11-c639-01ca-b58d-d4fe0f93c1e2}"/>
+    <names>
+        <name lang="ar">سدادة نحاسية رقم 300</name>
+        <name lang="ca">Tap de llautó n° 300</name>
+        <name lang="cs">Zátka mosazná č. 300</name>
+        <name lang="da">Messingprop nr. 300</name>
+        <name lang="de">Kappe Messing Nr. 300</name>
+        <name lang="el">Πώμα ορειχάλκινο  n° 300</name>
+        <name lang="en">Brass plug no. 300</name>
+        <name lang="fr">Bouchon laiton  n° 300</name>
+        <name lang="pt_BR">Bouchon laiton n° 300</name>
+        <name lang="zh">堵头_300_黄铜</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-4" y="-7" width="8" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:brun" antialias="false"/>
+        <dynamic_text x="-7" y="16.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f036cade-e26b-4d1c-bcbd-7dec0be33577}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-2" y1="-4" x2="4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-2" y1="4" x2="4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <arc x="-4" y="-8" width="4" height="4" start="180" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="true"/>
+        <arc x="-4" y="0" width="4" height="4" start="180" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="true"/>
+        <arc x="-4" y="4" width="4" height="4" start="90" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="true"/>
+        <arc x="-4" y="-4" width="4" height="4" start="90" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="true"/>
+        <terminal uuid="{05e36fd3-40ce-40c9-93f6-081428f6046a}" name="" x="4" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

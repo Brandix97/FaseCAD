@@ -1,0 +1,71 @@
+<definition version="0.80" type="element" link_type="simple" width="130" height="180" hotspot_x="7" hotspot_y="171">
+    <uuid uuid="{351b5f4a-b408-6f60-59d7-552704cfe373}"/>
+    <names>
+        <name lang="ar">مشعّ</name>
+        <name lang="ca">Radiador</name>
+        <name lang="cs">Elektrický radiátor</name>
+        <name lang="da">Radiator</name>
+        <name lang="de">Heizkörper</name>
+        <name lang="el">Καλοριφέρ</name>
+        <name lang="en">Radiator</name>
+        <name lang="es">Radiador</name>
+        <name lang="fi">Patteri</name>
+        <name lang="fr">Radiateur</name>
+        <name lang="hr">Radijator</name>
+        <name lang="hu">Radiátor</name>
+        <name lang="it">Termoconvettore</name>
+        <name lang="ja">ラジエーター</name>
+        <name lang="ko">라디에이터</name>
+        <name lang="mn">Радиатор</name>
+        <name lang="nb">Radiator</name>
+        <name lang="nl">Elektrische radiator</name>
+        <name lang="nl_BE">Radiator</name>
+        <name lang="pl">Wymiennik ciepła</name>
+        <name lang="pt">Radiador</name>
+        <name lang="pt_BR">Radiador elétrico</name>
+        <name lang="ro">Radiator</name>
+        <name lang="ru">Радиатор</name>
+        <name lang="sk">Radiátor</name>
+        <name lang="sl">Radiator</name>
+        <name lang="sr">Радијатор</name>
+        <name lang="sv">Radiator</name>
+        <name lang="tr">Radyatör</name>
+        <name lang="uk">Радіатор</name>
+        <name lang="zh">散热器1</name>
+    </names>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{5c819994-63c8-4922-9a1f-b260945cfe6f}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{1983aca1-9a53-449c-b240-76845806d468}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Radiateur" x="2" y="-69" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="20" y="-150" width="80" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="24" y="-146" width="72" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="101" y="-146" width="1" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26" y1="-144" x2="94" y2="-144" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26" y1="-142" x2="94" y2="-142" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26" y1="-140" x2="94" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{f784855d-5840-4da5-ad4c-83cf4f2cad01}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{e0971d1f-64b7-4617-aaa7-b1f8831ee083}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <line x1="50" y1="-160" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-160" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1cc0fdc1-bf65-49ad-be41-88d0a51ad334}" name="" x="50" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{a13c6f57-2a4c-4764-8c88-7043ff7444f4}" name="" x="70" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{427b052b-6681-4ad6-9cfb-1c057d914336}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+    </description>
+</definition>

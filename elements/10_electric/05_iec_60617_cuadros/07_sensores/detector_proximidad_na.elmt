@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="27" hotspot_y="25">
+    <uuid uuid="{f297cc02-ebbf-56b6-aacc-f47423323ce9}"/>
+    <names>
+        <name lang="de">Näherungsschalter, Schließer</name>
+        <name lang="en">Proximity switch, NO</name>
+        <name lang="es">Detector de proximidad NA</name>
+        <name lang="fr">Détecteur de proximité, NO</name>
+        <name lang="it">Sensore di prossimità NA</name>
+        <name lang="pt">Sensor de proximidade NA</name>
+        <name lang="tr">Yaklaşım sensörü, NA</name>
+        <name lang="zh">接近开关，常开</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-2" y="-24.1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a02e25cc-620a-56bd-a8fa-76d908a56909}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>13</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="8.4" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{192aebed-fac3-5c80-9bb0-25f027054951}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>14</text>
+        </dynamic_text>
+        <line x1="-14" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-14" y1="0" x2="-19" y2="-5" x3="-24" y3="0" x4="-19" y4="5" closed="true" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-33" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9e2a849c-f701-5d6a-a71f-6fe1c9c5edfb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c7de53a7-f2fb-50b2-9298-5c7701ac392c}" name="13" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{1c224747-2bb0-5629-a1dd-3d346997be8a}" name="14" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

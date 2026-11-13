@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="10" hotspot_y="20">
+    <uuid uuid="{46cbde49-389f-ebc6-83af-d10a56edbfbc}"/>
+    <names>
+        <name lang="ca">Connector Baixant-2</name>
+        <name lang="es">Conector Bajante-2</name>
+        <name lang="pt_BR">Conector de descida-2</name>
+        <name lang="zh">立管连接器2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-4.25" y="14.09" width="9.75" height="4.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.25" y="-10.15" width="9.75" height="4.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-11" y="0.59" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8fd5c92e-0ec6-47ed-89c3-d2f76a2d33ab}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-3" y1="-5.09" x2="-3" y2="13.77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-5" x2="5" y2="0" x3="3" y3="2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="14.54" x2="5" y2="5.19" x3="3" y3="4.34" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="5" y1="0" x2="8" y2="0" x3="8" y3="7" x4="5" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{50fd9c9e-0b94-4557-818b-23d5e32785e3}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{9052e335-1778-446e-be17-dbfc533ce394}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{64c64dac-8f38-4f3e-875e-615e4e9fb4bf}" name="" x="9" y="4" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{e84a1e50-c24b-e29e-fd27-2cbabc95957e}"/>
+    <names>
+        <name lang="ar">مضخة</name>
+        <name lang="ca">Bomba</name>
+        <name lang="cs">Pumpa</name>
+        <name lang="da">Pumpe</name>
+        <name lang="de">Pumpe</name>
+        <name lang="el">Αντλία</name>
+        <name lang="en">Pump</name>
+        <name lang="es">Bomba simple</name>
+        <name lang="fi">Pumppu</name>
+        <name lang="fr">Pompe</name>
+        <name lang="hr">Pumpa</name>
+        <name lang="hu">Szivattyú</name>
+        <name lang="it">Pompa</name>
+        <name lang="ja">ポンプ</name>
+        <name lang="ko">펌프</name>
+        <name lang="mn">Насос</name>
+        <name lang="nb">Pumpe</name>
+        <name lang="nl">Pomp</name>
+        <name lang="nl_BE">Pomp</name>
+        <name lang="pl">Pompa</name>
+        <name lang="pt">Bomba</name>
+        <name lang="pt_BR">Bomba</name>
+        <name lang="ro">Pompă</name>
+        <name lang="ru">Насос</name>
+        <name lang="sk">Čerpadlo</name>
+        <name lang="sl">Črpalka</name>
+        <name lang="sr">Пумпа</name>
+        <name lang="sv">Pump</name>
+        <name lang="tr">Pompa</name>
+        <name lang="uk">Насос</name>
+        <name lang="zh">泵</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10.29" y1="0.25" x2="7.92" y2="0.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8.08" y1="0.32" x2="-3.48" y2="-6.65" x3="-3.48" y3="7.3" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <ellipse x="-7.85" y="-8.3" width="16.6" height="16.59" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7.74" y1="-0.29" x2="-9.44" y2="-0.29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-20" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f1c30f1d-e4c1-403b-8fe9-b90010aacebd}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{88172bf9-c620-47ff-a212-4d6695848658}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{fe562b3a-b084-4a6f-84d9-8de2860addd0}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

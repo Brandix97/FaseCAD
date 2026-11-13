@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="25" hotspot_y="13">
+    <uuid uuid="{6d9b80f5-3fc6-fccd-754f-b5a944fbb911}"/>
+    <names>
+        <name lang="ar">اقتران ميكانيكي، موصول</name>
+        <name lang="ca">Acoblament mecànic, enganxat</name>
+        <name lang="cs">Spojka, mechanické spojení zapnuto</name>
+        <name lang="da">Mekanisk kobling, indkoblet</name>
+        <name lang="de">Kupplung, gekuppelt</name>
+        <name lang="el">Μηχανική σύζευξη, συμπλεγμένη</name>
+        <name lang="en">Mechanical coupling, engaged</name>
+        <name lang="es">Acoplamiento mecánico, ocupado</name>
+        <name lang="fi">Mekaaninen kytkentä, kytketty</name>
+        <name lang="fr">Accouplement mécanique embrayé</name>
+        <name lang="hr">Mehanička spojka, uključena</name>
+        <name lang="hu">Mechanikus csatolás, bekapcsolva</name>
+        <name lang="it">Accoppiamento meccanico, inserito</name>
+        <name lang="ja">機械的結合，係合</name>
+        <name lang="ko">기계적 커플링, 결합</name>
+        <name lang="mn">Механик холболт, холбогдсон</name>
+        <name lang="nb">Mekanisk kobling, innkoblet</name>
+        <name lang="nl">Mechanische koppeling, gekoppeld</name>
+        <name lang="nl_BE">Mechanische koppeling, ingeschakeld</name>
+        <name lang="pl">Sprzęgło mechaniczne, włączone</name>
+        <name lang="pt">Acoplamento mecânico, engatado</name>
+        <name lang="pt_BR">Acoplamento mecânico, engatado</name>
+        <name lang="ro">Cuplaj mecanic, cuplat</name>
+        <name lang="ru">Механическое соединение, замкнуто</name>
+        <name lang="sk">Mechanická spojka, zapnutá</name>
+        <name lang="sl">Mehanska spojka, vklopljena</name>
+        <name lang="sr">Механичка спојница, укључена</name>
+        <name lang="sv">Mekanisk koppling, tillkopplad</name>
+        <name lang="tr">Mekanik kuplaj, devrede</name>
+        <name lang="uk">Механічне з'єднання, увімкнене</name>
+        <name lang="zh">可拆卸端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4979afb8-c418-4ed8-a04e-e883353d08e7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="0" x2="7" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="-2" x2="-3" y2="-5" x3="10" y3="-5" x4="10" y4="-2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

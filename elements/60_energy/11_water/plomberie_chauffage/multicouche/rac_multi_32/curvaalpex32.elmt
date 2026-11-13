@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="90" hotspot_x="53" hotspot_y="53">
+    <uuid uuid="{6080c91d-1b80-908a-8925-37f1afa1e142}"/>
+    <names>
+        <name lang="ca">Corba Alpex 32</name>
+        <name lang="es">Curva  Alpex 32</name>
+        <name lang="pt_BR">Curva Alpex 32</name>
+        <name lang="zh">32mm Alpex弯头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-49" y="-43.8" width="71.76" height="73.8" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35.2" y="-29" width="42.78" height="44.28" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.58" y1="-7.41" x2="7.58" y2="-30.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.71" y1="-30.52" x2="22.62" y2="-30.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="22.76" y1="-7.43" x2="22.76" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.5" y1="15.24" x2="-31.06" y2="15.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.29" y1="30" x2="-31.25" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-32.44" y1="30" x2="-32.44" y2="15.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="13" y="16" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{97826b43-52ea-4d05-86f8-17d23694eae6}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{04a29aa4-5320-4913-944e-b73d01f5a5fa}" name="" x="-34" y="23" orientation="w" type="Generic"/>
+        <terminal uuid="{9b7f6dd9-0eba-42a7-857c-521e75cb3510}" name="" x="14" y="-32" orientation="n" type="Generic"/>
+    </description>
+</definition>

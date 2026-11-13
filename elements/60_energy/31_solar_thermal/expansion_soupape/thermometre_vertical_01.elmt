@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="26">
+    <uuid uuid="{c2ec4093-5f31-5f5d-7dd0-5de2f7c29264}"/>
+    <names>
+        <name lang="ar">ميزان حرارة عمودي</name>
+        <name lang="ca">Termòmetre vertical</name>
+        <name lang="cs">Svislý teploměr</name>
+        <name lang="da">Lodret termometer</name>
+        <name lang="de">Vertikales Thermometer</name>
+        <name lang="el">Θερμόμετρο κατακόρυφο</name>
+        <name lang="en">Vertical thermometer</name>
+        <name lang="es">Termómetro vertical</name>
+        <name lang="fi">Pystylämpömittari</name>
+        <name lang="fr">Thermomètre Vertical</name>
+        <name lang="hr">Vertikalni termometar</name>
+        <name lang="hu">Függőleges hőmérő</name>
+        <name lang="it">Termometro verticale</name>
+        <name lang="ja">縦型温度計</name>
+        <name lang="ko">수직 온도계</name>
+        <name lang="mn">Босоо термометр</name>
+        <name lang="nb">Vertikalt termometer</name>
+        <name lang="nl">Thermometer vertikaal</name>
+        <name lang="nl_BE">Verticale thermometer</name>
+        <name lang="pl">Termometr</name>
+        <name lang="pt">Termómetro vertical</name>
+        <name lang="pt_BR">Termômetro vertical</name>
+        <name lang="ro">Termometru vertical</name>
+        <name lang="ru">Вертикальный термометр</name>
+        <name lang="sk">Vertikálny teplomer</name>
+        <name lang="sl">Navpični termometer</name>
+        <name lang="sr">Вертикални термометар</name>
+        <name lang="sv">Vertikal termometer</name>
+        <name lang="tr">Dikey termometre</name>
+        <name lang="uk">Вертикальний термометр</name>
+        <name lang="zh">垂直温度计_01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="8" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{91d6f85a-58eb-4a54-8c7e-7128dabfe586}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-1" y1="-16" x2="1" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="°c" x="-1" y="-16" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-17" x2="0" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-17" width="4" height="24" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="13" x2="0" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1" y="10" width="2" height="13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-20" width="8" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="2" x2="1" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="4" x2="1" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-2" x2="1" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="0" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-6" x2="1" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-4" x2="1" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-14" x2="1" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-8" x2="1" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-10" x2="1" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-12" x2="1" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{60167832-fdc7-478d-b8ad-40833a58275b}" name="" x="0" y="23" orientation="s" type="Generic"/>
+    </description>
+</definition>

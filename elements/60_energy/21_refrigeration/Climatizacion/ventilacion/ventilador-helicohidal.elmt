@@ -1,0 +1,70 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="50" hotspot_x="28" hotspot_y="27">
+    <uuid uuid="{4b196e83-acfe-f4a0-830c-d2f3ff4d083b}"/>
+    <names>
+        <name lang="ar">مروحة محورية</name>
+        <name lang="ca">Ventilador helicoïdal</name>
+        <name lang="cs">Axiální ventilátor</name>
+        <name lang="da">Aksialventilator</name>
+        <name lang="de">Axialventilator</name>
+        <name lang="el">Αξονικός ανεμιστήρας</name>
+        <name lang="en">Axial fan</name>
+        <name lang="es">Ventilador Helicohidal</name>
+        <name lang="fi">Aksiaalipuhallin</name>
+        <name lang="fr">Ventilateur hélicoïdale</name>
+        <name lang="hr">Aksijalni ventilator</name>
+        <name lang="hu">Ax ventilátor</name>
+        <name lang="it">Ventilatore assiale</name>
+        <name lang="ja">軸流ファン</name>
+        <name lang="ko">축류 팬</name>
+        <name lang="mn">Тэнхлэгийн сэнс</name>
+        <name lang="nb">Aksialvifte</name>
+        <name lang="nl">Propeller ventilator</name>
+        <name lang="nl_BE">Axiale ventilator</name>
+        <name lang="pl">Wentylator osiowy</name>
+        <name lang="pt">Ventilador axial</name>
+        <name lang="pt_BR">Ventiladou Helicohidal</name>
+        <name lang="ro">Ventilator axial</name>
+        <name lang="ru">Осевой вентилятор</name>
+        <name lang="sk">Axiálny ventilátor</name>
+        <name lang="sl">Aksialni ventilator</name>
+        <name lang="sr">Аксијални вентилатор</name>
+        <name lang="sv">Axialfläkt</name>
+        <name lang="tr">Aksiyal fan</name>
+        <name lang="uk">Осьовий вентилятор</name>
+        <name lang="zh">轴流风机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-3" y1="18" x2="6" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-16.06" y="-16.13" width="26.38" height="33.4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8.07" y="-7.78" width="16.51" height="17.54" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.05" y="-10.29" width="21.46" height="22.55" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-5.43" y="-4.44" width="11.23" height="10" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-2.11" y="-16.13" width="8.57" height="15.87" start="120" angle="150" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1.18" y="-6.95" width="5.28" height="12.53" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1.18" y="-16.13" width="4.62" height="9.19" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="1.18" y="-6.11" width="13.19" height="10" start="85" angle="95" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.09" y="-0.27" width="11.21" height="4.18" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.12" y="-0.27" width="7.25" height="3.34" start="180" angle="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3.43" y="-0.27" width="7.91" height="16.7" start="210" angle="240" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3.43" y="-5.28" width="4.62" height="12.53" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.77" y="7.25" width="4" height="8.35" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-11.35" y="-4.44" width="12.53" height="10" start="120" angle="240" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.75" y="-5.28" width="9.89" height="5" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-11.35" y="-3.61" width="6.59" height="2.51" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-14.58" y="-13.24" width="26.95" height="28.26" start="70" angle="220" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-12" y="14.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{6e5b2126-c92b-40d3-aaa1-62521c6b5763}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-12" y="-17" width="29" height="34" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="-16" x2="3" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-16" x2="-3" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="-11" x2="10" y2="-8" x3="11" y3="-9" x4="9" y4="-12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="-8" x2="13" y2="-9" x3="14" y3="-10" x4="12" y4="-13" x5="9" y5="-12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="0" y="-2" width="2" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9152995d-9203-414b-be1d-7d8c189efb7d}" name="" x="22" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{55ac33f5-66b5-4e1c-a5a4-330559eae36b}" name="" x="11" y="-17" orientation="n" type="Generic"/>
+        <terminal uuid="{4a3d38e3-66e0-4969-ad23-48c5e1c0c299}" name="" x="-18" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

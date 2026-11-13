@@ -1,0 +1,87 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="171">
+    <uuid uuid="{ad1ab133-3001-1fff-5fb2-3f8aed6dc310}"/>
+    <names>
+        <name lang="ar">تهوية ميكانيكية مراقبة</name>
+        <name lang="ca">VMC</name>
+        <name lang="cs">Ventilátor</name>
+        <name lang="da">VMC</name>
+        <name lang="de">Kontrollierte Wohnraumlüftung</name>
+        <name lang="el">VMC</name>
+        <name lang="en">VMC</name>
+        <name lang="es">VMC</name>
+        <name lang="fi">VMC</name>
+        <name lang="fr">VMC</name>
+        <name lang="hr">VMC</name>
+        <name lang="hu">VMC</name>
+        <name lang="it">VMC</name>
+        <name lang="ja">換気システム</name>
+        <name lang="ko">VMC</name>
+        <name lang="mn">VMC</name>
+        <name lang="nb">VMC</name>
+        <name lang="nl">VMC</name>
+        <name lang="nl_BE">VMC</name>
+        <name lang="pl">Wentylacja mechaniczna</name>
+        <name lang="pt">VMC</name>
+        <name lang="pt_BR">Ventilação mecÓ¢nica controlada</name>
+        <name lang="ro">VMC</name>
+        <name lang="ru">Приточно-вытяжная вентиляция</name>
+        <name lang="sk">VMC</name>
+        <name lang="sl">Prezračevanje</name>
+        <name lang="sr">VMC</name>
+        <name lang="sv">VMC</name>
+        <name lang="tr">VMC</name>
+        <name lang="uk">Припливно-витяжна вентиляція</name>
+        <name lang="zh">机械通风</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{e97e577a-f430-4893-ad2b-f1cd84bc87cf}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{2e9f0dc9-8396-495e-89a0-4f2afdbb99ae}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Combles</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="30" y1="-125" x2="90" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="30" y="-130" width="30" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <arc x="55" y="-155" width="10" height="30" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <arc x="60" y="-130" width="30" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <arc x="55" y="-125" width="10" height="30" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="30" y="-155" width="60" height="60" start="20" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="30" y="-155" width="60" height="60" start="290" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="30" y="-154" width="60" height="60" start="200" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="30" y="-155" width="60" height="60" start="110" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="20" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="290" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-140" width="30" height="30" start="200" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="45" y="-141" width="30" height="30" start="110" angle="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="36.5" y="-147.5" width="45" height="45" start="15" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.5" y="-147.5" width="45" height="45" start="290" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="37.5" y="-147.5" width="45" height="45" start="200" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="38.5" y="-147.5" width="45" height="45" start="110" angle="50" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="28" y="-13.5" z="49" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{a41ece34-27e6-4d3a-a40d-656541efd497}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="50" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{946aa7bc-e906-4ba1-8c16-d0af9353c2ab}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="51" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{567ee688-a440-45aa-8e1d-96dd0e11206f}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>VMC</text>
+        </dynamic_text>
+        <line x1="50" y1="-160" x2="50" y2="-155" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-153" x2="50" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-154" x2="70" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9b3ede85-ffd3-4c8f-bd56-02b84ef734a8}" name="" x="70" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{17263ab1-dbdd-41b7-97b3-ab36bd55de07}" name="" x="50" y="-160" orientation="n" type="Generic"/>
+        <terminal uuid="{a4889fa7-552d-41a7-8a1f-bfc8ec128f62}" name="" x="100" y="-100" orientation="s" type="Generic"/>
+    </description>
+</definition>

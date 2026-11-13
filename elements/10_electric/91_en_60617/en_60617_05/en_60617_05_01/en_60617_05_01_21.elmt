@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="6" hotspot_y="15">
+    <uuid uuid="{75f232aa-8166-92d3-792b-d086142c4ad6}"/>
+    <names>
+        <name lang="ar">منطقة جوهرية تفصل بين مناطق مختلفة النوعية</name>
+        <name lang="ca">Regió intrínseca que separa regions de tipus de conductivitat diferent</name>
+        <name lang="cs">Oblast vlastní elektrické vodivosti se strukturou PIN nebo NIP</name>
+        <name lang="da">Intrinsisk område som adskiller områder med afvigende ledningstype</name>
+        <name lang="de">Transition entre régions de types de
+conductivité différentes:
+- de P à N, ou de N à P</name>
+        <name lang="el">Ενδογενής περιοχή που διαχωρίζει περιοχές διαφορετικού τύπου αγωγιμότητας</name>
+        <name lang="en">Intrinsic region separating regions of dissimilar conductivity type</name>
+        <name lang="es">Región intrínseca que separa regiones de tipo de conductividad diferente</name>
+        <name lang="fi">Erilaisen johtavuustyypin alueita erottava oma alue</name>
+        <name lang="fr">Région intrinsèque entre deux régions de type
+de conductivité différente formant une structure
+PIN ou NIP</name>
+        <name lang="hr">Intrinzično područje koje razdvaja područja različite vrste vodljivosti</name>
+        <name lang="hu">Intrinsic tartomány elválasztja az eltérő vezetőképességi típusú tartományokat</name>
+        <name lang="it">Regione intrinseca che separa regioni di tipo di conduttività dissimile</name>
+        <name lang="ja">異なる導電型の領域を分離する真性領域</name>
+        <name lang="ko">다른 전도성 유형의 영역을 분리하는 진성 영역</name>
+        <name lang="mn">Өөр дамжуулалтын төрлийн мужуудыг тусгаарлах өөрийн муж</name>
+        <name lang="nb">Intrinsisk område som skiller områder med ulik ledningsev n-type</name>
+        <name lang="nl">Intrinsiek gebied dat gebieden met afwijkend geleidbaarheidstype scheidt</name>
+        <name lang="nl_BE">Intrinsiek gebied dat gebieden met een ander geleidbaarheidstype scheidt</name>
+        <name lang="pl">Obszar samoistny rozdzielający obszary o odmiennym typie przewodności</name>
+        <name lang="pt">Região intrínseca que separa regiões de tipo de condutividade diferente</name>
+        <name lang="pt_BR">Região intrínseca separando regiões de tipo de condutividade diferente</name>
+        <name lang="ro">Regiune intrinsecă care separă regiuni de tip de conductivitate diferit</name>
+        <name lang="ru">Собственная область, разделяющая области противоположного типа проводимости</name>
+        <name lang="sk">Vlastná oblasť oddeľujúca oblasti s odlišným typom vodivosti</name>
+        <name lang="sl">Intrinzično območje, ki ločuje območja različnega tipa prevodnosti</name>
+        <name lang="sr">Сопствена област која раздваја области различитог типа проводности</name>
+        <name lang="sv">Intrinsiskt område som separerar områden med avvikande ledningstyp</name>
+        <name lang="tr">Farklı iletkenlik tipindeki bölgeleri ayıran iç bölge</name>
+        <name lang="uk">Власна область, що розділяє області протилежного типу провідності</name>
+        <name lang="zh">转接端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="15" y="32.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1e1b4c92-0a6b-4fa8-85a9-7afef64d4a92}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="10" x2="8" y2="15" x3="8" y3="30" x4="0" y4="25" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

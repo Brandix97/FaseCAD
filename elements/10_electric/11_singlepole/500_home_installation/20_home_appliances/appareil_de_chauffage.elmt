@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="35" hotspot_y="23">
+    <uuid uuid="{c1703acc-fc16-6cf6-a057-5d09b07b222f}"/>
+    <names>
+        <name lang="ar">جهاز تدفئة</name>
+        <name lang="ca">Escalfador</name>
+        <name lang="cs">Ohřívač, topné těleso</name>
+        <name lang="da">Varmelegeme</name>
+        <name lang="de">Heizung</name>
+        <name lang="el">Συσκευή θέρμανσης</name>
+        <name lang="en">Heater</name>
+        <name lang="es">Calentador</name>
+        <name lang="fi">Lämmitin</name>
+        <name lang="fr">Appareil de chauffage</name>
+        <name lang="hr">Grijač</name>
+        <name lang="hu">Fűtőtest</name>
+        <name lang="it">Riscaldatore</name>
+        <name lang="ja">ヒーター</name>
+        <name lang="ko">히터</name>
+        <name lang="mn">Халаагч</name>
+        <name lang="nb">Varmeovn</name>
+        <name lang="nl">Verwarmer</name>
+        <name lang="nl_BE">Verwarming</name>
+        <name lang="pl">Grzejnik elektryczny</name>
+        <name lang="pt">Aquecedor</name>
+        <name lang="pt_BR">Aquecedor elétrico</name>
+        <name lang="ro">Încălzitor</name>
+        <name lang="ru">Обогреватель</name>
+        <name lang="sk">Ohrievač</name>
+        <name lang="sl">Grelec</name>
+        <name lang="sr">Грејач</name>
+        <name lang="sv">Värmare</name>
+        <name lang="tr">Isıtıcı</name>
+        <name lang="uk">Обігрівач</name>
+        <name lang="zh">加热设备</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-4" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-1" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1978847a-7af9-424c-aaeb-91affe8458c6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-30" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="15" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8526125d-251d-4e2a-9471-fd17952dc504}" name="" x="0" y="-14" orientation="n" type="Generic"/>
+    </description>
+</definition>

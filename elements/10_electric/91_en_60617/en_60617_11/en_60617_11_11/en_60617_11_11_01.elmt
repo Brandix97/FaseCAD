@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="50" hotspot_x="110" hotspot_y="45">
+    <uuid uuid="{1fb22ff5-2db9-c6c4-5517-a048f0d10199}"/>
+    <names>
+        <name lang="ar">موصل محايد</name>
+        <name lang="ca">Conductor neutre</name>
+        <name lang="cs">Střední vodič</name>
+        <name lang="da">Nulleder</name>
+        <name lang="de">Neutralleiter (N),
+Mittelleite</name>
+        <name lang="el">Ουδέτερος αγωγός</name>
+        <name lang="en">Neutral conductor</name>
+        <name lang="es">Conductor neutro</name>
+        <name lang="fi">Neutrijohdin</name>
+        <name lang="fr">Conducteur neutre</name>
+        <name lang="hr">Neutralni vodič</name>
+        <name lang="hu">Nullavezető</name>
+        <name lang="it">Conduttore di neutro</name>
+        <name lang="ja">中性線</name>
+        <name lang="ko">중성선</name>
+        <name lang="mn">Нейтраль дамжуулагч</name>
+        <name lang="nb">Nøytraleder</name>
+        <name lang="nl">Nulleider</name>
+        <name lang="nl_BE">Neutrale geleider</name>
+        <name lang="pl">Przewód neutralny</name>
+        <name lang="pt">Condutor neutro</name>
+        <name lang="pt_BR">Neutro condutor</name>
+        <name lang="ro">Conductor neutru</name>
+        <name lang="ru">Нейтральный проводник</name>
+        <name lang="sk">Neutrálny vodič</name>
+        <name lang="sl">Nevtralni vodnik</name>
+        <name lang="sr">Неутрални проводник</name>
+        <name lang="sv">Nolledare</name>
+        <name lang="tr">Nötr iletken</name>
+        <name lang="uk">Нейтральний провідник</name>
+        <name lang="zh">接线端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="42.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{277ee8d0-2fbb-4309-ad31-ec9fed8403fb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-100" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-55" y1="0" x2="-45" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <ellipse x="-46.5" y="-40.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{ded50df5-8c24-479c-927f-03c502d76082}" name="" x="-100" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{59b3c8da-18f0-4d64-ae3d-606cdaedb961}" name="" x="0" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

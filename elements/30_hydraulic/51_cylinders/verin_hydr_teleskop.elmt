@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="40" hotspot_x="17" hotspot_y="22">
+    <uuid uuid="{0907c7be-2c7d-e4be-ccfd-ff48a584533d}"/>
+    <names>
+        <name lang="ar">اسطوانة هيدروليكية تلسكوبية</name>
+        <name lang="ca">Cilindre hidràulic telescòpic</name>
+        <name lang="cs">Zasouvací vodní válec</name>
+        <name lang="da">Teleskopisk hydraulikcylinder</name>
+        <name lang="de">Teleskop-Hydraulikzylinder</name>
+        <name lang="el">Τηλεσκοπικό Υδραυλικό έμβολο</name>
+        <name lang="en">Telescopic hydraulic cylinder</name>
+        <name lang="es">Pistón hidráulico telescópico</name>
+        <name lang="fi">Teleskooppinen hydraulisylinteri</name>
+        <name lang="fr">Verin hydraulique telescopique</name>
+        <name lang="hr">Teleskopski hidraulički cilindar</name>
+        <name lang="hu">Teleszkópos hidraulikus henger</name>
+        <name lang="it">Pistone idraulico telescopico</name>
+        <name lang="ja">伸縮式油圧シリンダ</name>
+        <name lang="ko">텔레스코픽 유압 실린더</name>
+        <name lang="mn">Телескоп гидравлик цилиндр</name>
+        <name lang="nb">Teleskopisk hydraulisk sylinder</name>
+        <name lang="nl">Cylinder telescopisch</name>
+        <name lang="nl_BE">Telescopische hydraulische cilinder</name>
+        <name lang="pl">Cylinder (siłownik) teleskowpowy hydrauliczny dwustronnego działania</name>
+        <name lang="pt">Cilindro hidráulico telescópico</name>
+        <name lang="pt_BR">Cilindro hidráulico telescópico</name>
+        <name lang="ro">Cilindru hidraulic telescopic</name>
+        <name lang="ru">Телескопический гидравлический цилиндр</name>
+        <name lang="sk">Teleskopický hydraulický valec</name>
+        <name lang="sl">Teleskopski hidravlični cilinder</name>
+        <name lang="sr">Телескопски хидраулични цилиндар</name>
+        <name lang="sv">Teleskopisk hydraulcylinder</name>
+        <name lang="tr">Teleskopik hidrolik silindir</name>
+        <name lang="uk">Телескопічний гідравлічний циліндр</name>
+        <name lang="zh">伸缩液压缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-41.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1d6fc945-6a00-4eb4-bfa3-07828ab04d52}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="-16" x2="52" y2="-16" x3="52" y3="-12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="-4" x2="52" y2="-4" x3="52" y3="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="50" y1="-4" x2="50" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-8" x2="20" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="0" x2="40" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-16" x2="20" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="42" y1="-16" x2="42" y2="-20" x3="-12" y3="-20" x4="-12" y4="0" x5="42" y5="0" x6="42" y6="-4" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="48" y1="-4" x2="52" y2="-4" x3="50" y3="-8" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="38" y1="0" x2="42" y2="0" x3="40" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="0" y1="-16" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="-12" x2="70" y2="-12" x3="70" y3="-8" x4="20" y4="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="0" x2="-8" y2="0" x3="-10" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <terminal uuid="{d1cade6d-3dca-4b9a-abc9-fa5acfa80895}" name="" x="50" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{8e02fbd2-8099-4bd1-b126-041a5039fb04}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{cffaf992-fec8-4751-b4b6-30c03affa5b6}" name="" x="40" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

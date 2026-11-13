@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="90" hotspot_x="86" hotspot_y="84">
+    <uuid uuid="{199ab347-b10a-010f-70b6-679101b27a50}"/>
+    <names>
+        <name lang="ar">محول ذاتي، أحادي الوجه</name>
+        <name lang="ca">Autotransformador, monofàsic</name>
+        <name lang="cs">Jednofázový autotransformátor</name>
+        <name lang="da">Autotransformer, enkeltfaset</name>
+        <name lang="de">Spartransformator, einphasig</name>
+        <name lang="el">Αυτομετασχηματιστής, μονοφασικός</name>
+        <name lang="en">Auto-transformer, single-phase</name>
+        <name lang="es">Autotransformador, monofásico</name>
+        <name lang="fi">Automaattimuuntaja, yksivaiheinen</name>
+        <name lang="fr">Autotransformateur, monophasé</name>
+        <name lang="hr">Autotransformator, jednofazni</name>
+        <name lang="hu">Autotranszformátor, egyfázisú</name>
+        <name lang="it">Autotrasformatore, monofase</name>
+        <name lang="ja">単相単巻変圧器</name>
+        <name lang="ko">오토 트랜스포머, 단상</name>
+        <name lang="mn">Автотрансформатор, нэг фазын</name>
+        <name lang="nb">Autotransformator, enfase</name>
+        <name lang="nl">Autotransformator, eenfase</name>
+        <name lang="nl_BE">Autotransformator, eenfase</name>
+        <name lang="pl">Autotransformator, jednofazowy</name>
+        <name lang="pt">Autotransformador, monofásico</name>
+        <name lang="pt_BR">Autotransformador monofásico</name>
+        <name lang="ro">Autotransformator, monofazat</name>
+        <name lang="ru">Автотрансформатор, однофазный</name>
+        <name lang="sk">Autotransformátor, jednofázový</name>
+        <name lang="sl">Avtotransformator, enofazni</name>
+        <name lang="sr">Аутотрансформатор, једнофазни</name>
+        <name lang="sv">Autotransformator, enfas</name>
+        <name lang="tr">Oto transformatör, tek fazlı</name>
+        <name lang="uk">Автотрансформатор, однофазний</name>
+        <name lang="zh">连接端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3bd08a6c-db53-436d-8675-277c930c03d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Form 2 / Forme 2" x="-74" y="-70" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-40" y1="-50" x2="-40" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-40" y="-35" width="10" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-35" width="10" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="-35" width="10" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-35" width="10" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-30" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

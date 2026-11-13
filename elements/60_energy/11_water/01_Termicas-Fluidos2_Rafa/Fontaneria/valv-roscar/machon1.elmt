@@ -1,0 +1,42 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{08e6c1c4-7d21-9c22-3af0-8a0fc2d667ca}"/>
+    <names>
+        <name lang="ar">جلبة 1"</name>
+        <name lang="ca">Mascle 1"</name>
+        <name lang="cs">Nippel 1"</name>
+        <name lang="da">Nippel 1"</name>
+        <name lang="de">Nippel 1"</name>
+        <name lang="el">Μαστός 1"</name>
+        <name lang="en">Nipple 1"</name>
+        <name lang="es">Machón 1"</name>
+        <name lang="fr">Mamelon 1"</name>
+        <name lang="pt_BR">Machón 1"</name>
+        <name lang="zh">1英寸外接头</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-7.65" y1="8.06" x2="-9.4" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-4.68" y="8.24" width="5.66" height="14.12" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0.39" y="8.24" width="5.66" height="14.12" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9.86" y1="8.06" x2="-11.61" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-4.68" y="-21.76" width="5.66" height="14.12" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.45" y1="8.06" x2="10.7" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="2" y="-7.64" width="4" height="15.88" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14.66" y1="8.06" x2="12.91" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-4.68" y="-16.46" width="10.74" height="31.77" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.25" y1="8.06" x2="8.5" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="2.82" y1="-7.64" x2="-1.92" y2="-7.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6.16" y="-7.86" width="11.08" height="15.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.06" y1="8.06" x2="-13.81" y2="-7.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="0.39" y="-21.76" width="5.66" height="14.12" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-1.87" y1="8.24" x2="2.76" y2="8.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16.15" y="-7.86" width="11.08" height="15.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7.46" y="15.9" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1594c179-444f-4ef7-a88f-3c120196e0ad}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-4.68" y="-7.64" width="4" height="15.88" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{915df6d5-4353-43bc-af70-cbe2b86c352f}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{40121a79-32a1-4ffe-a69e-ab1db9983898}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

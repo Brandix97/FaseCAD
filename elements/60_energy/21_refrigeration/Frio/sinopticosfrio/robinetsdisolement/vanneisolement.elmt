@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{8282815b-bf8c-a6a4-df93-2c6682f4c6cc}"/>
+    <names>
+        <name lang="ar">صمّام عزل</name>
+        <name lang="ca">Vàlvula d'aïllament</name>
+        <name lang="cs">Izolační ventil</name>
+        <name lang="da">Afspærringsventil</name>
+        <name lang="de">Absperrventil</name>
+        <name lang="el">Βαλβίδα απομόνωσης</name>
+        <name lang="en">Isolation valve</name>
+        <name lang="es">Válvula de aislamiento</name>
+        <name lang="fi">Sulkuventtiili</name>
+        <name lang="fr">Vanne d'isolement</name>
+        <name lang="hr">Zaporni ventil</name>
+        <name lang="hu">Elzárószelep</name>
+        <name lang="it">Valvola di intercettazione</name>
+        <name lang="ja">遮断弁</name>
+        <name lang="ko">차단 밸브</name>
+        <name lang="mn">Тусгаарлах хавхлага</name>
+        <name lang="nb">Avstengingsventil</name>
+        <name lang="nl">Isolatieklep</name>
+        <name lang="nl_BE">Afsluitklep</name>
+        <name lang="pl">Zawór odcinający</name>
+        <name lang="pt">Válvula de isolamento</name>
+        <name lang="pt_BR">Isolation valvula</name>
+        <name lang="ro">Supapă de izolare</name>
+        <name lang="ru">Запорный клапан</name>
+        <name lang="sk">Uzatvárací ventil</name>
+        <name lang="sl">Zaporni ventil</name>
+        <name lang="sr">Изолациони вентил</name>
+        <name lang="sv">Avstängningsventil</name>
+        <name lang="tr">İzolasyon vanası</name>
+        <name lang="uk">Відсічний клапан</name>
+        <name lang="zh">隔离阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-10" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ca462c19-a95e-4283-a232-c69968ad1722}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="0" x2="11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-5" x2="10" y2="5" x3="10" y3="-5" x4="-10" y4="5" x5="-10" y5="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <ellipse x="-2" y="-2" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <terminal uuid="{c9859cff-b9f4-40a4-b583-e2f19b2feace}" name="" x="11" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{6862e961-f4bf-4c8b-be6d-44eca2bd958c}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

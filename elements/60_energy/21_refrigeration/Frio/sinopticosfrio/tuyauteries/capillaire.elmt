@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="9">
+    <uuid uuid="{d220dff7-94db-3594-7ee3-f0270d070729}"/>
+    <names>
+        <name lang="ar">أنابيب شعريّة</name>
+        <name lang="ca">Tubs capil·lars</name>
+        <name lang="cs">Vlásečnicové trubky</name>
+        <name lang="da">Kapillarrør</name>
+        <name lang="de">Kapillarrohrleitung</name>
+        <name lang="el">Τριχοειδής σωλήνας</name>
+        <name lang="en">Capillary tubing</name>
+        <name lang="es">Tubo capilar</name>
+        <name lang="fi">Kapillaariputki</name>
+        <name lang="fr">Capillaire</name>
+        <name lang="hr">Kapilarna cijev</name>
+        <name lang="hu">Kapilláris cső</name>
+        <name lang="it">Capillare</name>
+        <name lang="ja">キャピラリーチューブ</name>
+        <name lang="ko">모세관 튜브</name>
+        <name lang="mn">Капилляр хоолой</name>
+        <name lang="nb">Kapillærrør</name>
+        <name lang="nl">Capilair pijpje</name>
+        <name lang="nl_BE">Capillaire buis</name>
+        <name lang="pl">Kapilara</name>
+        <name lang="pt">Tubagem capilar</name>
+        <name lang="pt_BR">Capillary tubing</name>
+        <name lang="ro">Conductă capilară</name>
+        <name lang="ru">Капиллярная трубка</name>
+        <name lang="sk">Kapilárne potrubie</name>
+        <name lang="sl">Kapilarna cev</name>
+        <name lang="sr">Капиларна цев</name>
+        <name lang="sv">Kapillärrör</name>
+        <name lang="tr">Kılcal boru</name>
+        <name lang="uk">Капілярна трубка</name>
+        <name lang="zh">毛细管</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-3" y="0" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-7" y="-23" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{de39d6da-ca95-4785-910e-45e24f1226d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{607fcefc-72b4-4159-b0a0-ad2ec7b174b1}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{5d9221a4-6e27-4d52-a990-8b8d89512a9c}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

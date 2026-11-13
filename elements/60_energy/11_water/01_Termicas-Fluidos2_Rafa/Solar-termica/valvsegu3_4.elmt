@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="19" hotspot_y="38">
+    <uuid uuid="{5cc4a904-2e4e-c4ff-2170-c65af73c37b8}"/>
+    <names>
+        <name lang="ar">صمام أمان 3/4H</name>
+        <name lang="ca">Vàlvula de seguretat 3/4H</name>
+        <name lang="cs">Pojistný ventil 3/4H</name>
+        <name lang="da">Sikkerhedsventil 3/4H</name>
+        <name lang="de">Sicherheitsventil 3/4H</name>
+        <name lang="el">Βαλβίδα ασφαλείας 3/4H</name>
+        <name lang="en">Segurity valve 3/4H</name>
+        <name lang="es">Valvula de seguridad 3/4H</name>
+        <name lang="fi">Varoventtiili 3/4H</name>
+        <name lang="fr">Vanne de sécurité</name>
+        <name lang="hr">Sigurnosni ventil 3/4H</name>
+        <name lang="hu">Biztonsági szelep 3/4H</name>
+        <name lang="it">Valvola di sicurezza 3/4H</name>
+        <name lang="ja">安全弁 3/4H</name>
+        <name lang="ko">안전 밸브 3/4H</name>
+        <name lang="mn">Хамгаалалтын хавхлага 3/4H</name>
+        <name lang="nb">Sikkerhetsventil 3/4H</name>
+        <name lang="nl">Veiligheidsklep 3/4H</name>
+        <name lang="nl_BE">Veiligheidsklep 3/4H</name>
+        <name lang="pl">Zawór bezpieczeństwa 3/4H</name>
+        <name lang="pt">Válvula de segurança 3/4H</name>
+        <name lang="pt_BR">Segurity valvula 3/4H</name>
+        <name lang="ro">Supapă de siguranță 3/4H</name>
+        <name lang="ru">Предохранительный клапан 3/4H</name>
+        <name lang="sk">Bezpečnostný ventil 3/4H</name>
+        <name lang="sl">Varnostni ventil 3/4H</name>
+        <name lang="sr">Сигурносни вентил 3/4H</name>
+        <name lang="sv">Säkerhetsventil 3/4H</name>
+        <name lang="tr">Emniyet valfi 3/4H</name>
+        <name lang="uk">Запобіжний клапан 3/4H</name>
+        <name lang="zh">3/4英寸跟踪阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-5.62" y="-25.78" width="12.4" height="6.75" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <line x1="-1.62" y1="-19" x2="-1.62" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.22" y1="-19" x2="-3.22" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.34" y1="-19" x2="4.34" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.78" y1="-19" x2="2.78" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.74" y1="-19" x2="5.74" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.38" y1="-19" x2="0.38" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="10" y="-15.44" width="3.2" height="13" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-6.42" y="-0.15" width="13.6" height="11.25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5.22" y="2.55" width="11.2" height="8.55" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="8.89" y1="-16.34" x2="13.09" y2="-16.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.89" y1="-1.49" x2="13.08" y2="-1.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.18" y1="-16.27" x2="13.18" y2="-1.57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.42" y1="-19" x2="-4.42" y2="-25.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.78" y1="-16.34" x2="5.58" y2="-13.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.78" y1="-1.49" x2="5.58" y2="-5.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.78" y1="-16.55" x2="8.78" y2="-18.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-19" x2="8.73" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-0.15" x2="8.73" y2="-0.15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.78" y1="-0.23" x2="8.78" y2="-1.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-19" x2="-8" y2="-0.15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="bar" x="-2" y="-8.24" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-7.62" y="-18.27" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{476398ef-ade7-4eef-bf51-470b8ac70a34}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <text text="V.seg.3/4&quot;H" x="-12" y="-29" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{a7a2911a-abbd-455d-b452-bcf843890f10}" name="" x="0" y="11" orientation="s" type="Generic"/>
+        <terminal uuid="{b413bfb2-54d1-41bf-9ab9-7f0545790eed}" name="" x="13" y="-8" orientation="e" type="Generic"/>
+    </description>
+</definition>

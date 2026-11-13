@@ -1,0 +1,23 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="24" hotspot_y="21">
+    <uuid uuid="{da93f5a9-d3b7-f461-6847-3e0a9e03aecb}"/>
+    <names>
+        <name lang="ca">Vàlvula de pressió constant</name>
+        <name lang="es">Valvula presión constante</name>
+        <name lang="pt_BR">Valvula presión constante</name>
+        <name lang="zh">恒压阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-13.9" y1="0.27" x2="-8.17" y2="0.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.37" y1="0.27" x2="16.71" y2="0.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-7.77" y1="-5.53" x2="-7.77" y2="6" x3="7.25" y3="-5.53" x4="7.25" y4="6" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-0.29" y1="-0.15" x2="-0.29" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-5.46" y="-17.75" width="10.4" height="9.22" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="PC" x="-3.81" y="-11" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-2.71" y1="2" x2="-0.51" y2="5" x3="1.69" y3="3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4.55" y1="-13.06" x2="8.51" y2="-13.06" x3="8.51" y3="-8.75" x4="0.59" y4="-1" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{8c04424f-2728-4bba-b6ce-6d1f06390bba}" name="" x="18" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{08577e3f-9a00-4883-bb9d-b8a50e1af323}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

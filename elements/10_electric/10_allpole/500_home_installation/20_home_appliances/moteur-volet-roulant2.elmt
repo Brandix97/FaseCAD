@@ -1,0 +1,40 @@
+<definition version="0.80" type="element" link_type="master" width="80" height="50" hotspot_x="13" hotspot_y="9">
+    <uuid uuid="{05fba882-b559-a795-b21f-e53908699d7f}"/>
+    <names>
+        <name lang="ar">مصراع دوّار</name>
+        <name lang="ca">Persiana enrotllable</name>
+        <name lang="cs">Roleta s motorem</name>
+        <name lang="da">Rullegardin</name>
+        <name lang="de">Rollladen</name>
+        <name lang="el">Ρολό</name>
+        <name lang="en">Roller shutter</name>
+        <name lang="es">Persiana motorizada</name>
+        <name lang="fr">Volet Roulant</name>
+        <name lang="pt_BR">Persiana motorizada</name>
+        <name lang="zh">卷帘电机2</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <ellipse x="-5" y="1" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="50.9" y="4.83" width="12.1" height="11" start="90" angle="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="1 ~" x="-1" y="23" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="26.7" y="-0.68" width="12.1" height="11" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="M" x="6" y="13" rotation="0" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="32.75" y1="-0.68" x2="56.95" y2="4.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="63" y1="10.33" x2="63" y2="32.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="63" y1="32.33" x2="38.8" y2="23.53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="20" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="38.8" y1="11.95" x2="38.8" y2="23.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="27" x2="0" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="32.75" y1="10.33" x2="56.95" y2="15.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="53.92" y="7.58" width="6.05" height="5.5" start="270" angle="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1faccbcf-d5b9-499a-8b15-62ab1e26ec4b}" name="" x="0" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{75053000-1b78-46f8-bbc3-0cb07150413e}" name="" x="0" y="31" orientation="s" type="Generic"/>
+        <terminal uuid="{0e03d738-1660-4a68-918f-178d10d6d9f9}" name="" x="20" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{46836d6e-6977-49e4-bde1-e82e1773a6df}" name="" x="46" y="0" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="130" hotspot_x="24" hotspot_y="30">
+    <uuid uuid="{5ee7a0f3-43a8-e58b-49d4-b00e5a36bad1}"/>
+    <names>
+        <name lang="ar">مفتاح بمصهر QMB</name>
+        <name lang="ca">Interruptor amb fusible QMB</name>
+        <name lang="cs">Pojistkový odpínač QMB</name>
+        <name lang="da">Afbryder med sikring QMB</name>
+        <name lang="de">Schalter mit Sicherung QMB</name>
+        <name lang="el">Διακόπτης με ασφάλεια QMB</name>
+        <name lang="en">Switch with fuse QMB</name>
+        <name lang="es">Interruptor con fusible QMB</name>
+        <name lang="fi">Kytkin sulakkeella QMB</name>
+        <name lang="fr">Interrupteur à fusible QMB</name>
+        <name lang="hr">Prekidač s osiguračem QMB</name>
+        <name lang="hu">Kapcsoló biztosítékkal QMB</name>
+        <name lang="it">Interruttore QMB</name>
+        <name lang="ja">ヒューズ付きスイッチ QMB</name>
+        <name lang="ko">퓨즈 부착 스위치 QMB</name>
+        <name lang="mn">Хайлмалтай унтраалга QMB</name>
+        <name lang="nb">Bryter med sikring QMB</name>
+        <name lang="nl">Onderbreker met zekering QMB</name>
+        <name lang="nl_BE">Schakelaar met zekering QMB</name>
+        <name lang="pl">Rozłącznik z bezpiecznikiem QMB</name>
+        <name lang="pt">Interruptor com fusível QMB</name>
+        <name lang="pt_BR">Interruptor com Fusível QMB</name>
+        <name lang="ro">Comutator cu siguranță QMB</name>
+        <name lang="ru">Выключатель с предохранителем QMB</name>
+        <name lang="sk">Spínač s poistkou QMB</name>
+        <name lang="sl">Stikalo z varovalko QMB</name>
+        <name lang="sr">Прекидач са осигурачем QMB</name>
+        <name lang="sv">Brytare med säkring QMB</name>
+        <name lang="tr">Sigortalı şalter QMB</name>
+        <name lang="uk">Вимикач із запобіжником QMB</name>
+        <name lang="zh">隔离开关QMB</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="6" y1="-2" x2="19" y2="-2" x3="19" y3="25" x4="15" y4="25" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="23" y="18.05" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d6bfc622-6dda-44bd-aaed-298824dd95d2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="5" y="16" width="9" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="1.7" y1="-8" x2="9.7" y2="6" x3="9.7" y3="89" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-5" x2="-10.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="-3" x2="-11.8" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-7" x2="-13.8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="-3" x2="-17.8" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-5" x2="-15.8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.7" y="-10" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.7" y1="-10" x2="11.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="77" x2="4.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.7" y1="72" x2="4.7" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.95" y1="72" x2="2.95" y2="82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.3" y1="77" x2="2.7" y2="77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10.3" y="72" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.7" y1="-20" x2="9.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9eb3bfd5-4eef-46d1-8460-f35d9203ef2c}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{da973901-13ad-45f2-a9ae-586eb01ecbe9}" name="" x="10" y="90" orientation="s" type="Generic"/>
+        <terminal uuid="{5cdc5806-ec0c-4af6-aa73-697603e0bc8a}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

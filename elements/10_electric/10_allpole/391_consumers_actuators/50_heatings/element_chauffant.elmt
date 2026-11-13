@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="70" hotspot_x="10" hotspot_y="35">
+    <uuid uuid="{dadbe844-bfd3-cb45-9ec8-864a34045946}"/>
+    <names>
+        <name lang="ar">عنصر تسخين</name>
+        <name lang="ca">Element de calefacció</name>
+        <name lang="cs">Výkonový odpor</name>
+        <name lang="da">Varmeelement</name>
+        <name lang="de">Heizelement</name>
+        <name lang="el">Θερμαντικό στοιχείο</name>
+        <name lang="en">Heating element</name>
+        <name lang="es">Elemento térmico</name>
+        <name lang="fi">Lämmitysvastus</name>
+        <name lang="fr">Elément chauffant</name>
+        <name lang="hr">Grijaći element</name>
+        <name lang="hu">Fűtőelem</name>
+        <name lang="it">Riscaldatore</name>
+        <name lang="ja">発熱体</name>
+        <name lang="ko">발열체</name>
+        <name lang="mn">Халаах элемент</name>
+        <name lang="nb">Varmeelement</name>
+        <name lang="nl">Verwarming</name>
+        <name lang="nl_BE">Verwarmingselement</name>
+        <name lang="pl">Grzejnik</name>
+        <name lang="pt">Elemento de aquecimento</name>
+        <name lang="pt_BR">Elemento de aquecimento</name>
+        <name lang="ro">Element de încălzire</name>
+        <name lang="ru">Нагревательный элемент</name>
+        <name lang="sk">Vykurovacie teleso</name>
+        <name lang="sl">Grelec</name>
+        <name lang="sr">Грејни елемент</name>
+        <name lang="sv">Värmeelement</name>
+        <name lang="tr">Isıtma elemanı</name>
+        <name lang="uk">Нагрівальний елемент</name>
+        <name lang="zh">加热元件</name>
+    </names>
+    <informations>EN 60617 : 04-01-12</informations>
+    <description>
+        <line x1="0" y1="-25" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="15" x2="0" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-15" width="10" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="-16" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6f20a697-3715-4cb6-9fee-b0216c534b79}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="-10" x2="5" y2="-10" x3="5" y3="-5" x4="-5" y4="-5" x5="-5" y5="0" x6="5" y6="0" x7="5" y7="5" x8="-5" y8="5" x9="-5" y9="10" x10="5" y10="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{c8d16dd7-4428-446f-bdf4-a927251e379a}" name="" x="0" y="25" orientation="s" type="Generic"/>
+        <terminal uuid="{808a60d0-8f58-451e-be70-b06ead0cdc16}" name="" x="0" y="-25" orientation="n" type="Generic"/>
+    </description>
+</definition>

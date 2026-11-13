@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{c83c03ad-9757-e823-18eb-8106b87aafa4}"/>
+    <names>
+        <name lang="ar">قيثارة</name>
+        <name lang="ca">Dilatador Lira</name>
+        <name lang="cs">Kompenzační smyčka</name>
+        <name lang="da">Lyre</name>
+        <name lang="de">Lyra</name>
+        <name lang="el">Λύρα</name>
+        <name lang="en">Pipe loop</name>
+        <name lang="es">Dilatador-lira2</name>
+        <name lang="fr">Lyre</name>
+        <name lang="pt_BR">Dilatadou-lira2</name>
+        <name lang="zh">膨胀弯2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-7" y="-15" width="14" height="11" start="330" angle="240" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-8" width="9" height="8" start="150" angle="120" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-14" y="-8" width="9" height="8" start="270" angle="120" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-7" y="-25.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f836e6a2-5c3d-49c8-bc2c-bd0d652896bc}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b4103aaa-18e9-460e-8d0a-4c001965b3aa}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{9d16b6d7-d08b-466c-a188-864306332f59}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

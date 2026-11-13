@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="80" hotspot_x="36" hotspot_y="33">
+    <uuid uuid="{af14060e-ccec-838b-9eba-1d686deb6385}"/>
+    <names>
+        <name lang="ar">Zoom 1</name>
+        <name lang="ca">Detall</name>
+        <name lang="cs">Detail</name>
+        <name lang="da">Detalje</name>
+        <name lang="de">Zoom 1</name>
+        <name lang="el">Λεπτομέρεια</name>
+        <name lang="en">Detail</name>
+        <name lang="es">Zoom 1</name>
+        <name lang="fi">Yksityiskohta</name>
+        <name lang="fr">Zoom 1</name>
+        <name lang="hr">Detalj</name>
+        <name lang="hu">Részlet</name>
+        <name lang="it">Zoom 1</name>
+        <name lang="ja">詳細</name>
+        <name lang="ko">상세</name>
+        <name lang="mn">Дэлгэрэнгүй</name>
+        <name lang="nb">Detalj</name>
+        <name lang="nl">Detail</name>
+        <name lang="nl_BE">Detail</name>
+        <name lang="pl">Szczegóły elemenu</name>
+        <name lang="pt">Detalhe</name>
+        <name lang="pt_BR">Detail</name>
+        <name lang="ro">Detaliu</name>
+        <name lang="ru">Деталь</name>
+        <name lang="sk">Detail</name>
+        <name lang="sl">Podrobnost</name>
+        <name lang="sr">Детаљ</name>
+        <name lang="sv">Detalj</name>
+        <name lang="tr">Detay</name>
+        <name lang="uk">Деталь</name>
+        <name lang="zh">缩放1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="23" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c183ffe9-1d8d-4027-b103-3e6e9ceaef4b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-12" y="-27" width="33" height="67" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1" y1="-27" x2="-33" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="39" x2="-33" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

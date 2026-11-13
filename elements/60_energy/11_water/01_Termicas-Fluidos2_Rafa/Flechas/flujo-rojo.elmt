@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{ebe0a8ef-8a0a-d288-695c-8d865c6b7860}"/>
+    <names>
+        <name lang="ar">سهم أحمر</name>
+        <name lang="ca">Fletxa vermella</name>
+        <name lang="cs">Červená šipka</name>
+        <name lang="da">Rød pil</name>
+        <name lang="de">Roter Pfeil</name>
+        <name lang="el">Κόκκινο βέλος</name>
+        <name lang="en">Red arrow</name>
+        <name lang="es">Flecha roja</name>
+        <name lang="fr">Fléche rouge</name>
+        <name lang="pt_BR">Flecha roja</name>
+        <name lang="zh">红色流向</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-14" y1="-2.63" x2="-14" y2="3.68" x3="4" y3="3.68" x4="4" y4="10" x5="13" y5="0.53" x6="4" y6="-8.95" x7="4" y7="-2.63" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+    </description>
+</definition>

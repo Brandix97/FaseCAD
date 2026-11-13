@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="70" hotspot_x="24" hotspot_y="41">
+    <uuid uuid="{b3ec03b6-6a0f-4b57-cdf1-32b25e918f41}"/>
+    <names>
+        <name lang="ar">كوع 87°30 PVC 100</name>
+        <name lang="ca">Colze 87°30 PVC 100</name>
+        <name lang="cs">Koleno 87°30 PVC 100</name>
+        <name lang="da">Bøjning 87°30 PVC 100</name>
+        <name lang="de">Bogen 87°30 PVC 100</name>
+        <name lang="el">Γωνία 87°30 PVC 100</name>
+        <name lang="en">Elbow 87°30 PVC 100</name>
+        <name lang="fr">Coude 87°30 PVC 100</name>
+        <name lang="pt_BR">Coude 87°30 PVC 100</name>
+        <name lang="zh">87度弯头-100-右母口</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-4.5" y="-3" width="9" height="27" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1" y="19" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{597e2171-b587-41ea-b150-9ce52dc01fdf}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-23" y="-33" width="56" height="56" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="-8" width="6" height="6" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8" y1="-6" x2="8" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-20" x2="32" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="33" y1="-20" x2="33" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{50560961-bf9d-4597-be7b-2c19ed2f1bcb}" name="" x="-6" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{fa865c9b-f6c8-4a25-af1a-025759e0b778}" name="" x="20" y="-21" orientation="n" type="Generic"/>
+    </description>
+</definition>

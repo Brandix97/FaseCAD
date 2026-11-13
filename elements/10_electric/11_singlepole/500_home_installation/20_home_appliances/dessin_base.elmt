@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="master" width="20" height="120" hotspot_x="12" hotspot_y="37">
+    <uuid uuid="{026288d6-9bbd-6aaf-d5c2-7241084a47ff}"/>
+    <names>
+        <name lang="ar">قاطع أحدي القطب</name>
+        <name lang="ca">Interruptor</name>
+        <name lang="cs">Jednopólový jistič</name>
+        <name lang="da">Automatsikring</name>
+        <name lang="de">Leitungsschutzschalter 1P</name>
+        <name lang="el">Διακόπτης κυκλώματος</name>
+        <name lang="en">Circuit-breaker</name>
+        <name lang="es">Disyuntor termico magnetico</name>
+        <name lang="fi">Katkaisija</name>
+        <name lang="fr">Disjoncteur unipolaire</name>
+        <name lang="hr">Prekidač</name>
+        <name lang="hu">Hibaáram-védőkapcsoló 1P+N</name>
+        <name lang="it">Int. Aut. Magneto-termico 1P</name>
+        <name lang="ja">遮断器</name>
+        <name lang="ko">회로 차단기</name>
+        <name lang="mn">Хэлхээ таслагч</name>
+        <name lang="nb">Effektbryter</name>
+        <name lang="nl">Lastscheider 1</name>
+        <name lang="nl_BE">Stroomonderbreker</name>
+        <name lang="pl">Wyłącznik</name>
+        <name lang="pt">Disjuntor</name>
+        <name lang="pt_BR">Disjuntor</name>
+        <name lang="ro">Întrerupător automat</name>
+        <name lang="ru">Выключатель</name>
+        <name lang="sk">Istič</name>
+        <name lang="sl">Odklopnik</name>
+        <name lang="sr">Прекидач</name>
+        <name lang="sv">Dvärgbrytare</name>
+        <name lang="tr">Devre kesici</name>
+        <name lang="uk">Автоматичний вимикач</name>
+        <name lang="zh">基础图纸</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="5" y1="36" x2="-5" y2="46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="16" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="3" x2="0" y2="0" x3="-5" y3="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="42" x2="-5" y2="52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4" y="10.5" width="8" height="5" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="8" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="7" x2="4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4" y="35" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="4" y1="3" x2="4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="3" x2="4" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-22" x2="-2" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="-22" x2="2" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-10" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="-10" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="13" x2="4" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="5" x2="4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="10" y="26.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{71e4efc2-0648-43cf-aab8-784bcc3f5c35}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="6" y="-18.83" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{89d4f1b1-4998-4a0c-b8ea-1b39f3f90b9f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5926ca9a-4b2a-4890-9439-4885b7272e26}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

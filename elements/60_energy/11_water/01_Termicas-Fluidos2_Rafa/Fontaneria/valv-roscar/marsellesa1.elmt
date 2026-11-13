@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="23" hotspot_y="34">
+    <uuid uuid="{80e8db8c-06e7-2ad8-7c5b-cebf8a8cb366}"/>
+    <names>
+        <name lang="ca">Marsellessa 1"</name>
+        <name lang="es">Marsellesa 1"</name>
+        <name lang="pt_BR">Marsellesa 1"</name>
+        <name lang="zh">1英寸马赛接头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="7.15" y="2.58" width="15.36" height="9.07" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.73" y="3.48" width="9.87" height="14.52" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="14.83" y="-11.94" width="11" height="14.52" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11.5" y="-19.2" width="18.65" height="29.94" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.84" y1="-12.85" x2="-10.57" y2="-12.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1.63" y="-25.55" width="8.78" height="12.7" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10.48" y1="3.48" x2="1.75" y2="3.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-0.53" y="-12.85" width="7.68" height="16.33" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="22.5" y1="-11.94" x2="20.31" y2="2.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="20.31" y1="-11" x2="18.12" y2="1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="24.7" y1="-11.94" x2="22.5" y2="2.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="18.12" y1="-11.94" x2="15.92" y2="2.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="7.15" y="-21" width="15.36" height="9.07" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-9" y="-34" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e41cfa3c-ec4d-45c5-b8b6-9985f5366e8b}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-11" y="-14" width="12" height="20" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <terminal uuid="{1bd4a2b3-eeae-41fc-b1f9-6093fe75c6e7}" name="" x="-12" y="-5" orientation="w" type="Generic"/>
+        <terminal uuid="{9e145d68-a56f-4625-97d2-e25cc845d372}" name="" x="27" y="-5" orientation="e" type="Generic"/>
+    </description>
+</definition>

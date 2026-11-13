@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="11" hotspot_y="13">
+    <uuid uuid="{2bbc3447-d58c-c911-cdb8-0a4d9a6c15f7}"/>
+    <names>
+        <name lang="ar">مفتاح ثلاثي الأقطاب</name>
+        <name lang="ca">Interruptor de 3 pols</name>
+        <name lang="cs">Trojitý vypínač</name>
+        <name lang="da">Afbryder 3 pol</name>
+        <name lang="de">Schalter 3-polig</name>
+        <name lang="el">Τριπλός διακόπτης</name>
+        <name lang="en">Switch 3 pole</name>
+        <name lang="es">Interruptor 3 polo</name>
+        <name lang="fi">Kytkin 3 napa</name>
+        <name lang="fr">Interrupteur tripolaire</name>
+        <name lang="hr">Prekidač 3 pol</name>
+        <name lang="hu">Kapcsoló 3 pólusú</name>
+        <name lang="it">Interruttore tripolare</name>
+        <name lang="ja">Switch 3 pole</name>
+        <name lang="mn">Унтраалга 3 туйлт</name>
+        <name lang="nb">Bryter 3 polet</name>
+        <name lang="nl">Schakelaar (3)</name>
+        <name lang="nl_BE">Schakelaar 3 polig</name>
+        <name lang="pl">Łącznik trójbiegunowy</name>
+        <name lang="pt">Interruptor 3 polo</name>
+        <name lang="pt_BR">Interruptor 3 pole</name>
+        <name lang="ro">Comutator 3 poli</name>
+        <name lang="ru">Выключатель 3 полюсный</name>
+        <name lang="sk">Prepínač 3 pólový</name>
+        <name lang="sl">Stikalo 3 polno</name>
+        <name lang="sr">Прекидач 3 пол</name>
+        <name lang="sv">Brytare 3 pol</name>
+        <name lang="tr">Anahtar 3 kutuplu</name>
+        <name lang="uk">Перемикач 3 полюсний</name>
+        <name lang="zh">三极开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="6" y1="-6" x2="8" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="-12.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b0046262-f285-4cdb-8a73-d9e0ceb774a5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="8" y1="-8" x2="10" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="2" y1="-2" x2="10" y2="-10" x3="12" y3="-8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-2.5" y="-2.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{c83c95fa-045a-4bad-9128-9adba5bf4673}" name="" x="0" y="-3" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{8921d303-1dce-f7c2-8612-8a127c2fbefa}"/>
+    <names>
+        <name lang="ar">مُحدث شرر بسيط</name>
+        <name lang="ca">Espurna simple</name>
+        <name lang="cs">Jednoduché jiskřiště</name>
+        <name lang="da">Enkel gnist</name>
+        <name lang="de">Einfache Funkenstrecke</name>
+        <name lang="el">Απλός σπινθήρας</name>
+        <name lang="en">Simple Spark</name>
+        <name lang="es">Descargador simple</name>
+        <name lang="fi">Yksinkertainen kipinä</name>
+        <name lang="fr">Eclateur simple</name>
+        <name lang="hr">Jednostavna iskra</name>
+        <name lang="hu">Egyszerű szikraköz</name>
+        <name lang="it">Scarica semplice</name>
+        <name lang="ja">単一火花</name>
+        <name lang="ko">단일 스파크</name>
+        <name lang="mn">Энгийн оч</name>
+        <name lang="nb">Enkel gnist</name>
+        <name lang="nl">Enkele Vonk</name>
+        <name lang="nl_BE">Enkele vonk</name>
+        <name lang="pl">Odgromnik dwuelektrodowy</name>
+        <name lang="pt">Faísca simples</name>
+        <name lang="pt_BR">Centelhador simples</name>
+        <name lang="ro">Scânteie simplă</name>
+        <name lang="ru">Простой разрядник</name>
+        <name lang="sk">Jednoduchá iskra</name>
+        <name lang="sl">Enostavna iskra</name>
+        <name lang="sr">Једноставна варница</name>
+        <name lang="sv">Enkel gnista</name>
+        <name lang="tr">Basit Kıvılcım</name>
+        <name lang="uk">Проста іскра</name>
+        <name lang="zh">单火花间隙</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{04c1d691-1e23-4d40-a9f1-5c32524562bc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-5" x2="0" y2="-20" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="20" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ca4054c0-76f8-441f-97c0-5f1cdaf68852}" name="" x="0" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{26340fab-f363-42c1-a26d-c03204dedcf4}" name="" x="0" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

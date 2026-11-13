@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{6d7b3610-16cd-c16d-b94c-6cbb6284559e}"/>
+    <names>
+        <name lang="ar">تصغير نحاسي رقم 245 DM</name>
+        <name lang="ca">Reducció de llautó núm. 245 DM</name>
+        <name lang="cs">Redukce mosazná č. 245 DM</name>
+        <name lang="da">Messingreduktion nr. 245 DM</name>
+        <name lang="de">Reduktion Messing Nr. 245 IG-IG</name>
+        <name lang="el">Συστολή ορειχάλκινη n° 245 DM</name>
+        <name lang="en">Brass reducer no. 245 DM</name>
+        <name lang="fr">Réduction laiton n° 245 DM</name>
+        <name lang="pt_BR">Réduction laiton n° 245 DM</name>
+        <name lang="zh">异径管_245_黄铜</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-2" y="-7" width="4" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:brun" antialias="false"/>
+        <line x1="-2" y1="3" x2="2" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="2" y1="-4" x2="4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <rect x="2" y="-4" width="7" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:brun" antialias="false"/>
+        <line x1="-5" y1="-5" x2="-3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="6" y1="-4" x2="8" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-8" y1="-5" x2="-6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="3" y1="-4" x2="5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-9" y1="-5" x2="-7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <dynamic_text x="-7" y="3.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3f08a494-09cb-4c28-b0b0-8fc10aba3faa}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="2" y1="0" x2="3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="4" y1="-4" x2="6" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="5" y1="-4" x2="7" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="7" y1="-4" x2="9" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="8" y1="-4" x2="9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <rect x="-9" y="-5" width="7" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:brun" antialias="false"/>
+        <line x1="-2" y1="-3" x2="2" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-9" y1="0" x2="-8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-7" y1="-5" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-6" y1="-5" x2="-4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-4" y1="-5" x2="-2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-3" y1="-5" x2="-2" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <terminal uuid="{f03061b3-3dcd-48f5-9a1a-8d062bd733ea}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{4044e9f4-cd37-4df6-9537-92b08db05323}" name="" x="9" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>
