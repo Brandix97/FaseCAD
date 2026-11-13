@@ -75,6 +75,7 @@
 #include "elementtextpattern.h"
 #include "elementspanelwidget.h"
 #include "factory/elementpicturefactory.h"
+#include "factory/folioindex.h"
 #include "factory/qetgraphicstablefactory.h"
 #include "print/projectprintwindow.h"
 #include "project/projectpropertieshandler.h"
@@ -98,6 +99,8 @@
 #include "shortcutmanager.h"
 #include "cablelist/cableexportdialog.h"
 #include "partsdb/partsmanagerdialog.h"
+#include "partsdb/partssymbolfiles.h"
+#include "elementdialog.h"
 #include "partsdb/partsbom.h"
 #include "cablelist/cablelistrows.h"
 #include "cablelist/cablemanagerdialog.h"
@@ -340,7 +343,8 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 	setUpElementsCollectionWidget();
 	setUpUndoStack();
 	setUpSelectionPropertiesEditor();
-	setUpAutonumberingWidget();
+		//No numbering dock: FaseCAD names a device as it is placed
+		//(DeviceNaming) instead of QElectroTech's numbering formulas
 
 	setUpActions();
 	setUpToolBar();
@@ -475,6 +479,15 @@ void QETDiagramEditor::setUpElementsCollectionWidget()
 	connect(m_element_collection_widget,
 		&ElementsCollectionWidget::insertElementRequested,
 		this, &QETDiagramEditor::insertElementFromCollection);
+		//A part of the parts collection: its symbol, with the part
+	connect(m_element_collection_widget,
+		&ElementsCollectionWidget::insertPartRequested,
+		this, [this](const ElementsLocation &location, const QByteArray &part) {
+		DiagramView *dv = currentDiagramView();
+		if (dv) {
+			dv->startPartPlacement(location, dv->defaultPlacementPos(), part);
+		}
+	});
 
 	addDockWidget(Qt::RightDockWidgetArea, m_qdw_elmt_collection);
 }
@@ -879,7 +892,7 @@ void QETDiagramEditor::setUpActions()
 			delete undo;
 	});
 
-		//The label of each terminal strip at its first terminal, as in EPLAN
+		//The label of each terminal strip at its first terminal, as in other CAE software
 	m_terminal_strip_labels = new QAction(QET::Icons::TerminalStrip, tr("Show terminal strip labels at their first terminal"), this);
 	m_terminal_strip_labels->setStatusTip(tr("The label of each terminal strip stands at its first terminal on every folio and moves with it"));
 	m_terminal_strip_labels->setCheckable(true);
@@ -1247,6 +1260,19 @@ void QETDiagramEditor::setUpActions()
 		}
 	});
 
+	m_add_folio_index = new QAction(QET::Icons::TableOfContent, tr("Automatic folio index"), this);
+	ShortcutManager::instance().registerAction(m_add_folio_index, "diagrameditor.add_folio_index", tr("Diagram editors"), QKeySequence());
+	m_add_folio_index->setStatusTip(tr("Adds an index folio at the start of the project, with the number and title of every folio, kept up to date"));
+	connect(m_add_folio_index, &QAction::triggered, this, [this]() {
+		ProjectView *view = currentProjectView();
+		if (!view || !view->project()) {
+			return;
+		}
+		if (Diagram *index = FolioIndex::create(view->project())) {
+			view->showDiagram(index);
+		}
+	});
+
 	m_terminal_strip_dialog = new QAction(QET::Icons::TerminalStrip, tr("Terminal block manager (DEV)"), this);
 	ShortcutManager::instance().registerAction(m_terminal_strip_dialog, "diagrameditor.terminal_strip_dialog", tr("Diagram editors"), QKeySequence());
 	connect(m_terminal_strip_dialog, &QAction::triggered, this, [this]()
@@ -1273,6 +1299,21 @@ void QETDiagramEditor::setUpActions()
 
 		//The parts database is not a project's : the window opens even
 		//without a project
+		//The symbol of a part is chosen in the collection, wherever the
+		//parts manager is opened from
+	PartsManagerDialog::setSymbolChooser([](QWidget *parent) {
+		const ElementsLocation location =
+				ElementDialog::getOpenElementLocation(parent);
+		return location.isElement() ? location.toString() : QString();
+	});
+	PartsManagerDialog::setSymbolDescriber([](const QString &location) {
+		const ElementsLocation symbol(location);
+		return symbol.exist() ? qMakePair(symbol.icon(), symbol.name())
+							  : qMakePair(QIcon(), location);
+	});
+		//The symbols of a .faspart, from and to the collection
+	PartsManagerDialog::setSymbolArchiver(&PartsSymbolFiles::read,
+										  &PartsSymbolFiles::write);
 	m_parts_manager = new QAction(QET::Icons::DocumentSpreadsheet, tr("Parts manager..."), this);
 	m_parts_manager->setStatusTip(tr("Manage the parts database: parts, technical data, accessories, images and DXF drawings"));
 	ShortcutManager::instance().registerAction(m_parts_manager, "diagrameditor.parts_manager", tr("Diagram editors"), QKeySequence());
@@ -2507,6 +2548,7 @@ void QETDiagramEditor::setUpMenu()
 		//cable list. The CSV exports stay with the other exports in the
 		//project menu, the cable list's among them.
 	menu_lists -> addAction(m_add_summary);
+	menu_lists -> addAction(m_add_folio_index);
 	menu_lists -> addAction(m_add_nomenclature);
 	menu_lists -> addAction(m_add_parts_bom);
 	menu_lists -> addSeparator();
@@ -3311,7 +3353,7 @@ bool QETDiagramEditor::addProject(QETProject *project, bool update_panel)
 	// met a jour le panel d'elements
 	if (update_panel) {
 		pa -> elementsPanel().projectWasOpened(project);
-		if (currentDiagramView() != nullptr)
+		if (currentDiagramView() != nullptr && m_autonumbering_dock)
 		m_autonumbering_dock->setProject(project, project_view);
 	}
 
@@ -3622,9 +3664,7 @@ bool QETDiagramEditor::cableNumberingGate(Diagram *diagram)
 		//Oui: the window itself, opened where the rule is written. It
 		//has to really be there by the time that window is closed --
 		//a Cancel in it must not leave the tool running all the same.
-	ProjectPropertiesDialog dialog(diagram->project(), this);
-	dialog.setCurrentPage(ProjectPropertiesDialog::Autonum);
-	dialog.changeToCable();
+	CableNumberingDialog dialog(diagram->project(), this);
 	dialog.exec();
 
 	return diagram->project()->hasCableAutoNum();
@@ -4251,6 +4291,7 @@ void QETDiagramEditor::slot_updateActions()
 	m_remove_diagram_from_project -> setEnabled(editable_project);
 	m_clean_project               -> setEnabled(editable_project);
 	m_add_summary                 -> setEnabled(editable_project);
+	m_add_folio_index             -> setEnabled(editable_project);
 	m_add_nomenclature            -> setEnabled(editable_project);
 	m_csv_export                  -> setEnabled(editable_project);
 	m_project_export_conductor_num-> setEnabled(opened_project);
@@ -4287,7 +4328,8 @@ void QETDiagramEditor::slot_updateAutoNumDock()
 {
 	if ( m_workspace.subWindowList().indexOf(m_workspace.activeSubWindow()) != activeSubWindowIndex) {
 			activeSubWindowIndex = m_workspace.subWindowList().indexOf(m_workspace.activeSubWindow());
-			if (currentProjectView() != nullptr && currentDiagramView() != nullptr) {
+			if (currentProjectView() != nullptr && currentDiagramView() != nullptr
+				&& m_autonumbering_dock) {
 				m_autonumbering_dock->setProject(currentProjectView()->project(),currentProjectView());
 			}
 	}
@@ -5036,7 +5078,8 @@ void QETDiagramEditor::readSettingsState()
 	}
 		//FaseCAD: the autonumbering panel is hidden the first time, and
 		//stays as the user leaves it after that (the saved state)
-	if (!settings.value(QStringLiteral("diagrameditor/autonumbering_dock_hidden_once")).toBool()) {
+	if (m_autonumbering_dock
+		&& !settings.value(QStringLiteral("diagrameditor/autonumbering_dock_hidden_once")).toBool()) {
 		m_autonumbering_dock->hide();
 		settings.setValue(QStringLiteral("diagrameditor/autonumbering_dock_hidden_once"), true);
 	}

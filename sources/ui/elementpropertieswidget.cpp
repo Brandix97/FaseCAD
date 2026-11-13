@@ -29,6 +29,7 @@
 #include "../qeticons.h"
 #include "dynamicelementtextitemeditor.h"
 #include "elementinfowidget.h"
+#include "elementterminaltextswidget.h"
 #include "../partsdb/elementpartswidget.h"
 #include "../terminals/terminalpropertieswidget.h"
 #include "linksingleelementwidget.h"
@@ -134,7 +135,9 @@ void ElementPropertiesWidget::setElement(Element *element)
 	if (previous_element)
 	{
 			//If previous element is same type as new element we just call setElement for each editor
-		if(previous_element->linkType() == m_element->linkType())
+		if(previous_element->linkType() == m_element->linkType()
+		   && ElementTerminalTextsWidget::isUsefulFor(previous_element)
+			  == ElementTerminalTextsWidget::isUsefulFor(m_element))
 		{
 			bool chained_changed = false;
 			if (m_element->linkType() & Element::AllReport) {
@@ -374,6 +377,11 @@ void ElementPropertiesWidget::updateUi()
 				m_list_editor << new PlcLinkWidget(m_element, this);
 			else
 				m_list_editor << new LinkSingleElementWidget(m_element, this);
+				//A contact may have parts of its own, an auxiliary contact
+				//block say: its Parts tab keeps them in the contact's
+				//information through an Information tab that is not shown
+				//(a contact shows the information of its master)
+			add_info_and_parts();
 			break;
 		case Element::Terminale:
 			add_info_and_parts();
@@ -388,6 +396,10 @@ void ElementPropertiesWidget::updateUi()
 			break;
 	}
 	m_list_editor << new DynamicElementTextItemEditor(m_element, this);
+		//The texts its terminals are shown and listed with
+	if (ElementTerminalTextsWidget::isUsefulFor(m_element)) {
+		m_list_editor << new ElementTerminalTextsWidget(m_element, this);
+	}
 
 		//Add each editors in tab widget
 	for (AbstractElementPropertiesEditorWidget *aepew : m_list_editor)
@@ -396,6 +408,16 @@ void ElementPropertiesWidget::updateUi()
 		m_tab->addTab(aepew, aepew->title());
 	}
 	addGeneralWidget();
+		//The Information tab of a contact only carries its Parts tab: it
+		//is applied with the others, and not shown
+	if (m_element->linkType() == Element::Slave) {
+		for (AbstractElementPropertiesEditorWidget *aepew : std::as_const(m_list_editor)) {
+			if (qobject_cast<ElementInfoWidget *>(aepew)) {
+				m_tab->removeTab(m_tab->indexOf(aepew));
+				aepew->hide();
+			}
+		}
+	}
 		//The Terminal tab is applied last but shown first
 	for (int i = 0 ; i < m_tab->count() ; ++i) {
 		if (qobject_cast<TerminalPropertiesWidget *>(m_tab->widget(i))) {

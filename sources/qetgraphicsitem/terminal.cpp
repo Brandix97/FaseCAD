@@ -1037,7 +1037,42 @@ void Terminal::setPlaceRank(int rank)
 	m_place_rank = rank;
 }
 
+/**
+	@brief Terminal::name
+	@return the name of this terminal: the text the placed symbol gives
+	it (Element::setTerminalTexts()), else the name the symbol gives it
+	(symbolName()). The drawing, the terminal strip plans, the lists and
+	the project database all show this one.
+*/
 QString Terminal::name() const
+{
+	if (parent_element_) {
+		const QString text = parent_element_->terminalText(this);
+		if (!text.isEmpty()) {
+			return text;
+		}
+	}
+	return symbolName();
+}
+
+/**
+	@brief Terminal::prepareNameChange
+	The name of this terminal is about to change: the area it is drawn
+	in (boundingRect()) follows the name.
+*/
+void Terminal::prepareNameChange()
+{
+	prepareGeometryChange();
+}
+
+/**
+	@brief Terminal::symbolName
+	@return the name the symbol gives this terminal: the label of the
+	master's contact group when the terminal takes it, else the name of
+	its definition. What name() gives when the placed symbol gives the
+	terminal no text of its own.
+*/
+QString Terminal::symbolName() const
 {
 	if (d->m_use_master_label && parent_element_) {
 		for (Element *elmt : parent_element_->linkedElements()) {
@@ -1125,6 +1160,23 @@ void Terminal::setMasterLabelIndex(int index)
 }
 
 /**
+	@brief hasTerminalPotentials
+	@return true if a terminal of @p element has a potential (@see
+	TerminalData::m_potential): the symbol then draws several electric
+	nodes in one block, such as the two levels of a terminal.
+*/
+static bool hasTerminalPotentials(const Element *element)
+{
+	const QList<Terminal *> terminals = element->terminals();
+	for (const Terminal *terminal : terminals) {
+		if (!terminal->potential().isEmpty()) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
 	@brief Conductor::relatedPotentialTerminal
 	Return terminal at the same potential from the same
 	parent element of terminal.
@@ -1140,7 +1192,10 @@ void Terminal::setMasterLabelIndex(int index)
 	callers that need the conductors a separation hides -- so that the
 	one property still allowed to cross it, the voltage / protocol, can
 	be applied there (@see Conductor::functionSeparatedConductors) --
-	pass true; every other caller keeps the default.
+	pass true; every other caller keeps the default. The potentials a
+	symbol gives its terminals (@see TerminalData::m_potential) hold even
+	then: they are electric nodes of their own, which not even the
+	voltage crosses.
 	@return the list of terminal at the same potential
 */
 QList<Terminal *> relatedPotentialTerminal (
@@ -1180,11 +1235,16 @@ QList<Terminal *> relatedPotentialTerminal (
 	// If terminal parent element is a Terminal element.
 	else if (terminal -> parentElement() -> linkType() & Element::Terminale)
 	{
+			//Ignoring the separation joins the two sides of a terminal,
+			//never two potentials of its symbol: they are two electric
+			//nodes, which not even the voltage crosses
+		const bool keep_separation = !ignore_function_separation
+				|| hasTerminalPotentials(terminal->parentElement());
 		// English: Check if the user activated the function separation
 		// checkbox for this terminal (the checkbox that used to be called
 		// potential separation -- the stored flag is still
 		// "potential_isolating" so existing elements keep their setting).
-		if (!ignore_function_separation
+		if (keep_separation
 			&& QET::infoFlagIsTrue(terminal->parentElement()->elementInformations().value(QStringLiteral("potential_isolating")).toString())) {
 			// English: The terminals are function separated -- but terminals
 			// sharing this terminal's own, non-empty potential-group

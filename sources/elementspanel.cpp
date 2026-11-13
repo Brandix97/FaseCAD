@@ -259,7 +259,6 @@ bool ElementsPanel::matchesFilter(const QTreeWidgetItem *item,
 void ElementsPanel::reload()
 {
 	QIcon system_icon = BrandIcons::treeLogo();
-	QIcon company_icon = QET::Icons::Company;
 	QIcon user_icon = QIcon::fromTheme("go-home");
 
 	// load the common title block templates collection
@@ -270,13 +269,9 @@ void ElementsPanel::reload()
 	common_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title blocks collection provided along with QElectroTech. Installed as a system component, you normally cannot customize it.", "\"What's this\" tip"));
 	if (first_reload_) common_tbt_collection_item_ -> setExpanded(true);
 	
-	// load the company title block templates collection
-	TitleBlockTemplatesCollection *company_tbt_collection = QETApp::companyTitleBlockTemplatesCollection();
-	company_tbt_collection_item_ = addTemplatesCollection(company_tbt_collection, invisibleRootItem());
-	company_tbt_collection_item_ -> setIcon(0, company_icon);
-	company_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand the title block company collection", "Status tip"));
-	company_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title block company collection -- use it to create, store and edit your own title blocks.", "\"What's this\" tip"));
-	if (first_reload_) company_tbt_collection_item_ -> setExpanded(true);
+		//FaseCAD has no company collection: the title blocks are the
+		//common ones and the user's own
+	company_tbt_collection_item_ = nullptr;
 
 	// load the custom title block templates collection
 	TitleBlockTemplatesCollection *custom_tbt_collection = QETApp::customTitleBlockTemplatesCollection();

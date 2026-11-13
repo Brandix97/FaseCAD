@@ -338,8 +338,8 @@ endif()
 # 3.5 minimum, so guard rather than raise it for an opt-in developer feature.
 #
 # The generator expressions are load-bearing, not decoration: this target also
-# compiles the 18 C files of the bundled LZMA decoder
-# (sources/import/edz/lzma/*.c), and an unguarded list applies to every
+# compiles C files (the bundled miniz, sources/container/miniz/miniz.c),
+# and an unguarded list applies to every
 # language in the target, so the Qt headers would reach the C compiler and fail
 # with "unknown type name 'namespace'". $<ANGLE-R> is required because a
 # literal '>' would terminate the generator expression.

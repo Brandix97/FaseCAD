@@ -28,6 +28,7 @@
 #include "../properties/elementdata.h"
 
 #include <QHash>
+#include <QMap>
 #include <QSet>
 #include <QPicture>
 #include <algorithm>
@@ -120,6 +121,7 @@ class Element : public QetGraphicsItem
 				DynamicElementTextItem *text,
 				ElementTextItemGroup *group);
 		void mirrorChanged();
+		void terminalTextsChanged();
 
 	public slots:
 		void updateConductorTexts();
@@ -163,6 +165,12 @@ class Element : public QetGraphicsItem
 			/// What this symbol saves that no other table holds, in an
 			/// <element> made in @p document, from its own members
 		QDomElement ownValuesXml(QDomDocument &document) const;
+			/// The texts this placed symbol gives some of its terminals
+			/// instead of their names, by Terminal::stableUuid() as a
+			/// string (@see Terminal::name())
+		QMap<QString, QString> terminalTexts() const {return m_terminal_texts;}
+		QString terminalText(const Terminal *terminal) const;
+		void setTerminalTexts(const QMap<QString, QString> &texts);
 		void setMovable(bool movable) override;
 		//@kind_information_ is used to store more information
 		//about the herited class like contactelement for know
@@ -443,6 +451,7 @@ class Element : public QetGraphicsItem
 		bool m_horizontal_mirror = false;
 		bool m_vertical_mirror = false;
 		QString m_prefix;
+		QMap<QString, QString> m_terminal_texts;
 		QList <DynamicElementTextItem *> m_dynamic_text_list;
 		QList <ElementTextItemGroup *> m_texts_group;
 

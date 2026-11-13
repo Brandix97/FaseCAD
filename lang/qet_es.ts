@@ -3835,6 +3835,10 @@ Los elementos nuevos saltarán los números ya ocupados: no recibirán necesaria
         <source>insert %1 × %2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">Símbolo %1 de %2: %3. Tab: símbolo siguiente, Mayús+Tab: el anterior</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -4397,6 +4401,10 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit conductor properties</source>
         <comment>undo caption</comment>
         <translation>Modificar las propiedades de un conductor</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">Añadir una pieza</translation>
     </message>
 </context>
 <context>
@@ -7297,6 +7305,10 @@ Al importar este archivo, confirma que:
         <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="979"/>
         <source>Property of the folder %1</source>
         <translation>Propiedades de la carpeta  %1</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestor de piezas...</translation>
     </message>
 </context>
 <context>
@@ -11621,6 +11633,14 @@ Do you still want to link this slave contact?</source>
         <source>New project</source>
         <comment>configuration page title</comment>
         <translation>Nuevo projecto</translation>
+    </message>
+    <message>
+        <source>Set the default cable numbering rule for new projects:</source>
+        <translation type="unfinished">Regla de numeración de cables por defecto para los proyectos nuevos:</translation>
+    </message>
+    <message>
+        <source>Cable numbering</source>
+        <translation type="unfinished">Numeración de cables</translation>
     </message>
 </context>
 <context>
@@ -17133,6 +17153,22 @@ Para convertirla en un script, pídaselo a su asistente de IA: el botón de abaj
     <message>
         <source>DXF: %1 lines drawn; left out: %2</source>
         <translation type="unfinished">DXF: %1 líneas dibujadas; omitido: %2</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestor de piezas...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">Gestiona la base de datos de piezas: piezas, datos técnicos, accesorios, imágenes y dibujos DXF</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">Índice de folios automático</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">Añade al principio del proyecto un folio de índice con el número y el título de cada folio, siempre al día</translation>
     </message>
 </context>
 <context>
@@ -29321,6 +29357,916 @@ DXF</translation>
     <message>
         <source>This DXF file holds no line this program can draw.</source>
         <translation type="unfinished">Este archivo DXF no contiene ninguna línea que este programa pueda dibujar.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">Unidades</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">Añadir una pieza...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Quitar</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">Las piezas de la base de datos de piezas que forman este elemento y cuántas unidades de cada una.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">Usa la base de datos de piezas (Configuración &gt; General) para elegir las piezas de este elemento.</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">(no está en la base de datos de piezas)</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Base de datos de piezas</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Piezas</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and four auxiliary ones: this part has no block of its own there.</source>
+        <translation type="unfinished">La pieza se ha añadido. La información del elemento tiene el artículo principal y cuatro auxiliares: esta pieza no tiene allí un bloque propio.</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">el artículo principal</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">el artículo auxiliar %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">¿Sobrescribir %1 de la información del elemento con los datos de esta pieza (fabricante, número de pedido, descripción...)?</translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Otra</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">Alimentación + (L+, 24 V)</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">Alimentación - (M, 0 V)</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">Tierra funcional (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">Tierra de protección (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">Fase (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">Neutro (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">Entrada digital</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">Salida digital</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">Entrada analógica</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">Salida analógica</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">Puerto de bus</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">Bobina</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">Contacto principal</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">Contacto normalmente abierto</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">Contacto normalmente cerrado</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">Contacto conmutado</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Borne</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">Elegir una pieza</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Buscar una pieza</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">Categoría:</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestor de piezas...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">Añade o cambia piezas; esta ventana las muestra cuando vuelves a ella.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Todas</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">Pos.</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">Cantidad</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">Unidad</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Fabricante</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Número de pedido</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descripción</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">Designación</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Categoría</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Proveedor</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Referencia del proveedor</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">Referencia interna</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Equipos</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Base de datos de piezas</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">No se puede crear la carpeta %1.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">No se puede abrir la base de datos de piezas %1: %2</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">La base de datos de piezas %1 se creó con una versión más reciente del programa y no se puede abrir.</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">Otra persona está usando la base de datos de piezas. Vuelve a intentarlo en un momento.</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">No se puede escribir en la base de datos de piezas: %1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">El archivo %1 es demasiado grande para copiarlo en la base de datos de piezas (más de %2 MB). Vincúlalo en su lugar.</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">Esta pieza ya no existe en la base de datos de piezas.</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">Ya existe una pieza con el fabricante «%1» y el número de pedido «%2».</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">Una pieza no puede ser accesorio de sí misma.</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">Un accesorio de esta pieza ya no existe en la base de datos de piezas.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">No se puede leer el archivo %1.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">No se encuentra el archivo %1.</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">Este archivo ya no existe en la base de datos de piezas.</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">No se encuentra el archivo vinculado %1.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">No se puede escribir el archivo %1.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">Gestor de piezas</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">Base de datos: %1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">Por categoría</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">Por fabricante</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Buscar una pieza</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Referencia del proveedor</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nueva</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplicar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Eliminar</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">General</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">Montaje</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">Datos técnicos</translation>
+    </message>
+    <message>
+        <source>Functions</source>
+        <translation type="unfinished">Funciones</translation>
+    </message>
+    <message>
+        <source>Connection points</source>
+        <translation type="unfinished">Puntos de conexión</translation>
+    </message>
+    <message>
+        <source>Accessories</source>
+        <translation type="unfinished">Accesorios</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cable</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">Archivos</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">Descartar cambios</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Guardar</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Letra del equipo</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Hoja de datos</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">Letra de la identificación que recibe el equipo al colocarlo, por ejemplo K para -K1.</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">Identifica la pieza, junto con el fabricante</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Peso (kg)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Precio</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Ancho (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Alto (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Fondo (mm)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">Espacio que hay que dejar libre alrededor del equipo en el armario, para el aire y los cables.</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">Libre arriba (mm)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">Libre abajo (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">Libre a la izquierda (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">Libre a la derecha (mm)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">Libre delante (mm)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">Libre detrás (mm)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Potencia disipada (W)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">Calor que desprende el equipo, para el balance térmico del armario.</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">Qué hace cada borne del equipo, en el orden del fabricante. Añadir copia la fila seleccionada con el borne y el número siguientes.</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">Función</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">Conector</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">Borne</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descripción</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">Dirección PLC</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Añadir</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Quitar</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Subir</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Bajar</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">Dónde van los cables en el equipo real y qué admiten. La posición va en mm desde la esquina superior izquierda del frontal.</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">Sección mín. (mm²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">Sección máx. (mm²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Cables</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">Pelado (mm)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">Par (N·m)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">Destornillador</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (mm)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (mm)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (mm)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">Cuántos cables admite el punto de conexión</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">Desde las funciones</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">Añade un punto de conexión por cada borne de la pestaña Funciones que aún no lo tenga.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nombre</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Valor</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">Añadir un accesorio...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">Una pieza con conductores se ofrece como tipo de cable al dibujar un cable, si se usa la base de datos de piezas (Configuración).</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">No es un cable</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Número de conductores</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Colores de los conductores</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Sección</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Color de la cubierta</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">Guarda primero la pieza para adjuntar archivos.</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">Añadir una imagen...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">Añadir un DXF...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">Añadir un modelo 3D...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">Un archivo STEP (.stp, .step), para el armario en 3D.</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">Vincular un archivo...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">Guarda solo la ruta del archivo en lugar de una copia. El archivo debe quedarse donde está y ser accesible desde todos los ordenadores que usan esta base de datos.</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">Guardar como...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">Todas las piezas</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Sin categoría)</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">(Sin fabricante)</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">La pieza tiene cambios sin guardar. ¿Guardarlos?</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">Esto no es un número: %1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">Indica al menos un fabricante, un número de pedido o una descripción.</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">¿Eliminar la pieza %1 con sus archivos? Los proyectos que la usan conservan la información de sus elementos.</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">Todos los bornes de las funciones ya tienen su punto de conexión.</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">La base de datos no tiene otra pieza que usar como accesorio.</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">Añadir un accesorio</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">Accesorio:</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Imagen</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">Modelo 3D (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1: %2 (vinculado: %3)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1: %2 (%3, copiado en la base de datos)</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">Esta imagen no se puede mostrar.</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">Imágenes (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">Añadir una imagen</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">Dibujos DXF (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">Añadir un DXF</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">Modelos STEP (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">Añadir un modelo 3D</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">Vincular un archivo</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">Imágenes, dibujos DXF y modelos STEP (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Guardar como</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">¿Quitar este archivo de la pieza?</translation>
+    </message>
+    <message>
+        <source>None: the part is only added to symbols already placed</source>
+        <translation type="unfinished">Ninguno: la pieza solo se añade a símbolos ya colocados</translation>
+    </message>
+    <message>
+        <source>The symbol placed with the part when it is dragged from the parts collection of the collection panel.</source>
+        <translation type="unfinished">El símbolo que se coloca con la pieza al arrastrarla desde la colección de piezas del panel de colecciones.</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Elegir...</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">Símbolo</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Símbolos</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">Al arrastrar la pieza desde la colección de piezas del panel de colecciones, sale con el primer símbolo; mientras se coloca, Tab pasa al siguiente y Mayús+Tab al anterior.</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Añadir...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">Elegir un símbolo de la colección</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">Ubicación del símbolo:</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Exportar</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">Guarda piezas en archivos .faspart, un archivo por pieza, con sus archivos y símbolos</translation>
+    </message>
+    <message>
+        <source>The selected part...</source>
+        <translation type="unfinished">La pieza seleccionada...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">Todas las piezas de la lista...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">Importar...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">Añade a la base de datos de piezas las piezas de archivos .faspart</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">Exportar las piezas a</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">Exportar las piezas</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 ya existe. ¿Reemplazarlo?</translation>
+    </message>
+    <message>
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">%n pieza(s) exportada(s) a %1.</translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">Sin exportar:</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">Importar piezas</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">Piezas de FaseCAD (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">La base de datos de piezas ya tiene %1 %2.
+¿Reemplazarla por la pieza del archivo?</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">Reemplazar</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">Conservar la mía</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">Reemplazar todas</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">Conservar todas las mías</translation>
+    </message>
+    <message>
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">%n pieza(s) importada(s).</translation>
+    </message>
+    <message>
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">%n pieza(s) sin cambios.</translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">Sin importar:</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">El texto de un borne sustituye a su nombre en el folio, en los planos de bornero y en las listas, y el número que el símbolo dibuja junto al borne cambia con él. Deje el nombre del símbolo, o nada, para conservar ese nombre.</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">Borne del símbolo</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Texto</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">(sin nombre)</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">Textos de bornes</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">Cambiar los textos de los bornes</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Index</source>
+        <translation type="unfinished">Índice</translation>
+    </message>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">Índice de folios</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">Índice de folios %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">Colección de piezas</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">Las piezas de la base de datos de piezas. Arrastre una al folio para colocar su símbolo con la pieza, o sobre un símbolo para añadirle la pieza.</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">Sin símbolo: suéltela sobre un símbolo colocado</translation>
+    </message>
+    <message>
+        <source>Symbol: %1</source>
+        <translation type="unfinished">Símbolo: %1</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Sin categoría)</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">Símbolos: %1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">Tab cambia el símbolo mientras se coloca la pieza</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">La pieza ya no existe en la base de datos de piezas.</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">No se puede leer el archivo: %1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">Este no es un archivo de pieza de FaseCAD.</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">Este archivo de pieza se hizo con una versión más reciente de FaseCAD.</translation>
     </message>
 </context>
 </TS>

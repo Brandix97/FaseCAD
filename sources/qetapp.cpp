@@ -623,7 +623,9 @@ QList<TitleBlockTemplatesCollection *> QETApp::availableTitleBlockTemplatesColle
 	QList<TitleBlockTemplatesCollection *> collections_list;
 
 	collections_list << commonTitleBlockTemplatesCollection();
-	collections_list << companyTitleBlockTemplatesCollection();
+		//No company collection in FaseCAD: a project naming one of its
+		//templates keeps its own copy, read through
+		//titleBlockTemplatesCollection()
 	collections_list << customTitleBlockTemplatesCollection();
 
 	foreach(QETProject *opened_project, registered_projects_) {

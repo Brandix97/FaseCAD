@@ -22,6 +22,9 @@
 #include "elementcollectionhandler.h"
 #include "elementcollectionitem.h"
 #include "fileelementcollectionitem.h"
+#include "partscollectionitem.h"
+#include "../partsdb/partsdatabase.h"
+#include "../partsdb/partsplacement.h"
 #include "xmlelementcollection.h"
 #include "xmlprojectelementcollectionitem.h"
 
@@ -108,6 +111,25 @@ QMimeData *ElementsCollectionModel::mimeData(
 	if (index.isValid())
 	{
 		ElementCollectionItem *item = static_cast<ElementCollectionItem*>(itemFromIndex(index));
+
+			//A part is dragged as its symbol, with the part; a category
+			//of parts is not dragged
+		if (item->type() == PartsCollectionItem::Type) {
+			auto *part = static_cast<PartsCollectionItem *>(item);
+			QMimeData *mime_data = new QMimeData();
+			if (part->kind() == PartsCollectionItem::PartItem) {
+				if (!part->symbols().isEmpty()) {
+					mime_data->setText(part->symbols().first());
+					mime_data->setData("application/x-qet-element-uri",
+									   part->symbols().first().toLatin1());
+				}
+				mime_data->setData(PartsPlacement::mimeType(),
+								   PartsPlacement::encode(
+									   {part->manufacturer(), part->orderNumber(),
+										part->symbols()}));
+			}
+			return mime_data;
+		}
 
 		QMimeData *mime_data = new QMimeData();
 		mime_data->setText(item->collectionPath());
@@ -373,6 +395,34 @@ void ElementsCollectionModel::addMacrosCollection(bool set_data)
 		}
 		else
 			delete feci;
+}
+
+/**
+	@brief ElementsCollectionModel::addPartsCollection
+	Add the parts collection, the parts of the parts database, when the
+	parts database is on. It is read at once: there are few parts, and
+	no symbol to read for each.
+*/
+void ElementsCollectionModel::addPartsCollection()
+{
+	if (!PartsDatabase::isEnabled()) {
+		return;
+	}
+	invisibleRootItem()->appendRow(new PartsCollectionItem());
+}
+
+/**
+	@brief ElementsCollectionModel::reloadPartsCollection
+	Read the parts of the parts collection again
+*/
+void ElementsCollectionModel::reloadPartsCollection()
+{
+	for (int row = 0 ; row < invisibleRootItem()->rowCount() ; ++row) {
+		QStandardItem *item = invisibleRootItem()->child(row);
+		if (item && item->type() == PartsCollectionItem::Type) {
+			static_cast<PartsCollectionItem *>(item)->reload();
+		}
+	}
 }
 
 /**

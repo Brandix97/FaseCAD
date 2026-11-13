@@ -20,6 +20,7 @@
 
 #include <QByteArray>
 #include <QCoreApplication>
+#include <QJsonObject>
 #include <QList>
 #include <QPair>
 #include <QSqlDatabase>
@@ -40,6 +41,97 @@ struct PartAccessory
 	bool operator==(const PartAccessory &other) const {
 		return accessory_id == other.accessory_id
 				&& quantity == other.quantity;
+	}
+};
+
+/**
+	@brief What a function of a part does, as an id kept in the database.
+	The list is FaseCAD's own; the ids never change, their names are
+	translated (see PartFunction::kindName()).
+*/
+enum class PartFunctionKind {
+	Other,
+	SupplyPlus,			///< + of a supply : L+, 24 V
+	SupplyMinus,		///< - of a supply : M, 0 V
+	FunctionalEarth,	///< FE
+	ProtectiveEarth,	///< PE
+	Phase,				///< L1, L2, L3
+	Neutral,			///< N
+	DigitalInput,
+	DigitalOutput,
+	AnalogInput,
+	AnalogOutput,
+	BusPort,			///< Profinet, Ethernet, Modbus...
+	Coil,
+	PowerContact,
+	NormallyOpen,
+	NormallyClosed,
+	Changeover,
+	Terminal			///< A plain connection point
+};
+
+/**
+	@brief One function a part brings, as its manufacturer describes it : a
+	digital input on the pin 7 of the plug X10 described "DI a.0", the coil
+	A1-A2 of a contactor...
+
+	A device placed in a project has these functions, in this order. They
+	are what the pins of its symbols are checked against, and what PLC
+	boxes are made from.
+*/
+struct PartFunction
+{
+	PartFunctionKind kind = PartFunctionKind::Other;
+	QString plug;			///< X10
+	QString pin;			///< 7, or A1
+	QString description;	///< DI a.0
+	QString address;		///< Default PLC address, I0.0
+
+	bool operator==(const PartFunction &other) const {
+		return kind == other.kind && plug == other.plug && pin == other.pin
+				&& description == other.description
+				&& address == other.address;
+	}
+
+	static QString kindId(PartFunctionKind kind);
+	static PartFunctionKind kindFromId(const QString &id);
+	static QString kindName(PartFunctionKind kind);
+	static QList<PartFunctionKind> kinds();
+};
+
+/**
+	@brief A connection point of a part : where a wire is screwed or pushed
+	on the real device, with what it takes.
+
+	The position is in mm from the top left corner of the front of the
+	device, z towards the front. The direction is where the wire comes
+	from, as "x y z" (e.g. "0 1 0" from below), kept for the 3D.
+*/
+struct PartConnection
+{
+	QString plug;
+	QString pin;
+	std::optional<double> section_min;		///< mm²
+	std::optional<double> section_max;		///< mm²
+	std::optional<int> max_wires;
+	std::optional<double> strip_length;		///< mm
+	std::optional<double> torque;			///< N·m
+	QString screwdriver;
+	std::optional<double> x;				///< mm
+	std::optional<double> y;				///< mm
+	std::optional<double> z;				///< mm
+	QString direction;
+
+	bool operator==(const PartConnection &other) const {
+		return plug == other.plug && pin == other.pin
+				&& section_min == other.section_min
+				&& section_max == other.section_max
+				&& max_wires == other.max_wires
+				&& strip_length == other.strip_length
+				&& torque == other.torque
+				&& screwdriver == other.screwdriver
+				&& x == other.x && y == other.y && z == other.z
+				&& direction == other.direction;
 	}
 };
 
@@ -80,9 +172,29 @@ struct Part
 	QString core_colors;
 	QString section;		///< Cross-section, e.g. 2,5 mm²
 	QString sheath_color;
+	QString gtin;			///< GTIN / EAN code of the article
+		/// Letter of the device tag : K for a PLC or a relay, Q for a
+		/// breaker... A placed device gets it, e.g. -K1
+	QString code_letter;
+		/// The symbols the part is placed with from the parts collection
+		/// of the collection panel, as ElementsLocation strings
+		/// ("common://10_electric/..."), the first one first: Tab goes
+		/// from one to the next while the part is placed
+	QStringList symbols;
+	std::optional<double> power_loss;		///< W, for the cabinet heat
+		/// Room to leave free around the device in the cabinet, in mm
+	std::optional<double> clearance_top;
+	std::optional<double> clearance_bottom;
+	std::optional<double> clearance_left;
+	std::optional<double> clearance_right;
+	std::optional<double> clearance_front;
+	std::optional<double> clearance_rear;
 		///Free technical data, in the order the user wrote it.
 	QList<QPair<QString, QString>> technical_data;
 	QList<PartAccessory> accessories;
+		///What the part does, pin by pin, in the manufacturer's order.
+	QList<PartFunction> functions;
+	QList<PartConnection> connections;
 };
 
 /**
@@ -90,7 +202,8 @@ struct Part
 */
 enum class PartFileKind {
 	Image,
-	Dxf
+	Dxf,
+	Step	///< 3D model, for the cabinet in 3D
 };
 
 /**
@@ -117,7 +230,8 @@ struct PartFile
 /**
 	@brief The PartsDatabase class reads and writes the parts database, an
 	SQLite file listing the parts the user buys, with their technical data,
-	accessories, images and DXF drawings.
+	accessories, functions, connection points, images, DXF drawings and
+	3D models.
 
 	This is a pure data class : it does not know anything about widgets,
 	so it stays usable from the tests and from the command line.
@@ -147,6 +261,8 @@ class PartsDatabase
 
 		//Database
 		static int schemaVersion();
+		static QJsonObject toJson(const Part &part);
+		static Part fromJson(const QJsonObject &object);
 		bool open(const QString &path, QString *error = nullptr);
 		void close();
 		bool isOpen() const;
@@ -179,6 +295,9 @@ class PartsDatabase
 
 	private:
 		bool createSchema(QString *error);
+		bool upgradeSchema(int version, QString *error);
+		static QStringList functionTables();
+		static QStringList symbolTables();
 		bool runStatements(const QStringList &statements, QString *error);
 		bool writeDetails(const Part &part, QString *error);
 		void readDetails(Part *part) const;

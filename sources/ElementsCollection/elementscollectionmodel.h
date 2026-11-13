@@ -49,6 +49,8 @@ class ElementsCollectionModel : public QStandardItemModel
 		void addCompanyCollection(bool set_data = true);
 		void addCustomCollection(bool set_data = true);
 		void addMacrosCollection(bool set_data = true);
+		void addPartsCollection();
+		void reloadPartsCollection();
 		void loadMacrosCollection();
 		void addLocation(const ElementsLocation& location);
 

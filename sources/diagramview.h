@@ -150,6 +150,9 @@ class DiagramView : public PaletteGraphicsView
 		bool startElementPlacement(const ElementsLocation &location,
 					   const QPointF &scene_pos);
 		QPointF defaultPlacementPos() const;
+		bool startPartPlacement(const ElementsLocation &location,
+					const QPointF &scene_pos,
+					const QByteArray &part);
 		void setCellRulersShown(bool shown);
 		void setCellLinesShown(bool shown);
 			/// The folio-wide crosshair under the mouse (Display menu),

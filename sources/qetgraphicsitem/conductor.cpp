@@ -2258,8 +2258,10 @@ void Conductor::displayedTextChanged()
 	@param t_list : a list of terminal already found for this potential.
 	@param ignore_function_separation : if true, a terminal element whose
 	function separation is enabled does not stop the search, and the
-	conductors of both its sides are returned as one potential. Only
-	functionSeparatedConductors() passes true.
+	conductors of both its sides are returned as one potential -- but
+	never those of another potential of its symbol (@see
+	relatedPotentialTerminal). Only functionSeparatedConductors() passes
+	true.
 	@sa functionSeparatedConductors
 	@return  a QSet of conductor at the same potential.
 */
@@ -2328,7 +2330,9 @@ QSet<Conductor *> Conductor::relatedPotentialConductors(const bool all_diagram,
 	by default. One does cross that separation, though: the voltage /
 	protocol, which describes the electrical node itself. Callers that
 	push it over the whole potential use this method to reach the other
-	side (@see ConductorProperties::applyTensionProtocolChange).
+	side (@see ConductorProperties::applyTensionProtocolChange). It goes
+	from one side of a terminal to the other only, never from one
+	potential of a symbol to another (@see TerminalData::m_potential).
 
 	It is simply the potential computed with the separations ignored,
 	minus the potential that respects them.

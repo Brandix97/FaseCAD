@@ -23,6 +23,7 @@
 #include "../../createdxf.h"
 #include "../../diagram.h"
 #include "../../elementprovider.h"
+#include "../../factory/folioindex.h"
 #include "../../qetmessagebox.h"
 #include "../../qetxml.h"
 #include "../../utils/qetutils.h"
@@ -919,7 +920,12 @@ void QetGraphicsTableItem::modelReseted()
 
 	if (!previousTable()) //this is the head table
 	{
-		checkInsufficientRowsCount(this);
+			//The folio index takes more folios instead of warning
+		if (FolioIndex::isIndex(this)) {
+			FolioIndex::scheduleGrow(this);
+		} else {
+			checkInsufficientRowsCount(this);
+		}
 		removeUselessNextTable();
 	}
 }

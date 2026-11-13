@@ -469,6 +469,7 @@ class projectDataBase : public QObject
 		QList<FolioWire> wiresOnFolios(const QList<QUuid> &folios) const;
 		QString elementLabel(const QUuid &element) const;
 		QString terminalName(const QUuid &terminal, const QUuid &element) const;
+		void renameTerminals(Element *element);
 		std::optional<QSet<QUuid>> potentialWires(const QUuid &wire) const;
 			/// Every potential of the project at once: wire -> group
 			/// number, and the groups whose extent is not known

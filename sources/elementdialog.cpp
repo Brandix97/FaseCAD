@@ -100,12 +100,13 @@ void ElementDialog::setUpWidget()
 			prjs.append(prj);
 
 	if (m_mode == OpenElement) {
-		m_model->loadCollections(true, true, true, prjs);
+			//No company collection in FaseCAD
+		m_model->loadCollections(true, false, true, prjs);
 	} else if (m_mode == SaveTemplate) {
 		// Load only the templates/macros collection for the template save dialog
 		m_model->loadMacrosCollection();
 	} else {
-		m_model->loadCollections(false, true, true, prjs);
+		m_model->loadCollections(false, false, true, prjs);
 	}
 
 	m_tree_view->setModel(m_model);

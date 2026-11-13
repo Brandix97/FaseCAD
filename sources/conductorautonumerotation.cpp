@@ -57,9 +57,11 @@ ConductorAutoNumerotation::ConductorAutoNumerotation(
 void ConductorAutoNumerotation::numerate()
 {
 	if (!m_conductor) return;
+		//A wire joined to others takes the number of their potential.
+		//A new potential gets no number: FaseCAD has no numbering
+		//formulas (Brandon, 2026-11-13), numerateNewConductor() is not
+		//called any more
 	if (conductor_list.size() >= 1 ) numeratePotential();
-	else if (m_conductor -> properties().type == ConductorProperties::Multi)
-		numerateNewConductor();
 }
 
 /**

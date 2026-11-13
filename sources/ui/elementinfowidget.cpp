@@ -93,15 +93,11 @@ void ElementInfoWidget::setElement(Element *element)
 
 	if (formula_info_widget && label_info_widget)
 	{
-		if (formula_info_widget->text().isEmpty())
-			label_info_widget->setEnabled(true);
-		else
-			label_info_widget->setDisabled(true);
-
-		connect(formula_info_widget, &ElementInfoPartWidget::textChanged, this, [label_info_widget](const QString text)
-		{
-			label_info_widget->setEnabled(text.isEmpty()? true : false);
-		});
+		label_info_widget->setEnabled(true);
+		connect(label_info_widget, &ElementInfoPartWidget::textEdited, this,
+				[formula_info_widget]() {
+			formula_info_widget->setText(QString());
+		}, Qt::UniqueConnection);
 	}
 
 	connect(m_element.data(), &Element::elementInfoChange, this, &ElementInfoWidget::elementInfoChange);
@@ -335,8 +331,13 @@ void ElementInfoWidget::buildInterface()
 	}
 
 	setupMaterialButtons();
-	setupSchemeRow();
-	setupNumberRow();
+		//No numbering formulas in FaseCAD: a device is named as it is
+		//placed (DeviceNaming), its label is then its own. The formula of
+		//an old project's element is not shown, and typing a label
+		//replaces it
+	if (ElementInfoPartWidget *formula = infoPartWidgetForKey(QETInformation::ELMT_FORMULA)) {
+		formula->hide();
+	}
 	setupFreezeRow();
 	setupLabelShownRow();
 

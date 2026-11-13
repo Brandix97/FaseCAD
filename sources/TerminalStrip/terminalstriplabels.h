@@ -25,7 +25,7 @@ class TerminalStrip;
 
 /**
 	The label of a terminal strip (-XN1) at the first of its terminals on
-	each folio, as EPLAN shows it: no free text to place and keep in line,
+	each folio, as other CAE software shows it: no free text to place and keep in line,
 	it belongs to that terminal and moves with it. When a terminal is put
 	before the first one, or the first one leaves the strip, the label goes
 	to the new first terminal by itself. "First" is in reading order: the

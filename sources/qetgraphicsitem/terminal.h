@@ -80,7 +80,9 @@ class Terminal : public QGraphicsObject
 		QUuid     derivedUuid         () const;
 		void      setPlaceRank        (int rank);
 		QString   name                () const;
+		QString   symbolName          () const;
 		QString   baseName            () const;
+		void      prepareNameChange   ();
 		TerminalData::Type terminalType() const;
 		QString potential() const;
 		bool useMasterLabel() const { return d->m_use_master_label; }

@@ -1993,7 +1993,7 @@ QString DynamicElementTextItem::reportReplacedCompositeText() const
 			//What is left is the report's own information, as in the
 			//composite text of any other element: a report can then say
 			//which device and terminal it leads to (%{comment}), the way
-			//EPLAN prints "-XS27:N 2 UG Raum - 1.1"
+			//Other CAE software prints "-XS27:N 2 UG Raum - 1.1"
 		string = autonum::AssignVariables::replaceVariable(
 					string, m_parent_element.data()->elementInformations());
 	}

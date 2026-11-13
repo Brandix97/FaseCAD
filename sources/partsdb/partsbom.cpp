@@ -195,8 +195,15 @@ QList<PartsBom::Device> PartsBom::devices(QETProject *project)
 		return result;
 	}
 	projectDataBase *database = project->dataBase();
+		//A contact without a label of its own goes by the label of the
+		//master it is linked to: its parts belong to that device
 	QSqlQuery query = database->newQuery(QStringLiteral(
-		"SELECT e.uuid, ei.label "
+		"SELECT e.uuid, "
+		"CASE WHEN e.type = 'slave' AND IFNULL(TRIM(ei.label), '') = '' "
+		"THEN (SELECT mi.label FROM link l "
+		"JOIN element_info mi ON mi.element_uuid = l.linked_uuid "
+		"WHERE l.element_uuid = e.uuid ORDER BY l.ord LIMIT 1) "
+		"ELSE ei.label END "
 		"FROM element e "
 		"JOIN diagram d ON d.uuid = e.diagram_uuid "
 		"LEFT JOIN element_info ei ON ei.element_uuid = e.uuid "

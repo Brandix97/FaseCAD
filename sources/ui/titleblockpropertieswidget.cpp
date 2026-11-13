@@ -430,11 +430,11 @@ void TitleBlockPropertiesWidget::initDialog(
 		connect(ui->auto_page_cb, qOverload<int>(&QComboBox::activated),
 				this, [this]() { m_auto_page_num_picked = true; });
 	}
-	else{
-		ui->auto_page_cb->hide();
-		ui->m_edit_autofolionum_pb->hide();
-		ui->label_9->hide();
-	}
+		//No folio numbering formulas in FaseCAD: the choice is never
+		//shown, an old project keeps the one it has
+	ui->auto_page_cb->hide();
+	ui->m_edit_autofolionum_pb->hide();
+	ui->label_9->hide();
 
 }
 

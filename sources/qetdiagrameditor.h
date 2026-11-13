@@ -326,6 +326,7 @@ class QETDiagramEditor : public QETMainWindow
 		*m_csv_export,			///< generate nomenclature
 		*m_add_nomenclature,		///< Add nomenclature graphics item;
 		*m_add_summary,			///<Add summary graphics item
+		*m_add_folio_index,		///<Add the automatic folio index
 		*m_terminal_strip_dialog = nullptr, ///<Launch terminal strip dialog
 		*m_project_terminalBloc,	///< generate terminal block
 		*m_project_export_conductor_num,///<Export the wire num to csv
@@ -458,7 +459,7 @@ class QETDiagramEditor : public QETMainWindow
 #endif
 		
 		QUndoGroup undo_group;
-		AutoNumberingDockWidget *m_autonumbering_dock;
+		AutoNumberingDockWidget *m_autonumbering_dock = nullptr;
 		QDockWidget *m_devices_dock = nullptr;	///< The devices of the current project, by label
 		class DevicesPanel *m_devices_panel = nullptr;
 		int activeSubWindowIndex;

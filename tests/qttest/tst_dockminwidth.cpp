@@ -79,7 +79,6 @@ class tst_dockminwidth : public QObject
 			QETDiagramEditor *editor = QetAppTest::editor();
 			for (const QString &name : {QStringLiteral("elements_collection_widget"),
 						    QStringLiteral("diagram_properties_editor_dock_widget"),
-						    QStringLiteral("AutoNumberingDockWidget"),
 						    QStringLiteral("assistant_dock")}) {
 				auto *dock = editor->findChild<QDockWidget *>(name);
 					//A build without scripting has no Assistant dock

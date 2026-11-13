@@ -231,18 +231,22 @@ NewDiagramPage::NewDiagramPage(QETProject *project,
 		tab_widget -> addTab (m_ptw,      tr("Potential types"));
 	}
 
-	// add auto-numbering tab only for global settings (not per project)
+	// add the cable numbering tab only for global settings (not per
+	// project). The numbering formulas of conductors, elements and
+	// sheets are gone: FaseCAD names a device as it is placed
+	// (DeviceNaming); the cables keep their rule
 	if (!m_project) {
 		QWidget *autonum_widget = new QWidget();
 		QVBoxLayout *autonum_layout = new QVBoxLayout(autonum_widget);
-		autonum_layout->addWidget(new QLabel(tr("Set the default automatic numbering rules for new projects:")));
-		QTabWidget *autonum_inner_tab = new QTabWidget();
-		autonum_inner_tab->addTab(m_autonum_conductor.widget, tr("Conductors"));
-		autonum_inner_tab->addTab(m_autonum_element.widget, tr("Elements"));
-		autonum_inner_tab->addTab(m_autonum_folio.widget, tr("Sheets"));
-		autonum_inner_tab->addTab(m_autonum_cable.widget, tr("Cables"));
-		autonum_layout->addWidget(autonum_inner_tab);
-		tab_widget -> addTab (autonum_widget, tr("Auto Numbering"));
+		autonum_layout->addWidget(new QLabel(tr("Set the default cable numbering rule for new projects:")));
+		autonum_layout->addWidget(m_autonum_cable.widget);
+		for (QWidget *unused : {static_cast<QWidget *>(m_autonum_conductor.widget),
+								static_cast<QWidget *>(m_autonum_element.widget),
+								static_cast<QWidget *>(m_autonum_folio.widget)}) {
+			unused->setParent(autonum_widget);
+			unused->hide();
+		}
+		tab_widget -> addTab (autonum_widget, tr("Cable numbering"));
 	}
 
 	QVBoxLayout *vlayout1 = new QVBoxLayout();

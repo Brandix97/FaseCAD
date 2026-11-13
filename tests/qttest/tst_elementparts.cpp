@@ -23,6 +23,10 @@
 #include "qetgraphicsitem/element.h"
 #include "qetproject.h"
 #include "ui/elementinfowidget.h"
+#include "ui/elementpropertieswidget.h"
+
+#include <QTabWidget>
+#include <QUndoStack>
 
 #include <QTableWidget>
 #include <QUndoCommand>
@@ -110,6 +114,40 @@ private slots:
 				 value);
 		ElementPartsWidget parts(m_element, &info);
 		QCOMPARE(parts.findChild<QTableWidget *>()->rowCount(), 1);
+	}
+
+		//A contact has a Parts tab of its own, an auxiliary contact block
+		//say; its Information tab saves the list and is not shown
+	void aContactHasAPartsTab()
+	{
+		Element *contact = nullptr;
+		for (Diagram *diagram : m_project->diagrams()) {
+			for (Element *element : diagram->elements()) {
+				if (!contact && element->linkType() == Element::Slave) {
+					contact = element;
+				}
+			}
+		}
+		QVERIFY(contact);
+
+		ElementPropertiesWidget dialog(contact);
+		auto *tabs = dialog.findChild<QTabWidget *>();
+		auto *parts = dialog.findChild<ElementPartsWidget *>();
+		auto *info = dialog.findChild<ElementInfoWidget *>();
+		QVERIFY(tabs && parts && info);
+		QVERIFY(tabs->indexOf(parts) >= 0);
+		QCOMPARE(tabs->indexOf(info), -1);
+
+		const QString value = PartsLinks::encode(
+			{{QStringLiteral("ACME"), QStringLiteral("AUX-1122"), 1}});
+		info->setPartsValue(value);
+		QCOMPARE(parts->findChild<QTableWidget *>()->rowCount(), 1);
+		dialog.apply();
+		QCOMPARE(contact->elementInformations()
+				 .value(PartsLinks::infoKey()).toString(), value);
+		contact->diagram()->undoStack().undo();
+		QVERIFY(contact->elementInformations()
+				.value(PartsLinks::infoKey()).toString().isEmpty());
 	}
 };
 

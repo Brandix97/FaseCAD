@@ -1540,6 +1540,19 @@ bool Element::fromXml(QDomElement &e,
 		m_data.m_master_type != ElementData::PLC)
 		m_data.xrefDisplayFromXml(e.firstChildElement(QStringLiteral("xrefDisplay")));
 
+		//The texts it gives its terminals instead of their names, read
+		//as the prefix is: the terminals are not drawn nor listed yet
+	m_terminal_texts.clear();
+	const QDomElement terminal_texts = e.firstChildElement(QStringLiteral("terminalTexts"));
+	for (QDomElement text = terminal_texts.firstChildElement(QStringLiteral("terminalText")) ;
+		 !text.isNull() ; text = text.nextSiblingElement(QStringLiteral("terminalText"))) {
+		const QUuid terminal(text.attribute(QStringLiteral("terminal")));
+		const QString value = text.attribute(QStringLiteral("text"));
+		if (!terminal.isNull() && !value.isEmpty()) {
+			m_terminal_texts.insert(terminal.toString(), value);
+		}
+	}
+
 	//We must block the update of the alignment when loading the information
 	//otherwise the pos of the text will not be the same as it was at save time.
 	for(DynamicElementTextItem *deti : m_dynamic_text_list)
@@ -2577,6 +2590,68 @@ void Element::appendDataXml(QDomDocument &document, QDomElement &element) const
 		if (!xml_display.isNull())
 			element.appendChild(xml_display);
 	}
+
+		//Written only when set, so a symbol giving its terminals no text
+		//of their own saves exactly as before
+	if (!m_terminal_texts.isEmpty())
+	{
+		QDomElement texts = document.createElement(QStringLiteral("terminalTexts"));
+		for (auto it = m_terminal_texts.constBegin() ;
+			 it != m_terminal_texts.constEnd() ; ++it) {
+			QDomElement text = document.createElement(QStringLiteral("terminalText"));
+			text.setAttribute(QStringLiteral("terminal"), it.key());
+			text.setAttribute(QStringLiteral("text"), it.value());
+			texts.appendChild(text);
+		}
+		element.appendChild(texts);
+	}
+}
+
+/**
+	@brief Element::terminalText
+	@return the text this placed symbol gives @p terminal instead of its
+	name, or an empty string when it gives it none
+*/
+QString Element::terminalText(const Terminal *terminal) const
+{
+	if (!terminal || m_terminal_texts.isEmpty()) {
+		return QString();
+	}
+	return m_terminal_texts.value(terminal->stableUuid().toString());
+}
+
+/**
+	@brief Element::setTerminalTexts
+	Give the terminals of this symbol the texts @p texts, by
+	Terminal::stableUuid() as a string, instead of their names: they are
+	drawn, saved and listed with them (terminal strip plans, wiring
+	lists, the project database). An empty text gives the terminal back
+	the name the symbol gives it.
+*/
+void Element::setTerminalTexts(const QMap<QString, QString> &texts)
+{
+	QMap<QString, QString> kept;
+	for (auto it = texts.constBegin() ; it != texts.constEnd() ; ++it) {
+		if (!it.value().isEmpty()) {
+			kept.insert(it.key(), it.value());
+		}
+	}
+	if (kept == m_terminal_texts) {
+		return;
+	}
+
+	for (Terminal *terminal : std::as_const(m_terminals)) {
+		terminal->prepareNameChange();
+	}
+	m_terminal_texts = kept;
+	for (Terminal *terminal : std::as_const(m_terminals)) {
+		terminal->update();
+	}
+	if (projectDataBase *store = placedStore()) {
+		store->renameTerminals(this);
+	}
+	scheduleTextsStore();
+	emit terminalTextsChanged();
 }
 
 /**

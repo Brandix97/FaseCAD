@@ -329,7 +329,7 @@ void ConductorPropertiesWidget::setMixedTextFields(
 void ConductorPropertiesWidget::setTextLocked(bool locked)
 {
 	m_text_locked = locked;
-	ui->m_text_le->setEnabled(!locked && ui->m_formula_le->text().isEmpty());
+	ui->m_text_le->setEnabled(!locked);
 	ui->m_text_le->setToolTip(locked
 		? tr("Several conductors selected: the text is changed on one "
 		     "conductor at a time.")
@@ -357,9 +357,11 @@ void ConductorPropertiesWidget::setDisabledShowText(const bool &disable) {
 */
 void ConductorPropertiesWidget::setHiddenAvailableAutonum(const bool &hide)
 {
-	ui->m_autonum_label->setHidden(hide);
-	ui->m_available_autonum_cb->setHidden(hide);
-	ui->m_edit_autonum_pb->setHidden(hide);
+		//Always hidden: FaseCAD has no numbering formulas
+	Q_UNUSED(hide)
+	ui->m_autonum_label->hide();
+	ui->m_available_autonum_cb->hide();
+	ui->m_edit_autonum_pb->hide();
 }
 
 QComboBox *ConductorPropertiesWidget::autonumComboBox() const
@@ -404,7 +406,19 @@ void ConductorPropertiesWidget::initWidget()
 
 	connect(ui->m_multiwires_gb, &QGroupBox::toggled, [this](bool toggle) {this->ui->m_singlewire_gb->setChecked(!toggle);});
 	connect(ui->m_singlewire_gb, &QGroupBox::toggled, [this](bool toggle) {this->ui->m_multiwires_gb->setChecked(!toggle);});
-	connect(ui->m_formula_le, &QLineEdit::textChanged, [this](QString text) {this->ui->m_text_le->setEnabled(!m_text_locked && text.isEmpty());});
+		//No numbering formulas in FaseCAD: neither the formula nor the
+		//numberings are shown, and a text typed in place of an old
+		//project's formula replaces the formula
+	for (QWidget *numbering : {static_cast<QWidget *>(ui->label_11),
+							   static_cast<QWidget *>(ui->m_formula_le),
+							   static_cast<QWidget *>(ui->m_autonum_label),
+							   static_cast<QWidget *>(ui->m_available_autonum_cb),
+							   static_cast<QWidget *>(ui->m_edit_autonum_pb)}) {
+		numbering->hide();
+	}
+	connect(ui->m_text_le, &QLineEdit::textEdited, this, [this]() {
+		ui->m_formula_le->clear();
+	});
 	ui->m_multiwires_gb->setChecked(true);
 	ui->m_singlewire_gb->setChecked(true);
 #if TODO_LIST

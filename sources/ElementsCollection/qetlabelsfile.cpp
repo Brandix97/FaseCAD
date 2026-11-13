@@ -193,8 +193,8 @@ QString QetLabelsFile::prefixInDocument(const QDomDocument &document, const QStr
 	@brief QetLabelsFile::parse
 	Read @a device into @a document and, when it cannot be read as XML,
 	tell what is wrong with it in @a reason.
-	The Qt version split is the same one used by edzpart.cpp and
-	cli_export.cpp : QDomDocument::ParseResult only exists since Qt 6.5.
+	The Qt version split is the same one used by cli_export.cpp :
+	QDomDocument::ParseResult only exists since Qt 6.5.
 	@return true when the document is well formed.
 */
 bool QetLabelsFile::parse(QIODevice &device, QDomDocument &document, QString *reason)

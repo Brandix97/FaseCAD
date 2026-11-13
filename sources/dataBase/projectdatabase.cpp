@@ -1419,6 +1419,21 @@ bool projectDataBase::populateFromDocument(const QDomDocument &document, QString
 			element.type = known->type;
 			element.sub_type = known->sub_type;
 			element.terminals = known->terminals;
+				//The texts the element gives its terminals instead of
+				//their names (Terminal::name()): a terminal showing its
+				//master's label shows the text instead
+			const QDomElement terminal_texts =
+					element_xml.firstChildElement(QStringLiteral("terminalTexts"));
+			for (QDomElement text = terminal_texts.firstChildElement(QStringLiteral("terminalText")) ;
+				 !text.isNull() ; text = text.nextSiblingElement(QStringLiteral("terminalText"))) {
+				const auto named = element.terminals.find(
+							QUuid(text.attribute(QStringLiteral("terminal"))));
+				const QString value = text.attribute(QStringLiteral("text"));
+				if (named != element.terminals.end() && !value.isEmpty()) {
+					named->name = value;
+					named->master_label = false;
+				}
+			}
 			element.location = element_xml.attribute(QStringLiteral("type"));
 			element.sequence = elementSequence(element_xml);
 			const QUuid group = ItemGroups::read(element_xml);
@@ -4596,7 +4611,7 @@ void projectDataBase::createElementNomenclatureView()
 {
 		//plant and location: the element's own, else its folio's. An
 		//installation is structured by its folios (=plant +location, the
-		//%M / %LM of the folio), as EPLAN builds the device tag from the
+		//%M / %LM of the folio), as CAE software builds the device tag from the
 		//page structure: an element drawn on a +UV1 folio is in +UV1
 		//without the information being typed into every element.
 	QString create_view ("CREATE VIEW element_nomenclature_view AS SELECT "
@@ -6009,7 +6024,8 @@ void projectDataBase::forgetElementTexts(const QUuid &element)
 	@return the rows of what the saved symbol @p element holds that no
 	other table does: its frozen label, whether it moves and its prefix, as
 	Element::fromXml() reads them (a file that leaves one out gives the
-	value it is read as), then its <properties> and <plcMasterData>
+	value it is read as), then its <properties>, <plcMasterData>,
+	<xrefDisplay> and <terminalTexts>
 */
 QList<projectDataBase::ProjectSetting> projectDataBase::elementValueRowsOf(const QDomElement &element)
 {
@@ -6023,7 +6039,7 @@ QList<projectDataBase::ProjectSetting> projectDataBase::elementValueRowsOf(const
 				 QString::number(int(bool(element.attribute(QStringLiteral("is_movable"), QStringLiteral("1")).toInt())))});
 	rows.append({section, 0, QStringLiteral("prefix"), element.attribute(QStringLiteral("prefix"))});
 	for (const QString &tag : {QStringLiteral("properties"), QStringLiteral("plcMasterData"),
-							   QStringLiteral("xrefDisplay")}) {
+							   QStringLiteral("xrefDisplay"), QStringLiteral("terminalTexts")}) {
 		const QDomElement child = element.firstChildElement(tag);
 		if (!child.isNull())
 			xmlRows(child, tag, 0, rows);
@@ -8149,6 +8165,40 @@ void projectDataBase::insertTerminal(Terminal *terminal)
 				   terminal->parentElement()->uuid().toString(),
 				   terminal->name(),
 				   terminalIndexes(points).value(terminals.indexOf(terminal)));
+}
+
+/**
+	@brief projectDataBase::renameTerminals
+	The names of the terminals of @p element changed (Element::
+	setTerminalTexts()): its rows of the terminal table take them. Of
+	terminals sharing a uuid, the first of Element::terminals() gives
+	the name, as in insertTerminal().
+*/
+void projectDataBase::renameTerminals(Element *element)
+{
+	if (!element) {
+		return;
+	}
+	QSqlQuery query(m_data_base);
+	query.prepare(QStringLiteral("UPDATE terminal SET name = :name "
+								 "WHERE uuid = :uuid AND element_uuid = :element"));
+	const QString element_uuid = element->uuid().toString();
+	QSet<QString> done;
+	const QList<Terminal *> terminals = element->terminals();
+	for (const Terminal *terminal : terminals) {
+		const QString uuid = terminal->stableUuid().toString();
+		if (done.contains(uuid)) {
+			continue;
+		}
+		done.insert(uuid);
+		query.bindValue(QStringLiteral(":name"), terminal->name());
+		query.bindValue(QStringLiteral(":uuid"), uuid);
+		query.bindValue(QStringLiteral(":element"), element_uuid);
+		if (!query.exec()) {
+			qDebug() << "projectDataBase::renameTerminals :" << query.lastError();
+		}
+	}
+	emit dataBaseUpdated();
 }
 
 /**

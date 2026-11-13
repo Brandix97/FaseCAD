@@ -39,14 +39,10 @@ ProjectPropertiesDialog::ProjectPropertiesDialog(QETProject *project, QWidget *p
 	NewDiagramPage *newDiagramPage = new NewDiagramPage(project,parent,this);
 	m_properties_dialog -> addPage(newDiagramPage);
 
-	ProjectAutoNumConfigPage *projectAutoNumConfigPage = new ProjectAutoNumConfigPage (project);
-	m_properties_dialog -> addPage(projectAutoNumConfigPage);
-
+		//No automatic numbering page: FaseCAD names a device as it is
+		//placed (DeviceNaming); the cables have their own window
+		//(CableNumberingDialog)
 	m_properties_dialog->addPage(new TerminalStripProjectConfigPage { project, parent });
-
-	connect(projectAutoNumConfigPage, qOverload<QString>(&ProjectAutoNumConfigPage::setAutoNum), newDiagramPage, &NewDiagramPage::setFolioAutonum);
-	connect(projectAutoNumConfigPage, &ProjectAutoNumConfigPage::saveCurrentTbp, newDiagramPage, &NewDiagramPage::saveCurrentTbp);
-	connect(projectAutoNumConfigPage, &ProjectAutoNumConfigPage::loadSavedTbp, newDiagramPage, &NewDiagramPage::loadSavedTbp);
 }
 
 /**
@@ -79,6 +75,10 @@ void ProjectPropertiesDialog::exec()
 	@param p : page to display
 */
 void ProjectPropertiesDialog::setCurrentPage(ProjectPropertiesDialog::Page p) {
+		//The automatic numbering page is gone: the first page is shown
+	if (p == Autonum) {
+		return;
+	}
 	m_properties_dialog -> setCurrentPage(static_cast <int> (p));
 }
 
@@ -88,10 +88,7 @@ void ProjectPropertiesDialog::setCurrentPage(ProjectPropertiesDialog::Page p) {
 */
 void ProjectPropertiesDialog::changeToFolio()
 {
-	ProjectAutoNumConfigPage *autoNumPage =
-			static_cast <ProjectAutoNumConfigPage*>(
-				m_properties_dialog->pages.at(2));
-	autoNumPage->changeToTab(3);
+		//The automatic numbering page is gone: nothing to show
 }
 
 /**
@@ -102,10 +99,7 @@ void ProjectPropertiesDialog::changeToFolio()
 */
 void ProjectPropertiesDialog::changeToCable()
 {
-	ProjectAutoNumConfigPage *autoNumPage =
-			static_cast <ProjectAutoNumConfigPage*>(
-				m_properties_dialog->pages.at(2));
-	autoNumPage->changeToCableTab();
+		//The automatic numbering page is gone: nothing to show
 }
 
 /**
@@ -114,8 +108,5 @@ void ProjectPropertiesDialog::changeToCable()
 */
 void ProjectPropertiesDialog::changeToElement()
 {
-	ProjectAutoNumConfigPage *autoNumPage =
-			static_cast <ProjectAutoNumConfigPage*>(
-				m_properties_dialog->pages.at(2));
-	autoNumPage->changeToTab(2);
+		//The automatic numbering page is gone: nothing to show
 }

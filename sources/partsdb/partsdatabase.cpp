@@ -22,6 +22,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QJsonArray>
 #include <QSaveFile>
 #include <QSettings>
 #include <QSqlError>
@@ -66,7 +67,9 @@ const TextColumn text_columns[] = {
 	{"notes", &Part::notes},
 	{"core_colors", &Part::core_colors},
 	{"section", &Part::section},
-	{"sheath_color", &Part::sheath_color}
+	{"sheath_color", &Part::sheath_color},
+	{"gtin", &Part::gtin},
+	{"code_letter", &Part::code_letter}
 };
 
 const NumberColumn number_columns[] = {
@@ -74,13 +77,67 @@ const NumberColumn number_columns[] = {
 	{"height", &Part::height},
 	{"depth", &Part::depth},
 	{"weight", &Part::weight},
-	{"price", &Part::price}
+	{"price", &Part::price},
+	{"power_loss", &Part::power_loss},
+	{"clearance_top", &Part::clearance_top},
+	{"clearance_bottom", &Part::clearance_bottom},
+	{"clearance_left", &Part::clearance_left},
+	{"clearance_right", &Part::clearance_right},
+	{"clearance_front", &Part::clearance_front},
+	{"clearance_rear", &Part::clearance_rear}
 };
 
 	///The text columns a search looks into.
 const char *const searched_columns[] = {
 	"manufacturer", "order_number", "internal_reference",
-	"supplier_reference", "description", "designation", "category", "model"
+	"supplier_reference", "description", "designation", "category", "model",
+	"gtin"
+};
+
+struct FunctionKindEntry
+{
+	PartFunctionKind kind;
+	const char *id;		///< Written in the database, never changes
+	const char *name;
+};
+
+const FunctionKindEntry function_kinds[] = {
+	{PartFunctionKind::Other, "other",
+	 QT_TRANSLATE_NOOP("PartFunction", "Other")},
+	{PartFunctionKind::SupplyPlus, "supply_plus",
+	 QT_TRANSLATE_NOOP("PartFunction", "Supply + (L+, 24 V)")},
+	{PartFunctionKind::SupplyMinus, "supply_minus",
+	 QT_TRANSLATE_NOOP("PartFunction", "Supply - (M, 0 V)")},
+	{PartFunctionKind::FunctionalEarth, "functional_earth",
+	 QT_TRANSLATE_NOOP("PartFunction", "Functional earth (FE)")},
+	{PartFunctionKind::ProtectiveEarth, "protective_earth",
+	 QT_TRANSLATE_NOOP("PartFunction", "Protective earth (PE)")},
+	{PartFunctionKind::Phase, "phase",
+	 QT_TRANSLATE_NOOP("PartFunction", "Phase (L)")},
+	{PartFunctionKind::Neutral, "neutral",
+	 QT_TRANSLATE_NOOP("PartFunction", "Neutral (N)")},
+	{PartFunctionKind::DigitalInput, "digital_input",
+	 QT_TRANSLATE_NOOP("PartFunction", "Digital input")},
+	{PartFunctionKind::DigitalOutput, "digital_output",
+	 QT_TRANSLATE_NOOP("PartFunction", "Digital output")},
+	{PartFunctionKind::AnalogInput, "analog_input",
+	 QT_TRANSLATE_NOOP("PartFunction", "Analog input")},
+	{PartFunctionKind::AnalogOutput, "analog_output",
+	 QT_TRANSLATE_NOOP("PartFunction", "Analog output")},
+	{PartFunctionKind::BusPort, "bus_port",
+	 QT_TRANSLATE_NOOP("PartFunction", "Bus port")},
+	{PartFunctionKind::Coil, "coil",
+	 QT_TRANSLATE_NOOP("PartFunction", "Coil")},
+	{PartFunctionKind::PowerContact, "power_contact",
+	 QT_TRANSLATE_NOOP("PartFunction", "Power contact")},
+	{PartFunctionKind::NormallyOpen, "normally_open",
+	 QT_TRANSLATE_NOOP("PartFunction", "Normally open contact")},
+	{PartFunctionKind::NormallyClosed, "normally_closed",
+	 QT_TRANSLATE_NOOP("PartFunction", "Normally closed contact")},
+	{PartFunctionKind::Changeover, "changeover",
+	 QT_TRANSLATE_NOOP("PartFunction", "Changeover contact")},
+	{PartFunctionKind::Terminal, "terminal",
+	 QT_TRANSLATE_NOOP("PartFunction", "Terminal")}
 };
 
 void report(QString *error, const QString &text)
@@ -108,16 +165,45 @@ std::optional<double> toNumber(const QVariant &value)
 	return value.toDouble();
 }
 
+QVariant toVariant(const std::optional<int> &value)
+{
+	return value ? QVariant(*value) : QVariant(QMetaType::fromType<int>());
+}
+
+std::optional<int> toInteger(const QVariant &value)
+{
+	if (value.isNull()) {
+		return std::nullopt;
+	}
+	return value.toInt();
+}
+
+	///A text for a NOT NULL column : never bound as NULL.
+QString notNull(const QString &text)
+{
+	const QString trimmed = text.trimmed();
+	return trimmed.isNull() ? QStringLiteral("") : trimmed;
+}
+
 QString kindName(PartFileKind kind)
 {
-	return kind == PartFileKind::Dxf ? QStringLiteral("dxf")
-									 : QStringLiteral("image");
+	switch (kind) {
+		case PartFileKind::Dxf: return QStringLiteral("dxf");
+		case PartFileKind::Step: return QStringLiteral("step");
+		case PartFileKind::Image: break;
+	}
+	return QStringLiteral("image");
 }
 
 PartFileKind kindFromName(const QString &name)
 {
-	return name == QLatin1String("dxf") ? PartFileKind::Dxf
-										: PartFileKind::Image;
+	if (name == QLatin1String("dxf")) {
+		return PartFileKind::Dxf;
+	}
+	if (name == QLatin1String("step")) {
+		return PartFileKind::Step;
+	}
+	return PartFileKind::Image;
 }
 
 	///Every column of the part table but id, as a comma separated list.
@@ -179,6 +265,62 @@ QString escapedForLike(QString text)
 }
 
 } // namespace
+
+/**
+	@brief PartFunction::kindId
+	@return the id of @p kind written in the database.
+*/
+QString PartFunction::kindId(PartFunctionKind kind)
+{
+	for (const FunctionKindEntry &entry : function_kinds) {
+		if (entry.kind == kind) {
+			return QLatin1String(entry.id);
+		}
+	}
+	return QStringLiteral("other");
+}
+
+/**
+	@brief PartFunction::kindFromId
+	@return the kind of the id @p id, Other for an id this version does not
+	know (written by a newer one).
+*/
+PartFunctionKind PartFunction::kindFromId(const QString &id)
+{
+	for (const FunctionKindEntry &entry : function_kinds) {
+		if (id == QLatin1String(entry.id)) {
+			return entry.kind;
+		}
+	}
+	return PartFunctionKind::Other;
+}
+
+/**
+	@brief PartFunction::kindName
+	@return the name of @p kind, in the language of the user.
+*/
+QString PartFunction::kindName(PartFunctionKind kind)
+{
+	for (const FunctionKindEntry &entry : function_kinds) {
+		if (entry.kind == kind) {
+			return QCoreApplication::translate("PartFunction", entry.name);
+		}
+	}
+	return QString();
+}
+
+/**
+	@brief PartFunction::kinds
+	@return every kind, in the order they are offered to the user.
+*/
+QList<PartFunctionKind> PartFunction::kinds()
+{
+	QList<PartFunctionKind> result;
+	for (const FunctionKindEntry &entry : function_kinds) {
+		result << entry.kind;
+	}
+	return result;
+}
 
 PartsDatabase::PartsDatabase()
 {}
@@ -257,7 +399,147 @@ QString PartsDatabase::path()
 */
 int PartsDatabase::schemaVersion()
 {
-	return 2;
+	return 5;
+}
+
+/**
+	@brief PartsDatabase::toJson
+	@return @p part as JSON, for a file of parts (PartsArchive): every
+	field but its id, its accessories, its files and its symbols, which
+	name what this database and this computer hold and are written by the
+	file itself. An empty field is left out.
+*/
+QJsonObject PartsDatabase::toJson(const Part &part)
+{
+	QJsonObject object;
+	for (const TextColumn &column : text_columns) {
+		const QString value = part.*column.member;
+		if (!value.isEmpty()) {
+			object.insert(QLatin1String(column.name), value);
+		}
+	}
+	for (const NumberColumn &column : number_columns) {
+		if (const std::optional<double> value = part.*column.member) {
+			object.insert(QLatin1String(column.name), *value);
+		}
+	}
+	if (part.core_count) {
+		object.insert(QStringLiteral("core_count"), part.core_count);
+	}
+
+	QJsonArray technical;
+	for (const auto &data : part.technical_data) {
+		technical.append(QJsonArray{data.first, data.second});
+	}
+	if (!technical.isEmpty()) {
+		object.insert(QStringLiteral("technical_data"), technical);
+	}
+
+	QJsonArray functions;
+	for (const PartFunction &function : part.functions) {
+		functions.append(QJsonObject{
+			{QStringLiteral("kind"), PartFunction::kindId(function.kind)},
+			{QStringLiteral("plug"), function.plug},
+			{QStringLiteral("pin"), function.pin},
+			{QStringLiteral("description"), function.description},
+			{QStringLiteral("address"), function.address}});
+	}
+	if (!functions.isEmpty()) {
+		object.insert(QStringLiteral("functions"), functions);
+	}
+
+	QJsonArray connections;
+	for (const PartConnection &connection : part.connections) {
+		QJsonObject point{
+			{QStringLiteral("plug"), connection.plug},
+			{QStringLiteral("pin"), connection.pin},
+			{QStringLiteral("screwdriver"), connection.screwdriver},
+			{QStringLiteral("direction"), connection.direction}};
+		const std::pair<const char *, std::optional<double>> numbers[] = {
+			{"section_min", connection.section_min},
+			{"section_max", connection.section_max},
+			{"strip_length", connection.strip_length},
+			{"torque", connection.torque},
+			{"x", connection.x}, {"y", connection.y}, {"z", connection.z}};
+		for (const auto &[name, value] : numbers) {
+			if (value) {
+				point.insert(QLatin1String(name), *value);
+			}
+		}
+		if (connection.max_wires) {
+			point.insert(QStringLiteral("max_wires"), *connection.max_wires);
+		}
+		connections.append(point);
+	}
+	if (!connections.isEmpty()) {
+		object.insert(QStringLiteral("connections"), connections);
+	}
+	return object;
+}
+
+/**
+	@brief PartsDatabase::fromJson
+	@return the part @p object (toJson()) holds, without an id, an
+	accessory, a file nor a symbol. What it does not name stays empty.
+*/
+Part PartsDatabase::fromJson(const QJsonObject &object)
+{
+	Part part;
+	for (const TextColumn &column : text_columns) {
+		part.*column.member = object.value(QLatin1String(column.name)).toString();
+	}
+	for (const NumberColumn &column : number_columns) {
+		const QJsonValue value = object.value(QLatin1String(column.name));
+		if (value.isDouble()) {
+			part.*column.member = value.toDouble();
+		}
+	}
+	part.core_count = object.value(QStringLiteral("core_count")).toInt();
+
+	const QJsonArray technical = object.value(QStringLiteral("technical_data")).toArray();
+	for (const QJsonValue &data : technical) {
+		const QJsonArray pair = data.toArray();
+		if (!pair.at(0).toString().isEmpty()) {
+			part.technical_data.append({pair.at(0).toString(), pair.at(1).toString()});
+		}
+	}
+
+	const QJsonArray functions = object.value(QStringLiteral("functions")).toArray();
+	for (const QJsonValue &value : functions) {
+		const QJsonObject function = value.toObject();
+		part.functions.append({
+			PartFunction::kindFromId(function.value(QStringLiteral("kind")).toString()),
+			function.value(QStringLiteral("plug")).toString(),
+			function.value(QStringLiteral("pin")).toString(),
+			function.value(QStringLiteral("description")).toString(),
+			function.value(QStringLiteral("address")).toString()});
+	}
+
+	const QJsonArray connections = object.value(QStringLiteral("connections")).toArray();
+	for (const QJsonValue &value : connections) {
+		const QJsonObject point = value.toObject();
+		PartConnection connection;
+		connection.plug = point.value(QStringLiteral("plug")).toString();
+		connection.pin = point.value(QStringLiteral("pin")).toString();
+		connection.screwdriver = point.value(QStringLiteral("screwdriver")).toString();
+		connection.direction = point.value(QStringLiteral("direction")).toString();
+		const auto number = [&point](const char *name) -> std::optional<double> {
+			const QJsonValue v = point.value(QLatin1String(name));
+			return v.isDouble() ? std::optional<double>(v.toDouble()) : std::nullopt;
+		};
+		connection.section_min = number("section_min");
+		connection.section_max = number("section_max");
+		connection.strip_length = number("strip_length");
+		connection.torque = number("torque");
+		connection.x = number("x");
+		connection.y = number("y");
+		connection.z = number("z");
+		if (point.value(QStringLiteral("max_wires")).isDouble()) {
+			connection.max_wires = point.value(QStringLiteral("max_wires")).toInt();
+		}
+		part.connections.append(connection);
+	}
+	return part;
 }
 
 /**
@@ -351,22 +633,8 @@ bool PartsDatabase::createSchema(QString *error)
 	if (version == schemaVersion()) {
 		return true;
 	}
-
-		//Version 2 : the cable fields. A database of version 1 gets the
-		//new columns, its parts keep everything they had and are no
-		//cables until told so
-	if (version == 1) {
-		return runStatements({
-			QStringLiteral("ALTER TABLE part ADD COLUMN "
-						   "core_count INTEGER NOT NULL DEFAULT 0"),
-			QStringLiteral("ALTER TABLE part ADD COLUMN "
-						   "core_colors TEXT NOT NULL DEFAULT ''"),
-			QStringLiteral("ALTER TABLE part ADD COLUMN "
-						   "section TEXT NOT NULL DEFAULT ''"),
-			QStringLiteral("ALTER TABLE part ADD COLUMN "
-						   "sheath_color TEXT NOT NULL DEFAULT ''"),
-			QStringLiteral("UPDATE meta SET value = '2' "
-						   "WHERE key = 'schema_version'")}, error);
+	if (version > 0) {
+		return upgradeSchema(version, error);
 	}
 
 	const QStringList statements = {
@@ -394,6 +662,12 @@ bool PartsDatabase::createSchema(QString *error)
 					   "core_colors TEXT NOT NULL DEFAULT '', "
 					   "section TEXT NOT NULL DEFAULT '', "
 					   "sheath_color TEXT NOT NULL DEFAULT '', "
+					   "gtin TEXT NOT NULL DEFAULT '', "
+					   "code_letter TEXT NOT NULL DEFAULT '', "
+					   "power_loss REAL, "
+					   "clearance_top REAL, clearance_bottom REAL, "
+					   "clearance_left REAL, clearance_right REAL, "
+					   "clearance_front REAL, clearance_rear REAL, "
 					   "created TEXT NOT NULL, modified TEXT NOT NULL)"),
 			//The manufacturer and the order number identify a part, as
 			//they identify it in the element informations.
@@ -428,11 +702,122 @@ bool PartsDatabase::createSchema(QString *error)
 					   "content BLOB, "
 					   "size INTEGER NOT NULL DEFAULT 0, "
 					   "added TEXT NOT NULL)"),
-		QStringLiteral("CREATE INDEX part_file_part ON part_file(part_id)"),
-		QStringLiteral("INSERT INTO meta (key, value) "
-					   "VALUES ('schema_version', '2')")
+		QStringLiteral("CREATE INDEX part_file_part ON part_file(part_id)")
 	};
+	return runStatements(statements + functionTables() + symbolTables()
+						 + QStringList{QStringLiteral(
+							"INSERT INTO meta (key, value) "
+							"VALUES ('schema_version', '5')")},
+						 error);
+}
+
+/**
+	@brief PartsDatabase::upgradeSchema
+	Bring a database of the older @p version to the current one, in one
+	transaction. Its parts keep everything they had; what is new stays
+	empty until the user fills it.
+*/
+bool PartsDatabase::upgradeSchema(int version, QString *error)
+{
+	QStringList statements;
+		//Version 2 : the cable fields. The parts of a version 1 are no
+		//cables until told so
+	if (version < 2) {
+		statements << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "core_count INTEGER NOT NULL DEFAULT 0")
+				   << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "core_colors TEXT NOT NULL DEFAULT ''")
+				   << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "section TEXT NOT NULL DEFAULT ''")
+				   << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "sheath_color TEXT NOT NULL DEFAULT ''");
+	}
+		//Version 3 : article code, device letter, heat, clearances,
+		//functions and connection points
+	if (version < 3) {
+		statements << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "gtin TEXT NOT NULL DEFAULT ''")
+				   << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "code_letter TEXT NOT NULL DEFAULT ''");
+		for (const char *column : {"power_loss", "clearance_top",
+								   "clearance_bottom", "clearance_left",
+								   "clearance_right", "clearance_front",
+								   "clearance_rear"}) {
+			statements << QStringLiteral("ALTER TABLE part ADD COLUMN %1 REAL")
+						  .arg(QLatin1String(column));
+		}
+		statements << functionTables();
+	}
+		//Version 4 : the symbol a part is placed with, from the parts
+		//collection of the collection panel
+	if (version < 4) {
+		statements << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "symbol TEXT NOT NULL DEFAULT ''");
+	}
+		//Version 5 : several symbols a part is placed with, the one of
+		//version 4 first. The column of version 4 is read no more
+	if (version < 5) {
+		statements << symbolTables()
+				   << QStringLiteral("INSERT INTO part_symbol "
+									 "(part_id, position, location) "
+									 "SELECT id, 0, symbol FROM part "
+									 "WHERE symbol <> ''");
+	}
+	statements << QStringLiteral("UPDATE meta SET value = '%1' "
+								 "WHERE key = 'schema_version'")
+				  .arg(schemaVersion());
 	return runStatements(statements, error);
+}
+
+/**
+	@brief PartsDatabase::symbolTables
+	@return the statements creating the table of the symbols a part is
+	placed with (version 5), in the order the user gave them.
+*/
+QStringList PartsDatabase::symbolTables()
+{
+	return {
+		QStringLiteral("CREATE TABLE part_symbol ("
+					   "part_id INTEGER NOT NULL "
+					   "REFERENCES part(id) ON DELETE CASCADE, "
+					   "position INTEGER NOT NULL, "
+					   "location TEXT NOT NULL, "
+					   "PRIMARY KEY (part_id, position))")
+	};
+}
+
+/**
+	@brief PartsDatabase::functionTables
+	@return the statements creating the tables of the functions and of the
+	connection points of the parts (version 3).
+*/
+QStringList PartsDatabase::functionTables()
+{
+	return {
+		QStringLiteral("CREATE TABLE part_function ("
+					   "part_id INTEGER NOT NULL "
+					   "REFERENCES part(id) ON DELETE CASCADE, "
+					   "position INTEGER NOT NULL, "
+					   "kind TEXT NOT NULL DEFAULT 'other', "
+					   "plug TEXT NOT NULL DEFAULT '', "
+					   "pin TEXT NOT NULL DEFAULT '', "
+					   "description TEXT NOT NULL DEFAULT '', "
+					   "address TEXT NOT NULL DEFAULT '', "
+					   "PRIMARY KEY (part_id, position))"),
+		QStringLiteral("CREATE TABLE part_connection ("
+					   "part_id INTEGER NOT NULL "
+					   "REFERENCES part(id) ON DELETE CASCADE, "
+					   "position INTEGER NOT NULL, "
+					   "plug TEXT NOT NULL DEFAULT '', "
+					   "pin TEXT NOT NULL DEFAULT '', "
+					   "section_min REAL, section_max REAL, "
+					   "max_wires INTEGER, "
+					   "strip_length REAL, torque REAL, "
+					   "screwdriver TEXT NOT NULL DEFAULT '', "
+					   "x REAL, y REAL, z REAL, "
+					   "direction TEXT NOT NULL DEFAULT '', "
+					   "PRIMARY KEY (part_id, position))")
+	};
 }
 
 /**
@@ -593,7 +978,10 @@ bool PartsDatabase::updatePart(const Part &part, QString *error)
 
 	QSqlQuery clear(m_db);
 	for (const QString &table : {QStringLiteral("part_data"),
-								 QStringLiteral("part_accessory")}) {
+								 QStringLiteral("part_accessory"),
+								 QStringLiteral("part_function"),
+								 QStringLiteral("part_connection"),
+								 QStringLiteral("part_symbol")}) {
 		clear.prepare(QStringLiteral("DELETE FROM %1 WHERE part_id = ?")
 					  .arg(table));
 		clear.addBindValue(part.id);
@@ -616,8 +1004,8 @@ bool PartsDatabase::updatePart(const Part &part, QString *error)
 
 /**
 	@brief PartsDatabase::writeDetails
-	Write the technical data and the accessories of @p part, inside the
-	transaction of the caller.
+	Write the technical data, the accessories, the functions and the
+	connection points of @p part, inside the transaction of the caller.
 */
 bool PartsDatabase::writeDetails(const Part &part, QString *error)
 {
@@ -659,6 +1047,71 @@ bool PartsDatabase::writeDetails(const Part &part, QString *error)
 				   ? tr("An accessory of this part no longer exists in the"
 						" parts database.")
 				   : errorText(query.lastError().text()));
+			return false;
+		}
+	}
+
+	position = 0;
+	for (const PartFunction &function : part.functions) {
+		query.prepare(QStringLiteral("INSERT INTO part_function "
+									 "(part_id, position, kind, plug, pin, "
+									 "description, address) "
+									 "VALUES (?, ?, ?, ?, ?, ?, ?)"));
+		query.addBindValue(part.id);
+		query.addBindValue(position++);
+		query.addBindValue(PartFunction::kindId(function.kind));
+		query.addBindValue(notNull(function.plug));
+		query.addBindValue(notNull(function.pin));
+		query.addBindValue(notNull(function.description));
+		query.addBindValue(notNull(function.address));
+		if (!query.exec()) {
+			report(error, errorText(query.lastError().text()));
+			return false;
+		}
+	}
+
+	position = 0;
+	for (const PartConnection &connection : part.connections) {
+		query.prepare(QStringLiteral("INSERT INTO part_connection "
+									 "(part_id, position, plug, pin, "
+									 "section_min, section_max, max_wires, "
+									 "strip_length, torque, screwdriver, "
+									 "x, y, z, direction) "
+									 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+									 "?, ?, ?, ?)"));
+		query.addBindValue(part.id);
+		query.addBindValue(position++);
+		query.addBindValue(notNull(connection.plug));
+		query.addBindValue(notNull(connection.pin));
+		query.addBindValue(toVariant(connection.section_min));
+		query.addBindValue(toVariant(connection.section_max));
+		query.addBindValue(toVariant(connection.max_wires));
+		query.addBindValue(toVariant(connection.strip_length));
+		query.addBindValue(toVariant(connection.torque));
+		query.addBindValue(notNull(connection.screwdriver));
+		query.addBindValue(toVariant(connection.x));
+		query.addBindValue(toVariant(connection.y));
+		query.addBindValue(toVariant(connection.z));
+		query.addBindValue(notNull(connection.direction));
+		if (!query.exec()) {
+			report(error, errorText(query.lastError().text()));
+			return false;
+		}
+	}
+
+	position = 0;
+	for (const QString &symbol : part.symbols) {
+		if (symbol.trimmed().isEmpty()) {
+			continue;
+		}
+		query.prepare(QStringLiteral("INSERT INTO part_symbol "
+									 "(part_id, position, location) "
+									 "VALUES (?, ?, ?)"));
+		query.addBindValue(part.id);
+		query.addBindValue(position++);
+		query.addBindValue(symbol.trimmed());
+		if (!query.exec()) {
+			report(error, errorText(query.lastError().text()));
 			return false;
 		}
 	}
@@ -724,6 +1177,57 @@ void PartsDatabase::readDetails(Part *part) const
 			accessory.accessory_id = query.value(0).toLongLong();
 			accessory.quantity = query.value(1).toDouble();
 			part->accessories.append(accessory);
+		}
+	}
+
+	query.prepare(QStringLiteral("SELECT kind, plug, pin, description, "
+								 "address FROM part_function "
+								 "WHERE part_id = ? ORDER BY position"));
+	query.addBindValue(part->id);
+	if (query.exec()) {
+		while (query.next()) {
+			PartFunction function;
+			function.kind = PartFunction::kindFromId(
+						query.value(0).toString());
+			function.plug = query.value(1).toString();
+			function.pin = query.value(2).toString();
+			function.description = query.value(3).toString();
+			function.address = query.value(4).toString();
+			part->functions.append(function);
+		}
+	}
+
+	query.prepare(QStringLiteral("SELECT plug, pin, section_min, "
+								 "section_max, max_wires, strip_length, "
+								 "torque, screwdriver, x, y, z, direction "
+								 "FROM part_connection WHERE part_id = ? "
+								 "ORDER BY position"));
+	query.addBindValue(part->id);
+	if (query.exec()) {
+		while (query.next()) {
+			PartConnection connection;
+			connection.plug = query.value(0).toString();
+			connection.pin = query.value(1).toString();
+			connection.section_min = toNumber(query.value(2));
+			connection.section_max = toNumber(query.value(3));
+			connection.max_wires = toInteger(query.value(4));
+			connection.strip_length = toNumber(query.value(5));
+			connection.torque = toNumber(query.value(6));
+			connection.screwdriver = query.value(7).toString();
+			connection.x = toNumber(query.value(8));
+			connection.y = toNumber(query.value(9));
+			connection.z = toNumber(query.value(10));
+			connection.direction = query.value(11).toString();
+			part->connections.append(connection);
+		}
+	}
+
+	query.prepare(QStringLiteral("SELECT location FROM part_symbol "
+								 "WHERE part_id = ? ORDER BY position"));
+	query.addBindValue(part->id);
+	if (query.exec()) {
+		while (query.next()) {
+			part->symbols.append(query.value(0).toString());
 		}
 	}
 }
@@ -940,8 +1444,8 @@ bool PartsDatabase::removeFile(qint64 file_id, QString *error)
 
 /**
 	@brief PartsDatabase::files
-	@return the files of the part @p part_id, images first, without their
-	content.
+	@return the files of the part @p part_id, images first, then DXF
+	drawings, then 3D models, without their content.
 */
 QList<PartFile> PartsDatabase::files(qint64 part_id) const
 {
@@ -949,7 +1453,8 @@ QList<PartFile> PartsDatabase::files(qint64 part_id) const
 	QSqlQuery query(m_db);
 	query.prepare(QStringLiteral("SELECT id, kind, file_name, linked_path, "
 								 "size FROM part_file WHERE part_id = ? "
-								 "ORDER BY kind DESC, id"));
+								 "ORDER BY CASE kind WHEN 'image' THEN 0 "
+								 "WHEN 'dxf' THEN 1 ELSE 2 END, id"));
 	query.addBindValue(part_id);
 	if (query.exec()) {
 		while (query.next()) {

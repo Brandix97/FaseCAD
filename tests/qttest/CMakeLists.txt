@@ -730,6 +730,40 @@ add_test(NAME tst_partsdatabase COMMAND tst_partsdatabase)
 target_include_directories(tst_partsdatabase PRIVATE ${QET_DIR}/sources)
 target_link_libraries(tst_partsdatabase PRIVATE Qt::Test Qt::Sql Qt::Gui)
 
+# The parts manager window: functions and connection points of a part shown,
+# added row by row with the next number, and saved.
+add_executable(
+  tst_partsmanager
+  tst_partsmanager.cpp
+  ${QET_DIR}/sources/partsdb/partsmanagerdialog.cpp
+  ${QET_DIR}/sources/partsdb/partsmanagerdialog.h
+  ${QET_DIR}/sources/partsdb/partsarchive.cpp
+  ${QET_DIR}/sources/partsdb/partsarchive.h
+  ${QET_DIR}/sources/partsdb/partsdatabase.cpp
+  ${QET_DIR}/sources/partsdb/partsdatabase.h
+  ${QET_DIR}/sources/container/qetzip.cpp
+  ${QET_DIR}/sources/container/miniz/miniz.c)
+add_test(NAME tst_partsmanager COMMAND tst_partsmanager)
+set_tests_properties(tst_partsmanager PROPERTIES
+  ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+target_include_directories(tst_partsmanager PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_partsmanager PRIVATE Qt::Test Qt::Sql Qt::Widgets)
+
+# A part written to a .faspart and read back, on another database: every
+# field, its accessories, files and symbols; a newer or foreign file refused.
+add_executable(
+  tst_partsarchive
+  tst_partsarchive.cpp
+  ${QET_DIR}/sources/partsdb/partsarchive.cpp
+  ${QET_DIR}/sources/partsdb/partsarchive.h
+  ${QET_DIR}/sources/partsdb/partsdatabase.cpp
+  ${QET_DIR}/sources/partsdb/partsdatabase.h
+  ${QET_DIR}/sources/container/qetzip.cpp
+  ${QET_DIR}/sources/container/miniz/miniz.c)
+add_test(NAME tst_partsarchive COMMAND tst_partsarchive)
+target_include_directories(tst_partsarchive PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_partsarchive PRIVATE Qt::Test Qt::Sql)
+
 add_executable(
   tst_qetpalette
   tst_qetpalette.cpp
@@ -2342,6 +2376,32 @@ qet_add_app_test(tst_dragtextswithoutshift tst_dragtextswithoutshift.cpp)
 # Potential types (#1539): a project that asks for it draws a conductor in the
 # colour, line style and width of its potential type.
 qet_add_app_test(tst_potentialtypes tst_potentialtypes.cpp)
+
+# The potential of the terminals of a terminal block whose function
+# separation is on: one potential is one electric node, and not even the
+# voltage goes from one to another, as on the two levels of a terminal.
+qet_add_app_test(tst_terminalpotential tst_terminalpotential.cpp)
+
+# The texts a placed symbol gives its terminals instead of their names:
+# drawn, in the terminal strip plans and the project database, one undo
+# step, saved in both formats, and typed in their own tab.
+qet_add_app_test(tst_terminaltexts tst_terminaltexts.cpp)
+target_compile_definitions(tst_terminaltexts PRIVATE
+  QET_ELEMENTS_DIR="${QET_DIR}/elements")
+
+# The automatic folio index: an "Index" folio at the start with the number
+# and title of every folio, made once, growing onto more folios.
+qet_add_app_test(tst_folioindex tst_folioindex.cpp)
+
+# The parts collection of the collection panel: the parts by category in
+# the order of the parts manager, dragged as their symbol with the part.
+qet_add_app_test(tst_partscollection tst_partscollection.cpp)
+target_compile_definitions(tst_partscollection PRIVATE
+  QET_ELEMENTS_DIR="${QET_DIR}/elements")
+
+# A placed device takes the default name of its symbol and the first free
+# number of the project, instead of QElectroTech's numbering formulas.
+qet_add_app_test(tst_devicenaming tst_devicenaming.cpp)
 
 # A core of a cable: section, colour and type are locked in the dialog and
 # show a small sign saying why, so an edit cannot write over the cable

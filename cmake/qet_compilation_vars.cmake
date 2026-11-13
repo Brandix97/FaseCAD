@@ -139,34 +139,6 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/logging/ui/diagnosticsreportdialog.h
   ${QET_DIR}/sources/pdf_links.cpp
   ${QET_DIR}/sources/pdf_links.h
-  ${QET_DIR}/sources/import/edz/edzarchive.cpp
-  ${QET_DIR}/sources/import/edz/edzarchive.h
-  ${QET_DIR}/sources/import/edz/edzpart.cpp
-  ${QET_DIR}/sources/import/edz/edzpart.h
-  ${QET_DIR}/sources/import/edz/edzelementbuilder.cpp
-  ${QET_DIR}/sources/import/edz/edzelementbuilder.h
-  ${QET_DIR}/sources/import/edz/edzimporter.cpp
-  ${QET_DIR}/sources/import/edz/edzimporter.h
-  ${QET_DIR}/sources/import/edz/edzsevenzip.cpp
-  ${QET_DIR}/sources/import/edz/edzsevenzip.h
-  ${QET_DIR}/sources/import/edz/lzma/7zAlloc.c
-  ${QET_DIR}/sources/import/edz/lzma/7zArcIn.c
-  ${QET_DIR}/sources/import/edz/lzma/7zBuf.c
-  ${QET_DIR}/sources/import/edz/lzma/7zCrc.c
-  ${QET_DIR}/sources/import/edz/lzma/7zCrcOpt.c
-  ${QET_DIR}/sources/import/edz/lzma/7zDec.c
-  ${QET_DIR}/sources/import/edz/lzma/7zFile.c
-  ${QET_DIR}/sources/import/edz/lzma/7zStream.c
-  ${QET_DIR}/sources/import/edz/lzma/Bcj2.c
-  ${QET_DIR}/sources/import/edz/lzma/Bra.c
-  ${QET_DIR}/sources/import/edz/lzma/Bra86.c
-  ${QET_DIR}/sources/import/edz/lzma/BraIA64.c
-  ${QET_DIR}/sources/import/edz/lzma/CpuArch.c
-  ${QET_DIR}/sources/import/edz/lzma/Delta.c
-  ${QET_DIR}/sources/import/edz/lzma/Lzma2Dec.c
-  ${QET_DIR}/sources/import/edz/lzma/LzmaDec.c
-  ${QET_DIR}/sources/import/edz/lzma/Ppmd7.c
-  ${QET_DIR}/sources/import/edz/lzma/Ppmd7Dec.c
   ${QET_DIR}/sources/container/miniz/miniz.c
   ${QET_DIR}/sources/container/miniz/miniz.h
   ${QET_DIR}/sources/container/qetcontainer.cpp
@@ -228,6 +200,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/diagramcommands.h
   ${QET_DIR}/sources/diagramcontent.cpp
   ${QET_DIR}/sources/diagramcontent.h
+  ${QET_DIR}/sources/devicenaming.cpp
+  ${QET_DIR}/sources/devicenaming.h
   ${QET_DIR}/sources/diagramcontext.cpp
   ${QET_DIR}/sources/diagramcontext.h
   ${QET_DIR}/sources/diagram.cpp
@@ -593,6 +567,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/ElementsCollection/terminaluuids.h
   ${QET_DIR}/sources/ElementsCollection/xmlelementcollection.cpp
   ${QET_DIR}/sources/ElementsCollection/xmlelementcollection.h
+  ${QET_DIR}/sources/ElementsCollection/partscollectionitem.cpp
+  ${QET_DIR}/sources/ElementsCollection/partscollectionitem.h
   ${QET_DIR}/sources/ElementsCollection/xmlprojectelementcollectionitem.cpp
   ${QET_DIR}/sources/ElementsCollection/xmlprojectelementcollectionitem.h
 
@@ -605,6 +581,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/factory/elementpicturefactory.h
   ${QET_DIR}/sources/factory/propertieseditorfactory.cpp
   ${QET_DIR}/sources/factory/propertieseditorfactory.h
+  ${QET_DIR}/sources/factory/folioindex.cpp
+  ${QET_DIR}/sources/factory/folioindex.h
   ${QET_DIR}/sources/factory/qetgraphicstablefactory.cpp
   ${QET_DIR}/sources/factory/qetgraphicstablefactory.h
 
@@ -921,6 +899,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/ui/cablenumberingdialog.h
   ${QET_DIR}/sources/ui/elementpropertieswidget.cpp
   ${QET_DIR}/sources/ui/elementpropertieswidget.h
+  ${QET_DIR}/sources/ui/elementterminaltextswidget.cpp
+  ${QET_DIR}/sources/ui/elementterminaltextswidget.h
   ${QET_DIR}/sources/ui/formulaassistantdialog.cpp
   ${QET_DIR}/sources/ui/formulaassistantdialog.h
   ${QET_DIR}/sources/ui/imagecropdialog.cpp
@@ -1009,6 +989,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/undocommand/changeelementdatacommand.h
   ${QET_DIR}/sources/undocommand/changeelementinformationcommand.cpp
   ${QET_DIR}/sources/undocommand/changeelementinformationcommand.h
+  ${QET_DIR}/sources/undocommand/changeterminaltextscommand.cpp
+  ${QET_DIR}/sources/undocommand/changeterminaltextscommand.h
   ${QET_DIR}/sources/undocommand/changetitleblockcommand.cpp
   ${QET_DIR}/sources/undocommand/changetitleblockcommand.h
   ${QET_DIR}/sources/undocommand/deleteqgraphicsitemcommand.cpp
@@ -1081,7 +1063,13 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/partsdb/partsbom.h
   ${QET_DIR}/sources/partsdb/partscabletypes.cpp
   ${QET_DIR}/sources/partsdb/partscabletypes.h
+  ${QET_DIR}/sources/partsdb/partsarchive.cpp
+  ${QET_DIR}/sources/partsdb/partsarchive.h
   ${QET_DIR}/sources/partsdb/partsmanagerdialog.cpp
+  ${QET_DIR}/sources/partsdb/partsplacement.cpp
+  ${QET_DIR}/sources/partsdb/partsplacement.h
+  ${QET_DIR}/sources/partsdb/partssymbolfiles.cpp
+  ${QET_DIR}/sources/partsdb/partssymbolfiles.h
   ${QET_DIR}/sources/partsdb/partsmanagerdialog.h
 
   ${QET_DIR}/sources/ui/devicespanel.cpp

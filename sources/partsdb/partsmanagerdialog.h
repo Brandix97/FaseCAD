@@ -18,12 +18,18 @@
 #ifndef PARTSMANAGERDIALOG_H
 #define PARTSMANAGERDIALOG_H
 
+#include "partsarchive.h"
 #include "partsdatabase.h"
 
 #include <QDialog>
+#include <QIcon>
 #include <QList>
+#include <QPair>
+
+#include <functional>
 
 class QComboBox;
+class QFormLayout;
 class QLabel;
 class QLineEdit;
 class QListWidget;
@@ -36,10 +42,28 @@ class QTableWidget;
 class QTreeWidget;
 
 /**
+	@brief The PartsDatabaseChanges class tells that the parts manager
+	wrote the parts database (a part saved or deleted, a file added or
+	removed): what shows the parts, such as the parts collection of the
+	collection panel, reads them again.
+*/
+class PartsDatabaseChanges : public QObject
+{
+	Q_OBJECT
+
+	public:
+		static PartsDatabaseChanges *instance();
+
+	signals:
+		void changed();
+};
+
+/**
 	@brief The PartsManagerDialog class is the window where the user keeps
 	the parts database : a tree of categories or manufacturers, a searchable
 	table of parts, and the form of the selected part with its technical
-	data, accessories, image and DXF drawing.
+	data, mounting data, functions, connection points, accessories, image,
+	DXF drawing and 3D model.
 
 	The window is not modal, so the user can look up parts while drawing.
 	Only one is open at a time : use showManager().
@@ -50,6 +74,21 @@ class PartsManagerDialog : public QDialog
 
 	public:
 		static void showManager(QWidget *parent);
+			/// The window asking for the symbol of a part, which gives
+			/// it as an ElementsLocation string (empty when cancelled).
+			/// Without one, the symbol is typed.
+		static void setSymbolChooser(
+				std::function<QString(QWidget *parent)> chooser);
+			/// The name and icon a symbol is shown with in the Symbols
+			/// tab, from its ElementsLocation string. Without one, the
+			/// string itself is shown.
+		static void setSymbolDescriber(
+				std::function<QPair<QIcon, QString>(const QString &location)> describer);
+			/// How the symbols of a part are read for its .faspart, and
+			/// put in the collection when one is imported. Without them a
+			/// .faspart goes without symbols.
+		static void setSymbolArchiver(PartsArchive::SymbolReader reader,
+									  PartsArchive::SymbolWriter writer);
 		~PartsManagerDialog() override;
 
 	public slots:
@@ -63,10 +102,20 @@ class PartsManagerDialog : public QDialog
 
 		void buildUi();
 		QWidget *buildGeneralTab();
+		QWidget *buildMountingTab();
 		QWidget *buildTechnicalTab();
+		QWidget *buildFunctionsTab();
+		QWidget *buildConnectionsTab();
 		QWidget *buildAccessoriesTab();
 		QWidget *buildCableTab();
 		QWidget *buildFilesTab();
+		QWidget *buildSymbolsTab();
+		void exportParts(const QList<qint64> &ids);
+		void importParts();
+		void addSymbolRow(const QString &location);
+		void moveSymbol(int step);
+		QLineEdit *addNumberEdit(QFormLayout *layout, const QString &label,
+								 std::optional<double> Part::*member);
 
 		void reloadTree();
 		void reloadParts(qint64 select_id = 0);
@@ -87,6 +136,20 @@ class PartsManagerDialog : public QDialog
 
 		void addTechnicalRow();
 		void removeTechnicalRow();
+
+		void addFunctionRow();
+		void removeFunctionRow();
+		void moveFunctionRow(int delta);
+		void setFunctionRow(int row, const PartFunction &function);
+		PartFunction functionAt(int row) const;
+
+		void addConnectionRow();
+		void removeConnectionRow();
+		void connectionsFromFunctions();
+		void setConnectionRow(int row, const PartConnection &connection);
+		bool connectionAt(int row, PartConnection *connection,
+						  int *bad_column) const;
+
 		void addAccessory();
 		void removeAccessory();
 		void appendAccessoryRow(const PartAccessory &accessory);
@@ -99,9 +162,11 @@ class PartsManagerDialog : public QDialog
 		void removeFile();
 
 		void showError(const QString &error);
+		void showField(QWidget *field);
 		static QString numberText(const std::optional<double> &value);
 		static std::optional<double> numberFromText(const QString &text,
 													bool *ok);
+		static QString nextText(const QString &text);
 
 		PartsDatabase m_db;
 		bool m_db_ok = false;
@@ -134,8 +199,11 @@ class PartsManagerDialog : public QDialog
 		QPlainTextEdit *m_notes_te = nullptr;
 		QSpinBox *m_cores_sb = nullptr;
 		QTableWidget *m_technical_table = nullptr;
+		QTableWidget *m_functions_table = nullptr;
+		QTableWidget *m_connections_table = nullptr;
 		QTableWidget *m_accessories_table = nullptr;
 		QListWidget *m_files_list = nullptr;
+		QListWidget *m_symbols_list = nullptr;
 		QLabel *m_files_hint = nullptr;
 		QLabel *m_preview_label = nullptr;
 		QList<QPushButton *> m_file_buttons;

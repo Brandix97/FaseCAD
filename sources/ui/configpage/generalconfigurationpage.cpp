@@ -93,9 +93,18 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui(new Ui::GeneralConfigurationPage)
 {
 	ui->setupUi(this);
-	
+
+		//FaseCAD has no company collection, of symbols nor of title
+		//blocks: their folders are not asked for
+	for (QWidget *company : {static_cast<QWidget *>(ui->label_16),
+							 static_cast<QWidget *>(ui->m_company_elmt_path_cb),
+							 static_cast<QWidget *>(ui->label_17),
+							 static_cast<QWidget *>(ui->m_company_tbt_path_cb)}) {
+		company->hide();
+	}
+
 	QSettings settings;
-	
+
 		//Appearance tab
 	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 and more"), QLatin1String("Round"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("Always top rounding"), QLatin1String("Ceil"));

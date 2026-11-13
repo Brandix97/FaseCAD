@@ -153,6 +153,49 @@ private slots:
 		element->setElementInformations(information);
 		QVERIFY(find().isEmpty());
 	}
+
+		//The parts of a contact count, under the label of its master
+		//when the contact has none of its own
+	void contactPartsGoByTheMaster()
+	{
+		const QString fixture = QFINDTESTDATA("fixtures/every_feature.qet");
+		QVERIFY(!fixture.isEmpty());
+		QETProject project(fixture);
+		QCOMPARE(project.state(), QETProject::Ok);
+		Element *contact = nullptr;
+		for (Diagram *diagram : project.diagrams()) {
+			for (Element *candidate : diagram->elements()) {
+				if (!contact && candidate->linkType() == Element::Slave
+					&& !candidate->linkedElements().isEmpty()
+					&& !candidate->linkedElements().first()
+						->actualLabel().isEmpty()) {
+					contact = candidate;
+				}
+			}
+		}
+		if (!contact) {
+			QSKIP("the fixture has no contact linked to a labelled master");
+		}
+		const QString master = contact->linkedElements().first()->actualLabel();
+
+		const QString order = QStringLiteral("BOM-CONTACT-0001");
+		DiagramContext information = contact->elementInformations();
+		information.addValue(QStringLiteral("label"), QString());
+		information.addValue(PartsLinks::infoKey(), PartsLinks::encode(
+			{{QStringLiteral("Test"), order, 1}}));
+		contact->setElementInformations(information);
+
+		QMap<QString, QString> found;
+		for (const auto &row : PartsBom::rows(
+				 PartsBom::devices(&project), nullptr)) {
+			if (row.value("order_number") == order) {
+				found = row;
+			}
+		}
+		QCOMPARE(found.value("quantity"), QStringLiteral("1"));
+		QVERIFY2(found.value("devices").contains(master),
+				 qPrintable(found.value("devices") + " / " + master));
+	}
 };
 
 QET_APP_TEST_MAIN(tst_partsbom)

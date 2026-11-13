@@ -18,6 +18,7 @@
 #include "diagrameventaddelement.h"
 #include "../qetproject.h"
 #include "../conductorautonumerotation.h"
+#include "../devicenaming.h"
 #include "../diagram.h"
 #include "../undocommand/addgraphicsobjectcommand.h"
 #include "../undocommand/deleteqgraphicsitemcommand.h"
@@ -212,7 +213,16 @@ void DiagramEventAddElement::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *eve
 */
 void DiagramEventAddElement::keyPressEvent(QKeyEvent *event)
 {
-	if (m_element && event->key() == Qt::Key_Space)
+		//Tab and Shift+Tab go through the symbols of a part
+	if (m_element && m_alternatives.size() > 1 && !m_dragging
+		&& (event->key() == Qt::Key_Tab || event->key() == Qt::Key_Backtab))
+	{
+		const bool back = event->key() == Qt::Key_Backtab
+				|| (event->modifiers() & Qt::ShiftModifier);
+		switchSymbol(back ? -1 : 1);
+		event->setAccepted(true);
+	}
+	else if (m_element && event->key() == Qt::Key_Space)
 	{
 		m_element->setRotation(m_element->rotation() + 90);
 		if (m_dragging && m_drag_line)
@@ -228,6 +238,105 @@ void DiagramEventAddElement::keyPressEvent(QKeyEvent *event)
 	}
 	else {
 		DiagramEventInterface::keyPressEvent(event);
+	}
+}
+
+/**
+	@brief DiagramEventAddElement::setAlternatives
+	The symbols Tab and Shift+Tab go through while placing: those of a
+	part of the parts collection. The one placed now is the one among
+	them which has its location, the first when none has.
+*/
+void DiagramEventAddElement::setAlternatives(const QList<ElementsLocation> &locations)
+{
+	m_alternatives.clear();
+	for (const ElementsLocation &location : locations) {
+		if (location.isElement() && location.exist()) {
+			m_alternatives << location;
+		}
+	}
+	m_alternative = 0;
+	for (int i = 0 ; i < m_alternatives.size() ; ++i) {
+		if (m_alternatives.at(i) == m_location) {
+			m_alternative = i;
+			break;
+		}
+	}
+	m_alternative_paths.clear();
+	if (m_element && !m_integrate_path.isEmpty()) {
+		m_alternative_paths.insert(m_alternative, m_integrate_path);
+	}
+	showAlternative();
+}
+
+/**
+	@brief DiagramEventAddElement::switchSymbol
+	Place the symbol @p step further in the alternatives (back when
+	negative, round at both ends) in place of the one following the
+	mouse, at its position and turned as it is.
+	@return true if the symbol changed
+*/
+bool DiagramEventAddElement::switchSymbol(int step)
+{
+	const int count = m_alternatives.size();
+	if (!m_element || count < 2 || m_dragging) {
+		return false;
+	}
+	const int next = ((m_alternative + step) % count + count) % count;
+	Element *old = m_element;
+	const ElementsLocation old_location = m_location;
+	const QString old_path = m_integrate_path;
+	const QPointF pos = old->pos();
+	const qreal rotation = old->rotation();
+
+	m_location = m_alternatives.at(next);
+	m_element = nullptr;
+		//A symbol brought into the project before is taken from there,
+		//not brought in again
+	bool built = false;
+	const QString brought = m_alternative_paths.value(next);
+	if (!brought.isEmpty()) {
+		int state = 0;
+		m_element = ElementFactory::Instance()->createElement(
+					ElementsLocation(brought), nullptr, &state);
+		if (state) {
+			delete m_element;
+			m_element = nullptr;
+		} else {
+			m_integrate_path = brought;
+			built = true;
+		}
+	}
+	if (!built && !buildElement()) {
+		m_location = old_location;
+		m_integrate_path = old_path;
+		m_element = old;
+		return false;
+	}
+	m_alternative_paths.insert(next, m_integrate_path);
+	m_alternative = next;
+	m_diagram->removeItem(old);
+	old->deleteLater();
+	m_element->setPos(pos);
+	m_element->setRotation(rotation);
+	m_element->displayHelpLine(true);
+	m_element->setFlag(QGraphicsItem::ItemIsSelectable, false);
+	m_diagram->addItem(m_element);
+	showAlternative();
+	return true;
+}
+
+/**
+	@brief DiagramEventAddElement::showAlternative
+	Say in the status bar which symbol of the part is placed
+*/
+void DiagramEventAddElement::showAlternative()
+{
+	if (m_status_bar && m_element && m_alternatives.size() > 1) {
+		m_status_bar->showMessage(
+					tr("Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one")
+					.arg(m_alternative + 1).arg(m_alternatives.size())
+					.arg(m_element->name()));
 	}
 }
 
@@ -413,11 +522,10 @@ void DiagramEventAddElement::addElement()
 	for (Element *old : replaced)
 		m_diagram->addItem(old);
 
-		//Autonum the new element before pushing undo_object, so the counter
-		//change it triggers is part of the same undo macro as the element's
-		//own placement (one Ctrl+Z reverts both, instead of silently
-		//leaving the counter advanced).
-	element->setUpFormula(true, undo_object);
+		//The default name of its symbol and the first number free in
+		//the project (DeviceNaming), before undo_object is pushed: one
+		//Ctrl+Z takes the element and its label away together
+	DeviceNaming::nameNewElement(element);
 	if (m_prepare)
 		m_prepare(element, undo_object);
 
@@ -559,8 +667,7 @@ void DiagramEventAddElement::addElements(const QList<QPointF> &positions)
 	AutoConnect::update(m_diagram, added, {}, undo_object);
 	m_diagram->addItem(m_element);
 
-	for (Element *element : std::as_const(added))
-		element->setUpFormula(true, undo_object);
+	DeviceNaming::nameNewElements(added);
 	if (m_prepare)
 		for (Element *element : std::as_const(added))
 			m_prepare(element, undo_object);

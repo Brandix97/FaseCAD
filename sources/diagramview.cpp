@@ -60,6 +60,7 @@
 #include "foliogrid.h"
 #include "diagramcontexttoolbar.h"
 #include "imagedrop.h"
+#include "partsdb/partsplacement.h"
 #include "diagramgestureoverlay.h"
 #include "gesturesettings.h"
 #include "shortcutbarsettings.h"
@@ -282,6 +283,8 @@ void DiagramView::dragEnterEvent(QDragEnterEvent *e) {
 		e -> ignore();
 	} else if (e -> mimeData() -> hasFormat("application/x-qet-element-uri")) {
 		e -> acceptProposedAction();
+	} else if (e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) {
+		e -> acceptProposedAction();
 	} else if (e -> mimeData() -> hasFormat("application/x-qet-titleblock-uri")) {
 		e -> acceptProposedAction();
 	} else if (e -> mimeData() -> hasText()) {
@@ -299,6 +302,7 @@ void DiagramView::dragMoveEvent(QDragMoveEvent *e) {
 	if (!ImageDrop::imageFiles(e -> mimeData()).isEmpty()) e -> acceptProposedAction();
 	else if (ImageDrop::hasOnlyOtherUrls(e -> mimeData())) e -> ignore();
 	else if (e -> mimeData() -> hasFormat("text/plain")) e -> acceptProposedAction();
+	else if (e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) e -> acceptProposedAction();
 	else e-> ignore();
 }
 
@@ -312,7 +316,8 @@ void DiagramView::dropEvent(QDropEvent *e) {
 		handleImageFilesDrop(e);
 	} else if (ImageDrop::hasOnlyOtherUrls(e -> mimeData())) {
 		e -> ignore();
-	} else if (e -> mimeData() -> hasFormat("application/x-qet-element-uri")) {
+	} else if (e -> mimeData() -> hasFormat("application/x-qet-element-uri")
+			   || e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) {
 		handleElementDrop(e);
 	} else if (e -> mimeData() -> hasFormat("application/x-qet-titleblock-uri")) {
 		handleTitleBlockDrop(e);
@@ -328,19 +333,80 @@ void DiagramView::dropEvent(QDropEvent *e) {
  */
 void DiagramView::handleElementDrop(QDropEvent *event)
 {
+	QPointF drop_pos;
+	drop_pos = mapToScene(event->position().toPoint());
+
+		//A part of the parts collection dropped onto a symbol already
+		//placed goes into that symbol's Parts tab
+	const auto part = PartsPlacement::decode(event->mimeData());
+	if (part && diagram() && !diagram()->isReadOnly()) {
+		const QList<QGraphicsItem *> under = diagram()->items(drop_pos);
+		for (QGraphicsItem *item : under) {
+			Element *target = qgraphicsitem_cast<Element *>(item);
+			if (!target && item->parentItem()) {
+				target = qgraphicsitem_cast<Element *>(item->parentItem());
+			}
+			if (target) {
+				auto *undo = new QUndoCommand(tr("Add a part"));
+				PartsPlacement::addPart(target, *part, false, undo);
+				if (undo->childCount()) {
+					diagram()->undoStack().push(undo);
+				} else {
+					delete undo;
+				}
+				return;
+			}
+		}
+	}
+
 	//Build an element from the text of the mime data
 	ElementsLocation location(event->mimeData()->text());
 
 	if ( !(location.isElement() && location.exist()) )
 	{
-		qDebug() << "DiagramView::handleElementDrop, location can't be use : " << location;
+		if (!part) {
+			qDebug() << "DiagramView::handleElementDrop, location can't be use : " << location;
+		}
 		return;
 	}
 
-	QPointF drop_pos;
-	drop_pos = mapToScene(event->position().toPoint());
+	if (part) {
+		startPartPlacement(location, drop_pos,
+						   event->mimeData()->data(PartsPlacement::mimeType()));
+	} else {
+		startElementPlacement(location, drop_pos);
+	}
+}
 
-	startElementPlacement(location, drop_pos);
+/**
+	@brief DiagramView::startPartPlacement
+	Place @a location as startElementPlacement() does, each copy placed
+	getting the part @a part (PartsPlacement::encode()) in its Parts tab
+	and its article in its information.
+	@return true if the placement mode was entered
+*/
+bool DiagramView::startPartPlacement(const ElementsLocation &location,
+					 const QPointF &scene_pos,
+					 const QByteArray &part)
+{
+	QMimeData data;
+	data.setData(PartsPlacement::mimeType(), part);
+	const auto key = PartsPlacement::decode(&data);
+	if (!startElementPlacement(location, scene_pos)) {
+		return false;
+	}
+	if (key) {
+		if (auto *event = dynamic_cast<DiagramEventAddElement *>(
+					m_diagram->eventInterface())) {
+			event->setPrepare(PartsPlacement::preparer(*key));
+			QList<ElementsLocation> symbols;
+			for (const QString &symbol : key->symbols) {
+				symbols << ElementsLocation(symbol);
+			}
+			event->setAlternatives(symbols);
+		}
+	}
+	return true;
 }
 
 /**

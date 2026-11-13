@@ -19,7 +19,6 @@
 
 #include "../editor/ui/qetelementeditor.h"
 #include "../elementscategoryeditor.h"
-#include "../import/edz/edzimporter.h"
 #include "../newelementwizard.h"
 #include "../qetapp.h"
 #include "../qetdiagrameditor.h"
@@ -32,7 +31,10 @@
 #include "elementslocation.h"
 #include "elementstreeview.h"
 #include "fileelementcollectionitem.h"
+#include "partscollectionitem.h"
 #include "xmlprojectelementcollectionitem.h"
+#include "../partsdb/partsmanagerdialog.h"
+#include "../partsdb/partsplacement.h"
 
 #include <QCheckBox>
 #include <QDesktopServices>
@@ -103,6 +105,13 @@ ElementsCollectionWidget::ElementsCollectionWidget(QWidget *parent):
 	setUpWidget();
 	setUpAction();
 	setUpConnection();
+		//The parts collection follows what the parts manager writes
+	connect(PartsDatabaseChanges::instance(), &PartsDatabaseChanges::changed,
+			this, [this]() {
+		if (m_model) {
+			m_model->reloadPartsCollection();
+		}
+	});
 
 	//Timer is used to avoid launching a new search for each letter typed by user
 	//Timer is started or restarted at every time user type a new letter.
@@ -230,8 +239,6 @@ void ElementsCollectionWidget::setUpAction()
 					  tr("New folder"), this);
 	m_new_element = new QAction(QET::Icons::ElementNew,
 					tr("New element"), this);
-	m_import_edz = new QAction(QET::Icons::ElementNew,
-					tr("Import an EPLAN part (.edz)…"), this);
 	m_show_this_dir = new QAction(QET::Icons::FolderOnlyThis,
 					  tr("Show only this folder"),
 					  this);
@@ -239,6 +246,11 @@ void ElementsCollectionWidget::setUpAction()
 					 tr("Show All Folders"), this);
 	m_dir_propertie = new QAction(QET::Icons::FolderProperties,
 					  tr("Folder properties"), this);
+	m_parts_manager = new QAction(QET::Icons::DocumentSpreadsheet,
+					  tr("Parts manager..."), this);
+	connect(m_parts_manager, &QAction::triggered, this, [this]() {
+		PartsManagerDialog::showManager(this);
+	});
 }
 
 /**
@@ -343,8 +355,6 @@ void ElementsCollectionWidget::setUpConnection()
 		this, &ElementsCollectionWidget::newDirectory);
 	connect(m_new_element, &QAction::triggered,
 		this, &ElementsCollectionWidget::newElement);
-	connect(m_import_edz, &QAction::triggered,
-		this, &ElementsCollectionWidget::importEdz);
 	connect(m_show_this_dir, &QAction::triggered,
 		this, &ElementsCollectionWidget::showThisDir);
 	connect(m_show_all_dir, &QAction::triggered,
@@ -444,6 +454,15 @@ void ElementsCollectionWidget::customContextMenu(const QPoint &point)
 		m_index_at_context_menu);
 	bool add_open_dir = false;
 
+		//The parts are kept in the parts manager
+	if (eci->type() == PartsCollectionItem::Type) {
+		m_context_menu->addAction(m_parts_manager);
+		m_context_menu->addSeparator();
+		m_context_menu->addAction(m_reload);
+		m_context_menu->popup(mapToGlobal(clicked_tree->mapToParent(point)));
+		return;
+	}
+
 	if (eci->isElement() && !eci->collectionPath().endsWith(".qetmak"))
 		m_context_menu->addAction(m_edit_element);
 
@@ -458,7 +477,6 @@ void ElementsCollectionWidget::customContextMenu(const QPoint &point)
 			{
 				if (!feci->isMacrosCollection()) {
 					m_context_menu->addAction(m_new_element);
-					m_context_menu->addAction(m_import_edz);
 				}
 				m_context_menu->addAction(m_new_directory);
 				if (!feci->isCollectionRoot())
@@ -567,6 +585,18 @@ void ElementsCollectionWidget::insertCurrentElement()
 	ElementCollectionItem *eci =
 		elementCollectionItemForIndex(m_index_at_context_menu);
 	if (!(eci && eci->isElement())) {
+		return;
+	}
+
+		//A part is placed as its symbol, with the part
+	if (eci->type() == PartsCollectionItem::Type) {
+		auto *part = static_cast<PartsCollectionItem *>(eci);
+		ElementsLocation symbol(part->symbols().value(0));
+		if (symbol.exist()) {
+			emit insertPartRequested(symbol, PartsPlacement::encode(
+										 {part->manufacturer(), part->orderNumber(),
+										  part->symbols()}));
+		}
 		return;
 	}
 
@@ -793,104 +823,6 @@ void ElementsCollectionWidget::newElement()
 }
 
 /**
-	@brief ElementsCollectionWidget::confirmEdzImportTerms
-	Show the EPLAN (.edz) import warning dialog. The user must tick the
-	acknowledgement checkbox before the Import button is enabled.
-	@return true if the user accepted the terms, false otherwise.
-*/
-bool ElementsCollectionWidget::confirmEdzImportTerms()
-{
-	QDialog dialog(this);
-	dialog.setWindowTitle(tr("Warning — Importing an EPLAN file (.edz)"));
-
-	QLabel *text = new QLabel(
-		tr("The .edz file format can come from two different sources:\n"
-		   "• The EPLAN Data Portal (dataportal.eplan.com), which is "
-		   "subject to the terms of use for the EPLAN Cloud environment;\n"
-		   "• A component manufacturer’s (or distributor’s) website, which "
-		   "makes its .edz files available directly, subject to its own "
-		   "terms and conditions.\n"
-		   "QElectroTech cannot automatically determine the origin of the "
-		   "file you are importing, nor the terms and conditions that apply "
-		   "to it.\n"
-		   "By importing this file, you confirm that:\n"
-		   "• you are aware of its source and are authorised to use it in "
-		   "this context, in accordance with the terms and conditions "
-		   "applicable to that source;\n"
-		   "• this import is carried out at your own risk and "
-		   "responsibility;\n"
-		   "• neither QElectroTech, nor its maintainers, nor its "
-		   "contributors can be held liable for any unauthorised use of "
-		   "this data."),
-		&dialog);
-	text->setWordWrap(true);
-
-	QCheckBox *accept_box = new QCheckBox(
-		tr("I have read and accept these terms and conditions."), &dialog);
-
-	QDialogButtonBox *buttons = new QDialogButtonBox(
-		QDialogButtonBox::Cancel, &dialog);
-	QPushButton *import_button = buttons->addButton(
-		tr("Import"), QDialogButtonBox::AcceptRole);
-	import_button->setDefault(true);
-	import_button->setEnabled(false);
-
-	connect(accept_box, &QCheckBox::toggled,
-		import_button, &QPushButton::setEnabled);
-	connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
-	connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
-
-	QVBoxLayout *layout = new QVBoxLayout(&dialog);
-	layout->addWidget(text);
-	layout->addWidget(accept_box);
-	layout->addWidget(buttons);
-
-	return dialog.exec() == QDialog::Accepted;
-}
-
-/**
-	@brief ElementsCollectionWidget::importEdz
-	Import an EPLAN Data Portal part (.edz) as a QET element into the directory
-	pointed at by the context menu.
-*/
-void ElementsCollectionWidget::importEdz()
-{
-	ElementCollectionItem *eci = elementCollectionItemForIndex(
-				m_index_at_context_menu);
-
-	if (!eci || eci->type() != FileElementCollectionItem::Type) {
-		return;
-	}
-	FileElementCollectionItem *feci =
-			static_cast<FileElementCollectionItem*>(eci);
-	if (feci->isCommonCollection() || !feci->isDir()) {
-		return;
-	}
-
-	if (!confirmEdzImportTerms()) {
-		return;
-	}
-
-	const QString edz_path = QFileDialog::getOpenFileName(
-		this, tr("Import an EPLAN part"), QString(),
-		tr("EPLAN parts (*.edz)"));
-	if (edz_path.isEmpty()) {
-		return;
-	}
-
-	EdzImporter importer;
-	if (!importer.importToDirectory(edz_path, feci->fileSystemPath())) {
-		QET::QetMessageBox::critical(
-			this, tr("Import EPLAN"),
-			tr("Could not import this part:\n%1")
-				.arg(importer.errorString()));
-		return;
-	}
-
-	reload();
-}
-
-/**
 	@brief ElementsCollectionWidget::showThisDir
 	Hide all directories except the pointed dir;
 */
@@ -1025,7 +957,9 @@ void ElementsCollectionWidget::reload()
 		this,
 		&ElementsCollectionWidget::loadingFinished);
 
-	m_new_model->loadCollections(true, true, true, project_list);
+		//No company collection in FaseCAD
+	m_new_model->loadCollections(true, false, true, project_list);
+	m_new_model->addPartsCollection();
 
 	if (m_macros_model) {
 		m_macros_model->deleteLater();
@@ -1204,6 +1138,10 @@ QVector<ElementSearchHit> ElementsCollectionWidget::rankedSearch(
 	{
 		ElementCollectionItem *eci = elementCollectionItemForIndex(index);
 		if (!(eci && eci->isElement())) {
+			continue;
+		}
+			//The list places symbols alone: a part is found in its tree
+		if (eci->type() == PartsCollectionItem::Type) {
 			continue;
 		}
 		const QString path = eci->collectionPath();

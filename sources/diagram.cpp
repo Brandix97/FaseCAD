@@ -642,6 +642,15 @@ bool Diagram::event(QEvent *event)
 		auto *key_event = static_cast<QKeyEvent *>(event);
 		if ((key_event->key() == Qt::Key_Tab || key_event->key() == Qt::Key_Backtab)
 				&& !isReadOnly() && !focusItem()) {
+				//A tool running takes Tab first (the symbols of a part
+				//while it is placed): what it leaves cycles the items
+			if (m_event_interface) {
+				key_event->setAccepted(false);
+				m_event_interface->keyPressEvent(key_event);
+				if (key_event->isAccepted()) {
+					return true;
+				}
+			}
 			bool forward = key_event->key() == Qt::Key_Tab
 					&& !(key_event->modifiers() & Qt::ShiftModifier);
 			selectNextItem(forward);

@@ -21,6 +21,7 @@
 #include "../ElementsCollection/elementslocation.h"
 #include "diagrameventinterface.h"
 
+#include <QHash>
 #include <QPointF>
 
 #include <functional>
@@ -37,7 +38,7 @@ class QUndoCommand;
 	Space key rotate current element by 90°, right click button finish this event.
 	With the project's automatic connections on, pressing and dragging
 	places one copy on every line that crosses the drag (corners,
-	T-junctions, folio reports), as in EPLAN; see AutoConnect::dragPlacements().
+	T-junctions, folio reports), as in other CAE software; see AutoConnect::dragPlacements().
 */
 class DiagramEventAddElement : public DiagramEventInterface
 {
@@ -59,6 +60,10 @@ class DiagramEventAddElement : public DiagramEventInterface
 			/// pushed: what it adds to that step is undone with it
 		void setPrepare(std::function<void(Element *, QUndoCommand *)> prepare)
 		{ m_prepare = std::move(prepare); }
+			/// The symbols Tab and Shift+Tab go through while placing, the
+			/// one placed now among them (a part of the parts collection)
+		void setAlternatives(const QList<ElementsLocation> &locations);
+		bool switchSymbol(int step);
 
 	private:
 		bool buildElement();
@@ -69,7 +74,13 @@ class DiagramEventAddElement : public DiagramEventInterface
 		void addElements(const QList<QPointF> &positions);
 
 	private:
+		void showAlternative();
+
 		ElementsLocation m_location;
+		QList<ElementsLocation> m_alternatives;
+		int m_alternative = 0;
+			/// Where each alternative went in the project, once brought in
+		QHash<int, QString> m_alternative_paths;
 		Element *m_element;
 		QString m_integrate_path;
 		QPointer<QStatusBar> m_status_bar;
