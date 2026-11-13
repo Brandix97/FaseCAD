@@ -7,7 +7,7 @@ FaseCAD is based on QElectroTech (https://qelectrotech.org/),
 (c) 2006-2026 the developers of QElectroTech, and is distributed under the
 GNU General Public License, version 2 or later (see LICENSE).
 
-Windows: start FaseCAD with FaseCAD.bat in this folder.
+Windows: start FaseCAD with FaseCAD.exe in this folder.
 
 [es]
 FaseCAD es una aplicación libre para dibujar esquemas eléctricos y preparar
@@ -18,4 +18,4 @@ FaseCAD está basado en QElectroTech (https://qelectrotech.org/),
 (c) 2006-2026 los desarrolladores de QElectroTech, y se distribuye bajo la
 Licencia Pública General GNU, versión 2 o posterior (ver LICENSE).
 
-Windows: abre FaseCAD con FaseCAD.bat de esta carpeta.
+Windows: abre FaseCAD con FaseCAD.exe de esta carpeta.
