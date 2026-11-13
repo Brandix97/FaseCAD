@@ -499,3 +499,424 @@ keep their header (GPL).
 Ideas offered, not done: handles to stretch a rail/duct with the mouse,
 rotate with space, plate carrying what is on it, cutting list (metres of
 duct/rail per type) into the material list, overlap warning.
+
+## Version 0.11 (2026-11-11)
+- Visible version 0.11 (commit 627fcf5d5): cabinet construction 2D.
+- Portable zip FaseCAD-0.11-windows-x64.zip (86 MB) made from
+  build-release the same way as 0.10.1, checked with PATH=C:\Windows
+  only (--version), copied to FaseCAD\web\httpdocs for Brandon to upload.
+  The download page of the website lists 0.11 (construir.py VERSION /
+  DESCARGA, site regenerated). Not pushed, no GitHub release yet.
+- The zip starts from FaseCAD.exe at its root, no FaseCAD.bat (Brandon's
+  rule from 2026-11-11: what he is given to start is always an exe).
+  Launcher source build-aux/windows/launcher/fasecad-launcher.c + .rc
+  (icon fasecad.ico, no console); it starts bin\fasecad.exe with
+  --common-elements-dir=elements/ --common-tbt-dir=titleblocks/
+  --lang-dir=lang/ in the folder, and hands on its arguments. README
+  says FaseCAD.exe.
+
+## Device properties like the manufacturer packages (started 2026-11-12)
+Brandon's request: give the properties the same structure as the part
+packages (.edz) of the manufacturer portals his CAE software uses (never
+name it, in code or texts). His example, in Downloads\ (folder name is
+his): Siemens CPU 1214C DC/DC/DC 6ES7214-1AG40-0XB0 as .edz, a DXF for the
+cabinet and a STEP "for the cabinets in 3D one day".
+Status: analysed, plan below waiting for his OK (AGENTS.md).
+
+What the .edz holds (a 7z archive, LZMA; Windows tar fails on it; read
+with scratchpad py/sevenzip.py, every CRC fine):
+- manifest.xml: one package of type part; items part xml, manufacturer
+  xml, connectionpoints xml, picture, two macros (schematic, 2D/3D).
+- part.xml: one <part>, ~70 article properties: order number, type
+  number, GTIN, descriptions in several languages ("en_US@...;de_DE@...;"),
+  product group (top / group / sub), disciplines (electrical, fluid...),
+  code letter, width x height x depth, clearances (above, below, front),
+  mounting space, weight, quantity unit, external document URL, picture
+  and macro paths. <variant>: technical data (voltage, power loss, wire
+  section, PLC: CPU, station type, PLC type) and 37 <functiontemplate>: position, function
+  definition (category / group / id), plug (X10 X11 X12 P1), pin
+  designation (1..20), pin description (L+ M FE, DI a.0, AI 0, DQ a.0...),
+  PLC address index, bus interface.
+- connectionpoints.xml: 35 pins: plug, name, 3D position and direction,
+  min/max section (mm2 and AWG), max wires, torque, stripping length,
+  screwdriver, terminal type.
+- manufacturer.xml: the manufacturer's address.
+- .ema macros: XML with the proprietary numeric property ids, 3D as
+  binary mesh streams. 14 variants of the one device -K1: multi-line parts
+  (power supply, DI, AI, DQ, rack), single-line (Profinet port), overview
+  (whole PLC, 37 pins), panel layout. Not to import: FaseCAD can make its
+  own from the function templates.
+- The DXF (AC1015, mm; LINE ARC ELLIPSE SPLINE POINT): DxfReader draws it
+  as is, at the device's real size (tst_dxfreader manufacturerFiles,
+  picture checked).
+- The STEP (AP214, from NX): exact B-rep, 319 solids (planes, cylinders,
+  B-splines). Showing it needs a B-rep kernel: OpenCASCADE (LGPL 2.1 with
+  exception, MSYS2 package) - later, ask before installing.
+
+Levels, theirs -> FaseCAD:
+- Project -> QETProject properties (exist).
+- Page: type, description, = and + that its functions inherit -> folio:
+  FolioKind (Schematic, Cabinet), title block plant / locmach (exist).
+- Function: device tag, function definition, pin designations and
+  descriptions, plug, function text, technical data, PLC data, extra
+  fields -> element informations: label, plant, location, function, plc_*
+  exist; missing: ++ installation site, function kind, per-pin
+  description and plug, technical data, numbered extra fields.
+- Device (functions with the same tag + their parts) -> elements with the
+  same label (Devices panel) + information "parts".
+- Part -> partsdb `part` (+ part_data, part_file); function templates and
+  connection points -> new tables.
+- Macro with variants -> templates (.qetmak); variants made from the
+  function templates.
+
+Plan offered (phases):
+1. Parts database v3 + .edz import: the article fields above, tables
+   part_function (templates) and part_connection (pins), files image /
+   DXF / STEP, texts in several languages (shown in FaseCAD's language).
+   Parts manager tabs Functions, Connection points, Files. Import of
+   .edz (part, pins, manufacturer, picture; macros left out).
+2. Element properties grouped like theirs: Identification (= ++ + -,
+   inherited from the folio), Function (kind, text, technical data, extra
+   fields), Connection points (pin, description, plug, kind, PLC
+   address), Parts (exists), Display. Stored as element informations, old
+   files unchanged.
+3. Make the PLC boxes of a part from its function templates (power
+   supply, DI, AI, DQ, bus port), one device tag, like the variants.
+4. Cabinet device navigator (cabinet phase 5): devices of the schematic
+   with their part, drag one onto a cabinet folio = its DXF at real size
+   (or its width x height), clearances shown.
+5. Later: 3D (STEP through OpenCASCADE, pins' 3D positions for wire
+   lengths).
+Questions asked: which phase first; how to read the 7z of an .edz (the
+public-domain LZMA SDK decoder in the tree, MSYS2 libarchive, or none:
+the user unzips with 7-Zip).
+Brandon (2026-11-12): start; he is not sure FaseCAD should open .edz at
+all (rights of the other vendor), so phase 1 is done WITHOUT any .edz
+reading; the importer waits for his decision. Answer given: reading a
+file format is lawful in the EU (CJEU C-406/10 SAS Institute: data file
+formats are not protected by copyright), commercial tools import .edz
+openly (CADMATIC Electrical, AUCOTEC Engineering Base); the limits are
+the trademark (never name it), the data's own rights (never ship or
+publish manufacturers' files, e.g. in tests or the website), the terms
+of the portal the user downloaded from (bind the user), no circumvention
+of protections, no automated download from their portal. Not legal
+advice: an IP lawyer for certainty.
+Phase 1 DONE (not committed):
+- Parts database schema v3 (`PartsDatabase::schemaVersion()` 3; v1 and v2
+  upgraded in one transaction by `upgradeSchema`): part columns gtin,
+  code_letter, power_loss, clearance_top/bottom/left/right/front/rear;
+  tables part_function (kind id, plug, pin, description, address) and
+  part_connection (plug, pin, section min/max, max wires, stripping
+  length, torque, screwdriver, x y z, direction "x y z"); file kind
+  "step". `PartFunctionKind` is FaseCAD's own list (ids never change:
+  supply_plus, digital_input, bus_port, coil, normally_open...), names
+  translated in context PartFunction; unknown id = Other.
+- Parts manager: tabs General, Mounting (size, clearances, power loss),
+  Technical data, Functions (kind list per row; Add copies the selected
+  row with the next pin/description/address: "DI a.0" -> "DI a.1"; Move
+  up/down), Connection points (Add copies the wire data with the next
+  pin; "From the functions" adds the missing plug+pin), Accessories,
+  Cable, Files (image, DXF, 3D model STEP, link). Width/height/depth moved
+  from General to Mounting.
+- Tests: tst_partsdatabase 18 (+4: functionsAndConnectionsReadBack,
+  functionKindsKeepTheirIds, stepModelIsAFileOfItsOwn,
+  versionTwoIsUpgraded), new tst_partsmanager (widget test, 4;
+  FASECAD_PARTS_SHOTS=<folder> saves a picture of each tab and
+  FASECAD_PARTS_QM=<file.qm> loads a language; on this PC the offscreen
+  platform garbles letters whatever the font: good for the layout only).
+- Spanish: the whole parts module (contexts ElementPartsWidget,
+  PartFunction, PartPickerDialog, PartsBom, PartsCableTypes,
+  PartsDatabase, PartsManagerDialog: 168 texts, unfinished) with
+  scratchpad py/step16.py from an lupdate of sources/partsdb only, plus
+  the menu entry "Parts manager..." and its tip (step17.py).
+- build-release rebuilt (target qelectrotech, then qelectrotech_lrelease:
+  building qelectrotech alone does NOT remake lang/*.qm); fasecad.exe
+  --version checked with PATH=C:\Windows only. The Debug build dir was
+  left half rebuilt (stopped at 6/517 steps): rebuild before app tests.
+Next (phase 2): element properties grouped like the reference
+(Identification = ++ + -, Function, Connection points, Parts, Display).
+
+Example project for Brandon (2026-11-12, his request "un proyecto ejemplo
+con el 1200"): C:\Users\Brandon\FaseCAD\esquemas\ejemplo-s7-1200.edrwz,
+5 folios: power (-X0, -Q1, -G1 PM1207, -K1 part 1, 24 V rails with dots,
+folio reports), DI a (S1 S2 S3, B1 PNP), DI b + AI 0 (S4, B5 0-10 V
+transmitter), DQ (K11 K12 coils, H1 H2 lamps), cabinet folio 1:1 (plate
+400x300, ducts 40x60, TH35 rail, Q1/G1 outlines, the CPU front from his
+DXF). Symbols: the collection's 6es7_214-1ag40-0xb0 parts 2-4 (part 4's
+"XBA0" typo fixed per instance) + an own "part 1 of 4" (24 V X10:1-3 and
+PROFINET X1 P1; the collection's p1 is the 230 V AC 1BG40), all embedded in
+the project. Only -K1 part 1 and -G1 carry the article (BOM counts 1 CPU).
+Made by scratchpad scripts, NOT in the repo (Siemens data): py/edz_parts.py
+(his part files -> parts.json: 36 functions, 35 connection points with y
+from the top and the wire direction flipped), partsimport/ (C++ with
+PartsDatabase: writes the parts), dxf2path/ (C++ with DxfReader: the CPU
+path), py/make_s7_example.py (project, then fasecad --resave + --export-png
+to check). His parts database %APPDATA%\FaseCAD\FaseCAD\parts.sqlite now
+v3 with the CPU (image, DXF, STEP) and the PM1207 (typed from the
+catalogue); copy of the empty v2 beside it:
+parts.sqlite.copia-antes-del-ejemplo-2026-11-12. Run the C++ tools from
+their own folder: from build-release they load its Qt DLLs and miss the
+SQLite driver.
+
+## Terminal potentials keep the voltage apart (2026-11-12)
+Brandon asked what the "Potential" field of a terminal (element editor)
+is for: with the block's "Function separation" on, terminals of one value
+stay joined and the others are apart; with it off the field does nothing.
+Reading the code for the answer showed that the voltage / protocol, which
+crosses a separation, also went from one potential to another (a terminal
+of two levels: a voltage edit with "Apply properties to all conductors of
+this potential" reached the other level) and to a terminal without one.
+Fixed on his "Corrigelo" (not committed):
+- relatedPotentialTerminal (terminal.cpp): with ignore_function_separation,
+  a block whose terminals have a potential (hasTerminalPotentials) keeps
+  them apart all the same; a block without any behaves as before (no
+  symbol of the collection, the tests or the examples has the attribute).
+  Every voltage path goes through Conductor::functionSeparatedConductors:
+  properties dialog, search and replace, scripting, multi-edit, bridges.
+- New tst_terminalpotential (5 cases): 3 failed before the fix, all pass
+  after it; tst_bridgetool, tst_duplicatelabels, tst_potentialtypes and
+  tst_conductormultiedit pass too (build-release, ctest -R).
+- Left as is: a bridge reaches every pin of the terminal symbol it lands
+  on (BridgeManager informationOf, informationSets, writeInformation,
+  conductorsOverBridges), so a bridge on a two-level symbol still reaches
+  both levels. Changing that is a decision about bridges (offered).
+- fasecad.exe relinked on 2026-11-13 together with the terminal texts.
+
+## Terminal texts of a placed symbol (2026-11-13)
+Brandon's request (screenshot of a 4-pole switch, terminals 1..8): a tab
+of the element properties to change the text of each terminal, and the
+terminal strip summaries showing that text. Plan shown, his answer
+"prueba y vemos". Not committed.
+- Element::setTerminalTexts / terminalTexts / terminalText: texts by
+  Terminal::stableUuid() string, empty = the symbol's name. Saved by
+  appendDataXml as <terminalTexts><terminalText terminal= text=/>, only
+  when set (a symbol without texts saves as before); read in fromXml as
+  the prefix is (no store writes while loading). element_value rows get
+  it through elementValueRowsOf (tag list + "terminalTexts"), so .qet and
+  .edrwz both keep it (generic xmlRows / rowsToXml).
+- Terminal::name() = the element's text, else symbolName() (the old
+  name(): master contact label or definition name). Everything listing a
+  terminal name follows: drawing (boundingRect, prepareNameChange()),
+  TrueTerminalStrip device_pin / inner_connection (strip plans), cable
+  list, CLI export, projectDataBase terminal table.
+- projectDataBase::renameTerminals(Element*): UPDATE terminal.name, emits
+  dataBaseUpdated; populateFromDocument applies the texts to the
+  terminals of folios not built (master_label cleared for those).
+- ChangeTerminalTextsCommand (undocommand/): one undo step, redraws the
+  loaded folios so strip plans show the new names. Brandon's first try
+  (screenshot, changeover contacto_conmutado 11/12/14): the folio did not
+  change, because the collection's symbols draw their numbers as UserText
+  dynamic texts, not as terminal names (show_name). The command now also
+  rewrites, for each terminal whose name changes, the nearest UserText
+  saying its current name (<= 40 px from its dock point, one text per
+  terminal; skipped when the terminal has no name or goes back to none).
+  Tested on that very symbol (theCollectionContactShowsTheTexts).
+- His FaseCAD showed English: HKCU\Software\FaseCAD\FaseCAD lang=en (only
+  the settings dialog writes it); left as is, told him.
+- "los contactos no me muestra para agregar los componentes": he chose
+  parts on contacts (an auxiliary contact block...). Slaves now get
+  add_info_and_parts() in ElementPropertiesWidget::updateUi; the
+  ElementInfoWidget tab is removed from the tab bar right after (kept in
+  m_list_editor, so Apply / live edit save the "parts" information), a
+  contact still shows its master's information. PartsBom::devices
+  already counted 'slave'; a slave without a label of its own now goes by
+  the label of the first symbol it is linked to (its master). Tests:
+  tst_elementparts aContactHasAPartsTab, tst_partsbom
+  contactPartsGoByTheMaster.
+- ElementTerminalTextsWidget (ui/), tab "Terminal texts" ("Textos de
+  bornes") for Simple, Master, Slave and terminal symbols with terminals:
+  a row per terminal (symbol name, text); a text equal to the symbol's
+  name or empty is no text; live edit in the properties panel (queued).
+- Spanish: 6 texts, unfinished (scratchpad py/step18.py).
+- Test tst_terminaltexts (6 cases, every_feature.qet: contact fc9cc920
+  wired to strip X1).
+
+## IEC 60617 panel symbols (2026-11-12/13)
+Brandon asked for the symbols "according to IEC 61082-1". That standard
+only sets the document rules; the symbols are IEC 60617, a paid database
+(subscription, ~CHF 280/year). He chose ~80 panel symbols as .elmt.
+- New collection elements/10_electric/05_iec_60617_cuadros (75 symbols in
+  12 folders: contacts, coils, contactor main contacts, protection,
+  isolation, push-buttons/selectors, position switches and sensors,
+  machines, transformers/supplies, signalling/measuring, terminals/earth/
+  connectors, components). Names in en/es/fr/de/it/pt/tr/zh.
+- Drawn by fasecad-dev/simbolos-iec/generar.py (run it again after any
+  change; uuids are stable). --preview FILE.html draws them all.
+  Rules there: rest state, 10 grid, poles 20 apart, contacts move right
+  when actuated (link and actuator on the left), label on the left
+  (right-aligned, grows leftwards), terminal numbers right of each lead.
+- Checked against DIN EN 60617 drawings on Wikimedia Commons where unsure
+  (switch-disconnector = bar + circle, thermal relay, delay "parachute"
+  direction, change-over, position switch, surge arrester). Not verified
+  against the official database: detent, positive opening, mushroom head,
+  proximity rhombus, integrating-meter band, RCD drawn as contacts + IΔ
+  relay + summation CT.
+- Seen in FaseCAD (release build, test projects in a copy of the exe):
+  all 75 load and draw as in the preview.
+- `elements` is the upstream submodule: the new folder is untracked there,
+  so git does not carry it to the other machine (regenerate it with the
+  script) and it is not in a commit. cmake --install copies it into the
+  packages. Where it should live for good is still to decide (fork of
+  qelectrotech-elements, or a FaseCAD folder installed next to it).
+- The website guide (guia-simbolos) draws the contactor semicircle on the
+  right and the change-over mirrored (NC right); IEC drawings have the
+  semicircle toward the moving contact and NC on the left. Not changed.
+
+## Collection clean-up, folio index, parts collection, numbering (2026-11-13)
+Brandon's list (answers to the questions in brackets):
+1. remove QElectroTech's original automatic numbering [instead: the
+   symbol of the collection carries its default name, and a placed
+   symbol takes the next free number of that name, checked against the
+   project's devices];
+2. Lists: an automatic folio index [columns: folio and title];
+3. delete every manufacturer-specific symbol of the collection [all
+   three groups];
+4. remove the company collections;
+5. a "Parts collection" in the collection panel, ordered as the parts
+   manager [dragging a part places its symbol with the part].
+Order agreed: 4, 3, 2, 5, 1. Not committed.
+
+- 4 DONE: no company collection of symbols (loadCollections(common,
+  false, custom) in ElementsCollectionWidget and ElementDialog) nor of
+  title blocks (ElementsPanel::reload, QETApp::
+  availableTitleBlockTemplatesCollections); the two folder rows of the
+  settings are hidden. company:// locations still resolve, so old
+  projects that name one keep working (they embed their copies anyway).
+- 3 DONE: deleted elements/10_electric/20_manufacturers_articles (135
+  brands, 4236 symbols), elements/60_energy/41_manufacturers_articles
+  (20) and the brand folders of 98_graphics/99_assembly_plan/
+  01_thumbnails_mounting_plate (23 brands, 559; 99_divers kept): 4272
+  symbols left of 9087. NOTE: elements/ is the git SUBMODULE of
+  qelectrotech/qelectrotech-elements (no FaseCAD fork); FaseCAD's own
+  05_iec_60617_cuadros is untracked there. Recover with
+  `git -C elements checkout -- .`. Committing the collection needs a
+  decision: a FaseCAD fork of the elements repository, or the folder
+  taken into the FaseCAD repository.
+- 2 DONE: Lists > "Automatic folio index" (FolioIndex in
+  sources/factory/folioindex.*): an "Index" folio first with a summary
+  table "SELECT folio, title FROM project_summary_view ORDER BY pos"; a
+  second click shows it; a summary table with that query is the index,
+  and QetGraphicsTableItem::modelReseted grows it onto more index folios
+  (FolioIndex::scheduleGrow) instead of the "Table limitation" warning.
+  Not an undo step (like Add a summary). Test tst_folioindex (3 cases).
+  Spanish: step19.py (5 texts, unfinished).
+- 5 DONE: Parts collection. Parts database schema v4: part.symbol (an
+  ElementsLocation string; upgradeSchema adds the column). Parts manager:
+  General > Symbol (typed, or "Choose..." through
+  PartsManagerDialog::setSymbolChooser, set by QETDiagramEditor with
+  ElementDialog::getOpenElementLocation; the standalone test has none);
+  every write emits PartsDatabaseChanges::changed. Panel:
+  PartsCollectionItem (ElementsCollection/), root "Parts collection" ->
+  categories (PartsDatabase::categories() order, "(No category)" last)
+  -> parts (parts() order: manufacturer, order number), icon = part
+  image or symbol icon; ElementsCollectionModel::addPartsCollection /
+  reloadPartsCollection (widget reload + PartsDatabaseChanges); mimeData:
+  element uri + text = symbol, "application/x-fasecad-part" = JSON
+  manufacturer/order_number (PartsPlacement); no edit/delete menu, only
+  "Parts manager..." and reload; flat search skips parts. Folio:
+  DiagramView accepts the part mime; dropped onto a placed symbol ->
+  PartsPlacement::addPart (one undo step, units +1 if there); otherwise
+  startPartPlacement = startElementPlacement + setPrepare(preparer):
+  each copy gets the part and the article (PartsMaterial record, block 0)
+  when it had no part. Double-click: insertPartRequested ->
+  QETDiagramEditor -> startPartPlacement. Tests: tst_partscollection,
+  tst_partsdatabase symbolIsKeptAndVersionThreeUpgraded, tst_partsmanager
+  symbolIsTyped. Spanish: step20.py (11 texts).
+- 1 DONE (Brandon insisted 2026-11-13: "te dije de eliminar la parte de
+  enumeración automática"): QElectroTech's numbering formulas are gone
+  from the interface, the engine stays (old projects keep their labels;
+  cable numbering uses it, CableNumberingDialog). Removed: project
+  properties page "Automatic numbering" (ProjectPropertiesDialog: enum
+  TerminalStrip = 2, Autonum = -1 shows nothing, changeTo* empty; the
+  cable tool opens CableNumberingDialog), the numbering dock (never
+  created), Information tab "Automatic numbering"/"Number" rows (not
+  built) and "Label formula" row (hidden; typing a label empties the
+  formula), conductor "Text formula" and numbering combo (hidden; typing
+  the text empties the formula), folio numbering choice of the title
+  block, Settings > New sheet "Auto Numbering" tab (only "Cable
+  numbering" left). New: DeviceNaming (sources/devicenaming.*), called
+  by DiagramEventAddElement instead of Element::setUpFormula: default
+  name = the symbol's own label without digits ("_" = none), else "-" +
+  folder prefix (qet_labels.xml); label = first free number among
+  ElementAutoNumSchemeCommand::labelsHeldBesides; only Simple and Master
+  (contacts take the master's label, terminals their strip numbering).
+  New wires: only their potential's number (ConductorAutoNumerotation::
+  numerate no longer calls numerateNewConductor). qet_labels.xml got
+  prefixes for 05_iec_60617_cuadros (K K Q F Q S B M T P X, none for
+  12_componentes). Test tst_devicenaming; tst_dockminwidth no longer
+  expects the dock. Spanish: step21.py.
+- .edz importer REMOVED (Brandon: "no quiero que pongas un importador de
+  edz"; it came from upstream QElectroTech, June 2026): action and
+  functions of ElementsCollectionWidget, sources/import/ (48 files,
+  bundled LZMA SDK) and its lines in cmake/qet_compilation_vars.cmake.
+  The brand name is gone from comments too (5 places reworded).
+
+## Several symbols per part, .faspart files (2026-11-13)
+Brandon: a "Symbols" tab with several symbols per part, Tab switching
+between them while a part from the parts collection is placed; and an
+exporter/importer of parts as ".faspart". His answers: one file per part,
+symbols inside the file, ask for each part already in the database.
+Not committed.
+- Parts database schema v5: table part_symbol (part_id, position,
+  location); Part::symbols (QStringList) replaces Part::symbol; upgrade
+  copies the v4 column into the table (the column stays, unread). New
+  databases have no "symbol" column.
+- Parts manager: General "Symbol" row gone; tab "Symbols" (list with the
+  symbol's name and icon via setSymbolDescriber, Add... through the
+  symbol chooser or a typed location, Remove, Move up/down).
+- Placement: DiagramEventAddElement::setAlternatives / switchSymbol: Tab
+  and Shift+Tab rebuild the pending symbol from the next location, same
+  position and rotation, status bar "Symbol i of n". Diagram::event now
+  gives Tab to a running tool first (it used to cycle the items at once).
+  PartsPlacement::Key carries the symbols; DiagramView::startPartPlacement
+  sets them.
+- .faspart (PartsArchive, sources/partsdb/partsarchive.*): a QetZip with
+  faspart.json {format "faspart", version 1, part (PartsDatabase::toJson:
+  every column, technical data, functions, connection points), accessories
+  by manufacturer + order number, files, symbols} + files/ + symbols/.
+  contentOf / write / read / store (replace keeps the id, its files are
+  replaced). PartsSymbolFiles (app side): reads a symbol's definition;
+  writes imported symbols to the user collection imported_parts/<maker>/
+  (qet_directory "Imported parts"/"Piezas importadas"), reusing an
+  identical file, renaming a different one. Parts manager: "Export" menu
+  (the selected part / all the parts of the list, one file each, ask
+  before replacing) and "Import..." (several files; Replace / Keep mine /
+  Replace all / Keep all mine). The table stays single-selection.
+- Tests: tst_partsarchive (new, standalone), tst_partsdatabase
+  symbolsAreKeptAndVersionFourUpgraded, tst_partsmanager
+  symbolsAreChosenAndOrdered, tst_partscollection tabGoesThroughTheSymbols.
+  Spanish: step27.py (33 texts).
+- Found by the tests: PartsDatabase::parts() lists the columns only, so
+  the parts collection now reads each part whole (part(id)) to get its
+  symbols. A switched-back symbol was brought into the project again and,
+  once (Shift+Tab back to the pilot light), QETProject::importElement
+  showed its "already in the project" dialog although the uuids matched
+  (cause not found; importing the same symbols again by hand asks
+  nothing). DiagramEventAddElement now keeps where each alternative went
+  (m_alternative_paths) and builds it from there. The Tab test places
+  the repository's symbols (QET_APP_TEST_MAIN_PREPARED sets the common
+  collection before the app reads it) in a project registered with
+  QETApp.
+
+## Version 0.12 (2026-11-14)
+- Brandon: "súbelo a github y prepárame el zip". Pushed to origin fasecad
+  (45b96700e..00f258c38): launcher, collection taken into the repository
+  (his choice: no submodule, no fork; .gitmodules without elements; the
+  old .git/modules/elements stays unused), the code of 12-13 November,
+  version 0.12. Before pushing, every test carrying data copied from the
+  manufacturer's files (tst_partsdatabase plc(): GTIN, sizes, power loss,
+  clearances, terminal data; tst_partsarchive) was given made-up parts
+  (ACME...), and the part values were taken out of these notes.
+- Tests run before the push: the parts, terminal, naming, index and
+  bridge tests, and the four that start fasecad.exe (tst_qetdbfile,
+  tst_savevaluerows, tst_xrefdisplay, tst_elementautonumids) with
+  QT_QPA_PLATFORM_PLUGIN_PATH=C:/msys64/ucrt64/share/qt6/plugins/platforms
+  so the child finds the offscreen plugin: all pass. Full ctest not run.
+- FaseCAD was open from build-release: its fasecad.exe was renamed to
+  fasecad-en-uso-0.12pre.exe (Windows allows it for a running program)
+  and 0.12 linked in its place; delete that copy once FaseCAD is closed.
+- Zip FaseCAD-0.12-windows-x64.zip (74.8 MB, 4955 entries) by
+  scratchpad package.sh 0.12 + Python zipfile, checked unzipped elsewhere
+  with PATH=C:\Windows only (--version 0.12); copied to
+  FaseCAD\web\httpdocs. Website download page not updated, no GitHub
+  release yet.
