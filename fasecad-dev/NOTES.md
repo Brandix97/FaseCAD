@@ -918,5 +918,12 @@ Not committed.
 - Zip FaseCAD-0.12-windows-x64.zip (74.8 MB, 4955 entries) by
   scratchpad package.sh 0.12 + Python zipfile, checked unzipped elsewhere
   with PATH=C:\Windows only (--version 0.12); copied to
-  FaseCAD\web\httpdocs. Website download page not updated, no GitHub
-  release yet.
+  FaseCAD\web\httpdocs.
+- GitHub release v0.12 "FaseCAD 0.12 (preview)", pre-release, tag on
+  76dd1b99a, the zip attached; notes in English and Spanish since 0.10.1
+  (0.11 had no release): scratchpad release-notes-0.12.md.
+- Website: construir.py VERSION 0.12, download page with a 0.12 entry
+  (three paragraphs + button, translated in textos.py into en de it zh
+  tr), 0.11 kept below; site and fasecad-web.zip rebuilt, for Brandon to
+  upload with the 0.12 zip.
+- fasecad-en-uso-0.12pre.exe deleted once FaseCAD was closed.
