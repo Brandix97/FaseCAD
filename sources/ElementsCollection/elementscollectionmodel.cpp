@@ -186,9 +186,11 @@ bool ElementsCollectionModel::canDropMimeData(const QMimeData *data,
 	if (!qsi)
 		qsi = itemFromIndex(parent);
 
-		//Drop in the common collection is forbidden
+		//Drop in a folder that cannot be written is forbidden (the common
+		//collection of a read-only installation)
 	if (qsi->type() == FileElementCollectionItem::Type)
-		if (static_cast<FileElementCollectionItem *>(qsi)->isCommonCollection())
+		if (!ElementsLocation(static_cast<FileElementCollectionItem *>(qsi)
+							  ->collectionPath()).isWritable())
 			return false;
 
 	ElementCollectionItem *eci = static_cast<ElementCollectionItem *>(qsi);
@@ -237,7 +239,7 @@ bool ElementsCollectionModel::dropMimeData(const QMimeData *data,
 	{
 		FileElementCollectionItem *feci = static_cast<FileElementCollectionItem *>(qsi);
 
-		if (feci->isCommonCollection())
+		if (!ElementsLocation(feci->collectionPath()).isWritable())
 			return false;
 
 		if (feci->isElement() && feci->parent() && feci->parent()->type()

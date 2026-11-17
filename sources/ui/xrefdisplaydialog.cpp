@@ -18,81 +18,52 @@
 */
 #include "xrefdisplaydialog.h"
 
-#include <QCheckBox>
-#include <QComboBox>
+#include "xrefdisplayform.h"
+
 #include <QDialogButtonBox>
-#include <QDoubleSpinBox>
-#include <QFormLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 /**
 	@brief XRefDisplayDialog::XRefDisplayDialog
 	@param display the master's display now: not enabled when it follows the
 	project's setting, in which case the fields start from the defaults
+	@param symbol_pos where the master stands on the folio, for a manual
+	position measured from the folio
 	@param suggested_manual the offset from the symbol where "Manual position" starts, when the master
 	has no position of its own yet
 	@param parent
 */
 XRefDisplayDialog::XRefDisplayDialog(const ElementData::XRefDisplay &display,
+									 const QPointF &symbol_pos,
 									 const QPointF &suggested_manual,
 									 QWidget *parent) :
 	QDialog(parent)
 {
 	setWindowTitle(tr("Relay contact display"));
 	setMinimumWidth(420);
-	auto *form = new QFormLayout(this);
+	auto *layout = new QVBoxLayout(this);
 
 	auto *note = new QLabel(tr("The contact display keeps its electrical links. "
 							   "For a manual position, Shift-drag the display on the folio, "
 							   "or enter the offset of its top left corner from the symbol."));
 	note->setWordWrap(true);
-	form->addRow(note);
+	layout->addWidget(note);
 
-	m_appearance = new QComboBox;
-	m_appearance->addItem(tr("Cross"), false);
-	m_appearance->addItem(tr("Contact symbols"), true);
-	m_appearance->setCurrentIndex(display.contacts ? 1 : 0);
-	form->addRow(tr("Appearance"), m_appearance);
-
-	m_position = new QComboBox;
-	m_position->addItem(tr("Under device label"), ElementData::XRefDisplay::UnderLabel);
-	m_position->addItem(tr("Below symbol"), ElementData::XRefDisplay::BelowSymbol);
-	m_position->addItem(tr("Folio footer"), ElementData::XRefDisplay::Footer);
-	m_position->addItem(tr("Manual position"), ElementData::XRefDisplay::Manual);
-	m_position->setCurrentIndex(m_position->findData(display.position));
-	form->addRow(tr("Position"), m_position);
-
-	const auto spin = [this, form](const QString &label, qreal value, qreal low, qreal high) {
-		auto *box = new QDoubleSpinBox;
-		box->setRange(low, high);
-		box->setDecimals(2);
-		box->setValue(value);
-		form->addRow(label, box);
-		return box;
-	};
-	m_width = spin(tr("Line thickness"), display.width, 0.1, 10);
-	m_gap = spin(tr("Gap below symbol"), display.gap, 0, 500);
-	const QPointF manual = display.enabled && display.position == ElementData::XRefDisplay::Manual
-			? display.manual : suggested_manual;
-	m_x = spin(tr("Manual offset X"), manual.x(), -10000, 10000);
-	m_y = spin(tr("Manual offset Y"), manual.y(), -10000, 10000);
-
-	m_show_unlinked = new QCheckBox(tr("Show defined contacts even when not linked"));
-	m_show_unlinked->setChecked(display.showUnlinked);
-	form->addRow(m_show_unlinked);
+	m_form = new XRefDisplayForm(this);
+	m_form->setDisplay(display, symbol_pos, suggested_manual);
+	layout->addWidget(m_form);
 
 	auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	auto *restore = buttons->addButton(tr("Use the project setting"), QDialogButtonBox::ResetRole);
-	form->addRow(buttons);
+	layout->addWidget(buttons);
 	connect(restore, &QPushButton::clicked, this, [this]() {
 		m_restore = true;
 		accept();
 	});
 	connect(buttons, &QDialogButtonBox::accepted, this, &QDialog::accept);
 	connect(buttons, &QDialogButtonBox::rejected, this, &QDialog::reject);
-	connect(m_position, &QComboBox::currentIndexChanged, this, &XRefDisplayDialog::updateEnabled);
-	updateEnabled();
 }
 
 /**
@@ -102,28 +73,7 @@ XRefDisplayDialog::XRefDisplayDialog(const ElementData::XRefDisplay &display,
 */
 ElementData::XRefDisplay XRefDisplayDialog::display() const
 {
-	ElementData::XRefDisplay display;
 	if (m_restore)
-		return display;
-
-	display.enabled = true;
-	display.contacts = m_appearance->currentData().toBool();
-	display.position = static_cast<ElementData::XRefDisplay::Position>(m_position->currentData().toInt());
-	display.width = m_width->value();
-	display.gap = m_gap->value();
-	display.manual = QPointF(m_x->value(), m_y->value());
-	display.showUnlinked = m_show_unlinked->isChecked();
-	return display;
-}
-
-/**
-	@brief XRefDisplayDialog::updateEnabled
-	The gap and the coordinates only matter for their own position.
-*/
-void XRefDisplayDialog::updateEnabled()
-{
-	const int position = m_position->currentData().toInt();
-	m_gap->setEnabled(position == ElementData::XRefDisplay::BelowSymbol);
-	m_x->setEnabled(position == ElementData::XRefDisplay::Manual);
-	m_y->setEnabled(position == ElementData::XRefDisplay::Manual);
+		return ElementData::XRefDisplay();
+	return m_form->display();
 }

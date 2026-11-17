@@ -16,7 +16,9 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "terminalelement.h"
+#include "terminal.h"
 #include "../TerminalStrip/realterminal.h"
+#include "../TerminalStrip/terminalsides.h"
 #include "../TerminalStrip/terminalstriplabels.h"
 #include "../diagram.h"
 #include "../qetapp.h"
@@ -27,6 +29,27 @@
 #include <QPainterPath>
 #include <QGraphicsSimpleTextItem>
 #include <QPen>
+
+namespace {
+
+/**
+	@brief A text drawn in the views only: a print, a PDF or an image
+	render the folio without a view, and leave it out.
+*/
+class ViewOnlyText : public QGraphicsSimpleTextItem
+{
+	public:
+		using QGraphicsSimpleTextItem::QGraphicsSimpleTextItem;
+
+		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+				   QWidget *widget) override
+		{
+			if (!widget) return;
+			QGraphicsSimpleTextItem::paint(painter, option, widget);
+		}
+};
+
+} // namespace
 
 /**
 	@brief TerminalElement::TerminalElement
@@ -48,6 +71,7 @@ TerminalElement::TerminalElement(const ElementsLocation &location,
 		if (auto *d = diagram())
 			TerminalStripLabels::schedule(d);
 		placeStripLabel();
+		updateSideMarks();
 	};
 	connect(this, &Element::xChanged, this, moved);
 	connect(this, &Element::yChanged, this, moved);
@@ -58,6 +82,8 @@ TerminalElement::TerminalElement(const ElementsLocation &location,
 	connect(this, &Element::elementInfoChange, this, [this]() {
 		if (auto *d = diagram())
 			TerminalStripLabels::schedule(d);
+			//The sides may have been swapped
+		updateSideMarks();
 	});
 }
 
@@ -261,6 +287,74 @@ void TerminalElement::placeStripLabel()
 }
 
 /**
+	@brief TerminalElement::updateSideMarks
+	Write "Inside" and "Outside" beside the connection points of this
+	terminal while it is selected, so that which side goes into the panel
+	can be seen where it is drawn (Brandon, 2026-11-16); take them away
+	otherwise. They are drawn in the views only, never printed.
+*/
+void TerminalElement::updateSideMarks()
+{
+	const Terminal *out = isSelected() ? TerminalSides::outside(this) : nullptr;
+	const Terminal *in = out ? TerminalSides::inside(this) : nullptr;
+	if (!out || !in)
+	{
+		delete m_inside_mark;
+		m_inside_mark = nullptr;
+		delete m_outside_mark;
+		m_outside_mark = nullptr;
+		return;
+	}
+	placeSideMark(m_inside_mark, in, tr("Inside", "mark beside the connection "
+										"point of a selected terminal going into the panel"));
+	placeSideMark(m_outside_mark, out, tr("Outside", "mark beside the connection "
+										  "point of a selected terminal going out of the panel"));
+}
+
+/**
+	@brief TerminalElement::placeSideMark
+	Put @p mark, made when missing, beside the end of @p terminal: right
+	of a wire coming from above or below, under one coming from a side,
+	a little further out than the end so that it stays clear of the
+	texts of the symbol.
+*/
+void TerminalElement::placeSideMark(QGraphicsSimpleTextItem *&mark,
+									const Terminal *terminal,
+									const QString &text)
+{
+	if (!mark)
+	{
+		mark = new ViewOnlyText(this);
+		mark->setFont(QETApp::diagramTextsFont(6));
+		mark->setBrush(QColor(0x1e, 0x88, 0xe5));
+		mark->setAcceptedMouseButtons(Qt::NoButton);
+		mark->setAcceptHoverEvents(false);
+	}
+	if (mark->text() != text)
+		mark->setText(text);
+
+		//Upright on the folio: undo the terminal's turn and mirror
+	const QTransform turn = sceneTransform();
+	mark->setTransform(
+				QTransform(turn.m11(), turn.m12(), turn.m21(), turn.m22(), 0, 0).inverted());
+
+	const QPointF end = terminal->dockConductor();
+	const QPointF way = end - sceneBoundingRect().center();
+	const QSizeF size = mark->boundingRect().size();
+	QPointF top_left;
+	if (qAbs(way.y()) >= qAbs(way.x())) {
+		const qreal centre = way.y() < 0 ? end.y() - size.height() / 2 - 1
+										 : end.y() + size.height() / 2 + 1;
+		top_left = QPointF(end.x() + 3, centre - size.height() / 2);
+	} else {
+		const qreal centre = way.x() < 0 ? end.x() - size.width() / 2 - 1
+										 : end.x() + size.width() / 2 + 1;
+		top_left = QPointF(centre - size.width() / 2, end.y() + 3);
+	}
+	mark->setPos(mapFromScene(top_left));
+}
+
+/**
 	@brief TerminalElement::itemChange
 	A terminal that comes onto or leaves a folio may now be, or no longer
 	be, the first of its strip there; moves and turns come by the
@@ -268,6 +362,9 @@ void TerminalElement::placeStripLabel()
 */
 QVariant TerminalElement::itemChange(GraphicsItemChange change, const QVariant &value)
 {
+	if (change == ItemSelectedHasChanged) {
+		updateSideMarks();
+	}
 	if (change == ItemSceneChange) {
 			//The folio it leaves works its labels out again without it
 		if (auto *old_diagram = qobject_cast<Diagram *>(scene()))

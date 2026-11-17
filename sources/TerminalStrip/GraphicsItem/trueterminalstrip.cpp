@@ -18,6 +18,7 @@
 #include "trueterminalstrip.h"
 #include "../physicalterminal.h"
 #include "../realterminal.h"
+#include "../terminalsides.h"
 #include "../terminalstrip.h"
 #include "../terminalstripbridge.h"
 #include "../../autoNum/assignvariables.h"
@@ -251,21 +252,12 @@ namespace TerminalStripDrawer
 			return column;
 		}
 
-		int outer = -1;
-		for (int i = 0; i < sides.size(); ++i) {
-			if (sides.at(i).core >= 0) {
-				outer = i;
-				break;
-			}
-		}
-		if (outer < 0) {
+			//The side going out of the panel: the one wired to a cable,
+			//else the lowest, unless the terminal swaps them
+			//(TerminalSides). sides is in the order of terminals().
+		int outer = TerminalSides::outsideIndex(terminal_element);
+		if (outer < 0 || outer >= sides.size()) {
 			outer = 0;
-			for (int i = 1; i < sides.size(); ++i) {
-				if (sides.at(i).terminal->sceneBoundingRect().center().y()
-						> sides.at(outer).terminal->sceneBoundingRect().center().y()) {
-					outer = i;
-				}
-			}
 		}
 
 		const Side &out = sides.at(outer);

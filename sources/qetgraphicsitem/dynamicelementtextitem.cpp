@@ -295,7 +295,10 @@ QDomElement DynamicElementTextItem::toXml(QDomDocument &dom_doc) const
 	root_element.setAttribute("rotation_point_center", m_rotation_point_center ? "true" : "false");
 
 	QMetaEnum me = textFromMetaEnum();
-	root_element.setAttribute("text_from", me.valueToKey(m_text_from));
+		//Data of a part is a user text for QElectroTech, which shows the
+		//value last read; the reference says where it comes from
+	root_element.setAttribute("text_from", me.valueToKey(
+								  m_text_from == PartInfo ? UserText : m_text_from));
 	
 	me = QMetaEnum::fromType<Qt::Alignment>();
 	if(this->alignment() &Qt::AlignRight)
@@ -331,6 +334,14 @@ QDomElement DynamicElementTextItem::toXml(QDomDocument &dom_doc) const
 		QDomElement dom_comp_text = dom_doc.createElement("composite_text");
 		dom_comp_text.appendChild(dom_doc.createTextNode(m_composite_text));
 		root_element.appendChild(dom_comp_text);
+	}
+
+		//Data of a part
+	if (m_text_from == PartInfo && !m_part_field.isEmpty())
+	{
+		QDomElement dom_part = dom_doc.createElement(QStringLiteral("part_info"));
+		dom_part.setAttribute(QStringLiteral("reference"), m_part_field);
+		root_element.appendChild(dom_part);
 	}
 	
 		//Color
@@ -411,6 +422,14 @@ void DynamicElementTextItem::fromXml(const QDomElement &dom_elmt)
 	QDomElement dom_color = dom_elmt.firstChildElement("color");
 	if(!dom_color.isNull())
 		setColor(QColor(dom_color.text()));
+
+		//Data of a part: the text shows the value saved
+	const QDomElement dom_part = dom_elmt.firstChildElement(QStringLiteral("part_info"));
+	if (!dom_part.isNull()) {
+		m_part_field = dom_part.attribute(QStringLiteral("reference"));
+		m_part_value = dom_text.text();
+		setTextFrom(PartInfo);
+	}
 	
 		//Force the update of the displayed text
 	setTextFrom(m_text_from);
@@ -605,6 +624,11 @@ void DynamicElementTextItem::setTextFrom(DynamicElementTextItem::TextFrom text_f
 		setPlainText(m_text);
 		disconnect(m_parent_element.data(), &Element::elementInfoChange, this, &DynamicElementTextItem::elementInfoChanged);
 	}
+	else if (m_text_from == PartInfo)
+	{
+			//What was last read from the parts database (PartTexts)
+		setPlainText(m_part_value);
+	}
 	else if (m_text_from == ElementInfo && elementUseForInfo())
 	{
 		if(m_info_name == QLatin1String("label")
@@ -616,8 +640,9 @@ void DynamicElementTextItem::setTextFrom(DynamicElementTextItem::TextFrom text_f
 		else
 			setPlainText(elementUseForInfo()->infoForDisplay(m_info_name));
 		
-		if(old_text_from == UserText)
-			connect(elementUseForInfo(), &Element::elementInfoChange, this, &DynamicElementTextItem::elementInfoChanged);
+		if(old_text_from == UserText || old_text_from == PartInfo)
+			connect(elementUseForInfo(), &Element::elementInfoChange, this,
+					&DynamicElementTextItem::elementInfoChanged, Qt::UniqueConnection);
 	}
 	else if (m_text_from == CompositeText && elementUseForInfo())
 	{
@@ -635,8 +660,9 @@ void DynamicElementTextItem::setTextFrom(DynamicElementTextItem::TextFrom text_f
 			setPlainText(autonum::AssignVariables::replaceVariable(m_composite_text, dc));
 		}
 		
-		if(old_text_from == UserText)
-			connect(elementUseForInfo(), &Element::elementInfoChange, this, &DynamicElementTextItem::elementInfoChanged);
+		if(old_text_from == UserText || old_text_from == PartInfo)
+			connect(elementUseForInfo(), &Element::elementInfoChange, this,
+					&DynamicElementTextItem::elementInfoChanged, Qt::UniqueConnection);
 	}
 		
 	if(m_parent_element.data()->linkType() == Element::Master ||
@@ -741,6 +767,40 @@ void DynamicElementTextItem::setInfoName(const QString &info_name)
 	refreshLabelShown();
 
 	emit infoNameChanged(info_name);
+}
+
+/**
+	@brief DynamicElementTextItem::setPartField
+	Set the data of a part this text shows (PartTexts::reference()). The
+	value comes with setPartValue().
+	@param reference
+*/
+void DynamicElementTextItem::setPartField(const QString &reference)
+{
+	if (reference == m_part_field) {
+		return;
+	}
+	m_part_field = reference;
+	emit partFieldChanged(m_part_field);
+}
+
+/**
+	@brief DynamicElementTextItem::setPartValue
+	Set the value of the data of a part this text shows, as read from the
+	parts database
+	@param value
+*/
+void DynamicElementTextItem::setPartValue(const QString &value)
+{
+	if (value == m_part_value) {
+		return;
+	}
+	m_part_value = value;
+	if (m_text_from == PartInfo) {
+		setPlainText(m_part_value);
+		emit plainTextChanged();
+	}
+	emit partValueChanged(m_part_value);
 }
 
 /**
@@ -1432,6 +1492,8 @@ void DynamicElementTextItem::elementInfoChanged()
 	}
 	else if (m_text_from  == UserText)
 		final_text = m_text;
+	else if (m_text_from == PartInfo)
+		final_text = m_part_value;
 	
 	setPlainText(final_text);
 	emit plainTextChanged();

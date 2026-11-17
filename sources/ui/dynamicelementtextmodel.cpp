@@ -28,12 +28,16 @@
 #include "../qeticons.h"
 #include "../qetinformation.h"
 #include "../undocommand/addelementtextcommand.h"
+#include "../partsdb/partfielddialog.h"
+#include "../partsdb/partsdatabase.h"
+#include "../partsdb/parttexts.h"
 #include "alignmenttextdialog.h"
 #include "compositetexteditdialog.h"
 
 #include <QColorDialog>
 #include <QComboBox>
 #include <QHash>
+#include <QMessageBox>
 #include <QModelIndex>
 #include <QStandardItem>
 #include <QTimer>
@@ -43,19 +47,20 @@ static int src_txt_row   = 0;
 static int usr_txt_row   = 1;
 static int info_txt_row  = 2;
 static int compo_txt_row = 3;
-static int size_txt_row  = 4;
-static int font_txt_row  = 5;
-static int color_txt_row = 6;
-static int frame_txt_row = 7;
-static int width_txt_row = 8;
-static int width_fix_row = 9;
-static int height_txt_row = 10;
-static int height_fix_row = 11;
-static int x_txt_row     = 12;
-static int y_txt_row     = 13;
-static int rot_txt_row   = 14;
-static int keep_rot_row  = 15;
-static int align_txt_row = 16;
+static int part_txt_row  = 4;
+static int size_txt_row  = 5;
+static int font_txt_row  = 6;
+static int color_txt_row = 7;
+static int frame_txt_row = 8;
+static int width_txt_row = 9;
+static int width_fix_row = 10;
+static int height_txt_row = 11;
+static int height_fix_row = 12;
+static int x_txt_row     = 13;
+static int y_txt_row     = 14;
+static int rot_txt_row   = 15;
+static int keep_rot_row  = 16;
+static int align_txt_row = 17;
 
 static int align_grp_row          = 0;
 static int x_grp_row              = 1;
@@ -64,6 +69,57 @@ static int rot_grp_row            = 3;
 static int adjust_grp_row         = 4;
 static int frame_grp_row          = 5;
 static int hold_to_bottom_grp_row = 6;
+
+namespace
+{
+		/// What the part data row of a text says
+	QString partFieldTitle(const QString &reference)
+	{
+		return reference.isEmpty()
+				? DynamicElementTextModel::tr("Choose...")
+				: PartTexts::describe(reference);
+	}
+
+		/**
+			Let the user choose, in the search window, the data of a part
+			of the element of @p deti the text shows; the choice is kept
+			on @p result ("ok", "reference", "value").
+		*/
+	void choosePartField(DynamicElementTextItem *deti, const QString &current,
+						 QWidget *result, QWidget *parent)
+	{
+		if (!PartsDatabase::isEnabled()) {
+			QMessageBox::information(
+						parent, DynamicTextItemDelegate::tr("Part data"),
+						DynamicTextItemDelegate::tr("Use the parts database (Settings >"
+													" General) to show the data of the parts."));
+			return;
+		}
+		PartsDatabase database;
+		QString error;
+		if (!database.open(PartsDatabase::path(), &error)) {
+			QMessageBox::warning(parent, DynamicTextItemDelegate::tr("Parts database"), error);
+			return;
+		}
+		const QList<PartTexts::Field> fields =
+				PartTexts::fieldsOf(deti->elementUseForInfo(), database);
+		if (fields.isEmpty()) {
+			QMessageBox::information(
+						parent, DynamicTextItemDelegate::tr("Part data"),
+						DynamicTextItemDelegate::tr("The parts of this element have no data"
+													" in the parts database."));
+			return;
+		}
+		PartFieldDialog dialog(fields, current, parent);
+		if (dialog.exec() != QDialog::Accepted || !dialog.hasSelection()) {
+			return;
+		}
+		const PartTexts::Field field = dialog.selectedField();
+		result->setProperty("ok", true);
+		result->setProperty("reference", field.reference());
+		result->setProperty("value", field.value);
+	}
+}
 
 DynamicElementTextModel::DynamicElementTextModel(Element *element, QObject *parent) :
 	QStandardItemModel(parent),
@@ -186,6 +242,8 @@ QList<QStandardItem *> DynamicElementTextModel::itemsForText(
 		title = tr("User text");
 	else if (deti->textFrom() == DynamicElementTextItem::ElementInfo)
 		title = tr("Element information");
+	else if (deti->textFrom() == DynamicElementTextItem::PartInfo)
+		title = tr("Part data");
 	else title =  tr("Composite text");
 	QStandardItem *srca = new QStandardItem(title);
 	srca->setFlags(Qt::ItemIsSelectable
@@ -252,6 +310,22 @@ QList<QStandardItem *> DynamicElementTextModel::itemsForText(
 	
 	qsi_list.clear();
 	qsi_list << composite << compositea;
+	qsi->appendRow(qsi_list);
+
+		//Data of a part (PartTexts)
+	QStandardItem *part = new QStandardItem(tr("Part data"));
+	part->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+
+	QStandardItem *parta = new QStandardItem(partFieldTitle(deti->partField()));
+	parta->setFlags(Qt::ItemIsSelectable
+			| Qt::ItemIsEnabled
+			| Qt::ItemIsEditable);
+	parta->setData(DynamicElementTextModel::partText, Qt::UserRole+1);
+	parta->setData(deti->partField(), Qt::UserRole+2);
+	parta->setData(deti->partValue(), Qt::UserRole+3);
+
+	qsi_list.clear();
+	qsi_list << part << parta;
 	qsi->appendRow(qsi_list);
 
 	//Size
@@ -598,6 +672,8 @@ QUndoCommand *DynamicElementTextModel::undoForEditedText(
 		new QPropertyUndoCommand(deti, "textFrom", QVariant(deti->textFrom()), QVariant(DynamicElementTextItem::ElementInfo), undo);
 	else if ((from == tr("Composite text")) && (deti->textFrom() != DynamicElementTextItem::CompositeText))
 		new QPropertyUndoCommand(deti, "textFrom", QVariant(deti->textFrom()), QVariant(DynamicElementTextItem::CompositeText), undo);
+	else if ((from == tr("Part data")) && (deti->textFrom() != DynamicElementTextItem::PartInfo))
+		new QPropertyUndoCommand(deti, "textFrom", QVariant(deti->textFrom()), QVariant(DynamicElementTextItem::PartInfo), undo);
 	
 	if(from == tr("User text"))
 	{
@@ -616,6 +692,15 @@ QUndoCommand *DynamicElementTextModel::undoForEditedText(
 		QString composite_text = text_qsi->child(compo_txt_row,1)->data(Qt::UserRole+2).toString();
 		if(composite_text != deti->compositeText())
 			new QPropertyUndoCommand(deti, "compositeText", QVariant(deti->compositeText()), QVariant(composite_text), undo);
+	}
+	else if (from == tr("Part data"))
+	{
+		const QString reference = text_qsi->child(part_txt_row,1)->data(Qt::UserRole+2).toString();
+		const QString value = text_qsi->child(part_txt_row,1)->data(Qt::UserRole+3).toString();
+		if (reference != deti->partField())
+			new QPropertyUndoCommand(deti, "partField", QVariant(deti->partField()), QVariant(reference), undo);
+		if (value != deti->partValue())
+			new QPropertyUndoCommand(deti, "partValue", QVariant(deti->partValue()), QVariant(value), undo);
 	}
 	
 	int fs = text_qsi->child(size_txt_row,1)->data(Qt::EditRole).toInt();
@@ -1306,12 +1391,13 @@ void DynamicElementTextModel::enableSourceText(
 
 	QStandardItem *qsi = m_texts_list.value(deti);
 	
-	bool usr = false, info = false, compo = false;
+	bool usr = false, info = false, compo = false, part = false;
 	
 	switch (tf) {
 		case DynamicElementTextItem::UserText: usr = true; break;
 		case DynamicElementTextItem::ElementInfo: info = true; break;
 		case DynamicElementTextItem::CompositeText: compo = true;break;
+		case DynamicElementTextItem::PartInfo: part = true; break;
 	}
 
 		//User text
@@ -1323,6 +1409,9 @@ void DynamicElementTextModel::enableSourceText(
 		//Composite text
 	qsi->child(compo_txt_row,0)->setEnabled(compo);
 	qsi->child(compo_txt_row,1)->setEnabled(compo);
+		//Data of a part
+	qsi->child(part_txt_row,0)->setEnabled(part);
+	qsi->child(part_txt_row,1)->setEnabled(part);
 }
 
 /**
@@ -1396,6 +1485,12 @@ void DynamicElementTextModel::itemDataChanged(QStandardItem *qsi)
 				QString info = text_qsi->child(info_txt_row,1)->data(Qt::UserRole+2).toString();
 				text_qsi->setData(dc.value(info), Qt::DisplayRole);
 			}
+			else if (from == tr("Part data"))
+			{
+				enableSourceText(deti, DynamicElementTextItem::PartInfo);
+				text_qsi->setData(text_qsi->child(part_txt_row,1)->data(Qt::UserRole+3),
+								  Qt::DisplayRole);
+			}
 			else
 			{
 				enableSourceText(deti, DynamicElementTextItem::CompositeText);
@@ -1431,6 +1526,10 @@ void DynamicElementTextModel::itemDataChanged(QStandardItem *qsi)
 		{
 			QString compo = qsi->data(Qt::UserRole+2).toString();
 			text_qsi->setData(autonum::AssignVariables::replaceVariable(compo, dc), Qt::DisplayRole);
+		}
+		else if (qsi->data().toInt() == partText)
+		{
+			text_qsi->setData(qsi->data(Qt::UserRole+3), Qt::DisplayRole);
 		}
 	}
 	
@@ -1472,6 +1571,8 @@ void DynamicElementTextModel::setConnection(DynamicElementTextItem *deti, bool s
 		connection_list << connect(deti, &DynamicElementTextItem::textWidthChanged,[deti,this](){this->updateDataFromText(deti, textWidth);});
 		connection_list << connect(deti, &DynamicElementTextItem::textHeightChanged,[deti,this](){this->updateDataFromText(deti, textHeight);});
 		connection_list << connect(deti, &DynamicElementTextItem::compositeTextChanged, [deti, this]() {this->updateDataFromText(deti, compositeText);});
+		connection_list << connect(deti, &DynamicElementTextItem::partFieldChanged, [deti, this]() {this->updateDataFromText(deti, partText);});
+		connection_list << connect(deti, &DynamicElementTextItem::partValueChanged, [deti, this]() {this->updateDataFromText(deti, partText);});
 		m_hash_text_connect.insert(deti, connection_list);
 	}
 	else
@@ -1543,6 +1644,7 @@ void DynamicElementTextModel::updateDataFromText(DynamicElementTextItem *deti,
 				case DynamicElementTextItem::UserText: qsi->child(0,1)->setData(tr("User text"), Qt::DisplayRole); break;
 				case DynamicElementTextItem::ElementInfo : qsi->child(0,1)->setData(tr("Element information"), Qt::DisplayRole); break;
 				case DynamicElementTextItem::CompositeText : qsi->child(0,1)->setData(tr("Composite text"), Qt::DisplayRole); break;
+				case DynamicElementTextItem::PartInfo : qsi->child(0,1)->setData(tr("Part data"), Qt::DisplayRole); break;
 			}
 			enableSourceText(deti, deti->textFrom());
 			qsi->setData(deti->toPlainText(), Qt::DisplayRole);
@@ -1561,6 +1663,15 @@ void DynamicElementTextModel::updateDataFromText(DynamicElementTextItem *deti,
 			QString info_name = deti->infoName();
 			qsi->child(info_txt_row,1)->setData(info_name, Qt::UserRole+2);
 			qsi->child(info_txt_row,1)->setData(QETInformation::translatedInfoKey(info_name), Qt::DisplayRole);
+			break;
+		}
+		case partText:
+		{
+			qsi->setData(deti->toPlainText(), Qt::DisplayRole);
+			QStandardItem *parta = qsi->child(part_txt_row,1);
+			parta->setData(deti->partField(), Qt::UserRole+2);
+			parta->setData(deti->partValue(), Qt::UserRole+3);
+			parta->setData(partFieldTitle(deti->partField()), Qt::DisplayRole);
 			break;
 		}
 		case compositeText:
@@ -1713,6 +1824,19 @@ QWidget *DynamicTextItemDelegate::createEditor(
 			qcb->addItem(tr("User text"));
 			qcb->addItem(tr("Element information"));
 			qcb->addItem(tr("Composite text"));
+			qcb->addItem(tr("Part data"));
+				//Only for an element made of parts (the Parts tab)
+			const DynamicElementTextModel *detm = static_cast<const DynamicElementTextModel *>(index.model());
+			DynamicElementTextItem *deti = detm->textFromIndex(index);
+			const bool parts = deti && (PartTexts::hasParts(deti->elementUseForInfo())
+										|| deti->textFrom() == DynamicElementTextItem::PartInfo);
+			if (auto *items = qobject_cast<QStandardItemModel *>(qcb->model())) {
+				if (QStandardItem *item = items->item(3)) {
+					item->setEnabled(parts);
+					item->setToolTip(parts ? QString()
+										   : tr("The element is made of no part: add one in the Parts tab."));
+				}
+			}
 			return qcb;
 		}
 		case DynamicElementTextModel::infoText:
@@ -1751,6 +1875,20 @@ QWidget *DynamicTextItemDelegate::createEditor(
 			CompositeTextEditDialog *cted = new CompositeTextEditDialog(deti, parent);
 			cted->setObjectName("composite_text");
 			return cted;
+		}
+		case DynamicElementTextModel::partText:
+		{
+				/* Like the font and colour cases below: the search window
+				 * is run here, its choice is kept on a placeholder. */
+			const DynamicElementTextModel *detm = static_cast<const DynamicElementTextModel *>(index.model());
+			DynamicElementTextItem *deti = detm->textFromIndex(index);
+			QWidget *w = new QWidget(parent);
+			w->setObjectName("part_data_dialog");
+			if (deti) {
+				choosePartField(deti, index.data(Qt::UserRole+2).toString(), w, parent);
+			}
+			commitAndCloseDeferred(w);
+			return w;
 		}
 		case DynamicElementTextModel::txtAlignment:
 		{
@@ -1937,6 +2075,27 @@ void DynamicTextItemDelegate::setModelData(
 
 			}
 		}
+		else if (editor->objectName() == "part_data_dialog")
+		{
+			if (QStandardItemModel *qsim = dynamic_cast<QStandardItemModel *>(model))
+			{
+				if (QStandardItem *qsi = qsim->itemFromIndex(index))
+				{
+					if (editor->property("ok").toBool())
+					{
+							//One change of the row, so one step of undo
+						const QString reference = editor->property("reference").toString();
+						{
+							const QSignalBlocker blocker(qsim);
+							qsi->setData(editor->property("value"), Qt::UserRole+3);
+							qsi->setData(reference, Qt::UserRole+2);
+						}
+						qsi->setData(partFieldTitle(reference), Qt::DisplayRole);
+					}
+					return;
+				}
+			}
+		}
 		else if (editor->objectName() == "info_text")
 		{
 			if (QStandardItemModel *qsim = dynamic_cast<QStandardItemModel *>(model))
@@ -2077,6 +2236,13 @@ QStringList DynamicTextItemDelegate::availableInfo(
 		
 		for(const QString& info : info_list)
 		{
+				//The auxiliary blocks past the first one only where the
+				//element has something in them
+			if (QETInformation::isExtraAuxiliaryInfo(info)
+					&& dc.value(info).toString().isEmpty()
+					&& info != deti->infoName()) {
+				continue;
+			}
 			if(dc.contains(info))
 				qstrl << info;
 		}

@@ -20,8 +20,6 @@
 
 #include "cable.h"
 
-#include "../autoNum/numerotationcontext.h"
-
 #include <QHash>
 #include <QList>
 #include <QPointer>
@@ -139,10 +137,7 @@ class ChangeCablePropertiesCommand : public QUndoCommand
 	every cable of the project at once.
 
 	One command covers them all -- numbering a whole project is one
-	single act, so undo takes all of it back together. What the
-	numbering rule itself holds is part of that act: once the cables
-	are numbered, the counters of the rule stand where the last number
-	was taken from, and undo puts them back where they stood.
+	single act, so undo takes all of it back together.
 */
 class RenumberCablesCommand : public QUndoCommand
 {
@@ -152,20 +147,9 @@ class RenumberCablesCommand : public QUndoCommand
 			numbered in
 			@param designations the number each of them gets, one for
 			each cable
-			@param project the project whose numbering rule moves along
-			with the numbering
-			@param num_key the name that rule is kept under in the
-			project
-			@param num_before where its counters stood before the
-			numbering ran
-			@param num_after where the numbering leaves them
 		*/
 		RenumberCablesCommand(const QList<Cable *> &cables,
-							  const QStringList &designations,
-							  QETProject *project,
-							  const QString &num_key,
-							  const NumerotationContext &num_before,
-							  const NumerotationContext &num_after);
+							  const QStringList &designations);
 
 		void undo() override;
 		void redo() override;
@@ -179,10 +163,6 @@ class RenumberCablesCommand : public QUndoCommand
 		QStringList m_after;
 		QList<bool> m_by_hand_before;
 		QList<bool> m_by_hand_after;
-		QETProject *m_project = nullptr;
-		QString m_num_key;
-		NumerotationContext m_num_before;
-		NumerotationContext m_num_after;
 };
 
 /**

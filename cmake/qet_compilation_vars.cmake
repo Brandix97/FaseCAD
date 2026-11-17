@@ -770,6 +770,10 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/TerminalStrip/terminalstrip.h
   ${QET_DIR}/sources/TerminalStrip/terminalstriplabels.cpp
   ${QET_DIR}/sources/TerminalStrip/terminalstriplabels.h
+  ${QET_DIR}/sources/TerminalStrip/terminalsides.cpp
+  ${QET_DIR}/sources/TerminalStrip/terminalsides.h
+  ${QET_DIR}/sources/TerminalStrip/terminalfieldsupdate.cpp
+  ${QET_DIR}/sources/TerminalStrip/terminalfieldsupdate.h
   ${QET_DIR}/sources/TerminalStrip/terminalstripautoimport.cpp
   ${QET_DIR}/sources/TerminalStrip/terminalstripautoimport.h
   ${QET_DIR}/sources/TerminalStrip/terminalstripdata.cpp
@@ -810,6 +814,14 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/TerminalStrip/UndoCommand/groupterminalscommand.h
   ${QET_DIR}/sources/TerminalStrip/UndoCommand/sortterminalstripcommand.cpp
   ${QET_DIR}/sources/TerminalStrip/UndoCommand/sortterminalstripcommand.h
+  ${QET_DIR}/sources/TerminalStrip/UndoCommand/takeoutofstripscommand.cpp
+  ${QET_DIR}/sources/partsdb/partfielddialog.cpp
+  ${QET_DIR}/sources/ui/dockautohide.cpp
+  ${QET_DIR}/sources/ui/dockautohide.h
+  ${QET_DIR}/sources/partsdb/partfielddialog.h
+  ${QET_DIR}/sources/partsdb/parttexts.cpp
+  ${QET_DIR}/sources/partsdb/parttexts.h
+  ${QET_DIR}/sources/TerminalStrip/UndoCommand/takeoutofstripscommand.h
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/demoterminalstrip.cpp
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/demoterminalstrip.h
   ${QET_DIR}/sources/TerminalStrip/GraphicsItem/terminalstripitem.cpp
@@ -955,6 +967,10 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/ui/titleblockpropertieswidget.h
   ${QET_DIR}/sources/ui/xrefdisplaydialog.cpp
   ${QET_DIR}/sources/ui/xrefdisplaydialog.h
+  ${QET_DIR}/sources/ui/xrefdisplayform.cpp
+  ${QET_DIR}/sources/ui/xrefdisplayform.h
+  ${QET_DIR}/sources/ui/elementxrefdisplaywidget.cpp
+  ${QET_DIR}/sources/ui/elementxrefdisplaywidget.h
   ${QET_DIR}/sources/ui/xrefpropertieswidget.cpp
   ${QET_DIR}/sources/ui/xrefpropertieswidget.h
   ${QET_DIR}/sources/ui/configpage/configpage.h

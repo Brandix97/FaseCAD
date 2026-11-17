@@ -17,7 +17,7 @@
 */
 #include "cablenumberingdialog.h"
 
-#include "../autoNum/ui/selectautonumw.h"
+#include "../cable/cablemanager.h"
 #include "../cable/cablerenumber.h"
 #include "../cable/editcablecommand.h"
 #include "../qetproject.h"
@@ -35,9 +35,9 @@
 
 /**
 	@brief CableNumberingDialog::CableNumberingDialog
-	Build the window around the numbering rule of the project: the rule
-	itself, the axis the cables are laid out along when the whole
-	project is numbered again, and the button which does that numbering.
+	Build the window: what a cable is called, the axis the cables are
+	laid out along when the whole project is numbered again, and the
+	button which does that numbering.
 	@param project the project whose cables are numbered
 	@param parent
 */
@@ -46,27 +46,17 @@ CableNumberingDialog::CableNumberingDialog(QETProject *project, QWidget *parent)
 	m_project(project)
 {
 	setWindowTitle(tr("Cable numbering"));
-		//The rule editor needs room to be read: this window opens with
-		//the size it needs rather than with whatever its contents
-		//happen to add up to, so nothing of the rule is cramped from
-		//the first moment
-	setMinimumSize(QSize(900, 620));
 
 	auto *layout = new QVBoxLayout(this);
 
+	const QString base = CableManager::baseName();
 	auto *note = new QLabel(tr(
-		"This window shows the automatic numbering rule for the cables "
-		"of this project and edits it. A rule changed here is the one "
-		"the project keeps: it is written into the project when you "
-		"apply it."), this);
+		"A new cable takes the first number free in the project: %1, "
+		"%2... Renumbering names every cable of the project again in "
+		"the order below, which closes the gaps left by deleted cables.")
+		.arg(base + QLatin1Char('1'), base + QLatin1Char('2')), this);
 	note->setWordWrap(true);
 	layout->addWidget(note);
-
-	m_rule = new SelectAutonumW(3, this);
-		//One rule only, so the row which picks between several named
-		//numberings is hidden: what is on show is the project's rule
-	m_rule->setSingleRuleMode(true);
-	layout->addWidget(m_rule);
 
 	auto *axis_group = new QGroupBox(tr("Axis priority"), this);
 	auto *axis_layout = new QHBoxLayout(axis_group);
@@ -86,170 +76,50 @@ CableNumberingDialog::CableNumberingDialog(QETProject *project, QWidget *parent)
 	auto *actions = new QHBoxLayout();
 	m_renumber_pb = new QPushButton(tr("Renumber all cables"), this);
 	m_renumber_pb->setToolTip(tr(
-		"Sets the number of each cable of the project again from the "
-		"rule, starting at the beginning: a number left missing after "
-		"a cable is deleted is filled in this way."));
+		"Sets the number of each cable of the project again, starting "
+		"at 1: a number left missing after a cable is deleted is filled "
+		"in this way."));
 	actions->addWidget(m_renumber_pb);
 	actions->addStretch();
 
-		//No confirm button: this window is there to number the cables
-		//again and to show the rule which does it. What the window
-		//holds is written by the editor's own Apply button, and by the
-		//numbering button which writes it before numbering -- so a
-		//second button only saving and closing would say the same
-		//thing twice.
-	m_box = new QDialogButtonBox(this);
-	m_box->addButton(QDialogButtonBox::Cancel);
-	m_box->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
+	m_box = new QDialogButtonBox(QDialogButtonBox::Close, this);
 	actions->addWidget(m_box);
 	layout->addLayout(actions);
 
 	connect(m_box, &QDialogButtonBox::rejected, this, &QDialog::reject);
 	connect(m_renumber_pb, &QPushButton::clicked, this, &CableNumberingDialog::renumber);
-		//The editor's own buttons are wired the same way the project
-		//properties wire them, so this window saves exactly what that
-		//page would have saved
-	connect(m_rule, &SelectAutonumW::applyPressed, this, &CableNumberingDialog::applyRule);
-	connect(m_rule, &SelectAutonumW::removeClicked, this, &CableNumberingDialog::removeRule);
-		//Filling a rule in lights the numbering button up as soon as
-		//there is something to number with
-	connect(m_rule, &SelectAutonumW::contextEdited, this,
-			&CableNumberingDialog::updateEnabling);
 
+	const bool editable = m_project && !m_project->isReadOnly();
 	if (m_project)
 	{
-		const QString key = m_project->cableCurrentAutoNum();
-		const bool has_rule = !key.isEmpty()
-				&& !m_project->cableAutoNum(key).isEmpty();
-		m_rule->setContext(has_rule ? m_project->cableAutoNum(key)
-									: NumerotationContext());
-			//The button which takes the rule away is only worth showing
-			//when there is one, and only while the project may be
-			//written to
-		m_rule->setRuleRemovable(has_rule && !m_project->isReadOnly());
-
 		m_axis_x->setChecked(m_project->cableXAxisFirst());
 		m_axis_y->setChecked(!m_project->cableXAxisFirst());
-
-		if (m_project->isReadOnly())
-		{
-			m_rule->setEnabled(false);
-			m_axis_x->setEnabled(false);
-			m_axis_y->setEnabled(false);
-		}
 	}
-	updateEnabling();
+	m_axis_x->setEnabled(editable);
+	m_axis_y->setEnabled(editable);
+	m_renumber_pb->setEnabled(editable);
+		//The axis is kept with the project as soon as it is chosen
+	connect(m_axis_x, &QRadioButton::toggled, this, &CableNumberingDialog::saveAxis);
 }
 
 /**
-	@brief CableNumberingDialog::applyRule
-	What the editor's own Apply button does: write the rule into the
-	project and leave the window open, the way that button behaves on
-	the numbering pages of the settings.
+	@brief CableNumberingDialog::saveAxis
+	Write the axis into the project, when it changed.
 */
-void CableNumberingDialog::applyRule()
-{
-	save();
-	updateEnabling();
-}
-
-/**
-	@brief CableNumberingDialog::save
-	Write the rule and the axis into the project. Nothing is written
-	when nothing was changed, so confirming a window which was only
-	ever looked at leaves the project exactly as it was.
-	@return true when the window holds nothing which could not be written
-*/
-bool CableNumberingDialog::save()
-{
-	if (!m_project || m_project->isReadOnly()) return false;
-
-	bool changed = false;
-
-	if (m_rule->isModified())
-	{
-		if (!m_rule->isValid())
-		{
-			QMessageBox::warning(this, tr("Cable numbering"),
-								 tr("The rule is not complete yet: "
-									"there is still an empty field in it."));
-			return false;
-		}
-
-		const QString title = QETProject::cableAutoNumRuleName();
-		m_project->addCableAutoNum(title, m_rule->toNumContext());
-		m_project->setCurrentCableAutoNum(title);
-			//What was edited is written now, so there is nothing of it
-			//left for a second save to write again
-		m_rule->setContext(m_rule->toNumContext());
-		m_rule->setRuleRemovable(true);
-		changed = true;
-	}
-
-	const bool axis_first = m_axis_x->isChecked();
-	if (m_project->cableXAxisFirst() != axis_first) changed = true;
-	m_project->setCableXAxisFirst(axis_first);
-
-	if (changed) m_project->setModified(true);
-	return true;
-}
-
-/**
-	@brief CableNumberingDialog::removeRule
-	Take the cable numbering rule out of the project. The project then
-	numbers its cables by no rule at all -- they are called W until one
-	is defined again -- and the cable tool asks once more whether one
-	should be defined.
-*/
-void CableNumberingDialog::removeRule()
+void CableNumberingDialog::saveAxis()
 {
 	if (!m_project || m_project->isReadOnly()) return;
 
-	const QString title = m_project->cableCurrentAutoNum();
-	if (title.isEmpty()) return;
-
-	m_project->removeCableAutoNum(title);
-	m_rule->setContext(NumerotationContext());
-		//No rule left, so the button which takes one away goes too. And
-		//having just taken the rule away means numbering cables by hand
-		//again: the question of defining one comes back the next time a
-		//cable is drawn, so it is not held back in this project any more.
-	m_rule->setRuleRemovable(false);
-	m_project->setCableAskNumbering(true);
+	const bool axis_first = m_axis_x->isChecked();
+	if (m_project->cableXAxisFirst() == axis_first) return;
+	m_project->setCableXAxisFirst(axis_first);
 	m_project->setModified(true);
-	updateEnabling();
-}
-
-/**
-	@brief CableNumberingDialog::updateEnabling
-	Renumbering needs something to number with: a rule filled in well
-	enough to be one, and a project which may be written to.
-*/
-void CableNumberingDialog::updateEnabling()
-{
-	if (!m_project || m_project->isReadOnly() || !m_rule) {
-		m_renumber_pb->setEnabled(false);
-		return;
-	}
-
-	const QString key = m_project->cableCurrentAutoNum();
-	const bool saved_rule = !key.isEmpty()
-			&& !m_project->cableAutoNum(key).isEmpty();
-		//A rule which is still being filled in counts as soon as it is
-		//written, and the numbering writes it together with the numbers
-		//it hands out
-	const bool drawn_rule = m_rule->isModified() && m_rule->isValid()
-			&& !m_rule->toNumContext().isEmpty();
-
-	m_renumber_pb->setEnabled((saved_rule || drawn_rule)
-							  && m_rule->isValid()
-							  && !m_rule->toNumContext().isEmpty());
 }
 
 /**
 	@brief CableNumberingDialog::askAboutHandWritten
 	Some cables carry a name he typed in himself rather than one the
-	rule handed out. Taking such a name away is his to allow: yes and
+	numbering handed out. Taking such a name away is his to allow: yes and
 	they are numbered like all the others, no and they keep their name
 	while the rest is numbered around them, and cancelling leaves every
 	cable exactly where it stands.
@@ -287,35 +157,17 @@ int CableNumberingDialog::askAboutHandWritten(int count)
 
 /**
 	@brief CableNumberingDialog::renumber
-	Number every cable of the project again with the rule on show,
-	from the beginning of that rule and in the order the cables stand
-	along the chosen axis. One single undo step takes it all back, and
-	the window closes once the numbering has been written so that he
-	can see what became of his cables.
+	Name every cable of the project again, -W1, -W2..., in the order the
+	cables stand along the chosen axis. One single undo step takes it
+	all back, and the window closes once the numbering has been written
+	so that he can see what became of his cables.
 */
 void CableNumberingDialog::renumber()
 {
 	if (!m_project || m_project->isReadOnly()) return;
 
-		//A rule which is not complete yet is refused before anything is
-		//worked out at all. What the window holds is written only together
-		//with the numbering itself, so every way out coming before that
-		//point -- a rule which does not fit, him saying no, nothing to
-		//number -- leaves the project exactly as it stands.
-	const NumerotationContext rule = m_rule->toNumContext();
-	if (!m_rule->isValid() || rule.isEmpty())
-	{
-		QMessageBox::warning(this, tr("Cable numbering"),
-							 tr("The rule is not complete yet."));
-		return;
-	}
 	const bool axis_first = m_axis_x->isChecked();
-
-		//Whether he lets his own names be taken away or not, a project
-		//with nothing to number with says so before he is asked
-		//anything: the rule has to be one first
-	CableRenumberPlan plan = CableRenumber::plan(m_project, rule, axis_first,
-												 true);
+	CableRenumberPlan plan = CableRenumber::plan(m_project, axis_first, true);
 	if (!plan.ok())
 	{
 		QMessageBox::warning(this, tr("Cable numbering"), plan.error);
@@ -326,11 +178,10 @@ void CableNumberingDialog::renumber()
 	if (answer < 0) return;
 
 		//Leaving his own names alone means the numbering runs around
-		//them, which can hand out a number somebody else keeps: that
-		//is worked out again here and refused if it does not fit
+		//them: worked out again without them
 	if (answer == 0)
 	{
-		plan = CableRenumber::plan(m_project, rule, axis_first, false);
+		plan = CableRenumber::plan(m_project, axis_first, false);
 		if (!plan.ok())
 		{
 			QMessageBox::warning(this, tr("Cable numbering"), plan.error);
@@ -344,9 +195,9 @@ void CableNumberingDialog::renumber()
 		return;
 	}
 
-		//Every cable already carries the number the rule says: there is
-		//nothing to write, and an undo step which undoes nothing would
-		//only be in the way
+		//Every cable already carries its number: there is nothing to
+		//write, and an undo step which undoes nothing would only be in
+		//the way
 	bool changed = false;
 	for (int i = 0; i < plan.cables.size(); ++i)
 	{
@@ -360,24 +211,12 @@ void CableNumberingDialog::renumber()
 	{
 		QMessageBox::information(this, tr("Cable numbering"),
 								 tr("All the cables already carry the number "
-									"that the rule gives them."));
+									"they would be given."));
 		return;
 	}
 
-		//The rule on show is written now, right with the numbering it
-		//belongs to, and the numbering then leaves the counters of that
-		//rule where the last number was taken from: both go into the
-		//project with the names, as one single act which undo takes
-		//back together. Nothing was written before this point, which is
-		//why he may still back out of here without the project having
-		//been touched.
-	if (!save()) return;
-
-	const QString num_key = QETProject::cableAutoNumRuleName();
 	if (QUndoStack *stack = m_project->undoStack()) {
-		stack->push(new RenumberCablesCommand(
-			plan.cables, plan.designations, m_project, num_key,
-			m_project->cableAutoNum(num_key), plan.after));
+		stack->push(new RenumberCablesCommand(plan.cables, plan.designations));
 	}
 	accept();
 }

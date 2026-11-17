@@ -139,7 +139,8 @@ bool CableFilterProxy::filterAcceptsRow(int source_row, const QModelIndex &sourc
 /**
 	@brief CableCreateDialog::CableCreateDialog
 	@param diagram the folio the line was drawn on
-	@param crossings the conductors that line runs across, in drawing order
+	@param crossings the conductors that line runs across, from the left
+	or from the top (CableManager::crossedConductors())
 	@param part the section which will carry the trunk line and its slashes
 	@param parent
 */

@@ -60,6 +60,29 @@
 
 namespace {
 /**
+	@return true when @p feci cannot be written: the common collection
+	of a read-only installation
+*/
+bool isLocked(const FileElementCollectionItem *feci)
+{
+	return !ElementsLocation(feci->collectionPath()).isWritable();
+}
+
+/**
+	@return true when the file system item at @p location can be deleted
+	from the panel
+*/
+bool isDeletable(const ElementsLocation &location)
+{
+	const QString path = location.collectionPath();
+	return path.startsWith(QLatin1String("company://"))
+			|| path.startsWith(QLatin1String("custom://"))
+			|| path.startsWith(QLatin1String("macros://"))
+			|| (path.startsWith(QLatin1String("common://"))
+				&& location.isWritable());
+}
+
+/**
 	@brief The SearchResultsView class
 	The flat list of search results. Rows are not backed by the collection
 	model, so the drag is built here from the path each row carries, with
@@ -471,7 +494,7 @@ void ElementsCollectionWidget::customContextMenu(const QPoint &point)
 		add_open_dir = true;
 		FileElementCollectionItem *feci =
 		static_cast<FileElementCollectionItem*>(eci);
-		if (!feci->isCommonCollection())
+		if (!isLocked(feci))
 		{
 			if (feci->isDir())
 			{
@@ -659,9 +682,7 @@ void ElementsCollectionWidget::deleteElement()
 	if (! (isDeletableFile
 		&& loc.exist()
 		&& loc.isFileSystem()
-		&& (loc.collectionPath().startsWith("company://")
-		|| loc.collectionPath().startsWith("custom://")
-		|| loc.collectionPath().startsWith("macros://"))) ) return;
+		&& isDeletable(loc)) ) return;
 
 	if (QET::QetMessageBox::question(
 		this,
@@ -705,9 +726,7 @@ void ElementsCollectionWidget::deleteDirectory()
 	if (! (loc.isDirectory()
 		&& loc.exist()
 		&& loc.isFileSystem()
-		&& (loc.collectionPath().startsWith("company://")
-		|| loc.collectionPath().startsWith("custom://")
-		|| loc.collectionPath().startsWith("macros://"))) ) return;
+		&& isDeletable(loc)) ) return;
 
 	if (QET::QetMessageBox::question(
 		this,
@@ -750,7 +769,7 @@ void ElementsCollectionWidget::editDirectory()
 
 	FileElementCollectionItem *feci =
 			static_cast<FileElementCollectionItem*>(eci);
-	if(feci->isCommonCollection()) return;
+	if(isLocked(feci)) return;
 
 	ElementsLocation location(feci->collectionPath());
 	ElementsCategoryEditor ece(location, true, this);
@@ -770,7 +789,7 @@ void ElementsCollectionWidget::newDirectory()
 	if (!eci || eci->type() != FileElementCollectionItem::Type) return;
 
 	FileElementCollectionItem *feci = static_cast<FileElementCollectionItem*>(eci);
-	if(feci->isCommonCollection()) return;
+	if(isLocked(feci)) return;
 
 	ElementsLocation location(feci->collectionPath());
 	ElementsCategoryEditor new_dir_editor(location, false, this);
@@ -805,7 +824,7 @@ void ElementsCollectionWidget::newElement()
 
 	FileElementCollectionItem *feci =
 			static_cast<FileElementCollectionItem*>(eci);
-	if(feci->isCommonCollection()) {
+	if(isLocked(feci)) {
 		return;
 	}
 

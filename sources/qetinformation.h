@@ -184,6 +184,15 @@ namespace QETInformation
 
 	QStringList elementInfoKeys();
 	QStringList elementEditorElementInfoKeys();
+		/**
+			The auxiliary blocks offered for editing: the first one only
+			(Brandon, 2026-11-16). The blocks 2 to 4 stay information of
+			the element -- the project database, the nomenclatures and an
+			old project keep them -- but are offered only where an element
+			already has a value in them.
+		*/
+	inline int shownAuxiliaryBlocks() {return 1;}
+	bool isExtraAuxiliaryInfo(const QString &info);
 	QStringList terminalConductorInfoKeys(int connection_count);
 	bool isTerminalConductorInfo(const QString &info,
 								 QString *property = nullptr,

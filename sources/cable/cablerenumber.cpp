@@ -18,8 +18,8 @@
 #include "cablerenumber.h"
 
 #include "cable.h"
-#include "../autoNum/assignvariables.h"
-#include "../autoNum/numerotationcontextcommands.h"
+#include "cablemanager.h"
+#include "../devicenaming.h"
 #include "../diagram.h"
 #include "../qetproject.h"
 
@@ -44,28 +44,9 @@ struct OrderedCable
 		///that folio
 	qreal left = 0.0;
 	qreal top = 0.0;
-		///The folio the rule is read on for this cable
+		///The folio the cable is numbered on
 	Diagram *diagram = nullptr;
 };
-
-/**
-	@brief Read a rule once, the way the numbering of a cable reads it.
-
-	The rule is read on a copy, since reading it fills in what its
-	folio-bound parts are worth on that one folio, and that must not
-	creep into the rule itself.
-	@param context the rule as it stands at this point of the numbering
-	@param diagram the folio the number is worked out on
-	@param key the name the rule is kept under in the project
-	@return the number, empty when the rule says nothing here
-*/
-QString readRule(NumerotationContext context, Diagram *diagram, const QString &key)
-{
-	const QString formula = autonum::numerotationContextToFormula(context);
-	autonum::sequentialNumbers seq;
-	autonum::setSequential(formula, seq, context, diagram, key);
-	return autonum::AssignVariables::formulaToLabel(formula, seq, diagram);
-}
 
 } // namespace
 
@@ -90,19 +71,17 @@ int CableRenumber::byHandCount(QETProject *project)
 
 /**
 	@brief CableRenumber::plan
-	Work the number of every cable of the project out, without writing
+	Work the name of every cable of the project out, without writing
 	anywhere. The cables are put in the order they are numbered in --
 	folio by folio, and on each folio along whichever axis leads -- and
-	the rule is then read from its beginning once for each of them, so
-	that the numbering runs on without a hole.
+	numbered from 1 behind CableManager::baseName(), so that the
+	numbering runs on without a hole.
 	@param project the project whose cables are numbered
-	@param rule the numbering rule to read
 	@param x_axis_first true when the leftmost cable of a folio comes first
 	@param include_by_hand false to leave the names typed in by hand alone
-	@return the numbers, or what stopped the numbering
+	@return the names, or what stopped the numbering
 */
 CableRenumberPlan CableRenumber::plan(QETProject *project,
-									  const NumerotationContext &rule,
 									  bool x_axis_first,
 									  bool include_by_hand)
 {
@@ -119,26 +98,6 @@ CableRenumberPlan CableRenumber::plan(QETProject *project,
 			"CableRenumber",
 			"This project is read-only: its cables cannot be "
 			"renumbered.");
-		return result;
-	}
-		//The rule may be one the numbering window is drawing right now
-		//and has not written into the project yet: the numbering writes
-		//it together with the numbers themselves, so the project does
-		//not have to hold it beforehand. What the counters are kept
-		//under is the name the rule is stored with, which for cables is
-		//fixed either way -- so numbering starts from a project which
-		//has no rule saved yet just as well.
-	QString key = project->cableCurrentAutoNum();
-	if (key.isEmpty()) {
-		key = QETProject::cableAutoNumRuleName();
-	}
-	if (rule.isEmpty())
-	{
-		result.error = QCoreApplication::translate(
-			"CableRenumber",
-			"No cable numbering rule is defined for this "
-			"project. Define one in this window before "
-			"renumbering its cables.");
 		return result;
 	}
 
@@ -209,12 +168,6 @@ CableRenumberPlan CableRenumber::plan(QETProject *project,
 		return a.cable->uuid().toString() < b.cable->uuid().toString();
 	});
 
-		//Read the rule from the beginning, once for each cable: its
-		//counters are put back first, since numbering a project over
-		//starts at the beginning whatever the last number was
-	NumerotationContext context = autonum::resetContextCounters(rule);
-	int current_folio = -1;
-
 	for (const OrderedCable &entry : std::as_const(ordered))
 	{
 		if (!entry.diagram)
@@ -226,67 +179,13 @@ CableRenumberPlan CableRenumber::plan(QETProject *project,
 			return result;
 		}
 
-			//A counter bound to the folio counts from the beginning of
-			//that folio: the first cable of a folio gets the first
-			//number of it, and the folios after it start again rather
-			//than carrying the number of the folio before on
-		if (entry.folio != current_folio)
-		{
-			context = autonum::resetFolioCounters(context);
-			current_folio = entry.folio;
-		}
-
-		const QString candidate = readRule(context, entry.diagram, key);
-		if (candidate.isEmpty())
-		{
-			result.error = QCoreApplication::translate(
-				"CableRenumber",
-				"The current rule gives no number here: "
-				"nothing was changed.");
-			return result;
-		}
-			//A rule which does not count hands out the same number
-			//twice, and two cables of one project may not be called
-			//the same thing
-		if (result.designations.contains(candidate))
-		{
-			result.error = QCoreApplication::translate(
-				"CableRenumber",
-				"The current rule gives the same number (%1) twice: "
-				"it must count to renumber a whole project. "
-				"Nothing was changed.")
-				.arg(candidate);
-			return result;
-		}
-			//A name which stays because it was typed in keeps its
-			//number, and the numbering may not hand that number out
-		if (taken.contains(candidate))
-		{
-			result.error = QCoreApplication::translate(
-				"CableRenumber",
-				"Number %1 is already used by a cable whose name "
-				"is left as it is: nothing was changed.")
-				.arg(candidate);
-			return result;
-		}
-
-		taken.insert(candidate);
+			//The first number neither handed out yet nor kept by a cable
+			//left alone
+		const QString name =
+				DeviceNaming::nextLabel(CableManager::baseName(), taken);
+		taken.insert(name);
 		result.cables.append(entry.cable);
-		result.designations.append(candidate);
-
-			//Step the rule on for the next cable; a rule which cannot
-			//step stays where it is and is caught by the check above
-		NumerotationContextCommands ncc(context, entry.diagram);
-		const NumerotationContext following = ncc.next();
-		if (following.size() == context.size()) {
-			context = following;
-		}
+		result.designations.append(name);
 	}
-
-		//Where the rule stands after the last cable has been numbered:
-		//the caller writes that into the project, so numbering goes on
-		//from there instead of from wherever the rule happened to stand
-		//before this numbering ran
-	result.after = context;
 	return result;
 }

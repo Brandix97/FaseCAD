@@ -62,7 +62,8 @@ class DynamicElementTextModel : public QStandardItemModel
 		grpVAdjust,
 		grpName,
 		grpHoldBottom,
-		grpFrame
+		grpFrame,
+		partText
 	};
 
 	DynamicElementTextModel(Element *element, QObject *parent = nullptr);

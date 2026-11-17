@@ -30,6 +30,7 @@
 #include "dynamicelementtextitemeditor.h"
 #include "elementinfowidget.h"
 #include "elementterminaltextswidget.h"
+#include "elementxrefdisplaywidget.h"
 #include "../partsdb/elementpartswidget.h"
 #include "../terminals/terminalpropertieswidget.h"
 #include "linksingleelementwidget.h"
@@ -137,7 +138,9 @@ void ElementPropertiesWidget::setElement(Element *element)
 			//If previous element is same type as new element we just call setElement for each editor
 		if(previous_element->linkType() == m_element->linkType()
 		   && ElementTerminalTextsWidget::isUsefulFor(previous_element)
-			  == ElementTerminalTextsWidget::isUsefulFor(m_element))
+			  == ElementTerminalTextsWidget::isUsefulFor(m_element)
+		   && ElementXRefDisplayWidget::isUsefulFor(previous_element)
+			  == ElementXRefDisplayWidget::isUsefulFor(m_element))
 		{
 			bool chained_changed = false;
 			if (m_element->linkType() & Element::AllReport) {
@@ -371,6 +374,10 @@ void ElementPropertiesWidget::updateUi()
 		case Element::Master:
 			m_list_editor << new MasterPropertiesWidget(m_element, this);
 			add_info_and_parts();
+				//How its contacts are shown, where and turned how
+			if (ElementXRefDisplayWidget::isUsefulFor(m_element)) {
+				m_list_editor << new ElementXRefDisplayWidget(m_element, this);
+			}
 			break;
 		case Element::Slave:
 			if (m_element->elementData().m_slave_type == ElementData::PLCSlave)

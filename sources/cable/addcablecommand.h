@@ -20,8 +20,6 @@
 
 #include "cable.h"
 
-#include "../autoNum/numerotationcontext.h"
-
 #include <QList>
 #include <QPointer>
 #include <QUndoCommand>
@@ -79,17 +77,6 @@ class AddCableCommand : public QUndoCommand
 		///True when this command brought the cable into existence, so it
 		///is the one which has to take it away again
 		bool m_own_cable = false;
-		/**
-			When this cable took a number out of the project's numbering
-			rule, the rule as it was before it did and as it was after:
-			an empty key means the project numbers its cables by no rule
-			and nothing here applies. Handing the number out is part of
-			bringing the cable into being, so undo has to hand it back --
-			otherwise undoing a cable and drawing it once more would
-			leave a gap in the numbering for good.
-		*/
-		QString m_num_key;
-		NumerotationContext m_num_before;
 };
 
 #endif // ADDCABLECOMMAND_H

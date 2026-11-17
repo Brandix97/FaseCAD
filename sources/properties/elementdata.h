@@ -180,6 +180,8 @@ class ElementData : public PropertiesInterface
 			qreal width = 0.5;          ///< line thickness, in drawing units
 			qreal gap = 10;             ///< below the symbol, in drawing units
 			QPointF manual;             ///< top left corner, from the symbol's origin, so it follows the symbol
+			bool absolute = false;      ///< manual is a point of the folio instead: it stays put when the symbol moves
+			int angle = 0;              ///< the contact symbols turned by 0, 90, 180 or 270 degrees, their texts upright
 			bool showUnlinked = false;  ///< also the contacts nothing is linked to
 
 			bool operator==(const XRefDisplay &other) const {
@@ -190,6 +192,8 @@ class ElementData : public PropertiesInterface
 							&& qFuzzyCompare(width, other.width)
 							&& qFuzzyCompare(gap, other.gap)
 							&& manual == other.manual
+							&& absolute == other.absolute
+							&& angle == other.angle
 							&& showUnlinked == other.showUnlinked));
 			}
 			bool operator!=(const XRefDisplay &other) const {

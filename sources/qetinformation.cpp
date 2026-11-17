@@ -214,6 +214,20 @@ QStringList QETInformation::elementInfoKeys()
 }
 
 /**
+	@brief QETInformation::isExtraAuxiliaryInfo
+	@return true for an information of an auxiliary block past the ones
+	offered for editing (@sa shownAuxiliaryBlocks): "auxiliary2",
+	"manufacturer_auxiliary3"...
+*/
+bool QETInformation::isExtraAuxiliaryInfo(const QString &info)
+{
+	static const QRegularExpression rx(
+				QStringLiteral("^(?:[a-z_]+_)?auxiliary([1-9])$"));
+	const QRegularExpressionMatch match = rx.match(info);
+	return match.hasMatch() && match.captured(1).toInt() > shownAuxiliaryBlocks();
+}
+
+/**
 	@brief QETInformation::terminalConductorInfoKeys
 	@param connection_count : number of connection points of the symbol
 	@return the information a text of a terminal symbol can read from the

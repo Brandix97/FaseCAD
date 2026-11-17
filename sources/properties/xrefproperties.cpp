@@ -122,10 +122,17 @@ void XRefProperties::fromSettings(const QSettings &settings,
 	m_show_terminal_name = settings.value(prefix % "showterminalname", true).toBool();
 	m_show_all_configured_slaves = settings.value(prefix % "showallconfiguredslaves", false).toBool();
 	m_stack_overlapping = settings.value(prefix % "stackoverlapping", true).toBool();
-	QString display = settings.value(prefix % "displayhas", "cross").toString();
+		//A new project shows the contacts of a master, their symbols
+		//with the terminal numbers, unless the settings say a cross
+		//(Brandon, 2026-11-16); a project file which says nothing is
+		//still read as a cross (fromXml())
+	QString display = settings.value(prefix % "displayhas", "contacts").toString();
 	display == "cross"? m_display = Cross : m_display = Contacts;
-	QString snap = settings.value(prefix % "snapto", "label").toString();
-	snap == "bottom"? m_snap_to = Bottom : m_snap_to = Label;
+		//...at the foot of the folio, unless the settings say under the
+		//label (Brandon, 2026-11-16); a file which says nothing is still
+		//read under the label (fromXml())
+	QString snap = settings.value(prefix % "snapto", "bottom").toString();
+	snap == "label"? m_snap_to = Label : m_snap_to = Bottom;
 	m_offset = settings.value(prefix % "offset", "0").toInt();
 	m_slave_offset = settings.value(prefix % "slave_offset", "0").toInt();
 	m_master_label = settings.value(prefix % "master_label", "%f-%l%c").toString();

@@ -26,7 +26,6 @@
 class Cable;
 class Conductor;
 class Diagram;
-class NumerotationContext;
 class QETProject;
 
 /**
@@ -82,32 +81,8 @@ class CableManager
 		//Lookup
 		static Cable *cableByUuid(QETProject *project, const QUuid &uuid);
 		static Conductor *conductorByUuid(QETProject *project, const QUuid &uuid);
+		static QString baseName();
 		static QString nextDesignation(QETProject *project, Diagram *diagram);
-			/**
-				Work the number of a next cable out of a rule which is
-				@em not the project's own state but the one @p context
-				holds: the rule is read as it stands there and what it
-				hands out is the number, unless some cable already
-				stands under that number -- which is what happens while
-				a whole run of cables is numbered one after the other
-				before any of them has really been added. Then @p
-				context is stepped on and the rule is read once more.
-
-				When the project numbers its cables by no rule at all,
-				@p context is not read and the plain letter W is handed
-				out instead: no numbers are invented where none have
-				been defined.
-
-				A caller numbering a run of cables keeps the same @p
-				context for all of them, so each of them gets a number
-				of its own; a caller numbering one cable lets it go
-				again afterwards. The project's own rule is never
-				moved on here -- that belongs to the moment the cable
-				comes into being.
-			*/
-		static QString nextDesignation(QETProject *project,
-									   Diagram *diagram,
-									   NumerotationContext &context);
 };
 
 #endif // CABLEMANAGER_H

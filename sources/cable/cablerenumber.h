@@ -22,8 +22,6 @@
 #include <QString>
 #include <QStringList>
 
-#include "../autoNum/numerotationcontext.h"
-
 class Cable;
 class QETProject;
 
@@ -32,9 +30,8 @@ class QETProject;
 	single cable is written to.
 
 	Working it out first means the answer can be refused as a whole: a
-	rule which hands out the same number twice, or a number some cable
-	which is left alone already carries, stops the whole numbering
-	rather than numbering half the project and then getting stuck.
+	cable standing on no folio stops the whole numbering rather than
+	numbering half the project and then getting stuck.
 */
 struct CableRenumberPlan
 {
@@ -42,9 +39,6 @@ struct CableRenumberPlan
 	QList<Cable *> cables;
 		///The number each of them gets, one for each cable
 	QStringList designations;
-		///The rule as it stands once the last cable has been numbered:
-		///its counters are where the next number would be taken from
-	NumerotationContext after;
 		///What stopped the numbering, empty while it may be carried out
 	QString error;
 
@@ -62,7 +56,7 @@ namespace CableRenumber
 {
 	/**
 		How many cables of this project carry a name which was typed in
-		rather than handed out by the numbering rule. Those are the ones
+		rather than handed out by the numbering. Those are the ones
 		renumbering asks about before it takes their name away.
 		@param project
 		@return the number of such cables
@@ -70,33 +64,27 @@ namespace CableRenumber
 	int byHandCount(QETProject *project);
 
 	/**
-		Work the number of every cable of the project out of @p rule.
+		Work the name of every cable of the project out: -W1, -W2...
+		(CableManager::baseName()) in the order the cables stand.
 
 		The cables are laid out first -- folio by folio, and on each
 		folio either from the left to the right or from the top to the
 		bottom, whichever axis leads -- and are then numbered one after
-		the other from the beginning of the rule, so that a hole left by
-		a cable which has been deleted closes behind it.
+		the other from 1, so that a hole left by a cable which has been
+		deleted closes behind it. A number a cable left alone carries is
+		skipped.
 
 		@param project the project whose cables are numbered
-		@param rule the numbering rule to read; its counters are put
-		back to 1 first, since numbering starts from the beginning
 		@param x_axis_first true to number the cables of a folio from
 		the left to the right, false to number them from the top to the
 		bottom
 		@param include_by_hand false to leave the cables whose name was
 		typed in exactly as they are
-		@return the numbers, or what stopped the numbering. The plan
-		also carries the rule as it stands once every cable has been
-		given its number, so that the caller may put that into the
-		project: the counters have to stay where the last number was
-		taken from, or the next cable drawn would skip over every
-		number in between
+		@return the names, or what stopped the numbering
 	*/
 	CableRenumberPlan plan(QETProject *project,
-							const NumerotationContext &rule,
-							bool x_axis_first,
-							bool include_by_hand);
+						   bool x_axis_first,
+						   bool include_by_hand);
 }
 
 #endif // CABLERENUMBER_H

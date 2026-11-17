@@ -19,7 +19,6 @@
 
 #include "cablemanager.h"
 #include "cablepart.h"
-#include "../autoNum/numerotationcontextcommands.h"
 #include "../diagram.h"
 #include "../qetproject.h"
 
@@ -55,29 +54,6 @@ AddCableCommand::AddCableCommand(Cable *cable,
 	for (const CableCore &core : m_cable->usedCores()) {
 		if (core.part == m_part_data.uuid) {
 			m_cores.append(core);
-		}
-	}
-
-		//A cable this action brought into being takes the next number
-		//the project's numbering rule hands out. The number itself was
-		//worked out before this command existed; what has to happen here
-		//is moving the rule on, and moving it is undoable just like the
-		//cable is -- so undoing gives the number back and the cable
-		//drawn after that takes it again instead of skipping over it.
-		//
-		//Only the rule as it stands now is taken down. Where the rule
-		//stands after this cable is worked out when the cable really
-		//comes into being, because several cables pasted together are
-		//all made before any of them is added, and each of them has to
-		//move the rule on from wherever the one before it left it.
-	if (m_own_cable && m_diagram && project() && project()->hasCableAutoNum())
-	{
-		const QString key = project()->cableCurrentAutoNum();
-		const NumerotationContext current = project()->cableAutoNum(key);
-		if (!current.isEmpty())
-		{
-			m_num_key = key;
-			m_num_before = current;
 		}
 	}
 }
@@ -155,19 +131,6 @@ void AddCableCommand::redo()
 		//without it having said anything, and the wires it feeds would go
 		//on showing a blank cable field although the cable which
 		//generates that field is right there again.
-		//
-		//And the number this cable was given is spent now: the rule
-		//moves on to the one the next cable will be handed. Worked out
-		//here rather than when the command was made, because a run of
-		//cables pasted together is made from end to end before any of
-		//it is added -- each of them has to move the rule on from where
-		//the one before it left it.
-	if (!m_num_key.isEmpty()) {
-		NumerotationContextCommands ncc(proj->cableAutoNum(m_num_key),
-										 m_diagram.data());
-		proj->addCableAutoNum(m_num_key, ncc.next());
-		proj->setCurrentCableAutoNum(m_num_key);
-	}
 	CableManager::refreshLabels(proj);
 }
 
@@ -206,14 +169,6 @@ void AddCableCommand::undo()
 			taken.cable->setCore(taken.core);
 		}
 	}
-		//The number this cable was given goes back into the rule, so
-		//the cable drawn after an undo takes that number rather than
-		//the one after it: nothing of it is left spent.
-	if (!m_num_key.isEmpty()) {
-		proj->addCableAutoNum(m_num_key, m_num_before);
-		proj->setCurrentCableAutoNum(m_num_key);
-	}
-
 		//Same as in redo(): worked out again whatever happened above,
 		//so a cable section or a whole cable taken away never leaves
 		//the wires it used to feed with a cable field it still writes.

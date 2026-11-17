@@ -64,17 +64,26 @@ class TerminalElement : public Element
 			/// The levels the mark shows, 0 for none
 		int levelMarkLevels() const {return m_level_mark ? m_mark_levels : 0;}
 		QLineF bridgeLine() const;
+			/// While it is selected, "Inside" and "Outside" beside its
+			/// connection points (TerminalSides), on the screen only
+		void updateSideMarks();
+		QGraphicsSimpleTextItem *insideMark() const { return m_inside_mark; }
+		QGraphicsSimpleTextItem *outsideMark() const { return m_outside_mark; }
 
 	protected:
 		QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
 	private:
 		void placeStripLabel();
+		void placeSideMark(QGraphicsSimpleTextItem *&mark, const Terminal *terminal,
+						   const QString &text);
 
 		QSharedPointer<RealTerminal> m_real_terminal;
 		QGraphicsSimpleTextItem *m_strip_label = nullptr;
 		QGraphicsLineItem *m_bridge_line = nullptr;
 		QGraphicsPathItem *m_level_mark = nullptr;
+		QGraphicsSimpleTextItem *m_inside_mark = nullptr;
+		QGraphicsSimpleTextItem *m_outside_mark = nullptr;
 		bool m_number_only = false;
 		int m_mark_levels = 0;
 		int m_mark_level = -1;

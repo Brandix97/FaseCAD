@@ -455,6 +455,124 @@ void TerminalStrip::insertTerminals(int pos, const QVector<QSharedPointer<Physic
 }
 
 /**
+ * @brief TerminalStrip::takeOut
+ * Take @a real_terminals out of this strip: their symbols are deleted
+ * from the folio, and a strip which still held them listed and drew
+ * terminals that were no longer there. A physical terminal all the
+ * levels of which go is taken out whole; one which keeps some of its
+ * levels loses only these. The terminals of another strip, or of none,
+ * are left alone.
+ * @return where they stood, for putBack()
+ */
+TerminalStrip::Hole TerminalStrip::takeOut(const QVector<QSharedPointer<RealTerminal>> &real_terminals)
+{
+	Hole hole;
+	QVector<shared_real_terminal> going;
+	for (const auto &real_t : real_terminals) {
+		if (real_t && real_t->parentStrip() == this && !going.contains(real_t)) {
+			going.append(real_t);
+		}
+	}
+	if (going.isEmpty()) {
+		return hole;
+	}
+
+		//The bridges they lie in, as they are
+	for (const auto &bridge_ : std::as_const(m_bridge))
+	{
+		if (!bridge_) {
+			continue;
+		}
+		for (const auto &real_t : std::as_const(going))
+		{
+			if (bridge_->m_real_terminals.contains(real_t)) {
+				hole.bridges.append(qMakePair(bridge_, bridge_->m_real_terminals));
+				break;
+			}
+		}
+	}
+
+		//In the order of the strip
+	for (int i = 0 ; i < m_physical_terminals.size() ; ++i)
+	{
+		const auto phy_t = m_physical_terminals.at(i);
+		bool all = true;
+		bool some = false;
+		for (const auto &real_t : phy_t->realTerminals()) {
+			if (going.contains(real_t)) {
+				some = true;
+			} else {
+				all = false;
+			}
+		}
+		if (some && all) {
+			hole.physical.append(phy_t);
+			hole.positions.append(i);
+		} else if (some) {
+			hole.levels.append(qMakePair(phy_t, phy_t->realTerminals()));
+		}
+	}
+
+	for (const auto &bridge_ : std::as_const(hole.bridges)) {
+		bridge_.first->removeTerminals(going);
+	}
+	for (const auto &level : std::as_const(hole.levels)) {
+		for (const auto &real_t : std::as_const(going)) {
+			level.first->removeTerminal(real_t);
+		}
+	}
+	for (const auto &phy_t : std::as_const(hole.physical)) {
+		m_physical_terminals.removeOne(phy_t);
+		phy_t->setParentStrip(nullptr);
+	}
+
+	emit orderChanged();
+	if (!hole.bridges.isEmpty()) {
+		emit bridgeChanged();
+	}
+	return hole;
+}
+
+/**
+ * @brief TerminalStrip::putBack
+ * Put the terminals takeOut() took out of this strip back where they
+ * stood, with their levels and in their bridges: the deletion of their
+ * symbols is undone.
+ * @param hole : what takeOut() gave back
+ */
+void TerminalStrip::putBack(const Hole &hole)
+{
+	if (hole.isEmpty()) {
+		return;
+	}
+
+	for (const auto &level : hole.levels) {
+		level.first->setTerminals(level.second);
+	}
+
+		//In the order of the strip, each one goes back where it stood
+	for (int i = 0 ; i < hole.physical.size() ; ++i)
+	{
+		const auto &phy_t = hole.physical.at(i);
+		const int pos_ = qBound(0, hole.positions.value(i),
+								static_cast<int>(m_physical_terminals.size()));
+		m_physical_terminals.insert(pos_, phy_t);
+		phy_t->setParentStrip(this);
+	}
+
+	for (const auto &bridge_ : hole.bridges) {
+		if (m_bridge.contains(bridge_.first)) {
+			bridge_.first->m_real_terminals = bridge_.second;
+		}
+	}
+
+	emit orderChanged();
+	if (!hole.bridges.isEmpty()) {
+		emit bridgeChanged();
+	}
+}
+
+/**
  * @brief TerminalStrip::pos
  * @param terminal
  * @return the position of the physical terminal

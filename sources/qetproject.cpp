@@ -104,10 +104,12 @@ m_project_properties_handler{this}
 	setAutoBreakConductor(settings.value(QStringLiteral("diagrameditor/auto_break_conductor"), false).toBool());
 
 		//A new project draws its terminals the way the settings chose it
-		//for new projects (Configure QElectroTech > New project), off when
-		//they say nothing: the drawing is then the one it always was. Every
-		//project saved after that keeps its own choice (readTerminalLabelSplitXml())
-	setTerminalLabelSplit(settings.value(QStringLiteral("diagrameditor/defaultterminallabelling"), false).toBool());
+		//for new projects (Configure QElectroTech > New project), split
+		//when they say nothing: the strip on the left of a terminal, its
+		//number on the right (Brandon, 2026-11-16). Every project saved
+		//after that keeps its own choice (readTerminalLabelSplitXml()), and
+		//one saved without it draws as it always did.
+	setTerminalLabelSplit(settings.value(QStringLiteral("diagrameditor/defaultterminallabelling"), true).toBool());
 
 		//Read chained reports default from global settings (enabled for newly created projects when setting is on)
 	m_chained_reports = settings.value(QStringLiteral("project/enable-chained-reports"), false).toBool();

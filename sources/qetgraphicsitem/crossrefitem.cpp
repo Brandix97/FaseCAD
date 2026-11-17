@@ -379,8 +379,12 @@ void CrossRefItem::autoPos()
 			|| m_display.position == ElementData::XRefDisplay::Manual))
 	{
 		const QRectF body = m_element->mapRectToScene(m_element->drawingRect());
+			//A manual position is taken from the symbol, so the display
+			//follows it, or from the folio, where it stays put
+		const QPointF manual_origin = m_display.absolute ? QPointF()
+														 : m_element->scenePos();
 		const QPointF target = m_display.position == ElementData::XRefDisplay::Manual
-				? m_element->scenePos() + m_display.manual
+				? manual_origin + m_display.manual
 				: QPointF(body.center().x() - boundingRect().width() / 2,
 						  body.bottom() + m_display.gap);
 		setPos(pos() + parentItem()->mapFromScene(target)
@@ -641,7 +645,8 @@ void CrossRefItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 	{
 		m_dragging = false;
 		ElementData data = m_element->elementData();
-		data.m_xref_display.manual = mapToScene(boundingRect().topLeft()) - m_element->scenePos();
+		data.m_xref_display.manual = mapToScene(boundingRect().topLeft())
+				- (data.m_xref_display.absolute ? QPointF() : m_element->scenePos());
 		if (data != m_element->elementData())
 			m_element->diagram()->undoStack().push(new ChangeElementDataCommand(m_element, data));
 		event->accept();
@@ -1272,6 +1277,42 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 
 	int offset = m_drawed_contacts*10;
 	QRectF bounding_rect = QRectF(0, offset, 24, 10);
+
+		//The master's display may turn the contact symbols by a quarter,
+		//a half or three quarters (Brandon, 2026-11-16). The lines turn
+		//around the middle of the symbol, which, turned upright, stands
+		//as tall as it was wide at the left of its rows (three rows of
+		//ten); the terminal numbers stay upright beside the ends they
+		//name, and the position text goes on the right of the symbol.
+	const int angle = m_display.enabled ? m_display.angle : 0;
+	const bool upright = angle == 90 || angle == 270;
+	const auto footprint = [offset, upright](qreal height) {
+		return upright ? QRectF(0, offset, height, 24)
+					   : QRectF(0, offset, 24, height);
+	};
+	const auto turnFor = [offset, angle, &footprint](qreal height) {
+		const QPointF from = QRectF(0, offset, 24, height).center();
+		const QPointF to = footprint(height).center();
+		QTransform turn;
+		turn.translate(to.x(), to.y());
+		turn.rotate(angle);
+		turn.translate(-from.x(), -from.y());
+		return turn;
+	};
+	const QTransform base = painter.transform();
+	QTransform turn;
+		//A terminal number: in rect as it always was when nothing is
+		//turned, else upright, centred where spot went
+	const auto drawName = [this, &painter, &base, &turn, angle](
+			const QRectF &rect, int align, const QRectF &spot, const QString &text) {
+		if (!angle) {
+			drawText(painter, rect, align, text);
+			return;
+		}
+		painter.setTransform(base);
+		drawText(painter, turn.mapRect(spot), Qt::AlignCenter, text);
+		painter.setTransform(turn * base);
+	};
 	
 	QPen pen = painter.pen();
 	elmt && m_hovered_contact == elmt ? pen.setColor(Qt::blue) :pen.setColor(Qt::black);
@@ -1280,7 +1321,9 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 	//Draw NO or NC contact
 	if (flags &NOC)
 	{
-		bounding_rect = QRectF(0, offset, 24, 10);
+		bounding_rect = footprint(10);
+		turn = turnFor(10);
+		painter.setTransform(turn, true);
 
 		//draw the basic line
 		painter.drawLine(0, offset+6, 8, offset+6);
@@ -1292,9 +1335,11 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 			painter.setFont(QETApp::diagramTextsFont(4));
 			QRectF bt(0, offset, 24, 10);
 			if (terminal_names.size() >= 1)
-				drawText(painter, bt, Qt::AlignLeft|Qt::AlignTop, terminal_names[0]);
+				drawName(bt, Qt::AlignLeft|Qt::AlignTop,
+						 QRectF(0, offset, 8, 5), terminal_names[0]);
 			if (terminal_names.size() >= 2)
-				drawText(painter, bt, Qt::AlignRight|Qt::AlignTop, terminal_names[1]);
+				drawName(bt, Qt::AlignRight|Qt::AlignTop,
+						 QRectF(16, offset, 8, 5), terminal_names[1]);
 			painter.setFont(QETApp::diagramTextsFont(5));
 		}
 
@@ -1370,11 +1415,16 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 			}
 		}
 
+		painter.setTransform(base);
+
 		//The hit rect is registered even when the position text is
 		//empty: a linked contact had (and keeps) its hover/click entry
 		//in that case too, only the drawing is skipped. Free slots
 		//(elmt == nullptr) have nothing to click and stay out of the map.
-		QRectF text_rect = painter.boundingRect(QRectF(30, offset, 5, 10), Qt::AlignLeft | Qt::AlignVCenter, str);
+		const QRectF text_area = upright
+				? QRectF(footprint(10).right() + 6, offset, 5, footprint(10).height())
+				: QRectF(30, offset, 5, 10);
+		QRectF text_rect = painter.boundingRect(text_area, Qt::AlignLeft | Qt::AlignVCenter, str);
 		if (!str.isEmpty())
 		{
 			drawText(painter, text_rect, Qt::AlignLeft | Qt::AlignVCenter, str);
@@ -1384,7 +1434,7 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 		if (m_update_map && elmt)
 			m_hovered_contacts_map.insert(elmt, text_rect);
 
-		++m_drawed_contacts;
+		m_drawed_contacts += upright ? 3 : 1;
 	}
 
 		//Draw a switch contact
@@ -1393,8 +1443,10 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 	
 	else if (flags &SW)
 	{
-		bounding_rect = QRectF(0, offset, 24, 20);
+		bounding_rect = footprint(20);
 		bounding_rect.adjust(0, -4, 4, 4);
+		turn = turnFor(20);
+		painter.setTransform(turn, true);
 
 			//draw the NO side
 		painter.drawLine(0, offset+6, 8, offset+6);
@@ -1422,14 +1474,14 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 			painter.setFont(QETApp::diagramTextsFont(4));
 			// Storage order set above: [0]=NC, [1]=NO, [2]=Common
 			if (terminal_names.size() >= 2)
-				drawText(painter, QRectF(0, offset, 8, 8),
-						Qt::AlignLeft|Qt::AlignTop, terminal_names[1]);   // NO  top-left
+				drawName(QRectF(0, offset, 8, 8), Qt::AlignLeft|Qt::AlignTop,
+						 QRectF(0, offset, 8, 5), terminal_names[1]);     // NO  top-left
 			if (terminal_names.size() >= 3)
-				drawText(painter, QRectF(16, offset+4, 8, 6),
-						Qt::AlignRight|Qt::AlignTop, terminal_names[2]); // Common right
+				drawName(QRectF(16, offset+4, 8, 6), Qt::AlignRight|Qt::AlignTop,
+						 QRectF(16, offset+5, 8, 5), terminal_names[2]);  // Common right
 			if (terminal_names.size() >= 1)
-				drawText(painter, QRectF(0, offset+9, 8, 6),
-						Qt::AlignLeft|Qt::AlignTop, terminal_names[0]); // NC  bottom-left
+				drawName(QRectF(0, offset+9, 8, 6), Qt::AlignLeft|Qt::AlignTop,
+						 QRectF(0, offset+9, 8, 6), terminal_names[0]);   // NC  bottom-left
 			painter.setFont(QETApp::diagramTextsFont(5));
 		}
 
@@ -1454,9 +1506,13 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 			
 		}
 
+		painter.setTransform(base);
+
 			//Draw position text
 		QRectF text_rect = painter.boundingRect(
-					QRectF(30, offset+4, 5, 10),
+					upright ? QRectF(footprint(20).right() + 6, offset, 5,
+									 footprint(20).height())
+							: QRectF(30, offset+4, 5, 10),
 					Qt::AlignLeft | Qt::AlignVCenter,
 					str);
 		if (!str.isEmpty())
@@ -1472,15 +1528,17 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 			m_hovered_contacts_map.insert(elmt, text_rect);
 
 			//a switch contact take place of two normal contact
-		m_drawed_contacts += 2;
+		m_drawed_contacts += upright ? 3 : 2;
 		
 	}
 	
 		//Draw Other symbol "ↈ"
 	else if(flags &Other)
 	{
-		bounding_rect = QRectF(0, offset, 24, 20);
+		bounding_rect = upright ? footprint(10) : QRectF(0, offset, 24, 20);
 		bounding_rect.adjust(0, -4, 4, 4);
+		turn = turnFor(10);
+		painter.setTransform(turn, true);
 	
 			//Draw the first arc symbol
 		QRectF r(8, offset+4, 5, 3);
@@ -1490,10 +1548,14 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 		QRectF r2(11.2, offset+4, 5, 3);
 				painter.drawArc(r2, 160*16, 300*16);
 
+		painter.setTransform(base);
+
 			//Draw position text
 		QRectF text_rect = painter.boundingRect(
-						QRectF(30, offset, 5, 10), 
-						Qt::AlignLeft | Qt::AlignVCenter, 
+						upright ? QRectF(footprint(10).right() + 6, offset, 5,
+										 footprint(10).height())
+								: QRectF(30, offset, 5, 10),
+						Qt::AlignLeft | Qt::AlignVCenter,
 						str);
 		if (!str.isEmpty())
 		{
@@ -1506,7 +1568,7 @@ QRectF CrossRefItem::drawContact(QPainter &painter, int flags, Element *elmt, in
 		//free slots are not clickable.
 		if (m_update_map && elmt)
 			m_hovered_contacts_map.insert(elmt, text_rect);
-		++m_drawed_contacts;
+		m_drawed_contacts += upright ? 3 : 1;
 	}
 		return bounding_rect;
 }

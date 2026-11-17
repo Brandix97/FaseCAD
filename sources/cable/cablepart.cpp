@@ -283,8 +283,8 @@ QFont CablePart::fontOf(const QString &key) const
 	@brief CablePart::alignOf
 	How one text lines up at the left end of the trunk line. A cable
 	which says nothing about it follows the preferences, which is where
-	-- until he has said otherwise there either -- every text ends where
-	the line begins, the way it always did.
+	-- until he has said otherwise there either -- every text starts
+	where the line begins (QETApp::cableTextAlignment()).
 	@param key the name of a text of the cable
 	@return Qt::AlignLeft, Qt::AlignHCenter or Qt::AlignRight
 */
@@ -430,7 +430,9 @@ QList<CablePart::LabelLine> CablePart::labelLines() const
 
 		//Where the label as a whole has been nudged to: every line of it
 		//goes with the rest, so those three lines keep reading as one
-		//label rather than as three which have drifted apart.
+		//label rather than as three which have drifted apart. A label
+		//nobody has moved by hand keeps clear of the numbers of the
+		//cores instead; one he has moved stays where he put it.
 	const QPointF nudge = textOffset();
 	if (!nudge.isNull())
 	{
@@ -438,7 +440,55 @@ QList<CablePart::LabelLine> CablePart::labelLines() const
 			line.rect.translate(nudge);
 		}
 	}
+	else {
+		standClearOfCores(lines);
+	}
 	return lines;
+}
+
+/**
+	@brief CablePart::standClearOfCores
+	Lift the label above the numbers of the cores of this line which it
+	would cover, with a little room between them (Brandon, 2026-11-16:
+	"-W2" over the "3" of the first wire). The cores are taken where
+	they are drawn, but a core being dragged where it was picked up, so
+	the label does not jump about while it is dragged.
+	@param lines the label, laid out where it belongs
+*/
+void CablePart::standClearOfCores(QList<LabelLine> &lines) const
+{
+	if (!m_cable || lines.isEmpty()) return;
+
+	QList<QRectF> cores;
+	for (const CableCore &core : m_cable->usedCores())
+	{
+		if (core.part != m_part_uuid || !coreDrawn(core)) continue;
+		const QRectF rect = coreLabelRect(coreDrawPosition(core),
+										  m_cable->colorOfCore(core.core));
+		if (!rect.isEmpty()) {
+			cores << rect.adjusted(-2.0, -2.0, 2.0, 2.0);
+		}
+	}
+
+		//Lifted above one number, the label may reach a taller one
+		//further along: once more, at most once for each core
+	for (int pass = 0; pass <= cores.size(); ++pass)
+	{
+		qreal lift = 0.0;
+		for (const LabelLine &line : std::as_const(lines))
+		{
+			for (const QRectF &core : std::as_const(cores))
+			{
+				if (line.rect.intersects(core)) {
+					lift = qMax(lift, line.rect.bottom() - core.top());
+				}
+			}
+		}
+		if (lift <= 0.0) return;
+		for (LabelLine &line : lines) {
+			line.rect.translate(0.0, -lift);
+		}
+	}
 }
 
 /**

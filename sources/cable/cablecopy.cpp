@@ -20,8 +20,6 @@
 #include "cablemanager.h"
 #include "cablepart.h"
 
-#include "../autoNum/assignvariables.h"
-#include "../autoNum/numerotationcontext.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/conductor.h"
 #include "../qetproject.h"
@@ -111,15 +109,6 @@ QList<CablePart *> CableCopy::read(Diagram *diagram, const QDomElement &root)
 	if (block.isNull()) return built;
 
 	QETProject *project = diagram->project();
-		//One rule for the whole run. Every cable of a paste takes a
-		//number from it and steps it on, so several cables pasted at
-		//once do not all end up under the same number -- although the
-		//project's own rule does not move until those cables really
-		//exist, which is where the commands which add them take over.
-		//A counter bound to the folio starts the folio the copies are
-		//pasted onto at its own beginning, once for the whole run.
-	NumerotationContext rule = autonum::resetFolioCounters(
-				project->cableAutoNum(project->cableCurrentAutoNum()));
 	for (QDomElement element = block.firstChildElement(QStringLiteral("cable"));
 		 !element.isNull();
 		 element = element.nextSiblingElement(QStringLiteral("cable")))
@@ -165,15 +154,14 @@ QList<CablePart *> CableCopy::read(Diagram *diagram, const QDomElement &root)
 			cable->removePart(other.uuid);
 		}
 		cable->setUuid(QUuid::createUuid());
-			//The copy is numbered by the rule like every other cable.
-			//A project which has no rule gets no number invented for it,
-			//and then what the copy was copied from keeps standing there
-			//rather than being wiped out by an empty one.
+			//The copy takes the first free number like every other
+			//cable (-W1, -W2...). It is held by the project already, as
+			//are the copies pasted before it, so each takes its own.
 		const QString designation =
-			CableManager::nextDesignation(project, diagram, rule);
+			CableManager::nextDesignation(project, diagram);
 		if (!designation.isEmpty()) {
 			cable->setDesignation(designation);
-				//The copy is numbered by the rule, so whatever the
+				//The copy is named by the numbering, so whatever the
 				//source was called by hand is not carried over
 			cable->setDesignationByHand(false);
 		}

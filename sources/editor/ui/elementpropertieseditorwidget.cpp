@@ -505,6 +505,10 @@ void ElementPropertiesEditorWidget::populateTree()
 					  QETInformation::translatedInfoKey(key));
 		qtwi->setData(0, Qt::UserRole, key);
 		qtwi->setText(1, m_data.m_informations.value(key).toString());
+			//The first auxiliary block only, unless the symbol has
+			//something in another one (@sa QETInformation::shownAuxiliaryBlocks)
+		qtwi->setHidden(QETInformation::isExtraAuxiliaryInfo(key)
+						&& qtwi->text(1).isEmpty());
 		// Adjust column width
 		ui->m_tree->resizeColumnToContents(0);
 	}

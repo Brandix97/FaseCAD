@@ -24,27 +24,16 @@ class QDialogButtonBox;
 class QETProject;
 class QPushButton;
 class QRadioButton;
-class SelectAutonumW;
 
 /**
 	@brief The window behind the "Cable numbering" entry of the
-	numbering menu: the one numbering rule the project numbers its
-	cables with, the axis those cables are laid out along when the whole
-	project is numbered again, and the button which does that numbering.
+	numbering menu: the axis the cables of the project are laid out
+	along and the button which names every one of them again, -W1,
+	-W2... (CableManager::baseName()) in that order.
 
-	The rule is the very editor the project properties hold on their
-	cable tab, read from the project when the window opens and written
-	back into the project by that editor's own Apply button -- and by
-	the numbering button, which writes what the window holds before it
-	numbers, so numbering always happens with the rule on show: a rule
-	which is changed here is the rule the project keeps, not a rule of
-	its own. There is no confirm button of this window's own: what the
-	window holds is either applied by hand or left behind when it is
-	closed.
-
-	Renumbering works every cable of the project out from the beginning
-	of that rule, so the hole a deleted cable leaves in the numbering
-	closes -- and it only happens when he asks for it.
+	A new cable takes the first number free in the project by itself
+	(CableManager::nextDesignation()); renumbering closes the holes the
+	deleted cables leave, and only happens when he asks for it.
 */
 class CableNumberingDialog : public QDialog
 {
@@ -54,18 +43,12 @@ class CableNumberingDialog : public QDialog
 		explicit CableNumberingDialog(QETProject *project, QWidget *parent = nullptr);
 
 	private slots:
-			///Put the rule and the axis into the project
-		void applyRule();
-			///Take the cable numbering rule out of the project
-		void removeRule();
-			///Number every cable of the project with the rule on show
+			///Put the chosen axis into the project
+		void saveAxis();
+			///Name every cable of the project again
 		void renumber();
-			///Let the button say whether there is a rule to number with
-		void updateEnabling();
 
 	private:
-			///Write what the window holds into the project
-		bool save();
 			/**
 				Ask what to do with the names he typed in himself.
 				@param count how many such names the project holds
@@ -76,7 +59,6 @@ class CableNumberingDialog : public QDialog
 
 	private:
 		QETProject *m_project = nullptr;
-		SelectAutonumW *m_rule = nullptr;
 		QRadioButton *m_axis_x = nullptr;
 		QRadioButton *m_axis_y = nullptr;
 		QPushButton *m_renumber_pb = nullptr;

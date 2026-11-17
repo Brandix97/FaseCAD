@@ -38,6 +38,7 @@ class QToolButton;
 class QLabel;
 
 class QMdiSubWindow;
+class DockAutoHide;
 class QETProject;
 class QETResult;
 class ProjectView;
@@ -123,18 +124,6 @@ class QETDiagramEditor : public QETMainWindow
 		void setUpMenu          ();
 		
 		bool addProject(QETProject *, bool = true);
-			/**
-				Checked while the cable tool is about to start, when the
-				project has no numbering rule for its cables. He is then
-				asked whether one should be defined now (the window which
-				opens goes straight to the cable page of the automatic
-				numbering) or not -- and having answered no, he is not
-				asked again, whatever he draws from then on. A project
-				which does number its cables is never asked at all, and
-				one which lost the rule again is.
-				@return true when the cable tool may start.
-			*/
-			bool cableNumberingGate(Diagram *diagram);
 		DiagramView *currentDiagramView() const;
 		Element *currentElement() const;
 		ProjectView *findProject(DiagramView *) const;
@@ -460,7 +449,9 @@ class QETDiagramEditor : public QETMainWindow
 		
 		QUndoGroup undo_group;
 		AutoNumberingDockWidget *m_autonumbering_dock = nullptr;
-		QDockWidget *m_devices_dock = nullptr;	///< The devices of the current project, by label
+		QDockWidget *m_devices_dock = nullptr;
+			///Folds the side panels when the setting says so
+		DockAutoHide *m_dock_auto_hide = nullptr;	///< The devices of the current project, by label
 		class DevicesPanel *m_devices_panel = nullptr;
 		int activeSubWindowIndex;
 		SearchAndReplaceWidget m_search_and_replace_widget;

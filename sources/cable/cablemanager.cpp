@@ -18,8 +18,7 @@
 #include "cablemanager.h"
 
 #include "cable.h"
-#include "../autoNum/assignvariables.h"
-#include "../autoNum/numerotationcontextcommands.h"
+#include "../devicenaming.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/conductor.h"
 #include "../qetgraphicsitem/element.h"
@@ -27,6 +26,7 @@
 #include "../qetproject.h"
 
 #include <QHash>
+#include <QSet>
 #include <QPainterPath>
 
 #include <algorithm>
@@ -91,29 +91,19 @@ qreal distanceToSegment(const QPointF &point, const QPointF &a, const QPointF &b
 }
 
 /**
-	@brief Whether some cable of the project already stands under this
-	number.
-
-	A number which is taken must not be handed out twice. That happens
-	while a whole run of cables is numbered one after the other -- none
-	of them has been added to the project by anything but its own
-	creation yet -- and it happens when a rule has simply been given a
-	value which some cable carries already.
-	@param project
-	@param designation the number to look for
-	@return true when a cable of that project stands under it
+	@return the designations the cables of @p project carry
 */
-bool designationIsTaken(QETProject *project, const QString &designation)
+QSet<QString> heldDesignations(QETProject *project)
 {
-	if (!project || designation.isEmpty()) return false;
-
+	QSet<QString> held;
+	if (!project) return held;
 	for (Cable *cable : project->cables())
 	{
-		if (cable && cable->designation() == designation) {
-			return true;
+		if (cable && !cable->designation().isEmpty()) {
+			held.insert(cable->designation());
 		}
 	}
-	return false;
+	return held;
 }
 
 } // namespace
@@ -121,13 +111,14 @@ bool designationIsTaken(QETProject *project, const QString &designation)
 /**
 	@brief CableManager::crossedConductors
 	Tell which conductors a line about to become a cable runs across, in
-	the order they are met along the line. That order is what gives each
-	core its place, and therefore its colour, so it has to be the order
-	of the drawing and not the order the conductors happen to be stored
-	in.
+	the order of the drawing: from the left to the right, or from the
+	top to the bottom for a line more vertical than horizontal, whichever
+	end the line was drawn from. That order is what gives each core its
+	place, and therefore its number and its colour (Brandon, 2026-11-16:
+	a line drawn from the right numbered its cores 3, 2, 1).
 	@param diagram the folio the line is drawn on
 	@param line the line, in scene coordinates
-	@return the crossings, ordered from the start of the line
+	@return the crossings, from the left or from the top
 */
 QList<CableCrossing> CableManager::crossedConductors(Diagram *diagram, const QLineF &line)
 {
@@ -136,12 +127,20 @@ QList<CableCrossing> CableManager::crossedConductors(Diagram *diagram, const QLi
 		return crossings;
 	}
 
-	const QPointF start = line.p1();
-	if (qFuzzyCompare(start, line.p2())) {
+	if (qFuzzyCompare(line.p1(), line.p2())) {
 		return crossings;
 	}
 
-	const QPointF direction = line.p2() - start;
+		//Measured from the left end, or from the top one
+	QPointF start = line.p1();
+	QPointF direction = line.p2() - start;
+	const bool horizontal = qAbs(direction.y()) <= qAbs(direction.x());
+	if (horizontal ? direction.x() < 0 : direction.y() < 0)
+	{
+		start = line.p2();
+		direction = -direction;
+	}
+
 	for (Conductor *conductor : diagram->conductors())
 	{
 		QPointF where;
@@ -525,115 +524,28 @@ Conductor *CableManager::conductorByUuid(QETProject *project, const QUuid &uuid)
 }
 
 /**
-	@brief CableManager::nextDesignation
-	Work out the number of the next cable drawn on a folio.
-
-	When the project has a numbering rule for cables, that rule decides:
-	whatever it holds at this moment is the number, read by the very
-	same machinery the element numbering reads its own. When it has
-	none, the plain letter W is handed out: a project which numbers its
-	cables by no rule gets no numbers invented for it, and W -- the one
-	part of the old numbers which was never a number -- is all such a
-	cable is called until a rule is defined.
-
-	A rule whose counter belongs to one folio is read from the beginning
-	of the folio the cable is drawn on, so that the number this cable
-	gets is the first free one of its own folio rather than whatever the
-	project's rule happens to hold after numbering other folios.
-
-	Nothing here moves the project's own rule on: that belongs to the
-	moment the cable really comes into being.
-	@param project
-	@param diagram the folio the cable is being drawn on
-	@return the number
+	@brief CableManager::baseName
+	@return the name every cable starts with, numbered after it: -W1,
+	-W2... the way the devices are named (DeviceNaming), in place of the
+	numbering rules of QElectroTech (Brandon, 2026-11-15)
 */
-QString CableManager::nextDesignation(QETProject *project, Diagram *diagram)
+QString CableManager::baseName()
 {
-	NumerotationContext context;
-	if (project) {
-		context = project->cableAutoNum(project->cableCurrentAutoNum());
-	}
-		//The folio-bound parts are put back to the start of that folio;
-		//the stepping of the overload below then walks past every
-		//number of this folio which is already taken
-	context = autonum::resetFolioCounters(context);
-	return nextDesignation(project, diagram, context);
+	return QStringLiteral("-W");
 }
 
 /**
 	@brief CableManager::nextDesignation
-	Work the number of a cable out of a rule which the caller keeps in
-	@p context -- the project's own rule as it stands, or a copy of it
-	which the caller is numbering a whole run of cables with.
-
-	Whatever the rule holds is the number, unless some cable already
-	stands under it: then @p context is stepped on and the rule is read
-	once more, so that a paste which brings in several cables at once
-	numbers each of them differently although the project's own rule
-	does not move until those cables really exist. A rule which cannot
-	step -- one with nothing in it which counts -- hands out what it
-	says and says no more, for what it says is all it knows.
-
-	A project which numbers its cables by no rule is not read at all
-	and is handed the plain letter W instead: no numbers are invented
-	where none have been defined.
+	The name of the next cable of @p project: baseName() and the first
+	number no cable of the project carries. A cable being copied or
+	pasted is already held by the project, so a run of them pasted
+	together takes one number each.
 	@param project
-	@param diagram the folio the cable is being drawn on, which every
-	folio-bound part of a rule is read from
-	@param context the rule to read; stepped on when what it says is
-	already taken
-	@return the number
+	@param diagram the folio the cable is being drawn on
+	@return the name, empty without a project or a folio
 */
-QString CableManager::nextDesignation(QETProject *project,
-									  Diagram *diagram,
-									  NumerotationContext &context)
+QString CableManager::nextDesignation(QETProject *project, Diagram *diagram)
 {
 	if (!project || !diagram) return QString();
-
-	const QString key = project->cableCurrentAutoNum();
-		//Whether there was a rule to read at all, taken down before the
-		//loop: stepping the rule on empties it, and that must not look
-		//like a project which never had one.
-	const bool ruled = !key.isEmpty() && !context.isEmpty();
-	QString previous;
-
-	for (int attempt = 0; ruled && attempt < 1000 && !context.isEmpty(); ++attempt)
-	{
-			//The rule is read on a copy: reading it fills in what its
-			//folio-bound parts are worth here and now, and that must
-			//not creep into the rule itself.
-		NumerotationContext evaluated = context;
-		const QString formula = autonum::numerotationContextToFormula(evaluated);
-		autonum::sequentialNumbers seq;
-		autonum::setSequential(formula, seq, evaluated, diagram, key);
-		const QString candidate =
-			autonum::AssignVariables::formulaToLabel(formula, seq, diagram);
-
-		if (candidate.isEmpty()) break;
-		if (!designationIsTaken(project, candidate)) return candidate;
-
-			//Taken already: step the rule on and read it once more.
-		if (candidate == previous) return candidate;
-		previous = candidate;
-
-		NumerotationContextCommands ncc(context, diagram);
-		const NumerotationContext following = ncc.next();
-		if (following.size() != context.size()) break;
-		context = following;
-	}
-
-		//No rule at all: the plain letter W, and nothing more. The old
-		//numbers read folio + W + index, and W is the only part of them
-		//which was never a number -- so it is what a project which has
-		//defined no numbering rule calls its cables, until it defines
-		//one.
-	if (!ruled) {
-		return QStringLiteral("W");
-	}
-
-		//A rule which says nothing usable here: no number at all. The
-		//number is what the rule says, and a rule which says nothing
-		//leaves the field to the user rather than having it filled in
-		//with something it never held.
-	return QString();
+	return DeviceNaming::nextLabel(baseName(), heldDesignations(project));
 }

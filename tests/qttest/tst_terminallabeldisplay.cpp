@@ -487,8 +487,9 @@ private slots:
 	}
 
 	//A new project starts with the labelling the settings chose for new
-	//projects (Configure QElectroTech > New project), and draws the whole
-	//label in one field when the settings say nothing
+	//projects (Configure QElectroTech > New project), and splits the label
+	//when the settings say nothing: the strip on the left of a terminal,
+	//its number on the right (Brandon, 2026-11-16)
 	void newProjectStartsWithTheDefaultLabelling()
 	{
 		const QString key = QStringLiteral("diagrameditor/defaultterminallabelling");
@@ -509,8 +510,8 @@ private slots:
 		QSettings().remove(key);
 		{
 			QETProject fresh;
-			QVERIFY2(!fresh.terminalLabelSplit(),
-					 "Without a setting in the settings, a new project draws as it always did");
+			QVERIFY2(fresh.terminalLabelSplit(),
+					 "Without a setting in the settings, a new project splits the label");
 		}
 	}
 
@@ -537,6 +538,7 @@ private slots:
 			if (rb->text() == QStringLiteral("Split the label and the terminal number")) split = rb;
 		}
 		QVERIFY2(split, "The same choice as in the project properties");
+		QVERIFY2(split->isChecked(), "Split is what a new project does by default");
 
 		split->setChecked(true);
 		settings_page.applyConf();

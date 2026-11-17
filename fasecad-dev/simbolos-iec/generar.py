@@ -61,6 +61,7 @@ class Sym:
         self.vis = []        # points actually drawn (to place the label)
         self.terms = []
         self.label_at = None
+        self.terminal_number_at = None   # (left x, caps centre y) of a terminal's number
 
     # -- drawing -----------------------------------------------------------
     def line(self, x1, y1, x2, y2, style=STROKE):
@@ -216,6 +217,18 @@ def to_xml(sym, spec, relpath):
     for x, y, o, name in sym.terms:
         out.append('        <terminal uuid="%s" name="%s" x="%s" y="%s" orientation="%s" type="Generic"/>'
                    % (uid(relpath, n), escape(name), num(x), num(y), o))
+        n += 1
+    # a terminal's number, left-aligned so it grows to the right; after the
+    # terminals so that their uuids stay what they were
+    if sym.terminal_number_at is not None:
+        nx, cy = sym.terminal_number_at
+        y = cy - (ASCENT - CAP / 2) * em - DOC_MARGIN
+        z += 1
+        out.append('        <dynamic_text x="%s" y="%s" z="%d" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="%s" font="%s">'
+                   % (num(nx - DOC_MARGIN), num(y), z, uid(relpath, n), font(LABEL_SIZE)))
+        out.append("            <text></text>")
+        out.append("            <info_name>terminal_number</info_name>")
+        out.append("        </dynamic_text>")
         n += 1
     out.append("    </description>")
     out.append("</definition>")
@@ -1010,8 +1023,12 @@ def terminal_block(s, pe=False):
     s.term(0, -10, "n")
     s.term(0, 10, "s")
     s.label_at = (-6, 0)
+    # the strip on the left, the number on the right (Brandon, 2026-11-16);
+    # on a PE terminal behind its "PE"
+    s.terminal_number_at = (4, 0)
     if pe:
         s.number(4, 0, "PE")
+        s.terminal_number_at = (22, 0)
 
 
 element(F11, "borne", ["Terminal", "Borne", "Borne", "Klemme", "Morsetto", "Borne", "Klemens", "端子"],

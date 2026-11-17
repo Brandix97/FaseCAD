@@ -21,6 +21,7 @@
 #include "partsdatabase.h"
 #include "partsmaterial.h"
 #include "../qetgraphicsitem/element.h"
+#include "../qetinformation.h"
 #include "../ui/elementinfowidget.h"
 
 #include <QDoubleSpinBox>
@@ -43,8 +44,8 @@ enum Column {
 };
 
 	///The blocks of the element information : the main article and the
-	///auxiliary articles 1 to 4
-const int block_count = 5;
+	///auxiliary articles offered for editing
+const int block_count = 1 + QETInformation::shownAuxiliaryBlocks();
 
 } // namespace
 
@@ -226,7 +227,7 @@ void ElementPartsWidget::addPart()
 		QMessageBox::information(
 					this, tr("Parts"),
 					tr("The part is added. The element information holds"
-					   " the main article and four auxiliary ones: this part"
+					   " the main article and one auxiliary one: this part"
 					   " has no block of its own there."));
 		return;
 	}

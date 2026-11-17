@@ -2099,6 +2099,18 @@ Do you want to renumber them too?</source>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>Todos los cables ya llevan el número que les da la regla.</translation>
     </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">Un cable nuevo toma el primer número libre del proyecto: %1, %2... Renumerar vuelve a nombrar todos los cables del proyecto en el orden de abajo, lo que cierra los huecos que dejan los cables borrados.</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">Vuelve a poner el número de cada cable del proyecto empezando por 1: así se rellena el número que falta tras borrar un cable.</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">Todos los cables ya tienen el número que les corresponde.</translation>
+    </message>
 </context>
 <context>
     <name>CablePart</name>
@@ -5230,6 +5242,14 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit an element text</source>
         <translation>Editar texto del elemento</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Datos del artículo</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Elegir...</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5415,6 +5435,26 @@ Hold Shift and drag to move this text on its own</source>
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1866"/>
         <source>Right</source>
         <translation>Derecha</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Datos del artículo</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">El elemento no tiene ninguna pieza: añade una en la pestaña Piezas.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">Usa la base de datos de piezas (Configuración &gt; General) para mostrar los datos de las piezas.</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Base de datos de piezas</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">Las piezas de este elemento no tienen datos en la base de datos de piezas.</translation>
     </message>
 </context>
 <context>
@@ -5924,6 +5964,26 @@ Continue?</source>
 Si cambia su numeración, se sustituirá o se borrará.
 
 ¿Continuar?</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Invertir dentro y fuera de cuadro</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">Por defecto sale del cuadro el lado conectado a un cable y, sin cable, el punto de conexión de abajo. Márcalo para invertirlo en esta borna: los planos de bornero lo siguen.</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">Esta borna tiene un solo punto de conexión.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">Dentro de cuadro: %1. Fuera de cuadro: %2, el lado del cable.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">Dentro de cuadro: %1. Fuera de cuadro: %2.</translation>
     </message>
 </context>
 <context>
@@ -9395,6 +9455,14 @@ Cualquier valor distinto de «Sin redondeo» puede causar errores de representac
         <source> px</source>
         <translation> px</translation>
     </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">Ocultar automáticamente los paneles laterales</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">Un panel lateral se pliega en una pestaña en el borde de la ventana y se despliega al dejar el ratón sobre ella; su chincheta lo mantiene abierto</translation>
+    </message>
 </context>
 <context>
     <name>GenericDevice</name>
@@ -11422,6 +11490,10 @@ Do you still want to link this slave contact?</source>
         <location filename="../sources/ui/multielementinfowidget.h" line="62"/>
         <source>Information</source>
         <translation>Información</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Invertir dentro y fuera de cuadro</translation>
     </message>
 </context>
 <context>
@@ -14827,7 +14899,7 @@ Mantenga pulsada la tecla Ctrl durante el desplazamiento para colocar libremente
         <location filename="../sources/qetdiagrameditor.cpp" line="1311"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="5456"/>
         <source>Update elements from the collections</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Actualizar los elementos desde las colecciones</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1314"/>
@@ -17169,6 +17241,17 @@ Para convertirla en un script, pídaselo a su asistente de IA: el botón de abaj
     <message>
         <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
         <translation type="unfinished">Añade al principio del proyecto un folio de índice con el número y el título de cada folio, siempre al día</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">Renumera los cables del proyecto en orden</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>%n campo de texto de bornas añadido o movido.</numerusform>
+            <numerusform>%n campos de texto de bornas añadidos o movidos.</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -29409,6 +29492,10 @@ DXF</translation>
         <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
         <translation type="unfinished">¿Sobrescribir %1 de la información del elemento con los datos de esta pieza (fabricante, número de pedido, descripción...)?</translation>
     </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">La pieza se ha añadido. La información del elemento tiene el artículo principal y uno auxiliar: esta pieza no tiene allí un bloque propio.</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -30267,6 +30354,313 @@ Replace it with the part of the file?</source>
     <message>
         <source>This part file was made by a newer version of FaseCAD.</source>
         <translation type="unfinished">Este archivo de pieza se hizo con una versión más reciente de FaseCAD.</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">arriba</translation>
+    </message>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">abajo</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">izquierda</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">derecha</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">Dentro</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">Fuera</translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">Cruz</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">Símbolos de contactos</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Apariencia</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">Bajo la etiqueta del aparato</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">Bajo el símbolo</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">Pie del folio</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">Posición manual</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Posición</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">Relativa al símbolo</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">Absoluta en el folio</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">Relativa: el espejo sigue al símbolo cuando se mueve. Absoluta: se queda donde está en el folio.</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">Gira los símbolos de los contactos; sus números siguen derechos.</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">Ángulo de los símbolos de contacto</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">Grosor de línea</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">Separación bajo el símbolo</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">Mostrar los contactos definidos aunque no estén enlazados</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">Posición en el folio X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">Posición en el folio Y</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">Desplazamiento manual X</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">Desplazamiento manual Y</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">Cómo se muestran los contactos de este aparato a su lado. Para una posición manual, arrastra el espejo en el folio con Mayús pulsada, o escribe dónde va.</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">Usar el ajuste del proyecto</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">Propiedades del proyecto, página Referencias cruzadas</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">Espejo de contactos</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">Cambiar la visualización de contactos del relé</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">Descripción textual</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">Número de artículo</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Fabricante</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Número de pedido</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">Número interno</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Proveedor</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Referencia del proveedor</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Categoría</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">Modelo</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">Tensión nominal</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">Intensidad nominal</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">Unidad</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Letra del equipo</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Ancho (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Alto (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Fondo (mm)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Peso (kg)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Potencia disipada (W)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Precio</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Número de hilos</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Colores de los hilos</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Sección</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Color de la cubierta</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Hoja de datos</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Notas</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1, %2</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">Datos de las piezas</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">Buscar un dato, un valor o una pieza...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Dato</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Valor</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Pieza</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n dato</numerusform>
+            <numerusform>%n datos</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">Ocultar este panel automáticamente</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Cerrar</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">Mantener este panel abierto</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">Arrastra para cambiar el ancho del panel</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">Paneles plegados</translation>
     </message>
 </context>
 </TS>

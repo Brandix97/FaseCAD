@@ -23,37 +23,27 @@
 
 #include <QDialog>
 
-class QCheckBox;
-class QComboBox;
-class QDoubleSpinBox;
+class XRefDisplayForm;
 
 /**
 	@brief The XRefDisplayDialog class
 	Asks how the cross reference of one master (a relay, a contactor) is
-	shown: cross or contact symbols, where it sits, how thick its lines
-	are. The master keeps the project's setting until the user changes one.
+	shown: cross or contact symbols, where it sits, how its contact
+	symbols are turned, how thick its lines are (XRefDisplayForm, the
+	same fields as the "Contact mirror" tab of its properties). The
+	master keeps the project's setting until the user changes one.
 */
 class XRefDisplayDialog : public QDialog
 {
 	Q_OBJECT
-
 	public:
 		XRefDisplayDialog(const ElementData::XRefDisplay &display,
+						  const QPointF &symbol_pos,
 						  const QPointF &suggested_manual,
 						  QWidget *parent = nullptr);
-
 		ElementData::XRefDisplay display() const;
-
 	private:
-		void updateEnabled();
-
-		QComboBox *m_appearance;
-		QComboBox *m_position;
-		QDoubleSpinBox *m_width;
-		QDoubleSpinBox *m_gap;
-		QDoubleSpinBox *m_x;
-		QDoubleSpinBox *m_y;
-		QCheckBox *m_show_unlinked;
+		XRefDisplayForm *m_form;
 		bool m_restore = false;
 };
 

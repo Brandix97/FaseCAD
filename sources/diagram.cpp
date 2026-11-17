@@ -61,6 +61,7 @@
 #include "textgrid.h"
 #include "container/qetcontainer.h"
 #include "foliogrid.h"
+#include "partsdb/parttexts.h"
 #include <QGraphicsView>
 #include <QTextStream>
 #include <QThreadPool>
@@ -2875,6 +2876,10 @@ bool Diagram::fromXml(QDomElement &document,
 							 << "wire(s) not loaded, a terminal they join was not found:"
 							 << m_wires_not_reconnected.join(QStringLiteral(", "));
 	}
+
+		//A text showing data of a part reads it again from the parts
+		//database: the part may have changed since the file was saved
+	PartTexts::refresh(added_elements);
 
 		//Filling of falculatory lists
 	if (content_ptr) {

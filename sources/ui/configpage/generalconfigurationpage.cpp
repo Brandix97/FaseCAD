@@ -25,6 +25,7 @@
 
 #include "../../qetapp.h"
 #include "../../diagramview.h"
+#include "../dockautohide.h"
 #include "../dockfold.h"
 #include "../dockfit.h"
 #include "../../qetdiagrameditor.h"
@@ -186,6 +187,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 			this, enable_colors);
 	ui->m_command_tabs_cb->setChecked(QetSettings::commandTabs());
 	ui->m_command_tabs_hide_menu_cb->setChecked(QetSettings::commandTabsHideMenuBar());
+	ui->m_autohide_docks_cb->setChecked(DockAutoHide::isOn());
 	ui->m_command_tabs_hide_menu_cb->setEnabled(ui->m_command_tabs_cb->isChecked());
 	connect(ui->m_command_tabs_cb, &QCheckBox::toggled,
 			ui->m_command_tabs_hide_menu_cb, &QWidget::setEnabled);
@@ -452,6 +454,12 @@ void GeneralConfigurationPage::applyConf()
 	PartsDatabase::setEnabled(ui->m_parts_db_cb->isChecked());
 	PartsDatabase::setConfiguredPath(QDir::fromNativeSeparators(
 		ui->m_parts_db_path_le->text().trimmed()));
+	if (ui->m_autohide_docks_cb->isChecked() != DockAutoHide::isOn()) {
+		DockAutoHide::setOn(ui->m_autohide_docks_cb->isChecked());
+			//Every open diagram editor folds its side panels, or shows
+			//them again
+		DockAutoHide::applyToAll();
+	}
 	if (ui->m_command_tabs_cb->isChecked() != QetSettings::commandTabs()
 			|| ui->m_command_tabs_hide_menu_cb->isChecked() != QetSettings::commandTabsHideMenuBar()) {
 		QetSettings::setCommandTabs(ui->m_command_tabs_cb->isChecked());

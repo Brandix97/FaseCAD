@@ -19,6 +19,7 @@
 
 #include "../qetproject.h"
 #include "../diagram.h"
+#include "../TerminalStrip/UndoCommand/takeoutofstripscommand.h"
 
 /**
 	@brief RemoveDiagramCommand::RemoveDiagramCommand
@@ -33,6 +34,12 @@ RemoveDiagramCommand::RemoveDiagramCommand(QETProject *project, Diagram *diagram
 	m_position(project ? project->folioIndex(diagram) : -1)
 {
 	setText(QObject::tr("Delete a sheet", "undo command text"));
+
+		//The terminals of the sheet leave their strips, and come back to
+		//the same place on undo
+	if (diagram && TakeOutOfStripsCommand::isNeededFor(diagram->elements())) {
+		new TakeOutOfStripsCommand(diagram->elements(), this);
+	}
 }
 
 /**
@@ -53,6 +60,7 @@ void RemoveDiagramCommand::redo()
 	if (!m_project || !m_diagram) {
 		return;
 	}
+	QUndoCommand::redo();
 	m_project->detachDiagram(m_diagram);
 	m_owns_diagram = true;
 }
@@ -64,4 +72,5 @@ void RemoveDiagramCommand::undo()
 	}
 	m_project->addDiagram(m_diagram, m_position);
 	m_owns_diagram = false;
+	QUndoCommand::undo();
 }

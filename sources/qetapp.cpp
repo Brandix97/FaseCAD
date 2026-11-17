@@ -1657,20 +1657,20 @@ QFont QETApp::cableCoreFont()
 	@return how the texts of a cable line up at the left end of their
 	line when the cable itself asks for nothing: what the preferences
 	offer on the "Textes" page, and -- until he has picked something
-	there -- the way every text has always stood, with its right end at
-	the place where the line begins.
+	there -- left aligned, starting where the line begins and reading
+	along it (Brandon, 2026-11-15; it used to end there).
 */
 Qt::Alignment QETApp::cableTextAlignment()
 {
 	const QSettings settings;
 	const QString name = settings.value("cable-management/cable-align").toString();
-	if (name == QLatin1String("left")) {
-		return Qt::AlignLeft;
+	if (name == QLatin1String("right")) {
+		return Qt::AlignRight;
 	}
 	if (name == QLatin1String("center")) {
 		return Qt::AlignHCenter;
 	}
-	return Qt::AlignRight;
+	return Qt::AlignLeft;
 }
 
 /**

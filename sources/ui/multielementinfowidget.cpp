@@ -79,6 +79,8 @@ const QString POTENTIAL_ISOLATING = QStringLiteral("potential_isolating");
 	//Element::labelShown): an element which never got the box unticked
 	//has no information for it, and counts as "shown".
 const QString LABEL_SHOWN         = QStringLiteral("label_shown");
+	//Which side of a terminal goes out of the panel (TerminalSides)
+const QString OUTSIDE_SWAPPED     = QStringLiteral("outside_swapped");
 
 bool flagDefaultIsOn(const QString &key)
 {
@@ -457,7 +459,8 @@ void MultiElementInfoWidget::buildInterface()
 		{EXCLUDE_FROM_BOM,    tr("Exclude from the bill of materials")},
 		{POTENTIAL_ISOLATING, tr("Function separation")},
 		{AUTO_NUM_LOCKED,     tr("Exclude from automatic numbering")},
-		{LABEL_SHOWN,         tr("Show name")}
+		{LABEL_SHOWN,         tr("Show name")},
+		{OUTSIDE_SWAPPED,     tr("Swap inside and outside of the panel")}
 	};
 	for (const auto &pair : flags)
 	{
@@ -587,6 +590,17 @@ void MultiElementInfoWidget::fillRows()
 			}
 		}
 		restoreRow(row);
+
+			//The auxiliary blocks past the first one only where an
+			//element has something in them
+			//(@sa QETInformation::shownAuxiliaryBlocks)
+		if (QETInformation::isExtraAuxiliaryInfo(row->key)) {
+			const bool shown = row->mixed || !row->initial.isEmpty();
+			row->label->setVisible(shown);
+			row->edit->setVisible(shown);
+			row->erase->setVisible(shown);
+			row->restore->setVisible(shown);
+		}
 	}
 
 	bool all_terminals = !list.isEmpty();

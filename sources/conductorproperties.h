@@ -141,9 +141,11 @@ class ConductorProperties
 			/// The stroke stands in for the conductor's own text
 		bool m_definition_mark_hides_text = false;
 
+			/// Where the text stands: above a horizontal wire, left of
+			/// a vertical one by default (Brandon, 2026-11-15)
 		Qt::Alignment
-		m_horizontal_alignment = Qt::AlignBottom,
-		m_vertical_alignment = Qt::AlignRight;
+		m_horizontal_alignment = Qt::AlignTop,
+		m_vertical_alignment = Qt::AlignLeft;
 
 		Qt::PenStyle style;
 			/// Lengths of the dashes, used only when enabled

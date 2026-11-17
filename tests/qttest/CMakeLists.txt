@@ -2403,6 +2403,38 @@ target_compile_definitions(tst_partscollection PRIVATE
 # number of the project, instead of QElectroTech's numbering formulas.
 qet_add_app_test(tst_devicenaming tst_devicenaming.cpp)
 
+# The common collection is not protected: its symbols are written unless
+# their file cannot be.
+qet_add_app_test(tst_commoncollectionedit tst_commoncollectionedit.cpp)
+
+# Cables are named -W1, -W2... with no rule and no question; their texts
+# are left aligned; a wire's text stands above or on the left.
+qet_add_app_test(tst_cablenaming tst_cablenaming.cpp)
+
+# Terminals: the strip on the left, the number on the right; which side
+# goes out of the panel, swapped by a box; the fields of terminals placed
+# from an older symbol.
+qet_add_app_test(tst_terminalsides tst_terminalsides.cpp)
+target_compile_definitions(tst_terminalsides PRIVATE
+  QET_ELEMENTS_DIR="${QET_DIR}/elements")
+
+# The contact mirror of a relay: a manual position relative to the symbol
+# or absolute on the folio, contact symbols turned by a quarter, its tab.
+qet_add_app_test(tst_contactmirror tst_contactmirror.cpp)
+
+# A terminal deleted from the folio, or with its sheet, leaves its strip and
+# comes back where it stood, at its level and in its bridge, on undo.
+qet_add_app_test(tst_deletedterminals tst_deletedterminals.cpp)
+
+# A text of a symbol showing data of one of its parts: offered with parts
+# only, saved as a user text with its reference, read again from the parts
+# database; the search window; only the first auxiliary block offered.
+qet_add_app_test(tst_parttexts tst_parttexts.cpp)
+
+# The side panels which hide by themselves: folded into tabs along the edge,
+# slid out over the drawing, the pin keeping one open, kept over a restart.
+qet_add_app_test(tst_dockautohide tst_dockautohide.cpp)
+
 # A core of a cable: section, colour and type are locked in the dialog and
 # show a small sign saying why, so an edit cannot write over the cable
 qet_add_app_test(tst_cablelockedfields tst_cablelockedfields.cpp)

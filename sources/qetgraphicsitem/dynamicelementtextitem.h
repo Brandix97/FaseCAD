@@ -49,6 +49,8 @@ class DynamicElementTextItem : public DiagramTextItem
 	Q_PROPERTY(TextFrom textFrom READ textFrom WRITE setTextFrom NOTIFY textFromChanged)
 	Q_PROPERTY(QString infoName READ infoName WRITE setInfoName NOTIFY infoNameChanged)
 	Q_PROPERTY(QString compositeText READ compositeText WRITE setCompositeText NOTIFY compositeTextChanged)
+	Q_PROPERTY(QString partField READ partField WRITE setPartField NOTIFY partFieldChanged)
+	Q_PROPERTY(QString partValue READ partValue WRITE setPartValue NOTIFY partValueChanged)
 	Q_PROPERTY(bool frame READ frame WRITE setFrame NOTIFY frameChanged)
 	Q_PROPERTY(qreal textWidth READ textWidth WRITE setTextWidth NOTIFY textWidthChanged)
 	Q_PROPERTY(qreal textHeight READ textHeight WRITE setTextHeight NOTIFY textHeightChanged)
@@ -59,7 +61,10 @@ class DynamicElementTextItem : public DiagramTextItem
 		enum TextFrom {
 			UserText,
 			ElementInfo,
-			CompositeText
+			CompositeText,
+				///Data of a part of the element (PartTexts), saved as a
+				///user text QElectroTech shows as it is
+			PartInfo
 		};
 		Q_ENUM (TextFrom)
 		enum {Type = UserType + 1010};
@@ -70,6 +75,8 @@ class DynamicElementTextItem : public DiagramTextItem
 		void textFromChanged(DynamicElementTextItem::TextFrom text_from);
 		void infoNameChanged(QString info);
 		void compositeTextChanged(QString text);
+		void partFieldChanged(QString reference);
+		void partValueChanged(QString value);
 		void frameChanged(bool frame);
 		void plainTextChanged();
 		void textWidthChanged(qreal width);
@@ -128,6 +135,12 @@ class DynamicElementTextItem : public DiagramTextItem
 		bool isJumpHighlighted() const {return m_jump_highlight;}
 		void setCompositeText(const QString &text);
 		QString compositeText() const;
+			///The data of a part this text shows (PartTexts::reference())
+		void setPartField(const QString &reference);
+		QString partField() const {return m_part_field;}
+			///What that data was when last read from the parts database
+		void setPartValue(const QString &value);
+		QString partValue() const {return m_part_value;}
 		void refreshConductorText() {elementInfoChanged();}
 		void setFrame(const bool frame);
 		bool frame() const;
@@ -212,6 +225,8 @@ class DynamicElementTextItem : public DiagramTextItem
 		m_text,
 		m_info_name,
 		m_composite_text,
+		m_part_field,
+		m_part_value,
 		m_report_formula,
 		m_F_str;
 		DynamicElementTextItem::TextFrom m_text_from = UserText;

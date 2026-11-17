@@ -23,6 +23,7 @@
 #include "shownkinds.h"
 #include "symboltextplacement.h"
 #include "ui/textclearancedialog.h"
+#include "ui/dockautohide.h"
 #include "autoconnect.h"
 #ifdef QET_HAS_SCRIPTING
 #include "scripting/qetscripting.h"
@@ -99,6 +100,7 @@
 #include "shortcutmanager.h"
 #include "cablelist/cableexportdialog.h"
 #include "partsdb/partsmanagerdialog.h"
+#include "partsdb/parttexts.h"
 #include "partsdb/partssymbolfiles.h"
 #include "elementdialog.h"
 #include "partsdb/partsbom.h"
@@ -135,6 +137,7 @@
 #include "ui/wiringlistdialog.h"
 #include "ui/terminalnumberingdialog.h"
 #include "ui/cablenumberingdialog.h"
+#include "TerminalStrip/terminalfieldsupdate.h"
 #include "toolbarsettings.h"
 #include <QDateTime>
 #include <QDebug>
@@ -365,6 +368,9 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 	readSettings();  // restoreGeometry before show()
 	show();
 	readSettingsState();  // restoreState() must be called after show() in Qt6
+		//The side panels fold by themselves when the setting says so
+	m_dock_auto_hide = new DockAutoHide(this);
+	m_dock_auto_hide->apply();
 		//For a moment only: while a message shows, the status bar hides
 		//what stands on its left -- what is visible then, so only once the
 		//window is shown
@@ -1320,6 +1326,16 @@ void QETDiagramEditor::setUpActions()
 	connect(m_parts_manager, &QAction::triggered, this, [this]() {
 		PartsManagerDialog::showManager(this);
 	});
+		//The texts showing data of a part follow the parts manager
+	connect(PartsDatabaseChanges::instance(), &PartsDatabaseChanges::changed, this, [this]() {
+		for (ProjectView *view : openedProjects()) {
+			if (QETProject *project = view->project()) {
+				for (Diagram *diagram : project->builtFolios()) {
+					PartTexts::refresh(diagram->elements());
+				}
+			}
+		}
+	});
 
 		//Every cable of the project in one window, with its cores
 	m_cable_manager = new QAction(QET::Icons::TableOfContent, tr("Cable manager..."), this);
@@ -1454,8 +1470,7 @@ void QETDiagramEditor::setUpActions()
 	m_cable_numbering = new QAction(QET::Icons::AutoNum, tr("Cable numbering"), this);
 	ShortcutManager::instance().registerAction(m_cable_numbering, "diagrameditor.cable_numbering", tr("Diagram editors"), QKeySequence());
 	m_cable_numbering->setStatusTip(
-		tr("Shows the cable numbering rule of the project and "
-		   "renumbers its cables with it"));
+		tr("Renumbers the cables of the project in order"));
 	connect(m_cable_numbering, &QAction::triggered, this, &QETDiagramEditor::slot_cableNumbering);
 
 	// Reload element drawings from their current definition (bugtracker #802)
@@ -3589,88 +3604,6 @@ void QETDiagramEditor::selectGroupTriggered(QAction *action)
 }
 
 /**
-	@brief QETDiagramEditor::cableNumberingGate
-	Decide whether the cable tool may start, asking about the numbering
-	rule when the project numbers its cables by no rule at all.
-
-	A project which does have one is asked nothing: the tool starts and
-	that rule gives the numbers. A project which has none is asked once
-	whether one should be defined now:
-
-	- Oui opens the window where the rule is written, straight onto the
-	  cable page of its automatic numbering; whatever he does in there,
-	  the tool only starts if a rule really exists by the time that
-	  window is closed.
-	- Non says no, and says it for good: it is remembered in the program
-	  settings so the question does not come up on the next start
-	  either. Drawing goes on all the same, with W as the cable's name:
-	  no number is worked out where none has been defined.
-	- Annuler leaves everything as it was, the tool does not start, and
-	  the question comes again the next time he picks the tool up.
-
-	@param diagram the folio the cable would be drawn on
-	@return true when the cable tool may start
-*/
-bool QETDiagramEditor::cableNumberingGate(Diagram *diagram)
-{
-	if (!diagram || !diagram->project()) return true;
-	QETProject *project = diagram->project();
-	if (project->hasCableAutoNum()) return true;
-
-		//A read-only project is left alone without a question: there is
-		//nowhere to define a rule in it, so asking whether he wants to
-		//would be a way to nowhere. Its cables are drawn called W, the
-		//same as any project without a rule.
-	if (project->isReadOnly()) return true;
-
-		//Whether he has once answered no in THIS project. The answer is
-		//kept with the project rather than in the program settings, so
-		//one project being answered with no does not stop every other
-		//project from being asked.
-	if (!project->cableAskNumbering()) {
-		return true;
-	}
-
-	QMessageBox box(QMessageBox::Question,
-					tr("Automatic numbering", "window title"),
-					tr("No automatic cable numbering is defined.",
-					   "shown when a project has no cable numbering rule"),
-					QMessageBox::NoButton,
-					this);
-	box.setInformativeText(tr(
-		"Do you want to define one now?\n\n"
-		"You can also number the cables automatically later: the rule "
-		"is set at any time in the project properties, on the "
-		"\"Auto Numbering\" page.",
-		"ask whether a cable numbering rule should be defined now"));
-	QPushButton *define_button = box.addButton(tr("Yes", "yes"), QMessageBox::YesRole);
-	QPushButton *later_button  = box.addButton(tr("No", "no"),  QMessageBox::NoRole);
-	box.addButton(tr("Cancel", "cancel"), QMessageBox::RejectRole);
-	box.setDefaultButton(later_button);
-	box.exec();
-
-	if (box.clickedButton() == later_button) {
-			//With this project only: he has answered once here and
-			//should not be asked again every time he picks the tool
-			//up in this project -- another project is free to ask.
-		project->setCableAskNumbering(false);
-		project->setModified(true);
-		return true;
-	}
-	if (box.clickedButton() != define_button) {
-		return false;
-	}
-
-		//Oui: the window itself, opened where the rule is written. It
-		//has to really be there by the time that window is closed --
-		//a Cancel in it must not leave the tool running all the same.
-	CableNumberingDialog dialog(diagram->project(), this);
-	dialog.exec();
-
-	return diagram->project()->hasCableAutoNum();
-}
-
-/**
 	@brief QETDiagramEditor::addItemGroupTriggered
 	This slot is called when an item must be added to the current diagram,
 	this slot use the DVEventInterface to add item
@@ -3732,18 +3665,8 @@ void QETDiagramEditor::addItemGroupTriggered(QAction *action)
 	}
 	else if (value == QLatin1String("cable"))
 	{
-			//The rule the number comes from -- or the word about there
-			//being no rule yet -- comes before anything is drawn.
-		if (!cableNumberingGate(d))
-		{
-				//Nothing is drawn, so the button must not go on looking
-				//like a tool which is running, and whichever tool was
-				//active before this click must not keep going with its
-				//own button unchecked either.
-			action->setChecked(false);
-			d->clearEventInterface();
-			return;
-		}
+			//No numbering rule to ask about: a cable takes -W and the
+			//first number free in the project (CableManager)
 		diagram_event = new DiagramEventAddCable(d);
 	}
 	else if (value == QLatin1String("bridge"))
@@ -4089,7 +4012,8 @@ void QETDiagramEditor::selectionGroupTriggered(QAction *action)
 				start.showUnlinked = xrp.showAllConfiguredSlaves();
 			}
 			const QRectF body = master->mapRectToScene(master->drawingRect());
-			XRefDisplayDialog dialog(start, QPointF(body.left(), body.bottom() + 10) - master->scenePos(), this);
+			XRefDisplayDialog dialog(start, master->scenePos(),
+									 QPointF(body.left(), body.bottom() + 10) - master->scenePos(), this);
 			if (dialog.exec() == QDialog::Accepted)
 			{
 				ElementData data = master->elementData();
@@ -6009,12 +5933,37 @@ void QETDiagramEditor::slot_updateElementsFromCollections() {
 	question.setDetailedText(names.join(QLatin1Char('\n')));
 	if (question.exec() != QMessageBox::Yes) return;
 
+		//Each symbol as it was, kept for the text fields of the
+		//terminals placed from it (TerminalFieldsUpdate)
+	QDomDocument kept;
+	QHash<QString, QDomElement> before;
+	for (const QETProject::OutdatedElement &element : outdated)
+		before.insert(element.embedded.toString(),
+					  kept.importNode(element.embedded.xml(), true).toElement());
+
 	for (const QETProject::OutdatedElement &element : outdated)
 		project->updateElement(element);
 	project->setModified(true);
 
-	reloadElementDrawings(project, true, title,
-						  tr("%n elements updated.", "", outdated.size()));
+		//The label and number fields of the placed terminals follow the
+		//new symbol where nobody moved them by hand
+	int fields = 0;
+	for (Diagram *diagram : project->diagrams())
+	{
+		for (Element *placed : diagram->elements())
+		{
+			const QString key = placed->location().toString();
+			if (!before.contains(key)) continue;
+			fields += TerminalFieldsUpdate::adopt(placed, before.value(key),
+												  placed->location().xml());
+		}
+	}
+
+	QString intro = tr("%n elements updated.", "", outdated.size());
+	if (fields > 0)
+		intro += QLatin1Char('\n')
+				 + tr("%n text fields of terminals added or moved.", "", fields);
+	reloadElementDrawings(project, true, title, intro);
 }
 
 /**

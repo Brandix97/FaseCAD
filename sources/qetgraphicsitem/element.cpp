@@ -3255,10 +3255,15 @@ QString Element::labelForDisplay()
 	}
 
 		//A terminal after one of the same strip shows its number only:
-		//the strip is named once, at the first of the row
+		//the strip is named once, at the first of the row. Split, with a
+		//field of its own for the number, the number is there and the
+		//label field says nothing: drawn twice, it read "24 o 24".
 	if (showsTerminalNumberOnly()) {
 		const int number_colon = label.lastIndexOf(QLatin1Char(':'));
 		if (number_colon >= 0) {
+			if (split && hasTerminalNumberText()) {
+				return QString();
+			}
 			return label.mid(number_colon + 1);
 		}
 	}

@@ -25,6 +25,7 @@
 #include "../qetxml.h"
 #include "xmlelementcollection.h"
 
+#include <QFileInfo>
 #include <QPicture>
 
 // make this class usable with QVariant
@@ -572,7 +573,10 @@ bool ElementsLocation::exist() const
 
 /**
 	@brief ElementsLocation::isWritable
-	@return True if this element can be writable (can use set xml)
+	@return True if this element can be writable (can use set xml).
+	The common collection is not protected: it is when its file (or, for
+	a new one, its folder) can be written, as a read-only installation
+	cannot be.
 */
 bool ElementsLocation::isWritable() const
 {
@@ -580,10 +584,12 @@ bool ElementsLocation::isWritable() const
 		return !m_project->isReadOnly();
 	else if (isFileSystem())
 	{
-		if (fileSystemPath().startsWith(QETApp::commonElementsDirN()))
-			return false;
-		else
+		if (!isCommonCollection())
 			return true;
+		const QFileInfo file(fileSystemPath());
+		return file.exists()
+				? file.isWritable()
+				: QFileInfo(file.absolutePath()).isWritable();
 	}
 	return false;
 }

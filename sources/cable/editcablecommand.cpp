@@ -182,22 +182,9 @@ void ChangeCablePropertiesCommand::redo()
 	@brief RenumberCablesCommand::RenumberCablesCommand
 	@param cables the cables to number, in the order they are numbered in
 	@param designations the number each of them gets
-	@param project the project whose numbering rule moves along with
-	the numbering
-	@param num_key the name that rule is kept under in the project
-	@param num_before where its counters stood before the numbering ran
-	@param num_after where the numbering leaves them
 */
 RenumberCablesCommand::RenumberCablesCommand(const QList<Cable *> &cables,
-											 const QStringList &designations,
-											 QETProject *project,
-											 const QString &num_key,
-											 const NumerotationContext &num_before,
-											 const NumerotationContext &num_after) :
-	m_project(project),
-	m_num_key(num_key),
-	m_num_before(num_before),
-	m_num_after(num_after)
+											 const QStringList &designations)
 {
 	for (int i = 0; i < cables.size() && i < designations.size(); ++i)
 	{
@@ -208,7 +195,7 @@ RenumberCablesCommand::RenumberCablesCommand(const QList<Cable *> &cables,
 		m_before.append(cable->designation());
 		m_by_hand_before.append(cable->designationByHand());
 		m_after.append(designations.at(i));
-			//A number the rule has just handed out is the rule's, so
+			//A number the numbering has just handed out is its own, so
 			//nothing here stays marked as having been typed in
 		m_by_hand_after.append(false);
 	}
@@ -230,7 +217,7 @@ void RenumberCablesCommand::redo()
 
 /**
 	@brief RenumberCablesCommand::apply
-	@param use_after true to write the numbers the rule handed out,
+	@param use_after true to write the numbers the numbering handed out,
 	false to put the ones back which were there before
 */
 void RenumberCablesCommand::apply(bool use_after)
@@ -241,30 +228,11 @@ void RenumberCablesCommand::apply(bool use_after)
 		if (!cable) continue;
 
 			//Where the name comes from is written first: a number the
-			//rule has just handed out is the rule's whatever the cable
-			//was called before, and undo has to say so again
+			//numbering has just handed out is its own whatever the
+			//cable was called before, and undo has to say so again
 		cable->setDesignationByHand(use_after ? m_by_hand_after.at(i)
 											  : m_by_hand_before.at(i));
 		cable->setDesignation(use_after ? m_after.at(i) : m_before.at(i));
-	}
-
-		//Where the numbering rule itself stands moves along with the
-		//numbering: once it has run, its counters are where the last
-		//number was taken from, so the next cable drawn goes on from
-		//there rather than skipping over every number in between. Undo
-		//puts them back like the names, since numbering a project over
-		//is one single act.
-	if (m_project && !m_num_key.isEmpty())
-	{
-		const NumerotationContext context = use_after ? m_num_after
-													  : m_num_before;
-			//An empty rule is never written: losing the rule altogether
-			//is not something numbering may do, not even on the way back
-		if (!context.isEmpty())
-		{
-			m_project->addCableAutoNum(m_num_key, context);
-			m_project->setCurrentCableAutoNum(m_num_key);
-		}
 	}
 }
 

@@ -230,5 +230,7 @@ void TerminalStripLabels::refresh(Diagram *diagram)
 		const auto physical = real ? real->physicalTerminal() : nullptr;
 		te->setLevelMark(physical ? physical->realTerminalCount() : 0,
 					   real ? real->level() : -1);
+			//A cable wired or taken away may change which side is out
+		te->updateSideMarks();
 	}
 }

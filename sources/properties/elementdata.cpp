@@ -401,6 +401,11 @@ QDomElement ElementData::xrefDisplayToXml(QDomDocument &document) const
 	xml.setAttribute(QStringLiteral("x"), QString::number(m_xref_display.manual.x()));
 	xml.setAttribute(QStringLiteral("y"), QString::number(m_xref_display.manual.y()));
 	xml.setAttribute(QStringLiteral("show_unlinked"), QETXML::boolToString(m_xref_display.showUnlinked));
+		//Written only when used, so a display without them saves as it did
+	if (m_xref_display.absolute)
+		xml.setAttribute(QStringLiteral("anchor"), QStringLiteral("folio"));
+	if (m_xref_display.angle)
+		xml.setAttribute(QStringLiteral("angle"), QString::number(m_xref_display.angle));
 	return xml;
 }
 
@@ -429,6 +434,9 @@ void ElementData::xrefDisplayFromXml(const QDomElement &xml_display)
 	m_xref_display.manual = QPointF(xml_display.attribute(QStringLiteral("x")).toDouble(),
 									xml_display.attribute(QStringLiteral("y")).toDouble());
 	m_xref_display.showUnlinked = QETXML::boolFromString(xml_display.attribute(QStringLiteral("show_unlinked")), false);
+	m_xref_display.absolute = xml_display.attribute(QStringLiteral("anchor")) == QLatin1String("folio");
+	const int angle = xml_display.attribute(QStringLiteral("angle")).toInt();
+	m_xref_display.angle = (angle == 90 || angle == 180 || angle == 270) ? angle : 0;
 }
 
 /**

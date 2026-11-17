@@ -34,6 +34,7 @@
 #include "addelementtextcommand.h"
 #include "../TerminalStrip/realterminal.h"
 #include "../TerminalStrip/physicalterminal.h"
+#include "../TerminalStrip/UndoCommand/takeoutofstripscommand.h"
 
 /**
 	@brief DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand
@@ -85,6 +86,12 @@ DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
 
 	m_removed_contents.m_texts_groups.clear();
 	setPotentialsOfRemovedElements();
+
+		//The terminals among the deleted symbols leave their strips, and
+		//come back to the same place on undo
+	if (TakeOutOfStripsCommand::isNeededFor(m_removed_contents.m_elements)) {
+		new TakeOutOfStripsCommand(m_removed_contents.m_elements, this);
+	}
 
 		//Get all linkeds table of removed table.
 	for (auto table : m_removed_contents.m_tables)

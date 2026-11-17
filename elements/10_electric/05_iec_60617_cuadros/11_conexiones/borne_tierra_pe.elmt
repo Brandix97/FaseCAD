@@ -29,5 +29,9 @@ License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
         </dynamic_text>
         <terminal uuid="{f6e04bcb-9c6f-5968-9ca6-59332412d0ef}" name="" x="0" y="-10" orientation="n" type="Generic"/>
         <terminal uuid="{c485efe7-751d-5011-9311-18e25f3ada41}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <dynamic_text x="18" y="-10.49" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{18ffd2d7-eb47-5e81-aeb2-9c4cafddd0d5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>terminal_number</info_name>
+        </dynamic_text>
     </description>
 </definition>

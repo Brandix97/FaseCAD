@@ -448,6 +448,16 @@
          </widget>
         </item>
         <item>
+        <widget class="QCheckBox" name="m_autohide_docks_cb">
+         <property name="toolTip">
+          <string>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</string>
+         </property>
+         <property name="text">
+          <string>Hide the side panels automatically</string>
+          </property>
+         </widget>
+        </item>
+        <item>
         <widget class="QCheckBox" name="m_narrow_docks_cb">
          <property name="toolTip">
           <string>The docked panels can be made as narrow as one wants: their texts wrap and what cannot wrap scrolls sideways. Unticked: the panels keep the width their texts and fields need.</string>

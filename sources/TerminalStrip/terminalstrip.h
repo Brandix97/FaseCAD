@@ -19,8 +19,11 @@
 #define TERMINALSTRIP_H
 
 #include <QObject>
+#include <QPair>
 #include <QPointer>
 #include <QColor>
+#include <QSharedPointer>
+#include <QVector>
 
 #include "terminalstripdata.h"
 #include "../properties/elementdata.h"
@@ -97,6 +100,31 @@ class TerminalStrip : public QObject
 		void removeTerminals (QVector<QSharedPointer<PhysicalTerminal>> phy_t_vector);
 		QVector<QSharedPointer<PhysicalTerminal>> insertSpareTerminals(int pos, const QVector<QSharedPointer<RealTerminal>> &spare_terminals);
 		void insertTerminals(int pos, const QVector<QSharedPointer<PhysicalTerminal>> &phy_t_vector);
+
+			/**
+				Where terminals stood in this strip before takeOut() took
+				them out -- their symbols were deleted from the folio --,
+				for putBack() to put them in the very same place when the
+				deletion is undone.
+			*/
+		struct Hole
+		{
+				///The physical terminals which went whole, in the order
+				///of the strip, and the position each one stood at
+			QVector<QSharedPointer<PhysicalTerminal>> physical;
+			QVector<int> positions;
+				///The physical terminals which lost some of their levels,
+				///with their levels as they were
+			QVector<QPair<QSharedPointer<PhysicalTerminal>,
+						  QVector<QSharedPointer<RealTerminal>>>> levels;
+				///The bridges they lay in, as they were
+			QVector<QPair<QSharedPointer<TerminalStripBridge>,
+						  QVector<QSharedPointer<RealTerminal>>>> bridges;
+
+			bool isEmpty() const {return physical.isEmpty() && levels.isEmpty();}
+		};
+		Hole takeOut(const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+		void putBack(const Hole &hole);
 
 		int pos(const QSharedPointer<PhysicalTerminal> &terminal) const;
 		int physicalTerminalCount() const;

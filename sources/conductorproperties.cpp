@@ -435,6 +435,9 @@ void ConductorProperties::fromXml(QDomElement &e)
 	m_definition_mark_hides_text = e.attribute("definition_mark_hides_text").toInt();
 	if (!qIsFinite(m_definition_mark_at) || m_definition_mark_at > 1) m_definition_mark_at = -1;
 
+		//A file without them was drawn with the text below and on the
+		//right, before the default became above and on the left: it is
+		//read the way it was drawn
 	QMetaEnum me = QMetaEnum::fromType<Qt::Alignment>();
 	m_horizontal_alignment = Qt::Alignment(
 				me.keyToValue(
@@ -546,8 +549,8 @@ void ConductorProperties::fromSettings(QSettings &settings, const QString &prefi
 	m_definition_mark_hides_text = settings.value(prefix + "definition_mark_hides_text", false).toBool();
 
 	QMetaEnum me = QMetaEnum::fromType<Qt::Alignment>();
-	m_horizontal_alignment = Qt::Alignment(me.keyToValue(settings.value(prefix + "horizontal-alignment", "AlignBottom").toString().toStdString().data()));
-	m_vertical_alignment = Qt::Alignment(me.keyToValue(settings.value(prefix + "vertical-alignment", "AlignRight").toString().toStdString().data()));
+	m_horizontal_alignment = Qt::Alignment(me.keyToValue(settings.value(prefix + "horizontal-alignment", "AlignTop").toString().toStdString().data()));
+	m_vertical_alignment = Qt::Alignment(me.keyToValue(settings.value(prefix + "vertical-alignment", "AlignLeft").toString().toStdString().data()));
 
 	readStyle(settings.value(prefix + "style").toString());
 }

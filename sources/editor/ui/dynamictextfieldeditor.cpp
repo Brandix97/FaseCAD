@@ -173,7 +173,11 @@ void DynamicTextFieldEditor::updateForm()
 			}
 			case DynamicElementTextItem::CompositeText: {
 				ui -> m_text_from_cb -> setCurrentIndex(2);
+				break;
 			}
+				//Data of a part: texts of a placed symbol only
+			default:
+				break;
 		}
 
 		updateTextFromWidgetsEnabled(ui -> m_text_from_cb -> currentIndex()); //For enable the good widget
@@ -302,6 +306,12 @@ void DynamicTextFieldEditor::fillInfoComboBox()
 	}
 
 	for (int i=0; i<strl.size();++i) {
+			//The first auxiliary block only, unless the field reads
+			//another one already (@sa QETInformation::shownAuxiliaryBlocks)
+		if (QETInformation::isExtraAuxiliaryInfo(strl[i])
+				&& !(m_text_field && m_text_field->infoName() == strl[i])) {
+			continue;
+		}
 		ui -> m_elmt_info_cb -> addItem(QETInformation::translatedInfoKey(strl[i]), strl[i]);
 	}
 }

@@ -73,6 +73,11 @@ void CompositeTextEditDialog::setUpComboBox(bool is_report)
 	{
 		qstrl = QETInformation::elementInfoKeys();
 		qstrl.removeAll("formula");
+			//The first auxiliary block only
+			//(@sa QETInformation::shownAuxiliaryBlocks)
+		qstrl.erase(std::remove_if(qstrl.begin(), qstrl.end(),
+								   QETInformation::isExtraAuxiliaryInfo),
+					qstrl.end());
 	}
 	
 	for (int i=0; i<qstrl.size();++i) {

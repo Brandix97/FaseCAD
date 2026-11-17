@@ -167,7 +167,7 @@ NewDiagramPage::NewDiagramPage(QETProject *project,
 		terminal_label_layout -> addWidget(m_terminal_label_split_rb);
 		terminal_label_layout -> addWidget(m_terminal_label_help);
 
-		if (settings.value(QStringLiteral("diagrameditor/defaultterminallabelling"), false).toBool()) {
+		if (settings.value(QStringLiteral("diagrameditor/defaultterminallabelling"), true).toBool()) {
 			m_terminal_label_split_rb -> setChecked(true);
 		} else {
 			m_terminal_label_combined_rb -> setChecked(true);
@@ -231,22 +231,18 @@ NewDiagramPage::NewDiagramPage(QETProject *project,
 		tab_widget -> addTab (m_ptw,      tr("Potential types"));
 	}
 
-	// add the cable numbering tab only for global settings (not per
-	// project). The numbering formulas of conductors, elements and
-	// sheets are gone: FaseCAD names a device as it is placed
-	// (DeviceNaming); the cables keep their rule
+	// No numbering tab: the numbering formulas are gone. FaseCAD names
+	// a device as it is placed (DeviceNaming) and a cable -W1, -W2...
+	// (CableManager::nextDesignation). The editors stay hidden, held by
+	// this page, so that what they read is still kept as it was.
 	if (!m_project) {
-		QWidget *autonum_widget = new QWidget();
-		QVBoxLayout *autonum_layout = new QVBoxLayout(autonum_widget);
-		autonum_layout->addWidget(new QLabel(tr("Set the default cable numbering rule for new projects:")));
-		autonum_layout->addWidget(m_autonum_cable.widget);
 		for (QWidget *unused : {static_cast<QWidget *>(m_autonum_conductor.widget),
 								static_cast<QWidget *>(m_autonum_element.widget),
-								static_cast<QWidget *>(m_autonum_folio.widget)}) {
-			unused->setParent(autonum_widget);
+								static_cast<QWidget *>(m_autonum_folio.widget),
+								static_cast<QWidget *>(m_autonum_cable.widget)}) {
+			unused->setParent(this);
 			unused->hide();
 		}
-		tab_widget -> addTab (autonum_widget, tr("Cable numbering"));
 	}
 
 	QVBoxLayout *vlayout1 = new QVBoxLayout();

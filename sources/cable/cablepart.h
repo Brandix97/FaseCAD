@@ -294,6 +294,14 @@ class CablePart : public QetGraphicsItem
 		bool trunkIsHorizontal() const;
 		QList<LabelLine> labelLines() const;
 			/**
+				Lift @p lines above the numbers of the cores they would
+				stand on: with the label starting where the line begins,
+				the first wire close to that end put its number under
+				the name.
+				@param lines the label, laid out where it belongs
+			*/
+		void standClearOfCores(QList<LabelLine> &lines) const;
+			/**
 				The references to the other folios this cable runs on,
 				one line each, stacked under the length of the cable:
 				at the very bottom of everything the line says.

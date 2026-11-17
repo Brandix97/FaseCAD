@@ -38,6 +38,7 @@
 #include "../dataBase/projectdatabase.h"
 #include "../qetinformation.h"
 #include "../qetproject.h"
+#include "../TerminalStrip/terminalsides.h"
 #include "../ui/projectpropertiesdialog.h"
 #include "../ui_elementinfowidget.h"
 #include "../undocommand/changeelementinformationcommand.h"
@@ -268,6 +269,9 @@ void ElementInfoWidget::enableLiveEdit()
 	if (m_label_shown_cb) {
 		connect(m_label_shown_cb, &QCheckBox::clicked, this, &ElementInfoWidget::apply);
 	}
+	if (m_outside_swapped_cb) {
+		connect(m_outside_swapped_cb, &QCheckBox::clicked, this, &ElementInfoWidget::apply);
+	}
 	if (m_number_cb) {
 		connect(m_number_cb, QOverload<int>::of(&QComboBox::activated), this, &ElementInfoWidget::apply);
 	}
@@ -291,6 +295,9 @@ void ElementInfoWidget::disableLiveEdit()
 	}
 	if (m_label_shown_cb) {
 		disconnect(m_label_shown_cb, &QCheckBox::clicked, this, &ElementInfoWidget::apply);
+	}
+	if (m_outside_swapped_cb) {
+		disconnect(m_outside_swapped_cb, &QCheckBox::clicked, this, &ElementInfoWidget::apply);
 	}
 	if (m_number_cb) {
 		disconnect(m_number_cb, QOverload<int>::of(&QComboBox::activated), this, &ElementInfoWidget::apply);
@@ -340,6 +347,7 @@ void ElementInfoWidget::buildInterface()
 	}
 	setupFreezeRow();
 	setupLabelShownRow();
+	setupSidesRow();
 
 	m_add_custom_property_btn = new QPushButton(tr("Add a custom property"), this);
 	connect(m_add_custom_property_btn, &QPushButton::clicked, this, [this]() { addCustomProperty(); });
@@ -390,7 +398,8 @@ QStringList ElementInfoWidget::predefinedKeys() const
 		 << QStringLiteral("auto_num_locked")
 		 << QStringLiteral("potential_isolating")
 		 << QStringLiteral("exclude_from_bom")
-		 << QStringLiteral("label_shown");
+		 << QStringLiteral("label_shown")
+		 << TerminalSides::swappedKey();
 
 	return keys;
 }
@@ -583,8 +592,9 @@ void ElementInfoWidget::writeMaterialRecord(const MaterialRecord &record,
 	@brief ElementInfoWidget::materialFromPartsDatabase
 	Let the user browse the parts database and write the part chosen into
 	the block the button belongs to. A part chosen for the main article
-	brings its accessories into the auxiliary blocks 1 to 4, with their
-	quantities. The whole choice is one step of undo.
+	brings its first accessory into the auxiliary block 1, with its
+	quantity (@sa QETInformation::shownAuxiliaryBlocks). The whole choice
+	is one step of undo.
 	@param block 0 for the main article, 1 to 4 for an auxiliary article
 */
 void ElementInfoWidget::materialFromPartsDatabase(int block)
@@ -613,7 +623,7 @@ void ElementInfoWidget::materialFromPartsDatabase(int block)
 	if (block == 0) {
 		int auxiliary = 1;
 		for (const PartAccessory &accessory : part->accessories) {
-			if (auxiliary > 4) {
+			if (auxiliary > QETInformation::shownAuxiliaryBlocks()) {
 				break;
 			}
 			if (const std::optional<Part> other = database.part(accessory.accessory_id)) {
@@ -767,6 +777,12 @@ void ElementInfoWidget::updateUi()
 	
 	for (ElementInfoPartWidget *eipw : m_eipw_list) {
 		eipw -> setText (element_info[eipw->key()].toString());
+			//The auxiliary blocks past the first one only where the
+			//element has something in them (an old project): hidden,
+			//the row still keeps what it holds
+		if (QETInformation::isExtraAuxiliaryInfo(eipw->key())) {
+			eipw->setVisible(!eipw->text().isEmpty());
+		}
 	}
 	refreshSchemeRow();
 	if (m_freeze_cb) {
@@ -776,6 +792,10 @@ void ElementInfoWidget::updateUi()
 	if (m_label_shown_cb) {
 		m_label_shown_cb->setChecked(m_element->labelShown());
 	}
+	if (m_outside_swapped_cb) {
+		m_outside_swapped_cb->setChecked(TerminalSides::isSwapped(m_element));
+	}
+	updateSidesText();
 	refreshNumberRow();
 	updateSuggestions();
 
@@ -874,6 +894,10 @@ DiagramContext ElementInfoWidget::currentInfo() const
 	// draw it keep their files exactly as they are.
 	if (m_label_shown_cb && !m_label_shown_cb->isChecked()) {
 		info_.addValue(QStringLiteral("label_shown"), QStringLiteral("false"));
+	}
+		//Same for the sides of a terminal: only a swapped one says so
+	if (m_outside_swapped_cb && m_outside_swapped_cb->isChecked()) {
+		info_.addValue(TerminalSides::swappedKey(), QStringLiteral("true"));
 	}
 
 		//The element keeps following its numbering scheme as long as its
@@ -992,6 +1016,68 @@ void ElementInfoWidget::setupLabelShownRow()
 		ui->scroll_vlayout->insertWidget(row + 1, m_label_shown_cb);
 	} else {
 		ui->scroll_vlayout->addWidget(m_label_shown_cb);
+	}
+}
+
+/**
+	@brief ElementInfoWidget::setupSidesRow
+	For a terminal: which of its connection points goes into the panel
+	and which one out of it, and the box which swaps them
+	(TerminalSides), under the "Show name" box.
+*/
+void ElementInfoWidget::setupSidesRow()
+{
+	if (!m_element || m_element->elementData().m_type != ElementData::Terminal) {
+		return;
+	}
+	m_outside_swapped_cb = new QCheckBox(tr("Swap inside and outside of the panel"), this);
+	m_outside_swapped_cb->setObjectName(QStringLiteral("m_outside_swapped_cb"));
+	m_outside_swapped_cb->setToolTip(tr(
+			"By default the side wired to a cable goes out of the panel, and "
+			"without a cable the lowest connection point. Tick to turn it "
+			"round for this terminal: the terminal strip plans follow it."));
+	m_sides_lb = new QLabel(this);
+	m_sides_lb->setObjectName(QStringLiteral("m_sides_lb"));
+	m_sides_lb->setWordWrap(true);
+	m_sides_lb->setContentsMargins(20, 0, 0, 0);
+
+	QWidget *after = m_label_shown_cb ? static_cast<QWidget *>(m_label_shown_cb)
+									  : static_cast<QWidget *>(m_freeze_cb);
+	const int row = after ? ui->scroll_vlayout->indexOf(after) : -1;
+	if (row >= 0) {
+		ui->scroll_vlayout->insertWidget(row + 1, m_outside_swapped_cb);
+		ui->scroll_vlayout->insertWidget(row + 2, m_sides_lb);
+	} else {
+		ui->scroll_vlayout->addWidget(m_outside_swapped_cb);
+		ui->scroll_vlayout->addWidget(m_sides_lb);
+	}
+}
+
+/**
+	@brief ElementInfoWidget::updateSidesText
+	Say which side of the terminal is inside the panel and which one is
+	outside, as it stands now.
+*/
+void ElementInfoWidget::updateSidesText()
+{
+	if (!m_sides_lb || !m_element) return;
+
+	TerminalSides::Reason reason = TerminalSides::Reason::None;
+	TerminalSides::outsideIndex(m_element, &reason);
+	const Terminal *in = TerminalSides::inside(m_element);
+	const Terminal *out = TerminalSides::outside(m_element);
+	if (reason == TerminalSides::Reason::None || !in || !out) {
+		m_sides_lb->setText(tr("This terminal has a single connection point."));
+		return;
+	}
+	const QString inside = TerminalSides::placeOf(m_element, in);
+	const QString outside = TerminalSides::placeOf(m_element, out);
+	if (reason == TerminalSides::Reason::Cable && !TerminalSides::isSwapped(m_element)) {
+		m_sides_lb->setText(tr("Inside the panel: %1. Outside the panel: %2, "
+							   "the side of the cable.").arg(inside, outside));
+	} else {
+		m_sides_lb->setText(tr("Inside the panel: %1. Outside the panel: %2.")
+							.arg(inside, outside));
 	}
 }
 
@@ -1281,6 +1367,9 @@ void ElementInfoWidget::firstActivated()
 */
 void ElementInfoWidget::elementInfoChange()
 {
+		//Which side is inside follows the swap at once, whatever made it
+	updateSidesText();
+
 	auto elmt_info = m_element->elementInformations();
 	auto current_info = currentInfo();
 
