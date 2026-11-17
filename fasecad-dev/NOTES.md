@@ -1205,3 +1205,7 @@ Not committed.
 - Website: construir.py VERSION 0.13, download page with a 0.13 entry
   (three paragraphs + button, in textos.py for en de it zh tr), 0.12 kept
   below; llms.txt download line; site and fasecad-web.zip rebuilt.
+- GitHub release v0.13 "FaseCAD 0.13 (preview)", pre-release, tag on
+  48058a874, the zip attached; notes in English and Spanish: scratchpad
+  release-notes-0.13.md. For Brandon to upload: web/fasecad-web.zip and
+  httpdocs/downloads/FaseCAD-0.13-windows-x64.zip.
