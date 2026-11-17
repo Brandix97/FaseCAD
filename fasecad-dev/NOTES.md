@@ -927,3 +927,281 @@ Not committed.
   tr), 0.11 kept below; site and fasecad-web.zip rebuilt, for Brandon to
   upload with the 0.12 zip.
 - fasecad-en-uso-0.12pre.exe deleted once FaseCAD was closed.
+
+## Editing the common collection (2026-11-15, after 0.12)
+- Brandon: opening a symbol of the common collection in the element
+  editor said "read only" ("¿puedes desbloqueármelos?"). QET's
+  ElementsLocation::isWritable() refused every file of the common
+  collection, and the panel left out new / edit / delete for it and
+  refused drops into it.
+- First done as an "Allow editing" setting, off by default (the rule of
+  AGENTS.md); Brandon: "estaba pensando en deshabilitar la protección",
+  so the protection is gone instead, with no setting: a symbol of the
+  common collection is writable when its file (or, for a new one, its
+  folder) is, so only a read-only installation stays read only. The
+  panel allows new symbol, new folder, edit and delete folder, delete
+  symbol and drops there on the same condition. The collection root is
+  never deleted.
+- From build-release the common collection is the repository's
+  elements/ (resolveConfiguredDataPath tries next to the binary, then
+  its parent), so edits there can be committed. In the zip it is the
+  elements/ beside FaseCAD.exe, which a new version replaces.
+- Test: tst_commoncollectionedit (a symbol and a new one are written, a
+  read-only file stays read only, drop into a folder).
+- Not released: goes out with the next version (0.12.1 or 0.13).
+
+## Cables -W1, -W2..., texts left aligned, wire texts above / left (2026-11-15)
+- Brandon: picking the cable tool asked to define a numbering rule ("ya
+  se supone que no usamos la enumeración automática original"); the
+  cable name grew from the line to the left; wire texts should stand
+  left of vertical wires and above horizontal ones. Explained first, as
+  he asked; his answers: with a dash (-W1), left aligned by default.
+- Why: on 13 November the cables kept their QET numbering rule (the
+  formulas of SelectAutonumW / NumerotationContext), so
+  QETDiagramEditor::cableNumberingGate asked for one and pointed to the
+  removed "Auto Numbering" page; without a rule every cable was "W".
+  The cable texts were right aligned by default (QETApp::
+  cableTextAlignment, CablePart::textLeft): their end at the start of
+  the line.
+- Now:
+  - CableManager::baseName() "-W", nextDesignation() = DeviceNaming::
+    nextLabel over the designations of the project's cables (a pasted
+    copy is held by the project already, so each takes its own).
+  - The gate is gone; AddCableCommand no longer steps a rule; CableCopy
+    does not read one.
+  - CableRenumber::plan(project, x_axis_first, include_by_hand): -W1...
+    in folio / axis order, skipping the names kept by hand.
+    RenumberCablesCommand only writes names.
+  - CableNumberingDialog: note, axis (saved when chosen), "Renumber all
+    cables", Close. No cable numbering tab in Settings > New project.
+  - The rules projects hold stay in the file, unused (saved back as
+    read). ProjectAutoNumConfigPage still has a cable part but is not
+    shown anywhere since the 13th.
+  - QETApp::cableTextAlignment(): left unless "right" or "center" is
+    saved.
+  - ConductorProperties: AlignTop / AlignLeft by default (constructor
+    and fromSettings); fromXml without the attributes keeps AlignBottom
+    / AlignRight, so old files look as they did. Existing projects keep
+    the defaults saved in them (project properties > Conductor).
+- His registry had the old values saved by the settings dialog
+  (cable-management/cable-align right, diagrameditor/
+  defaultconductorhorizontal-alignment AlignBottom, vertical
+  AlignRight): set to left / AlignTop / AlignLeft for him.
+- Test: tst_cablenaming (first free number, no window when the tool is
+  picked, renumber order and names by hand, default alignments, an old
+  file without the attributes). Spanish texts unfinished.
+- Not released: next version.
+
+## Cable cores numbered from the left (2026-11-16)
+- Brandon (screenshot of -W2 4x1.5): cores 3, 2, 1 from the left, he
+  wanted 1, 2, 3. CableManager::crossedConductors() ordered the
+  crossings from the point the line was drawn from, and that order
+  gives each core its number (CableCreateDialog, qet.addCable): a line
+  drawn from the right numbered from the right.
+- Now from the left end, or the top end for a line more vertical than
+  horizontal, whichever end it was drawn from. The other callers
+  (CablePart wireFor / settleCores, CableCopy) pick the nearest wire to
+  each mark, so the order does not matter to them. Cables already drawn
+  keep their numbers.
+- Test: tst_cablenaming coresAreNumberedFromTheLeftWhicheverEndIsDrawnFirst
+  (every line across the folios of every_feature.qet, both ways).
+- Then (he said yes): the label above the line is lifted clear of the
+  core numbers it would cover (CablePart::standClearOfCores, called by
+  labelLines() when the cable's text offset is null): 2 units of room,
+  repeated while a taller number further along is reached. A label he
+  moved by hand ("Position du texte") stays where he put it. A core
+  being dragged counts where it was picked up, so the name does not
+  jump. Test: theNameStandsClearOfTheFirstCore (through boundingRect).
+
+## Terminals: strip left, number right; inside / outside of the panel (2026-11-16)
+- Brandon (screenshot of a row XPERS 23, 24, 26...): the strip name on
+  the left of the circle, the terminal number on the right. Then: "una
+  opción en los terminales para invertir la lógica ... dentro de cuadro
+  y fuera de cuadro para que sea intuitivo". His answers: shown in the
+  properties and on the folio while selected, per terminal, terminals
+  already placed updated too; the wire texts (his screenshot has them on
+  the right) left for later.
+- Labels:
+  - 11_conexiones/borne.elmt and borne_tierra_pe.elmt: a terminal_number
+    field, left aligned, caps centred on the circle (generar.py:
+    Sym.terminal_number_at, written after the terminals so their uuids
+    stay; the PE one behind its "PE"). The label field was already left
+    of the circle, centred.
+  - Split labelling ("Split the label and the terminal number") is the
+    default of new projects (diagrameditor/defaultterminallabelling true
+    when unset; his registry set to true). Projects saved without it
+    still read off.
+  - Element::labelForDisplay: a terminal showing its number only (the
+    next of a row, TerminalStripLabels) leaves the label field empty when
+    split with a number field (it drew "24 o 24").
+- Inside / outside (TerminalSides, sources/TerminalStrip/terminalsides):
+  the outside is the side wired to a cable core, else the lowest
+  connection point (the rule TrueRealTerminal::diagramColumn had, which
+  now reads it from here); the hidden information "outside_swapped"
+  turns it round (the highest other one goes out).
+  - Information tab of a terminal: "Swap inside and outside of the
+    panel" under "Show name", and a line "Inside the panel: top.
+    Outside the panel: bottom[, the side of the cable]." Written only
+    when ticked. Same box in the multi-element editor.
+  - TerminalElement::updateSideMarks: "Inside" / "Outside" (6 pt, blue)
+    beside the ends while selected; a ViewOnlyText paints nothing
+    without a widget, so prints, PDF and images never have them.
+    Refreshed on selection, move/turn, information and
+    TerminalStripLabels::refresh (cables).
+- Update elements from the collections: the old definitions are kept
+  before the replacement and TerminalFieldsUpdate::adopt() gives each
+  placed terminal the label / number fields of the new symbol: a field
+  missing in the old one is added (own uuid), one still at the old
+  symbol's anchor and alignment moves to the new one, one moved or
+  deleted by hand is left alone. The report says how many.
+- Test: tst_terminalsides. Spanish texts unfinished.
+- Test run of the terminal batch: tst_terminallabeldisplay asserted the
+  old default (no split without a setting): changed to the new one, and
+  the settings page offers split checked. tst_terminalsides crashed:
+  a DynamicElementTextItem without an element reads the element's
+  rotation in its constructor (setKeepVisualRotation); the anchor of a
+  symbol's field is now measured on an empty UserText copy made on the
+  element itself and deleted at once. The FaseCAD he had open had that
+  crash in "Update elements from the collections": told him not to use
+  it until restarted.
+
+## Contact mirror: position absolute / relative, contact symbols turned (2026-11-16)
+- Brandon (screenshot of the coil with its contacts listed under it,
+  14/12 left, 11 right, "29.2"): "puedes hacer que se vea abajo como"
+  that: it exists, "Mostrar contactos" in Project properties > Cross
+  references (Bobina), with terminal numbers; the position format of his
+  screenshot is %f.%c. Told him; not made the default yet (waiting for
+  his answer: coils only or all, %f.%c).
+- Then: the mirror's position chosen in the properties, absolute or
+  relative, and an angle for the contact icon. His answers: only the
+  symbols turn (numbers upright), 0/90/180/270.
+- ElementData::XRefDisplay: absolute (manual is a folio point; xml
+  anchor="folio") and angle (xml angle="90|180|270"), written only when
+  used. CrossRefItem::autoPos / the Shift-drag measure the manual point
+  from the folio when absolute.
+- CrossRefItem::drawContact: the symbol lines are drawn through a turn
+  around their middle (turned upright a symbol is 24 tall, three rows of
+  10, footprint at the left of its rows); terminal numbers drawn upright,
+  centred where their spot went; position text right of the footprint.
+  Angle 0 draws exactly as before.
+- XRefDisplayForm (sources/ui): the fields, shared by the "Relay
+  contact display" dialog (rewritten on it, gets the symbol position)
+  and the new "Contact mirror" tab (ElementXRefDisplayWidget) of a
+  master's properties (not PLC): "Use the project setting" box, live,
+  ChangeElementDataCommand; refreshed on XRefPropertiesChanged.
+  Switching relative/absolute converts X/Y so the mirror does not move.
+- Test: tst_contactmirror. Spanish texts unfinished.
+- Then: "Por defecto quiero que esté Mostrar contactos". XRefProperties::
+  fromSettings reads "contacts" when the settings say nothing (new
+  projects, the settings page); fromXml still reads "cross" for a file
+  which says nothing. His registry had cross saved for every type:
+  coil, protection, commutator set to contacts (plc and cable left,
+  they draw their own way). %f.%c not asked for: not changed. Test:
+  tst_contactmirror aNewProjectShowsContacts.
+
+## Deleted terminals leave their strips (2026-11-16)
+- Brandon: a terminal deleted from the folio stayed in the strip editor
+  and in the strips drawn on the folios. Cause: DeleteQGraphicsItemCommand
+  took the symbol off the folio (kept alive for undo) and nobody told its
+  strip; only a reload dropped it (TerminalStrip::fromXml warning).
+- TerminalStrip::takeOut / putBack, with TerminalStrip::Hole: a physical
+  terminal whose every level goes is taken out whole (position kept), one
+  keeping levels loses those (levels kept), the bridges they lay in are
+  kept as they were; putBack restores all of it in place.
+- TakeOutOfStripsCommand (TerminalStrip/UndoCommand), a child of
+  DeleteQGraphicsItemCommand (every deletion path, cut too) and of
+  RemoveDiagramCommand (a sheet takes its terminals along; its redo/undo
+  now run the children). Added only when a terminal of a strip is deleted.
+- Bridged and multi-level terminals: the editor still refuses to delete
+  them (hasNonDeletableTerminal, unchanged); the command handles them
+  anyway, for the scripting paths. No new text. Test: tst_deletedterminals.
+
+## Only the first auxiliary block (2026-11-16)
+- Brandon: the properties "Auxiliary block", "Manufacturer of auxiliary..."
+  repeated four times; keep one. His choice: the first block only.
+- QETInformation::shownAuxiliaryBlocks() (1) and isExtraAuxiliaryInfo():
+  the blocks 2 to 4 stay in elementInfoKeys() (project database,
+  nomenclatures, old projects) but are offered only where an element has
+  a value in them: Information tab (row hidden, still keeps its value),
+  several elements selected, the info list of a placed text, the composite
+  text dialog, the element editor (info combo, default informations).
+  The nomenclature column list is unchanged.
+- Parts tab: block_count 2 (main + aux 1), the message says one auxiliary;
+  "choose article" from the parts database brings one accessory only.
+
+## Text source "Part data" (2026-11-16)
+- Brandon: a source of text enabled only when the element has a part,
+  showing data of the article from the parts database, chosen in a large
+  search window instead of a list. His choice: every part of the element
+  is listed, the text remembers which.
+- DynamicElementTextItem::PartInfo, partField (PartTexts::reference():
+  manufacturer TAB order number TAB id; id = a field such as "voltage" or
+  "data:<technical data name>") and partValue (the value last read).
+  Saved as text_from="UserText" with <part_info reference=".."/> and the
+  value in <text>: QElectroTech shows the same text.
+- sources/partsdb/parttexts.*: names, values, fieldsOf(part/element),
+  refresh(elements) (opens the database only when a text needs it);
+  called at the end of Diagram::fromXml (load, lazy build, paste) and on
+  PartsDatabaseChanges::changed (parts manager) for built folios.
+- sources/partsdb/partfielddialog.*: search bar (every word, any column),
+  table Data / Value / Part, double click or Enter.
+- Text properties: row "Part data" (rows after it shifted by one), source
+  "Part data" disabled without parts, the window run from the delegate
+  like the font one, undo with partField / partValue / textFrom.
+- Test tst_parttexts. Spanish texts unfinished ("Datos del artículo").
+
+## Cross references: contacts at the folio foot by default (2026-11-16)
+- XRefProperties::fromSettings: snapto defaults to bottom (displayhas was
+  contacts already); fromXml still reads label for a file without it. His
+  registry: coil, protection, commutator snapto = bottom. Test:
+  tst_contactmirror aNewProjectShowsContacts.
+
+## Side panels which hide by themselves (2026-11-16)
+- Brandon: an option to hide the side panels; his choice: automatic hide
+  (setting + a pin on each panel).
+- sources/ui/dockautohide.*: Settings > General "Hide the side panels
+  automatically" (diagrameditor/autohide_docks, off). A left/right panel
+  not pinned folds into a vertical tab (a QToolBar at the window edge);
+  resting on the tab (350 ms) or clicking it slides the panel out over the
+  drawing (its widget moved into an overlay frame, given back on fold);
+  it folds when the mouse leaves for 600 ms (not while a button is held,
+  a popup or dialog is open, or the keyboard is in it) or when something
+  else of the window gets the focus. Pin in the overlay keeps it open;
+  while the setting is on, the docked panels have a title bar with a pin
+  (folds it again) and a close button. A folded panel is a hidden dock:
+  saveState keeps it, the setting off shows it again, tabbed as before.
+  Pinned and folded panels in diagrameditor/autohide_pinned / _folded.
+  The overlay can be widened by its inner edge.
+- The older DockFold bars (fold one side away) are left as they are.
+- Test tst_dockautohide.
+
+## Version 0.13 (2026-11-17)
+- Brandon: "Prepárame el software para subirlo a la web y lánzalo también a
+  github". New features since 0.12, so 0.13 (not 0.12.1).
+- Commits: e86983b7b (the code of 15 to 17 November: collection editable,
+  cables -W1..., terminal sides and numbers, deleted terminals leave their
+  strip, contact mirror tab and folio foot, first auxiliary block only,
+  part data texts, side panels which hide by themselves), 4f4b8b2e7
+  (version 0.13), and this one. The two symbols Brandon edited himself in
+  the element editor (contacto_conmutado, contactor_3p) went in as he left
+  them: generar.py would draw them again as before.
+- Checked before pushing: no EPLAN, no manufacturer data (a real order
+  number in a comment of parttexts.h replaced by K-24). Tests: the new
+  ones (tst_deletedterminals, tst_parttexts, tst_contactmirror,
+  tst_dockautohide), the related ones (duplicatelabels, multielementinfo,
+  terminallabeldisplay, bridgetool, terminalstriporder, elementparts,
+  terminaldiagram, faseterminal, terminaltexts, terminalsides,
+  partsdatabase, projectsettingrows, xrefdisplay, terminalstriprows,
+  xrefpos, textfixedsizeintegration) and the four starting fasecad.exe
+  (tst_qetdbfile 609 s, tst_savevaluerows, tst_xrefdisplay,
+  tst_elementautonumids 268 s) with QT_QPA_PLATFORM_PLUGIN_PATH: all pass.
+  tst_textfixedsizeintegration times out under ctest (300 s): its runner
+  links a probe from the app objects first; run by hand, and its probe
+  with the plugin path, it passes. Full ctest not run.
+- Zip FaseCAD-0.13-windows-x64.zip (78,492,311 bytes, 4955 entries, the
+  same files as 0.12) by scratchpad package.sh 0.13 + Python zipfile;
+  unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 0.13". Copied to
+  web/httpdocs/downloads.
+- Website: construir.py VERSION 0.13, download page with a 0.13 entry
+  (three paragraphs + button, in textos.py for en de it zh tr), 0.12 kept
+  below; llms.txt download line; site and fasecad-web.zip rebuilt.
