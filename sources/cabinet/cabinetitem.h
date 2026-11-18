@@ -68,6 +68,12 @@ class CabinetItem : public QetGraphicsItem
 			QPainterPath drawing;
 				/// The name of the file a drawing was read from
 			QString source;
+				/// The device of the schematic a drawing stands for (the
+				/// uuid of its symbol), null for a drawing on its own
+			QUuid device;
+				/// The label of that device, written in the middle of
+				/// the drawing; it follows the device when renamed
+			QString device_label;
 
 			bool operator==(const Properties &other) const;
 			bool operator!=(const Properties &other) const {return !(*this == other);}
@@ -101,6 +107,14 @@ class CabinetItem : public QetGraphicsItem
 		QRectF sceneRect() const;
 		qreal pixelsPerMm() const;
 		void scaleChanged(qreal ratio);
+
+			/// A drawing standing for a device of the schematic
+		bool isDevice() const
+		{return m_properties.kind == Kind::Drawing
+					&& (!m_properties.device.isNull()
+						|| !m_properties.device_label.isEmpty());}
+		void followDevice();
+		QRectF deviceLabelRect(const QFont &base) const;
 
 		QUuid uuid() const {return m_uuid;}
 		void setUuid(const QUuid &uuid) {m_uuid = uuid; emit uuidChanged();}
@@ -141,9 +155,14 @@ class CabinetItem : public QetGraphicsItem
 		void paintCaption(QPainter *painter, const QRectF &rect) const;
 		QFont captionFont(const QFont &base) const;
 		qreal captionWidth(const QFont &base, qreal lod) const;
+		QFont deviceLabelFont(const QFont &base) const;
+		void paintDeviceLabel(QPainter *painter) const;
+		void watchDevice();
 
 		Properties m_properties;
 		QUuid m_uuid;
+			/// Follows the labels of the project, for a device's drawing
+		QMetaObject::Connection m_device_connection;
 };
 
 #endif // CABINETITEM_H

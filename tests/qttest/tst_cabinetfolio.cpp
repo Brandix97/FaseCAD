@@ -68,6 +68,7 @@ class TstCabinetFolio : public QObject
 		void partsKeepTheirMillimetres();
 		void scaleChangeIsUndone();
 		void partsAreSavedWithTheirFolio();
+		void deviceDrawingIsSaved();
 		void unknownPartIsLeftOut();
 		void projectFileKeepsTheCabinet();
 		void toolDrawsADuctBetweenTwoClicks();
@@ -288,6 +289,74 @@ void TstCabinetFolio::partsAreSavedWithTheirFolio()
 		//The plate under what is mounted on it
 	QVERIFY(plate_item->zValue() < duct_item->zValue());
 	QVERIFY(plate_item->zValue() < rail_item->zValue());
+}
+
+void TstCabinetFolio::deviceDrawingIsSaved()
+{
+	QETProject project;
+	Diagram *cabinet = project.addNewCabinetDiagram();
+
+	CabinetItem::Properties drawing;
+	drawing.kind = CabinetItem::Kind::Drawing;
+	drawing.drawing.addRect(0, 0, 90, 100);
+	drawing.length = 90;
+	drawing.width = 100;
+	drawing.source = QStringLiteral("cpu");
+	drawing.device = QUuid::createUuid();
+	drawing.device_label = QStringLiteral("-K1");
+	auto *device = new CabinetItem(drawing);
+	cabinet->addItem(device);
+	device->placeAt(QPointF(40, 40));
+
+	CabinetItem::Properties alone = drawing;
+	alone.device = QUuid();
+	alone.device_label.clear();
+	auto *loose = new CabinetItem(alone);
+	cabinet->addItem(loose);
+	loose->placeAt(QPointF(200, 40));
+
+	QVERIFY(device->isDevice());
+	QVERIFY(!loose->isDevice());
+		//No symbol of the project has that uuid: the label stays
+	QCOMPARE(device->properties().device_label, QStringLiteral("-K1"));
+
+		//The device written for a device's drawing only
+	QDomDocument document = cabinet->toXml();
+	const QDomNodeList items = document.elementsByTagName(QStringLiteral("cabinet_item"));
+	QCOMPARE(items.size(), 2);
+	for (int i = 0 ; i < items.size() ; ++i) {
+		const QDomElement item = items.at(i).toElement();
+		if (QUuid(item.attribute(QStringLiteral("uuid"))) == device->uuid()) {
+			QCOMPARE(QUuid(item.attribute(QStringLiteral("device"))), drawing.device);
+			QCOMPARE(item.attribute(QStringLiteral("device_label")), QStringLiteral("-K1"));
+		} else {
+			QVERIFY(!item.hasAttribute(QStringLiteral("device")));
+			QVERIFY(!item.hasAttribute(QStringLiteral("device_label")));
+		}
+	}
+
+	Diagram *read = project.addNewDiagram();
+	QVERIFY(read->fromXml(document));
+	QHash<QUuid, CabinetItem *> by_uuid;
+	for (CabinetItem *part : partsOf(read)) by_uuid.insert(part->uuid(), part);
+	QCOMPARE(by_uuid.size(), 2);
+	QVERIFY(by_uuid.value(device->uuid())->properties() == device->properties());
+	QVERIFY(by_uuid.value(loose->uuid())->properties() == loose->properties());
+
+		//The label in the middle of the drawing, inside it
+	const QRectF box = device->deviceLabelRect(QFont());
+	QVERIFY(!box.isNull());
+	QVERIFY(device->rect().contains(box));
+	QVERIFY(qAbs(box.center().x() - device->rect().center().x()) < 0.01);
+	QVERIFY(qAbs(box.center().y() - device->rect().center().y()) < 0.01);
+	QVERIFY(loose->deviceLabelRect(QFont()).isNull());
+		//A long label is made smaller to fit the width
+	CabinetItem::Properties long_label = drawing;
+	long_label.device_label = QStringLiteral("=PLANT+CAB1-K1234567");
+	device->setProperties(long_label);
+	QVERIFY(device->deviceLabelRect(QFont()).width() <= device->rect().width());
+		//What the box under the mouse says while it is placed
+	QVERIFY(device->description().startsWith(long_label.device_label));
 }
 
 void TstCabinetFolio::unknownPartIsLeftOut()

@@ -22,9 +22,11 @@
 #include "TerminalStrip/realterminal.h"
 #include "TerminalStrip/terminalstrip.h"
 #include "TerminalStrip/terminalstripbridge.h"
+#include "bridge/bridge.h"
 #include "diagram.h"
 #include "diagramcontent.h"
 #include "factory/elementfactory.h"
+#include "qetgraphicsitem/terminal.h"
 #include "qetgraphicsitem/terminalelement.h"
 #include "qetproject.h"
 #include "undocommand/deleteqgraphicsitemcommand.h"
@@ -247,6 +249,36 @@ private slots:
 		project.undoStack()->undo();
 		QCOMPARE(layoutOf(strip), before);
 		QVERIFY(project.diagrams().contains(second));
+	}
+
+	void aDrawnBridgeLetsGoOfADeletedTerminal()
+	{
+		QETProject project;
+		Diagram *folio = project.addNewDiagram();
+		TerminalElement *a = place(folio);
+		TerminalElement *b = place(folio);
+		TerminalElement *c = place(folio);
+		QVERIFY(a && b && c);
+		auto landing = [](Element *element) {
+			BridgeTerminal terminal;
+			terminal.element = element->uuid();
+			terminal.terminal = element->terminals().first()->stableUuid().toString();
+			return terminal;
+		};
+		auto *bridge = new Bridge(&project);
+		QVERIFY(project.addBridge(bridge));
+		const QList<BridgeTerminal> all {landing(a), landing(b), landing(c)};
+		bridge->setTerminals(all);
+
+			//Nothing to unbridge first: the bridge goes on over the others
+		remove(folio, {b});
+		const QList<BridgeTerminal> left {landing(a), landing(c)};
+		QCOMPARE(bridge->landings(), left);
+
+		project.undoStack()->undo();
+		QCOMPARE(bridge->landings(), all);
+		project.undoStack()->redo();
+		QCOMPARE(bridge->landings(), left);
 	}
 
 	void aFreeTerminalAddsNothing()

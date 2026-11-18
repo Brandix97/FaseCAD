@@ -34,11 +34,11 @@ class DeleteQGraphicsItemCommand : public QUndoCommand
 	public:
 		DeleteQGraphicsItemCommand(Diagram *diagram, const DiagramContent &content, QUndoCommand * parent = nullptr);
 		~DeleteQGraphicsItemCommand() override;
-		static bool hasNonDeletableTerminal(const DiagramContent &content);
 
 	private:
 		DeleteQGraphicsItemCommand(const DeleteQGraphicsItemCommand &);
 		void setPotentialsOfRemovedElements();
+		void letGoOfBridges();
 		Terminal *terminalInSamePotential(Terminal *terminal, Conductor *conductor_to_exclude);
 
 	public:

@@ -418,6 +418,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/cabinet/cabinetitem.h
   ${QET_DIR}/sources/cabinet/cabinetcommands.cpp
   ${QET_DIR}/sources/cabinet/cabinetcommands.h
+  ${QET_DIR}/sources/cabinet/cabinetdevices.cpp
+  ${QET_DIR}/sources/cabinet/cabinetdevices.h
   ${QET_DIR}/sources/cabinet/cabinetdialogs.cpp
   ${QET_DIR}/sources/cabinet/cabinetdialogs.h
   ${QET_DIR}/sources/cabinet/cabinetsnap.cpp

@@ -21,11 +21,15 @@
 #include <QCoreApplication>
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QDir>
 #include <QDoubleSpinBox>
+#include <QFileDialog>
+#include <QFileInfo>
 #include <QFormLayout>
 #include <QGuiApplication>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMessageBox>
 #include <QPalette>
 #include <QPainter>
 #include <QPixmap>
@@ -467,4 +471,98 @@ QIcon CabinetDialogs::icon(CabinetItem::Kind kind)
 		icon.addPixmap(pixmap);
 	}
 	return icon;
+}
+
+/**
+	@brief CabinetDialogs::placedIcon
+	@return a green tick: a device of the schematic drawn on a cabinet
+	folio. @p blank gives an icon of the same size with nothing on it,
+	for the lines without the tick to stay aligned with those with it.
+*/
+QIcon CabinetDialogs::placedIcon(bool blank)
+{
+	QIcon icon;
+	for (int size : {16, 32}) {
+		QPixmap pixmap(size, size);
+		pixmap.fill(Qt::transparent);
+		if (!blank) {
+			QPainter painter(&pixmap);
+			painter.setRenderHint(QPainter::Antialiasing, true);
+			const qreal unit = size / 32.0;
+			painter.scale(unit, unit);
+			painter.setPen(QPen(QColor(30, 160, 70), size < 32 ? 5.0 : 4.2,
+								Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+			painter.drawPolyline(QPolygonF({QPointF(6, 17), QPointF(13, 24),
+											QPointF(26, 8)}));
+			painter.end();
+		}
+		icon.addPixmap(pixmap);
+	}
+	return icon;
+}
+
+/**
+	@brief CabinetDialogs::askDxfDrawing
+	Ask for a DXF file and read it into @p properties, a drawing; the
+	dialog is titled @p title. @p skipped is told what the file holds that
+	was left out (texts, hatches...), empty if nothing.
+	@return false if the user gave up or the file could not be read: the
+	user was told why
+*/
+bool CabinetDialogs::askDxfDrawing(CabinetItem::Properties &properties,
+								   QWidget *parent, const QString &title,
+								   QString *skipped)
+{
+	QSettings settings;
+	const QString folder = settings.value(QStringLiteral("cabinet/dxf_folder"),
+										  QDir::homePath()).toString();
+	const QString file_path = QFileDialog::getOpenFileName(
+				parent, title, folder, tr("DXF drawings (*.dxf *.DXF)"));
+	if (file_path.isEmpty()) return false;
+	settings.setValue(QStringLiteral("cabinet/dxf_folder"), QFileInfo(file_path).absolutePath());
+
+	QGuiApplication::setOverrideCursor(Qt::WaitCursor);
+	const DxfReader::Result read = DxfReader::readFile(file_path);
+	QGuiApplication::restoreOverrideCursor();
+	if (!read.ok) {
+		QMessageBox::warning(parent, title,
+							 tr("%1 could not be read.\n\n%2")
+							 .arg(QFileInfo(file_path).fileName(), read.error));
+		return false;
+	}
+	setDrawing(properties, read, QFileInfo(file_path).completeBaseName());
+	if (skipped) *skipped = skippedText(read);
+	return true;
+}
+
+/**
+	@brief CabinetDialogs::setDrawing
+	Make @p properties the drawing @p read holds, read from the file named
+	@p source (without its extension). What else @p properties say (the
+	device it stands for) stays.
+*/
+void CabinetDialogs::setDrawing(CabinetItem::Properties &properties,
+								const DxfReader::Result &read, const QString &source)
+{
+	const QRectF bounds = read.path.boundingRect();
+	properties.kind = CabinetItem::Kind::Drawing;
+	properties.drawing = read.path;
+	properties.length = bounds.width();
+	properties.width = bounds.height();
+	properties.source = source;
+}
+
+/**
+	@brief CabinetDialogs::skippedText
+	@return what @p read left out, in a few words for the status bar
+	("DXF: 120 lines drawn; left out: TEXT (3)"), empty if nothing
+*/
+QString CabinetDialogs::skippedText(const DxfReader::Result &read)
+{
+	if (read.skipped.isEmpty()) return QString();
+	QStringList skipped;
+	for (auto it = read.skipped.constBegin() ; it != read.skipped.constEnd() ; ++it)
+		skipped << QStringLiteral("%1 (%2)").arg(it.key()).arg(it.value());
+	return tr("DXF: %1 lines drawn; left out: %2")
+			.arg(read.drawn).arg(skipped.join(QStringLiteral(", ")));
 }

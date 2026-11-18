@@ -19,6 +19,7 @@
 #define CABINETDIALOGS_H
 
 #include "cabinetitem.h"
+#include "dxfreader.h"
 
 #include <QColor>
 #include <QCoreApplication>
@@ -50,6 +51,14 @@ class CabinetDialogs
 		static QIcon folioIcon(const QColor &color = QColor());
 		static QIcon icon(CabinetItem::Kind kind);
 		static QIcon dxfIcon();
+		static QIcon placedIcon(bool blank = false);
+
+		static bool askDxfDrawing(CabinetItem::Properties &properties,
+								  QWidget *parent, const QString &title,
+								  QString *skipped = nullptr);
+		static void setDrawing(CabinetItem::Properties &properties,
+							   const DxfReader::Result &read, const QString &source);
+		static QString skippedText(const DxfReader::Result &read);
 };
 
 #endif // CABINETDIALOGS_H

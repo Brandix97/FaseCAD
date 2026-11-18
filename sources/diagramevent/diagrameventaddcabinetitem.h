@@ -57,6 +57,14 @@ class DiagramEventAddCabinetItem : public DiagramEventInterface
 		void keyPressEvent(QKeyEvent *event) override;
 		bool wantsKey(const QKeyEvent *event) const override;
 
+			/// How the tool ended: a part put down, given up with a right
+			/// click, or left with Escape
+		enum class Ending { Placed, Skipped, Cancelled };
+		Ending ending() const {return m_ending;}
+			/// What the status bar says instead of the usual hint (a
+			/// queue of drawings says which one this is), empty for that
+		void setHint(const QString &hint);
+
 			/// The part being drawn, nullptr between two parts
 		CabinetItem *preview() const {return m_item;}
 			/// What the box under the mouse says
@@ -82,6 +90,8 @@ class DiagramEventAddCabinetItem : public DiagramEventInterface
 		QPointF m_last_pos;
 		QPoint m_press_screen_pos;
 		QString m_typed;
+		Ending m_ending = Ending::Cancelled;
+		QString m_hint;
 };
 
 #endif // DIAGRAMEVENTADDCABINETITEM_H

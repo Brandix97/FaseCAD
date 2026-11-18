@@ -29285,9 +29285,30 @@ DXF</translation>
         <comment>file, width and height of a DXF drawing</comment>
         <translation type="unfinished">%1 · %2 × %3 mm</translation>
     </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
 </context>
 <context>
     <name>CabinetDialogs</name>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Dibujos DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">No se pudo leer %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF: %1 líneas dibujadas; omitido: %2</translation>
+    </message>
     <message>
         <source>Horizontal</source>
         <translation type="unfinished">Horizontal</translation>
@@ -30661,6 +30682,143 @@ Replace it with the part of the file?</source>
     <message>
         <source>Folded panels</source>
         <translation type="unfinished">Paneles plegados</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">No se pudo leer %1.
+
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">Buscar un dispositivo</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">Etiqueta</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descripción</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">Artículo</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>%n símbolo de este dispositivo</numerusform>
+            <numerusform>%n símbolos de este dispositivo</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Folio</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">Doble clic en un dispositivo para mostrarlo en su folio. Mayús y Ctrl seleccionan varios, Supr los elimina.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>Dibujado en el folio de armario %1</numerusform>
+            <numerusform>Dibujado en los folios de armario %1</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">(Sin etiqueta)</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Mostrar en el folio</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Eliminar</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">Insertar el DXF en un folio de armario</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">%1 no tiene DXF en sus piezas: elija un archivo DXF</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">El proyecto no tiene ningún folio de construcción de armario. ¿Añadir uno al final del proyecto?</translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">Eliminar dispositivos</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>¿Eliminar %n dispositivo, con sus conductores?</numerusform>
+            <numerusform>¿Eliminar %n dispositivos, con sus conductores?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Eliminar %n dispositivo</numerusform>
+            <numerusform>Eliminar %n dispositivos</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">Enumerar...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">Renombra los dispositivos seleccionados uno tras otro a partir de un primer nombre: -K1, -K2...</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">Los dispositivos seleccionados ya están en un folio de armario.</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1 (%2 de %3): clic donde va | Clic derecho para saltarlo | Esc para parar</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">Enumerar dispositivos</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">Primer nombre:</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">Incremento:</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">Nombre nuevo</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">Estos nombres ya los tienen otros dispositivos: %1. No se ha renombrado nada.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Enumerar %n dispositivo</numerusform>
+            <numerusform>Enumerar %n dispositivos</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

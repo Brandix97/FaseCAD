@@ -923,11 +923,6 @@ bool QetScriptApi::deleteElement(int folioIndex, const QString &elementUuid)
 				content.m_conductors_to_update << conductor;
 		}
 	}
-	if (DeleteQGraphicsItemCommand::hasNonDeletableTerminal(content)) {
-		log(QStringLiteral("qet.deleteElement: %1 has a non-deletable terminal (linked master/slave?), refusing").arg(elementUuid));
-		return false;
-	}
-
 	auto *cmd = new DeleteQGraphicsItemCommand(diagram, content);
 	diagram->undoStack().push(cmd);
 	return true;

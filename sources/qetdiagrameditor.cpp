@@ -3851,40 +3851,10 @@ void QETDiagramEditor::addCabinetItemTriggered(QAction *action)
 */
 bool QETDiagramEditor::askDxfDrawing(CabinetItem::Properties &properties)
 {
-	QSettings settings;
-	const QString folder = settings.value(QStringLiteral("cabinet/dxf_folder"),
-										  QDir::homePath()).toString();
-	const QString file_path = QFileDialog::getOpenFileName(
-				this, tr("Insert a DXF"), folder,
-				tr("DXF drawings (*.dxf *.DXF)"));
-	if (file_path.isEmpty()) return false;
-	settings.setValue(QStringLiteral("cabinet/dxf_folder"), QFileInfo(file_path).absolutePath());
-
-	QApplication::setOverrideCursor(Qt::WaitCursor);
-	const DxfReader::Result read = DxfReader::readFile(file_path);
-	QApplication::restoreOverrideCursor();
-	if (!read.ok) {
-		QMessageBox::warning(this, tr("Insert a DXF"),
-							 tr("%1 could not be read.\n\n%2")
-							 .arg(QFileInfo(file_path).fileName(), read.error));
+	QString skipped;
+	if (!CabinetDialogs::askDxfDrawing(properties, this, tr("Insert a DXF"), &skipped))
 		return false;
-	}
-
-	const QRectF bounds = read.path.boundingRect();
-	properties.kind = CabinetItem::Kind::Drawing;
-	properties.drawing = read.path;
-	properties.length = bounds.width();
-	properties.width = bounds.height();
-	properties.source = QFileInfo(file_path).completeBaseName();
-
-	if (!read.skipped.isEmpty()) {
-		QStringList skipped;
-		for (auto it = read.skipped.constBegin() ; it != read.skipped.constEnd() ; ++it)
-			skipped << QStringLiteral("%1 (%2)").arg(it.key()).arg(it.value());
-		statusBar()->showMessage(tr("DXF: %1 lines drawn; left out: %2")
-								 .arg(read.drawn).arg(skipped.join(QStringLiteral(", "))),
-								 8000);
-	}
+	if (!skipped.isEmpty()) statusBar()->showMessage(skipped, 8000);
 	return true;
 }
 
@@ -3921,14 +3891,10 @@ void QETDiagramEditor::selectionGroupTriggered(QAction *action)
 
         if (value == "delete_selection")
         {
-            if (DeleteQGraphicsItemCommand::hasNonDeletableTerminal(dc)) {
-                QET::QetMessageBox::information(this,
-                                                tr("Unable to delete the terminal"),
-                                                tr("The deletion cannot be performed because the selection contains one or more terminals "
-												   "that are bridged and/or belong to a multi-level terminal.\n"
-												   "Unbridge and/or remove the levels from the affected terminals so that they can be "
-												   "deleted"));
-            } else {
+				//A bridged terminal, or a level of a terminal of several, is
+				//deleted like any other: it leaves its strip and the bridges
+				//drawn over it, and undo puts it back (Brandon, 2026-11-17)
+            {
 					//A cable line is not held by DiagramContent: it is
 					//removed by its own command, which also lets the cable
 					//it belongs to go when no line of it is left anywhere.

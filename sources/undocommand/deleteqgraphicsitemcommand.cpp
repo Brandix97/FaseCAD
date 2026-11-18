@@ -35,6 +35,8 @@
 #include "../TerminalStrip/realterminal.h"
 #include "../TerminalStrip/physicalterminal.h"
 #include "../TerminalStrip/UndoCommand/takeoutofstripscommand.h"
+#include "../bridge/bridge.h"
+#include "../bridge/bridgeundocommands.h"
 
 /**
 	@brief DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand
@@ -88,10 +90,12 @@ DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
 	setPotentialsOfRemovedElements();
 
 		//The terminals among the deleted symbols leave their strips, and
-		//come back to the same place on undo
+		//come back to the same place on undo -- bridged or of several
+		//levels as well (Brandon, 2026-11-17)
 	if (TakeOutOfStripsCommand::isNeededFor(m_removed_contents.m_elements)) {
 		new TakeOutOfStripsCommand(m_removed_contents.m_elements, this);
 	}
+	letGoOfBridges();
 
 		//Get all linkeds table of removed table.
 	for (auto table : m_removed_contents.m_tables)
@@ -129,33 +133,41 @@ DeleteQGraphicsItemCommand::~DeleteQGraphicsItemCommand()
 }
 
 /**
- * @brief DeleteQGraphicsItemCommand::hasNonDeletableTerminal
- * Return true if @content have terminal element which can't be deleted.
- * The reason why a terminal can't be deleted is because they have bridge
- * or belong to a physical terminal with more than one level.
- * @param diagram
- * @param content
- * @param dialog
- * @return
- */
-bool DeleteQGraphicsItemCommand::hasNonDeletableTerminal(const DiagramContent &content)
+	@brief DeleteQGraphicsItemCommand::letGoOfBridges
+	A bridge drawn over a deleted symbol no longer lands on it: the line
+	stays where it is drawn, with the terminals left under it, and undo
+	gives the bridge the symbol back
+*/
+void DeleteQGraphicsItemCommand::letGoOfBridges()
 {
-    if (!content.m_terminal_elements.isEmpty())
-    {
-        for (const auto &terminal : content.m_terminal_elements)
-        {
-            if (!terminal.isNull())
-            {
-                if (terminal->parentTerminalStrip()
-                    && (terminal->realTerminal()->isBridged()
-                        || terminal->realTerminal()->physicalTerminal()->levelCount() != 1)) {
-                    return true;
-                }
-            }
-        }
-    }
-
-    return false;
+	QETProject *project = m_diagram ? m_diagram->project() : nullptr;
+	if (!project || m_removed_contents.m_elements.isEmpty()) {
+		return;
+	}
+	QSet<QUuid> gone;
+	for (Element *element : std::as_const(m_removed_contents.m_elements)) {
+		if (element) {
+			gone.insert(element->uuid());
+		}
+	}
+	for (Bridge *bridge : project->bridges())
+	{
+		if (!bridge) {
+			continue;
+		}
+		const QList<BridgeTerminal> before = bridge->landings();
+		QList<BridgeTerminal> after;
+		for (const BridgeTerminal &landing : before) {
+			if (!gone.contains(landing.element)) {
+				after << landing;
+			}
+		}
+		if (after.size() != before.size()) {
+			const BridgeInformation information{bridge->tensionText()};
+			new ChangeBridgeTerminalsCommand(bridge, before, after,
+											 information, information, this);
+		}
+	}
 }
 
 /**

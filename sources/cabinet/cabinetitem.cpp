@@ -17,7 +17,9 @@
 */
 #include "cabinetitem.h"
 
+#include "../dataBase/projectdatabase.h"
 #include "../diagram.h"
+#include "../qetproject.h"
 #include "cabinetcommands.h"
 #include "cabinetdialogs.h"
 #include "cabinetsnap.h"
@@ -30,6 +32,7 @@
 #include <QGraphicsView>
 #include <QPainter>
 #include <QPainterPath>
+#include <QSqlQuery>
 #include <QStyleOptionGraphicsItem>
 
 #include <cmath>
@@ -73,6 +76,8 @@ bool CabinetItem::Properties::operator==(const Properties &other) const
 			&& orientation == other.orientation
 			&& profile == other.profile
 			&& source == other.source
+			&& device == other.device
+			&& device_label == other.device_label
 			&& drawing == other.drawing;
 }
 
@@ -134,8 +139,55 @@ void CabinetItem::setProperties(const Properties &properties)
 	if (m_properties == properties) return;
 	prepareGeometryChange();
 	m_properties = properties;
+	watchDevice();
 	emit propertiesChanged();
 	update();
+}
+
+/**
+	@brief CabinetItem::followDevice
+	Write on a device's drawing the label its symbol has now: renaming the
+	device on the schematic renames its drawing. The label is read from
+	the project database, so the folio of the symbol need not be built. A
+	symbol gone, or without a label, leaves the drawing as it is.
+*/
+void CabinetItem::followDevice()
+{
+	if (m_properties.kind != Kind::Drawing || m_properties.device.isNull()) return;
+	const Diagram *folio = diagram();
+	if (!folio || !folio->project()) return;
+		//newQuery() runs the statement at once: the uuid is written in it
+		//(hexadecimal digits, hyphens and braces only)
+	QSqlQuery query = folio->project()->dataBase()->newQuery(QStringLiteral(
+		"SELECT label FROM element_info WHERE element_uuid = '%1'")
+		.arg(m_properties.device.toString()));
+	if (!query.isActive() || !query.next()) return;
+	const QString label = query.value(0).toString().trimmed();
+	if (label.isEmpty() || label == m_properties.device_label) return;
+		//Not a change of its own, as the cross references of a contact:
+		//undoing the renaming renames the drawing back the same way
+	prepareGeometryChange();
+	m_properties.device_label = label;
+	emit propertiesChanged();
+	update();
+}
+
+/**
+	@brief CabinetItem::watchDevice
+	Follow the labels of the project while this part is a device's drawing
+	on a folio, and take the label its device has now.
+*/
+void CabinetItem::watchDevice()
+{
+	disconnect(m_device_connection);
+	m_device_connection = QMetaObject::Connection();
+	if (m_properties.kind != Kind::Drawing || m_properties.device.isNull()) return;
+	const Diagram *folio = diagram();
+	if (!folio || !folio->project()) return;
+	m_device_connection = connect(folio->project()->dataBase(),
+								  &projectDataBase::dataBaseUpdated,
+								  this, &CabinetItem::followDevice);
+	followDevice();
 }
 
 /**
@@ -239,6 +291,11 @@ QDomElement CabinetItem::toXml(QDomDocument &document) const
 			//The lines themselves: the project does not need the DXF file
 		if (!m_properties.source.isEmpty())
 			xml.setAttribute(QStringLiteral("source"), m_properties.source);
+			//The device it stands for, written only for a device's drawing
+		if (!m_properties.device.isNull())
+			xml.setAttribute(QStringLiteral("device"), m_properties.device.toString());
+		if (!m_properties.device_label.isEmpty())
+			xml.setAttribute(QStringLiteral("device_label"), m_properties.device_label);
 		QDomElement path = document.createElement(QStringLiteral("path"));
 		path.setAttribute(QStringLiteral("d"), DxfReader::pathToString(m_properties.drawing));
 		xml.appendChild(path);
@@ -269,6 +326,8 @@ bool CabinetItem::fromXml(const QDomElement &element)
 	if (properties.kind == Kind::Drawing) {
 		bool path_read = false;
 		properties.source = element.attribute(QStringLiteral("source"));
+		properties.device = QUuid(element.attribute(QStringLiteral("device")));
+		properties.device_label = element.attribute(QStringLiteral("device_label"));
 		properties.drawing = DxfReader::pathFromString(
 					element.firstChildElement(QStringLiteral("path"))
 					.attribute(QStringLiteral("d")), &path_read);
@@ -277,6 +336,7 @@ bool CabinetItem::fromXml(const QDomElement &element)
 
 	prepareGeometryChange();
 	m_properties = properties;
+	watchDevice();
 	const QUuid uuid(element.attribute(QStringLiteral("uuid")));
 	if (!uuid.isNull()) m_uuid = uuid;
 	QGraphicsObject::setPos(element.attribute(QStringLiteral("x")).toDouble(),
@@ -324,6 +384,8 @@ void CabinetItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 		case Kind::WireDuct:      paintDuct(painter, outline);  break;
 		case Kind::Drawing:       paintDrawing(painter);        break;
 	}
+	if (m_properties.kind == Kind::Drawing && !m_properties.device_label.isEmpty())
+		paintDeviceLabel(painter);
 	if (captionWidth(painter->font(), levelOfDetail(painter, option)) > 0)
 		paintCaption(painter, outline);
 	if (!hidden.isEmpty()) painter->setClipping(false);
@@ -387,6 +449,75 @@ void CabinetItem::paintDrawing(QPainter *painter) const
 	painter->setPen(pen);
 	painter->setBrush(Qt::NoBrush);
 	painter->drawPath(m_properties.drawing);
+	painter->restore();
+}
+
+/**
+	@brief CabinetItem::deviceLabelFont
+	@return the font the label of a device's drawing is written in, from
+	@p base: about a fifth of the height of the drawing, small enough for
+	the label to fit inside its width
+*/
+QFont CabinetItem::deviceLabelFont(const QFont &base) const
+{
+	const QRectF outline = rect();
+	QFont font = base;
+	font.setBold(true);
+	font.setHintingPreference(QFont::PreferNoHinting);
+	qreal size = qBound(3.0, outline.height() * 0.2, 14.0);
+	font.setPixelSize(qMax(1, int(std::round(size))));
+	const qreal advance = QFontMetricsF(font).horizontalAdvance(m_properties.device_label);
+	const qreal room = outline.width() * 0.9;
+	if (advance > room && advance > 0) {
+		size = qMax(2.0, size * room / advance);
+		font.setPixelSize(qMax(1, int(std::floor(size))));
+	}
+	return font;
+}
+
+/**
+	@brief CabinetItem::deviceLabelRect
+	@return the box the label of a device's drawing takes, in the middle of
+	the drawing, in its own coordinates; null if it has no label
+*/
+QRectF CabinetItem::deviceLabelRect(const QFont &base) const
+{
+	if (m_properties.kind != Kind::Drawing || m_properties.device_label.isEmpty())
+		return QRectF();
+	const QFont font = deviceLabelFont(base);
+	const QFontMetricsF metrics(font);
+	const qreal margin = qMax(1.0, font.pixelSize() * 0.2);
+	QRectF box(0, 0,
+			   metrics.horizontalAdvance(m_properties.device_label) + 2 * margin,
+			   metrics.height() + margin);
+	box.moveCenter(rect().center());
+	return box;
+}
+
+/**
+	@brief CabinetItem::paintDeviceLabel
+	The label of the device a drawing stands for, in its middle, on a light
+	box so the lines under it do not hide it
+*/
+void CabinetItem::paintDeviceLabel(QPainter *painter) const
+{
+	const QFont font = deviceLabelFont(painter->font());
+	const QRectF box = deviceLabelRect(painter->font());
+	if (box.isNull()) return;
+	const QFontMetricsF metrics(font);
+	painter->save();
+	painter->setPen(Qt::NoPen);
+	painter->setBrush(QColor(255, 255, 255, 225));
+	const qreal radius = box.height() * 0.2;
+	painter->drawRoundedRect(box, radius, radius);
+		//Written as outlines, as the captions: sharp at any zoom
+	QPainterPath letters;
+	letters.addText(QPointF(box.center().x()
+							- metrics.horizontalAdvance(m_properties.device_label) / 2.0,
+							box.center().y() - metrics.height() / 2.0 + metrics.ascent()),
+					font, m_properties.device_label);
+	painter->setBrush(QColor(0, 84, 166));
+	painter->drawPath(letters);
 	painter->restore();
 }
 
@@ -610,6 +741,10 @@ QString CabinetItem::description() const
 			return tr("%1 · %2 mm", "width and length of a wire duct")
 					.arg(mm(m_properties.width), mm(m_properties.length));
 		case Kind::Drawing:
+			if (!m_properties.device_label.isEmpty())
+				return tr("%1 · %2 × %3 mm", "device, width and height of its DXF drawing")
+						.arg(m_properties.device_label, mm(m_properties.length),
+							 mm(m_properties.width));
 			if (m_properties.source.isEmpty())
 				return tr("%1 × %2 mm", "width and height of a mounting plate")
 						.arg(mm(m_properties.length), mm(m_properties.width));
@@ -659,5 +794,7 @@ void CabinetItem::placeAt(const QPointF &p)
 QVariant CabinetItem::itemChange(GraphicsItemChange change, const QVariant &value)
 {
 	if (change == ItemSelectedHasChanged) update();
+		//On a folio of a project, a device's drawing follows its label
+	if (change == ItemSceneHasChanged) watchDevice();
 	return QetGraphicsItem::itemChange(change, value);
 }

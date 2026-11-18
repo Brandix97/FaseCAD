@@ -190,6 +190,7 @@ void DiagramEventAddCabinetItem::mousePressEvent(QGraphicsSceneMouseEvent *event
 			showReadout(event->scenePos());
 			updateStatusHint();
 		} else {
+			m_ending = Ending::Skipped;
 			endTool(true);
 		}
 		event->setAccepted(true);
@@ -200,7 +201,10 @@ void DiagramEventAddCabinetItem::mousePressEvent(QGraphicsSceneMouseEvent *event
 	m_press_screen_pos = event->screenPos();
 	if (!isDrawn()) {
 		track(event->scenePos());
-		if (commit()) endTool(false);
+		if (commit()) {
+			m_ending = Ending::Placed;
+			endTool(false);
+		}
 	} else if (!m_drawing) {
 		begin(event->scenePos());
 	} else {
@@ -461,13 +465,23 @@ void DiagramEventAddCabinetItem::showReadout(const QPointF &scene_pos)
 	m_readout->setVisible(!text.isEmpty());
 }
 
+void DiagramEventAddCabinetItem::setHint(const QString &hint)
+{
+	m_hint = hint;
+	updateStatusHint();
+}
+
 void DiagramEventAddCabinetItem::updateStatusHint()
 {
 	if (!m_diagram || m_diagram->views().isEmpty()) return;
 	auto *editor = QETApp::diagramEditorAncestorOf(m_diagram->views().constFirst());
 	if (!editor) return;
 
-	QString message;
+	QString message = m_hint;
+	if (!message.isEmpty()) {
+		editor->statusBar()->showMessage(message);
+		return;
+	}
 	switch (m_properties.kind) {
 		case CabinetItem::Kind::MountingPlate:
 			message = tr("Mounting plate: click where it goes | Esc to cancel");
