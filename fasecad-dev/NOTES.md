@@ -1209,3 +1209,136 @@ Not committed.
   48058a874, the zip attached; notes in English and Spanish: scratchpad
   release-notes-0.13.md. For Brandon to upload: web/fasecad-web.zip and
   httpdocs/downloads/FaseCAD-0.13-windows-x64.zip.
+
+## Bridged and multi-level terminals can be deleted (2026-11-17, after 0.13)
+- Brandon: in his project the terminals could not be deleted; he wants
+  to delete them without taking them out of the strip editor first.
+  Cause: DeleteQGraphicsItemCommand::hasNonDeletableTerminal() refused a
+  bridged terminal (a drawn bridge too) or a level of a multi-level one.
+- The check is gone (editor delete, devices panel, scripting). The
+  deletion already takes them out of the strip with their level and
+  bridge (TakeOutOfStripsCommand); now it also takes the deleted symbols
+  off the landings of the drawn bridges (letGoOfBridges():
+  ChangeBridgeTerminalsCommand children, tension kept). The drawn line
+  stays where it is. Test: tst_deletedterminals
+  aDrawnBridgeLetsGoOfADeletedTerminal.
+
+## A device's DXF on a cabinet sheet from the Devices panel (2026-11-18)
+Brandon's request (cabinet phase 5, first part): right click on a device
+of the Devices panel -> "Insert the DXF on a cabinet sheet"; the drawing
+shows the device label in its middle; a placed device gets a green tick.
+His answers: no DXF in the parts -> ask for a DXF file; no cabinet sheet ->
+offer to add one at the end; one commit with the 2026-11-17 change.
+- CabinetItem::Properties `device` (uuid of the symbol) + `device_label`,
+  XML attributes `device` / `device_label` on a dxf_drawing, written only
+  when set (old files unchanged). The label is painted in the middle on a
+  white box, bold blue outlines, ~1/5 of the drawing's height, shrunk to
+  90 % of its width. followDevice(): on dataBaseUpdated the drawing reads
+  its symbol's label from element_info (newQuery runs the statement at
+  once: the uuid is written in it) and takes it, no undo (derived, like
+  cross references); symbol gone = label kept. description() starts with
+  the label (readout while placing).
+- New sources/cabinet/cabinetdevices.*: cabinetFolios(), placed() (built
+  folios: their CabinetItems, the tool's preview left out; folios not
+  built: cabinet_item of their deferredXml(), nothing built),
+  drawingFromParts() (element info "parts" -> first part with a DXF in
+  the parts database, linked files read from disk).
+- CabinetDialogs: askDxfDrawing() / setDrawing() / skippedText() moved
+  out of QETDiagramEditor::askDxfDrawing() (now a wrapper), placedIcon()
+  (green tick; blank variant keeps the labels aligned when the project
+  has a cabinet sheet).
+- DevicesPanel: context menu entry (sub-menu per cabinet sheet when there
+  are several), insertDrawing(): builds the folios of the line's symbols,
+  the drawing stands for the first symbol with parts, then
+  DiagramEventAddCabinetItem on the cabinet folio (follows the mouse, one
+  click, one undo step). Tick + tooltip "Drawn on the cabinet sheet(s) N"
+  on the line (by symbol uuid, or by label for a drawing whose symbol is
+  gone) and on the child symbol. Refresh also on the undo stack's
+  indexChanged. Whole panel translated to Spanish (it had no texts in
+  qet_es.ts), unfinished.
+- Tests: tst_cabinetfolio deviceDrawingIsSaved; tst_devicespanel
+  drawingsOnCabinetSheetsAreFound (saved, reopened, folio not built
+  stays so), drawingComesFromTheParts. Passed (build-release, offscreen
+  with QT_PLUGIN_PATH=MSYS2 plugins): tst_cabinetfolio 18,
+  tst_devicespanel 6, tst_cabinetcommands, tst_dxfreader,
+  tst_deletedterminals.
+- Tried in the real program on a copy of ejemplo-s7-1200 (scratchpad
+  settings, copy of his parts database): -K1 -> its PLC DXF placed on
+  folio 5 with "-K1" in the middle, tick on -K1 and on its part-1 symbol.
+- Then Brandon (same day, his option "A"): one line per device. -K1 drawn
+  as 4 symbols (folios 1-4) is one line, no arrow, no children; new
+  column "Article" (order numbers of all its symbols' parts, each once;
+  tooltip "manufacturer number × units"); Sheet "1-E11" or "1, 2, 3, 4";
+  description tooltip (cut in a narrow panel). The line stands for the
+  first symbol made of parts (double click, DXF link), else the first;
+  delete and insert take all its symbols (symbols_role). Symbols without
+  a label are no device: they keep one "(No label) (n)" line opening on
+  them (the only case with arrows). Search also finds the article and
+  any symbol's description. Parts read with
+  projectDataBase::elementInformation() (cache, no folio built).
+  DevicesPanel::lines() + Device::parts; test oneLinePerDevice.
+- build-release rebuilt everything (~25 min) at each build: .ninja_deps
+  had a bad record ("ninja: warning: premature end of file;
+  recovering"), and every load dropped the records written after it.
+  Fixed with `ninja -t recompact` + one full build; now incremental
+  (devicespanel.cpp + link: 53 s). If the warning comes back, recompact.
+- Then (his "OK a todo" to 10 points): several devices at once and
+  "Number...".
+  - Insert DXF on several selected lines: a queue (DevicesPanel::m_queue,
+    list order, lines with the tick left out, placed_role). Each one is
+    a DiagramEventAddCabinetItem on the cabinet folio; its finish is
+    connected BEFORE Diagram::setEventInterface (whose own lambda
+    deletes the tool), reads tool->ending() and starts the next with
+    QTimer::singleShot(0). New in the tool: Ending {Placed, Skipped
+    (right click), Cancelled (Esc)} and setHint() for the status bar
+    ("-K1 (1 of 3): click where it goes | Right click to skip it | Esc to
+    stop"). No DXF in the parts -> file asked when its turn comes; no
+    file = skipped.
+  - "Number..." (tool button beside the search field + context menu):
+    first label + step, preview old -> new, devices ordered by where
+    their main symbol stands (positionLessThan: sheet, column, row),
+    numberedLabels() keeps zeros, the last number only (-X0:1 -> -X0:2),
+    letters after it stay, adds 1 if none. A new label used by a device
+    left out -> warning, nothing renamed. Every symbol of a device gets
+    label = new, formula = "" (ChangeElementInformationCommand map, one
+    undo step, "Number n device(s)"); contacts and the cabinet DXF label
+    follow (updateProjectDB). Selection: selectedLines() (the "(No
+    label)" line stands for each of its symbols).
+  - Tests: tst_devicespanel labelsAreNumbered,
+    devicesAreOrderedByPosition (9 passed); tst_cabinetfolio 18,
+    tst_cabinetcommands 6 passed. Not tried by hand in the real window:
+    Brandon was at the PC (the demo was closed under my input, which
+    went to his WhatsApp; nothing sent). He tries it himself.
+
+## Version 0.14 (2026-11-18)
+- Brandon (after trying the queue and "Number..." in the demo): "Va de
+  lujo, lánzalo ya en GitHub y prepárame el Zip para subirlo a la web".
+- Commits: 2222441f2 (the work of 17 and 18 November: deletable bridged
+  and multi-level terminals, device DXFs on cabinet sheets one by one or
+  in a queue, label in the middle, green tick, one line per device with
+  its article, Number...), 32c52590d (version 0.14), and this one.
+- Checked before pushing: no other CAE software named, no manufacturer
+  data (a real order number in tst_devicespanel and in a comment of
+  devicespanel.cpp replaced by ACME PLC-24DC; the product name out of these
+  notes). Tests: tst_devicespanel 9, tst_cabinetfolio 18,
+  tst_cabinetcommands 6, tst_dxfreader, tst_deletedterminals,
+  tst_partsbom, tst_elementparts, and the four starting fasecad.exe
+  (tst_qetdbfile, tst_savevaluerows, tst_xrefdisplay,
+  tst_elementautonumids 313 s, tst_qetdbfile 626 s) with
+  QT_QPA_PLATFORM_PLUGIN_PATH: all pass. Full ctest
+  not run.
+- FaseCAD (the demo, a hard link fasecad-demo.exe) was running: the old
+  build-release\fasecad.exe was renamed fasecad-en-uso-0.14pre.exe and
+  0.14 linked in its place; delete both once the demo is closed.
+- Zip FaseCAD-0.14-windows-x64.zip (78,540,830 bytes, 4955 entries, the
+  same files as 0.13) by scratchpad package.sh 0.14 + Python zipfile;
+  unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 0.14". Copied to
+  web/httpdocs/downloads.
+- Website: construir.py VERSION 0.14, download page with a 0.14 entry
+  (three paragraphs + button, in textos.py for en de it zh tr), 0.13 kept
+  below; llms.txt download line; site and fasecad-web.zip rebuilt.
+- GitHub release v0.14 "FaseCAD 0.14 (preview)", pre-release, notes in
+  English and Spanish (scratchpad release-notes-0.14.md: the panel is
+  named *Devices* there, its title is not translated). For Brandon to
+  upload: web/fasecad-web.zip and
+  httpdocs/downloads/FaseCAD-0.14-windows-x64.zip.
