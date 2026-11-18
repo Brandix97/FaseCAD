@@ -33,7 +33,7 @@ namespace QetVersion
 
 	QVersionNumber currentVersion();
 	QString displayedVersion();
-		/// The version of FaseCAD shown to the user ("0.13"). The
+		/// The version of FaseCAD shown to the user ("0.14"). The
 		/// version above stays the one of the file format: projects
 		/// keep it and compare it when they are opened.
 	QString productVersion();
