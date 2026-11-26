@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="9" hotspot_y="9">
+    <uuid uuid="{4348857a-f47e-1b12-3981-35317b0a6613}"/>
+    <names>
+        <name lang="ar">سدادة 15</name>
+        <name lang="ca">Tap 15</name>
+        <name lang="cs">Zátka 15</name>
+        <name lang="da">Prop 15</name>
+        <name lang="de">Kappe 15</name>
+        <name lang="el">Πώμα 15</name>
+        <name lang="en">Cap 15</name>
+        <name lang="es">Tapón 15</name>
+        <name lang="fr">Bouchon 15</name>
+        <name lang="pt_BR">Tapón 15</name>
+        <name lang="zh">堵头15</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="4.75" y="-4.86" width="2.2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="4.75" y="4.14" width="2.2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="-3" x2="7" y2="5.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5.55" y1="-4.86" x2="0.55" y2="-4.86" x3="0.55" y3="6.14" x4="5.55" y4="6.14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-1" y="4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b4cb5941-a514-457a-b101-a38d86a08946}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{348b0166-b48d-471b-800e-1be62a9ba898}" name="" x="0" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="30" hotspot_x="59" hotspot_y="14">
+    <uuid uuid="{c78a8103-5f18-37d4-5d85-234737a20961}"/>
+    <names>
+        <name lang="ar">مجمع أفقي-2</name>
+        <name lang="ca">Col·lector horitzontal 2</name>
+        <name lang="cs">Vodorovný rozdělovač-2</name>
+        <name lang="da">Horisontal samlestok-2</name>
+        <name lang="de">Horizontaler Verteiler-2</name>
+        <name lang="el">Οριζόντιος συλλέκτης-2</name>
+        <name lang="en">Horizontal manifold-2</name>
+        <name lang="es">Colector Horizontal-2</name>
+        <name lang="fr">Collecteur horizontal-2</name>
+        <name lang="pt_BR">Colectou Horizontal-2</name>
+        <name lang="zh">卧式集水器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-22" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="38" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="18" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-32" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="28" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-45" y1="6" x2="46" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-50" y="-4" width="9" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-2" y="6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-42" y="-6" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="42" y="-4" width="9" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-45" y1="-4" x2="46" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="4.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ae64e708-13ab-4717-afdf-b3d148b88da4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{160b38d2-24a1-4b5c-bef6-ea33017f1957}" name="" x="-40" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{00e598db-ff8f-4b61-807f-c1311094cfd6}" name="" x="40" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{e06125c2-613c-462f-800e-ad53dccdd75a}" name="" x="0" y="9" orientation="s" type="Generic"/>
+        <terminal uuid="{d4485148-4085-48d1-9132-ea53ffbec79f}" name="" x="-30" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{2027163e-0f1c-4b7c-b2b9-43f8f93fef51}" name="" x="-20" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{d54d148f-bd42-4b5b-a431-4634b8c7eb1e}" name="" x="10" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{78d9502a-a0a0-4bcb-bc1e-dea06ccf448c}" name="" x="20" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{b8224f44-d626-446c-b71d-8cadf435efb8}" name="" x="0" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{ff45a830-e9fb-4fcb-92d2-81c68a915843}" name="" x="51" y="1" orientation="e" type="Generic"/>
+        <terminal uuid="{cf60d68f-2a1a-4359-9208-3137264b772f}" name="" x="-50" y="1" orientation="w" type="Generic"/>
+        <terminal uuid="{cec092b4-3656-492c-9a40-87a7c0156b81}" name="" x="-10" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{db7452e3-7032-4e55-83a0-933098728304}" name="" x="30" y="-7" orientation="n" type="Generic"/>
+    </description>
+</definition>

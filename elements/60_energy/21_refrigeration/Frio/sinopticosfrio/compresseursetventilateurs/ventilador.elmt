@@ -1,0 +1,46 @@
+<definition version="0.80" type="element" link_type="simple" width="30" height="30" hotspot_x="14" hotspot_y="11">
+    <uuid uuid="{7f188983-e198-233e-3ce1-b1865618c2e9}"/>
+    <names>
+        <name lang="ar">مروحة</name>
+        <name lang="ca">Ventilador</name>
+        <name lang="cs">Ventilátor</name>
+        <name lang="da">Ventilator</name>
+        <name lang="de">Ventilator</name>
+        <name lang="el">Ανεμιστήρας</name>
+        <name lang="en">Fan</name>
+        <name lang="es">Ventilador</name>
+        <name lang="fi">Tuuletin</name>
+        <name lang="fr">Ventilateur</name>
+        <name lang="hr">Ventilator</name>
+        <name lang="hu">Ventilátor</name>
+        <name lang="it">Ventilatore</name>
+        <name lang="ja">ファン</name>
+        <name lang="ko">팬</name>
+        <name lang="mn">Сэнс</name>
+        <name lang="nb">Vifte</name>
+        <name lang="nl">Ventilator</name>
+        <name lang="nl_BE">Ventilator</name>
+        <name lang="pl">Wentylator</name>
+        <name lang="pt">Ventilador</name>
+        <name lang="pt_BR">Ventiladou</name>
+        <name lang="ro">Ventilator</name>
+        <name lang="ru">Вентилятор</name>
+        <name lang="sk">Ventilátor</name>
+        <name lang="sl">Ventilator</name>
+        <name lang="sr">Вентилатор</name>
+        <name lang="sv">Fläkt</name>
+        <name lang="tr">Fan</name>
+        <name lang="uk">Вентилятор</name>
+        <name lang="zh">风机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-9" y="-9.1" width="18.65" height="18.34" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2.29" y1="-8.33" x2="-9" y2="0.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.93" y1="-8.33" x2="9.65" y2="0.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.25" y1="-0.87" x2="1.59" y2="-1.93" x3="1.59" y3="-5.11" x4="0.25" y4="-6.7" x5="-1.09" y5="-5.11" x6="-1.09" y6="-2.46" x7="0.25" y7="-0.87" x8="2.26" y8="-0.34" x9="4.95" y9="1.77" x10="4.95" y10="3.36" x11="2.93" y11="2.83" x12="0.92" y12="1.24" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0.25" y1="-0.87" x2="-1.77" y2="-0.34" x3="-3.78" y3="2.3" x4="-3.78" y4="3.89" x5="-1.77" y5="3.36" x6="0.25" y6="1.24" x7="0.25" y7="-0.34" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="9.16" x2="0" y2="11.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{52dc87fe-f67a-4abf-9bc1-9be9255ad28a}" name="" x="0" y="11" orientation="s" type="Generic"/>
+    </description>
+</definition>

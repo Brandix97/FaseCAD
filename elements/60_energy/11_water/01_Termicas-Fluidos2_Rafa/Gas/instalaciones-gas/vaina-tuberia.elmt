@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="30" hotspot_x="33" hotspot_y="14">
+    <uuid uuid="{460a12ba-2bde-be0f-1624-e80f3340fe3f}"/>
+    <names>
+        <name lang="ca">Beina tuberia</name>
+        <name lang="es">Vaina tubería</name>
+        <name lang="pt_BR">Vaina tubería</name>
+        <name lang="zh">管道套管</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="28.18" y1="0" x2="47.89" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.24" y1="0" x2="26.26" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="11" x2="21" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-20" y="-9" width="14" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="13" y="-9" width="14" height="20" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13" y1="-9" x2="20" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25.82" y1="0" x2="-6.11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a90bee48-f5ab-44f2-82ee-1091ed443fe3}" name="" x="-24" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{28f9ed7b-f79c-41fb-aa0f-53bb51e0cd0d}" name="" x="47" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

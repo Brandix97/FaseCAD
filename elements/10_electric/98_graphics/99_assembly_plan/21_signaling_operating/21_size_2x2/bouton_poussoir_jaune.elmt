@@ -1,0 +1,48 @@
+<definition type="element" link_type="thumbnail" hotspot_x="25" hotspot_y="25" width="50" height="50" version="0.100.1">
+    <uuid uuid="{a9692163-fbe7-4d8b-8e9f-883d96cbb5c1}"/>
+    <names>
+        <name lang="ar">مفتاح ضاغط</name>
+        <name lang="ca">Pulsador</name>
+        <name lang="cs">Tlačítko</name>
+        <name lang="da">Trykknap gul</name>
+        <name lang="de">Druckknopf gelb</name>
+        <name lang="el">Μπουτόν</name>
+        <name lang="en">Pushbutton yellow</name>
+        <name lang="es">Pulsador amarillo</name>
+        <name lang="fi">Keltainen painonappi</name>
+        <name lang="fr">Bouton poussoir jaune</name>
+        <name lang="hr">Pritisni gumb žuti</name>
+        <name lang="hu">Nyomógomb sárga</name>
+        <name lang="it">Pulsante</name>
+        <name lang="ja">黄色押しボタン</name>
+        <name lang="ko">노란색 푸시버튼</name>
+        <name lang="mn">Шар товчлуур</name>
+        <name lang="nb">Trykknapp gul</name>
+        <name lang="nl">Drukknop</name>
+        <name lang="nl_BE">Drukknop geel</name>
+        <name lang="pl">Przycisk</name>
+        <name lang="pt">Botão de pressão amarelo</name>
+        <name lang="pt_BR">Botão de pressão amarelo</name>
+        <name lang="ro">Buton galben</name>
+        <name lang="ru">Кнопка жёлтая</name>
+        <name lang="sk">Žlté tlačidlo</name>
+        <name lang="sl">Rumeno tipkalo</name>
+        <name lang="sr">Жути тастер</name>
+        <name lang="sv">Tryckknapp gul</name>
+        <name lang="tr">Sarı buton</name>
+        <name lang="uk">Кнопка жовта</name>
+        <name lang="zh">黄色按钮</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <circle x="-22" y="-22" antialias="true" style="line-style:normal;line-weight:normal;filling:yellow;color:black" diameter="44"/>
+        <circle x="-14" y="-14" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="28"/>
+        <circle x="-20" y="-20" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="40"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-22" y="21.5" z="4" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{f292692b-a610-4604-bd29-a0b0648193b4}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

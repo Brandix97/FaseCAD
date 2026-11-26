@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="45" hotspot_y="45">
+    <uuid uuid="{0f392353-3b52-36f3-4eea-dcd4d4b0f080}"/>
+    <names>
+        <name lang="ar">محطة فرعية، مخططة</name>
+        <name lang="ca">Subestació, prevista</name>
+        <name lang="cs">Elektrická stanice ( projektovaná)</name>
+        <name lang="da">Transformerstation, planlagt</name>
+        <name lang="de">Station,
+Umspannstation,
+Schaltstation, allgemein (in Planung)</name>
+        <name lang="el">Υποσταθμός, προγραμματισμένος</name>
+        <name lang="en">Substation, planned</name>
+        <name lang="es">Subestación, prevista</name>
+        <name lang="fi">Sähköasema, suunnitteilla</name>
+        <name lang="fr">Sous-station,
+Poste (en projet)</name>
+        <name lang="hr">Trafostanica, planirana</name>
+        <name lang="hu">Alállomás, tervezett</name>
+        <name lang="it">Sottostazione, prevista</name>
+        <name lang="ja">変電所，計画</name>
+        <name lang="ko">변전소, 계획</name>
+        <name lang="mn">Дэд станц, төлөвлөсөн</name>
+        <name lang="nb">Transformatorstasjon, planlagt</name>
+        <name lang="nl">Onderstation, gepland</name>
+        <name lang="nl_BE">Onderstation, gepland</name>
+        <name lang="pl">Stacja transformatorowa, planowana</name>
+        <name lang="pt">Subestação, prevista</name>
+        <name lang="pt_BR">Subestacao, planejada</name>
+        <name lang="ro">Stație de transformare, planificată</name>
+        <name lang="ru">Подстанция, планируемая</name>
+        <name lang="sk">Rozvodňa, plánovaná</name>
+        <name lang="sl">Razdelilna postaja, načrtovana</name>
+        <name lang="sr">Трафостаница, планирана</name>
+        <name lang="sv">Ställverk, planerat</name>
+        <name lang="tr">Trafo merkezi, planlanan</name>
+        <name lang="uk">Підстанція, запланована</name>
+        <name lang="zh">接线端子（五线）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c38341ce-cfeb-4255-8ac7-d4b6c8315858}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-40" y="-40" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

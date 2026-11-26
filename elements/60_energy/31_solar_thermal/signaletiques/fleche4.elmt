@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="10" hotspot_x="16" hotspot_y="5">
+    <uuid uuid="{9fe8eea9-ba74-87a1-c071-cb679b6b6f3c}"/>
+    <names>
+        <name lang="ar">سهم 4 طويل</name>
+        <name lang="ca">Fletxa 4</name>
+        <name lang="cs">Směr 4 (dlouhá šipka)</name>
+        <name lang="da">Pil 4</name>
+        <name lang="de">Pfeil 4</name>
+        <name lang="el">Βέλος 4</name>
+        <name lang="en">Arrow 4</name>
+        <name lang="es">Flecha 4</name>
+        <name lang="fi">Nuoli 4</name>
+        <name lang="fr">fleche 4 long</name>
+        <name lang="hr">Strelica 4</name>
+        <name lang="hu">Nyíl 4</name>
+        <name lang="it">Freccia 4</name>
+        <name lang="ja">矢印 4</name>
+        <name lang="ko">화살표 4</name>
+        <name lang="mn">Сум 4</name>
+        <name lang="nb">Pil 4</name>
+        <name lang="nl">Pijl 4</name>
+        <name lang="nl_BE">Pijl 4</name>
+        <name lang="pl">Kierunek 4 (długa)</name>
+        <name lang="pt">Seta 4</name>
+        <name lang="pt_BR">Arrow 4</name>
+        <name lang="ro">Săgeată 4</name>
+        <name lang="ru">Стрелка 4</name>
+        <name lang="sk">Šípka 4</name>
+        <name lang="sl">Puščica 4</name>
+        <name lang="sr">Стрелица 4</name>
+        <name lang="sv">Pil 4</name>
+        <name lang="tr">Ok 4</name>
+        <name lang="uk">Стрілка 4</name>
+        <name lang="zh">箭头4</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-21.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5eefcf0b-53fc-47a3-90eb-f697fed294f9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-12" y1="0" x2="24" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="30" y2="0" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="25" hotspot_y="15">
+    <uuid uuid="{08f83714-73da-c60e-f0f6-0c916669b5ec}"/>
+    <names>
+        <name lang="ar">مادة، غازية</name>
+        <name lang="ca">Material, gas</name>
+        <name lang="cs">Materiál plynný</name>
+        <name lang="da">Materiale, gas</name>
+        <name lang="de">gasförmige Materie</name>
+        <name lang="el">Υλικό, αέριο</name>
+        <name lang="en">Material, gas</name>
+        <name lang="es">Material gaseosa</name>
+        <name lang="fi">Materiaali, kaasu</name>
+        <name lang="fr">Matière gazeuse</name>
+        <name lang="hr">Materijal, plin</name>
+        <name lang="hu">Anyag, gáz</name>
+        <name lang="it">Materiale, gassoso</name>
+        <name lang="ja">材料，気体</name>
+        <name lang="ko">재료, 기체</name>
+        <name lang="mn">Материал, хий</name>
+        <name lang="nb">Materiale, gass</name>
+        <name lang="nl">Materiaal, gas</name>
+        <name lang="nl_BE">Materiaal, gas</name>
+        <name lang="pl">Materiał, gazowy</name>
+        <name lang="pt">Material, gasoso</name>
+        <name lang="pt_BR">Material, gasoso</name>
+        <name lang="ro">Material, gazos</name>
+        <name lang="ru">Материал, газообразный</name>
+        <name lang="sk">Materiál, plynný</name>
+        <name lang="sl">Material, plinast</name>
+        <name lang="sr">Материјал, гасовит</name>
+        <name lang="sv">Material, gas</name>
+        <name lang="tr">Malzeme, gaz</name>
+        <name lang="uk">Матеріал, газ</name>
+        <name lang="zh">接线端子04</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1cacd247-d60b-4291-89d4-6e4533812075}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="10" y="0" width="8" height="8" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+    </description>
+</definition>

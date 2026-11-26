@@ -1,0 +1,464 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "deleteqgraphicsitemcommand.h"
+#include "../wiringrules.h"
+
+#include "../cable/cablemanager.h"
+#include "../diagram.h"
+#include "../qetproject.h"
+#include "addgraphicsobjectcommand.h"
+#include "../qetdiagrameditor.h"
+#include "../qetgraphicsitem/ViewItem/qetgraphicstableitem.h"
+#include "../qetgraphicsitem/conductor.h"
+#include "../qetgraphicsitem/conductortextitem.h"
+#include "../qetgraphicsitem/dynamicelementtextitem.h"
+#include "../qetgraphicsitem/element.h"
+#include "../qetgraphicsitem/elementtextitemgroup.h"
+#include "../shownkinds.h"
+#include "../qetgraphicsitem/terminal.h"
+#include "addelementtextcommand.h"
+#include "../TerminalStrip/realterminal.h"
+#include "../TerminalStrip/physicalterminal.h"
+#include "../TerminalStrip/UndoCommand/takeoutofstripscommand.h"
+#include "../TerminalStrip/wirebridges.h"
+#include "../bridge/bridge.h"
+#include "../bridge/bridgeundocommands.h"
+
+/**
+	@brief DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand
+	@param diagram : diagram where this undo work
+	@param content : content to remove
+	@param parent : parent undo
+*/
+DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
+		Diagram *diagram,
+		const DiagramContent &content,
+		QUndoCommand *parent) :
+	QUndoCommand(parent),
+	m_removed_contents(content),
+	m_diagram(diagram)
+{
+	//If parent element of a dynamic element text item is also in m_removed_content,
+	//we remove it, because when the element will be removed from the scene every child's will also be removed.
+	const QSet<DynamicElementTextItem *> elmt_set = m_removed_contents.m_element_texts;
+	for(DynamicElementTextItem *deti : elmt_set)
+	{
+		if (m_removed_contents.m_elements.contains(deti->parentElement()))
+			m_removed_contents.m_element_texts.remove(deti);
+
+	}
+
+		//When removing a deti we must know its parent item, for re-adding deti as child of the parent
+		//when undoing this command
+	for(DynamicElementTextItem *deti : m_removed_contents.m_element_texts)
+	{
+		if(deti->parentGroup())
+			m_grp_texts_hash.insert(deti, deti->parentGroup());
+		else
+			m_elmt_text_hash.insert(deti, deti->parentElement());
+	}
+
+	//If parent element of ElementTextItemGroup is also in m_removed_content,
+	//we remove it, because when the element will be removed from the scene every child's will also be removed.
+	const QSet<ElementTextItemGroup *> group_set = m_removed_contents.m_texts_groups;
+	for(ElementTextItemGroup *group : group_set)
+	{
+		if(m_removed_contents.m_elements.contains(group->parentElement()))
+			m_removed_contents.m_texts_groups.remove(group);
+	}
+
+		//The deletion of the groups is not managed by this undo, but by a RemoveTextsGroupCommand
+	for(ElementTextItemGroup *group : m_removed_contents.m_texts_groups) {
+		new RemoveTextsGroupCommand(group->parentElement(), group, this);
+	}
+
+	m_removed_contents.m_texts_groups.clear();
+	setPotentialsOfRemovedElements();
+
+		//The terminals among the deleted symbols leave their strips, and
+		//come back to the same place on undo -- bridged or of several
+		//levels as well (Brandon, 2026-11-17)
+	if (TakeOutOfStripsCommand::isNeededFor(m_removed_contents.m_elements)) {
+		new TakeOutOfStripsCommand(m_removed_contents.m_elements, this);
+	}
+		//A wire deleted between two terminals of one strip which stay
+		//takes their bridge with it (WireBridges)
+	{
+		QSet<Conductor *> going;
+		for (Conductor *wire : m_removed_contents.conductors(DiagramContent::AnyConductor)) {
+			if (wire && wire->terminal1 && wire->terminal2
+				&& !m_removed_contents.m_elements.contains(wire->terminal1->parentElement())
+				&& !m_removed_contents.m_elements.contains(wire->terminal2->parentElement())) {
+				going << wire;
+			}
+		}
+		WireBridges::letGo(going, this);
+	}
+	letGoOfBridges();
+
+		//Get all linkeds table of removed table.
+	for (auto table : m_removed_contents.m_tables)
+	{
+			//Table is already managed, jump to next loop
+		if (m_table_scene_hash.contains(table))
+			continue;
+
+		auto first_table  = table; //The first table if the table is linked to another
+		while(first_table->previousTable())
+			first_table = first_table->previousTable();
+		auto current_table = first_table;
+
+		m_table_scene_hash.insert(first_table, first_table->scene());
+		while (current_table->nextTable())
+		{
+			current_table = current_table->nextTable();
+			m_table_scene_hash.insert(current_table, current_table->scene());
+		}
+	}
+
+	setText(QString(QObject::tr(
+				"delete %1",
+				"undo caption - %1 is a sentence listing the removed content"))
+		.arg(m_removed_contents.sentence(DiagramContent::All)));
+	//Table is now managed by m_table_scene_hash,
+	//we clear the tables of m_removed_content
+	m_removed_contents.m_tables.clear();
+	m_diagram->qgiManager().manage(m_removed_contents.items(DiagramContent::All));
+}
+
+DeleteQGraphicsItemCommand::~DeleteQGraphicsItemCommand()
+{
+	m_diagram->qgiManager().release(m_removed_contents.items(DiagramContent::All));
+}
+
+/**
+	@brief DeleteQGraphicsItemCommand::letGoOfBridges
+	A bridge drawn over a deleted symbol no longer lands on it: the line
+	stays where it is drawn, with the terminals left under it, and undo
+	gives the bridge the symbol back
+*/
+void DeleteQGraphicsItemCommand::letGoOfBridges()
+{
+	QETProject *project = m_diagram ? m_diagram->project() : nullptr;
+	if (!project || m_removed_contents.m_elements.isEmpty()) {
+		return;
+	}
+	QSet<QUuid> gone;
+	for (Element *element : std::as_const(m_removed_contents.m_elements)) {
+		if (element) {
+			gone.insert(element->uuid());
+		}
+	}
+	for (Bridge *bridge : project->bridges())
+	{
+		if (!bridge) {
+			continue;
+		}
+		const QList<BridgeTerminal> before = bridge->landings();
+		QList<BridgeTerminal> after;
+		for (const BridgeTerminal &landing : before) {
+			if (!gone.contains(landing.element)) {
+				after << landing;
+			}
+		}
+		if (after.size() != before.size()) {
+			const BridgeInformation information{bridge->tensionText()};
+			new ChangeBridgeTerminalsCommand(bridge, before, after,
+											 information, information, this);
+		}
+	}
+}
+
+/**
+	@brief DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements
+	This function creates new conductors (if needed) for conserve the electrical potentials
+	present at the terminals of each removed elements.
+*/
+void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
+{
+	for (Element *elmt : m_removed_contents.m_elements)
+	{
+			//a list of terminals who have at least two conductors docked in.
+		QList<Terminal *> terminals_list;
+		for (Terminal *t : elmt->terminals()) {
+			if (t->conductors().size() >= 2) {
+				terminals_list.append(t);
+			}
+		}
+		if (terminals_list.isEmpty()) {
+			continue;
+		}
+
+		for (Terminal *t : terminals_list)
+		{
+				//All new created conductors will be docked to hub_terminal
+			Terminal *hub_terminal = nullptr;
+			QList<Terminal *> terminals_to_connect_list;
+
+			for (Conductor *c : t->conductors())
+			{
+				Terminal *other_terminal = c->terminal1 == t ? c->terminal2 : c->terminal1;
+
+				if (m_removed_contents.items(DiagramContent::Elements).contains(other_terminal->parentElement()))
+				{
+					other_terminal = terminalInSamePotential(other_terminal, c);
+					if (other_terminal == nullptr) {
+						continue;
+					}
+				}
+
+				terminals_to_connect_list.append(other_terminal);
+				if (hub_terminal == nullptr) {
+					hub_terminal = other_terminal;
+				}
+					//hub_terminal must be the terminal the more at top left of the diagram.
+				else if (other_terminal->scenePos().x() < hub_terminal->scenePos().x()) {
+					hub_terminal = other_terminal;
+				}
+				else if (other_terminal->scenePos().x() == hub_terminal->scenePos().x()) {
+					if (other_terminal->scenePos().y() < hub_terminal->scenePos().y()) {
+						hub_terminal = other_terminal;
+					}
+				}
+			}
+
+			terminals_to_connect_list.removeAll(hub_terminal);
+			if (hub_terminal == nullptr || terminals_to_connect_list.isEmpty()) {
+				continue;
+			}
+
+			ConductorProperties properties = hub_terminal->conductors().first()->properties();
+
+				//Every terminal to the hub (a star), or, when the project
+				//limits the wires per terminal (discussion #1158), one after
+				//another (a chain): a star gives the hub a wire per other
+				//terminal, which the limit forbids.
+			QList<std::pair<Terminal *, Terminal *>> pairs;
+			const QETProject *project = hub_terminal->diagram() ? hub_terminal->diagram()->project() : nullptr;
+			if (project && WiringRules::chainsWires(project->wiringRules(), WiringRules::masterEnabled()))
+			{
+				QList<Terminal *> chain {hub_terminal};
+				chain << terminals_to_connect_list;
+				QList<QPointF> points;
+				for (Terminal *ct : std::as_const(chain)) {
+					points << ct->scenePos();
+				}
+				const QList<int> order = WiringRules::chainOrder(points);
+				for (int i = 1 ; i < order.size() ; ++i) {
+					pairs.append(std::make_pair(chain.at(order.at(i - 1)), chain.at(order.at(i))));
+				}
+			}
+			else
+			{
+				for (Terminal *t : std::as_const(terminals_to_connect_list)) {
+					pairs.append(std::make_pair(hub_terminal, t));
+				}
+			}
+
+			for (const auto &new_pair : std::as_const(pairs))
+			{
+					//If a conductor was already created between these two terminals
+					//in this undo command, from another removed element, we do nothing
+				bool exist_ = false;
+				for (std::pair<Terminal *, Terminal *> pair : m_connected_terminals)
+				{
+					if  (pair.first == new_pair.first && pair.second == new_pair.second) {
+						exist_ = true;
+						continue;
+					} else if (pair.first == new_pair.second && pair.second == new_pair.first) {
+						exist_ = true;
+						continue;
+					}
+				}
+
+				if (exist_ == false)
+				{
+					m_connected_terminals.append(new_pair);
+					qInfo() << "m_connected_terminals" << m_connected_terminals;
+					Conductor *new_cond = new Conductor(new_pair.first, new_pair.second);
+					new_cond->setProperties(properties);
+						//The wire that joins the two left by the removed
+						//symbol gets its uuid from its two ends, as a wire
+						//saved without one does on load (Diagram::fromXml()):
+						//the same deletion then saves the same file every
+						//time, not a random uuid each run (F115)
+					if (QETProject *wire_project = new_pair.second->diagram()
+							? new_pair.second->diagram()->project() : nullptr) {
+						auto end = [](const Terminal *t) {
+							return t->parentElement()->uuid().toString()
+									+ QLatin1Char('/') + t->stableUuid().toString();
+						};
+						QStringList ends{end(new_pair.first), end(new_pair.second)};
+						ends.sort();
+						new_cond->setUuid(wire_project->derivedItemUuid(
+								QStringLiteral("conductor"), ends.join(QLatin1Char('\n'))));
+					}
+					new AddGraphicsObjectCommand(new_cond, new_pair.second->diagram(), QPointF(), this);
+				}
+			}
+		}
+	}
+}
+
+/**
+	@brief DeleteQGraphicsItemCommand::terminalInSamePotential
+	Return a terminal at the same potential of terminal,
+	by traveling through the conductors connected to terminal
+	only if the owner element of the terminal
+	is not delete by this undo command.
+	Return nullptr if a terminal can't be found.
+	@param terminal - terminal from search
+	@param conductor_to_exclude - a conductor to exlcude from search.
+	@return
+*/
+Terminal *DeleteQGraphicsItemCommand::terminalInSamePotential(
+		Terminal *terminal,
+		Conductor *conductor_to_exclude)
+{
+	QList<Conductor *> conductor_list = terminal->conductors();
+	conductor_list.removeAll(conductor_to_exclude);
+	for(Conductor *c : conductor_list)
+	{
+		Terminal *other_terminal = c->terminal1 == terminal ? c->terminal2 : c->terminal1;
+		if(!m_removed_contents.items(DiagramContent::Elements).contains(other_terminal->parentElement())) {
+			return other_terminal;
+		}
+	}
+		//No one of direct conductor of terminal are docked to an element which is not removed
+	for(Conductor *c : conductor_list)
+	{
+		Terminal *other_terminal = c->terminal1 == terminal ? c->terminal2 : c->terminal1;
+		Terminal *terminal_to_return = terminalInSamePotential(other_terminal, c);
+		if (terminal_to_return != nullptr) {
+			return  terminal_to_return;
+		}
+	}
+
+	return nullptr;
+}
+
+/**
+	@brief DeleteQGraphicsItemCommand::undo
+	Undo this command
+*/
+void DeleteQGraphicsItemCommand::undo()
+{
+	m_diagram->showMe();
+
+	for(QGraphicsItem *item : m_removed_contents.items())
+		m_diagram->addItem(item);
+
+		//We relink element after every element was added to diagram
+	for(Element *e : m_removed_contents.m_elements)
+		for(Element *elmt : m_link_hash[e])
+				e->linkToElement(elmt);
+
+	for(DynamicElementTextItem *deti : m_removed_contents.m_element_texts)
+	{
+		if(m_elmt_text_hash.contains(deti))
+			m_elmt_text_hash.value(deti)->addDynamicTextItem(deti);
+		else if (m_grp_texts_hash.contains(deti))
+		{
+			Element *elmt = m_grp_texts_hash.value(deti)->parentElement();
+			elmt->addDynamicTextItem(deti);
+			elmt->addTextToGroup(deti, m_grp_texts_hash.value(deti));
+		}
+	}
+
+	for (auto table : m_table_scene_hash.keys())
+	{
+		if (!m_table_scene_hash.value(table).isNull()) {
+			m_table_scene_hash.value(table)->addItem(table);
+		}
+	}
+
+		//Back on the sheet and linked again: the cables which run over
+		//this report claim their wire on the other side once more.
+	for (Element *e : m_removed_contents.m_elements) {
+		if (e && (e->linkType() & Element::AllReport)) {
+			CableManager::refreshLabels(m_diagram->project());
+			break;
+		}
+	}
+
+	QUndoCommand::undo();
+}
+
+/**
+	@brief DeleteQGraphicsItemCommand::redo
+	Redo the delete command
+*/
+void DeleteQGraphicsItemCommand::redo()
+{
+	m_diagram -> showMe();
+
+	for(Conductor *c : m_removed_contents.conductors(DiagramContent::AnyConductor))
+	{
+			//If option one text per folio is enable, and the text item of
+			//current conductor is visible (that mean the conductor have the single displayed text)
+			//We call adjustTextItemPosition to other conductor at the same potential to keep
+			//a visible text on this potential.
+			//wantsVisible(): also while wire texts are hidden (View > Show)
+		if (m_diagram -> defaultConductorProperties.m_one_text_per_folio && ShownKinds::wantsVisible(c -> textItem()))
+		{
+			QList <Conductor *> conductor_list;
+			conductor_list << c -> relatedPotentialConductors(false).values();
+			if (conductor_list.count())
+				conductor_list.first() -> calculateTextItemPosition();
+		}
+	}
+
+	for(Element *e : m_removed_contents.m_elements)
+	{
+			//Get linked element, for relink it at undo
+		if (!e->linkedElements().isEmpty())
+			m_link_hash.insert(e, e->linkedElements());
+	}
+
+	for(DynamicElementTextItem *deti : m_removed_contents.m_element_texts)
+	{
+		if(deti->parentGroup() && deti->parentGroup()->parentElement())
+			deti->parentGroup()->parentElement()->removeTextFromGroup(deti, deti->parentGroup());
+
+		deti->parentElement()->removeDynamicTextItem(deti);
+		deti->setParentItem(nullptr);
+	}
+
+	for (auto table : m_table_scene_hash.keys())
+	{
+		if (!m_table_scene_hash.value(table).isNull()) {
+			m_table_scene_hash.value(table)->removeItem(table);
+		}
+	}
+
+	for(QGraphicsItem *item : m_removed_contents.items())
+		m_diagram->removeItem(item);
+
+		//A folio report carries a cable core over to the next sheet:
+		//taking one away (putting it back is undo, below) changes which
+		//wires belong to which cable, so the cable fields are worked
+		//out again straight away.
+	for (Element *e : m_removed_contents.m_elements) {
+		if (e && (e->linkType() & Element::AllReport)) {
+			CableManager::refreshLabels(m_diagram->project());
+			break;
+		}
+	}
+
+	QUndoCommand::redo();
+}

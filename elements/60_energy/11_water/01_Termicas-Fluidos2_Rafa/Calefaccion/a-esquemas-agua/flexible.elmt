@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="11">
+    <uuid uuid="{7a0e6292-cd7a-77d6-b1b3-764a996b6631}"/>
+    <names>
+        <name lang="ar">مرن</name>
+        <name lang="ca">Flexible</name>
+        <name lang="cs">Ohebný spoj</name>
+        <name lang="da">Fleksibel</name>
+        <name lang="de">Flexibel</name>
+        <name lang="el">Εύκαμπτος σωλήνας</name>
+        <name lang="en">Flexible</name>
+        <name lang="es">Flexible</name>
+        <name lang="fi">Joustoliitäntä</name>
+        <name lang="fr">Flexible</name>
+        <name lang="hr">Fleksibilno crijevo</name>
+        <name lang="hu">Hajlékony tömlő</name>
+        <name lang="it">Flessibile</name>
+        <name lang="ja">フレキシブル管</name>
+        <name lang="ko">플렉시블</name>
+        <name lang="mn">Уян холбоос</name>
+        <name lang="nb">Fleksibel</name>
+        <name lang="nl">Flexibel</name>
+        <name lang="nl_BE">Flexibele leiding</name>
+        <name lang="pl">Przewód giętki</name>
+        <name lang="pt">Flexível</name>
+        <name lang="pt_BR">Flexible</name>
+        <name lang="ro">Flexibil</name>
+        <name lang="ru">Гибкая подводка</name>
+        <name lang="sk">Flexibilná hadica</name>
+        <name lang="sl">Gibljiva cev</name>
+        <name lang="sr">Савитљиво црево</name>
+        <name lang="sv">Flexibel</name>
+        <name lang="tr">Esnek bağlantı</name>
+        <name lang="uk">Гнучкий шланг</name>
+        <name lang="zh">软管</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="6" y1="-5" x2="3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-0.48" x2="18" y2="-0.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.2" y1="-0.48" x2="-9.87" y2="-0.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-1" x2="-6" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-5" x2="-4" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="-4" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-5" x2="8" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-18.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{de04a2ef-6773-4838-b1b1-a3e0fd8d466f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f984baf8-b491-40bf-bc6c-1cb6b99d7c8a}" name="" x="-20" y="-1" orientation="w" type="Generic"/>
+        <terminal uuid="{028a586f-a121-4e80-8729-88e23769e5ab}" name="" x="20" y="-1" orientation="e" type="Generic"/>
+    </description>
+</definition>

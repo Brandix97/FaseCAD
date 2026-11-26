@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="32" hotspot_y="30">
+    <uuid uuid="{291216d1-604f-eddd-c35f-3f3dbf72f97f}"/>
+    <names>
+        <name lang="ar">محرّك ثلاثي الأوجه</name>
+        <name lang="ca">Motor monofàsic</name>
+        <name lang="cs">Jednofázový motor</name>
+        <name lang="da">En-faset motor</name>
+        <name lang="de">Motor einphasig</name>
+        <name lang="el">Μονοφασικό μοτέρ</name>
+        <name lang="en">One-phase engine</name>
+        <name lang="es">Motor monofásico2</name>
+        <name lang="fi">Yksivaihemoottori</name>
+        <name lang="fr">Moteur monophasé</name>
+        <name lang="hr">Jednofazni motor</name>
+        <name lang="hu">Egyfázisú motor</name>
+        <name lang="it">Motore trifase</name>
+        <name lang="ja">単相エンジン</name>
+        <name lang="ko">단상 모터</name>
+        <name lang="mn">Нэг фазын хөдөлгүүр</name>
+        <name lang="nb">Enfasemotor</name>
+        <name lang="nl">Draaistroommotor</name>
+        <name lang="nl_BE">Eenfasige motor</name>
+        <name lang="pl">Silnik trójfazowy</name>
+        <name lang="pt">Motor monofásico</name>
+        <name lang="pt_BR">motor monofásico</name>
+        <name lang="ro">Motor monofazat</name>
+        <name lang="ru">Однофазный эл. мотор</name>
+        <name lang="sk">Jednofázový motor</name>
+        <name lang="sl">Enofazni motor</name>
+        <name lang="sr">Једнофазни мотор</name>
+        <name lang="sv">Enfasmotor</name>
+        <name lang="tr">Tek fazlı motor</name>
+        <name lang="uk">Однофазний двигун</name>
+        <name lang="zh">单相电动机2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="M" x="-11" y="13" rotation="0" font="Liberation Sans,18,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-15" y="-10" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="20" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="10" y="10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{177c6d96-2e05-4c49-bc2c-f919de11acd0}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{cb3a2908-f08b-4743-a042-787af3409d97}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{24963a62-1be5-4b4f-bd5d-927fa01d434c}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

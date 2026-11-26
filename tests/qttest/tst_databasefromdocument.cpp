@@ -1,0 +1,589 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+#include <QtTest>
+
+#include <QDir>
+#include <QDomDocument>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QProcess>
+#include <QProcessEnvironment>
+#include <QTemporaryDir>
+#include "qettesttimeout.h"
+
+// A project's database, filled from the file as it is read, holds exactly
+// what the same database filled from the built folios holds. Every example
+// is saved once (so that it carries the uuids a current QElectroTech
+// writes), then opened twice through the real binary's --run: once as is,
+// once with QET_DATABASE_FROM_FOLIOS=1, and the seven tables compared.
+class tst_databasefromdocument : public QObject
+{
+	Q_OBJECT
+
+	QTemporaryDir m_dir;
+	int m_run = 0;
+
+	QProcessEnvironment env()
+	{
+		const QString home = m_dir.filePath(QStringLiteral("home%1").arg(m_run++));
+		QDir().mkpath(home);
+		QProcessEnvironment e = QProcessEnvironment::systemEnvironment();
+		e.insert(QStringLiteral("QT_QPA_PLATFORM"), QStringLiteral("offscreen"));
+		e.insert(QStringLiteral("QET_ENABLE_SCRIPTING"), QStringLiteral("1"));
+		e.insert(QStringLiteral("HOME"), home);
+		e.insert(QStringLiteral("XDG_CONFIG_HOME"), home + QStringLiteral("/config"));
+		e.insert(QStringLiteral("XDG_DATA_HOME"), home + QStringLiteral("/data"));
+		e.insert(QStringLiteral("TMPDIR"), m_dir.path());
+		e.remove(QStringLiteral("QET_DATABASE_FROM_FOLIOS"));
+		return e;
+	}
+
+	QString run(const QStringList &args, bool from_folios = false, bool eager = false)
+	{
+		QProcessEnvironment e = env();
+		if (from_folios)
+			e.insert(QStringLiteral("QET_DATABASE_FROM_FOLIOS"), QStringLiteral("1"));
+		if (eager)
+			e.insert(QStringLiteral("QET_EAGER_FOLIOS"), QStringLiteral("1"));
+		QProcess proc;
+		proc.setProcessEnvironment(e);
+		proc.start(QStringLiteral(QET_TEST_BINARY_PATH), args);
+		if (!proc.waitForFinished(QetTest::timeout(180000))) return {};
+		return QString::fromUtf8(proc.readAllStandardOutput() + proc.readAllStandardError());
+	}
+
+	// The seven tables, each as a sorted list of its rows, and which way the
+	// database was filled.
+	QJsonObject dump(const QString &project, bool from_folios, QString *how, bool eager = false)
+	{
+		const QString out = run({QStringLiteral("--run"), m_dir.filePath(QStringLiteral("dump.js")),
+								 project}, from_folios, eager);
+		return tablesIn(out, how);
+	}
+
+	// The DUMP line of a --run output, each table as a sorted list of rows
+	static QJsonObject tablesIn(const QString &out, QString *how)
+	{
+		QJsonObject tables;
+		for (const QString &line : out.split(QLatin1Char('\n'))) {
+			if (line.contains(QStringLiteral("Project database filled")))
+				*how = line.mid(line.indexOf(QStringLiteral("Project database filled")));
+			const int i = line.indexOf(QStringLiteral("DUMP "));
+			if (i >= 0) {
+				const QJsonObject raw = QJsonDocument::fromJson(line.mid(i + 5).toUtf8()).object();
+				for (auto it = raw.begin(); it != raw.end(); ++it) {
+					QStringList rows;
+					for (const QJsonValue &row : it.value().toArray())
+						rows << QString::fromUtf8(QJsonDocument(row.toObject()).toJson(QJsonDocument::Compact));
+					rows.sort();
+					tables.insert(it.key(), QJsonArray::fromStringList(rows));
+				}
+			}
+		}
+		return tables;
+	}
+
+		// tremie_vibrante.qet saved once, as a document to change
+	QDomDocument resaved(const QString &saved)
+	{
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/tremie_vibrante.qet"), saved});
+		QFile file(saved);
+		QDomDocument document;
+		if (file.open(QIODevice::ReadOnly))
+			document.setContent(&file);
+		return document;
+	}
+
+	static bool write(const QString &path, const QDomDocument &document)
+	{
+		QFile file(path);
+		return file.open(QIODevice::WriteOnly | QIODevice::Truncate)
+				&& file.write(document.toByteArray()) > 0;
+	}
+
+		// Both fills of @p saved, which must come from the document, agree.
+	void compareBothWays(const QString &saved)
+	{
+		QString how_document, how_folios;
+		const QJsonObject document = dump(saved, false, &how_document);
+		const QJsonObject folios = dump(saved, true, &how_folios);
+		QVERIFY2(how_document == QLatin1String("Project database filled from the document"),
+				 qPrintable(how_document));
+		QVERIFY2(how_folios.contains(QStringLiteral("QET_DATABASE_FROM_FOLIOS")), qPrintable(how_folios));
+		QCOMPARE(document.keys().size(), 7);
+		for (const QString &table : folios.keys()) {
+			const QJsonArray a = document.value(table).toArray(), b = folios.value(table).toArray();
+			QVERIFY2(a == b, qPrintable(QStringLiteral("%1: %2 rows from the document, %3 from the folios")
+										.arg(table).arg(a.size()).arg(b.size())));
+		}
+		m_last = document;
+	}
+
+	QJsonObject m_last;   // the document's tables, from compareBothWays()
+
+private slots:
+	void initTestCase()
+	{
+		QVERIFY(m_dir.isValid());
+		QVERIFY(QFile::exists(QStringLiteral(QET_TEST_BINARY_PATH)));
+		QFile js(m_dir.filePath(QStringLiteral("dump.js")));
+		QVERIFY(js.open(QIODevice::WriteOnly));
+		js.write("var out = {};\n"
+				 "['diagram', 'diagram_info', 'element', 'element_info', 'terminal', 'conductor', 'link']"
+				 ".forEach(function (t) { out[t] = qet.query('SELECT * FROM ' + t); });\n"
+				 "qet.log('DUMP ' + JSON.stringify(out));\n");
+	}
+
+	void sameTablesBothWays_data()
+	{
+		QTest::addColumn<QString>("project");
+		const QDir examples(QStringLiteral(QET_EXAMPLES_DIR));
+		for (const QString &f : examples.entryList({QStringLiteral("*.qet")}, QDir::Files, QDir::Name))
+			QTest::newRow(f.toUtf8().constData()) << examples.filePath(f);
+	}
+
+	void sameTablesBothWays()
+	{
+		QFETCH(QString, project);
+		const QString saved = m_dir.filePath(QStringLiteral("saved%1.qet").arg(m_run));
+		run({QStringLiteral("--resave"), project, saved});
+		QVERIFY2(QFile::exists(saved), "--resave failed");
+		compareBothWays(saved);
+	}
+
+	// A label or a conductor text made from a formula is what the formula
+	// gives now, not what it gave when the file was saved: every folio's
+	// first element and first conductor is given a formula using each kind
+	// of variable, and a saved label no formula gives.
+	void formulasAreWorkedOut()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("formulas-saved.qet"));
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/tremie_vibrante.qet"), saved});
+		QFile file(saved);
+		QVERIFY(file.open(QIODevice::ReadOnly));
+		QDomDocument document;
+		QVERIFY(document.setContent(&file));
+		file.close();
+
+		auto property = [&document](QDomElement parent, const QString &name, const QString &value) {
+			QDomElement properties = parent.firstChildElement(QStringLiteral("properties"));
+			if (properties.isNull())
+				properties = parent.appendChild(document.createElement(QStringLiteral("properties"))).toElement();
+			QDomElement p = document.createElement(QStringLiteral("property"));
+			p.setAttribute(QStringLiteral("name"), name);
+			p.appendChild(document.createTextNode(value));
+			properties.appendChild(p);
+		};
+		auto sequence = [&document](QDomElement item, const QString &unit) {
+			item.removeChild(item.firstChildElement(QStringLiteral("sequentialNumbers")));
+			QDomElement s = document.createElement(QStringLiteral("sequentialNumbers"));
+			QDomElement u = document.createElement(QStringLiteral("unit"));
+			u.appendChild(document.createTextNode(unit));
+			s.appendChild(u);
+			item.appendChild(s);
+		};
+
+		property(document.documentElement(), QStringLiteral("site"), QStringLiteral("S"));
+		const QDomNodeList diagrams = document.elementsByTagName(QStringLiteral("diagram"));
+		QCOMPARE(diagrams.size(), 3);
+		for (int i = 0 ; i < diagrams.size() ; ++i)
+		{
+			QDomElement diagram = diagrams.at(i).toElement();
+			diagram.setAttribute(QStringLiteral("folio"), QStringLiteral("F%id"));
+			diagram.setAttribute(QStringLiteral("plant"), QStringLiteral("P"));
+			diagram.setAttribute(QStringLiteral("locmach"), QStringLiteral("L"));
+			property(diagram, QStringLiteral("zone"), QStringLiteral("Z%1").arg(i));
+
+			QDomElement element = diagram.firstChildElement(QStringLiteral("elements"))
+									  .firstChildElement(QStringLiteral("element"));
+			QVERIFY(!element.isNull());
+			element.setAttribute(QStringLiteral("prefix"), QStringLiteral("X"));
+			sequence(element, QStringLiteral("7"));
+			QDomElement informations = element.firstChildElement(QStringLiteral("elementInformations"));
+			if (informations.isNull())
+				informations = element.appendChild(document.createElement(QStringLiteral("elementInformations"))).toElement();
+			while (!informations.firstChild().isNull())
+				informations.removeChild(informations.firstChild());
+			for (const auto &info : {std::make_pair(QStringLiteral("formula"),
+													QStringLiteral("K%total-%f-%F-%M-%LM-%c%l-%prefix-%{zone}-%{site}-%sequ_1")),
+									 std::make_pair(QStringLiteral("label"), QStringLiteral("OLD"))}) {
+				QDomElement e = document.createElement(QStringLiteral("elementInformation"));
+				e.setAttribute(QStringLiteral("name"), info.first);
+				e.setAttribute(QStringLiteral("show"), QStringLiteral("1"));
+				e.appendChild(document.createTextNode(info.second));
+				informations.appendChild(e);
+			}
+
+			QDomElement conductor = diagram.firstChildElement(QStringLiteral("conductors"))
+										.firstChildElement(QStringLiteral("conductor"));
+			QVERIFY(!conductor.isNull());
+			conductor.setAttribute(QStringLiteral("formula"), QStringLiteral("W%total-%id-%wf-%{zone}-%sequ_1"));
+			conductor.setAttribute(QStringLiteral("function"), QStringLiteral("N"));
+			conductor.setAttribute(QStringLiteral("num"), QStringLiteral("OLD"));
+			sequence(conductor, QStringLiteral("3"));
+		}
+		QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Truncate));
+		file.write(document.toByteArray());
+		file.close();
+
+		compareBothWays(saved);
+			// ...and they were worked out, not left as saved
+		const QString info = QString::fromUtf8(QJsonDocument(m_last.value(QStringLiteral("element_info")).toArray())
+												   .toJson(QJsonDocument::Compact));
+		const QString wires = QString::fromUtf8(QJsonDocument(m_last.value(QStringLiteral("conductor")).toArray())
+													.toJson(QJsonDocument::Compact));
+		QVERIFY2(info.contains(QStringLiteral("K3-1-F1-P-L-")), qPrintable(info.left(400)));
+		QVERIFY2(info.contains(QStringLiteral("-X-Z0-S-7")), qPrintable(info.left(400)));
+		QVERIFY2(wires.contains(QStringLiteral("W3-3-N-Z2-3")), qPrintable(wires.left(400)));
+		QVERIFY(!info.contains(QStringLiteral("OLD")));
+		QVERIFY(!wires.contains(QStringLiteral("OLD")));
+	}
+
+	// An element the folio does not build, and so the conductors ending on
+	// it, are left out the same way.
+	void unbuiltElementIsLeftOut()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("unbuilt.qet"));
+		QDomDocument document = resaved(saved);
+		QDomElement conductor = document.elementsByTagName(QStringLiteral("conductor")).at(0).toElement();
+		QVERIFY(!conductor.isNull());
+		const QString uuid = conductor.attribute(QStringLiteral("element1"));
+		const QDomNodeList elements = document.elementsByTagName(QStringLiteral("element"));
+		bool found = false;
+		for (int i = 0 ; i < elements.size() ; ++i) {
+			QDomElement e = elements.at(i).toElement();
+			if (e.attribute(QStringLiteral("uuid")) == uuid) {
+				e.setAttribute(QStringLiteral("x"), QStringLiteral("nan"));
+				found = true;
+			}
+		}
+		QVERIFY(found);
+		QVERIFY(write(saved, document));
+		compareBothWays(saved);
+		const QString wires = QString::fromUtf8(QJsonDocument(m_last.value(QStringLiteral("conductor")).toArray())
+													.toJson(QJsonDocument::Compact));
+		QVERIFY(!wires.contains(conductor.attribute(QStringLiteral("uuid"))));
+	}
+
+	// Two elements on a folio numbering their terminals alike: which one the
+	// folio then refuses depends on the terminals' geometry, so the folios
+	// fill the database.
+	void clashingTerminalIdsFallBack()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("clash.qet"));
+		QDomDocument document = resaved(saved);
+		const QDomElement diagram = document.elementsByTagName(QStringLiteral("diagram")).at(0).toElement();
+		QDomElement first = diagram.firstChildElement(QStringLiteral("elements")).firstChildElement(QStringLiteral("element"));
+		QDomElement second = first.nextSiblingElement(QStringLiteral("element"));
+		const QString id = first.firstChildElement(QStringLiteral("terminals"))
+							   .firstChildElement(QStringLiteral("terminal")).attribute(QStringLiteral("id"));
+		QDomElement terminal = second.firstChildElement(QStringLiteral("terminals"))
+								   .firstChildElement(QStringLiteral("terminal"));
+		QVERIFY(!id.isEmpty() && !terminal.isNull());
+		terminal.setAttribute(QStringLiteral("id"), id);
+		QVERIFY(write(saved, document));
+		QString how;
+		dump(saved, false, &how);
+		QCOMPARE(how, QStringLiteral("Project database filled from the folios: "
+									 "two elements on a folio number their terminals alike"));
+	}
+
+	// m_000.qet saved once, as a document to change
+	QDomDocument resavedWithLinks(const QString &saved)
+	{
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/m_000.qet"), saved});
+		QFile file(saved);
+		QDomDocument document;
+		if (file.open(QIODevice::ReadOnly))
+			document.setContent(&file);
+		return document;
+	}
+
+	// A coil and its contacts are in the link table, from each side, with
+	// both fills: m_000.qet's coil b02216df and its contact 998190fa.
+	void linksAreListed()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("links.qet"));
+		QDomDocument document = resavedWithLinks(saved);
+		const QString coil = QStringLiteral("{b02216df-0851-4732-893b-901fea80703e}"),
+				contact = QStringLiteral("{998190fa-5b4c-4be3-bc67-8a828eaab2b4}");
+			//The coil puts this contact in its contact group 1.
+		bool grouped = false;
+		const QDomNodeList elements = document.elementsByTagName(QStringLiteral("element"));
+		for (int i = 0 ; i < elements.size() ; ++i) {
+			const QDomElement e = elements.at(i).toElement();
+			if (e.attribute(QStringLiteral("uuid")) != coil) continue;
+			for (QDomElement l = e.firstChildElement(QStringLiteral("links_uuids")).firstChildElement(QStringLiteral("link_uuid")) ;
+				 !l.isNull() ; l = l.nextSiblingElement(QStringLiteral("link_uuid"))) {
+				if (l.attribute(QStringLiteral("uuid")) == contact) {
+					l.setAttribute(QStringLiteral("group_index"), 1);
+					grouped = true;
+				}
+			}
+		}
+		QVERIFY(grouped);
+		QVERIFY(write(saved, document));
+		compareBothWays(saved);
+		bool coil_side = false, contact_side = false;
+		for (const QJsonValue &row : m_last.value(QStringLiteral("link")).toArray()) {
+			const QJsonObject link = QJsonDocument::fromJson(row.toString().toUtf8()).object();
+			const QString from = link.value(QStringLiteral("element_uuid")).toString(),
+					to = link.value(QStringLiteral("linked_uuid")).toString();
+			coil_side |= from == coil && to == contact
+					&& link.value(QStringLiteral("group_index")).toVariant().toInt() == 1;
+			contact_side |= from == contact && to == coil;
+		}
+		QVERIFY2(coil_side, "the coil's link to its contact, in group 1, is missing");
+		QVERIFY2(contact_side, "the contact's link to its coil is missing");
+	}
+
+	// A link only one side lists: the folios decide what it becomes.
+	void oneSidedLinkFallsBack()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("onesided.qet"));
+		QDomDocument document = resavedWithLinks(saved);
+		const QDomNodeList links = document.elementsByTagName(QStringLiteral("link_uuid"));
+		QVERIFY(links.size() > 0);
+		QDomNode link = links.at(0);
+		link.parentNode().removeChild(link);
+		QVERIFY(write(saved, document));
+		QString how;
+		dump(saved, false, &how);
+		QCOMPARE(how, QStringLiteral("Project database filled from the folios: "
+									 "a link is not one the folios would make as saved"));
+	}
+
+	// After a folio is added and another removed, the folio tables hold
+	// what a fresh open of the saved project gives: every folio's position
+	// and folio number, and no row for the removed folio. Positions only
+	// changed when folios were reordered, and the removed folio's
+	// diagram_info row stayed.
+	void folioAddedAndRemoved()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("folios.qet"));
+		const QString edited = m_dir.filePath(QStringLiteral("folios-edited.qet"));
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/tremie_vibrante.qet"), saved});
+		QVERIFY(QFile::exists(saved));
+		QFile js(m_dir.filePath(QStringLiteral("folios.js")));
+		QVERIFY(js.open(QIODevice::WriteOnly));
+		js.write(QStringLiteral(
+				 "qet.log('ADDED ' + qet.insertFolio(0));\n"
+				 "qet.log('REMOVED ' + qet.removeFolio(2));\n"
+				 "var out = {};\n"
+				 "['diagram', 'diagram_info'].forEach(function (t) { out[t] = qet.query('SELECT * FROM ' + t); });\n"
+				 "qet.log('DUMP ' + JSON.stringify(out));\n"
+				 "qet.log('SAVED ' + qet.save('%1'));\n").arg(edited).toUtf8());
+		js.close();
+		const QString log = run({QStringLiteral("--run"), js.fileName(), saved});
+		QVERIFY2(log.contains(QStringLiteral("ADDED 0")) && log.contains(QStringLiteral("REMOVED true"))
+				 && log.contains(QStringLiteral("SAVED true")), qPrintable(log.right(400)));
+		QString unused;
+		const QJsonObject after_edits = tablesIn(log, &unused);
+		const QJsonObject reopened = dump(edited, false, &unused);
+		for (const QString &table : {QStringLiteral("diagram"), QStringLiteral("diagram_info")}) {
+			const QJsonArray a = after_edits.value(table).toArray(), b = reopened.value(table).toArray();
+			QVERIFY2(!a.isEmpty(), qPrintable(table));
+			QVERIFY2(a == b, qPrintable(QStringLiteral("%1: %2 rows after the edits, %3 on reopening, or different")
+										.arg(table).arg(a.size()).arg(b.size())));
+		}
+	}
+
+	// After a folio not built is removed and the removal undone, the
+	// element, element_info, terminal, conductor and link tables hold what
+	// they held before. They used to keep none of its rows, nor the links
+	// to its symbols: undoing puts back what the folio's built symbols
+	// write, and a folio not built has none.
+	void unbuiltFolioRemovalUndone()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("undone.qet"));
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/affuteuse_250h.qet"), saved});
+		QVERIFY(QFile::exists(saved));
+		QFile js(m_dir.filePath(QStringLiteral("undone.js")));
+		QVERIFY(js.open(QIODevice::WriteOnly));
+		js.write(QByteArrayLiteral(
+				 "function dump(tag) {\n"
+				 "  var out = {};\n"
+				 "  ['element', 'element_info', 'terminal', 'conductor', 'link'].forEach(function (t) {\n"
+				 "    out[t] = qet.query('SELECT * FROM ' + t); });\n"
+				 "  qet.log(tag + JSON.stringify(out));\n"
+				 "}\n"
+				 "dump('BEFORE ');\n"
+				 "qet.log('REMOVED ' + qet.removeFolio(6));\n"
+				 "qet.log('UNDONE ' + qet.undo());\n"
+				 "dump('DUMP ');\n"));
+		js.close();
+		QProcessEnvironment e = env();
+		e.remove(QStringLiteral("QET_EAGER_FOLIOS"));
+		e.insert(QStringLiteral("QET_LAZY_FOLIOS_TRACE"), QStringLiteral("1"));
+		QProcess proc;
+		proc.setProcessEnvironment(e);
+		proc.start(QStringLiteral(QET_TEST_BINARY_PATH), {QStringLiteral("--run"), js.fileName(), saved});
+		QVERIFY(proc.waitForFinished(QetTest::timeout(180000)));
+		const QString log = QString::fromUtf8(proc.readAllStandardOutput() + proc.readAllStandardError());
+		QVERIFY2(log.contains(QStringLiteral("opened with 12 of 12 folios not built")), qPrintable(log.left(400)));
+		QVERIFY2(log.contains(QStringLiteral("REMOVED true")) && log.contains(QStringLiteral("UNDONE true")),
+				 qPrintable(log.right(400)));
+		QString unused;
+		const QJsonObject after = tablesIn(log, &unused);
+		QString before_log = log;
+		before_log.replace(QStringLiteral("DUMP "), QStringLiteral("AFTER "))
+				.replace(QStringLiteral("BEFORE "), QStringLiteral("DUMP "));
+		const QJsonObject before = tablesIn(before_log, &unused);
+		QCOMPARE(before.keys().size(), 5);
+		for (const QString &table : before.keys()) {
+			const QJsonArray a = before.value(table).toArray(), b = after.value(table).toArray();
+			QVERIFY2(!a.isEmpty(), qPrintable(table));
+			QVERIFY2(a == b, qPrintable(QStringLiteral("%1: %2 rows before, %3 after the undo, or different")
+										.arg(table).arg(a.size()).arg(b.size())));
+		}
+	}
+
+	// After an element is moved several columns, its folio cell in the
+	// element table is the one a fresh open of the saved project gives.
+	// It used to stay where the element was added.
+	void movedElementCell()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("moved.qet"));
+		const QString edited = m_dir.filePath(QStringLiteral("moved-edited.qet"));
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/tremie_vibrante.qet"), saved});
+		QVERIFY(QFile::exists(saved));
+		QFile js(m_dir.filePath(QStringLiteral("moved.js")));
+		QVERIFY(js.open(QIODevice::WriteOnly));
+		js.write(QStringLiteral(
+				 "var e = qet.elementUuids(0)[0];\n"
+				 "var before = qet.query(\"SELECT pos FROM element WHERE uuid = '\" + e + \"'\")[0].pos;\n"
+				 "qet.log('MOVED ' + qet.moveElement(0, e, 300, 0));\n"
+				 "var after = qet.query(\"SELECT pos FROM element WHERE uuid = '\" + e + \"'\")[0].pos;\n"
+				 "qet.log('CELL ' + before + ' ' + after);\n"
+				 "qet.log('DUMP ' + JSON.stringify({element: qet.query('SELECT * FROM element')}));\n"
+				 "qet.log('SAVED ' + qet.save('%1'));\n").arg(edited).toUtf8());
+		js.close();
+		const QString log = run({QStringLiteral("--run"), js.fileName(), saved});
+		QVERIFY2(log.contains(QStringLiteral("MOVED true")) && log.contains(QStringLiteral("SAVED true")),
+				 qPrintable(log.right(400)));
+		QString unused;
+		const QJsonArray a = tablesIn(log, &unused).value(QStringLiteral("element")).toArray();
+		const QJsonArray b = dump(edited, false, &unused).value(QStringLiteral("element")).toArray();
+		QVERIFY(!a.isEmpty());
+		QVERIFY2(a == b, qPrintable(log.mid(log.indexOf(QStringLiteral("CELL")), 40)));
+	}
+
+	// After every conductor on a folio is deleted, the terminal table
+	// holds what a fresh open of the saved project gives: a terminal is
+	// listed while a conductor ends on it. The ends of a deleted conductor
+	// used to stay.
+	void deletedWireTerminals()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("unwired.qet"));
+		const QString edited = m_dir.filePath(QStringLiteral("unwired-edited.qet"));
+		run({QStringLiteral("--resave"), QStringLiteral(QET_EXAMPLES_DIR "/tremie_vibrante.qet"), saved});
+		QVERIFY(QFile::exists(saved));
+		QFile js(m_dir.filePath(QStringLiteral("unwired.js")));
+		QVERIFY(js.open(QIODevice::WriteOnly));
+		js.write(QStringLiteral(
+				 "var n = 0;\n"
+				 "qet.conductorUuids(0).forEach(function (c) {\n"
+				 "  var end = qet.conductorEnds(0, c)[0];\n"
+				 "  if (!end) return;\n"
+				 "  var m = end.match(/^(\\{[^}]+\\}) terminal (\\d+)$/);\n"
+				 "  if (m && qet.deleteConductor(0, m[1], parseInt(m[2]))) ++n;\n"
+				 "});\n"
+				 "qet.log('DELETED ' + n);\n"
+				 "qet.log('DUMP ' + JSON.stringify({terminal: qet.query('SELECT * FROM terminal')}));\n"
+				 "qet.log('SAVED ' + qet.save('%1'));\n").arg(edited).toUtf8());
+		js.close();
+		const QString log = run({QStringLiteral("--run"), js.fileName(), saved});
+		QVERIFY2(!log.contains(QStringLiteral("DELETED 0")) && log.contains(QStringLiteral("SAVED true")),
+				 qPrintable(log.right(400)));
+		QString unused;
+		const QJsonArray a = tablesIn(log, &unused).value(QStringLiteral("terminal")).toArray();
+		const QJsonArray b = dump(edited, false, &unused).value(QStringLiteral("terminal")).toArray();
+		QVERIFY2(a == b, qPrintable(QStringLiteral("%1 terminal rows after the edits, %2 on reopening")
+									.arg(a.size()).arg(b.size())));
+	}
+
+	// A symbol with two terminals sharing a uuid (copied in the symbol
+	// editor, F139): a wire to it docks on the first in the element's
+	// terminal order, and both fills give that terminal's index. The copy
+	// comes after the original in the file and sorts after it.
+	void copiedTerminalUuid()
+	{
+		const QString saved = m_dir.filePath(QStringLiteral("copied-terminal.qet"));
+		QDomDocument document = resaved(saved);
+		const QDomElement conductor = document.elementsByTagName(QStringLiteral("conductor")).at(0).toElement();
+		const QString uuid = conductor.attribute(QStringLiteral("terminal1"));
+		QVERIFY(!uuid.isEmpty());
+		bool copied = false;
+		const QDomNodeList terminals = document.elementsByTagName(QStringLiteral("terminal"));
+		for (int i = 0 ; i < terminals.size() && !copied ; ++i) {
+			QDomElement terminal = terminals.at(i).toElement();
+			if (terminal.attribute(QStringLiteral("uuid")) != uuid
+				|| terminal.parentNode().nodeName() != QLatin1String("description"))
+				continue;
+			QDomElement copy = terminal.cloneNode().toElement();
+			copy.setAttribute(QStringLiteral("y"), QStringLiteral("1000"));
+			terminal.parentNode().appendChild(copy);
+			copied = true;
+		}
+		QVERIFY(copied);
+		QVERIFY(write(saved, document));
+		compareBothWays(saved);
+		const QString rows = QString::fromUtf8(QJsonDocument(m_last.value(QStringLiteral("terminal")).toArray())
+												   .toJson(QJsonDocument::Compact));
+		QVERIFY2(rows.contains(uuid), qPrintable(rows.left(400)));
+	}
+
+	// A file from an older QElectroTech, as shipped: the uuids and wire ends
+	// written into it on opening are those its folios give themselves when
+	// built (every folio built, without the fill). Each example as it is;
+	// those still filled from the folios compare too.
+	void olderFileFilledFromDocument_data()
+	{
+		QTest::addColumn<QString>("project");
+		const QDir examples(QStringLiteral(QET_EXAMPLES_DIR));
+		for (const QString &f : examples.entryList({QStringLiteral("*.qet")}, QDir::Files, QDir::Name))
+			QTest::newRow(f.toUtf8().constData()) << examples.filePath(f);
+	}
+
+	void olderFileFilledFromDocument()
+	{
+		QFETCH(QString, project);
+		QString how_document, how_folios;
+		const QJsonObject document = dump(project, false, &how_document);
+		const QJsonObject folios = dump(project, true, &how_folios, true);
+		QCOMPARE(document.keys().size(), 7);
+		for (const QString &table : folios.keys()) {
+			const QJsonArray a = document.value(table).toArray(), b = folios.value(table).toArray();
+			QVERIFY2(a == b, qPrintable(QStringLiteral("%1: %2 rows from the document, %3 from the folios")
+										.arg(table).arg(a.size()).arg(b.size())));
+		}
+	}
+
+	// Older files, their folios without uuids and their wires' ends named
+	// the older way, are filled from the document, so open with folios
+	// not built
+	void olderFileOpensFromDocument()
+	{
+		for (const char *f : {"industrial.qet", "tremie_vibrante.qet"}) {
+			QString how;
+			dump(QStringLiteral(QET_EXAMPLES_DIR "/") + QLatin1String(f), false, &how);
+			QVERIFY2(how == QLatin1String("Project database filled from the document"), qPrintable(how));
+		}
+	}
+
+	// A file whose wire ends cannot be paired from the document (a terminal
+	// moved since it was saved, or numbered alike on one folio) is filled
+	// from the folios, which pair them as they are built, and says why.
+	void olderFileFallsBack()
+	{
+		QString how;
+		dump(QStringLiteral(QET_EXAMPLES_DIR "/photovoltaique.qet"), false, &how);
+		QCOMPARE(how, QStringLiteral("Project database filled from the folios: "
+									 "a conductor has no saved uuid, or names its ends the older way"));
+	}
+};
+
+QTEST_APPLESS_MAIN(tst_databasefromdocument)
+
+#include "tst_databasefromdocument.moc"

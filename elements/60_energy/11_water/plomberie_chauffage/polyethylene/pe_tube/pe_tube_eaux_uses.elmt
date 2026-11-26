@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="50" height="30" hotspot_x="29" hotspot_y="19">
+    <uuid uuid="{14004871-cf4a-97c7-c308-90acdda8debf}"/>
+    <names>
+        <name lang="ar">أنبوب PE مياه عادمة</name>
+        <name lang="ca">Tub d'aigües residuals de PE</name>
+        <name lang="cs">Trubka PE odpadní voda</name>
+        <name lang="da">PE-rør spildevand</name>
+        <name lang="de">Rohr PE Abwasser</name>
+        <name lang="el">Σωλήνας PE λυμάτων</name>
+        <name lang="en">PE waste water pipe</name>
+        <name lang="fr">Tube PE Eaux Usées</name>
+        <name lang="pt_BR">Tube PE Eaux Usées</name>
+        <name lang="zh">PE污水管</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Baboune41</informations>
+    <description>
+        <line x1="9" y1="0" x2="-18" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:brun" antialias="false"/>
+        <dynamic_text x="-7" y="-10.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a755af4a-7182-4d0e-8992-80b08c7b3097}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>32</text>
+        </dynamic_text>
+        <dynamic_text x="-12" y="2.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8955949f-3070-407c-821f-2ac1e2d7e4ca}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="-4" x2="10" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-5" x2="9" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="5" x2="9" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <text text="PE" x="-12" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-15" y1="-8" x2="-22" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:white" antialias="false"/>
+        <terminal uuid="{eff9b155-d552-4d4d-b15b-c37a7a6fbac3}" name="" x="-18" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a77b3f57-046b-470f-b3fd-30eff7d5549c}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

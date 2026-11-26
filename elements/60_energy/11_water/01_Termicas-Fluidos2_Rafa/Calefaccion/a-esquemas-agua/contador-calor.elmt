@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="20" hotspot_y="25">
+    <uuid uuid="{88bc60ae-68aa-9d01-f3b4-6890fc375bec}"/>
+    <names>
+        <name lang="ar">عدّاد سعرات</name>
+        <name lang="ca">Comptador de calories</name>
+        <name lang="cs">Kalorimetr</name>
+        <name lang="da">Kaloriemåler</name>
+        <name lang="de">Wärmemengenzähler</name>
+        <name lang="el">Θερμιδόμετρο</name>
+        <name lang="en">Calorie counter</name>
+        <name lang="es">Contador Calor</name>
+        <name lang="fi">Lämpömittari</name>
+        <name lang="fr">Compteur de calories</name>
+        <name lang="hr">Kalorimetar</name>
+        <name lang="hu">Hőmennyiségmérő</name>
+        <name lang="it">Contacalorie</name>
+        <name lang="ja">熱量計</name>
+        <name lang="ko">열량계</name>
+        <name lang="mn">Калори тоолуур</name>
+        <name lang="nb">Kaloriteller</name>
+        <name lang="nl">Caloriemeter</name>
+        <name lang="nl_BE">Calorimeter</name>
+        <name lang="pl">Licznik ciepła</name>
+        <name lang="pt">Contador de calorias</name>
+        <name lang="pt_BR">Medidor de calor</name>
+        <name lang="ro">Contor de calorii</name>
+        <name lang="ru">Теплосчётчик</name>
+        <name lang="sk">Kalorimeter</name>
+        <name lang="sl">Kalorimeter</name>
+        <name lang="sr">Мерач топлоте</name>
+        <name lang="sv">Värmemätare</name>
+        <name lang="tr">Kalori sayacı</name>
+        <name lang="uk">Лічильник калорій</name>
+        <name lang="zh">热量表</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="11.94" y1="8" x2="-2.55" y2="-7.16" x3="-2.55" y3="7.78" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <rect x="-3" y="-8" width="16" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="0" x2="-3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.65" y1="0" x2="18.29" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-15" width="2" height="5" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="9" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{87f38683-b2af-4a63-b570-999fcb1d909d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{68c1b00a-70bf-40ee-85e9-de35e1fd9c07}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{eb20861b-56c2-4dc6-8bd4-c4336b940f60}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c8a52c74-9df6-4a56-8aa3-d33e5e97ec91}" name="" x="10" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,42 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="61" hotspot_y="33">
+    <uuid uuid="{49c93975-1106-0ea0-4fa7-2e63c41c0856}"/>
+    <names>
+        <name lang="ar">مضخة جرعات الكلور</name>
+        <name lang="ca">Bomba dosificadora de clor</name>
+        <name lang="cs">Dávkovací čerpadlo chlóru</name>
+        <name lang="da">Klor-doseringspumpe</name>
+        <name lang="de">Dosierpumpe Chlor</name>
+        <name lang="el">Αντλία δοσομέτρησης χλωρίου</name>
+        <name lang="en">Chlorine dosing pump</name>
+        <name lang="fr">Pompe doseuse Chlore</name>
+        <name lang="pt_BR">Pompe doseuse Chloue</name>
+        <name lang="zh">氯计量泵</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <dynamic_text x="-18" y="-71.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ab77c4ba-3836-4b45-ad04-f37e2ecb3076}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-27" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-20" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-22" width="4" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-13" y="-24" width="6" height="4" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-26" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-10" width="20" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-10" width="20" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-6" x2="-26" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="-6" x2="-26" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="C l" x="-47" y="10" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-18" y1="-19" x2="-22" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-19" x2="-22" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-4" x2="-30" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="0.5" x="-12" y="-21" rotation="0" font="Liberation Sans,2,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-18" y1="-25" x2="-26" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-20" x2="-26" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="-21" x2="-25" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="-13" x2="-22" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-12" x2="-21" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e1cc2146-0546-4678-bfd8-dc951f0e766d}" name="" x="-1" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

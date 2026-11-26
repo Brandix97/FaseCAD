@@ -1,0 +1,125 @@
+/*
+	Copyright 2006-2025 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef CLI_EXPORT_H
+#define CLI_EXPORT_H
+
+#include <QStringList>
+
+/**
+	@brief Headless command-line export.
+
+	Implements the long-requested batch/headless export
+	(qelectrotech.org bugtracker #171, GitHub #309): render a project's
+	diagrams to files without opening the GUI.
+
+	Detected and handled in main() before the GUI is created.
+*/
+namespace CLIExport {
+
+	/**
+		@brief True if @p args request a CLI export
+		(i.e. contain one of the export options).
+	*/
+	bool isExportRequest(const QStringList &args);
+
+	/**
+		@brief Run the CLI export described by @p args.
+		@return process exit code (0 on success).
+
+		Usage:
+		  qelectrotech --export-pdf     <project.qet> <output.pdf> [--show-terminals]
+		  qelectrotech --export-png     <project.qet> <output_dir> [--show-terminals]
+		  qelectrotech --export-svg     <project.qet> <output_dir> [--show-terminals] [--svg-small-pictures]
+		  qelectrotech --export-dxf     <project.qet> <output_dir> [--show-terminals] [--dxf-blocks] [--dxf-attributes]
+		  qelectrotech --export-cables  <project.qet> <output.csv>
+		  qelectrotech --export-wires   <project.qet> <output.csv>
+		  qelectrotech --export-bom     <project.qet> <output.csv> [--no-slaves] [--no-junctions]
+		  qelectrotech --export-wiring  <project.qet> <output.csv>
+		  qelectrotech --export-nets    <project.qet> <output.json>
+		  qelectrotech --export-links   <project.qet> <output.csv>
+		  qelectrotech --info           <project.qet> [output.json]
+		  qelectrotech --check-elements <element.elmt | directory>
+		  qelectrotech --resave         <project.qet> <output.qet>
+		  qelectrotech --recover        <damaged.qetz> <output.qet>
+		  qelectrotech --set-titleblock <project.qet> <output.qet> key=value...
+		  qelectrotech --query          <SQL> <project>... [--json]
+
+		PDF: one multi-page document (one diagram per page).
+		PNG/SVG/DXF: one file per diagram, named <output_dir>/<NN>_<title>.<ext>.
+		DXF: the same file the export dialog writes with its default options
+		      (the export settings of the preferences).
+		--show-terminals: also paint terminal markers (red stroke + blue
+		      docking dot) and terminal names, as the interactive editor
+		      does; off by default, matching the GUI export dialog's
+		      default. For DXF, draws the terminal markers. Has no effect on
+		      the list export modes.
+		--dxf-blocks: write each symbol as a DXF block, placed with one
+		      INSERT per use, so a CAD program selects it as one object.
+		--dxf-attributes: as --dxf-blocks, and a symbol's texts (its label,
+		      function...) are attributes of its INSERT. LibreCAD does not
+		      show attributes.
+		--svg-small-pictures: in an SVG, each picture at most four times the
+		      size it is drawn at instead of its full resolution: a much
+		      smaller file, still sharp when printed.
+		cables: wiring list (one row per conductor) as CSV.
+		wires: list of distinct wire numbers as CSV.
+		bom: bill of materials (one row per element) as CSV.
+		--no-slaves: leave the contact blocks (slave elements) out of the
+		      bill of materials.
+		--no-junctions: leave the junctions out of the bill of materials:
+		      terminal-type elements with no label, designation,
+		      manufacturer or manufacturer reference.
+		wiring: from-to wiring list (one row per conductor) as CSV, read from
+		        the project database. Same logical list as `cables`, which
+		        reads the document XML instead; the two are meant to agree,
+		        so diffing them checks that the database still describes the
+		        project.
+		nets: electrical nets (connected-terminal groups) as JSON.
+		links: element cross-references (coil/contact) as CSV, with
+		       unresolved links flagged.
+		info: structural project summary as JSON (stdout, or a file) —
+		      per-page element / conductor counts and unconnected terminals.
+		check-elements: validate .elmt file(s) against the element schema.
+		resave: load and rewrite the project XML (round-trip integrity).
+		--ignore-lock: resave and set-titleblock leave a file alone when a lock
+		      file beside it (.~<name>.lock, made by a QElectroTech that has
+		      the project open) says someone else has it; this writes it
+		      anyway. The verbs that only read a project never look at locks,
+		      and none of them takes one. A lock made on this machine by a
+		      process that is gone is stale and does not count.
+		query: run one read-only SELECT on the project database of each
+		      project in turn (.qet, .qetz or .qetdb) and print every row,
+		      the project it came from first, as CSV (RFC 4180, a header
+		      row) or, with --json, as a JSON array of objects. The views
+		      qet_folios, qet_devices, qet_wires and qet_links keep their
+		      names and columns from one version to the next. A project
+		      that cannot be opened or queried is reported on stderr, the
+		      others still run, and the exit code is 1. A .qetdb is read
+		      itself, without opening the project: seconds for hundreds.
+		      E.g. --query "SELECT label, folio FROM qet_devices
+		      WHERE article = 'LC1D09'" *.qet
+		set-titleblock: stamp title-block fields onto every folio, then save.
+		      Keys: title, author, date (or date=today), plant, location,
+		      revision, version, filename; any other key becomes a custom
+		      field.  E.g. --set-titleblock in.qet out.qet revision=B date=today
+	*/
+	int run(const QStringList &args);
+
+}
+
+#endif // CLI_EXPORT_H

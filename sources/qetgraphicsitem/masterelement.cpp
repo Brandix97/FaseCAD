@@ -1,0 +1,404 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "masterelement.h"
+#include "../qetproject.h"
+#include "../diagram.h"
+#include "../qetinformation.h"
+#include "crossrefitem.h"
+#include "dynamicelementtextitem.h"
+#include "../properties/elementdata.h"
+
+#include <QRegularExpression>
+
+/**
+	@brief MasterElement::MasterElement
+	Default constructor
+	@param location : location of xml definition
+	@param qgi : parent QGraphicItem
+	@param state : int used to know if the creation of element have error
+*/
+MasterElement::MasterElement(
+		const ElementsLocation &location,
+		QGraphicsItem *qgi,
+		int *state) :
+	Element(location, qgi, state, Element::Master)
+{}
+
+/**
+	@brief MasterElement::~MasterElement
+	default destructor
+*/
+MasterElement::~MasterElement()
+{
+	unlinkAllElements();
+}
+
+/**
+	@brief MasterElement::linkToElement
+	Link this master to another element
+	For this class element must be a slave
+	@param elmt
+*/
+void MasterElement::linkToElement(Element *elmt)
+{
+		// check if element is slave and if isn't already linked
+	if (elmt->linkType() == Slave && !connected_elements.contains(elmt))
+	{
+		connected_elements << elmt;
+		elmt->linkToElement(this);
+
+		XRefProperties xrp = CrossRefItem::propertiesFor(this);
+		if (!m_Xref_item && (xrp.snapTo() == XRefProperties::Bottom ||
+			m_data.m_master_type == ElementData::PLC))
+			m_Xref_item = new CrossRefItem(this); //create cross ref item if not yet	
+
+		// For PLC masters, connect slave position changes to trigger master repaint
+		if (m_data.m_master_type == ElementData::PLC)
+			connectSlavePositionUpdates(elmt);
+
+		emit linkedElementChanged();
+		aboutDeleteXref();
+	}
+}
+
+/**
+	@brief MasterElement::unlinkAllElements
+	Unlink all of the element in the QList connected_elements
+*/
+void MasterElement::unlinkAllElements()
+{
+		// if this element is free no need to do something
+	if (!isFree())
+	{
+		foreach(Element *elmt, connected_elements)
+			unlinkElement(elmt);
+		emit linkedElementChanged();
+	}
+}
+
+/**
+	@brief MasterElement::unlinkElement
+	Unlink the given element in parameter
+	@param elmt element to unlink from this
+*/
+void MasterElement::unlinkElement(Element *elmt)
+{
+		//Ensure elmt is linked to this element
+	if (connected_elements.contains(elmt))
+	{
+		// Clear PLC variables on slave before unlinking
+		if (m_data.m_master_type == ElementData::PLC)
+		{
+			DiagramContext ctx = elmt->elementInformations();
+			ctx.remove(QETInformation::ELMT_PLC_TYPE);
+			ctx.remove(QETInformation::ELMT_PLC_ADDRESS);
+			ctx.remove(QETInformation::ELMT_PLC_FUNCTION);
+			ctx.remove(QETInformation::ELMT_PLC_COMMENT);
+			ctx.remove(QETInformation::ELMT_PLC_CROSSREF);
+			ctx.remove(QETInformation::ELMT_LABEL);
+			ctx.remove(QETInformation::ELMT_XREF);
+			elmt->setElementInformations(ctx);
+
+			setGroupIndexForElement(elmt, -1);
+		}
+
+		connected_elements.removeOne(elmt);
+		elmt -> unlinkElement  (this);
+		elmt -> setHighlighted (false);
+
+		// Disconnect slave position updates for PLC masters
+		disconnectSlavePositionUpdates(elmt);
+
+		aboutDeleteXref();
+		emit linkedElementChanged();
+	}
+}
+
+/**
+	@brief MasterElement::initLink
+	@param project
+	Call init Link from custom element and after
+	call update label for setup it.
+*/
+void MasterElement::initLink(QETProject *project) {
+	//Create the link with other element if needed
+	Element::initLink(project);
+}
+
+/**
+	@brief MasterElement::XrefBoundingRect
+	@return The bounding rect of the Xref, if this element
+	haven't got a xref, return a default QRectF
+*/
+QRectF MasterElement::XrefBoundingRect() const
+{
+	if(m_Xref_item)
+		return m_Xref_item->boundingRect();
+	else
+		return QRectF();
+}
+
+QVariant MasterElement::itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant &value)
+{
+	if(change == QGraphicsItem::ItemSceneHasChanged && m_first_scene_change)
+	{
+		m_first_scene_change = false;
+		connect(diagram()->project(), &QETProject::XRefPropertiesChanged, this, &MasterElement::xrefPropertiesChanged);
+
+		// For PLC masters, create the CrossRefItem immediately so the
+		// IO table is visible even without linked slaves.
+		if (m_data.m_master_type == ElementData::PLC && !m_Xref_item)
+		{
+			m_Xref_item = new CrossRefItem(this);
+			m_Xref_item->updateLabel();
+		}
+		// Same idea for a master whose contact comb must show every
+		// contact group it defines: the cross ref is expected even
+		// before any slave is linked to it.
+		else if (!m_Xref_item && mustShowXrefWithoutSlave())
+		{
+			m_Xref_item = new CrossRefItem(this);
+			m_Xref_item->updateLabel();
+		}
+	}
+	return Element::itemChange(change, value);
+}
+
+void MasterElement::xrefPropertiesChanged()
+{
+	if(!diagram())
+		return;
+
+	XRefProperties xrp = CrossRefItem::propertiesFor(this);
+	if(xrp.snapTo() == XRefProperties::Bottom)
+	{
+			//We create a Xref, and just after we call aboutDeleteXref,
+			//because the Xref may be useless.
+		if(!m_Xref_item)
+			m_Xref_item = new CrossRefItem(this);
+	}
+	// Always create Xref for PLC master elements (they show IO table even without linked slaves)
+	else if (m_data.m_master_type == ElementData::PLC)
+	{
+		if(!m_Xref_item)
+			m_Xref_item = new CrossRefItem(this);
+	}
+	aboutDeleteXref();
+}
+
+/**
+	@brief MasterElement::mustShowXrefWithoutSlave
+	@return true when the cross ref of this master has to be shown even
+	though no slave is linked to it yet: the user asks the contact comb to
+	display every contact group the master defines, the comb (contacts)
+	display is the one in use, and the cross ref is owned by the element
+	itself (snap to bottom).
+*/
+bool MasterElement::mustShowXrefWithoutSlave() const
+{
+	if (!diagram() || !diagram()->project())
+		return false;
+
+	const XRefProperties xrp = CrossRefItem::propertiesFor(this);
+
+	return xrp.snapTo() == XRefProperties::Bottom
+			&& CrossRefItem::showAllConfiguredSlaves(this, xrp);
+}
+
+/**
+	@brief MasterElement::aboutDeleteXref
+	Check if Xref item must be displayed, if not, delete it.
+	If Xref item is deleted or already not used (nullptr) return true;
+	Else return false if Xref item is used
+	NOTICE : Xref can display nothing but not be deleted so far.
+	For example, if Xref is display has cross, only power contact are linked and
+	option show power contact is disable, the cross isn't draw.
+	@return
+*/
+void MasterElement::aboutDeleteXref()
+{
+	if(!m_Xref_item)
+		return;
+
+	// Never delete Xref for PLC master elements - they always show the IO table
+	if (m_data.m_master_type == ElementData::PLC)
+		return;
+
+	XRefProperties xrp = CrossRefItem::propertiesFor(this);
+	if (xrp.snapTo() != XRefProperties::Bottom && m_Xref_item)
+	{
+		delete m_Xref_item;
+		m_Xref_item = nullptr;
+		return;
+	}
+
+	// The contact comb shows the contact groups the master defines, linked
+	// or not: keep the item even when it draws nothing so far.
+	if (mustShowXrefWithoutSlave())
+		return;
+
+	if (m_Xref_item->boundingRect().isNull())
+	{
+		delete m_Xref_item;
+		m_Xref_item = nullptr;
+		return;
+	}
+}
+
+/**
+ * @brief MasterElement::contactUsage
+ * Count the slave contacts currently linked to this master, by type.
+ * This is the single place where that count is worked out: the cross ref
+ * item, the properties dialog and the link widgets all read it from here,
+ * so they cannot disagree with each other.
+ * @return the per type usage
+ */
+namespace {
+
+	/**
+		Map the element data's contact type onto the tally's own, so that
+		the used count and the declared capacity cannot classify the same
+		contact type differently.
+	*/
+	ContactUsage::Type contactType(ElementData::SlaveState state)
+	{
+		switch (state)
+		{
+			case ElementData::NO:    return ContactUsage::NO;
+			case ElementData::NC:    return ContactUsage::NC;
+			case ElementData::SW:    return ContactUsage::SW;
+			case ElementData::Other: break;
+		}
+
+		return ContactUsage::Other;
+	}
+
+}
+
+ContactUsage MasterElement::contactUsage() const
+{
+	ContactUsage usage;
+
+	for (Element *elmt : connected_elements)
+	{
+		if (!elmt) {
+			continue;
+		}
+
+		const ElementData &data = elmt->elementData();
+		usage.addSlave(contactType(data.m_slave_state), data.m_contact_count);
+	}
+
+	return usage;
+}
+
+/**
+ * @brief MasterElement::contactCapacity
+ * The contacts this master declares it provides, by type, summed over its
+ * contact groups. A group stands for contactCount contacts of its type.
+ * Returns an empty tally when the element declares no groups, which is the
+ * case for every element in the standard collection today -- callers use
+ * that to decide whether a capacity is worth showing at all.
+ * @return the per type capacity
+ */
+ContactUsage MasterElement::contactCapacity() const
+{
+	ContactUsage capacity;
+
+	for (const auto &group : m_data.m_slave_contact_groups) {
+		capacity.addSlave(contactType(group.type), group.contactCount);
+	}
+
+	return capacity;
+}
+
+/**
+ * @brief MasterElement::isFull
+ * @return true if the master has reached its maximum number of slaves
+ */
+bool MasterElement::isFull() const
+{
+		//When the element declares contact groups, those groups are the
+		//slots: a slave occupies exactly one, and ContactGroupSelectionDialog
+		//offers exactly these. So the group count is the limit, and it is the
+		//one the user can actually see.
+		//
+		//max_slaves is the fallback for elements which declare no groups. The
+		//element editor keeps the two in step -- max_slaves sizes the group
+		//table -- but nothing reconciles them on load, so a hand written or
+		//generated file can carry five groups and max_slaves=2. Taking
+		//max_slaves there capped linking at two while the dialog still
+		//offered all five, which the user could only read as the dialog
+		//being broken.
+	if (!m_data.m_slave_contact_groups.isEmpty()) {
+		return connected_elements.size() >= m_data.m_slave_contact_groups.size();
+	}
+
+	// Set default value to -1 (unlimited slaves)
+	int max_slaves = -1;
+	QVariant max_slaves_variant = kindInformations().value("max_slaves");
+
+	// Overwrite default if a valid limit is defined in the element's XML
+	if (max_slaves_variant.isValid() && !max_slaves_variant.toString().isEmpty()) {
+		max_slaves = max_slaves_variant.toInt();
+	}
+
+	// If no limit is set (-1), the master is never full
+	if (max_slaves == -1) {
+		return false;
+	}
+
+		// max_slaves is a number of slots, not of contacts: it sizes the
+		// element's contact group table, and a slave occupies exactly one
+		// group however many contacts that group stands for. So the slots
+		// in use are the linked elements, not the contacts they carry.
+	return connected_elements.size() >= max_slaves;
+}
+
+/**
+	@brief MasterElement::connectSlavePositionUpdates
+	Connect slave xChanged/yChanged to master update() so the PLC table
+	repaints in real-time when a slave moves on the diagram.
+	@param slave the slave element
+*/
+void MasterElement::connectSlavePositionUpdates(Element *slave)
+{
+	if (!slave)
+		return;
+	m_slave_x_conn[slave] = connect(slave, &QGraphicsObject::xChanged,
+		[this]() { update(); });
+	m_slave_y_conn[slave] = connect(slave, &QGraphicsObject::yChanged,
+		[this]() { update(); });
+}
+
+/**
+	@brief MasterElement::disconnectSlavePositionUpdates
+	Disconnect slave position signals from master.
+	@param slave the slave element
+*/
+void MasterElement::disconnectSlavePositionUpdates(Element *slave)
+{
+	if (!slave)
+		return;
+	if (m_slave_x_conn.contains(slave)) {
+		disconnect(m_slave_x_conn.take(slave));
+	}
+	if (m_slave_y_conn.contains(slave)) {
+		disconnect(m_slave_y_conn.take(slave));
+	}
+}

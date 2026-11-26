@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConductorPropertiesWidget</class>
+ <widget class="QWidget" name="ConductorPropertiesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>666</width>
+    <height>418</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_9">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="type">
+      <attribute name="title">
+       <string>Type</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_2">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="Multifilaire">
+          <attribute name="title">
+           <string>&amp;Multiline</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="m_multiwires_gb">
+             <property name="minimumSize">
+              <size>
+               <width>600</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>&amp;Multiline</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="5" column="0">
+               <widget class="QLabel" name="m_potential_type_label">
+                <property name="text">
+                 <string>Potential type :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QComboBox" name="m_potential_type_cb"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Text color :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Conductor color</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QComboBox" name="m_available_autonum_cb"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="m_text_le">
+                <property name="toolTip">
+                 <string>Text</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Voltage / Protocol :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="m_autonum_label">
+                <property name="text">
+                 <string>Auto Numbering</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="KColorButton" name="m_text_color_kpb"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="m_text_size_sb">
+                <property name="toolTip">
+                 <string>Text size</string>
+                </property>
+                <property name="wrapping">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::UpDownArrows</enum>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>3</number>
+                </property>
+                <property name="maximum">
+                 <number>99</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLineEdit" name="m_tension_protocol_le">
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Conductor section</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="3">
+               <widget class="QLabel" name="m_conductor_type_label">
+                <property name="text">
+                 <string>Conductor type :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="4">
+               <widget class="QLineEdit" name="m_conductor_type_le"/>
+              </item>
+              <item row="3" column="5">
+               <widget class="QLabel" name="m_wire_color_locked_info">
+                <property name="text">
+                 <string>❗</string>
+                </property>
+                <property name="visible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="5">
+               <widget class="QLabel" name="m_wire_section_locked_info">
+                <property name="text">
+                 <string>❗</string>
+                </property>
+                <property name="visible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="5">
+               <widget class="QLabel" name="m_conductor_type_locked_info">
+                <property name="text">
+                 <string>❗</string>
+                </property>
+                <property name="visible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QCheckBox" name="m_show_text_cb">
+                <property name="toolTip">
+                 <string>Visible text</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="3">
+               <widget class="QCheckBox" name="m_one_text_per_folio_cb">
+                <property name="toolTip">
+                 <string>Activate the option text by potential</string>
+                </property>
+                <property name="text">
+                 <string>Show one text per sheet potential. </string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Function :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0" colspan="3">
+               <widget class="QCheckBox" name="m_definition_mark_cb">
+                <property name="toolTip">
+                 <string>A slanted stroke across the conductor, with its colour above and its section below. Drag it along the conductor to move it.</string>
+                </property>
+                <property name="text">
+                 <string>Stroke with colour and section</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="3">
+               <widget class="QLabel" name="m_definition_mark_at_label">
+                <property name="text">
+                 <string>From the start :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="4">
+               <widget class="QSpinBox" name="m_definition_mark_at_sb">
+                <property name="toolTip">
+                 <string>Where the stroke stands, as a share of the conductor's length from its start. "Middle": the middle of its longest stretch.</string>
+                </property>
+                <property name="specialValueText">
+                 <string>Middle</string>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="minimum">
+                 <number>-1</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="singleStep">
+                 <number>5</number>
+                </property>
+                <property name="value">
+                 <number>-1</number>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="0" colspan="5">
+               <widget class="QCheckBox" name="m_definition_mark_hides_text_cb">
+                <property name="toolTip">
+                 <string>With the stroke shown, the conductor's own text is hidden: the stroke already gives the colour and the section.</string>
+                </property>
+                <property name="text">
+                 <string>The stroke replaces the conductor's text</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0" colspan="5">
+               <layout class="QGridLayout" name="m_text_angle_gl">
+                <item row="1" column="0">
+                 <widget class="QComboBox" name="m_verti_cb">
+                  <item>
+                   <property name="text">
+                    <string>Vertical left</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Vertical right</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Position and rotation of the conductor text:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="m_horiz_cb">
+                  <item>
+                   <property name="text">
+                    <string>Horizontal at the top</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Horizontal down</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="7" column="0" colspan="2">
+               <layout class="QVBoxLayout" name="m_autonum_layout"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Text:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="4">
+               <widget class="QLineEdit" name="m_wire_color_le"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Text size :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QPushButton" name="m_edit_autonum_pb">
+                <property name="toolTip">
+                 <string>Edit numbering</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset theme="configure"/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="4">
+               <widget class="QLineEdit" name="m_function_le">
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="4">
+               <widget class="QLineEdit" name="m_wire_section_le"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Text Formula :</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="m_formula_le"/>
+              </item>
+              <item row="6" column="3">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>cable</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="4">
+               <widget class="QLineEdit" name="m_cable_le"/>
+              </item>
+              <item row="7" column="3">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>bus</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="4">
+               <widget class="QLineEdit" name="m_bus_le"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="Unifilaire">
+          <attribute name="title">
+           <string>Single line</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="m_singlewire_gb">
+             <property name="maximumSize">
+              <size>
+               <width>450</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Single line</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <layout class="QGridLayout" name="gridLayout">
+                <item row="0" column="0" rowspan="3">
+                 <widget class="QLabel" name="m_preview_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="m_phase_sb">
+                  <property name="toolTip">
+                   <string>Number of phase</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>3</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="m_update_preview_pb">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QCheckBox" name="m_neutral_cb">
+                  <property name="toolTip">
+                   <string>Neutral</string>
+                  </property>
+                  <property name="text">
+                   <string>neutral</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="neutral"/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QCheckBox" name="m_earth_cb">
+                  <property name="toolTip">
+                   <string>Ground</string>
+                  </property>
+                  <property name="text">
+                   <string>ground</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="ground"/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QCheckBox" name="m_phase_cb">
+                  <property name="toolTip">
+                   <string>Phase</string>
+                  </property>
+                  <property name="text">
+                   <string>phase</string>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="phase"/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSlider" name="m_phase_slider">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>Number of phase</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>3</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QCheckBox" name="m_pen_cb">
+                  <property name="toolTip">
+                   <string>Protective Earth Neutral</string>
+                  </property>
+                  <property name="text">
+                   <string>PEN</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="appearance">
+      <attribute name="title">
+       <string>Appearance</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="1">
+        <widget class="KColorButton" name="m_color_kpb"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Size :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="toolTip">
+          <string>Conductor style</string>
+         </property>
+         <property name="text">
+          <string>Style:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QGroupBox" name="m_custom_dash_gb">
+         <property name="title">
+          <string>Custom dash pattern</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_dash">
+          <item row="0" column="0">
+           <widget class="QLabel" name="m_pattern_dash_label">
+            <property name="text">
+             <string>Dash length :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="m_pattern_dash_sb">
+            <property name="suffix">
+             <string> du</string>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="value">
+             <double>6.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="m_pattern_gap_label">
+            <property name="text">
+             <string>Gap after dash :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDoubleSpinBox" name="m_pattern_gap_sb">
+            <property name="suffix">
+             <string> du</string>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="value">
+             <double>4.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="m_pattern_dot_label">
+            <property name="text">
+             <string>Dot length :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="m_pattern_dot_sb">
+            <property name="suffix">
+             <string> du</string>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="value">
+             <double>1.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="m_pattern_dot_gap_label">
+            <property name="text">
+             <string>Gap after dot :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDoubleSpinBox" name="m_pattern_dot_gap_sb">
+            <property name="suffix">
+             <string> du</string>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+            <property name="value">
+             <double>4.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QLabel" name="m_pattern_units_label">
+            <property name="text">
+             <string>Drawing units, independent of the line size. Scaling the page scales the pattern.</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="2">
+           <widget class="QLabel" name="m_pattern_preview_label">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>36</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QGroupBox" name="m_color_2_gb">
+         <property name="title">
+          <string>Secondary color :</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Line size :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="m_dash_size_sb">
+            <property name="suffix">
+             <string>px</string>
+            </property>
+            <property name="minimum">
+             <number>2</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Color:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="KColorButton" name="m_color_2_kpb"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDoubleSpinBox" name="m_cond_size_sb">
+         <property name="minimum">
+          <double>0.400000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>20.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.200000000000000</double>
+         </property>
+         <property name="value">
+          <double>1.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="m_line_style_cb">
+         <property name="toolTip">
+          <string>Conductor style</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="toolTip">
+          <string>Conductor color</string>
+         </property>
+         <property name="text">
+          <string>Color:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>m_multiwires_gb</tabstop>
+  <tabstop>m_one_text_per_folio_cb</tabstop>
+  <tabstop>m_text_size_sb</tabstop>
+  <tabstop>m_formula_le</tabstop>
+  <tabstop>m_text_le</tabstop>
+  <tabstop>m_show_text_cb</tabstop>
+  <tabstop>m_text_color_kpb</tabstop>
+  <tabstop>m_available_autonum_cb</tabstop>
+  <tabstop>m_edit_autonum_pb</tabstop>
+  <tabstop>m_function_le</tabstop>
+  <tabstop>m_tension_protocol_le</tabstop>
+  <tabstop>m_wire_color_le</tabstop>
+  <tabstop>m_wire_section_le</tabstop>
+  <tabstop>m_cable_le</tabstop>
+  <tabstop>m_bus_le</tabstop>
+  <tabstop>m_verti_cb</tabstop>
+  <tabstop>m_horiz_cb</tabstop>
+  <tabstop>m_singlewire_gb</tabstop>
+  <tabstop>m_phase_sb</tabstop>
+  <tabstop>m_update_preview_pb</tabstop>
+  <tabstop>m_neutral_cb</tabstop>
+  <tabstop>m_earth_cb</tabstop>
+  <tabstop>m_phase_cb</tabstop>
+  <tabstop>m_phase_slider</tabstop>
+  <tabstop>m_pen_cb</tabstop>
+  <tabstop>m_color_kpb</tabstop>
+  <tabstop>m_color_2_gb</tabstop>
+  <tabstop>m_dash_size_sb</tabstop>
+  <tabstop>m_color_2_kpb</tabstop>
+  <tabstop>m_cond_size_sb</tabstop>
+  <tabstop>m_line_style_cb</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../qelectrotech.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>m_phase_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>m_phase_sb</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_phase_sb</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>m_phase_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>322</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_phase_cb</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_phase_slider</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_phase_cb</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_phase_sb</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_earth_cb</sender>
+   <signal>clicked()</signal>
+   <receiver>m_update_preview_pb</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>228</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_neutral_cb</sender>
+   <signal>clicked()</signal>
+   <receiver>m_update_preview_pb</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_phase_cb</sender>
+   <signal>clicked()</signal>
+   <receiver>m_update_preview_pb</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>340</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pen_cb</sender>
+   <signal>clicked()</signal>
+   <receiver>m_update_preview_pb</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>222</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_phase_sb</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>m_update_preview_pb</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>340</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>305</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

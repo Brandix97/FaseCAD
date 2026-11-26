@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="24" hotspot_y="10">
+    <uuid uuid="{2957ffa8-e2ac-4465-dce2-77429430af8d}"/>
+    <names>
+        <name lang="ar">صمّام كروي</name>
+        <name lang="ca">Aixeta de globus</name>
+        <name lang="cs">Kulový uzávěr</name>
+        <name lang="da">Kugleventil</name>
+        <name lang="de">Geradsitzventil</name>
+        <name lang="el">Βαλβίδα τύπου globe</name>
+        <name lang="en">Valve globe</name>
+        <name lang="es">Llave de globo</name>
+        <name lang="fi">Istukkaventtiili</name>
+        <name lang="fr">Vanne a boisseau</name>
+        <name lang="hr">Kuglasti ventil</name>
+        <name lang="hu">Átfolyós szelep</name>
+        <name lang="it">Valvola a globo</name>
+        <name lang="ja">玉形弁</name>
+        <name lang="ko">글로브 밸브</name>
+        <name lang="mn">Бөмбөлөг хавхлага</name>
+        <name lang="nb">Kuleventil</name>
+        <name lang="nl">Kogelklep</name>
+        <name lang="nl_BE">Rechte afsluiter</name>
+        <name lang="pl">Zawór grzybkowy</name>
+        <name lang="pt">Válvula de globo</name>
+        <name lang="pt_BR">valvula globe</name>
+        <name lang="ro">Robinet cu glob</name>
+        <name lang="ru">Запорный вентиль</name>
+        <name lang="sk">Guľový ventil</name>
+        <name lang="sl">Krožni ventil</name>
+        <name lang="sr">Кугласти вентил</name>
+        <name lang="sv">Klotventil</name>
+        <name lang="tr">Küresel vana</name>
+        <name lang="uk">Кульовий клапан</name>
+        <name lang="zh">截止阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="16.05" y1="0" x2="10.78" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="5" x2="-8.83" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.3" y1="5" x2="10.3" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="-4.92" x2="10.07" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="5" x2="10.07" y2="-4.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.18" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{83389664-3f13-40cd-b2fd-91fbe1af3f1b}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-2" y="-2" width="5" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{ce3039af-f971-879b-e15e-7440db1770a9}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{f24dd8b5-e5d2-b986-572d-d86b4a7bcfb2}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

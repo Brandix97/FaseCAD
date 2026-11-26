@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{c9472d8b-cefc-46d2-a019-a32a7e6bd9b5}"/>
+    <names>
+        <name lang="de">Leuchtmelder</name>
+        <name lang="en">Indicator lamp</name>
+        <name lang="es">Piloto de señalización</name>
+        <name lang="fr">Voyant lumineux</name>
+        <name lang="it">Lampada di segnalazione</name>
+        <name lang="pt">Sinalizador luminoso</name>
+        <name lang="tr">Sinyal lambası</name>
+        <name lang="zh">指示灯</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8" y="-8" width="16" height="16" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5.66" y1="-5.66" x2="5.66" y2="5.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5.66" y1="5.66" x2="5.66" y2="-5.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-17" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cda19a3c-c28a-56ae-9441-8df6f551dff3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e1b5f199-d90a-5935-9388-1933d07ead14}" name="X1" x="0" y="-20" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{b296cb0d-95f2-5109-8230-e06a20a4d238}" name="X2" x="0" y="20" orientation="s" type="Generic" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

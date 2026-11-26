@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="27" hotspot_y="32">
+    <uuid uuid="{a69ae172-85a9-5fdc-de5b-988ccfb149a3}"/>
+    <names>
+        <name lang="ca">Condensador evaporatiu</name>
+        <name lang="es">Condensador Evaporativo</name>
+        <name lang="pt_BR">Condensadou Evapouativo</name>
+        <name lang="zh">蒸发式冷凝器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-7.83" y1="-1.93" x2="14.73" y2="-1.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12" y="-6.13" width="6" height="4.2" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9.18" y1="-6.13" x2="0.19" y2="-6.13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="0" width="31" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-18" y1="0" x2="-8" y2="-30" x3="2" y3="-30" x4="13" y4="0" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-18.2" y1="-10.33" x2="0.13" y2="-10.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8" y="-28.43" width="9.56" height="9.43" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2" y="-10.33" width="6" height="4.2" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-15" y1="-16" x2="-2" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.56" y1="-28" x2="-8" y2="-23.72" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.88" y1="-28" x2="1.56" y2="-23.72" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-15" x2="1" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.26" y1="-24.2" x2="-2.57" y2="-24.75" x3="-2.57" y3="-26.38" x4="-3.26" y4="-27.2" x5="-3.95" y5="-26.38" x6="-3.95" y6="-25" x7="-3.26" y7="-24.2" x8="-2.22" y8="-23.93" x9="-0.85" y9="-22.84" x10="-0.85" y10="-22" x11="-1.88" y11="-22.3" x12="-2.91" y12="-23.11" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-3" y1="-15" x2="-5" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.26" y1="-24.2" x2="-4.29" y2="-23.93" x3="-5.32" y3="-22.57" x4="-5.32" y4="-21.75" x5="-4.29" y5="-22" x6="-3.26" y6="-23.11" x7="-3.26" y7="-23.93" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-2" y1="-14.44" x2="-2" y2="-13.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="6" x2="-14" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ee54cb75-e44f-4dd4-b4cc-de5afb5e5ce6}" name="" x="-19" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{84babba0-abfa-47c5-b873-7e7298a8d289}" name="" x="15" y="-2" orientation="e" type="Generic"/>
+        <terminal uuid="{880b855f-9ee3-4c39-8803-44639b7ccd43}" name="" x="-14" y="11" orientation="s" type="Generic"/>
+        <terminal uuid="{1c7f6ec3-2171-405f-97d2-72d5c1cd8d81}" name="" x="-15" y="-16" orientation="w" type="Generic"/>
+    </description>
+</definition>

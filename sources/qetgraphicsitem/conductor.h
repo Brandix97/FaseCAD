@@ -1,0 +1,352 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef CONDUCTOR_H
+#define CONDUCTOR_H
+#include "../autoNum/assignvariables.h"
+#include "../conductorproperties.h"
+#include "../dataBase/conductorlayout.h"
+#include "../dataBase/conductorpath.h"
+#include "../properties/potentialtypes.h"
+
+#include <QGraphicsPathItem>
+#include <QSet>
+#include <QUuid>
+
+#include <climits>
+
+class QUndoCommand;
+
+class ConductorProfile;
+class ConductorSegmentProfile;
+class Diagram;
+class projectDataBase;
+class Terminal;
+class ConductorSegment;
+class ConductorTextItem;
+class ConductorDefinitionMark;
+class Element;
+class QETDiagramEditor;
+class NumerotationContext;
+class QetGraphicsHandlerItem;
+
+typedef QPair<QPointF, Qt::Corner> ConductorBend;
+typedef QHash<Qt::Corner, ConductorProfile> ConductorProfilesGroup;
+/**
+	This class represents a conductor, i.e. a wire between two element
+	terminals.
+*/
+class Conductor : public QGraphicsObject
+{
+	Q_OBJECT
+
+	Q_PROPERTY(QPointF pos READ pos WRITE setPos)
+	Q_PROPERTY(int animPath READ fakePath WRITE updatePathAnimate)
+	Q_PROPERTY(ConductorProperties properties READ properties WRITE setProperties)
+	Q_PROPERTY(autonum::sequentialNumbers sequenceNum READ sequenceNum WRITE setSequenceNum)
+
+	signals:
+		void propertiesChange();
+	
+	public:
+		Conductor(Terminal *, Terminal *);
+		~Conductor() override;
+
+		bool isValid() const;
+	
+	private:
+		Conductor(const Conductor &);
+
+	public:
+		enum { Type = UserType + 1001 };
+		enum Highlight { None, Normal, Alert };
+
+		Terminal *terminal1;
+		Terminal *terminal2;
+	
+	public:
+		/**
+			@brief type
+			Enable the use of qgraphicsitem_cast
+			to safely cast a QGraphicsItem into a conductor.
+			@return the QGraphicsItem type
+		*/
+		int type() const override { return Type; }
+		Diagram *diagram() const;
+		ConductorTextItem *textItem() const;
+		QUuid uuid() const {return m_uuid;}
+		void newUuid();	//create new uuid for this conductor
+		void setUuid(const QUuid &uuid);	//saved from now on
+		void updatePath(const QRectF & = QRectF());
+
+		//This method do nothing, it's only made to be used with Q_PROPERTY
+		//It's used to anim the path when is change
+		void updatePathAnimate(const int = 1) {updatePath();}
+		int fakePath() {return 1;}
+
+		void paint(
+				QPainter *,
+				const QStyleOptionGraphicsItem *,
+				QWidget *) override;
+		QRectF boundingRect() const override;
+		QPainterPath shape() const override;
+		virtual QPainterPath nearShape() const;
+			/// Its two ends on the same point: see endsTouch()
+		bool endsTouch() const;
+		qreal length() const;
+		ConductorSegment *middleSegment();
+		QPointF posForText(Qt::Orientations &flag);
+		void refreshText();
+		void setPath(const QPainterPath &path);
+		QPainterPath path() const;
+
+	public:
+		static bool valideXml (QDomElement &);
+		bool fromXml (QDomElement &);
+		QDomElement toXml (
+				QDomDocument &,
+				QHash<Terminal *,
+				int> &,
+				const QSet<QUuid> &shared_uuids = QSet<QUuid>()) const;
+	private:
+		bool pathFromXml(const QDomElement &);
+
+	public:
+		QVector <QPointF> handlerPoints() const;
+		const QList<ConductorSegment *> segmentsList() const;
+		bool moveSegment(int index, qreal dx, qreal dy);
+		bool setPathPoints(const QList<QPointF> &scene_points);
+			/// Move the middle stretch of this wire's automatic path off
+			/// the wires of its folio it would lie along (Brandon,
+			/// 2026-11-22), when its project keeps wires apart
+			/// (QETProject::wiresApart()). One grid step at a time between
+			/// its two ends, the place with the least length on another
+			/// wire, then the fewest crossings, then the nearest. The wire
+			/// keeps that path as one moved by hand: it is saved, and
+			/// follows its terminals the same way. A wire reshaped by hand
+			/// is never changed. With @p parent, the change is a child of
+			/// it, to undo with it.
+			/// @return true when the path changed
+		bool keepApart(QUndoCommand *parent = nullptr);
+
+		void setPropertyToPotential(
+				const ConductorProperties &property,
+				bool only_text = false);
+		void setProperties(const ConductorProperties &property);
+		ConductorProperties properties() const;
+			/// This wire's own copy of its properties, whatever the store holds
+		ConductorProperties ownProperties() const {return m_properties;}
+			/// Where this wire sits and how its text was placed, from its own
+			/// members, never from the store
+		ConductorLayout ownLayout() const;
+		void storeLayout();
+			/// The segments toXml() writes for this wire (none if the user
+			/// did not reshape it), from its own members, never from the store
+		ConductorPath ownPath() const;
+		void storePath();
+			/// The order wires were made in this session: a project's are
+			/// made in the order its file lists them
+		quint64 creationRank() const {return m_creation_rank;}
+			/// Records which cable core this conductor shows and writes the
+			/// label that assignment generates (15W1:br) into its cable
+			/// field. Deliberately not routed through
+			/// setPropertyToPotential(): a core of a cable belongs to this
+			/// conductor alone and must never spill over a pass-through
+			/// terminal onto the neighbouring half conductor.
+		void setCableReference(const QString &label,
+							   const QUuid &cable_uuid,
+							   int slot);
+
+		void setProfile(const ConductorProfile &, Qt::Corner);
+		ConductorProfile profile(Qt::Corner) const;
+		void setProfiles(const ConductorProfilesGroup &);
+		ConductorProfilesGroup profiles() const;
+		void calculateTextItemPosition();
+		void updateDefinitionMark();
+		QList<Conductor *> cornerChain();
+		void updateTextVisibility();
+		virtual Highlight highlight() const;
+		virtual void setHighlighted(Highlight);
+		QSet<Conductor *> relatedPotentialConductors(
+				const bool all_diagram = true,
+				QList <Terminal *> *t_list=nullptr,
+				const bool ignore_function_separation = false);
+		QSet<Conductor *> functionSeparatedConductors(
+				const bool all_diagram = true);
+		QETDiagramEditor* diagramEditor() const;
+		void editProperty ();
+
+		autonum::sequentialNumbers sequenceNum () const
+		{return m_autoNum_seq;}
+			/// Replace the numbers without redrawing the text; the project
+			/// database follows
+		void replaceSequenceNum(const autonum::sequentialNumbers& sn);
+		void setSequenceNum(const autonum::sequentialNumbers& sn);
+		void storeSequence();
+
+		QList<QPointF> junctions() const;
+		QPainterPath paintedPath() const;
+		QColor drawnColor() const;
+		bool potentialTypeFormat(PotentialType *type) const;
+
+	private:
+		void setUpConnectionForFormula(
+				QString old_formula, QString new_formula);
+		autonum::sequentialNumbers m_autoNum_seq;
+
+	public:
+		void setFreezeLabel(bool freeze);
+		bool isAutomatic() const { return m_automatic; }
+		void setAutomatic(bool automatic) { m_automatic = automatic; updateTextVisibility(); }
+			/// Drawn grey while its symbol is dragged: an automatic wire
+			/// is worked out anew once the symbol is put down
+		bool isPreview() const { return m_preview; }
+		void setPreview(bool preview) { if (m_preview != preview) { m_preview = preview; update(); } }
+		bool hidesPlaceholder() const;
+		bool isFreezeLabel() const { return m_freeze_label; }
+		bool markReplacesText() const;
+	
+	public slots:
+		void displayedTextChanged();
+	
+	protected:
+		void mouseDoubleClickEvent(
+				QGraphicsSceneMouseEvent *event) override;
+		void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseReleaseEvent(
+				QGraphicsSceneMouseEvent *event) override;
+		void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+		void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
+		QVariant itemChange(
+				GraphicsItemChange, const QVariant &) override;
+		bool sceneEventFilter(
+				QGraphicsItem *watched, QEvent *event) override;
+
+	private:
+		void adjustHandlerPos();
+		
+		void handlerMousePressEvent(
+				QetGraphicsHandlerItem *qghi,
+				QGraphicsSceneMouseEvent *event);
+		void handlerMouseMoveEvent(
+				QetGraphicsHandlerItem *qghi,
+				QGraphicsSceneMouseEvent *event);
+		void handlerMouseReleaseEvent(
+				QetGraphicsHandlerItem *qghi,
+				QGraphicsSceneMouseEvent *event);
+		void addHandler();
+		void removeHandler();
+		
+		
+		QVector<QetGraphicsHandlerItem *> m_handler_vector;
+		int m_vector_index = -1;
+		bool m_mouse_over;
+			///Hop path cache for paintedPath(), valid while no conductor geometry changed
+		mutable QPainterPath m_hops_path;
+		mutable quint64 m_hops_generation = 0;
+		mutable int m_hops_mode = -1;
+			/// Functional properties
+		ConductorProperties m_properties;
+			/// Text input for non simple, non-singleline conductors
+		ConductorTextItem *m_text_item;
+		ConductorDefinitionMark *m_definition_mark = nullptr;
+			/// Segments composing the conductor
+		ConductorSegment *segments;
+			/// Attributes related to mouse interaction
+		bool m_moving_segment;
+		int moved_point;
+		qreal m_previous_z_value;
+		ConductorSegment *m_moved_segment;
+		QPointF before_mov_text_pos_;
+			/// Whether the conductor was manually modified by users
+		bool modified_path;
+			/// Whether the current profile should be saved as soon as possible
+		bool has_to_save_profile;
+			/// conductor profile: "photography" of what the conductor is supposed to look
+			/// like - there is one profile per kind of traject
+		ConductorProfilesGroup conductor_profiles;
+			/// Define whether and how the conductor should be highlighted
+		Highlight must_highlight_;
+		bool m_valid;
+		bool m_freeze_label = false;
+			/// Made by AutoConnect: removed again when its ends leave the line
+		bool m_automatic = false;
+		bool m_preview = false;
+		QUuid m_uuid;
+			/// false when m_uuid was synthesized by fromXml() because the
+			/// file had none -- toXml() must not persist that value, or
+			/// every reload mints and saves a new random one (see #754).
+		bool m_persist_uuid = true;
+		quint64 m_creation_rank = 0;
+		void uuidChanged(const QUuid &old_uuid);
+		projectDataBase *placedStore() const;
+		void storeProperties();
+
+			/// QPen et QBrush objects used to draw conductors
+		static QPen conductor_pen;
+		static QBrush conductor_brush;
+		static bool pen_and_brush_initialized;
+		QPainterPath m_path;
+	
+	private:
+		void segmentsToPath();
+		void saveProfile(bool = true);
+		void generateConductorPath(const QPointF &, Qet::Orientation, const QPointF &, Qet::Orientation);
+			/// The middle stretch of an automatic path, along one axis at
+			/// a place on the other: see automaticPath()
+		struct MiddleStretch
+		{
+			bool exists = false;
+				/// Vertical: at an x, between from and to; else at a y
+			bool vertical = false;
+			qreal from = 0.0;
+			qreal to = 0.0;
+			int at = 0;
+		};
+			/// The points of the automatic path, in item coordinates; its
+			/// middle stretch at @p at when it has one and @p at is not
+			/// INT_MIN, the place it is drawn at written in @p stretch
+		QList<QPointF> automaticPath(const QPointF &, Qet::Orientation, const QPointF &, Qet::Orientation,
+									 int at = INT_MIN, MiddleStretch *stretch = nullptr) const;
+		void updateConductorPath(const QPointF &, Qet::Orientation, const QPointF &, Qet::Orientation);
+		uint segmentsCount(QET::ConductorSegmentType = QET::Both) const;
+		QList<QPointF> segmentsToPoints() const;
+		QList<ConductorBend> bends() const;
+		bool bendMakesJunction(const Conductor *, const QPointF &, Qt::Corner) const;
+
+		void pointsToSegments(const QList<QPointF>&);
+		Qt::Corner currentPathType() const;
+		void deleteSegments();
+		static int getCoeff(const qreal &, const qreal &);
+		static int getSign(const qreal &);
+		QHash<ConductorSegmentProfile *, qreal> shareOffsetBetweenSegments(const qreal &offset, const QList<ConductorSegmentProfile *> &, const qreal & = 0.01) const;
+		static QPointF extendTerminal(const QPointF &, Qet::Orientation, qreal = 10);
+		static Qt::Corner movementType(const QPointF &, const QPointF &);
+		static QPointF movePointIntoPolygon(const QPointF &, const QPainterPath &);
+};
+
+Conductor * longestConductorInPotential (Conductor *conductor, bool all_diagram = false);
+QList <Conductor *> relatedConductors (const Conductor *conductor);
+
+
+//return true if @a is between or at @b and @c.
+template <typename T>
+bool isBetween (const T a, const T b, const T c) {
+	return (b <= c)? (a >= b && a <= c) : (a <= b && a >= c);
+}
+
+#endif

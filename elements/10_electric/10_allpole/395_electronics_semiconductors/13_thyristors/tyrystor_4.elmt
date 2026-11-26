@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{4f06396c-7566-4a4d-9072-5262c1c05a20}"/>
+    <names>
+        <name lang="ar">ثايريستور</name>
+        <name lang="ca">Tiristor de triode</name>
+        <name lang="cs">Triodový tyristor</name>
+        <name lang="da">Triodethyristor</name>
+        <name lang="de">Thyristortriode</name>
+        <name lang="el">Θυρίστορ τριοδικό</name>
+        <name lang="en">Triode thyristor</name>
+        <name lang="es">Tiristor triodo</name>
+        <name lang="fi">Triodityristori</name>
+        <name lang="fr">Thyristor triode</name>
+        <name lang="hr">Triodni tiristor</name>
+        <name lang="hu">Trióda tirisztor</name>
+        <name lang="it">Tiristore triodo</name>
+        <name lang="ja">三極サイリスタ</name>
+        <name lang="ko">3극 사이리스터</name>
+        <name lang="mn">Триод тиристор</name>
+        <name lang="nb">Triodetyristor</name>
+        <name lang="nl">Thyristor triode</name>
+        <name lang="nl_BE">Triode-thyristor</name>
+        <name lang="pl">Tyrystor triodowy</name>
+        <name lang="pt">Tiristor triodo</name>
+        <name lang="pt_BR">Tiristor triodo</name>
+        <name lang="ro">Tiristor triodă</name>
+        <name lang="ru">Триодный тиристор</name>
+        <name lang="sk">Triódový tyristor</name>
+        <name lang="sl">Triodni tiristor</name>
+        <name lang="sr">Триодни тиристор</name>
+        <name lang="sv">Triodtyristor</name>
+        <name lang="tr">Triyot tristör</name>
+        <name lang="uk">Триодний тиристор</name>
+        <name lang="zh">晶闸管_4</name>
+    </names>
+    <informations>EN 60617: 05-04-04</informations>
+    <description>
+        <dynamic_text x="17" y="-23.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{77d79e09-89fe-4049-baf8-9542434a7187}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="-20" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-15" x2="15" y2="-15" x3="10" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{48f9f2c0-2488-43dd-9bf8-8497ee95b977}" name="" x="10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{08ddcc21-8391-473c-bf6e-69b5fc730415}" name="" x="0" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{cbd55fec-9b94-4fa3-aaa3-ee2c9c689c08}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

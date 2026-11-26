@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="41" hotspot_y="23">
+    <uuid uuid="{b1f5cc00-54b0-b031-af94-3ec22e525d35}"/>
+    <names>
+        <name lang="ar">محرّك كهربائي</name>
+        <name lang="ca">Motor elèctric</name>
+        <name lang="cs">Elektrický motor</name>
+        <name lang="da">Elektrisk motor</name>
+        <name lang="de">Elektromotor</name>
+        <name lang="el">Ηλεκτρικός κινητήρας</name>
+        <name lang="en">Electric motor</name>
+        <name lang="es">Comando por motor eléctrico</name>
+        <name lang="fi">Sähkömoottori</name>
+        <name lang="fr">Moteur electrique</name>
+        <name lang="hr">Elektromotor</name>
+        <name lang="hu">Elektromos motor</name>
+        <name lang="it">Motore elettrico</name>
+        <name lang="ja">電動機</name>
+        <name lang="ko">전동기</name>
+        <name lang="mn">Цахилгаан мотор</name>
+        <name lang="nb">Elektrisk motor</name>
+        <name lang="nl">Motor elektrisch</name>
+        <name lang="nl_BE">Elektromotor</name>
+        <name lang="pl">Silnik elektryczny</name>
+        <name lang="pt">Motor elétrico</name>
+        <name lang="pt_BR">Motor elétrico</name>
+        <name lang="ro">Motor electric</name>
+        <name lang="ru">Электродвигатель</name>
+        <name lang="sk">Elektromotor</name>
+        <name lang="sl">Elektromotor</name>
+        <name lang="sr">Електрични мотор</name>
+        <name lang="sv">Elmotor</name>
+        <name lang="tr">Elektrik motoru</name>
+        <name lang="uk">Електродвигун</name>
+        <name lang="zh">电动机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-52" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fb753d8a-fb53-489f-827d-8203de7f6d4f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-6" y1="8" x2="-3" y2="5" x3="0" y3="11" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <text text="M" x="-28" y="1" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-6" y1="-14" x2="-3" y2="-11" x3="0" y3="-17" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <ellipse x="-33" y="-13" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8" y="-18" width="30" height="30" start="135" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13" y1="-6" x2="5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

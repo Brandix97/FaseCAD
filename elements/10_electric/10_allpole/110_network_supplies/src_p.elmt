@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="21" hotspot_y="8">
+    <uuid uuid="{20e67e0d-8a95-a16e-1fde-1c87973dfe57}"/>
+    <names>
+        <name lang="ar">مصدر وجه</name>
+        <name lang="ca">Font de la fase</name>
+        <name lang="cs">Přípojnice L</name>
+        <name lang="da">Fasekilde</name>
+        <name lang="de">Aussenleiter</name>
+        <name lang="el">Φάση</name>
+        <name lang="en">Phase source</name>
+        <name lang="es">Fuente fase</name>
+        <name lang="fi">Vaihelähde</name>
+        <name lang="fr">Source phase</name>
+        <name lang="hr">Izvor faze</name>
+        <name lang="hu">F</name>
+        <name lang="it">Sorgente fase</name>
+        <name lang="ja">相電源</name>
+        <name lang="ko">상 전원</name>
+        <name lang="mn">Фазын эх үүсвэр</name>
+        <name lang="nb">Fasekilde</name>
+        <name lang="nl">Fase</name>
+        <name lang="nl_BE">Fase bron</name>
+        <name lang="pl">Przewód liniowy</name>
+        <name lang="pt">Fonte de fase</name>
+        <name lang="pt_BR">Fonte de fase</name>
+        <name lang="ro">Sursă de fază</name>
+        <name lang="ru">Фаза</name>
+        <name lang="sk">Fázový zdroj</name>
+        <name lang="sl">Fazni vir</name>
+        <name lang="sr">Фазни извор</name>
+        <name lang="sv">Faskälla</name>
+        <name lang="tr">Faz kaynağı</name>
+        <name lang="uk">Джерело фази</name>
+        <name lang="zh">相线电源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-6" y="-27" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bee1abc2-d28e-468a-9cd3-e17af4e72e47}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="L" x="-12" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{408c67e7-d136-41fd-8491-6729e384123d}" name="L" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="60" hotspot_x="19" hotspot_y="30">
+    <uuid uuid="{0ec8a177-bfa0-533f-a51b-76cc2556f2bb}"/>
+    <names>
+        <name lang="ar">مُقاومة ضوئيّة</name>
+        <name lang="ca">Resistència depenent de la llum LDR</name>
+        <name lang="cs">Fotoodpor</name>
+        <name lang="da">Lysafhængig modstand LDR</name>
+        <name lang="de">Photowiderstand</name>
+        <name lang="el">Φωτοαντίσταση</name>
+        <name lang="en">Light dependent resistor LDR</name>
+        <name lang="es">Fotoresistencia LDR</name>
+        <name lang="fi">Valoriippuvainen vastus LDR</name>
+        <name lang="fr">Photorésistance</name>
+        <name lang="hr">Otpornik ovisan o svjetlosti LDR</name>
+        <name lang="hu">Fényfüggő ellenállás LDR</name>
+        <name lang="it">Fotoresistore</name>
+        <name lang="ja">光依存抵抗 LDR</name>
+        <name lang="ko">광의존 저항기 LDR</name>
+        <name lang="mn">Гэрэлд мэдрэгч резистор LDR</name>
+        <name lang="nb">Lysavhengig motstand LDR</name>
+        <name lang="nl">Weerstand lichtgevoelig LDR</name>
+        <name lang="nl_BE">Lichtafhankelijke weerstand LDR</name>
+        <name lang="pl">Fotorezystor</name>
+        <name lang="pt">Resistência dependente da luz LDR</name>
+        <name lang="pt_BR">Resistor dependente de luz LDR</name>
+        <name lang="ro">Fotorezistor LDR</name>
+        <name lang="ru">Фоторезистор LDR</name>
+        <name lang="sk">Fotorezistor LDR</name>
+        <name lang="sl">Svetlobno odvisni upor LDR</name>
+        <name lang="sr">Светлосно зависан отпорник LDR</name>
+        <name lang="sv">Ljusberoende resistor LDR</name>
+        <name lang="tr">Işığa bağlı direnç LDR</name>
+        <name lang="uk">Світлочутливий резистор LDR</name>
+        <name lang="zh">光敏电阻</name>
+    </names>
+    <informations>EN 60617: 05-06-01</informations>
+    <description>
+        <line x1="-11" y1="-12" x2="-6" y2="-7" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-8" x2="-9" y2="-3" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="-16.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e11d3aff-044c-4266-b8ef-655a86699bcc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <terminal uuid="{c7e51b81-8463-48ea-8ce9-c9e0ee06f975}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{93dabc0a-a6e8-4c0a-8d1c-c67b65a575e3}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,26 @@
+<definition height="60" hotspot_x="7" hotspot_y="30" link_type="simple" type="element" version="0.200.1" width="20">
+    <uuid uuid="{b9aec5fe-a039-4de7-bcdf-faa57f8ae761}"/>
+    <names>
+        <name lang="de">Sicherung</name>
+        <name lang="en">Fuse</name>
+        <name lang="es">Fusible</name>
+        <name lang="fr">Fusible</name>
+        <name lang="it">Fusibile</name>
+        <name lang="pt">Fusível</name>
+        <name lang="tr">Sigorta</name>
+        <name lang="zh">熔断器</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{5b3613bd-f3a6-46a7-aaf3-d9169aa9229e}" x1="0" x2="0" y1="-20" y2="20"/>
+        <rect antialias="false" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{036a6866-c9b4-4c58-9986-ae83f0d183a6}" width="6" x="-3" y="-9"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{4601706a-ca65-51a8-93af-00d5bdedd742}" x="-12" y="-10.49" z="4">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{f1e729ed-864c-5ca5-8038-f1332a8f0aae}" x="0" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="2" orientation="s" show_name="true" type="Generic" uuid="{c537c364-f407-5450-b884-8c10dda39011}" x="0" y="20"/>
+    </description>
+</definition>

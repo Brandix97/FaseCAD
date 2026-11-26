@@ -1,0 +1,12 @@
+*.snap
+.flatpak-builder
+__pycache__/
+*.pyc
+# Qt build output
+*.user
+# doxygen Doxyfile output
+doc/*
+!doc/QElectroTech.qch
+QElectroTech.tag
+!doc/doc-utils
+ui_*.h

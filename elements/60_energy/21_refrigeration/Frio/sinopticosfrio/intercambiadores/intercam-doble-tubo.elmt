@@ -1,0 +1,20 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="38" hotspot_y="25">
+    <uuid uuid="{844c13f2-cc46-328e-dd50-047c611f7c59}"/>
+    <names>
+        <name lang="ca">Intercanviador doble tub</name>
+        <name lang="es">Intercamb. doble tubo</name>
+        <name lang="pt_BR">Intercamb. doble tubo</name>
+        <name lang="zh">套管式换热器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="11.66" y1="8.58" x2="11.66" y2="12.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-23" y="-9" width="40" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-26.31" y1="0" x2="19.33" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="-13.28" x2="-19" y2="-8.69" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{6640a085-1440-4d95-aa6c-31dab6c72289}" name="" x="-19" y="-14" orientation="n" type="Generic"/>
+        <terminal uuid="{78d5b728-82c1-48cc-849f-b5effce0004d}" name="" x="12" y="13" orientation="s" type="Generic"/>
+        <terminal uuid="{ad8b86bd-f3c0-47ec-af3c-4f58c8e7b7ce}" name="" x="-27" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{64134c8e-6c2e-4ae5-ab4f-1d8ef6229894}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

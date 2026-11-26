@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="110" hotspot_x="30" hotspot_y="61">
+    <uuid uuid="{77b9a37c-2c89-9d5d-ad22-5209571ee8e2}"/>
+    <names>
+        <name lang="ar">خزان ديزل 1000ل</name>
+        <name lang="ca">Dipòsit de gasoil de 1000 l</name>
+        <name lang="cs">1000L nádrž na naftu</name>
+        <name lang="da">1000L dieseltank</name>
+        <name lang="de">1000L Diesel-Tank</name>
+        <name lang="el">Δεξαμενή πετρελαίου 1000L</name>
+        <name lang="en">1000L diesel tank</name>
+        <name lang="es">Depósito gasoil 1000L</name>
+        <name lang="fi">1000L dieselpolttoainesäiliö</name>
+        <name lang="fr">Cuve fioul 100L</name>
+        <name lang="hr">1000L spremnik dizela</name>
+        <name lang="hu">1000L dízel tartály</name>
+        <name lang="it">Serbatoio gasolio 1000L</name>
+        <name lang="ja">1000L 灯油タンク</name>
+        <name lang="ko">1000L 디젤 탱크</name>
+        <name lang="mn">1000Л дизель сав</name>
+        <name lang="nb">1000L dieseltank</name>
+        <name lang="nl">Dieseltank 1000L</name>
+        <name lang="nl_BE">1000L dieseltank</name>
+        <name lang="pl">Zbiornik oleju napędowego 1000L</name>
+        <name lang="pt">Depósito de gasóleo 1000L</name>
+        <name lang="pt_BR">Tanque de diesel 1000L</name>
+        <name lang="ro">Rezervor de motorină 1000L</name>
+        <name lang="ru">Дизельный бак 1000л</name>
+        <name lang="sk">1000L naftová nádrž</name>
+        <name lang="sl">1000L rezervoar za dizel</name>
+        <name lang="sr">1000L резервоар за дизел</name>
+        <name lang="sv">1000L dieseltank</name>
+        <name lang="tr">1000L dizel tankı</name>
+        <name lang="uk">Дизельний бак 1000л</name>
+        <name lang="zh">1000升柴油储罐</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-11" y="-49" width="2" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-45" x2="-6" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-45" x2="-14" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-45" x2="-10" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-45" x2="-4" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-23" y="-31" width="47" height="69" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-40" width="8" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-18" y="-45" width="16" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-14.63" y1="-34.65" x2="-24" y2="-34.65" x3="-27.11" y3="-31.66" x4="-27.11" y4="42" x5="27" y5="42" x6="27" y6="-32.66" x7="23.88" y7="-34.65" x8="-6.3" y8="-34.65" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-16" y1="-45" x2="-16" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-23" y="-16" width="47" height="53" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:brun;color:black" antialias="false"/>
+        <line x1="-10" y1="-40" x2="-10" y2="31" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-30" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bd101a73-b5fe-4203-ad79-0eea1f137762}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{06b5fb63-0839-4067-b51f-32ce9d00d30a}" name="" x="-10" y="-50" orientation="n" type="Generic"/>
+    </description>
+</definition>

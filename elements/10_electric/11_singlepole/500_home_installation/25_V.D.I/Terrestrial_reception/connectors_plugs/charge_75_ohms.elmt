@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="13" hotspot_y="9">
+    <uuid uuid="{36e0bbf1-0938-df8b-1461-54ca9223d0a7}"/>
+    <names>
+        <name lang="ar">حمل 75 أوم</name>
+        <name lang="ca">Càrrega de 75 ohms</name>
+        <name lang="cs">75 ohmová zátěž</name>
+        <name lang="da">Ladning 75 ohm</name>
+        <name lang="de">Ladung 75 Ohm</name>
+        <name lang="el">Φορτίο 75 Ohm</name>
+        <name lang="en">Load 75 Ohms</name>
+        <name lang="es">Carga de 75 ohmios</name>
+        <name lang="fr">Charge 75 Ohms</name>
+        <name lang="pt_BR">Carga terminal 75 ohms</name>
+        <name lang="zh">75欧姆负载</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <line x1="-1" y1="-6" x2="-1" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-1" width="14" height="9" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <rect x="-5" y="-4" width="10" height="3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:white" antialias="false"/>
+        <arc x="-1" y="-7" width="2" height="2" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="1" y1="-4" x2="1" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="1" width="16" height="4" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <rect x="-3" y="1" width="6" height="4" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-8" y="-30.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a626ab01-c6b8-41f1-b82b-3d27da69f70e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-5" y="-4" width="2" height="2" start="90" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="20" y="2" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3" y="-4" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-4" y1="-4" x2="4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-3" x2="-5" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-3" x2="5" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-1" x2="5" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

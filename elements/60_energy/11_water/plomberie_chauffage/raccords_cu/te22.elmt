@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="50" hotspot_x="30" hotspot_y="38">
+    <uuid uuid="{5e401211-bf2c-6a57-8ce7-ec4f4098626e}"/>
+    <names>
+        <name lang="ar">كوع نحاس 22</name>
+        <name lang="ca">T Cu 22</name>
+        <name lang="cs">T Cu 22</name>
+        <name lang="da">Kobber-T 22</name>
+        <name lang="de">T-Stück Cu 22</name>
+        <name lang="el">Ταφ Cu 22</name>
+        <name lang="en">Copper tee 22</name>
+        <name lang="es">Te Cu 22</name>
+        <name lang="fr">Té Cu 22</name>
+        <name lang="pt_BR">Te Cu 22</name>
+        <name lang="zh">三通22</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="25.22" y="-11.84" width="11.86" height="20.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17.6" y="-12.43" width="11.88" height="20.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.77" y="-25.93" width="23.7" height="7.74" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.94" y1="6" x2="25.08" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.18" y1="-17.83" x2="2.18" y2="-10.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.49" y1="-10.05" x2="1.93" y2="-10.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.14" y1="-10.05" x2="25" y2="-10.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="-17.83" x2="18" y2="-10.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.1" y1="-4.69" x2="2.18" y2="-10.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12.71" y1="-4.69" x2="18" y2="-10.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2.76" y="-7" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{98ce979f-f68d-4c52-9af7-1746f63effed}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{94a4acfa-5645-45b6-a7a1-f6bc058e911e}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7911df84-dc54-4a1a-9736-63ddc147c918}" name="" x="40" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{353a3e9f-506e-4ffd-bcb6-09d0f184eefe}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

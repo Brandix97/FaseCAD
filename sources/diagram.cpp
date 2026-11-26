@@ -1,0 +1,4465 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "diagram.h"
+#include "bridge/bridgecopy.h"
+#include "bridge/bridgemanager.h"
+#include "bridge/bridgepart.h"
+#include "shownkinds.h"
+
+#include <functional>
+#include "dataBase/projectdatabase.h"
+#include "autoNum/elementautonumschemecommand.h"
+
+#include "ElementsCollection/elementcollectionhandler.h"
+#include "TerminalStrip/GraphicsItem/terminalstripitem.h"
+#include "cable/cablecopy.h"
+#include "cable/cablepart.h"
+#include "xml/terminalstripitemxml.h"
+#include "QPropertyUndoCommand/qpropertyundocommand.h"
+#include "diagramcontent.h"
+#include "diagramevent/diagrameventaddcable.h"
+#include "diagramevent/diagrameventadddimension.h"
+#include "diagramevent/diagrameventaddelement.h"
+#include "diagramevent/diagrameventinterface.h"
+#include "diagramposition.h"
+#include "factory/elementfactory.h"
+#include "qetapp.h"
+#include "qetpalette.h"
+#include "qetgraphicsitem/ViewItem/qetgraphicstableitem.h"
+#include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/dynamicelementtextitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/elementtextitemgroup.h"
+#include "qetgraphicsitem/independenttextitem.h"
+#include "qetgraphicsitem/qetshapeitem.h"
+#include "qetgraphicsitem/dimensionitem.h"
+#include "cabinet/cabinetitem.h"
+#include "qetgraphicsitem/terminal.h"
+#include "qetxml.h"
+#include "undocommand/addelementtextcommand.h"
+#include "qetinformation.h"
+#include "qetproject.h"
+#include "diagramsortkeys.h"
+#include "itemgroups.h"
+#include "textgrid.h"
+#include "container/qetcontainer.h"
+#include "foliogrid.h"
+#include "partsdb/parttexts.h"
+#include "cabinet/cabinetrouting.h"
+#include <QGraphicsView>
+#include <QTextStream>
+#include <QThreadPool>
+#include <QtConcurrentMap>
+#include <algorithm>
+#include <climits>
+#include <cassert>
+#include <math.h>
+
+namespace {
+	using DiagramSortKeys::positionKey;
+
+	/// Sort key for Diagram::toXml()'s <elements> block: the element's own
+	/// diagram-local position, exactly what it's already saved as (x/y),
+	/// never invented or regenerated. uuid() is deliberately NOT used here:
+	/// for an element with no persisted uuid attribute, fromXml() invents a
+	/// fresh random one on every load, so sorting by uuid would still be
+	/// non-deterministic across process runs for any legacy file.
+	QString elementSortKey(Element *elmt)
+	{
+			//Position alone is not a total order: two elements can sit at the
+			//same x/y (lmdg.qet has a pair of text elements both at 780,350).
+			//With equal keys std::stable_sort falls back to the order the
+			//scene handed us, which varies per run, so those two swapped
+			//places on every save. The uuid breaks the tie.
+			//
+			//For an element with a persisted uuid attribute this is fully
+			//deterministic. For a legacy element without one, fromXml()
+			//invents a fresh uuid per load, so a collision between two such
+			//elements is no better ordered than before -- but no worse
+			//either, and the tiebreaker is only consulted when the positions
+			//are equal.
+		return positionKey(elmt->pos())
+				+ QLatin1Char(':') + elmt->uuid().toString();
+	}
+
+	/// Sort key for a terminal: its parent element's position, then the
+	/// terminal's own position local to that element (from the .elmt
+	/// definition, fixed regardless of where the element is placed).
+	QString terminalSortKey(Terminal *terminal)
+	{
+		if (!terminal)
+			return QString();
+		Element *parent = terminal->parentElement();
+		return (parent ? positionKey(parent->pos()) : QStringLiteral("?"))
+				+ QLatin1Char(':') + positionKey(terminal->pos());
+	}
+
+	/// Sort key for Diagram::toXml()'s <conductors> block. Built from both
+	/// endpoints' terminalSortKey(), not Conductor::uuid(): in every example
+	/// project checked, conductors have no persisted uuid attribute at all,
+	/// so uuid() is a freshly-minted random value on every load -- exactly
+	/// as unusable for cross-run determinism as the element case above, just
+	/// with no persisted fallback to reach for instead. Canonicalised
+	/// (smaller key first) since a conductor's two ends are unordered for
+	/// this purpose.
+	QString conductorSortKey(Conductor *cond)
+	{
+		QString a = terminalSortKey(cond->terminal1);
+		QString b = terminalSortKey(cond->terminal2);
+		return (a <= b) ? (a + QLatin1Char('>') + b) : (b + QLatin1Char('>') + a);
+	}
+
+	/// Serialize @p items and append them to a new @p tag block of @p root,
+	/// in stacking order (@p stack_rank). items() cannot be trusted for
+	/// this: with NoIndex, the first removeItem() on the scene sorts Qt's
+	/// item list by pointer address, so from then on items() hands them over
+	/// in a per-run order (bugtracker #343). Stacking order is what reloading
+	/// the file rebuilds, so the drawing is unchanged and a resave is stable.
+	template <typename T>
+	void appendInStackingOrder(QDomDocument &document, QDomElement &root,
+							   const QString &tag, const QVector<T *> &items,
+							   const QHash<const QGraphicsItem *, int> &stack_rank)
+	{
+		if (items.isEmpty())
+			return;
+		struct Entry { int rank; QString xml_text; QDomElement xml; };
+		QVector<Entry> sorted;
+		for (T *item : items) {
+			Entry entry{stack_rank.value(item, INT_MAX), QString(),
+						item->toXml(document)};
+			ItemGroups::write(entry.xml, item);
+				// Only an item the stacking query missed needs a tiebreak.
+			if (entry.rank == INT_MAX) {
+				QTextStream stream(&entry.xml_text);
+				entry.xml.save(stream, 0);
+			}
+			sorted.append(entry);
+		}
+		std::stable_sort(sorted.begin(), sorted.end(),
+			[](const Entry &a, const Entry &b) {
+				return a.rank != b.rank ? a.rank < b.rank
+										: a.xml_text < b.xml_text;
+			});
+
+		auto block = document.createElement(tag);
+		for (const auto &entry : sorted)
+			block.appendChild(entry.xml);
+		root.appendChild(block);
+	}
+}
+
+int Diagram::xGrid  = 10;
+int Diagram::yGrid  = 10;
+int Diagram::xKeyGrid = 10;
+int Diagram::yKeyGrid = 10;
+int Diagram::xKeyGridFine = 1;
+int Diagram::yKeyGridFine = 1;
+const qreal Diagram::margin = 5.0;
+
+/**
+	@brief Diagram::background_color
+	static variable to keep track of present background color of the diagram.
+*/
+QColor		Diagram::background_color = Qt::white;
+
+/**
+	@brief Diagram::Diagram
+	Constructor
+	@param project : The project of this diagram and also parent QObject
+*/
+Diagram::Diagram(QETProject *project) :
+	QGraphicsScene           (project),
+	m_project                (project),
+	use_border_              (true),
+	draw_terminals_          (true),
+	draw_colored_conductors_ (true),
+	m_event_interface        (nullptr),
+	m_freeze_new_elements    (false),
+	m_freeze_new_conductors_ (false)
+{
+
+	QSettings settings;
+	draw_grid_ = settings.value(QStringLiteral("diagrameditor/grid_display_startup"), true).toBool();
+	draw_guides_ = settings.value(QStringLiteral("diagrameditor/guides_display_startup"), false).toBool();
+
+	setItemIndexMethod(QGraphicsScene::NoIndex);
+	/* Set to no index,
+	 * because they can be the source of the crash with conductor and shape ghost.
+	 * https://forum.qt.io/topic/71316/qgraphicsscenefinditembsptreevisitor-visit-crashes-due-to-an-obsolete-paintevent-after-qgraphicsscene-removeitem
+	 * https://stackoverflow.com/questions/38458830/crash-after-qgraphicssceneremoveitem-with-custom-item-class
+	 * http://www.qtcentre.org/archive/index.php/t-33730.html
+	 * http://tech-artists.org/t/qt-properly-removing-qgraphicitems/3063
+	 */
+
+	border_and_titleblock.setOwnerFolio(this);
+	qgi_manager_ = new QGIManager(this);
+	setBackgroundBrush(Qt::white);
+	conductor_setter_ = new QGraphicsLineItem(nullptr);
+	conductor_setter_ -> setZValue(1000000);
+
+	QPen pen(Qt::NoBrush, 1.5, Qt::DashLine);
+	pen.setColor(Qt::black);
+	conductor_setter_ -> setPen(pen);
+
+	connect(&border_and_titleblock, &BorderTitleBlock::informationChanged, this, [this]() {
+		for (auto conductor : content().conductors()) {
+			conductor->refreshText();
+		}
+		emit diagramInformationChanged();
+	});
+
+	connect(m_project, &QETProject::projectInformationsChanged, this, [this]() {
+		for (auto conductor : content().conductors()) {
+			conductor->refreshText();
+		}
+	});
+
+	connect(&border_and_titleblock,
+		&BorderTitleBlock::needTitleBlockTemplate,
+		this, &Diagram::setTitleBlockTemplate);
+
+	connect(&border_and_titleblock,
+		&BorderTitleBlock::informationChanged,
+		this, &Diagram::titleChanged);
+	connect(&border_and_titleblock,
+		&BorderTitleBlock::titleBlockFolioChanged,
+		this, &Diagram::titleChanged);
+	connect(&border_and_titleblock,
+		&BorderTitleBlock::borderChanged,
+		this, &Diagram::adjustSceneRect);
+	connect(this, &Diagram::diagramActivated,
+		this, &Diagram::loadElmtFolioSeq);
+	connect(this, &Diagram::diagramActivated,
+		this, &Diagram::loadCndFolioSeq);
+	adjustSceneRect();
+
+	m_guides_list.clear();
+	if (m_project) {
+		for (const auto &pg : m_project->defaultGuides()) {
+			Diagram::Guide g;
+			g.orientation = static_cast<Diagram::Guide::Orientation>(pg.orientation);
+			g.position = pg.position;
+			g.color = pg.color;
+			m_guides_list.append(g);
+		}
+	} else {
+		QSettings settings;
+		int size = settings.beginReadArray(QStringLiteral("diagrameditor/defaultguides"));
+		for (int i = 0; i < size; ++i) {
+			settings.setArrayIndex(i);
+			Diagram::Guide g;
+			g.orientation = static_cast<Diagram::Guide::Orientation>(settings.value(QStringLiteral("orientation"), 0).toInt());
+			g.position = settings.value(QStringLiteral("position"), 0.0).toReal();
+			g.color = QColor(settings.value(QStringLiteral("color"), QStringLiteral("#ff0000")).toString());
+			m_guides_list.append(g);
+		}
+		settings.endArray();
+	}
+}
+/**
+	@brief Diagram::~Diagram
+	Destructor
+*/
+Diagram::~Diagram()
+{
+	//First clear every selection to close an hypothetical editor
+	clearSelection();
+	// clear undo stack to prevent errors,
+	// because contains pointers to this diagram and is elements.
+	undoStack().clear();
+	//delete of QGIManager, every elements he knows are removed
+	delete qgi_manager_;
+	// remove of conductor setter
+	delete conductor_setter_;
+
+	if (m_event_interface)
+	delete m_event_interface;
+
+	// list removable items
+	QVector<QGraphicsItem *> deletable_items;
+	for(const auto &qgi : items())
+	{
+		if (qgi->parentItem())
+			continue;
+		if (qgraphicsitem_cast<Conductor *>(qgi))
+			continue;
+		deletable_items.append(qgi);
+	}
+	for (const auto &item : std::as_const(deletable_items))
+	{
+		removeItem(item);
+		delete item;
+	}
+}
+
+/**
+	@brief Diagram::itemsOutsideSheet
+	@return the names of what lies wholly or partly outside the sheet (its
+	border and title block), and so is cut off or left out when the folio
+	is printed or exported: symbols by their label (or their name), and
+	free texts, shapes, pictures, tables, terminal strips and cables by
+	their kind. A symbol counts
+	with its texts: a label sticking out names the symbol. Conductors are
+	left out, as they go with the symbols they join; so is anything hidden.
+*/
+QStringList Diagram::itemsOutsideSheet() const
+{
+	const QRectF sheet = border_and_titleblock.borderAndTitleBlockRect();
+		//An item and its visible children, as they are printed
+	const std::function<QRectF(const QGraphicsItem *)> printed =
+			[&printed](const QGraphicsItem *item) {
+		QRectF rect = item->sceneBoundingRect();
+		for (const QGraphicsItem *child : item->childItems())
+			if (child->isVisible() && !ShownKinds::isHidden(child))
+				rect |= printed(child);
+		return rect;
+	};
+	QStringList names;
+	for (QGraphicsItem *item : items())
+	{
+		if (item->parentItem() || !item->isVisible() || ShownKinds::isHidden(item)
+				|| item->type() == Conductor::Type
+				|| sheet.contains(printed(item)))
+			continue;
+		switch (item->type())
+		{
+			case Element::Type: {
+				auto *element = static_cast<Element *>(item);
+				const QString label = element->actualLabel();
+				names << (label.isEmpty() ? element->name() : label);
+				break;
+			}
+			case IndependentTextItem::Type: names << tr("a text"); break;
+			case QetShapeItem::Type:        names << tr("a shape"); break;
+			case DiagramImageItem::Type:    names << tr("a picture"); break;
+			case QetGraphicsTableItem::Type: names << tr("a table"); break;
+			case TerminalStripItem::Type:   names << tr("a terminal strip"); break;
+			case CablePart::Type:           names << tr("a cable"); break;
+			default: break;
+		}
+	}
+	return names;
+}
+
+/**
+	@brief Diagram::drawBackground
+	Draw the background of the diagram, ie the grid.
+	\~French Dessine l'arriere-plan du schema, cad la grille.
+	\~ @param p :
+	The QPainter to use for drawing
+	\~French Le QPainter a utiliser pour dessiner
+	\~ @param r :
+	The rectangle of the area to be drawn
+	\~French Le rectangle de la zone a dessiner
+*/
+void Diagram::drawBackground(QPainter *p, const QRectF &r) {
+	p -> save();
+
+	// disable all antialiasing, except for text
+	// desactive tout antialiasing, sauf pour le texte
+	p -> setRenderHint(QPainter::Antialiasing, false);
+	p -> setRenderHint(QPainter::TextAntialiasing, true);
+	p -> setRenderHint(QPainter::SmoothPixmapTransform, false);
+
+	// draw a white background
+	// dessine un fond blanc
+	p -> setPen(Qt::NoPen);
+	//set brush color to present background color.
+	p -> setBrush(Diagram::background_color);
+	p -> drawRect(r);
+
+	QSettings settings;
+	QRectF rect = settings.value(
+				QStringLiteral("diagrameditor/zoom-out-beyond-of-folio"),
+				false).toBool() ? r
+						: border_and_titleblock
+						  .insideBorderRect()
+						  .intersected(r);
+
+	if (draw_grid_) {
+			/* Draw the points of the grid
+			 * if background color is black,
+			 * then grid spots shall be white,
+			 * else they shall be black in color.
+			 * A view that shows the sheet with its lightness inverted
+			 * gets softer dots, see QET::Palette::gridDotColor.
+			 */
+		QPen pen;
+		pen.setColor(QET::Palette::gridDotColor(Diagram::background_color, m_inverted_lightness));
+		pen.setCosmetic(true);
+		p->setPen(pen);
+
+		p -> setBrush(Qt::NoBrush);
+
+		const int xGrid = FolioGrid::step(settings.value(FolioGrid::x_key), Diagram::xGrid);
+		const int yGrid = FolioGrid::step(settings.value(FolioGrid::y_key), Diagram::yGrid);
+
+			//Left out when they would crowd, whatever the grid step
+		const qreal zoom_factor = p->transform().m11();
+		if (FolioGrid::dotsShown(xGrid, yGrid, zoom_factor,
+					 FolioGrid::minDotSpacing(settings.value(FolioGrid::min_dot_spacing_key))))
+		{
+			qreal limit_x = rect.x() + rect.width();
+			qreal limit_y = rect.y() + rect.height();
+
+			int g_x = (int)ceil(rect.x());
+			while (g_x % xGrid) ++ g_x;
+			int g_y = (int)ceil(rect.y());
+			while (g_y % yGrid) ++ g_y;
+
+			QPolygon points;
+			for (int gx = g_x ; gx < limit_x ; gx += xGrid) {
+				for (int gy = g_y ; gy < limit_y ; gy += yGrid) {
+					points << QPoint(gx, gy);
+				}
+			}
+
+			int minWidthPen = settings.value(QStringLiteral("diagrameditor/grid_pointsize_min"), 1).toInt();
+			int maxWidthPen = settings.value(QStringLiteral("diagrameditor/grid_pointsize_max"), 1).toInt();
+			pen.setWidth(minWidthPen);
+			if (minWidthPen != maxWidthPen) {
+				qreal stepPen  = (maxWidthPen - minWidthPen) / (qreal)maxWidthPen;
+				qreal stepZoom = (5.0 - 1.0) / maxWidthPen;
+				for (int n=0; n<maxWidthPen; n++) {
+					if ((zoom_factor > (1.0 + n * stepZoom)) && (zoom_factor <= (1.0 + (n+1) * stepZoom))) {
+						int widthPen = minWidthPen + qRound(n * stepPen);
+						pen.setWidth(widthPen);
+					}
+				}
+				if		(zoom_factor <= 1.0)
+							pen.setWidth(minWidthPen);
+				else if (zoom_factor > (1.0 + stepZoom * maxWidthPen))
+							pen.setWidth(maxWidthPen);
+			}
+			p -> setPen(pen);
+			p -> drawPoints(points);
+		}
+	}
+
+	if (draw_guides_) {
+		for (const Diagram::Guide &guide : m_guides_list) {
+			QPen guidePen(guide.color, 1, Qt::DashLine);
+			guidePen.setCosmetic(true);
+			p->setPen(guidePen);
+
+			if (guide.orientation == Diagram::Guide::Vertical) {
+				p->drawLine(guide.position, rect.top(), guide.position, rect.bottom());
+			} else {
+				p->drawLine(rect.left(), guide.position, rect.right(), guide.position);
+			}
+		}
+	}
+	if (use_border_) {
+		border_and_titleblock.draw(p);
+	}
+
+	p -> restore();
+}
+
+/**
+	@brief Diagram::mouseDoubleClickEvent
+	This event is managed by diagram event interface if any.
+	@param event :
+*/
+void Diagram::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+	event->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->mouseDoubleClickEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+			//The tool has no use for a double-click. Qt sends one in place
+			//of the second press of two quick clicks on the same spot, so
+			//give the tool that press (finish a dimension, click its end
+			//again to start the next one); a right or middle double-click
+			//is not replayed, its first press already did what it does.
+			//Whatever the tool makes of it, it is not passed on to the
+			//scene: the item under the cursor would open its properties in
+			//the middle of the tool's work. The tool may have finished and
+			//been deleted by now, hence the check.
+		if (m_event_interface && event->button() == Qt::LeftButton) {
+			m_event_interface->mousePressEvent(event);
+		}
+		event->setAccepted(true);
+		return;
+	}
+		//The tool ended on the first click of this double-click (a right
+		//click leaving it, a text placed): the second is still its own.
+	if (m_press_went_to_tool) {
+		event->setAccepted(true);
+		return;
+	}
+
+	QGraphicsScene::mouseDoubleClickEvent(event);
+}
+
+/**
+	@brief Diagram::mousePressEvent
+	This event is managed by diagram event interface if any.
+	@param event
+*/
+void Diagram::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+	event->setAccepted(false);
+	m_press_went_to_tool = m_event_interface != nullptr;
+
+	if (m_event_interface) {
+		m_event_interface->mousePressEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+	}
+
+	rememberSelection();
+		//Clicking again on a member of a group that is selected whole picks
+		//that member out, to edit it on its own (discussion #1070): noted
+		//here, decided on release, since a drag must still move the group.
+		//Ctrl keeps its usual meaning.
+	m_member_to_pick.clear();
+	if (event->button() == Qt::LeftButton
+		&& !event->modifiers().testFlag(Qt::ControlModifier)) {
+		QTransform view_transform;
+		if (event->widget()) {
+			if (auto view = qobject_cast<QGraphicsView *>(event->widget()->parentWidget())) {
+				view_transform = view->transform();
+			}
+		}
+		if (QGraphicsItem *member = ItemGroups::memberToPick(
+				itemAt(event->scenePos(), view_transform))) {
+			m_member_to_pick = member->toGraphicsObject();
+		}
+	}
+	QGraphicsScene::mousePressEvent(event);
+	completeGroupSelection();
+}
+
+/**
+	@brief Diagram::mouseMoveEvent
+	This event is managed by diagram event interface if any.
+	@param event
+*/
+void Diagram::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+	event->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->mouseMoveEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+	}
+
+	QGraphicsScene::mouseMoveEvent(event);
+}
+
+/**
+	@brief Diagram::mouseReleaseEvent
+	This event is managed by diagram event interface if any.
+	@param event
+*/
+void Diagram::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+	event->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->mouseReleaseEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+	}
+
+	QGraphicsScene::mouseReleaseEvent(event);
+
+		//A click that did not drag, on a member of a group selected whole:
+		//Qt has left only that member selected, and it stays so.
+	QGraphicsObject *picked = m_member_to_pick.data();
+	m_member_to_pick.clear();
+	if (picked
+		&& (event->screenPos() - event->buttonDownScreenPos(Qt::LeftButton)).manhattanLength()
+			< QApplication::startDragDistance()
+		&& selectedItems() == QList<QGraphicsItem *>{picked}) {
+		rememberSelection();
+		return;
+	}
+
+		//A click on an already selected item changes the selection on
+		//release, not on press (Ctrl toggles it, a plain click keeps only it).
+	completeGroupSelection();
+}
+
+/**
+	@brief Diagram::wheelEvent
+	This event is managed by diagram event interface if any.
+	@param event
+*/
+void Diagram::wheelEvent(QGraphicsSceneWheelEvent *event)
+{
+	event->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->wheelEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+	}
+
+	QGraphicsScene::wheelEvent(event);
+}
+
+/**
+	@brief Diagram::event
+	QGraphicsScene has its own Tab/Shift+Tab item-focus-chain traversal
+	(mirroring QWidget's), checked before keyPressEvent() is ever reached:
+	by default it would silently consume Tab/Backtab to move focus among
+	the scene's own focusable items. Intercepting the key press here,
+	ahead of that, is the only way to reliably override it: unlike
+	QWidget::focusNextPrevChild(), QGraphicsScene::focusNextPrevChild() is
+	only virtual starting in Qt 6 (guarded by the QT6_VIRTUAL macro), so a
+	Diagram:: override of it would silently do nothing on a Qt 5 build.
+	@param event
+*/
+bool Diagram::event(QEvent *event)
+{
+	if (event->type() == QEvent::KeyPress) {
+		auto *key_event = static_cast<QKeyEvent *>(event);
+		if ((key_event->key() == Qt::Key_Tab || key_event->key() == Qt::Key_Backtab)
+				&& !isReadOnly() && !focusItem()) {
+				//A tool running takes Tab first (the symbols of a part
+				//while it is placed): what it leaves cycles the items
+			if (m_event_interface) {
+				key_event->setAccepted(false);
+				m_event_interface->keyPressEvent(key_event);
+				if (key_event->isAccepted()) {
+					return true;
+				}
+			}
+			bool forward = key_event->key() == Qt::Key_Tab
+					&& !(key_event->modifiers() & Qt::ShiftModifier);
+			selectNextItem(forward);
+			event->accept();
+			return true;
+		}
+	}
+	return QGraphicsScene::event(event);
+}
+
+/**
+	@brief Diagram::keyPressEvent
+	This event is managed by diagram event interface if any.
+	Else move selected elements
+	@param event
+*/
+void Diagram::keyPressEvent(QKeyEvent *event)
+{
+	event->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->keyPressEvent(event);
+		if (event->isAccepted()) {
+			return;
+		}
+	}
+
+	if (isReadOnly()) return;
+
+	QPointF movement;
+	qreal top_position = 0;
+	qreal left_position = 0;
+	DiagramContent dc(this);
+	if (dc.items(DiagramContent::All).isEmpty())
+	{
+		event->ignore();
+		QGraphicsScene::keyPressEvent(event);
+		return;
+	}
+
+#if TODO_LIST
+#pragma message("@TODO move code to new function")
+#endif
+	//Move item with the keyboard arrow
+	#ifdef Q_OS_MACOS
+	if(event->modifiers() == Qt::KeypadModifier)
+	#else
+	if(event->modifiers() == Qt::NoModifier)
+	#endif
+	{
+		QSettings settings;
+		int xKeyGrid = settings.value(QStringLiteral("diagrameditor/key_Xgrid"),
+									  Diagram::xKeyGrid).toInt();
+		int yKeyGrid = settings.value(QStringLiteral("diagrameditor/key_Ygrid"),
+									  Diagram::yKeyGrid).toInt();
+		switch(event->key())
+		{
+			case Qt::Key_Left:
+				for (Element *item : dc.m_elements)
+				{
+					left_position = item->sceneBoundingRect().x();
+					if(left_position <= 5)
+						return;
+				}
+				movement = QPointF(-xKeyGrid, 0.0);
+				break;
+			case Qt::Key_Right:
+				movement = QPointF(+xKeyGrid, 0.0);
+				break;
+			case Qt::Key_Up:
+				for(Element *item : dc.m_elements)
+				{
+					top_position = item->sceneBoundingRect().y();
+					if(top_position <= 5)
+						return;
+				}
+				movement = QPointF(0.0, -yKeyGrid);
+				break;
+			case Qt::Key_Down:
+				movement = QPointF(0.0, +yKeyGrid);
+				break;
+		}
+
+		if (!movement.isNull() && !focusItem())
+		{
+			m_elements_mover.beginMovement(this);
+			m_elements_mover.continueMovement(movement);
+			event->accept();
+			return;
+		}
+	}
+	else if(event->modifiers() == Qt::ControlModifier)
+	{
+		QSettings settings;
+		int xKeyGridFine = settings.value(QStringLiteral("diagrameditor/key_fine_Xgrid"),
+										  Diagram::xKeyGridFine).toInt();
+		int yKeyGridFine = settings.value(QStringLiteral("diagrameditor/key_fine_Ygrid"),
+										  Diagram::yKeyGridFine).toInt();
+		switch(event->key())
+		{
+			case Qt::Key_Left:
+				for (Element *item : dc.m_elements)
+				{
+					left_position = item->sceneBoundingRect().x();
+					if(left_position <= 5)
+						return;
+				}
+				movement = QPointF(-xKeyGridFine, 0.0);
+				break;
+			case Qt::Key_Right:
+				movement = QPointF(+xKeyGridFine, 0.0);
+				break;
+			case Qt::Key_Up:
+				for(Element *item : dc.m_elements)
+				{
+					top_position = item->sceneBoundingRect().y();
+					if(top_position <= 5)
+						return;
+				}
+				movement = QPointF(0.0, -yKeyGridFine);
+				break;
+			case Qt::Key_Down:
+				movement = QPointF(0.0, +yKeyGridFine);
+				break;
+		}
+
+		if (!movement.isNull() && !focusItem())
+		{
+			m_elements_mover.beginMovement(this);
+			m_elements_mover.continueMovement(movement);
+			event->accept();
+			return;
+		}
+	}
+	else if(event->modifiers() == Qt::AltModifier)
+	{
+		//Adjust the alignment of a texts group
+		if(selectedItems().size() == 1
+				&& selectedItems().first()->type()
+				   == QGraphicsItemGroup::Type)
+		{
+			if(ElementTextItemGroup *etig =
+					dynamic_cast<ElementTextItemGroup *>
+					(selectedItems().first()))
+			{
+				if(event->key() == Qt::Key_Left
+				   &&  etig->alignment() != Qt::AlignLeft)
+					undoStack().push(
+						new AlignmentTextsGroupCommand(
+								etig,
+								Qt::AlignLeft));
+
+				else if (event->key() == Qt::Key_Up
+					 && etig->alignment() != Qt::AlignVCenter)
+					undoStack().push(
+						new AlignmentTextsGroupCommand(
+								etig,
+								Qt::AlignVCenter));
+
+				else if (event->key() == Qt::Key_Right
+					 && etig->alignment() != Qt::AlignRight)
+					undoStack().push(
+						new AlignmentTextsGroupCommand(
+								etig,
+								Qt::AlignRight));
+			}
+		}
+	}
+	event->ignore();
+	QGraphicsScene::keyPressEvent(event);
+}
+
+/**
+	@brief Diagram::keyReleaseEvent
+	This event is managed by diagram event interface if any.
+	Else move selected element
+	@param e
+*/
+void Diagram::keyReleaseEvent(QKeyEvent *e)
+{
+	e->setAccepted(false);
+
+	if (m_event_interface) {
+		m_event_interface->keyReleaseEvent(e);
+		if (e->isAccepted()) {
+			return;
+		}
+	}
+
+	bool transmit_event = true;
+	if (!isReadOnly()) {
+		/* detects the release of a direction key
+		 *  (= movement of elements)
+		 * detecte le relachement d'une touche de direction
+		 *  ( = deplacement d'elements)
+		 */
+		if (
+			(
+				e -> key() == Qt::Key_Left
+				|| e -> key() == Qt::Key_Right
+				|| e -> key() == Qt::Key_Up
+				|| e -> key() == Qt::Key_Down
+			) && !e -> isAutoRepeat()
+		   ) {
+			m_elements_mover.endMovement();
+			e -> accept();
+			transmit_event = false;
+		}
+	}
+	if (transmit_event) {
+		QGraphicsScene::keyReleaseEvent(e);
+	}
+}
+
+/**
+	@brief Diagram::ensureLoaded
+	Build this folio's items from the XML kept when the project was
+	opened with lazy folios, and do for them what opening does for
+	every folio's (QETProject::folioLoaded()). Nothing for a folio built
+	already.
+*/
+void Diagram::ensureLoaded()
+{
+	if (isLoaded()) {
+		return;
+	}
+	if (m_project) {
+		m_project->buildFolios({this});
+	} else {
+		buildDeferred();
+	}
+}
+
+/**
+	@brief Diagram::buildSymbols
+	Build, of this folio not built yet (lazy folios), the symbols
+	@p uuids only -- partners a shown folio draws from -- and keep them for
+	when the folio is built (stage D5b). They belong to the
+	folio's scene; the folio stays not built.
+	@return the symbols built now
+*/
+QList<Element *> Diagram::buildSymbols(const QSet<QUuid> &uuids)
+{
+	QList<Element *> built;
+	if (isLoaded() || uuids.isEmpty()) {
+		return built;
+	}
+	const QDomElement xml = deferredXml();
+	if (xml.isNull()) {
+		return built;
+	}
+	projectDataBase *db = m_project ? m_project->dataBase() : nullptr;
+	if (db) db->setBuildingFolio(true);
+		//A symbol read in carries the identities of the one it was
+		//copied from for as long as the reading lasts: nothing is hung
+		//differently while it does, or a copy would steal the ends of
+		//a bridge from the symbol it was made of
+	BridgeManager::ReadingGuard reading;
+	for (QDomElement element_xml :
+		 QET::findInDomElement(xml, QStringLiteral("elements"), QStringLiteral("element")))
+	{
+		const QUuid uuid(element_xml.attribute(QStringLiteral("uuid")));
+		if (uuid.isNull() || !uuids.contains(uuid) || m_partial_elements.contains(uuid)
+				|| !Element::valideXml(element_xml)) {
+			continue;
+		}
+		if (Element *element = buildElement(element_xml, m_partial_table, true)) {
+			m_partial_elements.insert(uuid, element);
+				//A partner unlinked or linked again: the folio is not
+				//saved as it was read any more
+			connect(element, &Element::linkedElementChanged, this, [this]() {
+				if (!isLoaded()) m_partial_changed = true;
+			});
+			built << element;
+		}
+	}
+	if (db) db->setBuildingFolio(false);
+	return built;
+}
+
+namespace {
+	//The title block fields nothing on a folio is computed from: a formula
+	//reads the folio's label, plant, location, extra fields and grid
+	//(autonum::FormulaContext), none of these
+const QStringList ShownOnlyFields = {
+	QStringLiteral("title"), QStringLiteral("author"), QStringLiteral("date"),
+	QStringLiteral("indexrev"), QStringLiteral("version"), QStringLiteral("filename"),
+	QStringLiteral("titleblocktemplate"), QStringLiteral("titleblocktemplateCollection")};
+
+QString headerWithoutShownOnly(const QString &header)
+{
+	QDomDocument document;
+	document.setContent(header);
+	QDomElement root = document.documentElement();
+	for (const QString &field : ShownOnlyFields) root.removeAttribute(field);
+	return document.toString();
+}
+}
+
+/**
+	@brief Diagram::headerChangeShowsOnly
+	@return true if what changed in this folio's own data since it was read
+	(headerChanged()) is only title block fields nothing on the folio is
+	computed from (its title, author, date, revision, file name, template):
+	its items, as read, are what building it would write
+*/
+bool Diagram::headerChangeShowsOnly()
+{
+	return headerWithoutShownOnly(headerXml()) == headerWithoutShownOnly(m_opened_header);
+}
+
+/**
+	@brief Diagram::deferredXmlWithHeader
+	@return this folio, not built, as it saves: its own data as it is now
+	(writeHeader()) and its items as read (deferredXml()), in @p document --
+	when its items are what building it would write (headerChangeShowsOnly())
+*/
+QDomElement Diagram::deferredXmlWithHeader(QDomDocument &document)
+{
+	QDomElement folio = document.createElement(QStringLiteral("diagram"));
+	writeHeader(document, folio);
+	QSet<QString> header_children;
+	for (QDomElement child = folio.firstChildElement() ; !child.isNull() ; child = child.nextSiblingElement())
+		header_children.insert(child.tagName());
+	const QDomElement items = deferredXml();
+	for (QDomElement child = items.firstChildElement() ; !child.isNull() ; child = child.nextSiblingElement())
+		if (!header_children.contains(child.tagName()))
+			folio.appendChild(document.importNode(child, true));
+		//Its pictures written in, as building it writes them. A folio read
+		//from a .qetz names its pictures' files instead, which the next
+		//.qetz written from this document would leave out: that project
+		//then refused to open, "picture ... is missing" (F118).
+	for (QDomElement image : QET::findInDomElement(folio, QStringLiteral("images"), QStringLiteral("image"))) {
+		const QString file = QetContainer::pictureFile(image);
+		if (file.isEmpty() || !m_project) continue;
+		const QByteArray bytes = m_project->containerPicture(file);
+		if (!bytes.isEmpty())
+			QetContainer::inlinePicture(image, bytes);
+	}
+	return folio;
+}
+
+/**
+	@brief Diagram::deferredXml
+	The XML kept for building this folio later. A folio of a .qetdb opened
+	from its tables has its header only: its items are written into it
+	from the project database the first time they are asked for (S4x X3).
+*/
+QDomElement Diagram::deferredXml() const
+{
+	if (m_project && m_deferred.hasAttribute(QString::fromLatin1(projectDataBase::deferred_content))) {
+		QDomElement xml = m_deferred;
+		m_project->dataBase()->writeFolioContent(xml);
+	}
+	return m_deferred;
+}
+
+/**
+	@brief Diagram::buildDeferred
+	Build this folio's items from the XML kept for later, and nothing else.
+	Their rows are in the project database already, filled from the same
+	XML: building writes none.
+	@return true if there was something to build
+*/
+bool Diagram::buildDeferred()
+{
+	if (isLoaded()) {
+		return false;
+	}
+	QDomElement xml = deferredXml();
+	m_deferred = QDomElement();
+	m_kept_part.clear();
+	m_kept_text.clear();
+	projectDataBase *db = m_project ? m_project->dataBase() : nullptr;
+	if (db) db->setBuildingFolio(true);
+	m_loading_deferred = true;
+	fromXml(xml, QPointF(), true, nullptr);
+	m_loading_deferred = false;
+	m_partial_elements.clear();
+	m_partial_table.clear();
+	m_partial_changed = false;
+	if (db) db->setBuildingFolio(false);
+	return true;
+}
+
+/**
+	@brief Diagram::uuid
+	@return the uuid of this diagram
+*/
+QUuid Diagram::uuid()
+{
+	return m_uuid;
+}
+
+/**
+	@brief Diagram::wiresNotReconnected
+	@return one line per wire of the loaded file that was left out because
+	a terminal it joins could not be found, for example after the symbol's
+	definition in the project was replaced by one whose terminals differ.
+	Empty for a folio that loaded every wire.
+*/
+QStringList Diagram::wiresNotReconnected() const
+{
+	return m_wires_not_reconnected;
+}
+
+/**
+	@brief Diagram::symbolsNotLoaded
+	@return one line per symbol of the loaded file that could not be built,
+	its definition missing from the project and the collections: kept as
+	read and saved back (F127). Empty for a folio that built every symbol.
+*/
+QStringList Diagram::symbolsNotLoaded() const
+{
+	return m_symbols_not_loaded;
+}
+
+/**
+	@brief Diagram::keptSymbolUuids
+	@return the uuids of the symbols this folio could not build and keeps
+	as read: a partner linked to one of them keeps its link
+*/
+QSet<QUuid> Diagram::keptSymbolUuids() const
+{
+	QSet<QUuid> uuids;
+	for (const QDomElement &symbol : m_kept_symbols)
+		uuids.insert(QUuid(symbol.attribute(QStringLiteral("uuid"))));
+	return uuids;
+}
+
+/**
+	@brief Diagram::keepWire
+	Keep @p wire, which could not be joined to its terminals, to save it
+	back (F127, F128). An end found (@p found1, @p found2) is written from
+	that terminal at save; an end not found keeps the symbol and terminal
+	it names, as uuids: for a wire saved by legacy terminal ids, the
+	symbol among @p symbols (uuid and XML of each symbol read) holding that
+	id and the uuid derived for that terminal where it was saved
+	(Element::savedTerminalUuid()), so the wire joins it again once the
+	symbol's definition has it there. An end naming no terminal of the
+	file at all pointed nowhere when it was saved: written as the null
+	uuid, so it names no symbol and is read back as a wire whose ends
+	cannot be read, kept unchanged and joining nothing (never a legacy id,
+	which the next save gives to another terminal).
+*/
+void Diagram::keepWire(const QDomElement &wire, Terminal *found1, Terminal *found2,
+					   const QList<QPair<QUuid, QDomElement>> &symbols)
+{
+	KeptWire kept;
+	Terminal *found[2] = {found1, found2};
+	for (int i = 0 ; i < 2 ; ++i) {
+		const QString index = QString::number(i + 1);
+		if (found[i]) {
+			kept.end[i] = found[i];
+			kept.found[i] = true;
+			continue;
+		}
+		if (wire.hasAttribute(QStringLiteral("element") + index)) {
+			kept.element[i] = QUuid(wire.attribute(QStringLiteral("element") + index));
+			kept.terminal[i] = QUuid(wire.attribute(QStringLiteral("terminal") + index));
+		} else {
+			const QString id = wire.attribute(QStringLiteral("terminal") + index);
+			for (const auto &symbol : symbols) {
+				const QList<QDomElement> records = QET::findInDomElement(
+							symbol.second, QStringLiteral("terminals"), QStringLiteral("terminal"));
+				for (int r = 0 ; r < records.size() && kept.element[i].isNull() ; ++r)
+					if (records.at(r).attribute(QStringLiteral("id")) == id) {
+						kept.element[i] = symbol.first;
+						kept.terminal[i] = Element::savedTerminalUuid(records, r);
+					}
+				if (!kept.element[i].isNull()) break;
+			}
+		}
+	}
+	kept.xml = m_kept_document.importNode(wire, true).toElement();
+	if (QUuid(kept.xml.attribute(QStringLiteral("uuid"))).isNull() && m_project) {
+		QStringList ends;
+		for (int i = 0 ; i < 2 ; ++i)
+			ends << (kept.found[i]
+					 ? kept.end[i]->parentElement()->uuid().toString() + QLatin1Char('/')
+					   + kept.end[i]->stableUuid().toString()
+					 : kept.element[i].toString() + QLatin1Char('/') + kept.terminal[i].toString());
+		ends.sort();
+		kept.xml.setAttribute(QStringLiteral("uuid"),
+							  m_project->derivedItemUuid(QStringLiteral("conductor"),
+														 ends.join(QLatin1Char('\n'))).toString());
+	}
+	m_kept_wires << kept;
+	queueValuesStore();
+}
+
+/**
+	@brief Diagram::writeKept
+	Write what this folio could not load, as it was read, into @p elements
+	and @p conductors of @p document: the symbols, their terminals given ids
+	after those of @p table_adr_id so none is read twice, and the wires, an
+	end found written from its terminal as Conductor::toXml() does. A wire
+	whose found end was deleted since goes with it.
+*/
+void Diagram::writeKept(QDomDocument &document, QDomElement &elements,
+						QDomElement &conductors, const QHash<Terminal *, int> &table_adr_id) const
+{
+	int next_id = 0;
+	for (int id : table_adr_id) next_id = qMax(next_id, id + 1);
+	for (const QDomElement &symbol : m_kept_symbols) {
+		QDomElement copy = document.importNode(symbol, true).toElement();
+		for (QDomElement record : QET::findInDomElement(copy, QStringLiteral("terminals"),
+														QStringLiteral("terminal")))
+			record.setAttribute(QStringLiteral("id"), next_id++);
+		elements.appendChild(copy);
+	}
+	for (const KeptWire &kept : m_kept_wires) {
+		if ((kept.found[0] && !kept.end[0]) || (kept.found[1] && !kept.end[1])) continue;
+		QDomElement copy = document.importNode(kept.xml, true).toElement();
+		for (int i = 0 ; i < 2 && !kept.as_read ; ++i) {
+			const QString index = QString::number(i + 1);
+			const QString element = QStringLiteral("element") + index;
+			const QString terminal = QStringLiteral("terminal") + index;
+			if (!kept.found[i]) {
+				copy.setAttribute(element, kept.element[i].toString());
+				copy.setAttribute(terminal, kept.terminal[i].toString());
+			} else if (kept.end[i]->uuid().isNull()) {
+				copy.removeAttribute(element);
+				copy.setAttribute(terminal, table_adr_id.value(kept.end[i]));
+			} else {
+				copy.setAttribute(element, kept.end[i]->parentElement()->uuid().toString());
+				copy.setAttribute(terminal, kept.end[i]->uuid().toString());
+			}
+		}
+		conductors.appendChild(copy);
+	}
+}
+
+/**
+	@brief Diagram::uuidUsedByOtherDiagram
+	A hand-edited or merged project file can contain two folios with the same
+	uuid. The uuid is used as a key (e.g. in the project database), so the
+	second one must get another one.
+	@param uuid
+	@return true if another diagram of the parent project already uses @p uuid
+*/
+bool Diagram::uuidUsedByOtherDiagram(const QUuid &uuid) const
+{
+	if (!m_project) {
+		return false;
+	}
+	const auto diagrams = m_project->folios(); //uuids only: no need to build them
+	for (const Diagram *diagram : diagrams) {
+		if (diagram != this && diagram->m_uuid == uuid) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+	@brief Diagram::derivedUuid
+	Name-based (version 5) uuid for a folio that has no usable uuid in the
+	file it is loaded from : either the file predates the uuid attribute, or
+	the uuid it carries is already taken by another folio of the project.
+
+	A random uuid would do as an identity, but it would make saving an
+	unmodified legacy project non-reproducible : every load would invent a
+	different one and write it out (see #754). The name is therefore built
+	only from data read from the file itself -- the project title, the
+	position of the folio in the file and its title -- so the same input file
+	always yields the same uuid. It is computed once, when the folio is
+	loaded, and saved from then on : renaming or moving the folio later does
+	not change it.
+
+	@param root : the <diagram> element being loaded
+	@param reason : distinguishes the two cases above, so that they can not
+	produce the same name
+	@return a uuid not used by any other diagram of the project
+*/
+QUuid Diagram::derivedUuid(const QDomElement &root, const QString &reason) const
+{
+	const int index = m_project
+			? m_project->folios().indexOf(const_cast<Diagram *>(this))
+			: -1;
+	const QString project_title = root.ownerDocument()
+			.documentElement()
+			.attribute(QStringLiteral("title"));
+
+	return derivedUuid(reason, project_title, index, root.attribute(QStringLiteral("title")),
+					   [this](const QUuid &uuid) { return uuidUsedByOtherDiagram(uuid); });
+}
+
+/**
+	@brief Diagram::derivedUuid
+	The uuid derivedUuid() above gives the folio at @p index, titled
+	@p title, of a project titled @p project_title; @p used says whether a
+	uuid is taken by a folio before it. Also used on the document before
+	any folio is built (QETProject::fillDerivedUuids()).
+*/
+QUuid Diagram::derivedUuid(const QString &reason, const QString &project_title,
+						   int index, const QString &title,
+						   const std::function<bool(const QUuid &)> &used)
+{
+		//Fixed namespace for QElectroTech folio uuids, never change it :
+		//doing so would change the uuid given to every legacy folio.
+	static const QUuid folio_namespace(
+				QStringLiteral("{d5951240-154d-44d6-8277-0092a31d1920}"));
+	const QString base = QStringLiteral("qet-folio\n%1\n%2\n%3\n%4")
+			.arg(reason,
+				 project_title,
+				 QString::number(index),
+				 title);
+
+		//A clash is only possible with a hand-crafted file, but the uuid is a
+		//key : salt the name until it is free. Still deterministic.
+	QUuid uuid = QUuid::createUuidV5(folio_namespace, base);
+	for (int salt = 1 ; used(uuid) ; ++salt) {
+		uuid = QUuid::createUuidV5(folio_namespace,
+								   base + QStringLiteral("\n")
+								   + QString::number(salt));
+	}
+	return uuid;
+}
+
+/**
+	@brief Diagram::setEventInterface
+	Set event_interface has current interface.
+	Diagram become the ownership of event_interface
+	If there is a previous interface, they will be delete before
+	and call init() to the new interface.
+	@param event_interface
+*/
+void Diagram::setEventInterface(DiagramEventInterface *event_interface)
+{
+	if (m_event_interface)
+	{
+		delete m_event_interface;
+		event_interface -> init();
+	}
+	m_event_interface = event_interface;
+
+	connect(m_event_interface, &DiagramEventInterface::finish, [this]()
+	{
+		delete this->m_event_interface;
+		this->m_event_interface = nullptr;
+	});
+}
+
+/**
+	@brief Diagram::clearEventInterface
+	Clear the current event interface.
+*/
+void Diagram::clearEventInterface()
+{
+	if(m_event_interface)
+	{
+		delete m_event_interface;
+		m_event_interface = nullptr;
+	}
+}
+
+bool Diagram::eventInterfaceIsRunning() const
+{
+	return m_event_interface && m_event_interface->isRunning();
+}
+
+/**
+	@brief Diagram::toolTookLastPress
+	@return true if the last mouse press went to a tool (an event
+	interface), even one that has finished since: the double-click that
+	may follow belongs to that tool, not to the items under the cursor.
+*/
+bool Diagram::toolTookLastPress() const
+{
+	return m_press_went_to_tool;
+}
+
+/**
+	@brief Diagram::pendingElement
+	@return the symbol that follows the mouse while one is placed, else nullptr
+*/
+Element *Diagram::pendingElement() const
+{
+	auto *placing = qobject_cast<DiagramEventAddElement *>(m_event_interface);
+	return placing && placing->isRunning() ? placing->pendingElement() : nullptr;
+}
+
+/**
+	@brief Diagram::cableToolIsRunning
+	@return true while the cable drawing tool is the running tool.
+
+	That tool is the one which takes the right mouse button away from
+	everything else: while it runs, a right click cancels the line being
+	drawn and must not open the quick command ring nor any context menu
+	with it. Every other tool lets go of the button again and is
+	surrounded by the ring the way it always was.
+*/
+bool Diagram::cableToolIsRunning() const
+{
+	return m_event_interface
+	       && m_event_interface->isRunning()
+	       && qobject_cast<DiagramEventAddCable *>(m_event_interface);
+}
+
+/**
+	@brief Diagram::dimensionToolIsRunning
+	@return true while the CAD dimensioning tool is the running tool.
+*/
+bool Diagram::dimensionToolIsRunning() const
+{
+	return m_event_interface
+	       && m_event_interface->isRunning()
+	       && qobject_cast<DiagramEventAddDimension *>(m_event_interface);
+}
+
+/**
+	@brief Diagram::conductorsAutonumName
+	@return the name of autonum to use.
+*/
+QString Diagram::conductorsAutonumName() const
+{
+	return m_conductors_autonum_name;
+}
+
+/**
+	@brief Diagram::setConductorsAutonumName
+	@param name : name of autonum to use.
+*/
+void Diagram::setConductorsAutonumName(const QString &name) {
+	m_conductors_autonum_name= name;
+	queueValuesStore();
+}
+
+/**
+	Exporte le schema vers une image
+	@return Une QImage representant le schema
+*/
+bool Diagram::toPaintDevice(QPaintDevice &pix,
+				int width,
+				int height,
+				Qt::AspectRatioMode aspectRatioMode) {
+	// determine the source area = schema content + margins
+	// determine la zone source =  contenu du schema + marges
+	QRectF source_area;
+	if (!use_border_) {
+		source_area = visibleItemsBoundingRect();
+		source_area.translate(-margin, -margin);
+		source_area.setWidth (source_area.width () + 2.0 * margin);
+		source_area.setHeight(source_area.height() + 2.0 * margin);
+	} else {
+		source_area = QRectF(
+			0.0,
+			0.0,
+			border_and_titleblock.borderAndTitleBlockRect().width()
+					+ 2.0 * margin,
+			border_and_titleblock.borderAndTitleBlockRect().height()
+					+ 2.0 * margin
+		);
+	}
+
+	/* if the dimensions are not specified,
+	 *  the image is exported at 1: 1 scale
+	 * si les dimensions ne sont pas precisees,
+	 *  l'image est exportee a l'echelle 1:1
+	 */
+	QSize image_size = (width == -1 && height == -1)
+			? source_area.size().toSize() : QSize(width, height);
+
+	// prepare the rendering
+	// prepare le rendu
+	QPainter p;
+	if (!p.begin(&pix)) return(false);
+
+	// anti-aliasis rendering
+	// rendu antialiase
+	p.setRenderHint(QPainter::Antialiasing, true);
+	p.setRenderHint(QPainter::TextAntialiasing, true);
+	p.setRenderHint(QPainter::SmoothPixmapTransform, true);
+
+	// deselect all elements
+	// deselectionne tous les elements
+	QList<QGraphicsItem *> selected_elmts = selectedItems();
+	foreach (QGraphicsItem *qgi, selected_elmts) qgi -> setSelected(false);
+
+	// renders itself
+	// effectue le rendu lui-meme
+	render(&p,
+			QRect(QPoint(0, 0),image_size),
+			source_area,
+			aspectRatioMode);
+	p.end();
+
+	// restore selected items
+	// restaure les elements selectionnes
+	foreach (QGraphicsItem *qgi, selected_elmts) qgi -> setSelected(true);
+
+	return(true);
+}
+
+/**
+	@brief Diagram::imageSize
+	Allows you to know the dimensions
+	that the image generated by the toImage() method will have
+	\~French Permet de connaitre les dimensions
+	qu'aura l'image generee par la methode toImage()
+	\~ @return The size of the image generated by toImage()
+	\~French La taille de l'image generee par toImage()
+*/
+QSize Diagram::imageSize() const
+{
+	// determine la zone source =  contenu du schema + marges
+	qreal image_width, image_height;
+	if (!use_border_) {
+		QRectF items_rect = visibleItemsBoundingRect();
+		image_width  = items_rect.width();
+		image_height = items_rect.height();
+	} else {
+		image_width  = border_and_titleblock
+				.borderAndTitleBlockRect().width();
+		image_height = border_and_titleblock
+				.borderAndTitleBlockRect().height();
+	}
+
+	image_width  += 2.0 * margin;
+	image_height += 2.0 * margin;
+
+	// returns the size of the source area
+	// renvoie la taille de la zone source
+	return(QSizeF(image_width, image_height).toSize());
+}
+
+/**
+	@brief Diagram::isEmpty
+	An empty schema contains no element, conductor, or text field
+	@return true if the schema is considered empty, false otherwise.
+	\~French true si le schema est considere comme vide, false sinon.
+	Un schema vide ne contient ni element, ni conducteur, ni champ de texte
+*/
+bool Diagram::isEmpty() const
+{
+	return(!items().count());
+}
+
+/**
+	@brief Diagram::potential
+	@return all potential in the diagram
+	each potential are in the QList
+	and each conductors of one potential are in the QSet
+*/
+QList < QSet <Conductor *> > Diagram::potentials()
+{
+	QList < QSet <Conductor *> > potential_List;
+	if (content().conductors().size() == 0)
+		return (potential_List); //return an empty potential
+	QList <Conductor *> conductors_list = content().conductors();
+
+	do {
+		QSet <Conductor *> one_potential =
+				conductors_list.first()
+				-> relatedPotentialConductors();
+		one_potential << conductors_list.takeFirst();
+		foreach (Conductor *c, one_potential)
+			conductors_list.removeOne(c);
+		potential_List << one_potential;
+	} while (!conductors_list.empty());
+
+	return (potential_List);
+}
+
+/**
+	@brief Diagram::toXml
+	Exports all or part of the schema
+	\~French Exporte tout ou partie du schema
+	\~ @param whole_content :
+	Boolean (to true by default) indicating if the generated XML must
+	represent the entire schema or only the selected content
+	\~French Booleen (a vrai par defaut) indiquant si le XML genere doit
+	representer l'integralite du schema ou seulement le contenu selectionne
+	\~ @param is_copy_command:
+	Boolean (false by default) indicating if function is called by an copy command
+	\~ @return An XML Document (QDomDocument)
+	\~French Un Document XML (QDomDocument)
+*/
+QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
+		//A folio of a project opened with lazy folios is written from
+		//its built items (QETProject::toXml() may write one not built as
+		//it was read instead)
+	ensureLoaded();
+	// document
+	QDomDocument document;
+
+	// XML tree root
+	// racine de l'arbre XML
+	auto dom_root = document.createElement(QStringLiteral("diagram"));
+
+	// schema properties
+	// proprietes du schema
+	if (whole_content) {
+		writeHeader(document, dom_root);
+	}
+	else {
+		//this method with whole_content to false,
+		//is often use to copy and paste the current selection
+		//so we add the id of the project where copy occur.
+		dom_root.setAttribute(QStringLiteral("projectId"), QETApp::projectId(m_project));
+	}
+	document.appendChild(dom_root);
+
+		//What the folio could not load is written back with a whole folio
+	const bool write_kept = whole_content && !is_copy_command
+			&& (!m_kept_symbols.isEmpty() || !m_kept_wires.isEmpty());
+	if (items().isEmpty() && !write_kept)
+		return(document);
+
+	QVector<Element *> list_elements;
+	QVector<Conductor *> list_conductors;
+	QVector<DiagramTextItem *> list_texts;
+	QVector<DiagramImageItem *> list_images;
+	QVector<QetShapeItem *> list_shapes;
+	QVector<QetGraphicsTableItem *> table_vector;
+	QVector<TerminalStripItem *> strip_vector;
+	QVector<DimensionItem *> list_dimensions;
+	QVector<CabinetItem *> list_cabinet_items;
+
+	//Ckeck graphics item to "XMLise"
+	for(QGraphicsItem *qgi : items())
+	{
+		switch (qgi->type())
+		{
+			case Element::Type: {
+				auto elmt = static_cast<Element *>(qgi);
+				if (whole_content || elmt->isSelected()){
+					//  For a copy/paste command, the text positions must be recalculated for
+					//  correct text alignment, before it is saved to the clipboard.
+					//  A conductor definition reads its texts from the wire it
+					//  stands on, the way a report reads them from the folio it
+					//  leads to, so it belongs in this as well.
+					if(is_copy_command && (elmt->linkType() == Element::Slave
+										   || elmt->linkType()&Element::AllReport
+										   || elmt->linkType() == Element::ConductorDefinition))
+						correctTextPos(elmt);
+					list_elements << elmt;
+				}
+				break;
+			}
+			case Conductor::Type: {
+				auto cond = static_cast<Conductor *>(qgi);
+				if (whole_content)
+					list_conductors << cond;
+					/* When we did not export the whole diagram,
+					 * we must remove the non-selected conductors.
+					 * At this step that means a conductor which one
+					 * of these two element are not selected
+					 */
+				else if (cond->terminal1->parentItem()->isSelected()
+					 && cond->terminal2->parentItem()->isSelected())
+					list_conductors << cond;
+				break;
+			}
+			case DiagramImageItem::Type: {
+				auto image = static_cast<DiagramImageItem *>(qgi);
+				if (whole_content || image->isSelected())
+					list_images << image;
+				break;
+			}
+			case IndependentTextItem::Type: {
+				auto indi_text = static_cast<IndependentTextItem *>(qgi);
+				if (whole_content || indi_text->isSelected())
+					list_texts << indi_text;
+				break;
+			}
+			case QetShapeItem::Type: {
+				auto shape = static_cast<QetShapeItem *>(qgi);
+				if (whole_content || shape->isSelected())
+					list_shapes << shape;
+				break;
+			}
+			case QetGraphicsTableItem::Type: {
+				auto table = static_cast<QetGraphicsTableItem *>(qgi);
+				if (whole_content || table->isSelected())
+					table_vector << table;
+				break;
+			}
+			case DimensionItem::Type: {
+				auto dim = static_cast<DimensionItem *>(qgi);
+				if (whole_content || dim->isSelected()) {
+					list_dimensions << dim;
+				}
+				break;
+			}
+			case CabinetItem::Type: {
+				auto part = static_cast<CabinetItem *>(qgi);
+				if (whole_content || part->isSelected()) {
+					list_cabinet_items << part;
+				}
+				break;
+			}
+			case TerminalStripItem::Type: {
+				const auto strip = static_cast<TerminalStripItem *>(qgi);
+				if (whole_content || strip->isSelected()) {
+					strip_vector << strip;
+				}
+				break;
+			}
+		}
+	}
+
+		// items() returns items in stacking order, which is not guaranteed
+		// reproducible across processes (ties between same-Z items follow
+		// the scene's internal index, not any content-derived order) -- so
+		// without this, saving an unmodified project produces a different
+		// byte stream on every run. Elements and conductors are the two
+		// blocks observed to actually churn across the example corpus;
+		// sort them into a deterministic, content-derived order before
+		// serializing. This also fixes the legacy terminal-id churn below,
+		// since those ids are assigned sequentially in element order.
+	std::stable_sort(list_elements.begin(), list_elements.end(),
+			  [](Element *a, Element *b) { return elementSortKey(a) < elementSortKey(b); });
+		//Wires that tie on their ends (common: several from one terminal)
+		//keep the order they were made in, which for a project's is its
+		//file's -- the order the scene gave them so far, except for a folio
+		//built late (lazy folios), whose scene order differed
+	std::stable_sort(list_conductors.begin(), list_conductors.end(),
+			  [](Conductor *a, Conductor *b) {
+		const QString ka = conductorSortKey(a), kb = conductorSortKey(b);
+		return ka != kb ? ka < kb : a->creationRank() < b->creationRank();
+	});
+
+		// A copy carries the numberings its elements follow: pasted into
+		// another project, which does not know them, it can offer to import
+		// them (see PasteNumberingImport)
+	if (is_copy_command) {
+		ElementAutoNumSchemeCommand::writeCopiedSchemes(document, dom_root, m_project, list_elements);
+	}
+
+	// correspondence table between the addresses of the terminals and their ids
+	// table de correspondance entre les adresses des bornes et leurs ids
+	QHash<Terminal *, int> table_adr_id;
+
+	auto dom_elements = document.createElement(QStringLiteral("elements"));
+	if (!list_elements.isEmpty() || write_kept) {
+		for (auto elmt : list_elements) {
+			QDomElement dom_element = elmt->toXml(document, table_adr_id);
+			ItemGroups::write(dom_element, elmt);
+			dom_elements.appendChild(dom_element);
+			// If copy is active we have to undo the changes we have made during creating(filling) 'list_elements'
+			if(is_copy_command && (elmt->linkType() == Element::Slave
+								   || elmt->linkType()&Element::AllReport
+								   || elmt->linkType() == Element::ConductorDefinition))
+				restoreText(elmt);
+		}
+		dom_root.appendChild(dom_elements);
+	}
+
+	auto dom_conductors = document.createElement(QStringLiteral("conductors"));
+	if (!list_conductors.isEmpty()) {
+			//Symbols copied in old versions can share one uuid. A wire
+			//saved by that uuid would reopen on the first of them (#1408).
+		QSet<QUuid> seen_uuids, shared_uuids;
+		for (auto elmt : std::as_const(list_elements)) {
+			if (seen_uuids.contains(elmt->uuid()))
+				shared_uuids.insert(elmt->uuid());
+			seen_uuids.insert(elmt->uuid());
+		}
+		for (auto cond : list_conductors) {
+			dom_conductors.appendChild(cond->toXml(document,
+							       table_adr_id,
+							       shared_uuids));
+		}
+		dom_root.appendChild(dom_conductors);
+	}
+	if (write_kept) {
+		writeKept(document, dom_elements, dom_conductors, table_adr_id);
+		if (dom_conductors.hasChildNodes() && dom_conductors.parentNode().isNull())
+			dom_root.insertAfter(dom_conductors, dom_elements);
+	}
+
+		// A rect query, unlike items(), returns true stacking order (z, then
+		// insertion order) even with NoIndex.
+	QHash<const QGraphicsItem *, int> stack_rank;
+	{
+		const QList<QGraphicsItem *> stacked = items(
+					QRectF(-1e9, -1e9, 2e9, 2e9), Qt::IntersectsItemBoundingRect,
+					Qt::AscendingOrder);
+		for (int i = 0 ; i < stacked.size() ; ++i)
+			stack_rank.insert(stacked.at(i), i);
+	}
+	appendInStackingOrder(document, dom_root, QStringLiteral("inputs"), list_texts, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("images"), list_images, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("shapes"), list_shapes, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("tables"), table_vector, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("dimensions"), list_dimensions, stack_rank);
+	appendInStackingOrder(document, dom_root, QStringLiteral("cabinet_items"), list_cabinet_items, stack_rank);
+		//The ways of the wires of a routing sheet
+	if (isRoutingFolio() && whole_content) {
+		dom_root.appendChild(CabinetRouting::toXml(this, document));
+	}
+
+	if (!strip_vector.isEmpty()) {
+		dom_root.appendChild(TerminalStripItemXml::toXml(strip_vector, document));
+	}
+	if (m_project && m_project->dataBase())
+		projectDataBase::appendForeignBlocks(dom_root, m_project->dataBase()->foreignBlocks(m_uuid.toString()));
+
+	return(document);
+}
+
+/**
+	@brief Diagram::appendValuesXml
+	Write into @p dom_root, made in @p document, this folio's default wire
+	and its numbering and freeze settings, as writeHeader() does
+*/
+void Diagram::appendValuesXml(QDomDocument &document, QDomElement &dom_root) const
+{
+	// Default conductor properties
+	QDomElement default_conductor =
+			document.createElement(QStringLiteral("defaultconductor"));
+	defaultConductorProperties.toXml(default_conductor);
+	dom_root.appendChild(default_conductor);
+
+	// Conductor autonum
+	if (!m_conductors_autonum_name.isEmpty()) {
+		dom_root.setAttribute(QStringLiteral("conductorAutonum"),
+					  m_conductors_autonum_name);
+	}
+
+	//Default New Element
+	dom_root.setAttribute(QStringLiteral("freezeNewElement"),
+				  m_freeze_new_elements ? QStringLiteral("true") : QStringLiteral("false"));
+
+	//Default New Conductor
+	dom_root.setAttribute(QStringLiteral("freezeNewConductor"),
+				  m_freeze_new_conductors_
+				  ? QStringLiteral("true") : QStringLiteral("false"));
+
+		//The kind of folio and its scale: written for a cabinet or a
+		//routing sheet only, a schematic stays as every folio was written
+		//so far
+	if (isCabinetFolio() || isRoutingFolio()) {
+		dom_root.setAttribute(QStringLiteral("folioKind"),
+					  folioKindToString(m_folio_kind));
+		dom_root.setAttribute(QStringLiteral("cabinetScale"),
+					  QString::number(m_cabinet_scale));
+	}
+	if (isRoutingFolio()) {
+		dom_root.setAttribute(QStringLiteral("routingSheet"), m_routing_source.toString());
+		dom_root.setAttribute(QStringLiteral("routingPlate"), m_routing_plate.toString());
+	}
+}
+
+/**
+	@brief Diagram::keptXml
+	@return what writeKept() writes of the symbols and wires this folio
+	keeps as read (F127, F128): each symbol, then each wire, made in
+	@p document. Their terminals are numbered from 0.
+*/
+QList<QDomElement> Diagram::keptXml(QDomDocument &document) const
+{
+	QDomElement elements = document.createElement(QStringLiteral("elements"));
+	QDomElement conductors = document.createElement(QStringLiteral("conductors"));
+	writeKept(document, elements, conductors, QHash<Terminal *, int>());
+	QList<QDomElement> kept;
+	for (const QDomElement &list : {elements, conductors})
+		for (QDomElement item = list.firstChildElement() ; !item.isNull() ; item = item.nextSiblingElement())
+			kept << item;
+	return kept;
+}
+
+/**
+	@brief Diagram::queueValuesStore
+	What ownValuesXml() writes may have changed: the project database
+	writes it at its next read. Call it after changing
+	defaultConductorProperties.
+*/
+void Diagram::queueValuesStore()
+{
+	if (m_project && m_project->dataBase())
+		m_project->dataBase()->queueFolioValues();
+}
+
+/**
+	@brief Diagram::ownValuesXml
+	@return a <diagram> made in @p document holding appendValuesXml():
+	what this folio saves that no other table of the project database holds
+*/
+QDomElement Diagram::ownValuesXml(QDomDocument &document) const
+{
+	QDomElement root = document.createElement(QStringLiteral("diagram"));
+	appendValuesXml(document, root);
+	return root;
+}
+
+/**
+	@brief Diagram::writeHeader
+	Write this folio's own data -- its uuid, title block, border, default
+	wire, numbering -- into @p dom_root, the folio's element of @p document:
+	what toXml() writes before the folio's items.
+*/
+void Diagram::writeHeader(QDomDocument &document, QDomElement &dom_root)
+{
+		//Persist the folio identity, so that a folio keeps the same uuid
+		//across save/load. Without it every load invents a new one, and
+		//nothing outside the running instance (version control, a lock,
+		//a diff tool...) can tell which folio is which.
+	dom_root.setAttribute(QStringLiteral("uuid"), m_uuid.toString());
+	border_and_titleblock.titleBlockToXml(dom_root);
+	border_and_titleblock.borderToXml(dom_root);
+
+	appendValuesXml(document, dom_root);
+
+	//Element Folio Sequential Variables
+	if (!m_elmt_unitfolio_max.isEmpty()
+			|| !m_elmt_tenfolio_max.isEmpty()
+			|| !m_elmt_hundredfolio_max.isEmpty()) {
+		QDomElement elmtfoliosequential =
+				document.createElement(
+					QStringLiteral("elementautonumfoliosequentials"));
+		if (!m_elmt_unitfolio_max.isEmpty()) {
+			QDomElement elmtfolioseq =
+					document.createElement(
+						QStringLiteral("elementunitfolioseq"));
+			folioSequentialsToXml(&m_elmt_unitfolio_max,
+						  &elmtfolioseq,
+						  QStringLiteral("sequf_"),
+						  QStringLiteral("unitfolioseq"),
+						  &document);
+			elmtfoliosequential.appendChild(elmtfolioseq);
+		}
+		if (!m_elmt_tenfolio_max.isEmpty()) {
+			QDomElement elmtfolioseq =
+					document.createElement(
+						QStringLiteral("elementtenfolioseq"));
+			folioSequentialsToXml(&m_elmt_tenfolio_max,
+						  &elmtfolioseq,
+						  QStringLiteral("seqtf_"),
+						  QStringLiteral("tenfolioseq"),
+						  &document);
+			elmtfoliosequential.appendChild(elmtfolioseq);
+		}
+		if (!m_elmt_hundredfolio_max.isEmpty()) {
+			QDomElement elmtfolioseq =
+					document.createElement(
+						QStringLiteral("elementhundredfolioseq"));
+			folioSequentialsToXml(&m_elmt_hundredfolio_max,
+						  &elmtfolioseq,
+						  QStringLiteral("seqhf_"),
+						  QStringLiteral("hundredfolioseq"),
+						  &document);
+			elmtfoliosequential.appendChild(elmtfolioseq);
+		}
+		dom_root.appendChild(elmtfoliosequential);
+	}
+	// Conductor Folio Sequential Variables
+	if (!m_cnd_unitfolio_max.isEmpty()
+			|| !m_cnd_tenfolio_max.isEmpty() ||
+			!m_cnd_hundredfolio_max.isEmpty()) {
+		QDomElement cndfoliosequential =
+				document.createElement(
+					QStringLiteral("conductorautonumfoliosequentials"));
+		QHash<QString, QStringList>::iterator i;
+		if (!m_cnd_unitfolio_max.isEmpty()) {
+			QDomElement cndfolioseq =
+					document.createElement(
+						QStringLiteral("conductorunitfolioseq"));
+			folioSequentialsToXml(&m_cnd_unitfolio_max,
+						  &cndfolioseq,
+						  QStringLiteral("sequf_"),
+						  QStringLiteral("unitfolioseq"),
+						  &document);
+			cndfoliosequential.appendChild(cndfolioseq);
+		}
+		if (!m_cnd_tenfolio_max.isEmpty()) {
+			QDomElement cndfolioseq =
+					document.createElement(
+						QStringLiteral("conductortenfolioseq"));
+			folioSequentialsToXml(&m_cnd_tenfolio_max,
+						  &cndfolioseq,
+						  QStringLiteral("seqtf_"),
+						  QStringLiteral("tenfolioseq"),
+						  &document);
+			cndfoliosequential.appendChild(cndfolioseq);
+		}
+		if (!m_cnd_hundredfolio_max.isEmpty()) {
+			QDomElement cndfolioseq =
+					document.createElement(
+						QStringLiteral("conductorhundredfolioseq"));
+			folioSequentialsToXml(&m_cnd_hundredfolio_max,
+						  &cndfolioseq,
+						  QStringLiteral("seqhf_"),
+						  QStringLiteral("hundredfolioseq"),
+						  &document);
+			cndfoliosequential.appendChild(cndfolioseq);
+		}
+		dom_root.appendChild(cndfoliosequential);
+	}
+}
+
+/**
+	@brief Diagram::headerXml
+	@return the folio's own data as writeHeader() writes it, as text
+*/
+QString Diagram::headerXml()
+{
+	QDomDocument document;
+	auto dom_root = document.createElement(QStringLiteral("diagram"));
+	document.appendChild(dom_root);
+	writeHeader(document, dom_root);
+	return document.toString();
+}
+
+/**
+	@brief Diagram::folioSequentialsToXml
+	Add folio sequential to QDomElement
+	@param hash to retrieve content with content
+	@param domElement to add attributes
+	@param seq_type type
+	@param type
+	@param doc
+*/
+void Diagram::folioSequentialsToXml(QHash<QString,
+					QStringList> *hash,
+					QDomElement *domElement,
+					const QString& seq_type,
+					const QString& type,
+					QDomDocument *doc)
+{
+	QHash<QString, QStringList>::iterator i;
+
+	for (i = hash->begin(); i != hash->end(); i++)
+	{
+		QDomElement folioseq = doc->createElement(type);
+		folioseq.setAttribute(QStringLiteral("title"), i.key());
+
+		for (int j = 0; j < i.value().size(); j++) {
+			folioseq.setAttribute(seq_type + QString::number(j+1),
+							i.value().at(j));
+		}
+		domElement->appendChild(folioseq);
+	}
+}
+
+/**
+	@brief Diagram::buildElement
+	Make the symbol @p element_xml describes and add it to this folio, as
+	fromXml() does for each symbol it reads.
+	@return the symbol, or nullptr if it could not be made (said in the log)
+*/
+/**
+	@brief Diagram::derivedSymbolUuid
+	@return the uuid of the symbol @p element_xml, saved without one:
+	derived from what it is and where it sits on its folio, never from the
+	folio's index (see buildElement())
+*/
+QUuid Diagram::derivedSymbolUuid(const QDomElement &element_xml) const
+{
+	return m_project->derivedItemUuid(
+				QStringLiteral("element"),
+				QStringList{element_xml.attribute(QStringLiteral("type")),
+							element_xml.attribute(QStringLiteral("x")),
+							element_xml.attribute(QStringLiteral("y")),
+							element_xml.attribute(QStringLiteral("orientation"))}
+				.join(QLatin1Char('\n')));
+}
+
+Element *Diagram::buildElement(QDomElement element_xml, QHash<int, Terminal *> &table_adr_id,
+							   bool consider_informations)
+{
+	// cree un element dont le type correspond a l'id type
+	QString type_id = element_xml.attribute(QStringLiteral("type"));
+	ElementsLocation element_location;
+	if (type_id.startsWith(QStringLiteral("embed://"))) {
+		element_location = ElementsLocation(type_id, m_project);
+	}
+	else {
+		element_location = ElementsLocation(type_id);
+	}
+
+	int state = 0;
+	Element *nvel_elmt =
+			ElementFactory::Instance() -> createElement(
+				element_location, nullptr, &state);
+	if (state)
+	{
+		QString debug_message =
+			QString("Diagram::fromXml() : Le chargement de "
+				"la description de l'element %1 a "
+				"echoue avec le code d'erreur %2").arg(
+				element_location.path()).arg(state);
+		qDebug() << qPrintable(debug_message);
+		delete nvel_elmt;
+		return nullptr;
+	}
+
+	addItem(nvel_elmt);
+	//Loading fail, remove item from the diagram
+	if (!nvel_elmt->fromXml(element_xml, table_adr_id))
+	{
+		removeItem(nvel_elmt);
+		delete nvel_elmt;
+		qDebug() << QStringLiteral("Diagram::fromXml() : Le chargement des parametres d'un element a echoue");
+		return nullptr;
+	} else {
+			//A symbol saved without a uuid got a random one from
+			//Element::fromXml(): a different identity on every load,
+			//written out on the next save. Derive it instead from what
+			//the symbol is and where it sits on its folio -- never from
+			//the folio's index, so inserting or moving a folio does not
+			//change it. Only for a folio being loaded: a paste renews
+			//uuids anyway.
+		if (consider_informations && m_project
+			&& QUuid(element_xml.attribute(QStringLiteral("uuid"))).isNull()) {
+			nvel_elmt->setUuid(derivedSymbolUuid(element_xml));
+		}
+		ItemGroups::setGroup(nvel_elmt, ItemGroups::read(element_xml));
+		return nvel_elmt;
+	}
+return nullptr;
+}
+
+/**
+	@brief Diagram::fromXml
+	Imports the described schema into an XML document.
+	If a position is specified,
+	the imported elements are positioned so that the upper left corner
+	of the smallest rectangle that can surround them all
+	(the bounding rect) is at this position.
+	\~French Importe le schema decrit dans un document XML.
+	Si une position estprecisee,
+	les elements importes sont positionnes de maniere a ce que le coin
+	superieur gauche du plus petit rectangle pouvant les entourant tous
+	(le bounding rect) soit a cette position.
+	\~ @param document :
+	The XML document to analyze
+	\~French Le document XML a analyser
+	\~ @param position :
+	The position of the diagram matters
+	\~French La position du schema importe
+	\~ @param consider_informations :
+	If true, additional information
+	(author, title, ...) will be taken into account
+	\~French  Si vrai, les informations complementaires
+	(auteur, titre, ...) seront prises en compte
+	\~ @param content_ptr :
+	if this pointer to a DiagramContent is different from 0,
+	it will be filled with the content added to the schema by the fromXml
+	\~French si ce pointeur vers un DiagramContent est different de 0,
+	il sera rempli avec le contenu ajoute au schema par le fromXml
+	\~ @return true if the import was successful, false otherwise
+	\~French true si l'import a reussi, false sinon
+*/
+bool Diagram::fromXml(QDomDocument &document,
+				QPointF position,
+				bool consider_informations,
+				DiagramContent *content_ptr,
+				QList<CablePart *> *cables_added,
+			  QList<Bridge *> *bridges_added) {
+	QDomElement root = document.documentElement();
+	return(fromXml(root, position, consider_informations, content_ptr, cables_added, bridges_added));
+}
+
+/**
+	@brief Diagram::initFromXml
+	Imports the described schema in an XML element.
+	This method delegates its work to Diagram :: fromXml
+	If the import is successful,
+	this method also initializes the XML document internal allowing to
+	manage the recording of this diagram in the project to which it belongs.
+	@see Diagram::fromXml
+	\~French Importe le schema decrit dans un element XML.
+	Cette methode delegue son travail a Diagram::fromXml
+	Si l'import reussit, cette methode initialise egalement le document XML
+	interne permettant de bien gerer l'enregistrement de ce schema dans le
+	projet auquel il appartient.
+	\~ @param document : The XML document to analyze
+	\~French  Le document XML a analyser
+	\~ @param position : The position of the diagram matters
+	\~French La position du schema importe
+	\~ @param consider_informations :
+	If true, additional information
+	(author, title, ...) will be taken into account
+	\~French  Si vrai, les informations complementaires
+	(auteur, titre, ...) seront prises en compte
+	\~ @param content_ptr :
+	if this pointer to a DiagramContent is different from 0,
+	it will be filled with the content added to the schema by the fromXml
+	\~French si ce pointeur vers un DiagramContent est different de 0,
+	il sera rempli avec le contenu ajoute au schema par le fromXml
+	\~ @return true if the import was successful, false otherwise
+	\~French true si l'import a reussi, false sinon
+*/
+bool Diagram::initFromXml(QDomElement &document,
+			  QPointF position,
+			  bool consider_informations,
+			  DiagramContent *content_ptr) {
+	/* import the content and properties of the schema
+	 *  from the XML element provided as a parameter
+	 * import le contenu et les proprietes du schema
+	 *  depuis l'element XML fourni en parametre
+	 */
+	bool from_xml = fromXml(document,
+				position,
+				consider_informations,
+				content_ptr);
+
+	return(from_xml);
+}
+
+/**
+	@brief findTerminals
+	Find the terminals to which the conductor could be connected
+	@param conductor_index 1 or 2 depending on which terminal is searched
+	@param f Conductor xml element
+	@param table_adr_id Hash table to all terminal id assignement (legacy)
+	@param added_elements Elements found in the xml file
+	@return the terminal, or one per symbol when several symbols of the
+	folio carry the uuid the wire names (old copies could share one, #1408);
+	empty if none is found
+*/
+QList<Terminal *> findTerminals(int conductor_index,
+								QDomElement& f,
+								QHash<int,Terminal *>& table_adr_id,
+								QList<Element *>& added_elements)
+{
+	assert(conductor_index == 1 || conductor_index == 2);
+
+	auto str_index = QString::number(conductor_index);
+	QString element_index  = QStringLiteral("element")  + str_index;
+	QString terminal_index = QStringLiteral("terminal") + str_index;
+
+	QList<Terminal *> found;
+	if (f.hasAttribute(element_index)) {
+		QUuid element_uuid = QUuid(f.attribute(element_index));
+		// element1 did not exist in the conductor part of the xml until prior 0.7
+		// It is used as an indicator that uuid's are used to identify terminals
+		bool element_found = false;
+		QUuid terminal_uuid = QUuid(f.attribute(terminal_index));
+		for (auto element: added_elements) {
+			if (element->uuid() != element_uuid)
+				continue;
+			element_found = true;
+			Terminal *match = nullptr;
+			for (auto terminal: element->terminals()) {
+				if (terminal->uuid() == terminal_uuid) {
+					match = terminal;
+					break;
+				}
+			}
+				//The uuid a project gave a terminal on opening is worked out
+				//from where the terminal is in its symbol: if the symbol's
+				//definition has since been replaced by one whose terminals
+				//carry other uuids, the terminal at that place is still it.
+			for (auto terminal: element->terminals()) {
+				if (match)
+					break;
+				if (terminal->derivedUuid() == terminal_uuid)
+					match = terminal;
+			}
+				//A terminal that moved since the project was saved: the
+				//uuid worked out from its old place was paired with it
+				//when the symbol was read (Element::fromXml()).
+			if (!match)
+				match = element->terminalFromOldPlace(terminal_uuid);
+			if (match)
+				found << match;
+			else
+				qDebug() << "Diagram::fromXml() : "
+					 << terminal_index
+					 << ":"
+					 << terminal_uuid
+					 << "not found in "
+					 << element_index
+					 << ":"
+					 << element_uuid;
+		}
+		if (!element_found)
+			qDebug() << "Diagram::fromXml() : "
+				 <<  element_index
+				  << ": "
+				  << element_uuid
+				  << "not found";
+	} else {
+		// Backward compatibility.
+		// Until version 0.7 a generated id is used to link the terminal.
+		int id_p1 = f.attribute(terminal_index).toInt();
+		if (!table_adr_id.contains(id_p1)) {
+			qDebug() << "Diagram::fromXml() : terminal id "
+				 << id_p1
+				 << " not found";
+		} else
+			found << table_adr_id.value(id_p1);
+	}
+	return found;
+}
+
+/**
+	@brief pickEnds
+	Choose the two ends of a wire when its uuids name several symbols of
+	the folio (#1408). The pair whose distance matches the wire's saved
+	path wins, then the symbols whose labels match the ones saved with the
+	wire, then two terminals no wire joins yet; on a tie, the first symbols
+	in the file, as before.
+	@param f Conductor xml element
+	@param ends1 candidates for the first end, from findTerminals()
+	@param ends2 candidates for the second end
+	@return the two terminals, or nullptr where a list is empty
+*/
+QPair<Terminal *, Terminal *> pickEnds(const QDomElement &f,
+									   const QList<Terminal *> &ends1,
+									   const QList<Terminal *> &ends2)
+{
+	if ((ends1.size() <= 1 && ends2.size() <= 1)
+		|| ends1.isEmpty() || ends2.isEmpty())
+		return {ends1.value(0), ends2.value(0)};
+
+		//The saved path runs from the first end to the second
+	QPointF path_length;
+	bool has_path = false;
+	for (QDomElement segment = f.firstChildElement(QStringLiteral("segment"));
+		 !segment.isNull();
+		 segment = segment.nextSiblingElement(QStringLiteral("segment"))) {
+		bool ok = false;
+		const qreal length = segment.attribute(QStringLiteral("length")).toDouble(&ok);
+		if (!ok || !qIsFinite(length))
+			continue;
+		has_path = true;
+		if (segment.attribute(QStringLiteral("orientation")) == QLatin1String("horizontal"))
+			path_length.rx() += length;
+		else
+			path_length.ry() += length;
+	}
+
+	auto label_matches = [&f](Terminal *terminal, const QString &index) {
+		const QString label = f.attribute(QStringLiteral("element") + index
+										  + QStringLiteral("_label"));
+		return !label.isEmpty()
+				&& terminal->parentElement()->actualLabel() == label;
+	};
+
+	QPair<Terminal *, Terminal *> best;
+	int best_score = -1;
+	for (auto t1 : ends1) {
+		for (auto t2 : ends2) {
+			if (t1 == t2)
+				continue;
+			int score = 0;
+			if (has_path) {
+				const QPointF gap = t2->dockConductor() - t1->dockConductor();
+				if (qAbs(gap.x() - path_length.x()) <= 1.0
+					&& qAbs(gap.y() - path_length.y()) <= 1.0)
+					score += 8;
+			}
+			if (label_matches(t1, QStringLiteral("1")))
+				score += 2;
+			if (label_matches(t2, QStringLiteral("2")))
+				score += 2;
+			if (!t1->isLinkedTo(t2))
+				score += 1;
+			if (score > best_score) {
+				best_score = score;
+				best = {t1, t2};
+			}
+		}
+	}
+	if (!best.first)
+		return {ends1.first(), ends2.first()};
+	return best;
+}
+
+/**
+	@brief Diagram::fromXml
+	Imports the described schema in an XML element. If a position is
+	specified, the imported elements are positioned in such a way that the
+	upper left corner of the smallest rectangle that can surround them all
+	(the bounding rect) either at this position.
+	\~French Importe le schema decrit dans un element XML.
+	Si une position est precisee,
+	les elements importes sont positionnes de maniere a ce que le
+	coin superieur gauche du plus petit rectangle pouvant les entourant tous
+	(le bounding rect) soit a cette position.
+	\~ @param document :
+	The XML document to analyze
+	\~French Le document XML a analyser
+	\~ @param position :
+	The position of the diagram matters
+	\~French La position du schema importe
+	\~ @param consider_informations :
+	If true, additional information
+	(author, title, ...) will be taken into account
+	\~French Si vrai, les informations complementaires
+	(auteur, titre, ...) seront prises en compte
+	\~ @param content_ptr :
+	if this pointer to a DiagramContent is different from 0,
+	it will be filled with the content added to the schema by the fromXml
+	\~French si ce pointeur vers un DiagramContent est different de 0,
+	il sera rempli avec le contenu ajoute au schema par le fromXml
+	\~ @return
+	true if the import was successful, false otherwise
+	\~French true si l'import a reussi, false sinon
+*/
+bool Diagram::fromXml(QDomElement &document,
+				QPointF position,
+				bool consider_informations,
+				DiagramContent *content_ptr,
+				QList<CablePart *> *cables_added,
+			QList<Bridge *> *bridges_added)
+{
+	const QDomElement& root = document;
+		// The first element must be a diagram
+	if (root.tagName() != QLatin1String("diagram")) {
+		return(false);
+	}
+
+		// Read attributes of this diagram (already read for a folio whose
+		// items are built later, see ensureLoaded())
+	if (consider_informations && !m_loading_deferred)
+	{
+			// Restore the persisted folio uuid. Done first, before any item is
+			// loaded, so that everything created below sees the final uuid.
+			// A folio without a usable one (file written before the uuid was
+			// persisted, or uuid already taken by another folio) gets a
+			// deterministic one instead, see derivedUuid().
+		const QUuid persisted_uuid(root.attribute(QStringLiteral("uuid")));
+		const QUuid old_uuid = m_uuid;
+		if (persisted_uuid.isNull()) {
+			m_uuid = derivedUuid(root, QStringLiteral("legacy"));
+		} else if (uuidUsedByOtherDiagram(persisted_uuid)) {
+			m_uuid = derivedUuid(root, QStringLiteral("duplicate ")
+								 + persisted_uuid.toString());
+		} else {
+			m_uuid = persisted_uuid;
+		}
+			//A placed folio's stored title block follows its uuid
+		if (m_project && m_project->dataBase())
+			m_project->dataBase()->folioUuidChanged(this, old_uuid);
+
+		// Load border and titleblock
+		border_and_titleblock.titleBlockFromXml(root);
+		border_and_titleblock.borderFromXml(root);
+			//What this QET does not know of the folio, kept for every format
+		if (m_project && m_project->dataBase())
+			m_project->dataBase()->storeForeignBlocks(m_uuid.toString(), projectDataBase::foreignChildren(root, true));
+
+			// Find the element "defaultconductor".
+			// If found, load default conductor properties.
+		QDomElement default_conductor_elmt =
+				root.firstChildElement(QStringLiteral("defaultconductor"));
+		if (!default_conductor_elmt.isNull()) {
+			defaultConductorProperties.fromXml(default_conductor_elmt);
+		}
+
+			// Load the autonum
+		m_conductors_autonum_name = root.attribute(QStringLiteral("conductorAutonum"));
+
+			// Load Freeze New Element
+			// Written as "true"/"false" by toXml(), so compare the text:
+			// toInt() of either word is 0.
+		m_freeze_new_elements = root.attribute(QStringLiteral("freezeNewElement"))
+				== QLatin1String("true");
+
+			// Load Freeze New Conductor
+		m_freeze_new_conductors_ = root.attribute(QStringLiteral("freezeNewConductor"))
+				== QLatin1String("true");
+
+			//Load the kind of folio and the scale of a cabinet: a folio
+			//that says nothing is a schematic
+		m_folio_kind = folioKindFromString(root.attribute(QStringLiteral("folioKind")));
+		bool scale_read = false;
+		const qreal scale = root.attribute(QStringLiteral("cabinetScale")).toDouble(&scale_read);
+		m_cabinet_scale = (scale_read && scale > 0) ? scale : defaultCabinetScale;
+		m_routing_source = QUuid(root.attribute(QStringLiteral("routingSheet")));
+		m_routing_plate = QUuid(root.attribute(QStringLiteral("routingPlate")));
+
+			//Load Element Folio Sequential
+		folioSequentialsFromXml(root,
+					&m_elmt_unitfolio_max,
+					QStringLiteral("elementunitfolioseq"),
+					QStringLiteral("sequf_"),
+					QStringLiteral("unitfolioseq"),
+					QStringLiteral("elementautonumfoliosequentials"),
+					QStringLiteral("element"),
+					QStringLiteral("unitfolio"));
+		folioSequentialsFromXml(root, &m_elmt_tenfolio_max,
+					QStringLiteral("elementtenfolioseq"),
+					QStringLiteral("seqtf_"),
+					QStringLiteral("tenfolioseq"),
+					QStringLiteral("elementautonumfoliosequentials"),
+					QStringLiteral("element"),
+					QStringLiteral("tenfolio"));
+		folioSequentialsFromXml(root, &m_elmt_hundredfolio_max,
+					QStringLiteral("elementhundredfolioseq"),
+					QStringLiteral("seqhf_"),
+					QStringLiteral("hundredfolioseq"),
+					QStringLiteral("elementautonumfoliosequentials"),
+					QStringLiteral("element"),
+					QStringLiteral("hundredfolio"));
+
+			//Load Conductor Folio Sequential
+		folioSequentialsFromXml(root, &m_cnd_unitfolio_max,
+					QStringLiteral("conductorunitfolioseq"),
+					QStringLiteral("sequf_"),
+					QStringLiteral("unitfolioseq"),
+					QStringLiteral("conductorautonumfoliosequentials"),
+					QStringLiteral("conductor"),
+					QStringLiteral("unitfolio"));
+		folioSequentialsFromXml(root, &m_cnd_tenfolio_max,
+					QStringLiteral("conductortenfolioseq"),
+					QStringLiteral("seqtf_"),
+					QStringLiteral("tenfolioseq"),
+					QStringLiteral("conductorautonumfoliosequentials"),
+					QStringLiteral("conductor"),
+					QStringLiteral("tenfolio"));
+		folioSequentialsFromXml(root, &m_cnd_hundredfolio_max,
+					QStringLiteral("conductorhundredfolioseq"),
+					QStringLiteral("seqhf_"),
+					QStringLiteral("hundredfolioseq"),
+					QStringLiteral("conductorautonumfoliosequentials"),
+					QStringLiteral("conductor"),
+					QStringLiteral("hundredfolio"));
+	}
+
+	// if child haven't got a child, loading is finish (diagram is empty)
+	if (root.firstChild().isNull()) {
+		return(true);
+	}
+
+		//A project opened with lazy folios builds a folio's items when
+		//they are first needed: until then the folio has what it says
+		//about itself (uuid, title block, border, numbering) and keeps its
+		//XML, which belongs to the project's document.
+	if (consider_informations && !m_loading_deferred && m_project
+		&& m_project->deferringFolios()) {
+		m_deferred = root;
+		return(true);
+	}
+
+		//If paste from another project
+	if (root.hasAttribute(QStringLiteral("projectId")))
+	{
+		QETProject *other_project = QETApp::project(root.attribute(QStringLiteral("projectId"),
+																   QStringLiteral("-1")).toInt());
+
+		/* We try to paste from another project,
+		 *  then before paste elements,
+		 *  we must import the definition of the pasted elements
+		 *  (owned by other project)
+		 *  in the embedded collection of this project
+		 */
+		if (other_project && other_project != m_project)
+		{
+			ElementCollectionHandler ech;
+			for (auto element_xml :
+				 QET::findInDomElement(root,
+							   QStringLiteral("elements"),
+							   QStringLiteral("element"))) {
+				if (!Element::valideXml(element_xml)) continue;
+
+				QString type_id = element_xml.attribute(QStringLiteral("type"));
+
+				if (type_id.startsWith(QStringLiteral("embed://"))) {
+					ElementsLocation location(
+								type_id,
+								other_project);
+					ech.importFromProject(m_project,
+								location);
+				}
+			}
+		}
+	}
+		//Load all elements from the XML
+	QList<Element *> added_elements;
+	QHash<int, Terminal *> table_adr_id;
+	if (m_loading_deferred) {
+		table_adr_id = m_partial_table;   //the terminals of symbols built already
+	}
+		//Each symbol read, by uuid: the ends of a wire kept (keepWire())
+	QList<QPair<QUuid, QDomElement>> read_symbols;
+	if (consider_informations) {
+		m_kept_document = QDomDocument();
+		m_kept_symbols.clear();
+		m_kept_wires.clear();
+		m_symbols_not_loaded.clear();
+	}
+		//A symbol read in carries the identities of the one it was
+		//copied from for as long as the reading lasts -- the loop here
+		//and everything the pasting below moves afterwards -- or a copy
+		//would steal the ends of a bridge from the symbol it was made of
+	BridgeManager::ReadingGuard reading;
+	for (auto element_xml :
+		 QET::findInDomElement(root, QStringLiteral("elements"), QStringLiteral("element")))
+	{
+		if (!Element::valideXml(element_xml)) continue;
+			//Built already as another folio's partner (buildSymbols())
+		if (m_loading_deferred) {
+			Element *built = m_partial_elements.value(QUuid(element_xml.attribute(QStringLiteral("uuid"))));
+			if (built) {
+				added_elements << built;
+				read_symbols.append({built->uuid(), element_xml});
+				continue;
+			}
+		}
+		if (Element *nvel_elmt = buildElement(element_xml, table_adr_id, consider_informations)) {
+			added_elements << nvel_elmt;
+			if (consider_informations) read_symbols.append({nvel_elmt->uuid(), element_xml});
+		} else if (consider_informations) {
+				//Its definition is missing: kept as read, saved back, so a
+				//save loses nothing (F127)
+			QDomElement kept = m_kept_document.importNode(element_xml, true).toElement();
+			if (QUuid(kept.attribute(QStringLiteral("uuid"))).isNull() && m_project)
+				kept.setAttribute(QStringLiteral("uuid"), derivedSymbolUuid(element_xml).toString());
+			m_kept_symbols << kept;
+			queueValuesStore();
+			read_symbols.append({QUuid(kept.attribute(QStringLiteral("uuid"))), element_xml});
+			QString label;
+			for (const QDomElement &info : QET::findInDomElement(
+					 element_xml, QStringLiteral("elementInformations"), QStringLiteral("elementInformation")))
+				if (info.attribute(QStringLiteral("name")) == QLatin1String("label")) label = info.text();
+			const QString type = element_xml.attribute(QStringLiteral("type"));
+			m_symbols_not_loaded << (label.isEmpty()
+									 ? type.section(QLatin1Char('/'), -1)
+									 : QStringLiteral("%1 (%2)").arg(label, type.section(QLatin1Char('/'), -1)));
+		}
+	}
+
+		//Texts, images and shapes written before they carried a uuid (or
+		//carrying one already used on this folio, from a hand-edited file)
+		//get one derived from the folio uuid, their kind and their order in
+		//the file, so that loading the same file twice gives the same uuids.
+		//A random one would be a different identity on every load, and
+		//toXml() writes it out, which is what #754 was for conductors.
+		//Only for a folio being loaded: a paste renews them all anyway.
+	QSet<QUuid> used_uuids;
+	auto settle_uuid = [&](auto *item, const QDomElement &xml,
+						   const QString &kind, int index) {
+		const QUuid persisted(xml.attribute(QStringLiteral("uuid")));
+		if (consider_informations
+			&& (persisted.isNull() || used_uuids.contains(persisted))) {
+			item->setUuid(QUuid::createUuidV5(
+							  m_uuid,
+							  QStringLiteral("%1\n%2\n%3")
+							  .arg(kind)
+							  .arg(index)
+							  .arg(persisted.toString())));
+		}
+		used_uuids.insert(item->uuid());
+	};
+
+		// Load text
+	QList<IndependentTextItem *> added_texts;
+	for (auto text_xml : QET::findInDomElement(root,
+											   QStringLiteral("inputs"),
+											   QStringLiteral("input"))) {
+		IndependentTextItem *iti = new IndependentTextItem();
+		iti -> fromXml(text_xml);
+		settle_uuid(iti, text_xml, QStringLiteral("input"), added_texts.size());
+		ItemGroups::setGroup(iti, ItemGroups::read(text_xml));
+		addItem(iti);
+		added_texts << iti;
+	}
+
+		// Load image
+		// Decoding is most of the time of a folio with photos (a quarter of
+		// a second each), so the pictures are decoded first, in parallel,
+		// and the items built afterwards in this thread.
+	const QList<QDomElement> images_xml = QET::findInDomElement(
+				root, QStringLiteral("images"), QStringLiteral("image"));
+	QList<DiagramImageItem::Picture> pictures;
+	pictures.reserve(images_xml.size());
+	for (const QDomElement &image_xml : images_xml) {
+		const QString picture_file = QetContainer::pictureFile(image_xml);
+		pictures << DiagramImageItem::pictureOf(
+						image_xml,
+						!picture_file.isEmpty() && project()
+						? project() -> containerPicture(picture_file)
+						: QByteArray());
+	}
+	if (pictures.size() > 1) {
+		QThreadPool pool;
+		pool.setMaxThreadCount(std::min<int>(QThread::idealThreadCount(),
+											 pictures.size()));
+		QtConcurrent::blockingMap(&pool, pictures,
+								  &DiagramImageItem::decodePicture);
+	} else {
+		for (DiagramImageItem::Picture &picture : pictures)
+			DiagramImageItem::decodePicture(picture);
+	}
+
+	QList<DiagramImageItem *> added_images;
+	for (qsizetype i = 0 ; i < images_xml.size() ; ++i) {
+		const QDomElement &image_xml = images_xml.at(i);
+		DiagramImageItem *dii = new DiagramImageItem ();
+		dii -> fromXml(image_xml, std::move(pictures[i]));
+		settle_uuid(dii, image_xml, QStringLiteral("image"), added_images.size());
+		ItemGroups::setGroup(dii, ItemGroups::read(image_xml));
+		addItem(dii);
+		added_images << dii;
+	}
+
+		// Load shape
+	QList<QetShapeItem *> added_shapes;
+	for (auto shape_xml : QET::findInDomElement(root,
+												QStringLiteral("shapes"),
+												QStringLiteral("shape"))) {
+		QetShapeItem *dii = new QetShapeItem (QPointF(0,0));
+		dii -> fromXml(shape_xml);
+		settle_uuid(dii, shape_xml, QStringLiteral("shape"), added_shapes.size());
+		ItemGroups::setGroup(dii, ItemGroups::read(shape_xml));
+		addItem(dii);
+		added_shapes << dii;
+	}
+
+		// Load dimensions
+	QList<DimensionItem *> added_dimensions;
+	for (auto dim_xml : QET::findInDomElement(root,
+											   QStringLiteral("dimensions"),
+											   QStringLiteral("dimension"))) {
+		DimensionItem *dim = new DimensionItem();
+		dim->fromXml(dim_xml);
+		settle_uuid(dim, dim_xml, QStringLiteral("dimension"), added_dimensions.size());
+		ItemGroups::setGroup(dim, ItemGroups::read(dim_xml));
+		addItem(dim);
+		added_dimensions << dim;
+	}
+
+		// Load the parts of a cabinet. One this program does not know (a
+		// kind a later version added) is left out rather than misdrawn.
+	QList<CabinetItem *> added_cabinet_items;
+	for (auto part_xml : QET::findInDomElement(root,
+												QStringLiteral("cabinet_items"),
+												QStringLiteral("cabinet_item"))) {
+		CabinetItem *part = new CabinetItem();
+		if (!part->fromXml(part_xml)) {
+			delete part;
+			continue;
+		}
+		settle_uuid(part, part_xml, QStringLiteral("cabinet_item"), added_cabinet_items.size());
+		ItemGroups::setGroup(part, ItemGroups::read(part_xml));
+		addItem(part);
+		added_cabinet_items << part;
+	}
+
+		//Load tables
+	QVector<QetGraphicsTableItem *> added_tables;
+	for (const auto &dom_table : QETXML::subChild(root,
+												  QStringLiteral("tables"),
+												  QetGraphicsTableItem::xmlTagName()))
+	{
+		auto table = new QetGraphicsTableItem();
+		addItem(table);
+		table->fromXml(dom_table);
+		added_tables << table;
+	}
+
+		//Load terminal strip item
+	QVector<TerminalStripItem *> added_strips { TerminalStripItemXml::fromXml(this, root) };
+
+		//Load the cable lines a copy fragment carries -- built here
+		//rather than in the caller so that they are placed with the rest
+		//of the selection, but only when the caller asked to be handed
+		//them: a folio loaded from a project file holds no cable of its
+		//own, the cables of a project are read at project level.
+	QList<CablePart *> added_cables;
+	if (cables_added) {
+		added_cables = CableCopy::read(this, root);
+		*cables_added = added_cables;
+	}
+
+		//The bridge lines of a copy are no longer put down (Brandon,
+		//2026-11-25): a bridge is one of its terminal strip, made by the
+		//wire between its terminals (WireBridges)
+	QList<Bridge *> added_bridges;
+	if (bridges_added) {
+		*bridges_added = added_bridges;
+	}
+
+	//Translate items if a new position was given in parameter
+	if (position != QPointF())
+	{
+		QVector <QGraphicsItem *> added_items;
+		for (auto element : std::as_const(added_elements   )) added_items << element;
+		for (auto shape   : std::as_const(added_shapes     )) added_items << shape;
+		for (auto text    : std::as_const(added_texts      )) added_items << text;
+		for (auto image   : std::as_const(added_images     )) added_items << image;
+		for (auto table   : std::as_const(added_tables     )) added_items << table;
+		for (const auto &strip : std::as_const(added_strips)) added_items << strip;
+		for (const auto &cable : std::as_const(added_cables)) added_items << cable;
+		for (auto dim     : std::as_const(added_dimensions )) added_items << dim;
+		for (auto part    : std::as_const(added_cabinet_items)) added_items << part;
+		for (Bridge *bridge : std::as_const(added_bridges)) {
+			for (BridgePart *part : BridgePart::allParts()) {
+				if (part && part->bridge() == bridge) {
+					added_items << part;
+				}
+			}
+		}
+
+		//Get the top left corner of the rectangle that contain all added items
+		QRectF items_rect;
+		for (auto item : added_items) {
+			items_rect = items_rect.united(item->mapToScene(item->boundingRect()).boundingRect());
+		}
+
+		QPointF point_ = items_rect.topLeft();
+		QPointF pos_ = Diagram::snapToGrid(QPointF (position.x() - point_.x(),
+						position.y() - point_.y()));
+
+			//Translate all added items
+		for (auto qgi : added_items) {
+			qgi->setPos(qgi->pos() += pos_);
+		}
+	}
+	else
+	{
+	}
+
+	  // Load conductor
+	if (consider_informations)
+		m_wires_not_reconnected.clear();
+	QList<Conductor *> added_conductors;
+	int moved_ends = 0;
+	for (auto f : QET::findInDomElement(root,
+										QStringLiteral("conductors"),
+										QStringLiteral("conductor")))
+	{
+		if (!Conductor::valideXml(f)) {
+				//Its ends cannot be read: kept and written back unchanged
+				//(F128), it can join nothing
+			if (consider_informations) {
+				KeptWire kept;
+				kept.xml = m_kept_document.importNode(f, true).toElement();
+				kept.as_read = true;
+				m_kept_wires << kept;
+				queueValuesStore();
+			}
+			continue;
+		}
+
+			   //Check if terminal that conductor must be linked is know
+
+		const auto ends = pickEnds(f,
+								   findTerminals(1, f, table_adr_id, added_elements),
+								   findTerminals(2, f, table_adr_id, added_elements));
+		Terminal* p1 = ends.first;
+		Terminal* p2 = ends.second;
+
+			//Keep a trace of the wire, it will be missing from the next save
+		if ((!p1 || !p2) && consider_informations)
+		{
+				//The symbol's label, else its name. For an end not found,
+				//only the uuid form of a wire says which symbol it is on.
+			auto end_label = [&f, &added_elements](const QString &index,
+												   Terminal *found) {
+				Element *element = found ? found->parentElement() : nullptr;
+				const QUuid uuid(f.attribute(QStringLiteral("element") + index));
+				for (int i = 0 ; !element && !uuid.isNull()
+								 && i < added_elements.size() ; ++i) {
+					if (added_elements.at(i)->uuid() == uuid)
+						element = added_elements.at(i);
+				}
+				if (!element)
+					return QStringLiteral("?");
+				const QString label = element->actualLabel();
+				return label.isEmpty() ? element->name() : label;
+			};
+			QString wire = QStringLiteral("%1 - %2").arg(end_label(QStringLiteral("1"), p1),
+													   end_label(QStringLiteral("2"), p2));
+			const QString num = f.attribute(QStringLiteral("num"));
+			if (!num.isEmpty() && num != QLatin1String("_"))
+				wire += QStringLiteral(" (%1)").arg(num);
+			m_wires_not_reconnected << wire;
+				//Kept as read, saved back (F128)
+			keepWire(f, p1, p2, read_symbols);
+		}
+
+		if (p1 && p2 && p1 != p2)
+		{
+			Conductor *c = new Conductor(p1, p2);
+			if (c->isValid())
+			{
+				addItem(c);
+				c -> fromXml(f);
+					//A wire saved without a uuid got a random one that was
+					//never saved (#754), so it had no identity from one
+					//session to the next. Derive it from what it connects:
+					//the symbol and terminal at each end, sorted so the
+					//direction it was drawn in does not matter. Never its
+					//place in the file or its folio's index, so inserting or
+					//moving a folio, or saving the wires in another order,
+					//does not change it. It is saved from now on, so
+					//re-connecting the wire later keeps it; derivedItemUuid()
+					//never hands out a uuid the file already carries, so a
+					//wire later drawn on the ends it left gets another one.
+				if (consider_informations && m_project
+					&& QUuid(f.attribute(QStringLiteral("uuid"))).isNull()) {
+					auto end = [](const Terminal *t) {
+						return t->parentElement()->uuid().toString()
+								+ QLatin1Char('/') + t->stableUuid().toString();
+					};
+					QStringList ends{end(p1), end(p2)};
+					ends.sort();
+					c->setUuid(m_project->derivedItemUuid(QStringLiteral("conductor"),
+													  ends.join(QLatin1Char('\n'))));
+				}
+				added_conductors << c;
+				for (Terminal *end : {p1, p2})
+					if (end->parentElement()->terminalWasMoved(end)) ++moved_ends;
+			}
+			else
+				delete c;
+		}
+	}
+	if (consider_informations && moved_ends) {
+		qInfo().noquote() << "Diagram::fromXml():"
+						  << moved_ends
+						  << "wire end(s) on a terminal that moved since the project was saved,"
+						  << "matched to it by place";
+	}
+		//A copy of a symbol sharing its uuid with another (older versions'
+		//copies, F100) gets its own, now that its wires are connected to
+		//it: wires and links then name one symbol each
+		//(QETProject::renewedSharedUuid(), only while the project opens)
+	if (consider_informations && m_project) {
+		const int folio_index = m_project->folioIndex(this);
+		QHash<QUuid, int> ordinal;
+		for (Element *element : std::as_const(added_elements)) {
+			const QUuid shared = element->uuid();
+			const QUuid renewed = m_project->renewedSharedUuid(folio_index, ordinal[shared]++,
+															   shared, uuid());
+			if (!renewed.isNull()) {
+				element->setUuid(renewed);
+			}
+		}
+	}
+
+	if (consider_informations && !m_wires_not_reconnected.isEmpty()) {
+		qWarning().noquote() << "Diagram::fromXml():"
+							 << m_wires_not_reconnected.size()
+							 << "wire(s) not loaded, a terminal they join was not found:"
+							 << m_wires_not_reconnected.join(QStringLiteral(", "));
+	}
+
+		//A text showing data of a part reads it again from the parts
+		//database: the part may have changed since the file was saved
+	PartTexts::refresh(added_elements);
+
+		//A routing sheet: its ways, and the plate they run on
+	if (consider_informations && isRoutingFolio()) {
+		CabinetRouting::fromXml(this, root);
+		CabinetRouting::attach(this);
+	}
+
+		//Filling of falculatory lists
+	if (content_ptr) {
+		content_ptr -> m_elements           = added_elements;
+		content_ptr -> m_conductors_to_move = added_conductors;
+		content_ptr -> m_text_fields	= QSet<IndependentTextItem *>(
+					added_texts.begin(),
+					added_texts.end());
+		content_ptr -> m_images		= QSet<DiagramImageItem *>(
+					added_images.begin(),
+					added_images.end());
+		content_ptr -> m_shapes		= QSet<QetShapeItem *>(
+					added_shapes.begin(),
+					added_shapes.end());
+		content_ptr->m_terminal_strip.swap(added_strips);
+		content_ptr->m_tables.swap(added_tables);
+		content_ptr -> m_dimensions	= QSet<DimensionItem *>(
+					added_dimensions.begin(),
+					added_dimensions.end());
+		content_ptr -> m_cabinet_items = QSet<CabinetItem *>(
+					added_cabinet_items.begin(),
+					added_cabinet_items.end());
+	}
+
+	adjustSceneRect();
+	return(true);
+}
+
+/**
+	@brief Diagram::folioSequentialsFromXml
+	Load folio sequential from QDomElement
+	@param root containing all folio sequentials
+	@param hash : to be loaded with content
+	@param folioSeq type
+	@param seq type
+	@param type of sequential
+	@param autonumFolioSeqType
+*/
+void Diagram::folioSequentialsFromXml(const QDomElement &root,
+				      QHash<QString,
+				      QStringList>* hash,
+				      const QString& folioSeq,
+				      const QString& seq,
+				      const QString& type,
+				      const QString& autonumFolioSeqType,
+				      const QString& owner,
+				      const QString& level) {
+	foreach (QDomElement folioSeqAutoNum,
+		 QET::findInDomElement(root, autonumFolioSeqType, folioSeq)) {
+		for(QDomElement folioseq
+		    = folioSeqAutoNum.firstChildElement(type);
+		    !folioseq.isNull();
+		    folioseq = folioseq.nextSiblingElement(type)) {
+			QString title = folioseq.attribute(QStringLiteral("title"));
+			QStringList list;
+			int i = 1;
+			while (folioseq.hasAttribute(seq
+						     + QString::number(i))) {
+				list << folioseq.attribute(
+						seq + QString::number(i));
+				i++;
+			}
+			hash->insert(title,list);
+				//2b-4, habit 4: populate the row from the
+				//document being parsed, not from a built
+				//scene -- this runs whether or not the
+				//folio ever becomes one.
+			if (!owner.isEmpty() && project()) {
+				project()->dataBase()->setFolioCounterValues(
+						uuid(), owner, level, title, list);
+			}
+		}
+	}
+}
+
+/**
+	@brief Diagram::refreshContents
+	refresh all content of diagram.
+	- refresh conductor text.
+	- linking the elements waiting to be linked
+	- Refresh the connection of the dynamic element text item
+	  (use for text with source of text label)
+	- Fill the texts of a report (or a wire label) that show the
+	  properties of the wire they are on.
+*/
+void Diagram::refreshContents()
+{
+	DiagramContent dc_(this, false);
+
+	for (auto &elmt : dc_.m_elements) {
+		elmt->initLink(project());
+		for (auto &deti : elmt->dynamicTextItems())
+			deti->refreshLabelConnection();
+		/*
+		 * A report's texts showing a wire's properties are filled when
+		 * the wires are added, which is after the symbols are read
+		 * (Diagram::buildContents()), and once more 100 ms later by
+		 * DynamicElementTextItem::conductorWasAdded(). Both run after
+		 * the project left the parsing state, so the alignment is live
+		 * and the fill would take the rect of the still empty text for
+		 * anchor -- a right aligned one then shifts by the whole width
+		 * of its text, on every open.
+		 *
+		 * A linked report gets that fill here already, through
+		 * initLink() -> linkedElementChanged() -> reportChanged(), while
+		 * the project is still parsing; buildFolios() relies on it. An
+		 * unlinked one, and one whose partner is on a folio not built
+		 * yet, got nothing: fill them here too, in that same state. The
+		 * later fill then finds the text already set and changes
+		 * nothing.
+		 */
+		elmt->updateConductorTexts();
+	}
+
+	for (auto &conductor : dc_.conductors()) {
+		conductor->refreshText();
+	}
+
+	for (auto &table : std::as_const(dc_.m_tables)) {
+		table->initLink();
+	}
+
+	for (auto &strip :std::as_const(dc_.m_terminal_strip)) {
+		strip->refreshPending();
+	}
+}
+
+/**
+	@brief Diagram::addItem
+	Réimplemented from QGraphicsScene::addItem(QGraphicsItem *item)
+	Do some specific operation if item need it (for example an element)
+	@param item
+*/
+void Diagram::addItem(QGraphicsItem *item)
+{
+	if (!item || isReadOnly() || item->scene() == this) return;
+	QGraphicsScene::addItem(item);
+
+	switch (item->type())
+	{
+		case Element::Type:
+		{
+			Element *elmt = static_cast<Element *>(item);
+			m_project->dataBase()->addElement(elmt);
+			if ((elmt->linkType() & Element::AllReport) && m_project->chainedReports()) {
+				m_project->scheduleAutoLink();
+			}
+			break;
+		}
+		case Conductor::Type:
+		{
+			Conductor *conductor = static_cast<Conductor *>(item);
+			conductor->terminal1->addConductor(conductor);
+			conductor->terminal2->addConductor(conductor);
+			conductor->calculateTextItemPosition();
+			m_project->dataBase()->addConductor(conductor);
+			break;
+		}
+		case QetShapeItem::Type:
+		case DimensionItem::Type:
+		case IndependentTextItem::Type:
+		case DiagramImageItem::Type:
+		case QetGraphicsTableItem::Type:
+		{
+			m_project->dataBase()->addDrawingItem(item);
+			break;
+		}
+		default: {break;}
+	}
+}
+
+/**
+	@brief Diagram::removeItem
+	Reimplemented from QGraphicsScene::removeItem(QGraphicsItem *item)
+	Do some specific operation if item need it (for example an element)
+	@param item
+*/
+void Diagram::removeItem(QGraphicsItem *item)
+{
+	if (!item || isReadOnly()) return;
+
+	switch (item->type())
+	{
+		case Element::Type:
+		{
+			auto elmt = static_cast<Element*>(item);
+			elmt->unlinkAllElements();
+			m_project->dataBase()->removeElement(elmt);
+			if ((elmt->linkType() & Element::AllReport) && m_project->chainedReports()) {
+				m_project->scheduleAutoLink();
+			}
+			break;
+		}
+		case Conductor::Type:
+		{
+			Conductor *conductor = static_cast<Conductor *>(item);
+			conductor->terminal1->removeConductor(conductor);
+			conductor->terminal2->removeConductor(conductor);
+			m_project->dataBase()->removeConductor(conductor);
+			break;
+		}
+		case QetShapeItem::Type:
+		case DimensionItem::Type:
+		case IndependentTextItem::Type:
+		case DiagramImageItem::Type:
+		case QetGraphicsTableItem::Type:
+		{
+			m_project->dataBase()->removeDrawingItem(item);
+			break;
+		}
+		default: {break;}
+	}
+
+	QGraphicsScene::removeItem(item);
+}
+/**
+	@brief Diagram::titleChanged
+	emit(diagramTitleChanged(this, title));
+	@param title
+*/
+void Diagram::titleChanged() {
+	emit(diagramTitleChanged(this));
+}
+
+/**
+	@brief Diagram::titleBlockTemplateChanged
+	This slot may be used to inform the diagram object that the given title
+	block template has changed. The diagram will thus flush its title
+	block-dedicated rendering cache.
+	@param template_name Name of the title block template that has changed
+*/
+void Diagram::titleBlockTemplateChanged(const QString &template_name) {
+	if (border_and_titleblock.titleBlockTemplateName() != template_name)
+		return;
+
+	border_and_titleblock.titleBlockTemplateChanged(template_name);
+	update();
+}
+
+/**
+	@brief Diagram::titleBlockTemplateRemoved
+	This slot has to be be used to inform this class that the given title block
+	template is about to be removed and is no longer accessible. This class
+	will either use the provided  optional TitleBlockTemplate or the default
+	title block provided by QETApp::defaultTitleBlockTemplate()
+	@param template_name Name of the title block template that has changed
+	@param new_template (Optional) Name of the title block template to use instead
+*/
+void Diagram::titleBlockTemplateRemoved(const QString &template_name,
+					const QString &new_template)
+{
+	if (border_and_titleblock.titleBlockTemplateName() != template_name) return;
+	const TitleBlockTemplate *final_template =
+			m_project->embeddedTitleBlockTemplatesCollection()
+			->getTemplate(new_template);
+	border_and_titleblock.titleBlockTemplateRemoved(template_name,
+							final_template);
+	update();
+}
+
+/**
+	@brief Diagram::setTitleBlockTemplate
+	Set the template to use to render the title block of this diagram.
+	@param template_name Name of the title block template.
+*/
+void Diagram::setTitleBlockTemplate(const QString &template_name)
+{
+	if (!m_project) return;
+
+	QString current_name = border_and_titleblock.titleBlockTemplateName();
+	const TitleBlockTemplate *titleblock_template =
+			m_project->embeddedTitleBlockTemplatesCollection()
+			->getTemplate(template_name);
+	border_and_titleblock.titleBlockTemplateRemoved(current_name,
+							titleblock_template);
+
+	if (template_name != current_name)
+		emit(usedTitleBlockTemplateChanged(template_name));
+
+	project()->dataBase()->diagramInfoChanged(this);
+}
+
+/**
+	@brief Diagram::selectAll
+	Select all schema objects
+	\~French Selectionne tous les objets du schema
+*/
+void Diagram::selectAll()
+{
+	if (items().isEmpty()) return;
+
+	blockSignals(true);
+	foreach(QGraphicsItem *qgi, items()) qgi -> setSelected(true);
+	blockSignals(false);
+	emit(selectionChanged());
+}
+
+/**
+	@brief Diagram::deselectAll
+	Deselects all selected objects
+	\~French Deslectionne tous les objets selectionnes
+*/
+void Diagram::deselectAll()
+{
+	if (items().isEmpty()) return;
+
+	clearSelection();
+}
+
+/**
+	@brief Diagram::invertSelection
+	Reverses the selection state of all schema objects
+	Inverse l'etat de selection de tous les objets du schema
+*/
+void Diagram::invertSelection()
+{
+	if (items().isEmpty()) return;
+
+	blockSignals(true);
+
+		//Get only allowed graphics item
+		//because some item can be deleted between the
+		//call of items() and the use of the item in the second 'for' loop
+		//and crash Qet with a segfault.
+	QVector<QGraphicsItem *> item_list;
+	for (auto item : items())
+	{
+		if (dynamic_cast<QetGraphicsItem *>(item) ||
+			dynamic_cast<DiagramTextItem *>(item) ||
+			dynamic_cast<Conductor *>(item)) {
+			item_list << item;
+		}
+	}
+	for (auto item : std::as_const(item_list)) {
+		item -> setSelected(!item -> isSelected());
+	}
+
+	blockSignals(false);
+	emit selectionChanged();
+}
+
+/**
+	@brief Diagram::selectAllConductors
+	Select every conductor on this diagram, deselecting anything else.
+*/
+void Diagram::selectAllConductors()
+{
+	if (items().isEmpty()) return;
+
+	blockSignals(true);
+	for (auto item : items()) {
+		item -> setSelected(dynamic_cast<Conductor *>(item) != nullptr);
+	}
+	blockSignals(false);
+	emit selectionChanged();
+}
+
+/**
+	@brief Diagram::selectAllTextFields
+	Select every text field on this diagram (independent/static text,
+	conductor labels, and dynamic element texts), deselecting anything else.
+*/
+void Diagram::selectAllTextFields()
+{
+	if (items().isEmpty()) return;
+
+	blockSignals(true);
+	for (auto item : items()) {
+		item -> setSelected(dynamic_cast<DiagramTextItem *>(item) != nullptr);
+	}
+	blockSignals(false);
+	emit selectionChanged();
+}
+
+/**
+	@brief Diagram::setItemGroup
+	Put @a item in @a group, or take it out of its group if @a group is
+	null, and keep its row in the project database in step.
+	@param item
+	@param group
+*/
+void Diagram::setItemGroup(QGraphicsItem *item, const QUuid &group)
+{
+	ItemGroups::setGroup(item, group);
+	if (m_project) {
+		m_project->dataBase()->itemGroupChanged(item);
+	}
+	emit itemGroupChanged();
+}
+
+/**
+	@brief Diagram::completeGroupSelection
+	Make the selection whole groups again after the user changed it with a
+	click, see ItemGroups::completeSelection(). Called from the mouse
+	handlers and, when a rubber band is released, from DiagramView -- not
+	on every selectionChanged(): code that selects items itself (export,
+	search, Tab cycling) deselects and reselects one item at a time and
+	must not have groups pulled back in behind it.
+	Left alone while a rubber band is being dragged, which reselects exactly
+	what it covers on every mouse step.
+*/
+void Diagram::completeGroupSelection()
+{
+	for (QGraphicsView *view : views()) {
+		if (!view->rubberBandRect().isNull()) {
+			return;
+		}
+	}
+
+	QList<QGraphicsItem *> previous;
+	for (const QPointer<QGraphicsObject> &item : std::as_const(m_previous_selection)) {
+		if (item) {
+			previous << item.data();
+		}
+	}
+
+		//One selectionChanged() for the whole group, not one per member:
+		//the properties dock rebuilds on each.
+	blockSignals(true);
+	const bool changed = ItemGroups::completeSelection(
+				this, previous,
+				QApplication::keyboardModifiers().testFlag(Qt::ControlModifier));
+	blockSignals(false);
+	if (changed) {
+		emit selectionChanged();
+	}
+	rememberSelection();
+}
+
+/**
+	@brief Diagram::rememberSelection
+	Keep the current selection, the "before" completeGroupSelection() needs
+	to tell a member being Ctrl+clicked off.
+*/
+void Diagram::rememberSelection()
+{
+	m_previous_selection.clear();
+	for (QGraphicsItem *item : selectedItems()) {
+		if (QGraphicsObject *object = item->toGraphicsObject()) {
+			m_previous_selection << object;
+		}
+	}
+}
+
+/**
+	@brief Diagram::selectNextItem
+	Select the next (or, if @a forward is false, the previous) selectable
+	item on this diagram, cycling through items() (z-order) and wrapping
+	around at either end. If nothing is currently selected, selects the
+	first (or last) item. Uses the same "what counts as a real selectable
+	diagram item" filter as invertSelection(), so the candidate list and
+	its order always match what the user could reach by clicking.
+	@param forward true to select the next item, false for the previous one
+*/
+void Diagram::selectNextItem(bool forward)
+{
+	QList<QGraphicsItem *> candidates;
+	for (auto item : items()) {
+		if (dynamic_cast<QetGraphicsItem *>(item) ||
+			dynamic_cast<DiagramTextItem *>(item) ||
+			dynamic_cast<Conductor *>(item)) {
+			candidates << item;
+		}
+	}
+	if (candidates.isEmpty())
+		return;
+
+	int current_index = -1;
+	for (int i = 0; i < candidates.size(); ++i) {
+		if (candidates.at(i) -> isSelected()) {
+			current_index = i;
+			break;
+		}
+	}
+
+	int next_index;
+	if (current_index == -1) {
+		next_index = forward ? 0 : candidates.size() - 1;
+	} else {
+		next_index = forward
+				? (current_index + 1) % candidates.size()
+				: (current_index - 1 + candidates.size()) % candidates.size();
+	}
+
+	clearSelection();
+	QGraphicsItem *next_item = candidates.at(next_index);
+	next_item -> setSelected(true);
+	next_item -> ensureVisible();
+}
+
+/**
+	@brief Diagram::insertFolioSeqHash
+	This class inserts a stringlist containing all
+	sequential variables related to an autonum in a QHash
+	@param hash : to be accessed
+	@param title : autonum title
+	@param type : to be treated
+	@param nc : Context to be manipulated
+*/
+void Diagram::insertFolioSeqHash(QHash<QString,
+				 QStringList> *hash,
+				 const QString& title,
+				 const QString& type,
+				 NumerotationContext *nc,
+				 const QString &owner) {
+	QStringList max;
+	for (int i = 0; i < nc->size(); i++) {
+		if (nc->itemAt(i).at(0) == type) {
+			nc->replaceValue(i,
+					 QString::number(
+						 nc->itemAt(i).at(3).toInt()));
+			max.append(QString::number(nc->itemAt(i).at(3).toInt()
+						   - nc->itemAt(i).at(2).toInt()));
+		}
+	}
+	hash->insert(title,max);
+		//2b-4: the hash stays the source; the row follows it, same
+		//write-through pattern as the numbering tables (2b-1).
+	if (!owner.isEmpty() && project()) {
+		project()->dataBase()->setFolioCounterValues(uuid(), owner, type, title, max);
+	}
+}
+
+/**
+	@brief Diagram::loadFolioSeqHash
+	This class loads all folio sequential variables
+	related to the current autonum
+	@param hash : to be accessed
+	@param title : autonum title
+	@param type : to be treated
+	@param nc : Context to be manipulated
+*/
+void Diagram::loadFolioSeqHash(QHash<QString,
+			       QStringList> *hash,
+			       const QString& title,
+			       const QString& type,
+			       NumerotationContext *nc) {
+		int j = 0;
+		for (int i = 0; i < nc->size(); i++) {
+			if (nc->itemAt(i).at(0) == type) {
+				QString new_value;
+				new_value =
+					QString::number(
+						hash->value(title).at(j).toInt()
+						+ nc->itemAt(i).at(2).toInt());
+				nc->replaceValue(i,new_value);
+				j++;
+			}
+		}
+}
+
+/**
+	@brief Diagram::setFolioSeqValues
+	What this folio has handed out of the numbering @p title, at level
+	@p level for @p owner ("element" or "conductor"), is @p values from
+	now on -- the hash this folio numbers from, and the rows the project
+	saves them in, which writeFolioCounters() writes back into the file.
+
+	Writing both is what insertFolioSeqHash() and folioSequentialsFromXml()
+	do, and it is what keeps a counter the user put back, or one which
+	went down because the folio was numbered over from the start, from
+	being overwritten by the value saved for it.
+*/
+void Diagram::setFolioSeqValues(const QString &owner,
+				const QString &level,
+				const QString &title,
+				const QStringList &values)
+{
+	const bool element = owner == QLatin1String("element");
+	const bool conductor = owner == QLatin1String("conductor");
+	if (!element && !conductor) {
+		return;
+	}
+	QHash<QString, QStringList> *hash = nullptr;
+	if (level == QLatin1String("unitfolio")) {
+		hash = element ? &m_elmt_unitfolio_max : &m_cnd_unitfolio_max;
+	} else if (level == QLatin1String("tenfolio")) {
+		hash = element ? &m_elmt_tenfolio_max : &m_cnd_tenfolio_max;
+	} else if (level == QLatin1String("hundredfolio")) {
+		hash = element ? &m_elmt_hundredfolio_max : &m_cnd_hundredfolio_max;
+	}
+	if (!hash) {
+		return;
+	}
+	hash->insert(title, values);
+	if (project() && project()->dataBase()) {
+		project()->dataBase()->setFolioCounterValues(
+				uuid(), owner, level, title, values);
+	}
+}
+
+/**
+	@brief Diagram::changeZValue
+	Change the Z value of the current selected item, according to option
+	@param option
+*/
+void Diagram::changeZValue(QET::DepthOption option)
+{
+	DiagramContent dc(this);
+	QUndoCommand *undo = new QUndoCommand(tr("Change the depth"));
+	QList<QGraphicsItem *> l = dc.items(DiagramContent::SelectedOnly | \
+					    DiagramContent::Elements | \
+					    DiagramContent::Shapes | \
+					    DiagramContent::Images);
+	QList<QGraphicsObject *> list;
+	for(QGraphicsItem *item : l)
+		list << item->toGraphicsObject();
+
+	qreal maxz=0,
+		  minz=0;
+	for(QGraphicsItem *item : this->items())
+	{
+		qreal z = item->zValue();
+		if(z >= Terminal::Z-2)
+			continue;
+		maxz = std::max(maxz,z);
+		minz = std::min(minz,z);
+	}
+
+	if(option == QET::Raise)
+	{
+		for(QGraphicsObject *qgo : list)
+			if(qgo->zValue() < (Terminal::Z-2))	//Ensure item is always below terminal
+				new QPropertyUndoCommand(qgo,
+							 "z",
+							 qgo->zValue(),
+							 qgo->zValue()+1,
+							 undo);
+	}
+	else if(option == QET::Lower)
+	{
+		for(QGraphicsObject *qgo : list)
+			if(qgo->zValue() < (Terminal::Z-2))	//Ensure item is always below terminal
+				new QPropertyUndoCommand(qgo,
+							 "z",
+							 qgo->zValue(),
+							 qgo->zValue()-1,
+							 undo);
+	}
+	else if (option == QET::BringForward)
+	{
+		for(QGraphicsObject *qgo : list)
+				new QPropertyUndoCommand(qgo,
+							 "z",
+							 qgo->zValue(),
+							 maxz+1,
+							 undo);
+	}
+	else if(option == QET::SendBackward)
+	{
+		for(QGraphicsObject *qgo : list)
+				new QPropertyUndoCommand(qgo,
+							 "z",
+							 qgo->zValue(),
+							 minz-1,
+							 undo);
+	}
+
+	if(undo->childCount())
+		this->undoStack().push(undo);
+	else
+		delete undo;
+}
+
+/**
+	@brief Diagram::loadElmtFolioSeq
+	This class loads all folio sequential variables related
+	to the current autonum
+*/
+void Diagram::loadElmtFolioSeq()
+{
+	QString title = project()->elementCurrentAutoNum();
+	NumerotationContext nc = project()->elementAutoNum(title);
+
+	//Unit Folio
+	if (m_elmt_unitfolio_max.isEmpty()
+			|| !m_elmt_unitfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%sequf_"))) {
+			insertFolioSeqHash(&m_elmt_unitfolio_max,
+					   title,
+					   QStringLiteral("unitfolio"),
+					   &nc,
+					   QStringLiteral("element"));
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+	else if (m_elmt_unitfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%sequf_"))) {
+			loadFolioSeqHash(&m_elmt_unitfolio_max,
+					 title,
+					 QStringLiteral("unitfolio"),
+					 &nc);
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+
+	//Ten Folio
+	if (m_elmt_tenfolio_max.isEmpty()
+			|| !m_elmt_tenfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%seqtf_"))) {
+			insertFolioSeqHash(&m_elmt_tenfolio_max,
+					   title,
+					   QStringLiteral("tenfolio"),
+					   &nc,
+					   QStringLiteral("element"));
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+	else if (m_elmt_tenfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%seqtf_"))) {
+			loadFolioSeqHash(&m_elmt_tenfolio_max,
+					 title,
+					 QStringLiteral("tenfolio"),
+					 &nc);
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+
+	//Hundred Folio
+	if (m_elmt_hundredfolio_max.isEmpty()
+			|| !m_elmt_hundredfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%seqhf_"))) {
+			insertFolioSeqHash(&m_elmt_hundredfolio_max,
+					   title,
+					   QStringLiteral("hundredfolio"),
+					   &nc,
+					   QStringLiteral("element"));
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+	else if (m_elmt_hundredfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (project()->elementAutoNumCurrentFormula().contains(
+					QStringLiteral("%seqhf_"))) {
+			loadFolioSeqHash(&m_elmt_hundredfolio_max,
+					 title,
+					 QStringLiteral("hundredfolio"),
+					 &nc);
+			project()->addElementAutoNum(title,nc);
+		}
+	}
+}
+
+/**
+	@brief Diagram::loadCndFolioSeq
+	This class loads all conductor folio sequential variables related
+	to the current autonum
+*/
+void Diagram::loadCndFolioSeq()
+{
+	//Conductor
+	QString title = project()->conductorCurrentAutoNum();
+	NumerotationContext nc = project()->conductorAutoNum(title);
+	QString formula = autonum::numerotationContextToFormula(nc);
+
+	//Unit Folio
+	if (m_cnd_unitfolio_max.isEmpty()
+			|| !m_cnd_unitfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (formula.contains(QStringLiteral("%sequf_"))) {
+			insertFolioSeqHash(&m_cnd_unitfolio_max,
+					   title,
+					   QStringLiteral("unitfolio"),
+					   &nc,
+					   QStringLiteral("conductor"));
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+	else if (m_cnd_unitfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (formula.contains(QStringLiteral("%sequf_"))) {
+			loadFolioSeqHash(&m_cnd_unitfolio_max,
+					 title,
+					 QStringLiteral("unitfolio"),
+					 &nc);
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+
+	//Ten Folio
+	if (m_cnd_tenfolio_max.isEmpty()
+			|| !m_cnd_tenfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (formula.contains(QStringLiteral("%seqtf_"))) {
+			insertFolioSeqHash(&m_cnd_tenfolio_max,
+					   title,
+					   QStringLiteral("tenfolio"),
+					   &nc,
+					   QStringLiteral("conductor"));
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+	else if (m_cnd_tenfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (formula.contains(QStringLiteral("%seqtf_"))) {
+			loadFolioSeqHash(&m_cnd_tenfolio_max,
+					 title,
+					 QStringLiteral("tenfolio"),
+					 &nc);
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+
+	//Hundred Folio
+	if (m_cnd_hundredfolio_max.isEmpty()
+			|| !m_cnd_hundredfolio_max.contains(title)) {
+		//Insert Initial Value
+		if (formula.contains(QStringLiteral("%seqhf_"))) {
+			insertFolioSeqHash(&m_cnd_hundredfolio_max,
+					   title,
+					   QStringLiteral("hundredfolio"),
+					   &nc,
+					   QStringLiteral("conductor"));
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+	else if (m_cnd_hundredfolio_max.contains(title)) {
+		//Load Folio Current Value
+		if (formula.contains(QStringLiteral("%seqhf_"))) {
+			loadFolioSeqHash(&m_cnd_hundredfolio_max,
+					 title,
+					 QStringLiteral("hundredfolio"),
+					 &nc);
+			project()->addConductorAutoNum(title,nc);
+		}
+	}
+}
+
+/**
+	@brief Diagram::title
+	@return title of the titleblock
+	\~Frenchle titre du cartouche
+*/
+QString Diagram::title() const
+{
+	return(border_and_titleblock.title());
+}
+
+/**
+	@brief Diagram::elements
+	@return  the list containing all elements
+*/
+QList <Element *> Diagram::elements() const
+{
+	QList<Element *> element_list;
+	foreach (QGraphicsItem *qgi, items()) {
+		if (Element *elmt = qgraphicsitem_cast<Element *>(qgi))
+			element_list <<elmt;
+	}
+	return (element_list);
+}
+
+/**
+	@brief Diagram::conductors
+	@return the list containing all conductors
+*/
+QList <Conductor *> Diagram::conductors() const
+{
+	QList<Conductor *> cnd_list;
+	foreach (QGraphicsItem *qgi, items()) {
+		if (Conductor *cnd = qgraphicsitem_cast<Conductor *>(qgi))
+			cnd_list <<cnd;
+	}
+	return (cnd_list);
+}
+
+/**
+	@brief Diagram::elementsMover
+	@return
+*/
+ElementsMover &Diagram::elementsMover()
+{
+	return m_elements_mover;
+}
+
+/**
+	@brief Diagram::elementTextsMover
+	@return
+*/
+ElementTextsMover &Diagram::elementTextsMover()
+{
+	return m_element_texts_mover;
+}
+
+/**
+	@brief Diagram::usesElement
+	Used to find out if an element is used on a schema
+	\~French Permet de savoir si un element est utilise sur un schema
+	\~ @param location : Location of an element
+	\~French Emplacement d'un element
+	\~ @return true if the location element is used on this schema,
+	false otherwise
+	\~French true si l'element location est utilise sur ce schema,
+	false sinon
+*/
+bool Diagram::usesElement(const ElementsLocation &location)
+{
+	for(Element *element : elements()) {
+		if (element -> location() == location) {
+			return(true);
+		}
+	}
+	return(false);
+}
+
+/**
+	@brief Diagram::usesTitleBlockTemplate
+	@param name : a title block template name
+	@return true if the provided template is used by this diagram, false
+	otherwise.
+*/
+bool Diagram::usesTitleBlockTemplate(const QString &name) {
+	return(name == border_and_titleblock.titleBlockTemplateName());
+}
+
+/**
+	@brief Diagram::freezeElements
+	Freeze every existent element label.
+*/
+void Diagram::freezeElements(bool freeze) {
+	foreach (Element *elmt, elements()) {
+		elmt->freezeLabel(freeze);
+	}
+}
+
+/**
+	@brief Diagram::unfreezeElements
+	Unfreeze every existent element label.
+*/
+void Diagram::unfreezeElements()
+{
+	foreach (Element *elmt, elements()) {
+		elmt->freezeLabel(false);
+	}
+}
+
+/**
+	@brief Diagram::freezeNewElements
+	Set new element label to be frozen.
+*/
+void Diagram::setFreezeNewElements(bool b) {
+	m_freeze_new_elements = b;
+	queueValuesStore();
+}
+
+/**
+	@brief Diagram::freezeNewElements
+	@return current freeze new element status .
+*/
+bool Diagram::freezeNewElements()
+{
+	return m_freeze_new_elements;
+}
+
+/**
+	@brief Diagram::setFolioKind
+	Make this folio a schematic or the construction of a cabinet. A new
+	folio is given its kind before anything is drawn on it.
+*/
+void Diagram::setFolioKind(FolioKind kind)
+{
+	if (m_folio_kind == kind) return;
+	m_folio_kind = kind;
+	queueValuesStore();
+	emit folioKindChanged();
+		//The title block's %{scale}
+	emit border_and_titleblock.needFolioData();
+	update();
+}
+
+/**
+	@brief Diagram::setCabinetScale
+	Draw the cabinet of this folio at 1:@p scale. What a cabinet folio
+	holds is kept in millimetres: its items stand where they stood in
+	the cabinet, redrawn at the new scale.
+*/
+void Diagram::setCabinetScale(qreal scale)
+{
+	if (scale <= 0 || qFuzzyCompare(scale, m_cabinet_scale)) return;
+		//The parts of a folio not built yet stand where the old scale put
+		//them: they are moved with the others
+	ensureLoaded();
+	const qreal old_pixels_per_mm = pixelsPerMm();
+	m_cabinet_scale = scale;
+	const qreal ratio = pixelsPerMm() / old_pixels_per_mm;
+	if (isCabinetFolio()) {
+		for (QGraphicsItem *item : items()) {
+			if (auto *cabinet_item = qgraphicsitem_cast<CabinetItem *>(item))
+				cabinet_item->scaleChanged(ratio);
+		}
+	} else if (isRoutingFolio()) {
+			//Its ways are in millimetres: drawn again where they now stand
+		CabinetRouting::refresh(this);
+	}
+	queueValuesStore();
+	emit cabinetScaleChanged();
+		//The title block's %{scale}
+	emit border_and_titleblock.needFolioData();
+	update();
+}
+
+/**
+	@brief Diagram::drawingScale
+	@return how many millimetres of the real thing one millimetre of this
+	folio stands for: 1 on a schematic, the scale of the cabinet on a
+	cabinet folio
+*/
+qreal Diagram::drawingScale() const
+{
+	return (isCabinetFolio() || isRoutingFolio()) ? m_cabinet_scale : 1.0;
+}
+
+/**
+	@brief Diagram::setRouting
+	Make this routing sheet route the wires of @p plate on @p cabinet_folio
+*/
+void Diagram::setRouting(const QUuid &cabinet_folio, const QUuid &plate)
+{
+	m_routing_source = cabinet_folio;
+	m_routing_plate = plate;
+	queueValuesStore();
+	update();
+}
+
+/**
+	@brief Diagram::pixelsPerMm
+	@return the pixels of this folio one millimetre of the real thing takes
+*/
+qreal Diagram::pixelsPerMm() const
+{
+	return pixelsPerPaperMm / drawingScale();
+}
+
+QString Diagram::folioKindToString(FolioKind kind)
+{
+	switch (kind) {
+		case FolioKind::Cabinet: return QStringLiteral("cabinet");
+		case FolioKind::Routing: return QStringLiteral("routing");
+		case FolioKind::Schematic: break;
+	}
+	return QStringLiteral("schematic");
+}
+
+Diagram::FolioKind Diagram::folioKindFromString(const QString &text)
+{
+	if (text == QLatin1String("cabinet")) return FolioKind::Cabinet;
+	if (text == QLatin1String("routing")) return FolioKind::Routing;
+	return FolioKind::Schematic;
+}
+
+/**
+	@brief Diagram::freezeConductors
+	Freeze every existent conductor label.
+*/
+void Diagram::freezeConductors(bool freeze) {
+	foreach (Conductor *cnd, conductors()) {
+		cnd->setFreezeLabel(freeze);
+	}
+}
+
+/**
+	@brief Diagram::setfreezeNewConductors
+	Set new conductor label to be frozen.
+*/
+void Diagram::setFreezeNewConductors(bool b) {
+	m_freeze_new_conductors_ = b;
+	queueValuesStore();
+}
+
+/**
+	@brief Diagram::freezeNewConductors
+	@return current freeze new conductor status .
+*/
+bool Diagram::freezeNewConductors()
+{
+	return m_freeze_new_conductors_;
+}
+
+/**
+	@brief Diagram::adjustSceneRect
+	Recalcul and adjust the size of the scene
+*/
+void Diagram::adjustSceneRect()
+{
+	QRectF old_rect = sceneRect();
+	setSceneRect(border_and_titleblock.borderAndTitleBlockRect().united(
+			     visibleItemsBoundingRect()));
+	update(old_rect.united(sceneRect()));
+}
+
+/**
+	@brief Diagram::visibleItemsBoundingRect
+	Same as QGraphicsScene::itemsBoundingRect(), but only counts items that
+	are shown. A hidden item keeps whatever position it last had: the text of
+	a single-line wire, and the wire texts hidden by "one text per potential",
+	are never positioned again and can sit far outside the drawing (#1281).
+	@return the bounding rect of the visible items, in scene coordinates
+*/
+QRectF Diagram::visibleItemsBoundingRect() const
+{
+	QRectF rect;
+	const auto scene_items = items();
+	for (QGraphicsItem *item : scene_items) {
+		if (item->isVisible())
+			rect |= item->sceneBoundingRect();
+	}
+	return rect;
+}
+
+/**
+	@brief Diagram::applyProperties
+	This method allows you to apply new rendering options while
+	accessing the current rendering properties.
+	\~French Cette methode permet d'appliquer de nouvelles options de rendu
+	tout en accedant aux proprietes de rendu en cours.
+	\~ @param new_properties :
+	New rendering options to apply
+	\~French Nouvelles options de rendu a appliquer
+	\~ @return rendering options before applying new_properties
+	\~French les options de rendu avant l'application de new_properties
+*/
+ExportProperties Diagram::applyProperties(
+		const ExportProperties &new_properties) {
+	// exports current rendering options
+	// exporte les options de rendu en cours
+	ExportProperties old_properties;
+	old_properties.draw_grid               = displayGrid();
+	old_properties.draw_guides             = displayGuides();
+	old_properties.draw_border = border_and_titleblock.borderIsDisplayed();
+	old_properties.draw_titleblock = border_and_titleblock.titleBlockIsDisplayed();
+	old_properties.draw_terminals          = drawTerminals();
+	old_properties.draw_colored_conductors = drawColoredConductors();
+	old_properties.exported_area = useBorder() ? QET::BorderArea
+						   : QET::ElementsArea;
+
+	// apply the new rendering options
+	// applique les nouvelles options de rendu
+	setUseBorder             (new_properties.exported_area == QET::BorderArea);
+	setDrawTerminals         (new_properties.draw_terminals);
+	setDrawColoredConductors (new_properties.draw_colored_conductors);
+	setDisplayGrid           (new_properties.draw_grid);
+	setDisplayGuides         (new_properties.draw_guides);
+	border_and_titleblock.displayBorder(new_properties.draw_border);
+	border_and_titleblock.displayTitleBlock (new_properties.draw_titleblock);
+
+	// return old rendering options
+	// retourne les anciennes options de rendu
+	return(old_properties);
+}
+
+/**
+	@brief Diagram::convertPosition
+	@param pos :
+	Cartesian position (ex: 10.3, 45.2) to transform into position
+	in the grid (ex: B2)
+	\~French  Position cartesienne (ex : 10.3, 45.2) a transformer en position
+	dans la grille (ex : B2)
+	\~ @return a position in the grid corresponding to pos
+	\~French la position dans la grille correspondant a pos
+*/
+DiagramPosition Diagram::convertPosition(const QPointF &pos) {
+	// delegue le calcul au BorderTitleBlock
+	DiagramPosition diagram_position =
+			border_and_titleblock.convertPosition(pos);
+
+	// embarque la position cartesienne
+	diagram_position.setPosition(pos);
+
+	return(diagram_position);
+}
+
+/**
+	@brief Diagram::snapToGrid
+	Return a nearest snap point of p
+	@param p point to find the nearest snapped point
+	@return
+*/
+QPointF Diagram::snapToGrid(const QPointF &p)
+{
+	QSettings settings;
+	const int xGrid = FolioGrid::step(settings.value(FolioGrid::x_key), Diagram::xGrid);
+	const int yGrid = FolioGrid::step(settings.value(FolioGrid::y_key), Diagram::yGrid);
+
+	//Return a point rounded to the nearest pixel
+	if (!gridSnap() || QApplication::keyboardModifiers().testFlag(Qt::ControlModifier))
+	{
+		int p_x = qRound(p.x());
+		int p_y = qRound(p.y());
+		return (QPointF(p_x, p_y));
+	}
+
+		//Return a point snapped to the grid
+	int p_x = qRound(p.x() / xGrid) * xGrid;
+	int p_y = qRound(p.y() / yGrid) * yGrid;
+	return (QPointF(p_x, p_y));
+}
+
+namespace {
+		/// -1 until read from the settings
+	int s_grid_snap = -1;
+	const QString grid_snap_key = QStringLiteral("diagrameditor/grid_snap");
+}
+
+bool Diagram::gridSnap()
+{
+	if (s_grid_snap < 0)
+		s_grid_snap = QSettings().value(grid_snap_key, true).toBool() ? 1 : 0;
+	return s_grid_snap == 1;
+}
+
+void Diagram::setGridSnap(bool snap)
+{
+	s_grid_snap = snap ? 1 : 0;
+	QSettings().setValue(grid_snap_key, snap);
+}
+
+/**
+	@brief Diagram::snapToTextGrid
+	Return the nearest point of p on the text grid, see TextGrid.
+	Ctrl held, or the snap switched off, rounds to the nearest pixel
+	instead, as snapToGrid() does.
+	@param p point to find the nearest snapped point
+	@return
+*/
+QPointF Diagram::snapToTextGrid(const QPointF &p)
+{
+	QSettings settings;
+	const qreal divisor =
+		!gridSnap() || QApplication::keyboardModifiers().testFlag(Qt::ControlModifier)
+			? 0
+			: settings.value(TextGrid::settings_key, 1).toReal();
+
+	return TextGrid::snap(p,
+						  FolioGrid::step(settings.value(FolioGrid::x_key), Diagram::xGrid),
+						  FolioGrid::step(settings.value(FolioGrid::y_key), Diagram::yGrid),
+						  divisor);
+}
+
+
+
+/**
+	@brief Diagram::setDrawTerminals
+	Defines whether or not to display the terminals
+	\~French Definit s'il faut afficher ou non les bornes
+	\~ @param dt : true to display the bounds, false otherwise
+	\~French true pour afficher les bornes, false sinon
+*/
+void Diagram::setDrawTerminals(bool dt) {
+	draw_terminals_ = dt;
+	foreach(QGraphicsItem *qgi, items()) {
+		if (Terminal *t = qgraphicsitem_cast<Terminal *>(qgi)) {
+			t -> update();
+		}
+	}
+}
+
+/**
+	@brief Diagram::setDrawColoredConductors
+	Defines whether or not to respect the colors of the conductors.
+	If not, the conductors are all drawn in black.
+	\~French Definit s'il faut respecter ou non les couleurs des conducteurs.
+	Si non, les conducteurs sont tous dessines en noir.
+	\~ @param dcc true to respect the colors, false otherwise
+	\~French dcc true pour respecter les couleurs, false sinon
+*/
+void Diagram::setDrawColoredConductors(bool dcc) {
+	draw_colored_conductors_ = dcc;
+}
+
+/**
+	@brief Diagram::selectedConductors
+	@return the list of conductors selected on the diagram
+	\~French la liste des conducteurs selectionnes sur le schema
+*/
+QSet<Conductor *> Diagram::selectedConductors() const
+{
+	QSet<Conductor *> conductors_set;
+	foreach(QGraphicsItem *qgi, selectedItems()) {
+		if (Conductor *c = qgraphicsitem_cast<Conductor *>(qgi)) {
+			conductors_set << c;
+		}
+	}
+	return(conductors_set);
+}
+
+/**
+	@brief Diagram::clipboardMayContainDiagram
+	@return true if the clipboard appears to contain a schema
+	\~French true si le presse-papier semble contenir un schema
+*/
+bool Diagram::clipboardMayContainDiagram()
+{
+	QString clipboard_text = QApplication::clipboard() -> text().trimmed();
+	bool may_be_diagram = clipboard_text.startsWith(QStringLiteral("<diagram"))
+			&& clipboard_text.endsWith(QStringLiteral("</diagram>"));
+	return(may_be_diagram);
+}
+
+/**
+	@brief Diagram::project
+	@return the project to which this schema belongs
+	or 0 if it is an independent schema.
+	\~French le projet auquel ce schema appartient
+	ou 0 s'il s'agit d'un schema independant.
+*/
+QETProject *Diagram::project() const
+{
+	return(m_project);
+}
+
+/**
+	@brief Diagram::folioIndex
+	@return the folio number of this diagram within its parent project,
+	or -1 if it is has no parent project
+*/
+int Diagram::folioIndex() const
+{
+	if (!m_project) return(-1);
+	return(m_project -> folioIndex(this));
+}
+
+/**
+	@brief Diagram::isReadOnly
+	@return  true if this diagram is read only.
+	This method is same has call Diagram::project() -> isReadOnly()
+*/
+bool Diagram::isReadOnly() const
+{
+	return m_project -> isReadOnly();
+}
+
+/**
+	@brief Diagram::content
+	@return The content of the diagram.
+	The conductors are all seated in conductorsToMove.
+	\~French Le contenu du schema. Les conducteurs sont tous places dans
+	conductorsToMove.
+*/
+DiagramContent Diagram::content() const
+{
+	DiagramContent dc;
+	foreach(QGraphicsItem *qgi, items()) {
+		if (Element *e = qgraphicsitem_cast<Element *>(qgi)) {
+			dc.m_elements << e;
+		} else if (IndependentTextItem *iti =
+			   qgraphicsitem_cast<IndependentTextItem *>(qgi)) {
+			dc.m_text_fields << iti;
+		} else if (Conductor *c =
+			   qgraphicsitem_cast<Conductor *>(qgi)) {
+			dc.m_conductors_to_move << c;
+		}
+	}
+	return(dc);
+}
+
+/**
+	@brief Diagram::canRotateSelection
+	@return True if a least one of selected items can be rotated
+*/
+bool Diagram::canRotateSelection() const
+{
+	for (QGraphicsItem *qgi : selectedItems())
+	{
+		if (qgi->type() == IndependentTextItem::Type ||
+			qgi->type() == ConductorTextItem::Type ||
+			qgi->type() == DiagramImageItem::Type ||
+			qgi->type() == Element::Type ||
+			qgi->type() == DynamicElementTextItem::Type)
+			return true;
+
+		if(qgi->type() == QGraphicsItemGroup::Type)
+			if(dynamic_cast<ElementTextItemGroup *>(qgi))
+				return true;
+	}
+
+	return false;
+}
+/*
+ * 	To copy elements with right-aligned or centered elementtext, the text position
+	of dynamicElementTextItems in report- and slave elements must be reset
+	to the original insert position bevor writing to clipboard.
+	It is only necessary for right-aligned and centered texts,
+	but we do it for all, because it has no influence on other texts.
+*/
+/**
+	@brief Diagram::correctTextPos
+	set insertion position to the original insertion position of the element texts before copying
+	@param Element
+*/
+void Diagram::correctTextPos(Element* elmt)
+{
+	for (auto deti : elmt->dynamicTextItems()){
+
+		  // correct dynamicElementTextItem of type ElementInfo
+		if( deti->textFrom() == DynamicElementTextItem::ElementInfo){
+			// save current PlainText
+			deti->setText(deti->toPlainText());
+				// writing an empty string to PlainText set
+				// the insertion point to the original insertion point
+			deti->setPlainText("");
+				// block the alignment calculation for the next write action
+			deti->m_block_alignment = true;
+				// we need to set the plain text with its value,
+				// otherewise the text value will not be copy
+			deti->setPlainText(deti->text());
+			deti->m_block_alignment = false;
+		}
+			// correct dynamicElementTextItem of type CompositeText
+		else if(deti->textFrom() == DynamicElementTextItem::CompositeText){
+			QString composite_text = deti->compositeText();
+
+				// create compositeText() without variables for slave item
+				// This string corresponds to the original text with original insertion point
+			if(elmt->linkType()==Element::Slave){
+				const QStringList variables_list = QETInformation::elementInfoKeys();
+				for (auto &variable : variables_list){
+					if(composite_text.contains(QETInformation::infoToVar(variable)))
+						composite_text.replace(QETInformation::infoToVar(variable),"");
+				}
+			}
+				// create compositeText() without variables for a report
+				// item or a conductor definition: both fill their texts
+				// from what hangs on their wire, so their variables are
+				// the same ones
+			else if(elmt->linkType()&Element::AllReport
+					|| elmt->linkType()==Element::ConductorDefinition){
+				const QStringList variables_list = QETInformation::folioReportInfoKeys();
+				for (auto &variable : variables_list){
+					if(composite_text.contains(QETInformation::infoToVar(variable)))
+						composite_text.replace(QETInformation::infoToVar(variable),"");
+				}
+			}
+
+			deti->setText(deti->toPlainText());
+			deti->setPlainText(composite_text);
+			deti->m_block_alignment = true;
+			deti->setPlainText(deti->text());
+			deti->m_block_alignment = false;
+				// We need the string for the restoration, so we save it
+			deti->setText(composite_text);
+		}
+	}
+
+		// same for textgroups
+	for (auto group : elmt->textGroups()){
+		for(DynamicElementTextItem *deti : group->texts()){
+			if( deti->textFrom() == DynamicElementTextItem::ElementInfo){
+				deti->setText(deti->toPlainText());
+				deti->m_block_alignment = true;
+				deti->setPlainText(deti->text());
+				deti->m_block_alignment = false;
+				deti->setPlainText("");
+			}
+
+			else if(deti->textFrom() == DynamicElementTextItem::CompositeText){
+				QString composite_text = deti->compositeText();
+				if(elmt->linkType()==Element::Slave){
+					QStringList variables_list = QETInformation::elementInfoKeys();
+					for (auto variable : variables_list){
+						if(composite_text.contains(QETInformation::infoToVar(variable)))
+							composite_text.replace(QETInformation::infoToVar(variable),"");
+					}
+				}
+				else if(elmt->linkType()&Element::AllReport
+						|| elmt->linkType()==Element::ConductorDefinition){
+					QStringList variables_list = QETInformation::folioReportInfoKeys();
+					for (auto variable : variables_list){
+						if(composite_text.contains(QETInformation::infoToVar(variable)))
+							composite_text.replace(QETInformation::infoToVar(variable),"");
+					}
+				}
+
+				deti->setText(deti->toPlainText());
+				deti->setPlainText(composite_text);
+				deti->m_block_alignment = true;
+				deti->setPlainText(deti->text());
+				deti->m_block_alignment = false;
+				deti->setText(composite_text);
+			}
+		}
+	}
+}
+
+/*
+ * After changing the element texts for copying, the element texts has to be restored.
+ */
+/**
+	@brief Diagram::restoreText
+	After correcting the elementtext position during copying
+	the Text has to be restored
+	@param Element
+*/
+void Diagram::restoreText(Element* elmt)
+{
+	for (auto deti : elmt->dynamicTextItems()){
+			// restore info text
+		if( deti->textFrom() == DynamicElementTextItem::ElementInfo){
+				// delete the actual plainText without alignmant calculation
+			deti->m_block_alignment = true;
+			deti->setPlainText("");
+			deti->m_block_alignment = false;
+				// restore the plainText
+			deti->setPlainText(deti->text());
+		}
+			// restore composite text
+		else if	(deti->textFrom() == DynamicElementTextItem::CompositeText){
+			QString composite_text = deti->text();
+			deti->setText(deti->toPlainText());
+				// set the PlainText to the origin text without alignment calculation
+			deti->m_block_alignment = true;
+			deti->setPlainText(composite_text);
+			deti->m_block_alignment = false;
+			deti->setPlainText(deti->text());
+		}
+	}
+	  // same for text groups
+	for (auto group : elmt->textGroups()){
+		for(DynamicElementTextItem *deti : group->texts()){
+			if( deti->textFrom() == DynamicElementTextItem::ElementInfo){
+				deti->m_block_alignment = true;
+				deti->setPlainText("");
+				deti->m_block_alignment = false;
+				deti->setPlainText(deti->text());
+			}
+			else if	(deti->textFrom() == DynamicElementTextItem::CompositeText){
+				QString composite_text = deti->text();
+				deti->setText(deti->toPlainText());
+				deti->m_block_alignment = true;
+				deti->setPlainText(composite_text);
+				deti->m_block_alignment = false;
+				deti->setPlainText(deti->text());
+			}
+		}
+	}
+}
+
+QUndoStack &Diagram::undoStack() {
+	return *(project()->undoStack());
+}
+
+/**
+ * @brief Diagram::updateProjectGuides
+ * Aktualisiert die internen Hilfslinien dieses Schaltplans
+ * basierend auf den Projekt-Einstellungen und erzwingt ein Neuzeichnen.
+ */
+void Diagram::updateProjectGuides(const QList<GuideProperties> &guides) {
+	m_guides_list.clear();
+	for (const GuideProperties &pg : guides) {
+		Diagram::Guide g;
+		g.orientation = static_cast<Diagram::Guide::Orientation>(pg.orientation);
+		g.position = pg.position;
+		g.color = pg.color;
+		m_guides_list.append(g);
+	}
+	update();
+}

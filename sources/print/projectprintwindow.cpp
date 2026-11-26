@@ -1,0 +1,921 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "projectprintwindow.h"
+#include "printdrawing.h"
+#include "../qetdiagrameditor.h"
+
+#include "../diagram.h"
+#include "../pdf_links.h"
+#include "../qeticons.h"
+#include "../qetinformation.h"
+#include "../qetproject.h"
+#include "../qetversion.h"
+#include "../qetgraphicsitem/crossrefitem.h"
+#include "../qetgraphicsitem/dynamicelementtextitem.h"
+#include "../qetgraphicsitem/element.h"
+#include "../qetgraphicsitem/elementtextitemgroup.h"
+
+#include "ui_projectprintwindow.h"
+
+// Private Qt PDF engine for drawHyperlink() is not a public API.
+// Availability of Qt::GuiPrivate is verified at configure time in CMakeLists.txt.
+#include <private/qpdf_p.h>
+
+#include <QMarginsF>
+#include <QPageSetupDialog>
+#include <QPainter>
+#include <QPrintDialog>
+#include <QPrintPreviewWidget>
+#include <QFile>
+#include <QRegularExpression>
+#include <QMap>
+#include <QTimer>
+#include <QVector>
+
+/**
+ * @brief ProjectPrintWindow::ProjectPrintWindow
+ * Use this static function to properly launch the print dialog.
+ * @param project : project to print
+ * @param format : native format to print in physical printer, or pdf format to export in pdf
+ * @param parent : parent widget
+ */
+void ProjectPrintWindow::launchDialog(QETProject *project, QPrinter::OutputFormat format, QWidget *parent)
+{
+	auto printer_ = new QPrinter(QPrinter::HighResolution);
+	printer_->setDocName(ProjectPrintWindow::docName(project));
+	printer_->setPageOrientation(QPageLayout::Landscape);
+
+	if (format == QPrinter::NativeFormat) //To physical printer
+	{
+		QPrintDialog print_dialog(printer_, parent);
+#ifdef Q_OS_MACOS
+		print_dialog.setWindowFlags(Qt::Sheet);
+#endif
+		print_dialog.setWindowTitle(tr("Print options", "window title"));
+		print_dialog.setOption(QAbstractPrintDialog::PrintShowPageSize, true);
+		if (print_dialog.exec() == QDialog::Rejected) {
+			delete  printer_;
+			return;
+		}
+	}
+	else //To pdf file
+	{
+		auto dir_path = project->currentDir();
+		QString file_name = QDir::toNativeSeparators(QDir::cleanPath(dir_path + "/" + printer_->docName()));
+		if (!file_name.endsWith(".pdf")) {
+			file_name.append(".pdf");
+		}
+		printer_->setCreator(QString("FaseCAD %1").arg(QetVersion::productVersion()));
+		printer_->setOutputFileName(file_name);
+		printer_->setOutputFormat(QPrinter::PdfFormat);
+	}
+
+	auto w = new ProjectPrintWindow(project, printer_, parent);
+	w->showMaximized();
+}
+
+QString ProjectPrintWindow::docName(QETProject *project)
+{
+	QString doc_name;
+	if (!project->filePath().isEmpty()) {
+		doc_name = QFileInfo(project->filePath()).completeBaseName();
+	} else if (!project->title().isEmpty()) {
+		doc_name = project->title();
+		doc_name = QET::stringToFileName(doc_name);
+	}
+
+	if (doc_name.isEmpty()) {
+		doc_name = tr("project", "string used to generate a filename");
+	}
+
+	return doc_name;
+}
+
+/**
+ * @brief ProjectPrintWindow::ProjectPrintWindow
+ * Constructor, don't use this class directly, instead use ProjectPrintWindow::launchDialog static function.
+ * @param project
+ * @param printer : QPrinter to use. Note that ProjectPrintWindow take ownerchip of @printer
+ * @param parent
+ */
+ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, QWidget *parent) :
+	QMainWindow(parent),
+	ui(new Ui::ProjectPrintWindow),
+	m_project(project),
+	m_printer(printer)
+{
+	ui->setupUi(this);
+
+	loadPageSetupForCurrentPrinter();
+
+	m_preview = new QPrintPreviewWidget(m_printer);
+	connect(m_preview, &QPrintPreviewWidget::paintRequested, this, &ProjectPrintWindow::requestPaint);
+	ui->m_vertical_layout->addWidget(m_preview);
+
+	setUpDiagramList();
+
+	if (m_printer->outputFormat() == QPrinter::NativeFormat) //Print to physical printer
+	{
+		setWindowTitle(tr("Print preview", "window title"));
+		auto print_button = new QPushButton(QET::Icons::DocumentPrint, tr("Print"));
+		ui->m_button_box->addButton(print_button, QDialogButtonBox::ActionRole);
+		connect(print_button, &QPushButton::clicked, this, &ProjectPrintWindow::print);
+	}
+	else	//export to pdf
+	{
+		setWindowTitle(tr("Export to PDF", "window title"));
+		auto pdf_button = new QPushButton(QET::Icons::PDF, tr("Export in pdf"));
+		ui->m_button_box->addButton(pdf_button, QDialogButtonBox::ActionRole);
+		connect(pdf_button, &QPushButton::clicked, this, &ProjectPrintWindow::exportToPDF);
+	}
+	ui->m_component_info_cb->setVisible(m_printer->outputFormat() == QPrinter::PdfFormat);
+
+	auto exp = ExportProperties::defaultPrintProperties();
+	ui->m_draw_border_cb->setChecked(exp.draw_border);
+	ui->m_draw_titleblock_cb->setChecked(exp.draw_titleblock);
+	ui->m_draw_terminal_cb->setChecked(exp.draw_terminals);
+	ui->m_keep_conductor_color_cb->setChecked(exp.draw_colored_conductors);
+
+	QSettings settings;
+	ui->m_component_info_cb->setChecked(settings.value("print/default/componentinfo", false).toBool());
+	ui->m_fit_in_page_cb->setChecked(settings.value("print/default/fitinpage", true).toBool());
+	ui->m_use_full_page_cb->setChecked(settings.value("print/default/fullpage", false).toBool());
+
+	ui->m_date_cb->blockSignals(true);
+	ui->m_date_cb->setDate(QDate::currentDate());
+	ui->m_date_cb->blockSignals(false);
+
+#ifdef Q_OS_WINDOWS
+	/*
+	 * On windows, the QPageSetupDialog use the native dialog.
+	 * This dialog can only manage physical printer ("native printer")
+	 */
+	if (m_printer->outputFormat() == QPrinter::PdfFormat)
+	{
+		ui->m_page_setup->setDisabled(true);
+		ui->m_page_setup->setText(tr("Layout (not available on Windows for PDF export)"));
+	}
+#endif
+
+	m_backup_diagram_background_color = Diagram::background_color;
+	Diagram::background_color = Qt::white;
+}
+
+/**
+ * @brief ProjectPrintWindow::~ProjectPrintWindow
+ */
+ProjectPrintWindow::~ProjectPrintWindow()
+{
+	delete ui;
+	delete m_printer;
+	Diagram::background_color = m_backup_diagram_background_color;
+}
+
+/**
+ * @brief ProjectPrintWindow::requestPaint
+ * @param slot called when m_preview emit paintRequested
+ */
+void ProjectPrintWindow::requestPaint()
+{
+		//The printer keeps its own resolution: QetPrint::render() keeps the
+		//texts in proportion, and a lower one made Windows round every
+		//line to a screen pixel (#1596).
+
+	if (!m_project->folios().count()) {
+		return;
+	}
+
+	// Build diagram -> first physical PDF page number map (1-based)
+	// Must be done before the print loop since page numbers depend on order
+	QMap<Diagram*, int> diagramPageMap;
+	{
+		int pageNum = 1;
+		for (auto diagram : selectedDiagram()) {
+			diagramPageMap.insert(diagram, pageNum);
+			// Each diagram may span multiple pages if not fit_page
+			if (!ui->m_fit_in_page_cb->isChecked()) {
+				auto option = exportProperties();
+				bool full_page = m_printer->fullPage();
+				int h = horizontalPagesCount(diagram, option, full_page);
+				int v = verticalPagesCount(diagram, option, full_page);
+				pageNum += h * v;
+			} else {
+				pageNum += 1;
+			}
+		}
+	}
+
+	// A PDF export turns each page to its folio's orientation (#1480): a
+	// portrait folio gets a portrait page instead of being shrunk onto a
+	// landscape one. Only the real export, with one page per folio: the
+	// preview draws every page at one paper size, and only Qt's PDF engine
+	// accepts a new page layout once printing has started.
+	const bool per_folio_orientation = m_printing
+		&& m_printer->outputFormat() == QPrinter::PdfFormat
+		&& ui->m_fit_in_page_cb->isChecked();
+	const auto chosen_orientation = m_printer->pageLayout().orientation();
+	const auto diagrams = selectedDiagram();
+	if (per_folio_orientation && !diagrams.isEmpty()) {
+		setOrientationForDiagram(diagrams.first());
+	}
+
+	bool first = true;
+	QPainter painter(m_printer);
+	int annotIndex = 0;
+
+	// A real PDF export uses the QPdfEngine; the on-screen preview uses a
+	// preview paint engine. We only post-process when actually writing a PDF.
+	const bool pdfExport =
+		(m_printer->outputFormat() == QPrinter::PdfFormat)
+		&& (dynamic_cast<QPdfEngine*>(painter.paintEngine()) != nullptr);
+// plc-user: added because of "Warning: unused variable 'pdfExport'":
+// should be fixed by original author by evaluating function-result!
+	(void)pdfExport;
+
+	for (auto diagram : diagrams)
+	{
+		if (first) {
+			first = false;
+		} else {
+			if (per_folio_orientation) {
+				setOrientationForDiagram(diagram);
+			}
+			m_printer->newPage();
+		}
+		printDiagram(diagram, ui->m_fit_in_page_cb->isChecked(), &painter, m_printer, diagramPageMap, annotIndex);
+	}
+
+	if (per_folio_orientation) {
+		m_printer->setPageOrientation(chosen_orientation);
+	}
+
+	// Note: do NOT call painter.end() or pdfConvertUriToGoTo() here.
+	// We are inside the paintRequested slot: the QPrintPreviewWidget still
+	// owns the paint cycle.  On macOS arm64 (Metal/CALayer compositor),
+	// closing the QPainter manually inside this slot leaves the backing
+	// store in an undefined state, producing a black screen after export.
+	// pdfConvertUriToGoTo() is deferred to print() via QTimer::singleShot(0).
+}
+
+/**
+ * @brief ProjectPrintWindow::setOrientationForDiagram
+ * Turn the next page to portrait or landscape, as @diagram is drawn.
+ * @param diagram
+ */
+void ProjectPrintWindow::setOrientationForDiagram(Diagram *diagram)
+{
+	const QRect rect = diagramRect(diagram, exportProperties());
+	m_printer->setPageOrientation(rect.height() > rect.width()
+									  ? QPageLayout::Portrait
+									  : QPageLayout::Landscape);
+}
+
+/**
+ * @brief ProjectPrintWindow::printDiagram
+ * Print @diagram on the @printer
+ * @param diagram
+ * @param fit_page
+ * @param printer
+ */
+void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter *painter, QPrinter *printer, const QMap<Diagram*, int> &diagramPageMap, int &annotIndex)
+{
+
+	////Prepare the print////
+	// Deselect all
+	diagram->deselectAll();
+	// Disable focus flags
+	QList<QGraphicsItem *> focusable_items;
+	for (auto qgi : diagram->items()) {
+		if (qgi->flags() & QGraphicsItem::ItemIsFocusable) {
+			focusable_items << qgi;
+			qgi->setFlag(QGraphicsItem::ItemIsFocusable, false);
+		}
+	}
+	// Disable interaction
+	for (auto view : diagram->views()) {
+		view->setInteractive(false);
+	}
+	auto option = exportProperties();
+	saveReloadDiagramParameters(diagram, option, true);
+	////Prepare end////
+
+
+	auto full_page = printer->fullPage();
+	auto diagram_rect = QRectF(diagramRect(diagram, option));
+	if (fit_page) {
+		QetPrint::render(diagram, painter,
+				 QRectF(0, 0, painter->device()->width(),
+					painter->device()->height()),
+				 diagram_rect);
+	} else {
+			//Print on one or several pages, tiled in folio coordinates
+			//like the page count: device pixels grow with the printer's
+			//resolution, the folio and its printed size do not.
+		const QSizeF page_size = QetPrint::pageSizeInDrawingUnits(
+					     printer->pageLayout(), full_page);
+		const int h_pages_count = horizontalPagesCount(diagram, option, full_page);
+		const int v_pages_count = verticalPagesCount(diagram, option, full_page);
+		const qreal pixels_per_unit = printer->resolution() / QetPrint::drawingDpi;
+
+		bool first_ = true;
+		for (int i = 0 ; i < v_pages_count ; ++i) {
+			for (int j = 0 ; j < h_pages_count ; ++j) {
+				first_ ? first_ = false : printer->newPage();
+				const QPointF offset(j * page_size.width(), i * page_size.height());
+				const QSizeF size(
+					qMin(page_size.width(),  diagram_rect.width()  - offset.x()),
+					qMin(page_size.height(), diagram_rect.height() - offset.y()));
+				QetPrint::render(diagram, painter,
+						 QRectF(QPointF(), size * pixels_per_unit),
+						 QRectF(diagram_rect.topLeft() + offset, size));
+			}
+		}
+	}
+
+	////Inject PDF cross-reference links////
+	if (printer->outputFormat() == QPrinter::PdfFormat && fit_page) {
+		auto *pdfEngine = dynamic_cast<QPdfEngine*>(painter->paintEngine());
+		if (pdfEngine) {
+
+			// QGraphicsScene::render() fait save()/restore() : worldTransform()
+			// est revenu a l'identite ici. On reconstruit DONC explicitement la
+			// transform appliquee par :
+			//   diagram->render(painter, QRectF(), diagram_rect, KeepAspectRatio)
+			// cible vide => taille du device ; source = diagram_rect ; centre.
+			// The target render() used for an empty one: the device's
+			// size. Not painter->viewport(), which is set once when the
+			// painter opens and misses a page turned since (#1480).
+			const QRectF target(0, 0, painter->device()->width(),
+								painter->device()->height());
+			const QRectF source = QRectF(diagram_rect); // meme source que render()
+
+			// render() ANCRE en haut-gauche (pas de centrage) :
+			//   translate(target.topLeft) . scale(s,s) . translate(-source.topLeft)
+			// On reproduit EXACTEMENT ca — surtout PAS de (target-source*s)/2.
+			const qreal s = qMin(target.width()  / source.width(),
+			                     target.height() / source.height());
+
+			QTransform fit;
+			fit.translate(target.x(), target.y());
+			fit.scale(s, s);
+			fit.translate(-source.x(), -source.y());   // scene -> pixels device
+
+			// IMPORTANT : QPdfEngine::drawHyperlink() applique lui-meme
+			// pageMatrix() (echelle 72/resolution + inversion de Y + marges).
+			// On lui passe donc le rectangle en PIXELS DEVICE, sans aucune
+			// conversion en points ni flip de notre cote.
+			const QRectF pageBounds(0, 0, target.width(), target.height());
+
+			// ---- Device-pixels -> PDF points, replicating QPdfEnginePrivate::pageMatrix()
+			// (same geometry for every page: same printer, page size and margins). ----
+			const qreal pt_scale = 72.0 / printer->resolution();
+			const qreal fullH_pt = printer->pageLayout().fullRectPoints().height();
+			const bool  fullPageMode =
+				(printer->pageLayout().mode() == QPageLayout::FullPageMode);
+			const QRect paintPx =
+				printer->pageLayout().paintRectPixels(printer->resolution());
+			auto devToPdf = [=](const QPointF &d) -> QPointF {
+				qreal dx = d.x(), dy = d.y();
+				if (!fullPageMode) { dx += paintPx.left(); dy += paintPx.top(); }
+				return QPointF(pt_scale * dx, fullH_pt - pt_scale * dy);
+			};
+
+			PdfLinks::PageGeometry geom;
+			geom.sceneToDevice = fit;
+			geom.target        = target;
+			geom.pageBounds    = pageBounds;
+			geom.devToPdf      = devToPdf;
+			geom.sourceRectOf  = [this](Diagram *dg) {
+				return QRectF(diagramRect(dg, exportProperties()));
+			};
+			PdfLinks::injectCrossRefLinks(
+				pdfEngine, diagram, geom, diagramPageMap,
+				printer->outputFileName());
+
+			////Collect component info for popup annotations////
+			if (ui->m_component_info_cb->isChecked()) {
+				for (auto *item : diagram->items()) {
+					auto *el = qgraphicsitem_cast<Element*>(item);
+					if (!el) continue;
+
+					// Skip reports and slaves
+					auto lt = el->linkType();
+					if (lt & Element::AllReport) continue;
+					if (lt == Element::Slave) continue;
+
+					auto info = el->elementInformations();
+					if (info.count() == 0) continue;
+
+					// Build info text
+					QStringList lines;
+					for (const auto &key : {QStringLiteral("label"),
+											 QStringLiteral("manufacturer"),
+											 QStringLiteral("designation"),
+											 QStringLiteral("description")}) {
+						if (info.contains(key) && !info.value(key).toString().isEmpty())
+							lines << QETInformation::translatedInfoKey(key) + ": " + info.value(key).toString();
+					}
+					for (const QString &key : info.keys()) {
+						if (key == "formula" || key == QETInformation::ELMT_FORMULA_ID) continue;
+						QString translated = QETInformation::translatedInfoKey(key);
+						if (lines.contains(translated + ": " + info.value(key).toString())) continue;
+						if (info.value(key).toString().isEmpty()) continue;
+						lines << translated + ": " + info.value(key).toString();
+					}
+					if (lines.isEmpty()) continue;
+
+					// Compute element rect in device pixels
+					QRectF elemScene = el->mapRectToScene(el->boundingRect());
+					QRectF devRect = fit.mapRect(elemScene);
+
+					PdfLinks::ComponentInfo ci;
+					ci.contents = lines.join("\n");
+					m_componentInfoList.append(ci);
+
+					// Create a link annotation as placeholder — post-processing
+					// will convert it to an invisible text annotation with the actual content
+					pdfEngine->drawHyperlink(devRect, QUrl(QString("http://componentinfo.local/%1").arg(annotIndex++)));
+				}
+			}
+			////Component info end////
+		}
+	}
+	////PDF links end////
+
+	////Print is finished, restore diagram and graphics item properties
+	for (auto view : diagram->views()) {
+		view->setInteractive(true);
+	}
+	for (auto qgi : focusable_items) {
+		qgi->setFlag(QGraphicsItem::ItemIsFocusable, true);
+	}
+	saveReloadDiagramParameters(diagram, option, false);
+}
+
+/**
+ * @brief ProjectPrintWindow::diagramRect
+ * @param diagram
+ * @param option
+ * @return The rectangle of diagram to be printed
+ */
+QRect ProjectPrintWindow::diagramRect(Diagram *diagram, const ExportProperties &option) const
+{
+	auto diagram_rect = diagram->border_and_titleblock.borderAndTitleBlockRect();
+	if (!option.draw_titleblock) {
+		auto titleblock_rect = diagram->border_and_titleblock.titleBlockRect();
+		if (diagram->border_and_titleblock.titleBlockEdge() == Qt::BottomEdge)
+			diagram_rect.setHeight(diagram_rect.height() - titleblock_rect.height());
+		else
+			diagram_rect.setWidth(diagram_rect.width() - titleblock_rect.width());
+	}
+
+		//Adjust the border of diagram to 1px (width of the line)
+	diagram_rect.adjust(0,0,1,1);
+
+	return (diagram_rect.toAlignedRect());
+}
+
+/**
+ * @brief ProjectPrintWindow::horizontalPagesCount
+ * @param diagram : diagram to print
+ * @param option : option used to render
+ * @param full_page : full page or not
+ * @return The width of the "poster" in number of page for print the diagram
+ * with the orientation and the paper format used by the actual printer
+ */
+int ProjectPrintWindow::horizontalPagesCount(
+		Diagram *diagram, const ExportProperties &option, bool full_page) const
+{
+	const QSizeF printable_area = QetPrint::pageSizeInDrawingUnits(
+					      m_printer->pageLayout(), full_page);
+	const QRect diagram_rect = diagramRect(diagram, option);
+	if (printable_area.width() <= 0)
+		return(1);
+
+	int h_pages_count = qMax(1, int(ceil(qreal(diagram_rect.width()) / printable_area.width())));
+	return(h_pages_count);
+}
+
+/**
+ * @brief ProjectPrintWindow::verticalPagesCount
+ * @param diagram : diagram to print
+ * @param option : option used to render
+ * @param full_page : full page or not
+ * @return The height of the "poster" in number of pages for print the diagram
+ * with the orientation and paper format used by the actual printer
+ */
+int ProjectPrintWindow::verticalPagesCount(
+		Diagram *diagram, const ExportProperties &option, bool full_page) const
+{
+	const QSizeF printable_area = QetPrint::pageSizeInDrawingUnits(
+					      m_printer->pageLayout(), full_page);
+	const QRect diagram_rect = diagramRect(diagram, option);
+	if (printable_area.height() <= 0)
+		return(1);
+
+	int v_pages_count = qMax(1, int(ceil(qreal(diagram_rect.height()) / printable_area.height())));
+	return(v_pages_count);
+}
+
+ExportProperties ProjectPrintWindow::exportProperties() const
+{
+	ExportProperties exp;
+	exp.draw_border             = ui->m_draw_border_cb->isChecked();
+	exp.draw_titleblock         = ui->m_draw_titleblock_cb->isChecked();
+	exp.draw_terminals          = ui->m_draw_terminal_cb->isChecked();
+	exp.draw_colored_conductors = ui->m_keep_conductor_color_cb->isChecked();
+	exp.draw_grid = false;
+	exp.draw_guides = false;
+
+	return exp;
+}
+
+void ProjectPrintWindow::setUpDiagramList()
+{
+	auto layout = new QVBoxLayout();
+	auto widget = new QWidget();
+	widget->setLayout(layout);
+	widget->setMinimumSize(170, 0);
+	widget->setMaximumSize(470, 10000);
+	widget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+	ui->m_diagram_list->setWidget(widget);
+
+	for (auto diagram : m_project->diagrams())
+	{
+		auto title = diagram->title();
+		if (title.isEmpty()) {
+			title = tr("Untitled sheet");
+		}
+
+		auto checkbox = new QCheckBox(title);
+		checkbox->setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum));
+		checkbox->setChecked(true);
+		layout->addWidget(checkbox, 0, Qt::AlignLeft | Qt::AlignTop);
+		connect(checkbox, &QCheckBox::clicked, m_preview, &QPrintPreviewWidget::updatePreview);
+		m_diagram_list_hash.insert(diagram, checkbox);
+	}
+	layout->addStretch();
+}
+
+QString ProjectPrintWindow::settingsSectionName(const QPrinter *printer)
+{
+	QPrinter::OutputFormat printer_format = printer -> outputFormat();
+	if (printer_format == QPrinter::NativeFormat) {
+		return(printer -> printerName().replace(" ", "_"));
+	} else if (printer_format == QPrinter::PdfFormat) {
+		return("QET_PDF_Printing");
+	}
+	return(QString());
+}
+
+void ProjectPrintWindow::loadPageSetupForCurrentPrinter()
+{
+	QSettings settings;
+	QString	  printer_section = settingsSectionName(m_printer);
+
+	while (! settings.group().isEmpty()) settings.endGroup();
+	settings.beginGroup("printers");
+	if (! settings.childGroups().contains(printer_section))
+	{
+		settings.endGroup();
+		return;
+	}
+
+	settings.beginGroup(printer_section);
+
+	if (settings.contains("orientation"))
+	{
+		QString value = settings.value("orientation", "landscape").toString();
+		m_printer->setPageOrientation(
+			value == "landscape" ? QPageLayout::Landscape :
+								   QPageLayout::Portrait);
+	}
+	if (settings.contains("papersize"))
+	{
+		int value = settings.value("papersize", QPageSize::A4).toInt();
+		if (value == QPageSize::Custom)
+		{
+			bool w_ok, h_ok;
+			int	 w = settings.value("customwidthmm", -1).toInt(&w_ok);
+			int	 h = settings.value("customheightmm", -1).toInt(&h_ok);
+			if (w_ok && h_ok && w != -1 && h != -1)
+			{
+				m_printer->setPageSize(QPageSize(
+					QSizeF(w, h),
+					QPageSize::Millimeter,
+					"Custom",
+					QPageSize::FuzzyMatch));
+			}
+		}
+		else if (value < QPageSize::Custom)
+		{
+			QPageSize var;
+			var.id(value);
+			m_printer->setPageSize(var);
+		}
+	}
+
+	qreal margins[4];
+	margins[0] = m_printer->pageLayout().margins().left();
+	margins[1] = m_printer->pageLayout().margins().top();
+	margins[2] = m_printer->pageLayout().margins().right();
+	margins[3] = m_printer->pageLayout().margins().bottom();
+	QStringList margins_names(
+		QStringList() << "left"
+					  << "top"
+					  << "right"
+					  << "bottom");
+	for (int i = 0; i < 4; ++i)
+	{
+		bool  conv_ok;
+		qreal value = settings.value("margin" + margins_names.at(i), -1.0)
+						  .toReal(&conv_ok);
+		if (conv_ok && value != -1.0) margins[i] = value;
+	}
+	m_printer->setPageMargins(
+		QMarginsF(margins[0], margins[1], margins[2], margins[3]),
+		QPageLayout::Millimeter);
+
+	m_printer->setFullPage(
+		settings.value("fullpage", "false").toString() == "true");
+
+	settings.endGroup();
+	settings.endGroup();
+}
+
+void ProjectPrintWindow::savePrintProperties()
+{
+	QSettings settings;
+	exportProperties().toSettings(settings, "print/default");
+	settings.setValue("print/default/componentinfo", ui->m_component_info_cb->isChecked());
+	settings.setValue("print/default/fitinpage", ui->m_fit_in_page_cb->isChecked());
+	settings.setValue("print/default/fullpage", ui->m_use_full_page_cb->isChecked());
+	settings.sync();
+}
+
+void ProjectPrintWindow::savePageSetupForCurrentPrinter()
+{
+	QSettings settings;
+	QString printer_section = settingsSectionName(m_printer);
+
+	while (!settings.group().isEmpty()) settings.endGroup();
+	settings.beginGroup("printers");
+	settings.beginGroup(printer_section);
+
+	settings.setValue(
+		"orientation",
+		m_printer->pageLayout().orientation() == QPageLayout::Portrait ?
+			"portrait" :
+			"landscape");
+	settings.setValue(
+		"papersize",
+		int(m_printer->pageLayout().pageSize().id()));
+	if (m_printer->pageLayout().pageSize().id() == QPageSize::Custom)
+	{
+		QSizeF size =
+			m_printer->pageLayout().pageSize().size(QPageSize::Millimeter);
+		settings.setValue("customwidthmm", size.width());
+		settings.setValue("customheightmm", size.height());
+	}
+	else
+	{
+		settings.remove("customwidthmm");
+		settings.remove("customheightmm");
+	}
+	settings.setValue("marginleft", m_printer->pageLayout().margins().left());
+	settings.setValue("margintop", m_printer->pageLayout().margins().top());
+	settings.setValue("marginright", m_printer->pageLayout().margins().right());
+	settings.setValue(
+		"marginbottom",
+		m_printer->pageLayout().margins().bottom());
+	settings.setValue("fullpage", m_printer->fullPage() ? "true" : "false");
+	settings.endGroup();
+	settings.endGroup();
+	settings.sync();
+}
+
+/**
+ * @brief ProjectPrintWindow::saveReloadDiagramParameters
+ * Save or restore the parameter of @diagram
+ * @param diagram
+ * @param options
+ * @param save
+ */
+void ProjectPrintWindow::saveReloadDiagramParameters(Diagram *diagram, const ExportProperties &options, bool save)
+{
+	static ExportProperties state_exportProperties;
+
+	if (save) {
+		state_exportProperties = diagram -> applyProperties(options);
+	} else {
+		diagram -> applyProperties(state_exportProperties);
+	}
+}
+
+QList<Diagram *> ProjectPrintWindow::selectedDiagram() const
+{
+	QList<Diagram *> selected_diagram;
+	for (auto diagram : m_project->diagrams()) {
+		auto cb = m_diagram_list_hash[diagram];
+		if (cb && cb->isChecked()) {
+			selected_diagram << diagram;
+		}
+	}
+
+	return selected_diagram;
+}
+
+void ProjectPrintWindow::exportToPDF()
+{
+	auto file_name = QFileDialog::getSaveFileName(this, tr("Export as : "), m_printer->outputFileName(), tr("File (*.pdf)"));
+	if (file_name.isEmpty()) {
+		return;
+	}
+	m_printer->setOutputFileName(file_name);
+	m_printer->setOutputFormat(QPrinter::PdfFormat);
+	print();
+}
+
+void ProjectPrintWindow::on_m_draw_border_cb_clicked()          { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_draw_titleblock_cb_clicked()      { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_keep_conductor_color_cb_clicked() { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_draw_terminal_cb_clicked()        { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_component_info_cb_clicked()       { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_fit_in_page_cb_clicked()          { m_preview->updatePreview(); }
+void ProjectPrintWindow::on_m_use_full_page_cb_clicked()
+{
+	m_printer->setFullPage(ui->m_use_full_page_cb->isChecked());
+	m_preview->updatePreview();
+}
+
+void ProjectPrintWindow::on_m_zoom_out_action_triggered() {
+	m_preview->zoomOut(4.0/3.0);
+}
+
+void ProjectPrintWindow::on_m_zoom_in_action_triggered() {
+	m_preview->zoomIn(4.0/3.0);
+}
+
+void ProjectPrintWindow::on_m_adjust_width_action_triggered() {
+	m_preview->fitToWidth();
+}
+
+void ProjectPrintWindow::on_m_adjust_page_action_triggered() {
+	m_preview->fitInView();
+}
+
+void ProjectPrintWindow::on_m_landscape_action_triggered() {
+	m_preview->setLandscapeOrientation();
+}
+
+void ProjectPrintWindow::on_m_portrait_action_triggered() {
+	m_preview->setPortraitOrientation();
+}
+
+void ProjectPrintWindow::on_m_first_page_action_triggered() {
+	m_preview->setCurrentPage(1);
+}
+
+void ProjectPrintWindow::on_m_previous_page_action_triggered()
+{
+	auto previous_page = m_preview->currentPage() - 1;
+	m_preview->setCurrentPage(std::max(previous_page, 0));
+}
+
+void ProjectPrintWindow::on_m_next_page_action_triggered()
+{
+	auto next_page = m_preview->currentPage() + 1;
+	m_preview->setCurrentPage(std::min(next_page, m_preview->pageCount()));
+}
+
+void ProjectPrintWindow::on_m_last_page_action_triggered() {
+	m_preview->setCurrentPage(m_preview->pageCount());
+}
+
+void ProjectPrintWindow::on_m_display_single_page_action_triggered() {
+	m_preview->setSinglePageViewMode();
+}
+
+void ProjectPrintWindow::on_m_display_two_page_action_triggered() {
+	m_preview->setFacingPagesViewMode();
+}
+
+void ProjectPrintWindow::on_m_display_all_page_action_triggered() {
+	m_preview->setAllPagesViewMode();
+}
+
+void ProjectPrintWindow::on_m_page_setup_triggered()
+{
+	QPageSetupDialog d(m_printer, this);
+	if (d.exec() == QDialog::Accepted) {
+		m_preview->updatePreview();
+	}
+}
+
+void ProjectPrintWindow::on_m_check_all_pb_clicked()
+{
+	for (auto cb : m_diagram_list_hash.values()) {
+		cb->setChecked(true);
+	}
+	m_preview->updatePreview();
+}
+
+void ProjectPrintWindow::on_m_uncheck_all_clicked()
+{
+	for (auto cb : m_diagram_list_hash.values()) {
+		cb->setChecked(false);
+	}
+	m_preview->updatePreview();
+}
+
+void ProjectPrintWindow::print()
+{
+		//What lies outside the sheet of the folios chosen here
+	if (!QETDiagramEditor::confirmOutsideSheet(this, selectedDiagram()))
+		return;
+	const bool isPdf = (m_printer->outputFormat() == QPrinter::PdfFormat);
+	const QString pdfFile = isPdf ? m_printer->outputFileName() : QString();
+
+	m_printing = true;
+	m_preview->print();   // triggers requestPaint() synchronously; painter
+	                      // is created/destroyed inside that call
+	m_printing = false;
+
+	savePageSetupForCurrentPrinter();
+	savePrintProperties();
+
+	if (isPdf && !pdfFile.isEmpty()) {
+		// Defer post-processing and window close to the next event-loop
+		// iteration.  This lets the macOS arm64 Metal compositor finish
+		// compositing the backing store before the window is destroyed,
+		// which prevents the black screen observed on Apple Silicon under
+		// macOS Sequoia (QPrintPreviewWidget + CALayer timing issue).
+		QTimer::singleShot(0, this, [this, pdfFile]() {
+			// Convert component-info link annotations into invisible text annotations
+			if (ui->m_component_info_cb->isChecked() && !m_componentInfoList.isEmpty()) {
+				PdfLinks::convertComponentInfoAnnotations(pdfFile, m_componentInfoList);
+				m_componentInfoList.clear();
+			}
+
+			// Convert URI link annotations into native internal GoTo/FitR
+			// actions so cross-references jump inside the document.
+			PdfLinks::convertUriToGoTo(pdfFile);
+			PdfLinks::removeUnusedPdfxNamespace(pdfFile);
+
+			this->close();
+		});
+	} else {
+		this->close();
+	}
+}
+
+void ProjectPrintWindow::on_m_date_cb_userDateChanged(const QDate &date)
+{
+	auto index = ui->m_date_from_cb->currentIndex();
+		// 0 = all date
+		// 1 = from the date
+		// 2 = at the date
+
+	if (index) { on_m_uncheck_all_clicked();  }
+	else       { on_m_check_all_pb_clicked(); }
+
+
+	for (auto diagram : m_diagram_list_hash.keys())
+	{
+		auto diagram_date = diagram->border_and_titleblock.date();
+		if ( (index == 1 && diagram_date >= date) ||
+			 (index == 2 && diagram_date == date) )
+			m_diagram_list_hash.value(diagram)->setChecked(true);
+	}
+
+	m_preview->updatePreview();
+}
+
+void ProjectPrintWindow::on_m_date_from_cb_currentIndexChanged(int index)
+{
+	Q_UNUSED(index)
+
+	ui->m_date_cb->setEnabled(index);
+	ui->m_apply_date_pb->setEnabled(index);
+	on_m_date_cb_userDateChanged(ui->m_date_cb->date());
+
+}
+
+void ProjectPrintWindow::on_m_apply_date_pb_clicked() {
+	on_m_date_cb_userDateChanged(ui->m_date_cb->date());
+}

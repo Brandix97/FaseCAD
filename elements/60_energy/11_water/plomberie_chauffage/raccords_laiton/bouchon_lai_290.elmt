@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="11" hotspot_y="10">
+    <uuid uuid="{8934a202-ecb0-ce66-49dd-8aba0a56b3b9}"/>
+    <names>
+        <name lang="ar">سدادة نحاسية رقم 290</name>
+        <name lang="ca">Tap de llautó n° 290</name>
+        <name lang="cs">Zátka mosazná č. 290</name>
+        <name lang="da">Messingprop nr. 290</name>
+        <name lang="de">Kappe Messing Nr. 290</name>
+        <name lang="el">Πώμα ορειχάλκινο n° 290</name>
+        <name lang="en">Brass plug no. 290</name>
+        <name lang="fr">Bouchon laiton n° 290</name>
+        <name lang="pt_BR">Bouchon laiton n° 290</name>
+        <name lang="zh">堵头_290_黄铜</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <dynamic_text x="-7" y="16.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bf4d6431-9479-4277-8d20-9022b57b1f41}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="1" y="-5" width="7" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="1" y1="0" x2="2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="3" y1="-5" x2="5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="4" y1="-5" x2="6" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="6" y1="-5" x2="8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="7" y1="-5" x2="8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <rect x="-1" y="-7" width="2" height="14" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <rect x="-5" y="-5" width="4" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-5" y1="-2" x2="-1" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="-5" y1="2" x2="-1" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="1" y1="-5" x2="3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="5" y1="-5" x2="7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <line x1="2" y1="-5" x2="4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:brun" antialias="false"/>
+        <terminal uuid="{073a9152-8f3e-4110-8a1d-95d93bccd353}" name="" x="8" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

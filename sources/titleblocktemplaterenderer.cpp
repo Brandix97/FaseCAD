@@ -1,0 +1,150 @@
+#include "titleblocktemplaterenderer.h"
+
+#include "diagram.h"
+#include <QPaintDevice>
+#include <QPainter>
+#include "titleblocktemplate.h"
+
+/**
+	@brief TitleBlockTemplateRenderer::TitleBlockTemplateRenderer
+	Constructor
+	@param parent : Parent QObject of this renderer
+*/
+TitleBlockTemplateRenderer::TitleBlockTemplateRenderer(QObject *parent) :
+	QObject(parent),
+	m_titleblock_template(nullptr)
+{
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::~TitleBlockTemplateRenderer
+	Destructor
+*/
+TitleBlockTemplateRenderer::~TitleBlockTemplateRenderer()
+{
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::titleBlockTemplate
+	@return the titleblock template used for the rendering
+*/
+const TitleBlockTemplate *TitleBlockTemplateRenderer::titleBlockTemplate() const
+{
+	return(m_titleblock_template);
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::setTitleBlockTemplate
+	@param titleblock_template : TitleBlock template to render.
+*/
+void TitleBlockTemplateRenderer::setTitleBlockTemplate(
+		const TitleBlockTemplate *titleblock_template) {
+	if (titleblock_template != m_titleblock_template) {
+		m_titleblock_template = titleblock_template;
+	}
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::setContext
+	@param context : Context to use when rendering the titleblock
+*/
+void TitleBlockTemplateRenderer::setContext(const DiagramContext &context) {
+	m_context = context;
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::context
+	@return the current diagram context use when render the titleblock
+*/
+DiagramContext TitleBlockTemplateRenderer::context() const
+{
+	return  m_context;
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::height
+	@return the height of the rendered template,
+	or -1 if no template has been
+	set for this renderer.
+	@see TitleBlockTemplate::height()
+*/
+int TitleBlockTemplateRenderer::height() const
+{
+	if (!m_titleblock_template) return(-1);
+	return(m_titleblock_template -> height());
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::render
+	Render the titleblock.
+	@param provided_painter : QPainter to use to render the titleblock.
+	@param titleblock_width : The total width of the titleblock to render
+*/
+void TitleBlockTemplateRenderer::render(QPainter *provided_painter,
+					int titleblock_width) {
+	if (!m_titleblock_template) return;
+
+		//Drawn anew for a print, a PDF or an image: only the screen,
+		//which paints the folio again at every move of the mouse, plays
+		//the recording (working the cells and their texts out took two
+		//thirds of a repaint of a folio)
+	const QPaintDevice *device = provided_painter->device();
+	if (!device || device->devType() != QInternal::Widget) {
+		m_titleblock_template -> render(*provided_painter,
+						m_context,
+						titleblock_width);
+		return;
+	}
+
+	if (!m_cache_valid
+			|| m_cache_template != m_titleblock_template
+			|| m_cache_width != titleblock_width
+			|| m_cache_background != Diagram::background_color
+			|| m_cache_pen != provided_painter->pen().color()
+			|| m_cache_font != provided_painter->font()
+			|| m_cache_context != m_context)
+	{
+		m_cache = QPicture();
+		QPainter recorder(&m_cache);
+		recorder.setPen(provided_painter->pen());
+		recorder.setFont(provided_painter->font());
+		recorder.setRenderHints(provided_painter->renderHints());
+		m_titleblock_template -> render(recorder, m_context, titleblock_width);
+		recorder.end();
+		m_cache_valid = true;
+		m_cache_template = m_titleblock_template;
+		m_cache_width = titleblock_width;
+		m_cache_background = Diagram::background_color;
+		m_cache_pen = provided_painter->pen().color();
+		m_cache_font = provided_painter->font();
+		m_cache_context = m_context;
+	}
+	m_cache.play(provided_painter);
+}
+
+void TitleBlockTemplateRenderer::invalidateCache()
+{
+	m_cache_valid = false;
+}
+
+/**
+	@brief TitleBlockTemplateRenderer::renderDxf
+	@param title_block_rect
+	@param titleblock_width
+	@param file_path
+	@param color
+	@param dxf_transform : see TitleBlockTemplate::renderDxf()
+*/
+void TitleBlockTemplateRenderer::renderDxf(QRectF &title_block_rect,
+					   int titleblock_width,
+					   QString &file_path,
+					   int color,
+					   const QTransform &dxf_transform) {
+	if (!m_titleblock_template) return;
+	m_titleblock_template -> renderDxf(title_block_rect,
+					   m_context,
+					   titleblock_width,
+					   file_path, color,
+					   dxf_transform);
+}
+

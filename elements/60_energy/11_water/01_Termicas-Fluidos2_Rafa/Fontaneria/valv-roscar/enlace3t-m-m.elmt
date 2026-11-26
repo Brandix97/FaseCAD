@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="29" hotspot_y="30">
+    <uuid uuid="{ccd1abb1-3389-c87b-110f-1a5dd024eccd}"/>
+    <names>
+        <name lang="ca">Enllaç 3 femelles M-M</name>
+        <name lang="es">Enlace 3tuercas M-M</name>
+        <name lang="pt_BR">Enlace 3tuercas M-M</name>
+        <name lang="zh">3通外螺纹-外螺纹连接件</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="27.43" y1="-4.79" x2="29" y2="4.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-12.88" y1="-4.79" x2="-11.33" y2="4.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="21.38" y="-5.15" width="7.91" height="10.4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.33" y1="-4.79" x2="25.88" y2="4.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-10.55" y="-10.63" width="6.88" height="20.41" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.67" y="9" width="7.1" height="12.42" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="7.09" y="9" width="8" height="12.42" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.67" y="-22.82" width="8" height="15.53" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="15.07" y="-12.63" width="6.66" height="25.41" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="8" y="-7.3" width="7.1" height="16.3" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-2.67" y="-15.84" width="17.74" height="31.05" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.81" y1="-7.3" x2="1.6" y2="-7.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="7.09" y="-22.82" width="8" height="15.53" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1.68" y1="9" x2="10.73" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.67" y="-7.3" width="6.21" height="16.3" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-8" y="12" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{73db3469-bd18-4176-85e9-1cf08cbe0e28}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-18.22" y="-5.15" width="7.91" height="10.4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-4.79" x2="-14.43" y2="4.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <terminal uuid="{a4acb142-9a66-4915-bae2-57bd9ea084f9}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b6be1ccf-1ec0-4d77-aae6-2395a1f069cb}" name="" x="31" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

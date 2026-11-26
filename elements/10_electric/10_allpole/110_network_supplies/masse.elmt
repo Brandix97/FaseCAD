@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="9" hotspot_y="21">
+    <uuid uuid="{19d3c2d8-18d4-1881-cbac-fb3596691e1b}"/>
+    <names>
+        <name lang="ar">هيكل معدني</name>
+        <name lang="ca">Xassís</name>
+        <name lang="cs">Kostra</name>
+        <name lang="da">Chassis</name>
+        <name lang="de">Masse</name>
+        <name lang="el">Σασί</name>
+        <name lang="en">Chassis</name>
+        <name lang="es">Masa</name>
+        <name lang="fi">Runko</name>
+        <name lang="fr">Masse</name>
+        <name lang="hr">Kućište</name>
+        <name lang="hu">Vázszerkezet</name>
+        <name lang="it">Massa</name>
+        <name lang="ja">シャーシ</name>
+        <name lang="ko">섀시</name>
+        <name lang="mn">Хүрээ</name>
+        <name lang="nb">Chassis</name>
+        <name lang="nl">Massa</name>
+        <name lang="nl_BE">Chassis</name>
+        <name lang="pl">Masa</name>
+        <name lang="pt">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="pt_BR">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="ro">Șasiu</name>
+        <name lang="ru">Шасси</name>
+        <name lang="sk">Kostra</name>
+        <name lang="sl">Ohišje</name>
+        <name lang="sr">Маса</name>
+        <name lang="sv">Chassi</name>
+        <name lang="tr">Şasi</name>
+        <name lang="uk">Корпус</name>
+        <name lang="zh">机壳接地</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-24.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dccb465a-1ab7-4bfa-857a-4b7a009dfa7b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="7.5" y1="0.5" x2="5" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="3" x2="1.5" y2="0.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="3" x2="-4.5" y2="0.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="3" x2="4.5" y2="0.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="3" x2="-1.5" y2="0.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="0" x2="8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{3d796104-851c-4938-b98a-38fe3969e546}" name="GND" x="0" y="-11" orientation="n" type="Generic"/>
+    </description>
+</definition>

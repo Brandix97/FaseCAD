@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 The FaseCAD Team. This file is part of FaseCAD (GPL-2.0-or-later). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32">
+<rect x="1" y="1" width="30" height="30" rx="6" fill="#9A7D0A"/>
+<circle cx="16" cy="16" r="10" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 20.5 V11.5 L16 17 L21 11.5 V20.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

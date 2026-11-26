@@ -1,0 +1,1025 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "qet.h"
+#include "qetapp.h"
+#include "qeticons.h"
+#include "shortcutmanager.h"
+#include "utils/syncfolder.h"
+
+#include <cmath>
+#include <limits>
+#include <QBuffer>
+#include <QColorDialog>
+#include <QGraphicsSceneContextMenuEvent>
+#include <QAction>
+#include <QDialog>
+#include <QFileInfo>
+#include <QSaveFile>
+#include <QSettings>
+#include <QTextStream>
+#include <QUrl>
+#include <QRegularExpression>
+#include <QActionGroup>
+#include <QStringBuilder>
+
+/**
+	Permet de convertir une chaine de caracteres ("n", "s", "e" ou "w")
+	en orientation. Si la chaine fait plusieurs caracteres, seul le
+	premier est pris en compte. En cas d'incoherence, Qet::North est
+	retourne.
+	Used to convert a string of characters (‘n’, ‘s’, ‘e’ or ‘w’)
+	into orientation. If the string is made up of several characters,
+	only the only the first is taken into account. In the event of an
+	inconsistency, Qet::North is returned.
+	@param s Chaine de caractere cense representer une orientation
+	@return l'orientation designee par la chaine de caractere
+*/
+Qet::Orientation Qet::orientationFromString(const QString &s) {
+		//An empty string (a terminal saved without its orientation) is
+		//an inconsistency too: s[0] would read past its end and crash
+	if (s.startsWith(QLatin1Char('e'))) return(Qet::East);
+	else if (s.startsWith(QLatin1Char('s'))) return(Qet::South);
+	else if (s.startsWith(QLatin1Char('w'))) return (Qet::West);
+	else return(Qet::North);
+}
+
+/**
+	@param o une orientation
+	@return une chaine de caractere representant l'orientation
+*/
+QString Qet::orientationToString(Qet::Orientation o) {
+	QString ret;
+	switch(o) {
+		case Qet::North: ret = "n"; break;
+		case Qet::East : ret = "e"; break;
+		case Qet::South: ret = "s"; break;
+		case Qet::West : ret = "w"; break;
+	}
+	return(ret);
+}
+
+/**
+	Indique si deux orientations de Borne sont sur le meme axe (Vertical / Horizontal).
+	Indicates whether two terminal orientations are on the same axis (Vertical / Horizontal).
+	@param a La premiere orientation de Borne
+	@param b La seconde orientation de Borne
+	@return Un booleen a true si les deux orientations de bornes sont sur le meme axe
+*/
+bool Qet::surLeMemeAxe(Qet::Orientation a, Qet::Orientation b) {
+	if ((a == Qet::North || a == Qet::South) && (b == Qet::North || b == Qet::South)) return(true);
+	else if ((a == Qet::East || a == Qet::West) && (b == Qet::East || b == Qet::West)) return(true);
+	else return(false);
+}
+
+/**
+	@brief Qet::isOpposed
+	@param a
+	@param b
+	@return true if a and b is opposed, else false;
+*/
+bool Qet::isOpposed(Qet::Orientation a, Qet::Orientation b)
+{
+	bool result = false;
+
+	switch (a)
+	{
+		case Qet::North:
+			if (b == Qet::South) result = true;
+			break;
+		case Qet::East:
+			if (b == Qet::West) result = true;
+			break;
+		case Qet::South:
+			if (b == Qet::North) result = true;
+			break;
+		case Qet::West:
+			if (b == Qet::East) result = true;
+			break;
+		default:
+			break;
+	}
+
+	return result;
+}
+
+/**
+	@brief Qet::isHorizontal
+	@param a
+	@return true if @a is horizontal, else false.
+*/
+bool Qet::isHorizontal(Qet::Orientation a) {
+	return(a == Qet::East || a == Qet::West);
+}
+
+/**
+	@brief Qet::isVertical
+	@param a
+	@return true if @a is vertical, else false.
+*/
+bool Qet::isVertical(Qet::Orientation a) {
+	return(a == Qet::North || a == Qet::South);
+}
+
+/**
+	Permet de connaitre l'orientation suivante apres celle donnee en parametre.
+	Les orientations sont generalement presentees dans l'ordre suivant : Nord,
+	Est, Sud, Ouest.
+	@param o une orientation
+	@return l'orientation suivante
+*/
+Qet::Orientation Qet::nextOrientation(Qet::Orientation o) {
+	if (o < 0 || o > 2) return(Qet::North);
+	return((Qet::Orientation)(o + 1));
+}
+
+/**
+	Permet de connaitre l'orientation precedant celle donnee en parametre.
+	Les orientations sont generalement presentees dans l'ordre suivant : Nord,
+	Est, Sud, Ouest.
+	@param o une orientation
+	@return l'orientation precedente
+*/
+Qet::Orientation Qet::previousOrientation(Qet::Orientation o) {
+	if (o < 0 || o > 3) return(Qet::North);
+	if (o == Qet::North) return(Qet::West);
+	return((Qet::Orientation)(o - 1));
+}
+
+/**
+	@param line Un segment de droite
+	@param point Un point
+	@return true si le point appartient au segment de droite, false sinon
+*/
+bool QET::lineContainsPoint(const QLineF &line, const QPointF &point) {
+	if (point == line.p1()) return(true);
+	QLineF point_line(line.p1(), point);
+	if (point_line.unitVector() != line.unitVector()) return(false);
+	return(point_line.length() <= line.length());
+}
+
+/**
+	@param point Un point donne
+	@param line Un segment de droite donnee
+	@param intersection si ce pointeur est different de 0, le QPointF ainsi
+	designe contiendra les coordonnees du projete orthogonal, meme si celui-ci
+	n'appartient pas au segment de droite
+	@return true si le projete orthogonal du point sur la droite appartient au
+	segment de droite.
+*/
+bool QET::orthogonalProjection(
+		const QPointF &point,const QLineF &line,QPointF *intersection)
+{
+	// recupere le vecteur normal de `line'
+	QLineF line_normal_vector(line.normalVector());
+	QPointF normal_vector(line_normal_vector.dx(), line_normal_vector.dy());
+
+	// cree une droite perpendiculaire a `line' passant par `point'
+	QLineF perpendicular_line(point, point + normal_vector);
+
+	// determine le point d'intersection des deux droites = le projete orthogonal
+	QPointF intersection_point;
+
+	QLineF::IntersectType it = line.intersects(perpendicular_line, &intersection_point);
+
+	// ne devrait pas arriver (mais bon...)
+	if (it == QLineF::NoIntersection) return(false);
+
+	// fournit le point d'intersection a l'appelant si necessaire
+	if (intersection) {
+		*intersection = intersection_point;
+	}
+
+	// determine si le point d'intersection appartient au segment de droite
+	if (QET::lineContainsPoint(line, intersection_point)) {
+		return(true);
+	}
+	return(false);
+}
+
+/**
+	Permet de savoir si l'attribut nom_attribut d'un element XML e est bien un
+	entier. Si oui, sa valeur est copiee dans entier.
+	@param e Element XML
+	@param nom_attribut Nom de l'attribut a analyser
+	@param entier Pointeur facultatif vers un entier
+	@return true si l'attribut est bien un entier, false sinon
+*/
+bool QET::attributeIsAnInteger(
+		const QDomElement &e,const QString& nom_attribut,int *entier)
+{
+	// verifie la presence de l'attribut
+	if (!e.hasAttribute(nom_attribut)) return(false);
+	// verifie la validite de l'attribut
+	bool ok;
+	int tmp = e.attribute(nom_attribut).toInt(&ok);
+	if (!ok) return(false);
+	if (entier != nullptr) *entier = tmp;
+	return(true);
+}
+
+/**
+	Permet de savoir si l'attribut nom_attribut d'un element XML e est bien un
+	reel. Si oui, sa valeur est copiee dans reel.
+	@param e Element XML
+	@param nom_attribut Nom de l'attribut a analyser
+	@param reel Pointeur facultatif vers un double
+	@return true si l'attribut est bien un reel, false sinon
+*/
+bool QET::attributeIsAReal(
+		const QDomElement &e,const QString& nom_attribut,qreal *reel)
+{
+	// verifie la presence de l'attribut
+	if (!e.hasAttribute(nom_attribut)) return(false);
+	// verifie la validite de l'attribut
+	bool ok;
+	qreal tmp = e.attribute(nom_attribut).toDouble(&ok);
+	if (!ok) return(false);
+	// QString::toDouble() sets ok=true for "nan"/"inf"/"-inf" -- these
+	// parse successfully but are not usable coordinates. A non-finite
+	// element/terminal position reaches Conductor::shape() during load
+	// and hangs there at 100% CPU inside QPainterPathStroker::createStroke(),
+	// confirmed with gdb: not a blocked wait, genuine unbounded computation.
+	if (!std::isfinite(tmp)) return(false);
+	if (reel != nullptr) *reel = tmp;
+	return(true);
+}
+
+/**
+	@brief QET::hasNonFiniteGeometry
+	@param shape a shape of an element definition (<line>, <rect>, <text>...)
+	@return true if one of its coordinates or sizes is "nan" or "inf".
+	The folio does not draw such a shape (see attributeIsAReal()), and the
+	element editor cannot show or edit it.
+*/
+bool QET::hasNonFiniteGeometry(const QDomElement &shape)
+{
+	static const QStringList geometry {
+		"x", "y", "x1", "y1", "x2", "y2", "width", "height", "diameter",
+		"rx", "ry", "start", "angle", "rotation", "length1", "length2"};
+	static const QRegularExpression polygon_point("^[xy][0-9]+$");
+
+	const QDomNamedNodeMap attributes = shape.attributes();
+	for (int i = 0 ; i < attributes.count() ; ++i)
+	{
+		const QDomAttr attribute = attributes.item(i).toAttr();
+		if (!geometry.contains(attribute.name())
+			&& !polygon_point.match(attribute.name()).hasMatch())
+			continue;
+		bool ok;
+		const qreal value = attribute.value().toDouble(&ok);
+		if (ok && !std::isfinite(value)) return(true);
+	}
+	return(false);
+}
+
+/**
+	@brief QET::infoFlagIsTrue
+	@see the header comment for why this exists rather than a bare
+	== "true" comparison.
+	@param value the raw elementInformations string to test
+	@return true if @p value, trimmed and case-folded, is one of the
+	truthy spellings this codebase already accepts elsewhere
+*/
+bool QET::infoFlagIsTrue(const QString &value)
+{
+	const QString v = value.trimmed().toLower();
+	return v == QLatin1String("true")
+		|| v == QLatin1String("1")
+		|| v == QLatin1String("yes")
+		|| v == QLatin1String("on");
+}
+
+/**
+	@brief QET::trackDialogGeometry
+	@see the declaration in qet.h for the rationale.
+*/
+void QET::trackDialogGeometry(QDialog *dialog, const QString &key)
+{
+	const QString settings_key = QStringLiteral("dialoggeometry/%1").arg(
+		key.isEmpty() ? QString::fromLatin1(dialog->metaObject()->className()) : key);
+
+	QSettings settings;
+	const QVariant geometry = settings.value(settings_key);
+	if (geometry.isValid()) {
+		dialog->restoreGeometry(geometry.toByteArray());
+	}
+
+	QObject::connect(dialog, &QDialog::finished, dialog, [dialog, settings_key]() {
+		QSettings settings;
+		settings.setValue(settings_key, dialog->saveGeometry());
+	});
+}
+
+/**
+	@brief QET::ElementsAndConductorsSentence
+	Permet de composer rapidement la proposition "x elements et y conducteurs"
+	ou encore "x elements, y conducteurs et z champs de texte".
+	@param elements_count nombre d'elements
+	@param conductors_count nombre de conducteurs
+	@param texts_count nombre de champs de texte
+	@param images_count nombre d'images
+	@param shapes_count
+	@param element_text_count
+	@param tables_count
+	@return la proposition decrivant le nombre d'elements, de conducteurs et de
+	textes
+*/
+QString QET::ElementsAndConductorsSentence(
+		int elements_count,
+		int conductors_count,
+		int texts_count,
+		int images_count,
+		int shapes_count,
+		int element_text_count,
+		int tables_count,
+		int terminal_strip_count)
+{
+	QStringList parts;
+	if (elements_count) {
+		parts.append(
+			QObject::tr(
+				"%n elements",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				elements_count
+			)
+		);
+	}
+
+	if (conductors_count) {
+		parts.append(
+			QObject::tr(
+				"%n conductors",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				conductors_count
+			)
+		);
+	}
+
+	if (texts_count) {
+		parts.append(
+			QObject::tr(
+				"%n textfields",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				texts_count
+			)
+		);
+	}
+
+	if (images_count) {
+		parts.append(
+			QObject::tr(
+				"%n images",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				images_count
+			)
+		);
+	}
+
+	if (shapes_count) {
+		parts.append(
+			QObject::tr(
+				"%n shapes",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				shapes_count
+			)
+		);
+	}
+
+	if (element_text_count) {
+		parts.append(
+			QObject::tr(
+				"%n texts of element",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				element_text_count
+			)
+		);
+	}
+
+	if (tables_count) {
+		parts.append(
+			QObject::tr(
+				"%n tables",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				tables_count
+			)
+		);
+	}
+
+	if (terminal_strip_count) {
+		parts.append(
+			QObject::tr(
+				"%n layouts of terminal blocks",
+				"Sentence fragment used in an automatically generated list of different objects, e.g. objects moved at the same time, which will be combined into a sentence.",
+				terminal_strip_count
+			)
+		);
+	}
+
+	return QLocale(QETApp::interfaceLanguage()).createSeparatedList(parts);
+}
+
+/**
+	@return the list of \a tag_name elements directly under the \a e XML element.
+*/
+QList<QDomElement> QET::findInDomElement(
+		const QDomElement &e, const QString &tag_name)
+{
+	QList<QDomElement> return_list;
+	for (QDomNode node = e.firstChild() ;
+		 !node.isNull() ;
+		 node = node.nextSibling())
+	{
+		if (!node.isElement()) continue;
+		QDomElement element = node.toElement();
+		if (element.isNull() || element.tagName() != tag_name) continue;
+		return_list << element;
+	}
+	return(return_list);
+}
+
+/**
+	Etant donne un element XML e, renvoie la liste de tous les elements
+	children imbriques dans les elements parent, eux-memes enfants de l'elememt e
+	@param e Element XML a explorer
+	@param parent tag XML intermediaire
+	@param children tag XML a rechercher
+	@return La liste des elements XML children
+*/
+QList<QDomElement> QET::findInDomElement(
+		const QDomElement &e,const QString &parent,const QString &children)
+{
+	QList<QDomElement> return_list;
+
+	// parcours des elements parents
+	for (QDomNode enfant = e.firstChild() ;
+		 !enfant.isNull() ;
+		 enfant = enfant.nextSibling())
+	{
+		// on s'interesse a l'element XML "parent"
+		QDomElement parents = enfant.toElement();
+		if (parents.isNull() || parents.tagName() != parent) continue;
+		// parcours des enfants de l'element XML "parent"
+		for (QDomNode node_children = parents.firstChild() ;
+			 !node_children.isNull() ;
+			 node_children = node_children.nextSibling())
+		{
+			// on s'interesse a l'element XML "children"
+			QDomElement n_children = node_children.toElement();
+			if (!n_children.isNull() && n_children.tagName() == children) return_list.append(n_children);
+		}
+	}
+	return(return_list);
+}
+
+/// @return le texte de la licence de QElectroTech (GNU/GPL)
+QString QET::license()
+{
+	// Recuperation du texte de la GNU/GPL dans un fichier integre a l'application
+	QFile *file_license = new QFile(":/licenses/QElectroTech.LICENSE");
+	QString txt_license;
+	// verifie que le fichier existe
+	if (!file_license -> exists()) {
+		txt_license = QString(QObject::tr("The text file containing the GNU/GPL license could not be found - however, you know it by heart, don't you?"));
+	} else {
+		// ouvre le fichier en mode texte et en lecture seule
+		if (!file_license -> open(QIODevice::ReadOnly | QIODevice::Text)) {
+			txt_license = QString(QObject::tr("The text file containing the GNU/GPL license exists but could not be opened - however, you know it by heart, don't you?"));
+		} else {
+			// charge le contenu du fichier dans une QString
+			QTextStream in(file_license);
+			txt_license = QString("");
+			while (!in.atEnd()) txt_license += in.readLine()+"\n";
+			// ferme le fichier
+			file_license -> close();
+		}
+	}
+	return(txt_license);
+};
+
+/**
+	@brief Retrieves the text of a license for a specific component
+	@param name The identifier of the license to retrieve
+	@return A tuple containing <notice_text, license_text> for the requested license
+
+	This function manages licenses for components used in QElectroTech.
+	Currently supported licenses:
+	- QElectroTech itself
+	- QET-Elements
+	- "liberation-fonts": License for Liberation Fonts
+	- "osifont": License for osifont
+*/
+std::tuple<QString, QString> QET::licenses(const QString &name)
+{
+	// Map of supported license identifiers to their resource paths
+	const QMap<QString, QString> licenses = {
+		{"QElectroTech", ":/licenses/QElectroTech"},
+		{"QET-Elements", ":/licenses/QET-Elements"},
+		{"liberation-fonts", ":/licenses/liberation-fonts"},
+		{"osifont", ":/licenses/osifont"}
+	};
+
+	// Get base path for the license files
+	const QString base_path = licenses.value(name);
+	QFile license_file(base_path % QString(".LICENSE"));
+	QFile notice_file(base_path % QString(".NOTICE"));
+
+	// Helper lambda to read file content
+	auto readFile = [](QFile &file) -> QString {
+		file.open(QIODevice::ReadOnly | QIODevice::Text);
+		QTextStream stream(&file);
+		QString content = stream.readAll();
+		file.close();
+		return content;
+	};
+
+	return std::make_tuple((readFile(notice_file)).trimmed(), readFile(license_file));
+}
+
+/**
+	@return la liste des caracteres interdits dans les noms de fichiers sous
+	Windows
+*/
+QList<QChar> QET::forbiddenCharacters()
+{
+	return(QList<QChar>()
+		   << '\\' << '/' << ':' << '*' << '?' << '"'<< '<' << '>' << '|');
+}
+
+/**
+	Cette fonction transforme une chaine de caracteres (typiquement : un nom de
+	schema, de projet, d'element) en un nom de fichier potable.
+	Par nom de fichier potable, on entend un nom :
+	  * ne comprenant pas de caracteres interdits sous Windows
+	  * ne comprenant pas d'espace
+	@param name Chaine de caractere a transformer en nom de fichier potable
+	@todo virer les caracteres accentues ?
+*/
+QString QET::stringToFileName(const QString &name)
+{
+#if TODO_LIST
+#pragma message("@TODO virer les caracteres accentues ?")
+#endif
+	QString file_name(name.toLower());
+
+	// remplace les caracteres interdits par des tirets
+	foreach(QChar c, QET::forbiddenCharacters()) {
+		file_name.replace(c, '-');
+	}
+
+	// remplace les espaces par des underscores
+	file_name.replace(' ', '_');
+
+	return(file_name);
+}
+
+/**
+	@param string une chaine de caracteres
+	@return la meme chaine de caracteres, mais avec les espaces et backslashes
+	echappes
+*/
+QString QET::escapeSpaces(const QString &string) {
+	return(QString(string).replace('\\', "\\\\").replace(' ', "\\ "));
+}
+
+/**
+	@param string une chaine de caracteres
+	@return la meme chaine de caracteres, mais avec les espaces et backslashes
+	non echappes
+*/
+QString QET::unescapeSpaces(const QString &string) {
+	return(QString(string).replace("\\\\", "\\").replace("\\ ", " "));
+}
+
+/**
+	Assemble une liste de chaines en une seule. Un espace separe chaque chaine.
+	Les espaces et backslashes des chaines sont echappes.
+	@param string_list une liste de chaine
+	@return l'assemblage des chaines
+*/
+QString QET::joinWithSpaces(const QStringList &string_list) {
+	QString returned_string;
+
+	for (int i = 0 ; i < string_list.count() ; ++ i) {
+		returned_string += QET::escapeSpaces(string_list.at(i));
+		if (i != string_list.count() - 1) returned_string += " ";
+	}
+
+	return(returned_string);
+}
+
+/**
+	@param string Une chaine de caracteres contenant des sous-chaines a
+	extraire separees par des espaces non echappes. Les espaces des sous-chaines
+	sont echappes.
+	@return La liste des sous-chaines, sans echappement.
+*/
+QStringList QET::splitWithSpaces(const QString &string) {
+	// les chaines sont separees par des espaces non echappes
+	// = avec un nombre nul ou pair de backslashes devant
+	//
+	// This was a QRegularExpression("[^\\]?(?:\\\\)* ") split, which never
+	// worked: "[^\]" opens a character class whose "\]" is an escaped
+	// bracket, so the class is never closed and the pattern is invalid.
+	// QRegularExpression::isValid() was false, QString::split() warned
+	// "invalid QRegularExpression object" and returned an EMPTY list for
+	// every input -- so a second instance's file arguments were always
+	// dropped (bugtracker #248), not just ones containing spaces.
+	//
+	// A correct pattern is not expressible here either: the separator is a
+	// space preceded by an even-length run of backslashes, and PCRE2 has no
+	// variable-length lookbehind. Scanning explicitly is both correct and
+	// easier to read than the alternatives.
+	QStringList returned_list;
+	QString current;
+	int backslashes = 0;
+	for (const QChar &c : string) {
+		if (c == QLatin1Char('\\')) {
+			++backslashes;
+			current += c;
+			continue;
+		}
+		if (c == QLatin1Char(' ') && backslashes % 2 == 0) {
+			if (!current.isEmpty()) {
+				returned_list << QET::unescapeSpaces(current);
+			}
+			current.clear();
+		} else {
+			current += c;
+		}
+		backslashes = 0;
+	}
+	if (!current.isEmpty()) {
+		returned_list << QET::unescapeSpaces(current);
+	}
+	return(returned_list);
+}
+
+/**
+	@param end_type un type d'extremite
+	@return une chaine representant le type d'extremite
+*/
+QString Qet::endTypeToString(const Qet::EndType &end_type) {
+	switch(end_type) {
+		case Qet::Simple:   return("simple");
+		case Qet::Triangle: return("triangle");
+		case Qet::Circle:   return("circle");
+		case Qet::Diamond:  return("diamond");
+		case Qet::None:
+		default:
+			return("none");
+	}
+}
+
+/**
+	@param string une chaine representant un type d'extremite
+	@return le type d'extremite correspondant ; si la chaine est invalide,
+	QET::None est retourne.
+*/
+Qet::EndType Qet::endTypeFromString(const QString &string) {
+	if (string == "simple")        return(Qet::Simple);
+	else if (string == "triangle") return(Qet::Triangle);
+	else if (string == "circle")   return(Qet::Circle);
+	else if (string == "diamond")  return(Qet::Diamond);
+	else return(Qet::None);
+}
+
+/**
+	@param diagram_area un type de zone de schema
+	@return une chaine representant le type de zone de schema
+*/
+QString QET::diagramAreaToString(const QET::DiagramArea &diagram_area) {
+	if (diagram_area == ElementsArea) return("elements");
+	else return("border");
+}
+
+/**
+	@param string une chaine representant un type de zone de schema
+	@return le type de zone de schema correspondant ; si la chaine est invalide,
+	QET::ElementsArea est retourne.
+*/
+QET::DiagramArea QET::diagramAreaFromString(const QString &string) {
+	if (!string.compare("border", Qt::CaseInsensitive)) return(QET::BorderArea);
+	else return(QET::ElementsArea);
+}
+
+/**
+	Round \a x to the nearest multiple of the invert of \a epsilon.
+	For instance, epsilon = 10 will round to 1/10 = 0.1
+*/
+qreal QET::round(qreal x, qreal epsilon) {
+	return(int(x * epsilon) / epsilon);
+}
+
+/**
+	@param angle Un angle quelconque / any angle in degrees
+	@param positive (bool)
+	@return l'angle passe en parametre, mais ramene entre -360.0 + 360.0 degres
+	the angle passed as a parameter, but reduced to between -360.0 +360.0 degrees
+	reduced to 0.0 .. 360.0, when bool-parameter is true
+*/
+qreal QET::correctAngle(const qreal &angle, const bool &positive) {
+	// ramene l'angle demande entre -360.0 et +360.0 degres
+	qreal corrected_angle = angle;
+	while (corrected_angle <= -360.0 ||
+		   (positive && corrected_angle < 0)) corrected_angle += 360.0;
+	while (corrected_angle >=  360.0) corrected_angle -= 360.0;
+	return(corrected_angle);
+}
+
+/**
+	@param first  Un premier chemin vers un fichier
+	@param second Un second chemin vers un fichier
+	@return true si les deux chemins existent existent et sont identiques
+	lorsqu'ils sont exprimes sous forme canonique
+*/
+bool QET::compareCanonicalFilePaths(const QString &first, const QString &second) {
+	QString first_canonical_path = QFileInfo(first).canonicalFilePath();
+	if (first_canonical_path.isEmpty()) return(false);
+
+	QString second_canonical_path = QFileInfo(second).canonicalFilePath();
+	if (second_canonical_path.isEmpty()) return(false);
+
+#ifdef Q_OS_WIN
+	// sous Windows, on ramene les chemins en minuscules
+	first_canonical_path  = first_canonical_path.toLower();
+	second_canonical_path = second_canonical_path.toLower();
+#endif
+
+	return(first_canonical_path == second_canonical_path);
+}
+
+/**
+	@return the local path of the project file that a crash-recovery file
+	stands for, from its KAutoSaveFile::managedFile() @p managed_file.
+	QElectroTech's own KAutoSaveFile, built without KDE Frameworks, gives a
+	file URL, which keeps the drive letter and the server of a network
+	path. KDE's gives a URL without a scheme, whose path has a slash before
+	a Windows drive letter: "/C:/folder/project.qet".
+*/
+QString QET::autosaveManagedFilePath(const QUrl &managed_file)
+{
+	if (managed_file.isLocalFile())
+		return managed_file.toLocalFile();
+
+	QString path = managed_file.path();
+#ifdef Q_OS_WIN
+	if (path.size() > 2 && path.at(0) == QLatin1Char('/')
+		&& path.at(2) == QLatin1Char(':'))
+		path.remove(0, 1);
+#endif
+	return path;
+}
+
+/**
+	Export an XML document to an UTF-8 text file indented with 4 spaces, with LF
+	end of lines and no BOM.
+	@param xml_doc An XML document to be exported
+	@param filepath Path to the file to be written
+	@param error_message If non-zero, will contain an error message explaining
+	what happened when this function returns false.
+	@return false if an error occurred, true otherwise
+*/
+bool QET::writeXmlFile(QDomDocument &xml_doc, const QString &filepath, QString *error_message)
+{
+	return writeXmlText(xml_doc.toString(4), filepath, error_message);
+}
+
+/**
+	@brief QET::writeXmlText
+	writeXmlFile() for a document already written as @p text
+*/
+bool QET::writeXmlText(const QString &text, const QString &filepath, QString *error_message)
+{
+	QSaveFile file(filepath);
+
+	// Note: we do not set QIODevice::Text to avoid generating CRLF end of lines
+	bool file_opening = file.open(QIODevice::WriteOnly);
+	if (!file_opening)
+	{
+		if (error_message)
+		{
+			*error_message = QString(QObject::tr(
+							 "Unable to open file %1 with write access, encountered error %2.",
+							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
+		}
+		return(false);
+	}
+
+	QTextStream out(&file);
+	out.setEncoding(QStringConverter::Utf8);
+	out.setGenerateByteOrderMark(false);
+	out << text;
+	if  (!file.commit())
+	{
+		if (error_message) {
+			*error_message = QString(QObject::tr(
+							 "An error occurred while writing file %1, error %2 encountered.",
+							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
+		}
+
+		return false;
+	}
+	syncFolderOf(filepath);
+
+	return(true);
+}
+
+/**
+	@brief QET::eachStrIsEqual
+	@param qsl list of string to compare
+	@return true if every string is identical, else false;
+	The list must not be empty
+	If the list can be empty, call isEmpty() before calling this function
+*/
+bool QET::eachStrIsEqual(const QStringList &qsl) {
+	if (qsl.size() == 1) return true;
+	foreach (const QString t, qsl) {
+		if (qsl.at(0) != t) return false;
+	}
+	return true;
+}
+
+/**
+	@brief QET::qetCollectionToString
+	@param c QetCollection value to convert
+	@return The QetCollection enum value converted to a QString
+*/
+QString QET::qetCollectionToString(const QET::QetCollection &c)
+{
+	switch (c)
+	{
+		case Common :
+			return "common";
+		case Company :
+			return "company";
+		case Custom :
+			return "custom";
+		case Embedded :
+			return "embedded";
+		default:
+			return "common";
+	}
+}
+
+/**
+	@brief QET::qetCollectionFromString
+	@param str string to convert
+	@return The corresponding QetCollection value from a string.
+	If the string don't match anything, we return the failsafe value QetCollection::Common
+*/
+QET::QetCollection QET::qetCollectionFromString(const QString &str)
+{
+	if (str == "common")
+		return QetCollection::Common;
+	else if (str == "company")
+		return QetCollection::Company;
+	else if (str == "custom")
+		return QetCollection::Custom;
+	else if (str == "embedded")
+		return QetCollection::Embedded;
+	else
+		return QetCollection::Common;
+}
+
+/**
+	@brief QET::depthActionGroup
+	@param parent
+	@return an action group which contain 4 actions (forward, raise, lower, backward)
+	already made with icon, shortcut and data (see QET::DepthOption)
+*/
+QActionGroup *QET::depthActionGroup(QObject *parent)
+{
+	QActionGroup *action_group = new QActionGroup(parent);
+
+	QAction *edit_forward  = new QAction(QET::Icons::BringForward, QObject::tr("Bring to front"), action_group);
+	QAction *edit_raise    = new QAction(QET::Icons::Raise,        QObject::tr("Raise"),             action_group);
+	QAction *edit_lower    = new QAction(QET::Icons::Lower,        QObject::tr("Lower"),               action_group);
+	QAction *edit_backward = new QAction(QET::Icons::SendBackward, QObject::tr("Send backward"),        action_group);
+
+	edit_forward ->setStatusTip(QObject::tr("Bring the selection (s) to front"));
+	edit_raise   ->setStatusTip(QObject::tr("Approach the selection (s)"));
+	edit_lower   ->setStatusTip(QObject::tr("Move away the selection (s)"));
+	edit_backward->setStatusTip(QObject::tr("Send in the backward the selection (s)"));
+
+	ShortcutManager::instance().registerAction(edit_raise, "depth.raise", QObject::tr("Depth"), Qt::CTRL | Qt::SHIFT | Qt::Key_Up);
+	ShortcutManager::instance().registerAction(edit_lower, "depth.lower", QObject::tr("Depth"), Qt::CTRL | Qt::SHIFT | Qt::Key_Down);
+	ShortcutManager::instance().registerAction(edit_backward, "depth.backward", QObject::tr("Depth"), Qt::CTRL | Qt::SHIFT | Qt::Key_End);
+	ShortcutManager::instance().registerAction(edit_forward, "depth.forward", QObject::tr("Depth"), Qt::CTRL | Qt::SHIFT | Qt::Key_Home);
+
+	edit_forward ->setData(QET::BringForward);
+	edit_raise   ->setData(QET::Raise);
+	edit_lower   ->setData(QET::Lower);
+	edit_backward->setData(QET::SendBackward);
+
+	return action_group;
+}
+
+bool QET::writeToFile(QDomDocument &xml_doc, QFile *file, QString *error_message)
+{
+	return writeTextToFile(xml_doc.toString(4), file, error_message);
+}
+
+/**
+	@brief QET::writeTextToFile
+	writeToFile() for a document already written as @p text
+*/
+bool QET::writeTextToFile(const QString &text, QFile *file, QString *error_message)
+{
+	bool opened_here = file->isOpen() ? false : true;
+
+	if (!file->isOpen())
+	{
+		bool open_ = file->open(QIODevice::WriteOnly);
+		if (!open_)
+		{
+			if (error_message)
+			{
+				QFileInfo info_(*file);
+				*error_message = QString(
+							QObject::tr(
+								"Unable to open file %1 with write access, encountered error %2.",
+								"error message when attempting to write an XML file")
+				).arg(info_.absoluteFilePath()).arg(file->error());
+			}
+			return false;
+		}
+	}
+
+	QTextStream out(file);
+	out.seek(0);
+	out.setEncoding(QStringConverter::Utf8);
+	out.setGenerateByteOrderMark(false);
+	out << text;
+	if (opened_here) {
+		file->close();
+	}
+
+	return(true);
+}
+
+/**
+	@brief QET::saveCustomColors
+	Save the 16 QColorDialog custom colors to QSettings so they persist
+	across application restarts.
+*/
+void QET::saveCustomColors()
+{
+	QByteArray ba;
+	QBuffer buf(&ba);
+	buf.open(QIODevice::WriteOnly);
+	QDataStream s(&buf);
+	s.setVersion(QDataStream::Qt_6_0);
+	for (int i = 0; i < 16; i++)
+		s << QColorDialog::customColor(i);
+	QSettings settings;
+	settings.setValue(QStringLiteral("color/customColors"), ba);
+}
+
+/**
+	@brief QET::loadCustomColors
+	Load the 16 QColorDialog custom colors from QSettings into Qt's
+	internal custom color array.  A short or corrupt buffer is ignored
+	so that unread slots keep their default rather than turning black.
+*/
+void QET::loadCustomColors()
+{
+	QSettings settings;
+	QByteArray ba = settings.value(QStringLiteral("color/customColors")).toByteArray();
+
+	// Fall back to the legacy ungrouped key used by earlier versions.
+	if (ba.isEmpty())
+		ba = settings.value(QStringLiteral("customColors")).toByteArray();
+
+	if (ba.isEmpty())
+		return;
+
+	QBuffer buf(&ba);
+	buf.open(QIODevice::ReadOnly);
+	QDataStream s(&buf);
+	s.setVersion(QDataStream::Qt_6_0);
+
+	QColor colors[16];
+	for (int i = 0; i < 16; i++)
+		s >> colors[i];
+
+	if (s.status() != QDataStream::Ok)
+		return;
+
+	for (int i = 0; i < 16; i++)
+		QColorDialog::setCustomColor(i, colors[i]);
+}

@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="13">
+    <uuid uuid="{c39f90b2-8b02-d643-3856-f163124ba917}"/>
+    <names>
+        <name lang="ar">حنفيّة بعوّامة</name>
+        <name lang="ca">Ballcock</name>
+        <name lang="cs">Plovákový ventil</name>
+        <name lang="da">Svømmer</name>
+        <name lang="de">Schwimmerventil</name>
+        <name lang="el">Βαλβίδα πλωτήρα</name>
+        <name lang="en">Ballcock</name>
+        <name lang="es">Válvula de flotador</name>
+        <name lang="fi">Palloventtiili (uimuri)</name>
+        <name lang="fr">Robinet à flotteur</name>
+        <name lang="hr">Plovni ventil</name>
+        <name lang="hu">Úszógolyós szelep</name>
+        <name lang="it">Galleggiante</name>
+        <name lang="ja">ボールタップ</name>
+        <name lang="ko">볼탭</name>
+        <name lang="mn">Бөмбөлөг хавхлага</name>
+        <name lang="nb">Flottørventil</name>
+        <name lang="nl">Vlotterklep</name>
+        <name lang="nl_BE">Vlotterkraan</name>
+        <name lang="pl">Zawór pływakowy</name>
+        <name lang="pt">Válvula de bóia</name>
+        <name lang="pt_BR">Ballcock</name>
+        <name lang="ro">Robinet cu plutitor</name>
+        <name lang="ru">Поплавковый клапан</name>
+        <name lang="sk">Plavákový ventil</name>
+        <name lang="sl">Plovni ventil</name>
+        <name lang="sr">Пловни вентил</name>
+        <name lang="sv">Flottörventil</name>
+        <name lang="tr">Şamandıralı valf</name>
+        <name lang="uk">Поплавковий клапан</name>
+        <name lang="zh">浮球阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3d3ef25a-5c65-40c5-ba73-b34e4e8a0063}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="4" y="-10.5" width="6" height="3" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <polygon x1="4" y1="-9" x2="0" y2="-5" x3="0" y3="-1" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="0" x2="11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-5" x2="10" y2="5" x3="10" y3="-5" x4="-10" y4="5" x5="-10" y5="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <terminal uuid="{62672948-6600-4275-8b88-34386318253c}" name="" x="11" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{ae87a970-8b42-4bc7-8e93-cbea00e0b2e7}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

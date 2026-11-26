@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="25" hotspot_y="22">
+    <uuid uuid="{1e1bf180-df16-9761-bd11-cf80de8899f0}"/>
+    <names>
+        <name lang="ar">مقياس ضغط</name>
+        <name lang="ca">Monòmetre</name>
+        <name lang="cs">Manometr 3/8"</name>
+        <name lang="da">Manometer</name>
+        <name lang="de">Monometer</name>
+        <name lang="el">Μανόμετρο</name>
+        <name lang="en">Pressure gauge</name>
+        <name lang="es">Manómetro 3/8M</name>
+        <name lang="fr">Monomètre</name>
+        <name lang="it">Manometro 3/8 M</name>
+        <name lang="pl">Manometr 3/8"</name>
+        <name lang="pt_BR">Manómetro 3/8M</name>
+        <name lang="zh">压力表</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <ellipse x="-17.5" y="-17.5" width="35" height="35" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="23" x2="6" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-19.5" y="-19.7" width="39" height="39" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12.16" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1.5" y="-1.24" width="3" height="3" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <text text="2" x="-16" y="0" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="-9.22" y="-9.51" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="5" y="-10" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5" x="13" y="0" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="6" x="8" y="11" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="bar" x="-4" y="8" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="13" y="6.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ae5aaa14-8ead-459b-99fe-7e003468d574}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="1" x="-11" y="11" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="6" y1="23" x2="6" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="23" x2="-6" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="23" width="8" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="4" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="30" x2="4" y2="27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="28" x2="4" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="26" x2="4" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="24" x2="-2" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="13" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="14" x2="1" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a38eea2c-294a-43e3-9687-d8e42ef9c505}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

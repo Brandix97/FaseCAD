@@ -1,0 +1,91 @@
+<definition version="0.90" type="element" link_type="master" width="100" height="100" hotspot_x="45" hotspot_y="50">
+    <uuid uuid="{ce847f7c-c440-e431-2698-9f1246dc6061}"/>
+    <names>
+        <name lang="ar">قاطع دارة التيار المتبقي مع قاطع الدائرة</name>
+        <name lang="ca">Interruptor diferencial amb disjuntor</name>
+        <name lang="cs">Proudový chránič s proudovým chráničem</name>
+        <name lang="da">Fejlstrømsafbryder med afbryder</name>
+        <name lang="de">Fehlerstromschutzschalter mit Leitungsschutzschalter</name>
+        <name lang="el">Διακόπτης υπολειπόμενου ρεύματος με διακόπτη κυκλώματος</name>
+        <name lang="en">Residual current circuit breaker with circuit breaker</name>
+        <name lang="es">Disyuntor de corriente residual con disyuntor</name>
+        <name lang="fi">Vikavirtakatkaisija katkaisijalla</name>
+        <name lang="fr">Disjoncteur différentiel avec disjoncteur</name>
+        <name lang="hr">Zaštitna sklopka zaštitne struje s prekidačem</name>
+        <name lang="hu">Maradékáram-megszakító megszakítóval</name>
+        <name lang="it">Interruttore differenziale con interruttore automatico</name>
+        <name lang="ja">サーキットブレーカ付き残留電流サーキットブレーカ</name>
+        <name lang="ko">회로 차단기 포함 잔류 전류 차단기</name>
+        <name lang="mn">Хэлхээ таслагчтай үлдэгдэл гүйдлийн таслуур</name>
+        <name lang="nb">Feilstrømsbryter med effektbryter</name>
+        <name lang="nl">Aardlekschakelaar met stroomonderbreker</name>
+        <name lang="nl_BE">Aardlekschakelaar met stroomonderbreker</name>
+        <name lang="pl">Wyłącznik różnicowoprądowy z wyłącznikiem</name>
+        <name lang="pt">Disjuntor de corrente residual com disjuntor</name>
+        <name lang="pt_BR">Disjuntor diferencial residual</name>
+        <name lang="ro">Întrerupător de curent rezidual cu întreruptor de circuit</name>
+        <name lang="ru">Автомат защитного отключения с автоматическим выключателем</name>
+        <name lang="sk">Prúdový chránič s ističom</name>
+        <name lang="sl">Odklopnik na diferenčni tok z odklopnikom</name>
+        <name lang="sr">Прекидач диференцијалне струје са прекидачем</name>
+        <name lang="sv">Jordfelsbrytare med dvärgbrytare</name>
+        <name lang="tr">Devre kesicili kaçak akım devre kesici</name>
+        <name lang="uk">Диференційний автоматичний вимикач із автоматичним вимикачем</name>
+        <name lang="zh">RCBO01</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <elementInformations>
+        <elementInformation show="1" name="description">RCBO 1P+N</elementInformation>
+    </elementInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="12" y1="-34" x2="8" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="45" y1="-40" x2="50" y2="-40" x3="50" y3="-26" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-16.5" y1="20" x2="-24" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="50" y1="0" x2="50" y2="-15" x3="46" y3="-26" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="48" y="0" width="4" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="29" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <text text="T" x="38" y="-42" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-36" y="15" width="12" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-70" y="-50" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{36c7c79e-5fa0-4035-bc90-aaf80cb42d7e}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-30" y1="15" x2="-30" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-34" x2="12" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="-3" x2="10" y2="-6" x3="14" y3="-6" x4="14" y4="-12" x5="10" y5="-12" x6="10" y6="-15" x7="5" y7="-26" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-27" x2="10" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="1" x="13" y="-38" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="12" y1="-27" x2="8" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="2" x="13" y="42" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="-7" y="42" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-8" y1="-34" x2="-12" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="-34" x2="-8" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-4" x2="20" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="40" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="N" x="-7" y="-38" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-10" y1="40" x2="-10" y2="10" x3="-10" y3="4" x4="-10" y4="-15" x5="-15" y5="-25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="-26" x2="-10" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-26" x2="-12" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-36" y="-26" width="12" height="12" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-20" x2="-43" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-43" y1="-24" x2="-43" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-14" x2="-30" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-25.59" y1="-20" x2="48" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-14" x2="20" y2="-14" x3="20" y3="6" x4="0" y4="6" x5="0" y5="-14" x6="20" y6="-14" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <arc x="6" y="-3" width="8" height="8" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="10" y1="10" x2="30" y2="10" x3="30" y3="-40" x4="35" y4="-40" x5="45" y5="-43" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="9" y="9" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <ellipse x="-16.5" y="16" width="33" height="8" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="50" y1="10" x2="50" y2="30" x3="-10" y3="30" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="40" y1="-45" x2="40" y2="-41.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="38" y1="-45" x2="42" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{15f6379b-45f2-45e3-b007-e49670986548}" name="" x="10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{6e84f9e9-fde1-473c-aa8a-99711e3e45e9}" name="" x="-10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{8f448f26-eb1e-4919-b9b5-c6750b298bd0}" name="" x="-10" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{733c8f11-7902-46b3-811b-64c6d10dd7bf}" name="" x="10" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{91470c57-6d6f-9af5-f78a-574f2af47203}"/>
+    <names>
+        <name lang="ar">ضاغط بالانتقال</name>
+        <name lang="ca">Compressor scroll</name>
+        <name lang="cs">Spirálový kompresor</name>
+        <name lang="da">Spiral kompressor</name>
+        <name lang="de">Scrollverdichter</name>
+        <name lang="el">Σπειροειδής συμπιεστής</name>
+        <name lang="en">Scroll compressor</name>
+        <name lang="es">Compresor scroll</name>
+        <name lang="fi">Scroll-kompressori</name>
+        <name lang="fr">Compresseur scroll</name>
+        <name lang="hr">Spiralni kompresor</name>
+        <name lang="hu">Scroll kompresszor</name>
+        <name lang="it">Compressore a chiocciola</name>
+        <name lang="ja">スクロール圧縮機</name>
+        <name lang="ko">스크롤 압축기</name>
+        <name lang="mn">Спираль компрессор</name>
+        <name lang="nb">Spiral kompressor</name>
+        <name lang="nl">Scroll compressor</name>
+        <name lang="nl_BE">Scrollcompressor</name>
+        <name lang="pl">Kompresor spiralny</name>
+        <name lang="pt">Compressor scroll</name>
+        <name lang="pt_BR">Scroll Compressãor</name>
+        <name lang="ro">Compresor cu spirală</name>
+        <name lang="ru">Спиральный компрессор</name>
+        <name lang="sk">Spirálový kompresor</name>
+        <name lang="sl">Spiralni kompresor</name>
+        <name lang="sr">Спирални компресор</name>
+        <name lang="sv">Scrollkompressor</name>
+        <name lang="tr">Scroll kompresör</name>
+        <name lang="uk">Спіральний компресор</name>
+        <name lang="zh">涡旋压缩机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b106cbd4-4afc-4919-b0e5-0965521de4d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-13" x2="13" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="13" x2="13" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.5" y="-4.5" width="9" height="9" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3.5" y="-2.5" width="7" height="7" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-2.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-1.5" y="-0.5" width="3" height="3" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{db746cd1-33cf-4b84-a507-dd6f936d22c4}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{684ff1f1-bf0a-4854-9d3f-f3151719385d}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,545 @@
+# Copyright 2006-2026 The QElectroTech Team
+# This file is part of QElectroTech.
+#
+# QElectroTech is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# QElectroTech is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+
+include(cmake/hoto_update_cmake_message.cmake)
+
+cmake_minimum_required(VERSION 3.5...4.2)
+
+project(qelectrotech
+        VERSION 0.200.1
+        DESCRIPTION "FaseCAD is a CAD/CAE editor focusing on schematics drawing features."
+        HOMEPAGE_URL "https://fasecad.com/"
+        LANGUAGES C CXX)
+
+include(cmake/copyright_message.cmake)
+
+set(QET_DIR ${PROJECT_SOURCE_DIR})
+
+
+include(cmake/paths_compilation_installation.cmake)
+include(cmake/start_options.cmake)
+include(cmake/developer_options.cmake)
+include(cmake/git_update_submodules.cmake)
+include(cmake/git_last_commit_sha.cmake)
+include(cmake/fetch_singleapplication.cmake)
+include(cmake/fetch_pugixml.cmake)
+include(cmake/find_spacemouse.cmake)
+include(cmake/qet_compilation_vars.cmake)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+SET(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(
+    Qt6
+    COMPONENTS
+    ${QET_COMPONENTS}
+    REQUIRED)
+
+# <private/qpdf_p.h> (QPdfEngine::drawHyperlink) needs Qt's private GUI module.
+# Qt >= 6.7 ships it as a proper find_package component, but some distro
+# packages (e.g. Ubuntu's qt6-base-private-dev) omit Qt6GuiPrivateConfig.cmake
+# and only provide the implicit Qt6::GuiPrivate target created alongside
+# Qt6::Gui. Try the component quietly, then verify the target below so a
+# missing private-headers package fails here instead of at compile time.
+find_package(Qt6 QUIET COMPONENTS GuiPrivate)
+
+if(NOT TARGET Qt6::GuiPrivate)
+    message(FATAL_ERROR
+        "Qt6::GuiPrivate was not found. It is required for PDF hyperlink "
+        "support (<private/qpdf_p.h>). Install the Qt6 private headers "
+        "(e.g. 'qt6-base-private-dev' on Debian/Ubuntu) or use a Qt build "
+        "that provides the GuiPrivate component.")
+endif()
+
+# PDF page import (toolbar "Ajouter un PDF") needs the QtPdf module and,
+# specifically, QPdfDocument::pagePointSize() which only exists since Qt 6.4.
+# Unlike GuiPrivate above, a missing QtPdf module is NOT fatal here: some
+# Qt6 distributions (e.g. the Flatpak org.kde.Platform runtime) don't ship
+# it at all, since it lives in the qtwebengine source tree rather than Qt6
+# core. When it's missing, or too old, the feature is silently disabled -
+# see the QT_VERSION_CHECK / QET_HAS_QTPDF guards in diagrameventaddpdf.*
+# and pdfpagesdialog.*.
+set(QET_HAS_QTPDF FALSE)
+find_package(Qt6 QUIET COMPONENTS Pdf)
+if(TARGET Qt6::Pdf AND NOT Qt6_VERSION VERSION_LESS 6.4.0)
+    set(QET_HAS_QTPDF TRUE)
+    list(APPEND QET_PRIVATE_LIBRARIES Qt6::Pdf)
+    add_compile_definitions(QET_HAS_QTPDF)
+else()
+    message(STATUS "QtPdf module not available (or Qt < 6.4): PDF page import feature disabled")
+endif()
+
+# JavaScript scripting (bugtracker #162: `--run script.js`, and later a
+# "Run Script..." menu action) needs QJSEngine, in the Qml module. As with
+# QtPdf above, this is not fatal when missing: some minimal Qt6 packagings
+# may not ship it, and scripting is optional functionality nothing else in
+# the application depends on. When it's missing the feature is silently
+# disabled - see the QET_HAS_SCRIPTING guard in qetscripting.*.
+set(QET_HAS_SCRIPTING FALSE)
+find_package(Qt6 QUIET COMPONENTS Qml)
+if(TARGET Qt6::Qml)
+    set(QET_HAS_SCRIPTING TRUE)
+    list(APPEND QET_PRIVATE_LIBRARIES Qt6::Qml)
+    add_compile_definitions(QET_HAS_SCRIPTING)
+else()
+    message(STATUS "Qt Qml module not available: JavaScript scripting (--run) disabled")
+endif()
+
+# The zip container of a .qetz project is read and written with the bundled
+# miniz (sources/container/miniz): in memory only, and without timestamps so
+# that saving the same project twice gives the same bytes. The names must not
+# clash with the zlib Qt links. Every target including miniz.h needs the same
+# three, hence directory-wide.
+add_compile_definitions(MINIZ_NO_TIME MINIZ_NO_STDIO MINIZ_NO_ZLIB_COMPATIBLE_NAMES)
+
+# The crash handler writes a backtrace into the dump. Detecting this with
+# __has_include(<execinfo.h>) is not enough: the header is present on FreeBSD
+# too, but backtrace() lives in a separate libexecinfo there, so the compile
+# succeeds and the link fails. FindBacktrace resolves both the header and
+# whichever library actually provides the symbol, so gate on it instead - see
+# the QET_CRASH_BACKTRACE guard in sources/logging/crashhandler.cpp.
+# The password of the fasecad.com account is kept with the Windows data
+# protection (FaseCadAccount, 2026-11-26)
+if(WIN32)
+    list(APPEND QET_PRIVATE_LIBRARIES crypt32)
+endif()
+
+find_package(Backtrace QUIET)
+if(Backtrace_FOUND)
+    list(APPEND QET_PRIVATE_LIBRARIES ${Backtrace_LIBRARIES})
+    include_directories(${Backtrace_INCLUDE_DIRS})
+    add_compile_definitions(QET_CRASH_BACKTRACE)
+else()
+    message(STATUS
+        "backtrace() not available: crash dumps will carry the log ring "
+        "without a backtrace")
+endif()
+
+# Homebrew's sqlite has the session extension the history of saves needs
+# (see below) but is keg-only, so find_package() does not see it unless
+# pointed at it (#1667)
+if(APPLE AND NOT SQLite3_ROOT AND NOT DEFINED ENV{SQLite3_ROOT})
+    find_program(BREW_EXECUTABLE brew)
+    if(BREW_EXECUTABLE)
+        execute_process(COMMAND ${BREW_EXECUTABLE} --prefix sqlite
+                        OUTPUT_VARIABLE BREW_SQLITE_PREFIX
+                        OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
+        if(EXISTS "${BREW_SQLITE_PREFIX}/include/sqlite3.h")
+            set(SQLite3_ROOT "${BREW_SQLITE_PREFIX}")
+        endif()
+    endif()
+endif()
+
+find_package(SQLite3 REQUIRED)
+
+# CMake < 4.3 only creates the SQLite::SQLite3 target (no SQLite3::SQLite3
+# alias yet), while CMake >= 4.3's bundled FindSQLite3 creates SQLite3::SQLite3
+# and deprecates the old name. Add the missing alias ourselves so we can use
+# the modern target name everywhere regardless of the CMake version in use
+# (this project must keep building on CMake versions below 4.3, e.g. on most
+# current Linux distros).
+if(NOT TARGET SQLite3::SQLite3 AND TARGET SQLite::SQLite3)
+    add_library(SQLite3::SQLite3 ALIAS SQLite::SQLite3)
+endif()
+
+# The history of saves (QetDbFile) uses SQLite's session extension. Not every
+# SQLite has it: the macOS SDK's sqlite3.h does not, and the build fails
+# there. Without it saves still work but keep no changes.
+include(CheckSymbolExists)
+set(CMAKE_REQUIRED_DEFINITIONS -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_PREUPDATE_HOOK)
+set(CMAKE_REQUIRED_INCLUDES ${SQLite3_INCLUDE_DIRS})
+set(CMAKE_REQUIRED_LIBRARIES ${SQLite3_LIBRARIES})
+check_symbol_exists(sqlite3session_create sqlite3.h QET_HAVE_SQLITE_SESSION)
+unset(CMAKE_REQUIRED_DEFINITIONS)
+unset(CMAKE_REQUIRED_INCLUDES)
+unset(CMAKE_REQUIRED_LIBRARIES)
+if(NOT QET_HAVE_SQLITE_SESSION)
+    message(WARNING
+        "SQLite has no session extension: the history of saves will record "
+        "no changes. On macOS, point CMake at Homebrew's SQLite to keep them.")
+    add_compile_definitions(QET_NO_SQLITE_SESSION)
+endif()
+
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${QET_DIR}/sources/ui)
+
+include(cmake/fetch_kdeaddons.cmake)
+
+# Add sub directories
+option(PACKAGE_TESTS "Build the tests" ON)
+if(PACKAGE_TESTS)
+    message("Add sub directory tests")
+    enable_testing()
+    add_subdirectory(tests)
+endif()
+
+# als laatse
+include(cmake/define_definitions.cmake)
+
+# The application's code, compiled once, as an object library: the
+# executable is main.cpp linked with it, and tests that need the real
+# classes (a folio, its view, the editor window) link it too.
+set(QET_MAIN_FILE ${QET_DIR}/sources/main.cpp)
+list(REMOVE_ITEM QET_SRC_FILES ${QET_MAIN_FILE})
+add_library(
+    ${PROJECT_NAME}_objects
+    OBJECT
+    ${QET_RES_FILES}
+    ${QET_SRC_FILES}
+    ${QET_DIR}/qelectrotech.qrc
+    ${QET_DIR}/ico/icon-themes.qrc
+)
+# The definitions above are set for this whole directory; a test target
+# lives in tests/ and gets them from here, through the library.
+get_directory_property(QET_DIRECTORY_DEFINITIONS COMPILE_DEFINITIONS)
+target_compile_definitions(${PROJECT_NAME}_objects
+    INTERFACE ${QET_DIRECTORY_DEFINITIONS})
+
+# On Windows, WIN32 sets /SUBSYSTEM:WINDOWS to suppress the console window.
+# Qt automatically links qtmain.lib which provides the WinMain entry point,
+# so no source code change is needed. On macOS, MACOSX_BUNDLE makes it an
+# .app bundle. Each is ignored on the other systems.
+qt_add_executable(
+    ${PROJECT_NAME}
+    WIN32
+    MACOSX_BUNDLE
+    ${QET_MAIN_FILE}
+    ${QM_FILES}
+)
+# Qml is linked for QJSEngine only (see QET_HAS_SCRIPTING): there are no QML
+# files, so skip the QML import scan qt_add_executable adds for deployment,
+# which would otherwise go through the whole source tree on every build.
+set_target_properties(${PROJECT_NAME} PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
+# The program is FaseCAD: the file built is fasecad(.exe), the target keeps
+# its name for the build and the tests
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME fasecad)
+if(WIN32)
+    # Our own manifest (it declares longPathAware). MSVC merges a .manifest
+    # listed as a source; MinGW needs it embedded through a resource file,
+    # and ld then keeps it ahead of the toolchain's default manifest.
+    set(QET_MANIFEST_FILE ${QET_DIR}/build-aux/windows/qelectrotech.exe.manifest)
+    if(MSVC)
+        target_sources(${PROJECT_NAME} PRIVATE ${QET_MANIFEST_FILE})
+    else()
+        configure_file(${QET_DIR}/build-aux/windows/qelectrotech-manifest.rc.in
+                       ${CMAKE_CURRENT_BINARY_DIR}/qelectrotech-manifest.rc @ONLY)
+        target_sources(${PROJECT_NAME} PRIVATE
+                       ${CMAKE_CURRENT_BINARY_DIR}/qelectrotech-manifest.rc)
+    endif()
+    # FaseCAD: the icon of the executable, shown by the file explorer
+    configure_file(${QET_DIR}/build-aux/windows/branding-icon.rc.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/branding-icon.rc @ONLY)
+    target_sources(${PROJECT_NAME} PRIVATE
+                   ${CMAKE_CURRENT_BINARY_DIR}/branding-icon.rc)
+endif()
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_objects)
+
+if(QET_SPACEMOUSE_BACKEND_SPNAV_ENABLED)
+    list(APPEND QET_SPACEMOUSE_LIBRARIES PkgConfig::SPNAV)
+endif()
+if(QET_SPACEMOUSE_BACKEND_HID_ENABLED)
+    list(APPEND QET_SPACEMOUSE_LIBRARIES ${QET_HIDAPI_TARGET})
+endif()
+
+if(APPLE)
+    # CFBundleIdentifier must not be empty. CMake's default Info.plist
+    # template fills it from MACOSX_BUNDLE_GUI_IDENTIFIER; with that unset
+    # the bundle ships an empty identifier, LaunchServices never registers
+    # the .app, and AppKit's open/save panel service (which is keyed on the
+    # client's bundle id) silently presents nothing -- every
+    # QFileDialog::getOpenFileName()/getSaveFileName() call returns an empty
+    # string without a panel ever appearing, so File > Open and File > Save
+    # as do nothing at all.
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.fasecad.FaseCAD"
+        MACOSX_BUNDLE_BUNDLE_NAME "FaseCAD"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_COPYRIGHT "Copyright 2006-2026 The QElectroTech Team"
+    )
+endif()
+
+# The default build only compiles the tracked .ts files to .qm (lrelease).
+# Refreshing the .ts from the sources (lupdate) is a developer action behind
+# the explicit "update_translations" target below: running lupdate on every
+# build rewrote tracked files as a side effect, and under high parallelism
+# lupdate rewriting a .ts while lrelease read the same file made the build
+# fail with "Premature end of document".
+set_source_files_properties(
+    ${TS_FILES}
+    PROPERTIES OUTPUT_LOCATION "lang"
+)
+if(Qt6_VERSION VERSION_LESS "6.2")
+    # Qt 6.0–6.1
+    qt6_add_translation(QM_FILES ${TS_FILES})
+
+    # qt6_add_translation() only creates custom commands. Something must
+    # depend on their outputs for them to run during the default build.
+    add_custom_target(${PROJECT_NAME}_lrelease ALL
+        DEPENDS ${QM_FILES}
+    )
+
+    add_custom_target(update_translations
+        COMMAND
+            $<TARGET_FILE:Qt6::lupdate>
+            "${CMAKE_SOURCE_DIR}/sources"
+            -ts ${TS_FILES}
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+        COMMENT
+            "Updating .ts files from sources/ (lupdate) - developer target"
+        VERBATIM
+    )
+
+elseif(Qt6_VERSION VERSION_LESS "6.7")
+    # Qt 6.2–6.6: old target-based signature
+    qt_add_lrelease(
+        ${PROJECT_NAME}
+        TS_FILES ${TS_FILES}
+        QM_FILES_OUTPUT_VARIABLE QM_FILES
+    )
+
+    # Automatically creates the update_translations umbrella target.
+    qt_add_lupdate(
+        ${PROJECT_NAME}_objects
+        TS_FILES ${TS_FILES}
+    )
+
+else()
+    # Qt 6.7+: new signature
+    qt_add_lrelease(
+        TS_FILES ${TS_FILES}
+        LRELEASE_TARGET ${PROJECT_NAME}_lrelease
+        QM_FILES_OUTPUT_VARIABLE QM_FILES
+    )
+
+    qt_add_lupdate(
+        SOURCE_TARGETS ${PROJECT_NAME}_objects
+        TS_FILES ${TS_FILES}
+        LUPDATE_TARGET update_translations
+        NO_GLOBAL_TARGET
+    )
+endif()
+
+
+# Optional precompiled headers -- see QET_ENABLE_PCH in
+# cmake/developer_options.cmake for what this trades away.
+#
+# target_precompile_headers() needs CMake 3.16; the project still declares a
+# 3.5 minimum, so guard rather than raise it for an opt-in developer feature.
+#
+# The generator expressions are load-bearing, not decoration: this target also
+# compiles C files (the bundled miniz, sources/container/miniz/miniz.c),
+# and an unguarded list applies to every
+# language in the target, so the Qt headers would reach the C compiler and fail
+# with "unknown type name 'namespace'". $<ANGLE-R> is required because a
+# literal '>' would terminate the generator expression.
+if(QET_ENABLE_PCH)
+    if(CMAKE_VERSION VERSION_LESS 3.16)
+        message(WARNING
+            "QET_ENABLE_PCH needs CMake 3.16 or newer (found ${CMAKE_VERSION}); "
+            "building without precompiled headers.")
+    else()
+        target_precompile_headers(${PROJECT_NAME}_objects PRIVATE
+            "$<$<COMPILE_LANGUAGE:CXX>:<QtCore/QtCore$<ANGLE-R>>"
+            "$<$<COMPILE_LANGUAGE:CXX>:<QtGui/QtGui$<ANGLE-R>>"
+            "$<$<COMPILE_LANGUAGE:CXX>:<QtWidgets/QtWidgets$<ANGLE-R>>"
+            "$<$<COMPILE_LANGUAGE:CXX>:<QtXml/QtXml$<ANGLE-R>>"
+        )
+        message(STATUS "QET_ENABLE_PCH: precompiled headers enabled")
+    endif()
+endif()
+
+target_link_libraries(
+    ${PROJECT_NAME}_objects
+    PUBLIC
+    pugixml::pugixml
+    SingleApplication::SingleApplication
+    SQLite3::SQLite3
+    ${KF_PRIVATE_LIBRARIES}
+    ${QET_PRIVATE_LIBRARIES}
+    ${QET_SPACEMOUSE_LIBRARIES}
+)
+
+# The cabinet in 3D (2026-11-20): Qt's OpenGL widgets draw it, and
+# OpenCASCADE, when found, reads the STEP models of the devices and writes
+# the cabinet as STEP; without it the devices are boxes. Given to those who
+# link the objects only (INTERFACE), and the OpenCASCADE headers to
+# cabinetstep.cpp only: the other objects keep their flags.
+find_package(Qt6 REQUIRED COMPONENTS OpenGL OpenGLWidgets)
+target_link_libraries(${PROJECT_NAME}_objects INTERFACE Qt6::OpenGL Qt6::OpenGLWidgets)
+find_package(OpenCASCADE CONFIG QUIET)
+if(OpenCASCADE_FOUND)
+    message(STATUS "OpenCASCADE ${OpenCASCADE_VERSION}: STEP models for the cabinet in 3D")
+    set_source_files_properties(${QET_DIR}/sources/cabinet/cabinetstep.cpp PROPERTIES
+        COMPILE_DEFINITIONS "QET_HAS_OPENCASCADE;_USE_MATH_DEFINES"
+        INCLUDE_DIRECTORIES "${OpenCASCADE_INCLUDE_DIR}")
+    set(QET_OCC_TOOLKITS TKDESTEP TKXCAF TKLCAF TKCAF TKCDF TKDE TKXSBase
+        TKMesh TKPrim TKTopAlgo TKShHealing TKGeomAlgo TKBRep TKGeomBase
+        TKG3d TKG2d TKMath TKernel TKVCAF)
+    foreach(toolkit ${QET_OCC_TOOLKITS})
+        get_target_property(toolkit_library ${toolkit} IMPORTED_IMPLIB_RELEASE)
+        if(NOT toolkit_library)
+            get_target_property(toolkit_library ${toolkit} IMPORTED_IMPLIB)
+        endif()
+        target_link_libraries(${PROJECT_NAME}_objects INTERFACE ${toolkit_library})
+    endforeach()
+else()
+    message(STATUS "OpenCASCADE not found: the cabinet in 3D draws its devices as boxes, no STEP")
+endif()
+
+target_include_directories(
+    ${PROJECT_NAME}_objects
+    PUBLIC
+    ${QET_DIR}/sources/titleblock
+    ${QET_DIR}/sources/ui
+    ${QET_DIR}/sources/qetgraphicsitem
+    ${QET_DIR}/sources/qetgraphicsitem/ViewItem
+    ${QET_DIR}/sources/qetgraphicsitem/ViewItem/ui
+    ${QET_DIR}/sources/richtext
+    ${QET_DIR}/sources/factory
+    ${QET_DIR}/sources/properties
+    ${QET_DIR}/sources/dvevent
+    ${QET_DIR}/sources/editor
+    ${QET_DIR}/sources/editor/esevent
+    ${QET_DIR}/sources/editor/graphicspart
+    ${QET_DIR}/sources/editor/ui
+    ${QET_DIR}/sources/editor/UndoCommand
+    ${QET_DIR}/sources/undocommand
+    ${QET_DIR}/sources/diagramevent
+    ${QET_DIR}/sources/ElementsCollection
+    ${QET_DIR}/sources/ElementsCollection/ui
+    ${QET_DIR}/sources/autoNum
+    ${QET_DIR}/sources/autoNum/ui
+    ${QET_DIR}/sources/ui/configpage
+    ${QET_DIR}/sources/SearchAndReplace
+    ${QET_DIR}/sources/SearchAndReplace/ui
+    ${QET_DIR}/sources/NameList
+    ${QET_DIR}/sources/NameList/ui
+    ${QET_DIR}/sources/utils
+    ${QET_DIR}/sources/dataBase
+    ${QET_DIR}/sources/dataBase/ui
+    ${QET_DIR}/sources/factory/ui
+    ${QET_DIR}/sources/print
+    ${QET_DIR}/sources/svg
+    ${QET_DIR}/sources/materiallist
+    ${QET_DIR}/sources/cablelist
+)
+
+if(NOT BUILD_WITH_KF)
+    target_include_directories(
+        ${PROJECT_NAME}_objects
+        PUBLIC
+        ${QET_DIR}/sources/ui/nokde
+    )
+endif()
+
+# The rules below form one component, apart from the ones of the fetched KDE
+# libraries, so that a package can leave those out (see cpack/CMakeLists.txt).
+set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME qelectrotech)
+
+install(TARGETS ${PROJECT_NAME}
+    BUNDLE DESTINATION .
+    RUNTIME DESTINATION ${QET_BINARY_PATH}
+)
+
+if(WIN32)
+    # QET needs SQLite's DLL beside it, and find_package(SQLite3) only
+    # knows its import library. Set SQLite3_DLL to the DLL to install it
+    # with QET; left empty, nothing more is installed.
+    set(SQLite3_DLL "" CACHE FILEPATH
+        "SQLite's DLL, installed beside QElectroTech (Windows)")
+    if(SQLite3_DLL)
+        install(FILES ${SQLite3_DLL} DESTINATION ${QET_BINARY_PATH})
+    endif()
+    # hidapi's DLL, for the 3D mouse, when hidapi's CMake package found it
+    # (cmake/find_spacemouse.cmake): Qt's deploy script copies only Qt.
+    if(QET_HIDAPI_TARGET STREQUAL "hidapi::hidapi" AND TARGET hidapi::winapi)
+        get_target_property(qet_hidapi_type hidapi::winapi TYPE)
+        if(qet_hidapi_type STREQUAL "SHARED_LIBRARY")
+            install(FILES $<TARGET_FILE:hidapi::winapi>
+                DESTINATION ${QET_BINARY_PATH})
+        endif()
+    endif()
+endif()
+
+# QET_DEPLOY_QT (cmake/start_options.cmake): at install time, Qt's deploy
+# script copies the Qt libraries and plugins QElectroTech uses beside it:
+# windeployqt on Windows, macdeployqt into the bundle on macOS. Qt's
+# translations are left out: QElectroTech reads them from its own lang
+# folder (QETApp::setLanguage()). Linux packages bring Qt their own way, and
+# Qt's deploy there needs a Qt built with an RPATH, which the distributions'
+# Qt is not.
+if(QET_DEPLOY_QT)
+    if(NOT WIN32 AND NOT APPLE)
+        message(FATAL_ERROR
+            "QET_DEPLOY_QT is for Windows and macOS. On Linux, packages bring "
+            "Qt their own way (distributions, snap, Flatpak, the AppImage "
+            "scripts in build-aux/linux/appimage).")
+    endif()
+    if(Qt6_VERSION VERSION_LESS 6.5)
+        message(FATAL_ERROR
+            "QET_DEPLOY_QT needs Qt 6.5 or newer (found ${Qt6_VERSION}).")
+    endif()
+    set(qet_deploy_tool_options)
+    if(WIN32 AND NOT Qt6_VERSION VERSION_LESS 6.7)
+        # Qml is linked for QJSEngine only (see QET_HAS_SCRIPTING): without
+        # these, windeployqt adds Qt Quick, its QML imports and the QML
+        # debugging plugins, which nothing uses. DEPLOY_TOOL_OPTIONS needs
+        # Qt 6.7; before it, those are deployed too.
+        set(qet_deploy_tool_options DEPLOY_TOOL_OPTIONS
+            --no-quick-import --skip-plugin-types qmltooling)
+    endif()
+    qt_generate_deploy_app_script(
+        TARGET ${PROJECT_NAME}
+        OUTPUT_SCRIPT qet_deploy_script
+        NO_TRANSLATIONS
+        ${qet_deploy_tool_options}
+    )
+    install(SCRIPT ${qet_deploy_script})
+endif()
+
+install(DIRECTORY ico/breeze-icons/16x16   DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/22x22   DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/32x32   DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/48x48   DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/64x64   DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/128x128 DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY ico/breeze-icons/256x256 DESTINATION ${QET_ICONS_PATH})
+install(DIRECTORY elements    DESTINATION ${QET_DATA_PATH})
+install(DIRECTORY examples    DESTINATION ${QET_DATA_PATH})
+install(DIRECTORY titleblocks DESTINATION ${QET_DATA_PATH})
+install(FILES LICENSE ELEMENTS.LICENSE CREDIT README ChangeLog DESTINATION ${QET_LICENSE_PATH})
+if(UNIX AND NOT APPLE)
+    install(FILES misc/org.qelectrotech.qelectrotech.desktop DESTINATION ${QET_DESKTOP_PATH})
+    install(FILES misc/qelectrotech.xml    DESTINATION ${QET_MIME_PACKAGE_PATH})
+    install(FILES misc/qelectrotech.appdata.xml DESTINATION ${QET_APPDATA_PATH})
+endif()
+if(WIN32)
+    # The icons of the file types that the MSI links to QElectroTech
+    # (cpack/wix-patch.xml): those of the official installers, in ico/ as
+    # there.
+    install(FILES
+        build-aux/windows/nsis_base/files/ico/application-x-qet-element.ico
+        build-aux/windows/nsis_base/files/ico/application-x-qet-project.ico
+        build-aux/windows/nsis_base/files/ico/application-x-qet-titleblock.ico
+        DESTINATION ${QET_DATA_PATH}ico)
+endif()
+install(FILES ${QM_FILES} DESTINATION ${QET_LANG_PATH})
+
+add_subdirectory(cpack)

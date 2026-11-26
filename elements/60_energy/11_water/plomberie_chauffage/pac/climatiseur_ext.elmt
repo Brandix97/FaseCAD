@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="60" hotspot_x="50" hotspot_y="24">
+    <uuid uuid="{51191490-06fc-053b-83a0-ffd191b5952c}"/>
+    <names>
+        <name lang="ar">وحدة خارجية</name>
+        <name lang="ca">Unitat exterior</name>
+        <name lang="cs">Venkovní jednotka</name>
+        <name lang="da">Udeenhed</name>
+        <name lang="de">Außeneinheit</name>
+        <name lang="el">Εξωτερική μονάδα</name>
+        <name lang="en">Outdoor unit</name>
+        <name lang="fr">Unité Extérieure</name>
+        <name lang="it">Unità esterna</name>
+        <name lang="pt_BR">Unité Extérieure</name>
+        <name lang="zh">空调室外机</name>
+    </names>
+    <informations>Baboune41-2016</informations>
+    <description>
+        <rect x="-35" y="-20" width="70" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="false"/>
+        <ellipse x="-27" y="-10" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <dynamic_text x="-17" y="40" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9d59c715-a75d-45f3-8f9c-110d07ba49bf}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-19" y1="-8" x2="-5" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-6" x2="-2" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-4" x2="-1" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-2" x2="1" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="0" x2="2" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="2" x2="2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="4" x2="2" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="6" x2="3" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="8" x2="2" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-26" y1="10" x2="2" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="12" x2="1" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="14" x2="0" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="16" x2="-2" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="18" x2="-5" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-26" y="31" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="24" y="31" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-27" y="-10" width="30" height="30" start="90" angle="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <terminal uuid="{77ae1755-e520-4cdd-b7ee-8b1288eca4e8}" name="" x="40" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{89320823-a122-4b14-a351-f1dd44559a34}" name="" x="40" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{01617559-2e0f-413c-8812-7dfcc13dc409}" name="" x="-40" y="20" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,44 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="50" hotspot_x="50" hotspot_y="10">
+    <uuid uuid="{56fed484-b776-49a2-f9bd-2edc6118c6e2}"/>
+    <names>
+        <name lang="ar">وصلة PER انزلاقية</name>
+        <name lang="ca">PER connexió corredissa</name>
+        <name lang="cs">Spojka PER nasouvací</name>
+        <name lang="da">Samling PER glide</name>
+        <name lang="de">Anschluss PER Gleitring</name>
+        <name lang="el">Σύνδεσμος PER συρόμενος</name>
+        <name lang="en">PEX compression fitting</name>
+        <name lang="fr">Raccord PER glissement</name>
+        <name lang="pt_BR">Raccoud PER glissement</name>
+        <name lang="zh">蓝色PER三通G130</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-22" y="-5" width="1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <rect x="-40" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <rect x="-15" y="21" width="10" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <rect x="11" y="-5" width="9" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <rect x="2" y="-6" width="8" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-6" width="8" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16" y="12" width="12" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="10" width="10" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <dynamic_text x="-16" y="-34.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{58fc88d7-dd11-4f81-a7fd-c23e052522a3}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="0" y="-5" width="1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:blue" antialias="false"/>
+        <line x1="0" y1="-6" x2="0" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="5" x2="-4" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="10" x2="-4" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="9" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="9" x2="-15" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="5" x2="-19" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-6" x2="-20" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="5" x2="-13" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="5" x2="-7" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{744ac32b-7bd3-40fd-af32-c1936a327f3b}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c78dcae5-78a7-4428-bdeb-42cd9ae67825}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{e4ec9e3b-6b29-4935-a4e3-c6beca52fe42}" name="" x="-10" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

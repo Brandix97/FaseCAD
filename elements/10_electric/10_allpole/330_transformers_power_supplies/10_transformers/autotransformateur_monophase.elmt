@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="90" hotspot_x="20" hotspot_y="45">
+    <uuid uuid="{f8c6f495-ab47-5a5c-df6e-0ee3ab9748fc}"/>
+    <names>
+        <name lang="ar">مُحوّل ذاتي أحادي الوجه</name>
+        <name lang="ca">Autotransductor monofàsic</name>
+        <name lang="cs">Jednofázový autotransformátor</name>
+        <name lang="da">Enfaset autotransformer</name>
+        <name lang="de">Spartransformator einphasig</name>
+        <name lang="el">Αυτομετασχηματιστής μονοφασικός</name>
+        <name lang="en">Single phase autotransducer</name>
+        <name lang="es">Autotransformador monofásico</name>
+        <name lang="fi">Yksivaiheinen automaattimuunnin</name>
+        <name lang="fr">Autotransformateur monophasé</name>
+        <name lang="hr">Jednofazni autotransduktor</name>
+        <name lang="hu">Egyfázisú autotranszformátor</name>
+        <name lang="it">Autotrasformatore monofase</name>
+        <name lang="ja">単相単巻変成器</name>
+        <name lang="ko">단상 오토 트랜스포머</name>
+        <name lang="mn">Нэг фазын автохувиргагч</name>
+        <name lang="nb">Enfaset autotransduser</name>
+        <name lang="nl">enkelfase autotransformator</name>
+        <name lang="nl_BE">Eenfasige autotransductor</name>
+        <name lang="pl">Autotransformator jednofazowy</name>
+        <name lang="pt">Autotransdutor monofásico</name>
+        <name lang="pt_BR">Autotransformador monofásico</name>
+        <name lang="ro">Autotransductor monofazat</name>
+        <name lang="ru">Однофазный автотрансформатор</name>
+        <name lang="sk">Jednofázový autotransduktor</name>
+        <name lang="sl">Enofazni avtotransduktor</name>
+        <name lang="sr">Једнофазни аутотрансдуктор</name>
+        <name lang="sv">Enfasig autotransduktor</name>
+        <name lang="tr">Tek fazlı oto dönüştürücü</name>
+        <name lang="uk">Однофазний автотрансдуктор</name>
+        <name lang="zh">单相自耦变压器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="8" y1="-20" x2="8" y2="-35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-13" x2="-8" y2="-35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-15" y="-20" width="50" height="50" start="70" angle="110" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8" y1="18" x2="8" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="18" x2="-8" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="20" y="8.17" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{176ca445-6b9d-4984-9e13-e3176e1a6fd1}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>___V</text>
+        </dynamic_text>
+        <ellipse x="-15" y="-10" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="17.75" y="-8.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3cfb8bf2-8fa0-4db7-81ee-07db242b39a5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2fc343aa-82c7-4e57-a512-f340b2a30c40}" name="" x="8" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{8486575f-3dc2-4723-9fde-698de82197da}" name="" x="-8" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{537edc56-1909-4e81-af1c-ee886795040b}" name="" x="-8" y="36" orientation="s" type="Generic"/>
+        <terminal uuid="{50e01505-a538-4b8c-88e8-0e85f04f715b}" name="" x="8" y="36" orientation="s" type="Generic"/>
+    </description>
+</definition>

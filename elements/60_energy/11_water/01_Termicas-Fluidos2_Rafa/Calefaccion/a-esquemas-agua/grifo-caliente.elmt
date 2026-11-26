@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="17">
+    <uuid uuid="{ff2bd9c3-892c-d2b7-c261-c1f549201e2e}"/>
+    <names>
+        <name lang="ar">صنبور ماء ساخن</name>
+        <name lang="ca">Aixeta calenta</name>
+        <name lang="cs">Kohout teplé vody</name>
+        <name lang="da">Varmtvandshane</name>
+        <name lang="de">Warmwasserhahn</name>
+        <name lang="el">Βρύση ζεστού νερού</name>
+        <name lang="en">Warm faucet</name>
+        <name lang="es">Grifo caliente</name>
+        <name lang="fi">Lämminvesihana</name>
+        <name lang="hr">Slavina tople vode</name>
+        <name lang="hu">Melegvíz csap</name>
+        <name lang="it">Rubinetto acqua calda</name>
+        <name lang="ja">温水栓</name>
+        <name lang="ko">온수 밸브</name>
+        <name lang="mn">Халуун кран</name>
+        <name lang="nb">Varm kran</name>
+        <name lang="nl">Warmwaterkraan</name>
+        <name lang="nl_BE">Warmwaterkraan</name>
+        <name lang="pl">Kran z ciepłą wodą</name>
+        <name lang="pt">Bica de água quente</name>
+        <name lang="pt_BR">Warm faucet</name>
+        <name lang="ro">Robinet de apă caldă</name>
+        <name lang="ru">Кран горячей воды</name>
+        <name lang="sk">Kohútik teplej vody</name>
+        <name lang="sl">Pipa za toplo vodo</name>
+        <name lang="sr">Славина за топлу воду</name>
+        <name lang="sv">Varmvattenkran</name>
+        <name lang="tr">Sıcak su musluğu</name>
+        <name lang="uk">Кран гарячої води</name>
+        <name lang="zh">热水龙头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-0.26" y1="-8.57" x2="-0.26" y2="1.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="7.48" y1="1.6" x2="-8" y2="1.6" x3="-0.26" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-6" y="7.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{45c6f1c7-e912-475e-b5df-bd8d1eba0df5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-6" y="-2" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a2568b0f-4f44-4622-b53c-134f52b14973}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c567af68-8aca-4d6d-a4c5-042b56201d7e}" name="" x="-1" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

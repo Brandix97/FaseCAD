@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="46" hotspot_y="30">
+    <uuid uuid="{14b461f5-724f-b3b7-1738-564ef7dcbda1}"/>
+    <names>
+        <name lang="ar">مراقب دائم للعزل</name>
+        <name lang="ca">Aïllament de guàrdia</name>
+        <name lang="cs">Kontrola izolačního stavu</name>
+        <name lang="da">Beskyttelsesisolering</name>
+        <name lang="de">Isolationsüberwachung (ICC)</name>
+        <name lang="el">Απομόνωση προστασίας</name>
+        <name lang="en">Guard isolation</name>
+        <name lang="es">Aparato de vigilencia de aislamiento</name>
+        <name lang="fi">Suojauserotus</name>
+        <name lang="fr">CPI</name>
+        <name lang="hr">Izolacija štitnika</name>
+        <name lang="hu">Védőleválasztás</name>
+        <name lang="it">Controllo isolamento</name>
+        <name lang="ja">ガード絶縁</name>
+        <name lang="ko">가드 절연</name>
+        <name lang="mn">Хамгаалалтын тусгаарлалт</name>
+        <name lang="nb">Vern isolasjon</name>
+        <name lang="nl">Isolatiebewaking</name>
+        <name lang="nl_BE">Scheidingsbeveiliging</name>
+        <name lang="pl">UKSI</name>
+        <name lang="pt">Dispositivo de guarda de isolamento</name>
+        <name lang="pt_BR">Dispositivo de guarda de isolamento</name>
+        <name lang="ro">Izolare de protecție</name>
+        <name lang="ru">Контроль изоляции</name>
+        <name lang="sk">Ochranné oddelenie</name>
+        <name lang="sl">Zaščitna izolacija</name>
+        <name lang="sr">Изолација заштите</name>
+        <name lang="sv">Skyddsisolering</name>
+        <name lang="tr">Koruma izolasyonu</name>
+        <name lang="uk">Захисна ізоляція</name>
+        <name lang="zh">CPI</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="3" y1="0" x2="5" y2="-5" x3="0" y3="-3" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="13" y="-6.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d4b4ff03-d2f0-4d99-9dee-7f5bee1fc470}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-9" y="-9" width="18" height="18" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="5" x2="4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="CPI" x="-31.5" y="4.75" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="9.5" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-9.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b94d18f8-9ad7-4c6a-a10c-1edd09d97b4f}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{fdc849e2-24c2-4da0-8749-c89aab1818c9}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

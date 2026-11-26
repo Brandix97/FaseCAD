@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="16">
+    <uuid uuid="{b1338162-6751-952a-d107-f1033641d1c6}"/>
+    <names>
+        <name lang="ar">Thermovar</name>
+        <name lang="ca">Termòvar</name>
+        <name lang="cs">Thermovar</name>
+        <name lang="da">Thermovar</name>
+        <name lang="de">Thermovar</name>
+        <name lang="el">Thermovar</name>
+        <name lang="en">Thermovar</name>
+        <name lang="es">Thermovar</name>
+        <name lang="fi">Termovar</name>
+        <name lang="fr">Thermovar</name>
+        <name lang="hr">Termovar</name>
+        <name lang="hu">Thermovar</name>
+        <name lang="it">Valvola 3vie Thermovar</name>
+        <name lang="ja">サーモバー</name>
+        <name lang="ko">써모바</name>
+        <name lang="mn">Термовар</name>
+        <name lang="nb">Termovar</name>
+        <name lang="nl">Mengklep Thermovar</name>
+        <name lang="nl_BE">Thermovar</name>
+        <name lang="pl">Thermovar</name>
+        <name lang="pt">Termovar</name>
+        <name lang="pt_BR">Thermovar</name>
+        <name lang="ro">Termovar</name>
+        <name lang="ru">Термовар</name>
+        <name lang="sk">Termovar</name>
+        <name lang="sl">Termovar</name>
+        <name lang="sr">Термовар</name>
+        <name lang="sv">Termovar</name>
+        <name lang="tr">Termovar</name>
+        <name lang="uk">Термовар</name>
+        <name lang="zh">恒温阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-6" y="-35" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e69b2800-36f4-42c9-b94d-85014731a9f5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-10" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="-11" width="22" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Termovar" x="-11" y="-5" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-2" y="1" width="5" height="5" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="0" x2="5" y2="-3" x3="5" y3="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-6" y="-1" width="10" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="11" width="14" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-9" width="3" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11" y="-9" width="3" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9a807c6b-713e-42e2-9203-8c28de3039fb}" name="" x="-14" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b006c933-4969-47c0-a3cf-61ddd7703d12}" name="" x="14" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{2332f6de-c1c7-4c60-9113-f8f4d830331e}" name="" x="0" y="14" orientation="s" type="Generic"/>
+    </description>
+</definition>

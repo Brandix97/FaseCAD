@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="31">
+    <uuid uuid="{7794320f-2633-fc19-4782-5e64d8f1c181}"/>
+    <names>
+        <name lang="ar">عدّاد غاز</name>
+        <name lang="ca">Comptador de gas</name>
+        <name lang="cs">Plynoměr</name>
+        <name lang="da">Gasmåler</name>
+        <name lang="de">Gaszähler</name>
+        <name lang="el">Μετρητής αερίου</name>
+        <name lang="en">Gas meter</name>
+        <name lang="es">Contador de gas</name>
+        <name lang="fr">Compteur gaz</name>
+        <name lang="it">Contatore Gas</name>
+        <name lang="pt_BR">Medidor de gás</name>
+        <name lang="zh">燃气表</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="9.4" y1="-12.76" x2="9.4" y2="-19.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.2" y1="-12.37" x2="-12.2" y2="12" x3="11.2" y3="12" x4="11.2" y4="-12.37" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9.86" y="-9.93" width="18.72" height="3.66" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.4" y1="-12.76" x2="-10.4" y2="-19.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="12" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{efefb4e5-86b7-408a-89b8-6e818a8b78ae}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ebe526ec-12f9-49b5-a02a-f51b10b6b973}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{929fd5f6-437e-42ca-911b-94b6346b1269}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="160" hotspot_x="32" hotspot_y="72">
+    <uuid uuid="{73a681e1-0710-e6b9-49dc-3a83b7a7d271}"/>
+    <names>
+        <name lang="ar">RESEAU STATION TETE</name>
+        <name lang="ca">Primer l'estació de xarxa</name>
+        <name lang="cs">Hlavní stanice</name>
+        <name lang="da">Netværksstation første</name>
+        <name lang="de">Netzwerkstation Anfang</name>
+        <name lang="el">Σταθμός δικτύου πρώτος</name>
+        <name lang="en">Network station first</name>
+        <name lang="es">Estación de Red Principal</name>
+        <name lang="fi">Verkkoasema ensimmäinen</name>
+        <name lang="fr">RESEAU STATION TETE</name>
+        <name lang="hr">Mrežna stanica prva</name>
+        <name lang="hu">Hálózati állomás első</name>
+        <name lang="it">RETE Stazione di partenza</name>
+        <name lang="ja">ネットワークステーション最初</name>
+        <name lang="ko">네트워크 스테이션 첫 번째</name>
+        <name lang="mn">Сүлжээний станц эхний</name>
+        <name lang="nb">Nettverksstasjon første</name>
+        <name lang="nl">Netwerk Station eerste</name>
+        <name lang="nl_BE">Netwerkstation eerste</name>
+        <name lang="pl">Stacja główna</name>
+        <name lang="pt">Primeira estação de rede</name>
+        <name lang="pt_BR">Estação de rede inicial</name>
+        <name lang="ro">Stație de rețea prima</name>
+        <name lang="ru">Сетевая станция первая</name>
+        <name lang="sk">Sieťová stanica prvá</name>
+        <name lang="sl">Omrežna postaja prva</name>
+        <name lang="sr">Мрежна станица прва</name>
+        <name lang="sv">Nätverksstation första</name>
+        <name lang="tr">Ağ istasyonu ilk</name>
+        <name lang="uk">Мережева станція перша</name>
+        <name lang="zh">网络站起点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-65" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{bfd5a57b-6653-40ad-9130-0f6f53bde3a4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>ADR : _</text>
+        </dynamic_text>
+        <dynamic_text x="-20" y="35" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{da3ac573-a2db-43a9-9c15-854d879993cc}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-30" y="-70" width="70" height="156" rx="2" ry="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{7f938f49-1b56-4e66-8e88-77063b37cec3}" name="" x="40" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

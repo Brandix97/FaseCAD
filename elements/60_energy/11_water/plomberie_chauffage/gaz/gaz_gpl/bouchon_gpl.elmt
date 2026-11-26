@@ -1,0 +1,40 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="4" hotspot_y="10">
+    <uuid uuid="{c9183137-d70d-39be-0b9d-a5c36f0d9b54}"/>
+    <names>
+        <name lang="ar">سدادة GPL</name>
+        <name lang="ca">Tap de GLP</name>
+        <name lang="cs">Zátka GPL</name>
+        <name lang="da">GPL-prop</name>
+        <name lang="de">Kappe GPL</name>
+        <name lang="el">Πώμα GPL</name>
+        <name lang="en">LPG cap</name>
+        <name lang="fr">Bouchon GPL</name>
+        <name lang="it">Tappo GPL</name>
+        <name lang="pt_BR">Bouchon GPL</name>
+        <name lang="zh">液化石油气堵头</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <polygon x1="0" y1="7" x2="0" y2="-7" x3="5" y3="-7" x4="5" y4="-6" x5="9" y5="-6" x6="9" y6="6" x7="5" y7="6" x8="5" y8="7" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:white"/>
+        <line x1="3" y1="-4" x2="0" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1" y="-27.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{70fb696b-241b-4e7d-aaa6-35e435b8c83f}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="1" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="-7" x2="5" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="5" y="-6" width="4" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="4" width="4" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5" y1="7" x2="1" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="7" x2="0" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-7" x2="5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-4" x2="9" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-6" x2="6" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="6" x2="6" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-1" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="-2" x2="11" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

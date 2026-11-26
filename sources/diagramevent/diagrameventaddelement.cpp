@@ -1,0 +1,679 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "diagrameventaddelement.h"
+#include "../qetproject.h"
+#include "../conductorautonumerotation.h"
+#include "../devicenaming.h"
+#include "../diagram.h"
+#include "../undocommand/addgraphicsobjectcommand.h"
+#include "../undocommand/deleteqgraphicsitemcommand.h"
+#include "../factory/elementfactory.h"
+#include "../qetapp.h"
+#include "../qetdiagrameditor.h"
+#include "../qetgraphicsitem/element.h"
+#include "../qetgraphicsitem/conductor.h"
+#include "../TerminalStrip/wirebridges.h"
+#include "../qetgraphicsitem/terminal.h"
+#include "../qet.h"
+#include "../autobreakconductor.h"
+#include "../connectionsymbols.h"
+#include "../diagramcontent.h"
+#include "../autoconnect.h"
+#include <QGraphicsLineItem>
+#include <QGraphicsPathItem>
+#include <QPainterPath>
+#include <limits>
+
+/**
+	@brief DiagramEventAddElement::DiagramEventAddElement
+	Defaut constructor
+	@param location :location of diagram
+	@param diagram : diagram owner of this event
+	@param pos : first pos of item ( optional, by defaut QPointF(0,0) )
+*/
+DiagramEventAddElement::DiagramEventAddElement(ElementsLocation &location, Diagram *diagram, QPointF pos) :
+	DiagramEventInterface(diagram),
+	m_location(location),
+	m_element(nullptr)
+{
+		//Check if there is an element at this location
+	if (location.isElement() && location.exist())
+	{
+			//location is an element, we build it, if build fail,
+			//m_running stay to false (by default), so this interface will be deleted at next event
+		if (buildElement())
+		{
+			init();
+			m_element -> setPos(pos);
+			m_element -> displayHelpLine(true);
+			m_element -> setFlag(QGraphicsItem::ItemIsSelectable, false);
+			m_diagram -> addItem(m_element);
+			m_running = true;
+
+			if (!diagram->views().isEmpty()) {
+				const auto qde = QETApp::diagramEditorAncestorOf(diagram->views().at(0));
+				if (qde) {
+					m_status_bar = qde->statusBar();
+				}
+			} else {
+				m_status_bar.clear();
+			}
+		}
+	}
+}
+
+/**
+	@brief DiagramEventAddElement::~DiagramEventAddElement
+	Destructor
+	Enable context menu for each view of diagram
+*/
+DiagramEventAddElement::~DiagramEventAddElement()
+{
+	endDrag();
+	if (m_element)
+	{
+		m_diagram->removeItem(m_element);
+		m_element->deleteLater();
+	}
+
+	if (m_status_bar) {
+		m_status_bar->clearMessage();
+	}
+
+	for (auto view : m_diagram->views())
+		view -> setContextMenuPolicy(Qt::DefaultContextMenu);
+}
+
+/**
+	@brief DiagramEventAddElement::mouseMoveEvent
+	Move the element to new pos of mouse
+	the event is always accepted
+	@param event
+*/
+void DiagramEventAddElement::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+		//Pressed and dragged: copies along the drag
+	if (m_element && m_pressed && (event->buttons() & Qt::LeftButton))
+	{
+		const QPointF to = Diagram::snapToGrid(event->scenePos());
+		if (!m_dragging && QLineF(m_press_pos, to).length() >= Diagram::xGrid)
+			m_dragging = true;
+		if (m_dragging) {
+			updateDrag(to);
+			event->setAccepted(true);
+			return;
+		}
+	}
+
+	if (m_element)
+	{
+		const auto pos_{Diagram::snapToGrid(event->scenePos())};
+		m_element->setPos(pos_);
+
+		if (m_status_bar) {
+			m_status_bar->showMessage(QString("x %1 : y %2").arg(QString::number(pos_.x()), QString::number(pos_.y())));
+		}
+	}
+	event->setAccepted(true);
+}
+
+/**
+	@brief DiagramEventAddElement::mousePressEvent
+	Do nothing, but return true for not transit the event to other thing in diagram.
+	the event is always accepted
+	@param event
+*/
+void DiagramEventAddElement::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+	m_drag_cancelled = false;
+	if (m_element && event->button() == Qt::LeftButton && AutoConnect::isOn(m_diagram)) {
+		m_pressed = true;
+		m_press_pos = Diagram::snapToGrid(event->scenePos());
+	}
+	event->setAccepted(true);
+}
+
+/**
+	@brief DiagramEventAddElement::mouseReleaseEvent
+	Right button finish this event (isRunning = false) and emit finish.
+	Left button add an element to diagram
+	the event is always accepted
+	@param event
+*/
+void DiagramEventAddElement::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (m_element)
+	{
+		if (event->button() == Qt::RightButton)
+		{
+			m_diagram->removeItem(m_element);
+			m_element->deleteLater();
+			m_element = nullptr;
+			m_running = false;
+			emit finish();
+		}
+		else if (event->button() == Qt::LeftButton)
+		{
+			if (m_drag_cancelled) {
+					//The release of a drag given up with Escape places nothing
+				m_drag_cancelled = false;
+			} else if (m_dragging) {
+				const QList<QPointF> positions = m_drag_positions;
+				endDrag();
+				addElements(positions);
+			} else {
+				endDrag();
+				addElement();
+			}
+		}
+	}
+
+	event->setAccepted(true);
+}
+
+/**
+	@brief DiagramEventAddElement::mouseDoubleClickEvent
+	If mouse left double clic, finish this event (isRunning = false) and emit finish
+	the event is always accepted
+	@param event
+*/
+void DiagramEventAddElement::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (m_element && (event -> button() == Qt::LeftButton))
+	{
+		m_diagram->removeItem(m_element);
+		m_element->deleteLater();
+		m_element = nullptr;
+		m_running = false;
+		emit finish();
+	}
+	
+	event->setAccepted(true);
+}
+
+/**
+	@brief DiagramEventAddElement::keyPressEvent
+	Press space key rotate the element to 90° (return true)
+	else  call DiagramEventInterface::keyPressEvent(event), and return the value.
+	@param event
+*/
+void DiagramEventAddElement::keyPressEvent(QKeyEvent *event)
+{
+		//Tab and Shift+Tab go through the symbols of a part
+	if (m_element && m_alternatives.size() > 1 && !m_dragging
+		&& (event->key() == Qt::Key_Tab || event->key() == Qt::Key_Backtab))
+	{
+		const bool back = event->key() == Qt::Key_Backtab
+				|| (event->modifiers() & Qt::ShiftModifier);
+		switchSymbol(back ? -1 : 1);
+		event->setAccepted(true);
+	}
+	else if (m_element && event->key() == Qt::Key_Space)
+	{
+		m_element->setRotation(m_element->rotation() + 90);
+		if (m_dragging && m_drag_line)
+			updateDrag(m_drag_line->line().p2());
+		event->setAccepted(true);
+	}
+	else if (m_dragging && event->key() == Qt::Key_Escape)
+	{
+			//Escape gives up the drag, not the placing
+		endDrag();
+		m_drag_cancelled = true;
+		event->setAccepted(true);
+	}
+	else {
+		DiagramEventInterface::keyPressEvent(event);
+	}
+}
+
+/**
+	@brief DiagramEventAddElement::setAlternatives
+	The symbols Tab and Shift+Tab go through while placing: those of a
+	part of the parts collection. The one placed now is the one among
+	them which has its location, the first when none has.
+*/
+void DiagramEventAddElement::setAlternatives(const QList<ElementsLocation> &locations)
+{
+	m_alternatives.clear();
+	for (const ElementsLocation &location : locations) {
+		if (location.isElement() && location.exist()) {
+			m_alternatives << location;
+		}
+	}
+	m_alternative = 0;
+	for (int i = 0 ; i < m_alternatives.size() ; ++i) {
+		if (m_alternatives.at(i) == m_location) {
+			m_alternative = i;
+			break;
+		}
+	}
+	m_alternative_paths.clear();
+	if (m_element && !m_integrate_path.isEmpty()) {
+		m_alternative_paths.insert(m_alternative, m_integrate_path);
+	}
+	showAlternative();
+}
+
+/**
+	@brief DiagramEventAddElement::switchSymbol
+	Place the symbol @p step further in the alternatives (back when
+	negative, round at both ends) in place of the one following the
+	mouse, at its position and turned as it is.
+	@return true if the symbol changed
+*/
+bool DiagramEventAddElement::switchSymbol(int step)
+{
+	const int count = m_alternatives.size();
+	if (!m_element || count < 2 || m_dragging) {
+		return false;
+	}
+	const int next = ((m_alternative + step) % count + count) % count;
+	Element *old = m_element;
+	const ElementsLocation old_location = m_location;
+	const QString old_path = m_integrate_path;
+	const QPointF pos = old->pos();
+	const qreal rotation = old->rotation();
+
+	m_location = m_alternatives.at(next);
+	m_element = nullptr;
+		//A symbol brought into the project before is taken from there,
+		//not brought in again
+	bool built = false;
+	const QString brought = m_alternative_paths.value(next);
+	if (!brought.isEmpty()) {
+		int state = 0;
+		m_element = ElementFactory::Instance()->createElement(
+					ElementsLocation(brought), nullptr, &state);
+		if (state) {
+			delete m_element;
+			m_element = nullptr;
+		} else {
+			m_integrate_path = brought;
+			built = true;
+		}
+	}
+	if (!built && !buildElement()) {
+		m_location = old_location;
+		m_integrate_path = old_path;
+		m_element = old;
+		return false;
+	}
+	m_alternative_paths.insert(next, m_integrate_path);
+	m_alternative = next;
+	m_diagram->removeItem(old);
+	old->deleteLater();
+	m_element->setPos(pos);
+	m_element->setRotation(rotation);
+	m_element->displayHelpLine(true);
+	m_element->setFlag(QGraphicsItem::ItemIsSelectable, false);
+	m_diagram->addItem(m_element);
+	showAlternative();
+	return true;
+}
+
+/**
+	@brief DiagramEventAddElement::showAlternative
+	Say in the status bar which symbol of the part is placed
+*/
+void DiagramEventAddElement::showAlternative()
+{
+	if (m_status_bar && m_element && m_alternatives.size() > 1) {
+		m_status_bar->showMessage(
+					tr("Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one")
+					.arg(m_alternative + 1).arg(m_alternatives.size())
+					.arg(m_element->name()));
+	}
+}
+
+/**
+	@brief DiagramEventAddElement::init
+	Init this event.
+*/
+void DiagramEventAddElement::init()
+{
+	foreach(QGraphicsView *view, m_diagram->views())
+		view->setContextMenuPolicy(Qt::NoContextMenu);
+}
+
+/**
+	@brief DiagramEventAddElement::buildElement
+	Build the element, if the element is build successfully, we return true, otherwise false
+*/
+bool DiagramEventAddElement::buildElement()
+{
+	ElementsLocation import_loc = m_diagram->project()->importElement(m_location);
+	if (import_loc.exist()) {
+		m_integrate_path = import_loc.projectCollectionPath();
+	}
+	else {
+		qDebug() << "DiagramView::addDroppedElement : Impossible d'ajouter l'element.";
+		return false;
+	}
+
+	int state;
+	ElementsLocation loc(m_integrate_path);
+	m_element = ElementFactory::Instance() -> createElement(loc, nullptr, &state);
+		//The creation of element failed, we delete it
+	if (state) {
+		delete m_element;
+		return(false);
+	}
+		//Everything is good
+	return true;
+}
+
+namespace {
+	bool isJunction(Element *element)
+	{
+		return ConnectionSymbols::isJunction(element->location());
+	}
+
+	/**
+		With ConnectionSymbols::newJunctionReplacesOld(), a corner or
+		T-junction @a element placed where another one stands takes its
+		place: the old one goes, and each of its wires goes to the new
+		one's terminal at the same point, keeping its properties. A wire
+		with no such terminal goes with the old symbol.
+		@return the symbols replaced, still on the folio until @a parent
+		is pushed
+	*/
+	QList<Element *> replaceJunctions(Diagram *diagram, Element *element,
+					  Element *preview, QUndoCommand *parent)
+	{
+		QList<Element *> replaced;
+		if (!ConnectionSymbols::newJunctionReplacesOld() || !isJunction(element))
+			return replaced;
+		for (Element *old : diagram->elements()) {
+			if (old == element || old == preview
+			    || QLineF(old->scenePos(), element->scenePos()).length() > 0.5
+			    || !isJunction(old))
+				continue;
+			replaced << old;
+			DiagramContent content;
+			content.m_elements << old;
+			for (Conductor *c : old->conductors())
+				if (!content.m_other_conductors.contains(c))
+					content.m_other_conductors << c;
+			new DeleteQGraphicsItemCommand(diagram, content, parent);
+			for (Conductor *c : std::as_const(content.m_other_conductors)) {
+				const bool first_is_old = c->terminal1->parentElement() == old;
+				Terminal *at_old = first_is_old ? c->terminal1 : c->terminal2;
+				Terminal *other = first_is_old ? c->terminal2 : c->terminal1;
+				if (other->parentElement() == old)
+					continue;
+				Terminal *taker = nullptr;
+				for (Terminal *t : element->terminals())
+					if (QLineF(t->dockConductor(), at_old->dockConductor()).length() < 0.5)
+						taker = t;
+				if (!taker)
+					continue;
+				auto *moved = new Conductor(taker, other);
+				moved->setProperties(c->properties());
+				new AddGraphicsObjectCommand(moved, diagram, QPointF(), parent);
+			}
+		}
+			//Not in the way of the wiring below
+		for (Element *old : std::as_const(replaced))
+			diagram->removeItem(old);
+		return replaced;
+	}
+}
+
+/**
+	@brief DiagramEventAddElement::addElement
+	Add an element at the current pos and current rotation,
+	if project autoconductor option is enable, and the element can be wired, we do it.
+*/
+/**
+	@brief DiagramEventAddElement::createElement
+	@return a new copy of the element being placed, or nullptr when it
+	cannot be built
+*/
+Element *DiagramEventAddElement::createElement() const
+{
+	int state;
+	Element *element;
+	if (m_integrate_path.isEmpty())
+		element = ElementFactory::Instance() -> createElement(m_location, nullptr, &state);
+	else
+		element = ElementFactory::Instance() -> createElement(ElementsLocation(m_integrate_path), nullptr, &state);
+
+		//Build failed
+	if (state)
+	{
+		delete element;
+		return nullptr;
+	}
+	return element;
+}
+
+void DiagramEventAddElement::addElement()
+{
+	Element *element = createElement();
+	if (!element)
+		return;
+
+		//We must add item to scene (even if addItemCommand do this)
+		//for create the autoconnection below
+	element -> setPos(m_element->pos());
+	element -> setRotation(m_element -> rotation());
+	m_diagram -> addItem(element);
+
+	QUndoCommand *undo_object = new QUndoCommand(tr("insert %1").arg(element->name()));
+	new AddGraphicsObjectCommand(element, m_diagram, m_element -> pos(), undo_object);
+
+	//When we search for free aligned terminal we temporally remove m_element to
+	//avoid any interaction with the function Element::AlignedFreeTerminals
+	//This is useful when an element has two (or more) terminals on opposite sides,
+	//because m_element is exactly at the same pos of the new element
+	//added to the scene so new conductor are created between terminal of the new element
+	//and the opposite terminal of m_element.
+	m_diagram->removeItem(m_element);
+	const QList<Element *> replaced = replaceJunctions(m_diagram, element, m_element, undo_object);
+
+		//Auto break conductor: if a terminal of the new element lies on an existing
+		//conductor, break the conductor and reconnect through the new element's terminal.
+		//Track the endpoints of broken conductors so auto-connect doesn't create duplicates.
+	QList<Conductor *> conductors_handled;
+	QSet<Terminal *> used_terminals;
+	QSet<Terminal *> broken_endpoints = autoBreakConductors(m_diagram, element, undo_object,
+							    conductors_handled, used_terminals);
+
+		//Auto-connect: collect all aligned pairs first, then filter and process.
+	QList<QPair<Terminal *, Terminal *>> aligned_pairs;
+	if (AutoConnect::isOn(m_diagram))
+		AutoConnect::update(m_diagram, {element}, {}, undo_object);
+	else if (m_diagram->project()->autoConductor())
+		aligned_pairs = element->AlignedFreeTerminals();
+
+	for (const QPair<Terminal *, Terminal *> &pair : aligned_pairs)
+	{
+			//Skip if the other terminal was an endpoint of a broken conductor
+		if (broken_endpoints.contains(pair.second))
+			continue;
+
+		Conductor *conductor = new Conductor(pair.first, pair.second);
+		new AddGraphicsObjectCommand(conductor, m_diagram, QPointF(), undo_object);
+		WireBridges::bridge(conductor, undo_object);
+
+			//Autonum the new conductor, the undo command associated for this, have for parent undo_object
+		ConductorAutoNumerotation can  (conductor, m_diagram, undo_object);
+		can.numerate();
+		if (m_diagram->freezeNewConductors() || m_diagram->project()->isFreezeNewConductors()) {
+			conductor->setFreezeLabel(true);
+		}
+	}
+	m_diagram->addItem(m_element);
+		//Back until the push takes them away for good, as an undo would
+	for (Element *old : replaced)
+		m_diagram->addItem(old);
+
+		//The default name of its symbol and the first number free in
+		//the project (DeviceNaming), before undo_object is pushed: one
+		//Ctrl+Z takes the element and its label away together
+	DeviceNaming::nameNewElement(element, m_naming_letter);
+	if (m_prepare)
+		m_prepare(element, undo_object);
+
+	m_diagram -> undoStack().push(undo_object);
+	element->freezeNewAddedElement();
+}
+
+/**
+	@brief DiagramEventAddElement::updateDrag
+	Show the drag from where the mouse was pressed to @a to, and a preview
+	of each copy it places.
+*/
+void DiagramEventAddElement::updateDrag(const QPointF &to)
+{
+	if (!m_drag_line) {
+		m_drag_line = new QGraphicsLineItem();
+		QPen pen(Qt::blue, 0, Qt::DashLine);
+		pen.setCosmetic(true);
+		m_drag_line->setPen(pen);
+		m_drag_line->setZValue(1e6);
+		m_diagram->addItem(m_drag_line);
+	}
+	m_drag_line->setLine(QLineF(m_press_pos, to));
+	m_element->setVisible(false);
+
+	QSet<const Element *> ignore;
+	for (Element *ghost : std::as_const(m_ghosts))
+		ignore << ghost;
+	m_drag_positions = AutoConnect::dragPlacements(
+				m_diagram, m_element, m_drag_line->line(), ignore);
+
+	while (m_ghosts.size() < m_drag_positions.size())
+	{
+		Element *ghost = createElement();
+		if (!ghost)
+			break;
+		ghost->setFlag(QGraphicsItem::ItemIsSelectable, false);
+		ghost->setOpacity(0.5);
+		m_diagram->addItem(ghost);
+		m_ghosts << ghost;
+	}
+	for (int i = 0; i < m_ghosts.size(); ++i)
+	{
+		Element *ghost = m_ghosts.at(i);
+		ghost->setVisible(i < m_drag_positions.size());
+		ghost->setRotation(m_element->rotation());
+		if (i < m_drag_positions.size())
+			ghost->setPos(m_drag_positions.at(i));
+	}
+
+		//Grey lines from each copy to the terminals it will be joined to
+	if (!m_preview_wires) {
+		m_preview_wires = new QGraphicsPathItem();
+		QPen pen(QColor(150, 150, 150), 0);
+		pen.setCosmetic(true);
+		m_preview_wires->setPen(pen);
+		m_preview_wires->setZValue(1e6 - 1);
+		m_diagram->addItem(m_preview_wires);
+	}
+	QList<Element *> shown;
+	QSet<const Element *> outside {m_element};
+	for (int i = 0; i < m_ghosts.size(); ++i) {
+		if (i < m_drag_positions.size())
+			shown << m_ghosts.at(i);
+		else
+			outside << m_ghosts.at(i);
+	}
+	QPainterPath path;
+	for (const QLineF &wire : AutoConnect::previewWires(m_diagram, shown, outside)) {
+		path.moveTo(wire.p1());
+		path.lineTo(wire.p2());
+	}
+	m_preview_wires->setPath(path);
+
+	if (m_status_bar)
+		m_status_bar->showMessage(tr("%n symbol(s) along the drag", "", int(m_drag_positions.size())));
+}
+
+/**
+	@brief DiagramEventAddElement::endDrag
+	Remove the drag line and the previews.
+*/
+void DiagramEventAddElement::endDrag()
+{
+	m_pressed = false;
+	m_dragging = false;
+	m_drag_positions.clear();
+	if (m_drag_line) {
+		m_diagram->removeItem(m_drag_line);
+		delete m_drag_line;
+		m_drag_line = nullptr;
+	}
+	if (m_preview_wires) {
+		m_diagram->removeItem(m_preview_wires);
+		delete m_preview_wires;
+		m_preview_wires = nullptr;
+	}
+	for (Element *ghost : std::as_const(m_ghosts)) {
+		m_diagram->removeItem(ghost);
+		ghost->deleteLater();
+	}
+	m_ghosts.clear();
+	if (m_element)
+		m_element->setVisible(true);
+}
+
+/**
+	@brief DiagramEventAddElement::addElements
+	Add a copy at each of @a positions, at the current rotation, in one
+	undo step; the automatic connections go with it.
+*/
+void DiagramEventAddElement::addElements(const QList<QPointF> &positions)
+{
+	if (positions.isEmpty())
+		return;
+
+	QList<Element *> added;
+	QUndoCommand *undo_object = new QUndoCommand();
+	for (const QPointF &pos : positions)
+	{
+		Element *element = createElement();
+		if (!element)
+			continue;
+		element->setPos(pos);
+		element->setRotation(m_element->rotation());
+		m_diagram->addItem(element);
+		new AddGraphicsObjectCommand(element, m_diagram, pos, undo_object);
+		added << element;
+	}
+	if (added.isEmpty()) {
+		delete undo_object;
+		return;
+	}
+	undo_object->setText(tr("insert %1 × %2").arg(added.size()).arg(added.first()->name()));
+
+		//As addElement(): the element that follows the mouse is not part
+		//of the folio
+	m_diagram->removeItem(m_element);
+	AutoConnect::update(m_diagram, added, {}, undo_object);
+	m_diagram->addItem(m_element);
+
+	DeviceNaming::nameNewElements(added, m_naming_letter);
+	if (m_prepare)
+		for (Element *element : std::as_const(added))
+			m_prepare(element, undo_object);
+	m_diagram->undoStack().push(undo_object);
+	for (Element *element : std::as_const(added))
+		element->freezeNewAddedElement();
+}

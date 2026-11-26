@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="80" hotspot_x="39" hotspot_y="59">
+    <uuid uuid="{fe958a95-6c58-42d2-d20f-764a55a97355}"/>
+    <names>
+        <name lang="ar">كوع Alpex 20</name>
+        <name lang="ca">Colze Alpex 20</name>
+        <name lang="cs">Koleno Alpex 20</name>
+        <name lang="da">Alpex-bøjning 20</name>
+        <name lang="de">Bogen Alpex 20</name>
+        <name lang="el">Γωνία Alpex 20</name>
+        <name lang="en">Elbow Alpex 20</name>
+        <name lang="es">Codo Alpex 20</name>
+        <name lang="fi">Alpex-kulma 20</name>
+        <name lang="fr">Coude Multicouche 25</name>
+        <name lang="hr">Koljeno Alpex 20</name>
+        <name lang="hu">Alpex coude 20</name>
+        <name lang="it">Gomito Alpex 20</name>
+        <name lang="ja">エルボ Alpex 20</name>
+        <name lang="ko">Elbow Alpex 20</name>
+        <name lang="mn">Alpex тохой 20</name>
+        <name lang="nb">Bøy Alpex 20</name>
+        <name lang="nl">Bocht Alpex 20</name>
+        <name lang="nl_BE">Alpex-bocht 20</name>
+        <name lang="pl">Kolanko Alpex 20</name>
+        <name lang="pt">Cotovelo Alpex 20</name>
+        <name lang="pt_BR">Elbow Alpex 20</name>
+        <name lang="ro">Cot Alpex 20</name>
+        <name lang="ru">Отвод Alpex 20</name>
+        <name lang="sk">Koleno Alpex 20</name>
+        <name lang="sl">Koleno Alpex 20</name>
+        <name lang="sr">Колено Alpex 20</name>
+        <name lang="sv">Böj Alpex 20</name>
+        <name lang="tr">Alpex dirsek 20</name>
+        <name lang="uk">Кутник Alpex 20</name>
+        <name lang="zh">多层管弯头25</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <dynamic_text x="0" y="8.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{22e029b7-0e5b-48e1-a921-e746313d18dd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-2" y="-10" width="5" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8" y="-47" width="24" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-22" y="-42" width="52" height="52" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="10" y="-22" width="20" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-27" y="-12" width="22" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2" y="-22" width="12" height="12" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="4" y="-24" width="32" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-4" y="-16" width="2" height="32" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <polygon x1="-27" y1="-8" x2="-27" y2="8" x3="-29" y3="8" x4="-29" y4="-8" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="12" y1="-47" x2="28" y2="-47" x3="28" y3="-49" x4="12" y4="-49" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{61510c3f-eb1a-4652-9ff7-c4edc6ea1589}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{c9ac5e26-26c6-4715-81b7-f45a63172b11}" name="" x="20" y="-49" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="32" hotspot_y="36">
+    <uuid uuid="{c8bdd73d-6827-57e1-2ef9-83220ad7a1a8}"/>
+    <names>
+        <name lang="ar">غسّالة ملابس</name>
+        <name lang="ca">Rentadora</name>
+        <name lang="cs">Pračka</name>
+        <name lang="da">Vaskemaskine</name>
+        <name lang="de">Waschmaschine</name>
+        <name lang="el">Πλυντήριο ρούχων</name>
+        <name lang="en">Washing machine</name>
+        <name lang="es">Lavadora</name>
+        <name lang="fi">Pesukone</name>
+        <name lang="fr">Machine à laver</name>
+        <name lang="hr">Perilica rublja</name>
+        <name lang="hu">Mosógép</name>
+        <name lang="it">Lavatrice</name>
+        <name lang="ja">洗濯機</name>
+        <name lang="ko">세탁기</name>
+        <name lang="mn">Угаалгын машин</name>
+        <name lang="nb">Vaskemaskin</name>
+        <name lang="nl">Wasmachine</name>
+        <name lang="nl_BE">Wasmachine</name>
+        <name lang="pl">Pralka</name>
+        <name lang="pt">Máquina de lavar roupa</name>
+        <name lang="pt_BR">Máquina de lavar roupa</name>
+        <name lang="ro">Mașină de spălat rufe</name>
+        <name lang="ru">Стиральная машина</name>
+        <name lang="sk">Práčka</name>
+        <name lang="sl">Pralni stroj</name>
+        <name lang="sr">Машина за прање веша</name>
+        <name lang="sv">Tvättmaskin</name>
+        <name lang="tr">Çamaşır makinesi</name>
+        <name lang="uk">Пральна машина</name>
+        <name lang="zh">洗衣机2</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-26.81" y="-32.7" width="30.85" height="32.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25.81" y1="-26.16" x2="3.49" y2="-26.16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-19.56" y="-21.62" width="14.34" height="15.08" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-3.68" y="-31.7" width="4.63" height="4.91" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4" y1="-8.18" x2="7.12" y2="-8.18" x3="10.2" y3="-11.45" x4="10.2" y4="-22.89" x5="11.75" y5="-24.53" x6="13.29" y6="-24.53" x7="14.83" y7="-22.89" x8="14.83" y8="-21.26" x9="17.92" y9="-21.26" x10="17.92" y10="-22.89" x11="14.83" y11="-26.16" x12="13.29" y12="-27.8" x13="10.2" y13="-27.8" x14="8.66" y14="-26.16" x15="7.12" y15="-24.53" x16="7.12" y16="-13.08" x17="5.58" y17="-11.45" x18="4" y18="-11.45" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <dynamic_text x="-26" y="-46.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{844aed70-17d0-434f-84cc-554e2a4b8069}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{514f8db5-d8c1-49f7-bb32-5f2fa6985e20}" name="" x="17" y="-19" orientation="s" type="Generic"/>
+    </description>
+</definition>

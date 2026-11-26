@@ -1,0 +1,77 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="80" hotspot_x="45" hotspot_y="48">
+    <uuid uuid="{30458e20-1e40-bf52-788d-ec10e3f7fdd0}"/>
+    <names>
+        <name lang="ar">دائرة مُدمجة 8 دبابيس</name>
+        <name lang="ca">Circuit integrat, 8 pins</name>
+        <name lang="cs">Integrovaný obvod, 8 pinů</name>
+        <name lang="da">Integreret kredsløb, 8 ben</name>
+        <name lang="de">Integrierte Schaltung, 8 Pin</name>
+        <name lang="el">Ολοκληρωμένο κύκλωμα 8 ακροδεκτών</name>
+        <name lang="en">Integrated Circuit, 8 pins</name>
+        <name lang="es">Circuito integrado, 8 pines</name>
+        <name lang="fi">Integroitu piiri, 8 nastaa</name>
+        <name lang="fr">amplificateur opérationnel_1</name>
+        <name lang="hr">Integrirani krug, 8 pinova</name>
+        <name lang="hu">Integrált áramkör, 8 láb</name>
+        <name lang="it">Circuito integrato, 8 pin</name>
+        <name lang="ja">集積回路、8 ピン</name>
+        <name lang="ko">집적 회로, 8 핀</name>
+        <name lang="mn">Интеграл хэлхээ, 8 зүү</name>
+        <name lang="nb">Integrert krets, 8 pinner</name>
+        <name lang="nl">IC 8 pin</name>
+        <name lang="nl_BE">Geïntegreerde schakeling, 8 pinnen</name>
+        <name lang="pl">Układ scalony, 8 nóżek</name>
+        <name lang="pt">Circuito integrado, 8 pinos</name>
+        <name lang="pt_BR">Circuito integrado, 8 pinos</name>
+        <name lang="ro">Circuit integrat, 8 pini</name>
+        <name lang="ru">Микросхема, 8 выводов</name>
+        <name lang="sk">Integrovaný obvod, 8 pinov</name>
+        <name lang="sl">Integrirano vezje, 8 nožic</name>
+        <name lang="sr">Интегрисано коло, 8 пинова</name>
+        <name lang="sv">Integrerad krets, 8 stift</name>
+        <name lang="tr">Entegre devre, 8 pin</name>
+        <name lang="uk">Інтегральна схема, 8 виводів</name>
+        <name lang="zh">运算放大器1</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-35" y1="10" x2="-26" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-22" y="-51.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e4467863-012b-461a-b0a1-49d812494e2d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-35" y1="-10" x2="-26" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="-1" x2="34" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="-25" width="50" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-26" y="-0.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{040fc6cc-c77d-46ae-8da3-baef321d1e0d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>+</text>
+        </dynamic_text>
+        <dynamic_text x="-25" y="-25.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2b4ecde4-d273-41b5-9469-ceaeaf1a4fb1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="9" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-11" x2="9" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-19.89" x2="0" y2="-11.12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-39" y="-23.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{d7abe094-3ade-4dbc-82df-7632a38ea302}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-39" y="-3.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f5092c72-029a-4905-830f-d94f99f45e74}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="24" y="-14.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6ad0b9f9-20d9-4f64-8eaf-265700aa13c7}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-7.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4fc30eb2-cfa7-447d-9625-4faa05e979f1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-6" y="-38.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{1cd18da6-effc-4de8-8111-f735fc4a68da}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>vcc_</text>
+        </dynamic_text>
+        <dynamic_text x="-6" y="22.5" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{161d796b-b572-4dd6-bee8-d7cbe9d8de02}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>gnd_</text>
+        </dynamic_text>
+        <terminal uuid="{99f40e8e-e393-427f-a184-df23a7d3a9e4}" name="" x="36" y="-1" orientation="e" type="Generic"/>
+        <terminal uuid="{c9e00f98-c76b-4490-878a-7145d53fafc5}" name="" x="-36" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{b4c878cd-5902-488d-806d-908cb004eaa2}" name="" x="-36" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

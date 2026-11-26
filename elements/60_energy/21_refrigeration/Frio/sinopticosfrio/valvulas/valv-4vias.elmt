@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="28">
+    <uuid uuid="{7ab25089-ca4d-788d-6a65-b18d8d618be1}"/>
+    <names>
+        <name lang="ca">Vàlvula de 4 vies</name>
+        <name lang="es">Valv. 4 vías</name>
+        <name lang="pt_BR">Valv. 4 vías</name>
+        <name lang="zh">四通阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-9" y1="-1" x2="-12" y2="6" x3="-5" y3="6" x4="-8" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="9" y1="-1" x2="6" y2="6" x3="13" y3="6" x4="10" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-8.52" y1="5.87" x2="-8.52" y2="9.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.48" y1="5.87" x2="9.48" y2="9.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-1" x2="-3" y2="6" x3="4" y3="6" x4="1" y4="-1" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0.48" y1="6.7" x2="0.48" y2="9.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-13" y="-6" width="26" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="-14" x2="4" y2="-14" x3="0" y3="-6" x4="-4" y4="-14" x5="-2" y5="-14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-17" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0d1c4e1c-27f8-49f5-8161-b4077f1e47de}" name="" x="0" y="-17" orientation="n" type="Generic"/>
+        <terminal uuid="{f9eb8528-2c6b-449a-9b48-6416d400bf9a}" name="" x="1" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{b6ef1a64-31ec-406a-bd3d-41d7b1eba783}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{fe459d2e-315e-4ecd-b292-d13ecfc7ae90}" name="" x="-9" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

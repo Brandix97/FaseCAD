@@ -1,0 +1,220 @@
+﻿/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef QETINFORMATION_H
+#define QETINFORMATION_H
+
+#include <QHash>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+#include <QStringList>
+
+/**
+ * Inside this namespace you will find all information used in QElectrotech for
+ * element, conductor and diagram.
+ * Each information have 3 values :
+ * #1 the info key = the key of an information as a QString used in the code
+ * (example : label)
+ * #2 the info key to variable = the key in form of a variable. This is used
+ * by the user to replace a variable by the string of this variable
+ * (example : %{label})
+ * #3 the info key translated to the current local (example label in dutch =
+ * Betriebsmittelkennzeichen)
+ */
+namespace QETInformation
+{
+	/** Default information related to element **/
+	static QString ELMT_LABEL                        = "label";
+		//The part of the label behind its last colon ("1" in "X1:1"),
+		//shown in a text field of its own when the terminal labelling
+		//is drawn split (@sa QETProject::terminalLabelSplit)
+	static QString ELMT_TERMINAL_NUMBER              = "terminal_number";
+		//Not stored: read from the wires on a terminal symbol when drawn,
+		//like COND_COLOR and COND_SECTION; each of the three can also be
+		//followed by _N for the wires of the Nth connection point only
+		//(@sa terminalConductorInfoKeys)
+	static QString ELMT_CONDUCTOR_TEXT               = "conductor_text";
+	static QString ELMT_FORMULA                      = "formula";
+	/**
+		Uuid of the project's element numbering scheme the element's
+		formula follows. Internal: never shown, edited, exported or
+		printed as an information of its own; it only exists alongside a
+		non-empty ELMT_FORMULA (see Element::setElementInformations()).
+	*/
+	static QString ELMT_FORMULA_ID                   = "formula_id";
+	static QString ELMT_COMMENT                      = "comment";
+	static QString ELMT_FUNCTION                     = "function";
+	static QString ELMT_DESCRIPTION                  = "description";
+	static QString ELMT_DESIGNATION                  = "designation";
+	static QString ELMT_MANUFACTURER                 = "manufacturer";
+	static QString ELMT_MANUFACTURER_REF             = "manufacturer_reference";
+	static QString ELMT_MACHINE_MANUFACTURER_REF     = "machine_manufacturer_reference";
+	static QString ELMT_SUPPLIER                     = "supplier";
+	static QString ELMT_QUANTITY                     = "quantity";
+	static QString ELMT_MODEL                        = "model";
+	static QString ELMT_CATEGORY                     = "category";
+	static QString ELMT_VOLTAGE_RATING               = "voltage_rating";
+	static QString ELMT_CURRENT_RATING               = "current_rating";
+	static QString ELMT_NOTES                        = "notes";
+	static QString ELMT_UNITY                        = "unity";
+	static QString ELMT_WIDTH						 = "width";
+	static QString ELMT_HEIGHT                       = "height";
+	static QString ELMT_DEPTH                        = "depth";
+	static QString ELMT_PLANT                        = "plant";
+	static QString ELMT_LOCATION                     = "location";
+	static QString ELMT_AUX1                         = "auxiliary1";
+	static QString ELMT_DESCRIPTION_AUX1                 = "description_auxiliary1";
+	static QString ELMT_DESIGNATION_AUX1                  = "designation_auxiliary1";
+	static QString ELMT_MANUFACTURER_AUX1                 = "manufacturer_auxiliary1";
+	static QString ELMT_MANUFACTURER_REF_AUX1             = "manufacturer_reference_auxiliary1";
+	static QString ELMT_MACHINE_MANUFACTURER_REF_AUX1     = "machine_manufacturer_reference_auxiliary1";
+	static QString ELMT_SUPPLIER_AUX1                     = "supplier_auxiliary1";
+	static QString ELMT_QUANTITY_AUX1                     = "quantity_auxiliary1";
+	static QString ELMT_UNITY_AUX1                        = "unity_auxiliary1";
+	static QString ELMT_AUX2                         = "auxiliary2";
+	static QString ELMT_DESCRIPTION_AUX2                 = "description_auxiliary2";
+	static QString ELMT_DESIGNATION_AUX2                  = "designation_auxiliary2";
+	static QString ELMT_MANUFACTURER_AUX2                 = "manufacturer_auxiliary2";
+	static QString ELMT_MANUFACTURER_REF_AUX2             = "manufacturer_reference_auxiliary2";
+	static QString ELMT_MACHINE_MANUFACTURER_REF_AUX2     = "machine_manufacturer_reference_auxiliary2";
+	static QString ELMT_SUPPLIER_AUX2                     = "supplier_auxiliary2";
+	static QString ELMT_QUANTITY_AUX2                     = "quantity_auxiliary2";
+	static QString ELMT_UNITY_AUX2                        = "unity_auxiliary2";
+	static QString ELMT_AUX3                         = "auxiliary3";
+	static QString ELMT_DESCRIPTION_AUX3                 = "description_auxiliary3";
+	static QString ELMT_DESIGNATION_AUX3                  = "designation_auxiliary3";
+	static QString ELMT_MANUFACTURER_AUX3                 = "manufacturer_auxiliary3";
+	static QString ELMT_MANUFACTURER_REF_AUX3             = "manufacturer_reference_auxiliary3";
+	static QString ELMT_MACHINE_MANUFACTURER_REF_AUX3     = "machine_manufacturer_reference_auxiliary3";
+	static QString ELMT_SUPPLIER_AUX3                     = "supplier_auxiliary3";
+	static QString ELMT_QUANTITY_AUX3                     = "quantity_auxiliary3";
+	static QString ELMT_UNITY_AUX3                        = "unity_auxiliary3";
+	static QString ELMT_AUX4                         = "auxiliary4";
+	static QString ELMT_DESCRIPTION_AUX4                 = "description_auxiliary4";
+	static QString ELMT_DESIGNATION_AUX4                  = "designation_auxiliary4";
+	static QString ELMT_MANUFACTURER_AUX4                 = "manufacturer_auxiliary4";
+	static QString ELMT_MANUFACTURER_REF_AUX4             = "manufacturer_reference_auxiliary4";
+	static QString ELMT_MACHINE_MANUFACTURER_REF_AUX4     = "machine_manufacturer_reference_auxiliary4";
+	static QString ELMT_SUPPLIER_AUX4                     = "supplier_auxiliary4";
+	static QString ELMT_QUANTITY_AUX4                     = "quantity_auxiliary4";
+	static QString ELMT_UNITY_AUX4                        = "unity_auxiliary4";
+	static QString ELMT_XREF                         = "xref";
+
+
+	/** Default information related to conductor **/
+	static QString COND_FUNCTION             = "function";
+	static QString COND_TENSION_PROTOCOL     = "tension_protocol";
+	static QString COND_COLOR                = "conductor_color";
+	static QString COND_SECTION              = "conductor_section";
+	static QString COND_TYPE                 = "conductor_type";
+	static QString COND_FORMULA              = "formula";
+	static QString COND_TEXT                 = "text";
+
+	/** Default information related to diagram **/
+	static QString DIA_AUTHOR             = "author";
+	static QString DIA_DATE               = "date";
+	static QString DIA_DISPLAY_FOLIO      = "display_folio";
+	static QString DIA_FILENAME           = "filename";
+	static QString DIA_FOLIO              = "folio";
+	static QString DIA_INDEX_REV          = "indexrev";
+	static QString DIA_LOCMACH            = "locmach";
+	static QString DIA_PLANT              = "plant";
+	static QString DIA_POS                = "pos";
+	static QString DIA_TITLE              = "title";
+	static QString DIA_FOLIO_ID           = "folio-id";
+	static QString DIA_PREVIOUS_FOLIO_NUM = "previous-folio-num";
+	static QString DIA_NEXT_FOLIO_NUM     = "next-folio-num";
+
+	/** Default information related to project **/
+	static QString PROJECT_FOLIO_TOTAL     = "folio-total";
+	static QString PROJECT_TITLE           = "projecttitle";
+	static QString PROJECT_PATH            = "projectpath";
+	static QString PROJECT_FILE_NAME       = "projectfilename";
+	static QString PROJECT_SAVE_DATE       = "saveddate";
+	static QString PROJECT_SAVE_DATE_EU    = "saveddate-eu";
+	static QString PROJECT_SAVE_DATE_US    = "saveddate-us";
+	static QString PROJECT_SAVE_TIME       = "savedtime";
+	static QString PROJECT_SAVED_FILE_NAME = "savedfilename";
+	static QString PROJECT_SAVED_FILE_PATH = "savedfilepath";
+
+
+	/** Default information related to QElectroTech **/
+	static QString QET_VERSION = "version";
+
+	/** PLC-specific information for slave elements **/
+	static QString ELMT_PLC_TYPE        = "plc_type";
+	static QString ELMT_PLC_ADDRESS     = "plc_address";
+	static QString ELMT_PLC_FUNCTION    = "plc_function";
+	static QString ELMT_PLC_COMMENT     = "plc_comment";
+	static QString ELMT_PLC_CROSSREF    = "plc_crossref";
+	static QString ELMT_PLC_TC          = "plc_tc";
+	static QString ELMT_PLC_T1          = "plc_t1";
+	static QString ELMT_PLC_T2          = "plc_t2";
+	static QString ELMT_PLC_T3          = "plc_t3";
+	static QString ELMT_PLC_T4          = "plc_t4";
+
+
+
+
+
+	QStringList titleblockInfoKeys();
+	QString titleblockInfoKeysToVar(const QString &info);
+	QHash <QString, QString> titleblockTranslatedKeyHashVar();
+
+	QStringList folioReportInfoKeys();
+	QHash <QString, QString> folioReportInfoKeyToVar();
+	QString folioReportInfoToVar(const QString &info);
+
+	QStringList conductorInfoKeys();
+	QStringList diagramInfoKeys();
+
+	QStringList elementInfoKeys();
+	QStringList elementEditorElementInfoKeys();
+		/**
+			The auxiliary blocks offered for editing: the first one only
+			(Brandon, 2026-11-16). The blocks 2 to 4 stay information of
+			the element -- the project database, the nomenclatures and an
+			old project keep them -- but are offered only where an element
+			already has a value in them.
+		*/
+	inline int shownAuxiliaryBlocks() {return 1;}
+	bool isExtraAuxiliaryInfo(const QString &info);
+		/// Whether the Information tab of an element offers @p info to be
+		/// edited (Brandon, 2026-11-21): those before the article number.
+		/// The article number and what follows come from the parts of the
+		/// element (Parts tab): kept as they are, not shown
+	bool isEditedInInformationTab(const QString &info);
+	QStringList terminalConductorInfoKeys(int connection_count);
+	bool isTerminalConductorInfo(const QString &info,
+								 QString *property = nullptr,
+								 int *connection = nullptr);
+	bool usesTerminalConductorInfo(const QString &composite_text);
+	QString elementInfoToVar(const QString &info);
+
+	QRegularExpression numericInfoPattern();
+	class NumericInfoValidator : public QRegularExpressionValidator
+	{
+	public:
+		explicit NumericInfoValidator(QObject *parent = nullptr);
+		State validate(QString &input, int &pos) const override;
+	};
+
+	QString infoToVar(const QString &info);
+	QString translatedInfoKey(const QString &info);
+}
+
+#endif // QETINFORMATION_H

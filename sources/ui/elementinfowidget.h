@@ -1,0 +1,136 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef ELEMENTINFOWIDGET_H
+#define ELEMENTINFOWIDGET_H
+
+#include "../diagramcontext.h"
+#include "abstractelementpropertieseditorwidget.h"
+
+#include <QWidget>
+
+class Element;
+class QUndoCommand;
+class ElementInfoPartWidget;
+class CustomElementInfoPartWidget;
+class ChangeElementInformationCommand;
+class QCheckBox;
+class QComboBox;
+class QLabel;
+class QPushButton;
+class QWidget;
+struct MaterialRecord;
+
+namespace Ui {
+	class ElementInfoWidget;
+}
+
+/**
+	@brief The ElementInfoWidget class
+	this class is a widget to edit an element informations.
+*/
+class ElementInfoWidget : public AbstractElementPropertiesEditorWidget
+{
+	Q_OBJECT
+
+		//METHODS
+	public:
+		explicit ElementInfoWidget(Element *elmt, QWidget *parent = nullptr);
+		~ElementInfoWidget() override;
+
+		void setElement(Element *element) override;
+		void apply() override;
+		void reset() override;
+		QUndoCommand *associatedUndo () const override;
+		QString title() const override {return tr("Information");}
+		bool setLiveEdit(bool live_edit) override;
+		void updateUi() override;
+		DiagramContext currentInfo() const;
+
+			/// The parts of the element (PartsLinks), kept in the
+			/// information "parts", which no row shows: the Parts tab
+			/// edits it through these, and this tab saves it with the
+			/// rest, in the same step of undo
+		QString partsValue() const {return m_parts_value;}
+		void setPartsValue(const QString &value);
+			/// Write @p record into one block of the fields, as the
+			/// material button does
+		void writeMaterialRecord(const MaterialRecord &record, int block);
+
+	signals:
+		void partsValueChanged();
+
+	protected:
+		bool event(QEvent *event) override;
+		void enableLiveEdit() override;
+		void disableLiveEdit() override;
+
+	private:
+		void buildInterface();
+		void setupMaterialButtons();
+		void materialFromFile(int block);
+		void materialFromPartsDatabase(int block);
+		void applyMaterialRecord(const MaterialRecord &record, int block);
+		QString m_parts_value;
+		ElementInfoPartWidget *infoPartWidgetForKey(const QString &key) const;
+		QStringList predefinedKeys() const;
+		void updateSuggestions();
+		void setupSchemeRow();
+		void setupFreezeRow();
+		void setupLabelShownRow();
+		void setupSidesRow();
+		void updateSidesText();
+		void setupNumberRow();
+		void refreshNumberRow();
+		void updateNumberRow();
+		void numberChosen();
+		void updateFreezeRow();
+		void refreshSchemeRow();
+		void schemeChosen();
+		void openSchemePage();
+		QString chosenScheme() const;
+		QString followedScheme() const;
+
+	private slots:
+		void firstActivated();
+		void elementInfoChange();
+		void addCustomProperty(const QString &key = QString(), const QString &value = QString());
+		void removeCustomProperty(CustomElementInfoPartWidget *widget);
+
+		//ATTRIBUTES
+	private:
+		Ui::ElementInfoWidget           *ui;
+		QList <ElementInfoPartWidget *>  m_eipw_list;
+		QList <CustomElementInfoPartWidget *> m_custom_eipw_list;
+		QPushButton                     *m_add_custom_property_btn = nullptr;
+		QCheckBox                       *m_potential_isolating_cb = nullptr;
+		QCheckBox                        *m_exclude_from_bom_cb = nullptr;
+		QComboBox                        *m_scheme_cb = nullptr;
+		QCheckBox                        *m_freeze_cb = nullptr;
+		QCheckBox                        *m_label_shown_cb = nullptr;
+		QCheckBox                        *m_outside_swapped_cb = nullptr;
+		QLabel                           *m_sides_lb = nullptr;
+		QWidget                          *m_number_row = nullptr;
+		QComboBox                        *m_number_cb = nullptr;
+		int                               m_number_current = -1;   ///< the number the element has, -1 if unknown
+		int                               m_scheme_index = 0;
+		QWidget                          *m_scheme_row = nullptr;
+		bool m_first_activation;
+		bool m_ui_builded = false;
+};
+
+#endif // ELEMENTINFOWIDGET_H

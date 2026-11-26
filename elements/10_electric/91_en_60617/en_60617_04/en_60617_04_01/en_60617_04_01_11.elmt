@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{e47477a8-fe35-719e-7d97-a2995fd95b8b}"/>
+    <names>
+        <name lang="ar">مقاومة كومة فحمية</name>
+        <name lang="ca">Resistència de pila de carboni</name>
+        <name lang="cs">Rezistor uhlíkového sloupce</name>
+        <name lang="da">Kulstabelmodstand</name>
+        <name lang="de">Kohle-Säulen-Widerstand</name>
+        <name lang="el">Αντίσταση στοίβας άνθρακα</name>
+        <name lang="en">Carbon-pile resistor</name>
+        <name lang="es">Resistencia de pila de carbón</name>
+        <name lang="fi">Hiilipylväsvastus</name>
+        <name lang="fr">Résistance variable à disques de carbone</name>
+        <name lang="hr">Otpornik s ugljenim slojem</name>
+        <name lang="hu">Szénoszlopos ellenállás</name>
+        <name lang="it">Resistore a colonna di carbone</name>
+        <name lang="ja">カーボンパイル抵抗器</name>
+        <name lang="ko">탄소 적층 저항</name>
+        <name lang="mn">Нүүрстөрөгчийн багана резистор</name>
+        <name lang="nb">Kullstabelmotstand</name>
+        <name lang="nl">Koolstofstapelweerstand</name>
+        <name lang="nl_BE">Koolstapelweerstand</name>
+        <name lang="pl">Rezystor węglowy</name>
+        <name lang="pt">Resistência de pilha de carvão</name>
+        <name lang="pt_BR">Resistor de pilha de carbono</name>
+        <name lang="ro">Rezistor cu grămadă de carbon</name>
+        <name lang="ru">Угольный столбиковый резистор</name>
+        <name lang="sk">Uhlíkový vrstvový rezistor</name>
+        <name lang="sl">Ogleni upor</name>
+        <name lang="sr">Угљени отпорник</name>
+        <name lang="sv">Kolmikrofonresistor</name>
+        <name lang="tr">Karbon yığın direnci</name>
+        <name lang="uk">Вугільний стовпчастий резистор</name>
+        <name lang="zh">接线端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ce6916e-326b-4e94-ad8a-61dc41e44516}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-5" width="30" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-5" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-5" x2="15" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-5" x2="5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="15" x2="18" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="19" y1="-12" x2="17" y2="-14" x3="21" y3="-16" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <terminal uuid="{4bdd6cc7-7df5-488b-a140-55062605a510}" name="" x="30" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{a8b0d349-f198-46de-89ff-24234b2eace5}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,1004 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementquerywidget.h"
+
+#include "../../properties/elementdata.h"
+#include "../../qetapp.h"
+#include "../../qetinformation.h"
+#include "../legacyelementtypes.h"
+#include "../projectdatabase.h"
+#include "../../ui/formulabuilderdialog.h"
+#include "ui_elementquerywidget.h"
+
+#include <QFile>
+#include <QFileDialog>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QMessageBox>
+#include <QPushButton>
+
+#include <QRegularExpression>
+
+/**
+	@brief ElementQueryWidget::ElementQueryWidget
+	@param parent
+*/
+ElementQueryWidget::ElementQueryWidget(QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::ElementQueryWidget)
+{
+	ui->setupUi(this);
+
+	auto formula = new QPushButton(tr("Add formula column..."), this);
+	formula->setObjectName(QStringLiteral("m_formula_pb"));
+	formula->setToolTip(tr("Add a column worked out from the others, without writing SQL. The query becomes a custom SQL query."));
+	layout()->addWidget(formula);
+	connect(formula, &QPushButton::clicked, this, &ElementQueryWidget::addFormulaColumn);
+
+	m_export_info.insert("position", tr("Position"));
+	m_export_info.insert("title", tr("Sheet title"));
+	m_export_info.insert("diagram_position", tr("Sheet position"));
+	m_export_info.insert("folio", tr("Sheet number"));
+
+	m_button_group.setExclusive(false);
+	m_button_group.addButton(ui->m_all_cb, 0);
+	m_button_group.addButton(ui->m_terminal_cb, 1);
+	m_button_group.addButton(ui->m_simple_cb, 2);
+	m_button_group.addButton(ui->m_button_cb, 3);
+	m_button_group.addButton(ui->m_coil_cb, 4);
+	m_button_group.addButton(ui->m_protection_cb, 5);
+	m_button_group.addButton(ui->m_thumbnail_cb, 6);
+	m_button_group.addButton(ui->m_plc_cb, 7);
+	m_button_group.addButton(ui->m_slave_cb, 8);
+	connect(&m_button_group, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), [this](int id)
+
+	{
+		auto check_box = static_cast<QCheckBox *>(m_button_group.button(0));
+		if (id == 0)
+		{
+			switch (check_box->checkState()) {
+				case Qt::Checked :
+					for (auto button : m_button_group.buttons()) {
+						button->setChecked(true);
+					}
+					break;
+				case Qt::Unchecked :
+					for (auto button : m_button_group.buttons()) {
+						button->setChecked(false);
+					}
+					break;
+				default: break;
+			}
+		}
+		else
+		{
+			updateAllCheckState();
+		}
+
+		updateQueryLine();
+	});
+	updateAllCheckState();
+
+	setUpItems();
+	fillSavedQuery();
+
+	connect(ui->m_sql_query, &QLineEdit::textChanged, this, &ElementQueryWidget::checkQueryValidity);
+	checkQueryValidity();
+}
+
+/**
+	@brief ElementQueryWidget::~ElementQueryWidget
+*/
+ElementQueryWidget::~ElementQueryWidget()
+{
+	delete ui;
+}
+
+/**
+	@brief ElementQueryWidget::setQuery
+	@param query
+	Set the current query to query.
+	If it's possible, rebuild the state of the widget from the query
+*/
+void ElementQueryWidget::setQuery(const QString &query)
+{
+	if (query.startsWith("SELECT"))
+	{
+		reset();
+
+		ui->m_sql_query->setText(query);
+
+		QString select = query;
+		select.remove(0,7); //Remove SELECT
+		select.truncate(select.indexOf("FROM")); //Truncate at FROM
+		select.replace(" ", ""); //Remove white space
+
+			//Get the select -> the item in the right list
+		QStringList split = select.split(",");
+		for (auto str : split)
+		{
+			for (auto item : m_items_list)
+			{
+				if (item->data(Qt::UserRole).toString() == str) {
+					ui->m_var_list->takeItem(ui->m_var_list->row(item));
+					ui->m_choosen_list->addItem(item);
+					continue;
+				}
+			}
+		}
+
+			//There is not filter return now.
+		if (!query.contains("WHERE"))
+		{
+			ui->m_all_cb->setCheckState(Qt::Checked);
+			for (auto b : m_button_group.buttons())
+				b->setChecked(true);
+			return;
+		}
+
+			//Get the filter
+		auto where = query;
+		where.remove(0, where.indexOf("WHERE") + 6);
+		where.truncate(where.indexOf("ORDER BY"));
+
+			//Element type filter
+		if (where.contains("element_sub_type") || where.contains("element_type"))
+		{
+			QRegularExpression rx("^(\\( .+?\\))");
+			auto rxm = rx.match(where);
+			if (rxm.hasMatch())
+			{
+				auto str_type = rxm.captured(1);
+				where.remove(str_type);
+				const bool all_master_types = str_type.contains(
+						ElementData::typeToString(ElementData::Master));
+
+				int c=0;
+				ui->m_simple_cb->setChecked    (str_type.contains(ElementData::typeToString(ElementData::Simple)) ? true : false);
+				if (ui->m_simple_cb->isChecked()) {
+					++c;
+				}
+				ui->m_terminal_cb->setChecked  (str_type.contains(ElementData::typeToString(ElementData::Terminal)) ? true : false);
+				if (ui->m_terminal_cb->isChecked()) {
+					++c;
+				}
+				ui->m_coil_cb->setChecked      (all_master_types || str_type.contains(ElementData::masterTypeToString(ElementData::Coil)));
+				if (ui->m_coil_cb->isChecked()) {
+					++c;
+				}
+				ui->m_button_cb->setChecked    (all_master_types || str_type.contains(ElementData::masterTypeToString(ElementData::Commutator)));
+				if (ui->m_button_cb->isChecked()) {
+					++c;
+				}
+				ui->m_protection_cb->setChecked(all_master_types || str_type.contains(ElementData::masterTypeToString(ElementData::Protection)));
+				if (ui->m_protection_cb->isChecked()) {
+					++c;
+				}
+			ui->m_thumbnail_cb->setChecked  (str_type.contains(ElementData::typeToString(ElementData::Thumbnail)) ? true : false);
+			if (ui->m_thumbnail_cb->isChecked()) {
+				++c;
+			}
+			ui->m_plc_cb->setChecked       (all_master_types || str_type.contains(ElementData::masterTypeToString(ElementData::PLC)));
+			if (ui->m_plc_cb->isChecked()) {
+				++c;
+			}
+			ui->m_slave_cb->setChecked     (str_type.contains(ElementData::typeToString(ElementData::Slave)));
+			if (ui->m_slave_cb->isChecked()) {
+				++c;
+			}
+
+			if (c == 8) {
+					ui->m_all_cb->setCheckState(Qt::Checked);
+				} else if (c > 0) {
+					ui->m_all_cb->setCheckState(Qt::PartiallyChecked);
+				}
+			}
+		}
+		else // There is not "element_sub_type" or "element_type" that mean every element are selected
+		{
+			ui->m_all_cb->setCheckState(Qt::Checked);
+			for (auto b : m_button_group.buttons())
+				b->setChecked(true);
+		}
+
+
+			//Filter for selected data
+		QStringList strl;
+		for (auto item : m_items_list) {
+			strl.append(item->data(Qt::UserRole).toString());
+		}
+
+		QString join_str = strl.join("|");
+
+		QRegularExpression rx_is_not_null(QStringLiteral("^(%1) != ''$").arg(join_str));
+		QRegularExpression rx_is_null    (QStringLiteral("^\\((%1) IS NULL OR (%1) = ''\\)").arg(join_str));
+		QRegularExpression rx_like       (QStringLiteral("^(%1) LIKE'%(.+)%'$").arg(join_str));
+		QRegularExpression rx_not_like   (QStringLiteral("^(%1) NOT LIKE'%(.+)%'$").arg(join_str));
+		QRegularExpression rx_equal      (QStringLiteral("^(%1)='(.+)'$").arg(join_str));
+		QRegularExpression rx_not_equal  (QStringLiteral("^(%1)!='(.+)'$").arg(join_str));
+
+		QStringList split_where;
+			//Remove the white space at begin and end of each string
+		for (auto str : where.split("AND "))
+		{
+			if (str.startsWith(" "))
+				str.remove(0,1);
+			if (str.endsWith(" "))
+				str.remove(str.size()-1, 1);
+
+			split_where.append(str);
+		}
+
+
+		QRegularExpressionMatch rxm;
+		for (auto str : split_where)
+		{
+			rxm = rx_is_not_null.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(1, QString()));
+				continue;
+			}
+
+			rxm = rx_is_null.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(2, QString()));
+				continue;
+			}
+
+			rxm = rx_like.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(3, rxm.captured(2)));
+				continue;
+			}
+
+			rxm = rx_not_like.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(4, rxm.captured(2)));
+				continue;
+			}
+
+			rxm = rx_equal.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(5, rxm.captured(2)));
+				continue;
+			}
+
+			rxm = rx_not_equal.match(str);
+			if (rxm.hasMatch()) {
+				m_filter.insert(rxm.captured(1), qMakePair(6, rxm.captured(2)));
+				continue;
+			}
+
+		}
+	}
+}
+
+/**
+	@brief ElementQueryWidget::queryStr
+	@return The current query
+*/
+QString ElementQueryWidget::queryStr() const
+{
+		//User define is own query
+	if (ui->m_edit_sql_query_cb->isChecked()) {
+		return ui->m_sql_query->text();
+	}
+		//Made a string list with the columns (keys) chosen by the user
+	QStringList keys = selectedKeys();
+
+	QString select ="SELECT ";
+	QString order_by = " ORDER BY ";
+	QString filter_;
+
+	QString column;
+	bool first = true;
+	for (auto key: keys) {
+		if (first) {
+			first = false;
+		} else {
+			column += ", ";
+			order_by += ", ";
+		}
+		column += key;
+		order_by += key;
+
+		auto f = FilterFor(key);
+		switch (f.first)
+		{
+			case 0: //No filter
+				break;
+			case 1: //Not empty
+				filter_ += QStringLiteral(" AND ") += key += " != ''";
+				break;
+			case 2: //empty
+				filter_ += QStringLiteral(" AND (%1 IS NULL OR %1 = '')").arg(key);
+				break;
+			case 3: // contain
+				filter_ += QStringLiteral(" AND ") += key += QStringLiteral(" LIKE'%") += f.second += "%'";
+				break;
+			case 4: // not contain
+				filter_ += QStringLiteral(" AND ") += key += QStringLiteral(" NOT LIKE'%") += f.second += "%'";
+				break;
+			case 5: // is equal
+				filter_ += QStringLiteral(" AND ") += key += QStringLiteral("='") += f.second += "'";
+				break;
+			case 6: // is not equal
+				filter_ += QStringLiteral(" AND ") += key += QStringLiteral("!='") += f.second += "'";
+				break;
+		}
+	}
+
+	QString from = " FROM element_nomenclature_view";
+
+	QString where;
+	where = " WHERE (";
+	bool b = false;
+	if (ui->m_terminal_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_type = '") += ElementData::typeToString(ElementData::Terminal) += "'";
+		b = true;
+	}
+	if (ui->m_thumbnail_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_type = '") += ElementData::typeToString(ElementData::Thumbnail) += "'";
+		b = true;
+	}
+	if (ui->m_simple_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_type = '") += ElementData::typeToString(ElementData::Simple) += "'";
+		b = true;
+	}
+	const bool all_master_types = ui->m_button_cb->isChecked()
+			&& ui->m_coil_cb->isChecked()
+			&& ui->m_protection_cb->isChecked()
+			&& ui->m_plc_cb->isChecked();
+	if (all_master_types) {
+		if (b) where += " OR";
+		where += QStringLiteral(" element_type = '")
+				 += ElementData::typeToString(ElementData::Master) += "'";
+		b = true;
+	}
+	if (!all_master_types && ui->m_button_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_sub_type = '") += ElementData::masterTypeToString(ElementData::Commutator) += "'";
+		b = true;
+	}
+	if (!all_master_types && ui->m_coil_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_sub_type = '") += ElementData::masterTypeToString(ElementData::Coil) += "'";
+		b = true;
+	}
+	if (!all_master_types && ui->m_protection_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_sub_type = '") += ElementData::masterTypeToString(ElementData::Protection) += "'";
+		b = true;
+	}
+	if (!all_master_types && ui->m_plc_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_sub_type = '") += ElementData::masterTypeToString(ElementData::PLC) += "'";
+		b = true;
+	}
+	if (ui->m_slave_cb->isChecked()) {
+		if (b) where +=" OR";
+		where +=  QStringLiteral(" element_type = '") += ElementData::typeToString(ElementData::Slave) += "'";
+		b = true;
+	}
+	where.append(")");
+
+	if (where == " WHERE ()") {
+		where.clear();
+	}
+
+	// exclude_from_bom is already filtered by element_nomenclature_view
+	// (see createElementNomenclatureView() in projectdatabase.cpp); this
+	// widget's query reads FROM that view, so a flagged element never
+	// reaches this point in the first place.
+
+	if (!m_extra_filter.isEmpty()) {
+		filter_ += QStringLiteral(" AND ") + m_extra_filter;
+	}
+
+	if (where.isEmpty() && !filter_.isEmpty()) {
+		filter_.remove(0, 4); //Remove the first " AND" of filter.
+		filter_.prepend( " WHERE");
+	}
+
+	QString q(select + column + m_count + from + where + filter_ + m_group_by + order_by);
+	return q;
+}
+
+/**
+	@brief ElementQueryWidget::setGroupBy
+	Add the query instruction GROUP BY.
+	@param text : the text of the GROUP BY instruction:
+	ex : if text = designation,
+	the query will contain "GROUP BY designation"
+	@param set :
+	true by default -> GROUP BY will be used.
+	false -> GROUP BY will be not used
+*/
+void ElementQueryWidget::setGroupBy(QString text, bool set)
+{
+	if (set) {
+		m_group_by = QString(" GROUP BY ") + text;
+	} else {
+		m_group_by.clear();
+	}
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::setCount
+	Add the query instruction COUNT.
+	Unlike setGroupBy, you have to write the entire sentence.
+	ex : text = "COUNT(*) AS designation_qty".
+	the query will contain what you write.
+	@param text : the count instruction
+	@param set :
+	true by default -> count will be used.
+	false -> count will be not used.
+*/
+void ElementQueryWidget::setCount(QString text, bool set)
+{
+	if (set) {
+		m_count = QString(", " % text % " ");
+	} else {
+		m_count.clear();
+	}
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::setSlavesIncluded
+	Check or uncheck the contact blocks (slave elements) in the element
+	type filter. The box is unchecked by default, which keeps the tables
+	made before it existed as they were.
+	@param included
+*/
+void ElementQueryWidget::setSlavesIncluded(bool included)
+{
+	ui->m_slave_cb->setChecked(included);
+	updateAllCheckState();
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::updateAllCheckState
+	Set the "all" check box from the element type check boxes.
+*/
+void ElementQueryWidget::updateAllCheckState()
+{
+	int checked = 0;
+	for (int i=1 ; i<9 ; ++i) {
+		if (m_button_group.button(i)->isChecked()) {++checked;}
+	}
+
+	switch (checked)
+	{
+		case 0 :
+			ui->m_all_cb->setCheckState(Qt::Unchecked);
+			break;
+		case 8:
+			ui->m_all_cb->setCheckState(Qt::Checked);
+			break;
+		default:
+			ui->m_all_cb->setCheckState(Qt::PartiallyChecked);
+			break;
+	}
+}
+
+/**
+	@brief ElementQueryWidget::setExtraFilter
+	Add a condition every row of the query must meet, on top of the filters
+	chosen in this widget.
+	@param text : the condition, ex : "label != ''"
+	@param set :
+	true by default -> the condition is used.
+	false -> the condition is removed.
+*/
+void ElementQueryWidget::setExtraFilter(const QString &text, bool set)
+{
+	if (set) {
+		m_extra_filter = text;
+	} else {
+		m_extra_filter.clear();
+	}
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::updateQueryLine
+*/
+void ElementQueryWidget::updateQueryLine()
+{
+	ui->m_sql_query->setText(queryStr());
+}
+
+/**
+	@brief ElementQueryWidget::selectedKeys
+	@return the current keys of selected infos to be exported
+*/
+QStringList ElementQueryWidget::selectedKeys() const
+{
+		//Made a string list with the columns (keys) chosen by the user
+	QStringList keys;
+	int row = 0;
+	while (auto *item = ui->m_choosen_list->item(row))
+	{
+		keys.append(item->data(Qt::UserRole).toString());
+		++row;
+	}
+
+	return keys;
+}
+
+/**
+	@brief ElementQueryWidget::setUpItems
+*/
+void ElementQueryWidget::setUpItems()
+{
+	for(QString key : QETInformation::elementInfoKeys())
+	{
+		if (key == "formula" || key == "exclude_from_bom")
+			continue;
+		// Terminal number is read-only and not a column of the nomenclature
+		// query, so offering it as an export/query column would break the
+		// export (query fails with "no such column"). It stays available as a
+		// text variable (%{terminal_number}) in the element editor.
+		if (key == QETInformation::ELMT_TERMINAL_NUMBER)
+			continue;
+
+		auto item = new QListWidgetItem(QETInformation::translatedInfoKey(key), ui->m_var_list);
+		item->setData(Qt::UserRole, key);
+		m_items_list << item;
+	}
+
+
+	for (auto key : m_export_info.keys())
+	{
+		auto item = new QListWidgetItem(m_export_info.value(key), ui->m_var_list);
+		item->setData(Qt::UserRole, key);
+		m_items_list << item;
+	}
+}
+
+/**
+	@brief ElementQueryWidget::FilterFor
+	@param key
+	@return the filter associated to key
+*/
+QPair<int, QString> ElementQueryWidget::FilterFor(const QString &key) const
+{
+	return m_filter.value(key, qMakePair(0, QString()));
+}
+
+/**
+	@brief ElementQueryWidget::fillSavedQuery
+	Fill the combobox of saved queries
+*/
+void ElementQueryWidget::fillSavedQuery()
+{
+	QFile file(QETApp::configDir() % "/nomenclature.json");
+	if (file.open(QFile::ReadOnly))
+	{
+		QJsonDocument jsd(QJsonDocument::fromJson(file.readAll()));
+		QJsonObject jso = jsd.object();
+
+		for (auto it = jso.begin() ; it != jso.end() ; ++it) {
+			ui->m_conf_cb->addItem(it.key());
+		}
+	}
+}
+
+/**
+	@brief ElementQueryWidget::on_m_up_pb_clicked
+*/
+void ElementQueryWidget::on_m_up_pb_clicked()
+{
+	auto row = ui->m_choosen_list->currentRow();
+	if(row <= 0) {
+		return;
+	}
+
+	auto *item = ui->m_choosen_list->takeItem(row);
+	ui->m_choosen_list->insertItem(row-1, item);
+	ui->m_choosen_list->setCurrentItem(item);
+
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::on_m_add_pb_clicked
+*/
+void ElementQueryWidget::on_m_add_pb_clicked()
+{
+	if (auto *item = ui->m_var_list->takeItem(ui->m_var_list->currentRow())) {
+		ui->m_choosen_list->addItem(item);
+	}
+
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::on_m_remove_pb_clicked
+*/
+void ElementQueryWidget::on_m_remove_pb_clicked()
+{
+	if (auto *item = ui->m_choosen_list->takeItem(ui->m_choosen_list->currentRow())) {
+		ui->m_var_list->addItem(item);
+	}
+
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::on_m_down_pb_clicked
+*/
+void ElementQueryWidget::on_m_down_pb_clicked()
+{
+	auto row = ui->m_choosen_list->currentRow();
+	if (row == -1) {
+		return;
+	}
+
+	auto *item = ui->m_choosen_list->takeItem(row);
+	ui->m_choosen_list->insertItem(row+1, item);
+	ui->m_choosen_list->setCurrentItem(item);
+
+	updateQueryLine();
+}
+
+/**
+	@brief ElementQueryWidget::addFormulaColumn
+	Ask for a formula, and add it as a column to the query. Added to the
+	query text, which then is a custom SQL query: the formula is kept as
+	the SQL it makes, nothing else is saved for it.
+*/
+void ElementQueryWidget::addFormulaColumn()
+{
+	QList<FormulaBuilder::Field> fields;
+	for (const auto item : std::as_const(m_items_list))
+		fields << FormulaBuilder::Field{item->text(), item->data(Qt::UserRole).toString()};
+
+	FormulaBuilderDialog dialog(fields, this);
+	if (dialog.exec() != QDialog::Accepted) {
+		return;
+	}
+
+	QString query = ui->m_edit_sql_query_cb->isChecked() ? ui->m_sql_query->text() : queryStr();
+	const int from = query.lastIndexOf(QStringLiteral(" FROM element_nomenclature_view"));
+	if (from < 0) {
+		QMessageBox::warning(this, tr("Formula column"),
+							 tr("The query has no FROM clause to add a column to."));
+		return;
+	}
+	query.insert(from, QStringLiteral(", %1 AS \"%2\"").arg(dialog.expression(), dialog.title()));
+
+	ui->m_edit_sql_query_cb->setChecked(true);
+	on_m_edit_sql_query_cb_clicked();
+	ui->m_sql_query->setText(query);
+}
+
+/**
+	@brief ElementQueryWidget::on_m_edit_sql_query_cb_clicked
+*/
+void ElementQueryWidget::on_m_edit_sql_query_cb_clicked()
+{
+	ui->m_sql_query->setEnabled(ui->m_edit_sql_query_cb->isChecked());
+	ui->m_info_widget->setDisabled(ui->m_edit_sql_query_cb->isChecked());
+	ui->m_parametre_widget->setDisabled(ui->m_edit_sql_query_cb->isChecked());
+
+	if (ui->m_edit_sql_query_cb->isChecked() && !m_custom_query.isEmpty())
+	{
+		ui->m_sql_query->setText(m_custom_query);
+	}
+	else if (!ui->m_edit_sql_query_cb->isChecked())
+	{
+		m_custom_query = ui->m_sql_query->text();
+		updateQueryLine();
+	}
+
+	checkQueryValidity();
+}
+
+/**
+	@brief ElementQueryWidget::on_m_filter_le_textEdited
+	@param arg1
+*/
+void ElementQueryWidget::on_m_filter_le_textEdited(const QString &arg1)
+{
+	if (auto item = ui->m_choosen_list->currentItem())
+	{
+		auto key =  item->data(Qt::UserRole).toString();
+		auto type = ui->m_filter_type_cb->currentIndex();
+		auto value = arg1;
+
+		m_filter.insert(key, qMakePair(type, value));
+		updateQueryLine();
+	}
+}
+
+/**
+	@brief ElementQueryWidget::on_m_filter_type_cb_activated
+	@param index
+*/
+void ElementQueryWidget::on_m_filter_type_cb_activated(int index)
+{
+	if (auto item = ui->m_choosen_list->currentItem())
+	{
+		auto key =  item->data(Qt::UserRole).toString();
+		auto type = index;
+		auto value = ui->m_filter_le->text();
+
+		m_filter.insert(key, qMakePair(type, value));
+		ui->m_filter_le->setDisabled(index <= 2);
+		updateQueryLine();
+	}
+}
+
+/**
+	@brief ElementQueryWidget::on_m_load_pb_clicked
+	Load a query from nomenclature.json file
+*/
+void ElementQueryWidget::on_m_load_pb_clicked()
+{
+	auto name = ui->m_conf_cb->currentText();
+	if (name.isEmpty()) {
+		return;
+	}
+
+	QFile file_(QETApp::configDir() % "/nomenclature.json");
+	if (!file_.open(QFile::ReadOnly)) {
+		return;
+	}
+
+	QJsonDocument doc_(QJsonDocument::fromJson(file_.readAll()));
+	QJsonObject object_ = doc_.object();
+
+	auto value = object_.value(name);
+	if (!value.isObject()) {
+		return;
+	}
+
+	auto value_object = value.toObject();
+	if (value_object.value("query").isString()) {
+			//A query saved before June 2022 names element types the old way
+		setQuery(LegacyElementTypes::upgradeQuery(
+					 value_object.value("query").toString()));
+	}
+}
+
+/**
+	@brief ElementQueryWidget::on_m_save_current_conf_pb_clicked
+	Save the actual query to nomenclature.json file
+*/
+void ElementQueryWidget::on_m_save_current_conf_pb_clicked()
+{
+	if (!projectDataBase::isReadOnlySelect(queryStr())) {
+		return;
+	}
+
+	QFile file_(QETApp::configDir() % "/nomenclature.json");
+
+	if (file_.open(QFile::ReadWrite))
+	{
+		QJsonDocument doc_(QJsonDocument::fromJson(file_.readAll()));
+		QJsonObject root_object;
+
+		if (!doc_.isEmpty())
+		{
+			root_object = doc_.object();
+			if (root_object.contains(ui->m_save_name_le->text())) {
+				root_object.remove(ui->m_save_name_le->text());
+			}
+		}
+
+		QJsonObject object_;
+		object_.insert("query", queryStr());
+		root_object[ui->m_save_name_le->text()] = object_;
+
+		doc_.setObject(root_object);
+		file_.resize(0);
+		file_.write(doc_.toJson());
+	}
+}
+
+void ElementQueryWidget::on_m_save_name_le_textChanged(const QString &arg1) {
+	Q_UNUSED(arg1)
+	checkQueryValidity();
+}
+
+/**
+	@brief ElementQueryWidget::checkQueryValidity
+	Live feedback for the custom-SQL box: only the free-text path can carry
+	anything other than a SELECT (the column/filter builder always produces
+	one), so this only actually restricts something once "Requête SQL
+	personnalisée" is checked. Same rule projectDataBase::isReadOnlySelect()
+	enforces at execution time -- this just tells the user *before* they hit
+	Preview/Export/OK instead of after (qelectrotech-source-mirror#886).
+*/
+void ElementQueryWidget::checkQueryValidity()
+{
+	if (!ui->m_edit_sql_query_cb->isChecked()) {
+		ui->m_query_warning_label->clear();
+		ui->m_save_current_conf_pb->setEnabled(!ui->m_save_name_le->text().isEmpty());
+		return;
+	}
+
+	QString reason;
+	const bool valid = projectDataBase::isReadOnlySelect(ui->m_sql_query->text(), &reason);
+	ui->m_query_warning_label->setText(valid ? QString() : reason);
+	ui->m_save_current_conf_pb->setEnabled(valid && !ui->m_save_name_le->text().isEmpty());
+}
+
+/**
+	@brief ElementQueryWidget::on_m_export_reports_pb_clicked
+	Write every saved report in nomenclature.json to a file the user picks,
+	so it can be handed to a colleague or another install
+	(qelectrotech-source-mirror#886's "import and export report definitions
+	for sharing between users or company installations").
+*/
+void ElementQueryWidget::on_m_export_reports_pb_clicked()
+{
+	QFile source(QETApp::configDir() % "/nomenclature.json");
+	if (!source.open(QFile::ReadOnly)) {
+		QMessageBox::information(this, tr("Export"), tr("No saved report to export."));
+		return;
+	}
+	const auto content = source.readAll();
+	source.close();
+
+	if (QJsonDocument::fromJson(content).object().isEmpty()) {
+		QMessageBox::information(this, tr("Export"), tr("No saved report to export."));
+		return;
+	}
+
+	const QString file_path = QFileDialog::getSaveFileName(
+			this, tr("Export reports"), QStringLiteral("rapports_qet.json"),
+			tr("JSON files (*.json)"));
+	if (file_path.isEmpty()) {
+		return;
+	}
+
+	QFile dest(file_path);
+	if (!dest.open(QFile::WriteOnly) || dest.write(content) == -1) {
+		QMessageBox::critical(this, tr("Error"), tr("Unable to write to %1.").arg(file_path));
+	}
+}
+
+/**
+	@brief ElementQueryWidget::on_m_import_reports_pb_clicked
+	Merge a previously-exported reports file into this install's
+	nomenclature.json. A name already used locally is not overwritten
+	silently -- the user is asked, per report, whether to replace it.
+*/
+void ElementQueryWidget::on_m_import_reports_pb_clicked()
+{
+	const QString file_path = QFileDialog::getOpenFileName(
+			this, tr("Import reports"), QString(), tr("JSON files (*.json)"));
+	if (file_path.isEmpty()) {
+		return;
+	}
+
+	QFile source(file_path);
+	if (!source.open(QFile::ReadOnly)) {
+		QMessageBox::critical(this, tr("Error"), tr("Unable to read %1.").arg(file_path));
+		return;
+	}
+
+	QJsonParseError parse_error;
+	const auto incoming_doc = QJsonDocument::fromJson(source.readAll(), &parse_error);
+	source.close();
+
+	if (parse_error.error != QJsonParseError::NoError || !incoming_doc.isObject()) {
+		QMessageBox::critical(
+				this, tr("Error"),
+				tr("%1 does not contain valid QElectroTech reports.").arg(file_path));
+		return;
+	}
+
+	const auto incoming = incoming_doc.object();
+	if (incoming.isEmpty()) {
+		QMessageBox::information(this, tr("Import"), tr("This file does not contain any report."));
+		return;
+	}
+
+	QFile dest_file(QETApp::configDir() % "/nomenclature.json");
+	QJsonObject existing;
+	if (dest_file.open(QFile::ReadOnly)) {
+		existing = QJsonDocument::fromJson(dest_file.readAll()).object();
+		dest_file.close();
+	}
+
+	int imported = 0, skipped = 0;
+	for (auto it = incoming.begin(); it != incoming.end(); ++it)
+	{
+		if (existing.contains(it.key()))
+		{
+			const auto answer = QMessageBox::question(
+					this, tr("Report already exists"),
+					tr("A report named \"%1\" already exists. Replace it?").arg(it.key()),
+					QMessageBox::Yes | QMessageBox::No);
+			if (answer != QMessageBox::Yes) {
+				++skipped;
+				continue;
+			}
+		}
+		existing[it.key()] = it.value();
+		++imported;
+	}
+
+	if (dest_file.open(QFile::WriteOnly | QFile::Truncate))
+	{
+		dest_file.write(QJsonDocument(existing).toJson());
+		dest_file.close();
+	}
+	else
+	{
+		QMessageBox::critical(this, tr("Error"), tr("Unable to write the local configuration."));
+		return;
+	}
+
+	ui->m_conf_cb->clear();
+	fillSavedQuery();
+
+	QMessageBox::information(
+			this, tr("Import"),
+			tr("%1 report(s) imported, %2 skipped.").arg(imported).arg(skipped));
+}
+
+void ElementQueryWidget::on_m_choosen_list_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+	Q_UNUSED(previous)
+
+	if (!current)
+		return;
+
+	auto key = current->data(Qt::UserRole).toString();
+	auto p = FilterFor(key);
+	ui->m_filter_type_cb->setCurrentIndex(p.first);
+	ui->m_filter_le->setText(p.second);
+	ui->m_filter_le->setEnabled(p.first>=3);
+}
+
+void ElementQueryWidget::on_m_var_list_itemDoubleClicked(QListWidgetItem *item) {
+	Q_UNUSED(item)
+	on_m_add_pb_clicked();
+}
+
+void ElementQueryWidget::on_m_choosen_list_itemDoubleClicked(QListWidgetItem *item) {
+	Q_UNUSED(item)
+	on_m_remove_pb_clicked();
+}
+
+/**
+	@brief ElementQueryWidget::reset
+	Clear this widget aka set to initial state
+*/
+void ElementQueryWidget::reset()
+{
+		//Ugly hack to force to remove all selected infos
+	while (auto item = ui->m_choosen_list->takeItem(0)) {
+		ui->m_var_list->addItem(item);
+	}
+
+	ui->m_all_cb->setChecked(true);
+	ui->m_sql_query->clear();
+	m_filter.clear();
+}
+

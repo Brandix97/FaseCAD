@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="30" hotspot_x="25" hotspot_y="25">
+    <uuid uuid="{17f4ed96-fae7-e5f0-c038-e815c66c21b1}"/>
+    <names>
+        <name lang="ar">وظيفة عد عدد من الأحداث</name>
+        <name lang="ca">Funció de recompte d'un nombre d'esdeveniments</name>
+        <name lang="cs">Čítací funkce počtu sepnutí, doplňková značka</name>
+        <name lang="da">Tællefunktion for et antal hændelser</name>
+        <name lang="de">Zählfunktion, Kennzeichen</name>
+        <name lang="el">Λειτουργία μέτρησης αριθμού γεγονότων</name>
+        <name lang="en">Counting function of a number of events</name>
+        <name lang="es">Función de conteo de un número de eventos</name>
+        <name lang="fi">Useiden tapahtumien laskentatoiminto</name>
+        <name lang="fr">Fonction de comptage symbole distinctif</name>
+        <name lang="hr">Funkcija brojanja određenog broja događaja</name>
+        <name lang="hu">Eseményszámláló funkció</name>
+        <name lang="it">Funzione di conteggio di un numero di eventi</name>
+        <name lang="ja">複数事象の計数機能</name>
+        <name lang="ko">여러 이벤트의 계수 기능</name>
+        <name lang="mn">Хэд хэдэн үйл явдлыг тоолох функц</name>
+        <name lang="nb">Tellefunksjon for et antall hendelser</name>
+        <name lang="nl">Telfunctie van een aantal gebeurtenissen</name>
+        <name lang="nl_BE">Telfunctie van een aantal gebeurtenissen</name>
+        <name lang="pl">Funkcja zliczania liczby zdarzeń</name>
+        <name lang="pt">Função de contagem de um número de eventos</name>
+        <name lang="pt_BR">Função de contagem de eventos</name>
+        <name lang="ro">Funcție de numărare a unui număr de evenimente</name>
+        <name lang="ru">Функция подсчёта ряда событий</name>
+        <name lang="sk">Počítacia funkcia počtu udalostí</name>
+        <name lang="sl">Štetje števila dogodkov</name>
+        <name lang="sr">Функција бројања броја догађаја</name>
+        <name lang="sv">Räknefunktion för ett antal händelser</name>
+        <name lang="tr">Bir dizi olayın sayma fonksiyonu</name>
+        <name lang="uk">Функція підрахунку кількості подій</name>
+        <name lang="zh">接线端子01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{420dfb82-a1e0-4524-9632-c88cc8584f0c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-20" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-15" y="-15" width="10" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

@@ -1,0 +1,66 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="50" hotspot_x="40" hotspot_y="13">
+    <uuid uuid="{0c53b541-f3f4-1e72-8b43-b05584290f9e}"/>
+    <names>
+        <name lang="ar">أسطوانة بدون رود + فرامل وضع نهاية على كلا الجانبين + قابل للتعديل + فرامل مفتوحة بشكل طبيعي</name>
+        <name lang="ca">Cilindre sense vara + fre de posició final a ambdós costats + regulable + fre normalment obert</name>
+        <name lang="cs">Bezpístnicový válec + brzda koncové polohy na obou stranách + nastavitelná + brzda normálně otevřená</name>
+        <name lang="da">Stangløs cylinder + endestillingsbremse på begge sider + justerbar + bremse normalt åben</name>
+        <name lang="de">Kolbenstangenloser Zylinder + Endlagenbremse beidseitig + einstellbar + Bremse normal offen</name>
+        <name lang="el">Κύλινδρος χωρίς ράβδο + φρένο τελικής θέσης και στις δύο πλευρές + ρυθμιζόμενο + φρένο κανονικά ανοιχτό</name>
+        <name lang="en">Rodless cylinder + end position brake on both sides + adjustable + brake normally open</name>
+        <name lang="es">Cilindro sin vástago + freno de posición final en ambos lados + ajustable + freno normalmente abierto</name>
+        <name lang="fi">Varretön sylinteri + pääteasennon jarru molemmilla puolilla + säädettävä + jarru normaalisti avoin</name>
+        <name lang="fr">Vérin sans tige + frein de fin de course des deux côtés + réglable + frein normalement ouvert</name>
+        <name lang="hr">Cilindar bez poluge + kočnica u krajnjem položaju s obje strane + podesiva + kočnica normalno otvorena</name>
+        <name lang="hu">Rúd nélküli henger + véghelyzeti fék mindkét oldalon + állítható + fék alaphelyzetben nyitva</name>
+        <name lang="it">Cilindro senza stelo + freno di fine corsa su entrambi i lati + regolabile + freno normalmente aperto</name>
+        <name lang="ja">ロッドレスシリンダー+両側のエンドポジションブレーキ+調整可能+ブレーキノーマルオープン</name>
+        <name lang="ko">로드리스 실린더 + 양쪽 끝 위치 브레이크 + 조정 가능 + 상시 열림 브레이크</name>
+        <name lang="mn">Саваагүй цилиндр + 2 талдаа төгсгөлийн байрлалтай тоормос + тохируулгатай + тоормос ердийн үед нээлттэй</name>
+        <name lang="nb">Stangløs sylinder + endestillingsbrems på begge sider + justerbar + brems normalt åpen</name>
+        <name lang="nl">Stangloze cilinder + eindpositie rem aan beide zijden + verstelbaar + rem normaal open</name>
+        <name lang="nl_BE">Zuigerstangloze cilinder + eindaanslag aan beide zijden + verstelbaar + rem normaal open</name>
+        <name lang="pl">Siłownik beztłoczyskowy + hamulec położenia końcowego po obu stronach + regulowany + hamulec normalnie otwarty</name>
+        <name lang="pt">Cilindro sem haste + freio de posição final em ambos os lados + ajustável + freio normalmente aberto</name>
+        <name lang="pt_BR">Cilindro sem haste + freio de posição final em ambos os lados + ajustável + freio normalmente aberto</name>
+        <name lang="ro">Cilindru fara tija + frana de pozitie finala pe ambele parti + reglabil + frana normal deschisa</name>
+        <name lang="ru">Бесштоковый цилиндр + тормоз конечного положения с обеих сторон + регулируемый + нормально открытый тормоз</name>
+        <name lang="sk">Beztyčový valec + koncová brzda na oboch stranách + nastaviteľný + brzda normálne otvorená</name>
+        <name lang="sl">Cilinder brez droga + zavora končnega položaja na obeh straneh + nastavljiva + normalno odprta zavora</name>
+        <name lang="sr">Цилиндар без полуге + кочница крајњег положаја са обе стране + подесива + кочница нормално отворена</name>
+        <name lang="sv">Stånglös cylinder + ändlägesbroms på båda sidor + justerbar + broms normalt öppen</name>
+        <name lang="tr">Milsiz silindir + her iki tarafta son konum freni + ayarlanabilir + fren normalde açık</name>
+        <name lang="uk">Циліндр без штока + гальмо кінця ходу з обох боків + регульований + гальмо нормально відкрите</name>
+        <name lang="zh">无杆气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-26" y="32" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6c57c2e5-7adf-c7b5-c89d-c3f03ce9003b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>quantity</info_name>
+        </dynamic_text>
+        <dynamic_text x="-32" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b8c57e6a-0e2a-cf95-fbdc-ebee56eedd58}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-17" y="1" width="2" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="22" width="10" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-28" y1="11" x2="-14" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-21" y1="13" x2="-21" y2="22" x3="-19" y3="22" x4="-19" y4="13" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-25" y="-8" width="10" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15" y1="-1" x2="-13" y2="1" x3="-11" y3="-3" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="-19" y1="16" x2="-15" y2="16" x3="-15" y3="32" x4="-25" y4="32" x5="-25" y5="16" x6="-21" y6="16" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-25" y="1" width="2" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15" y1="21" x2="-15" y2="19" x3="-17" y3="20" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-24.72" y1="24.23" x2="-15.37" y2="26.76" x3="-24.72" y3="29.26" x4="-15.44" y4="31.56" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-23" y="-5" width="6" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="2" x2="23" y2="15" x3="-33" y3="15" x4="-33" y4="-5" x5="23" y5="-5" x6="23" y6="8" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-15" y1="20" x2="-13" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{93902c03-638a-44f8-a694-200ffbbd4580}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{106bd366-e122-44cf-a201-88f2d2509d86}" name="" x="-10" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{25189039-3321-4e03-9969-afbf34ef8382}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

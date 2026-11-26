@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="14" hotspot_y="19">
+    <uuid uuid="{9087ee07-fec6-0d4e-c952-5dbb99dbf92c}"/>
+    <names>
+        <name lang="ar">تهوية الخزان</name>
+        <name lang="ca">Ventilació del dipòsit</name>
+        <name lang="cs">Odvětrání nádrže</name>
+        <name lang="da">Tankventilation</name>
+        <name lang="de">Tankbelüftung</name>
+        <name lang="el">Εξαερισμός δεξαμενής</name>
+        <name lang="en">tank ventilation</name>
+        <name lang="es">Ventilación de depósito</name>
+        <name lang="fi">säiliön ilmanvaihto</name>
+        <name lang="fr">Event</name>
+        <name lang="hr">Ventilacija spremnika</name>
+        <name lang="hu">Tartály szellőztetés</name>
+        <name lang="it">Ventilazione serbatoio</name>
+        <name lang="ja">タンク通気</name>
+        <name lang="ko">탱크 환기</name>
+        <name lang="mn">Савны агааржуулалт</name>
+        <name lang="nb">tank ventilasjon</name>
+        <name lang="nl">Tankontluchting</name>
+        <name lang="nl_BE">tankventilatie</name>
+        <name lang="pl">Wentylacja zbiornika</name>
+        <name lang="pt">Ventilação do depósito</name>
+        <name lang="pt_BR">Ventilacao do tanque</name>
+        <name lang="ro">ventilare rezervor</name>
+        <name lang="ru">вентиляция бака</name>
+        <name lang="sk">vetranie nádrže</name>
+        <name lang="sl">prezračevanje rezervoarja</name>
+        <name lang="sr">Вентилација резервоара</name>
+        <name lang="sv">tankventilation</name>
+        <name lang="tr">tank havalandırması</name>
+        <name lang="uk">вентиляція бака</name>
+        <name lang="zh">通气阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="7" y1="-8" x2="9" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1" y="-13" width="11" height="10" start="0" angle="130" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-9" y="-13" width="11" height="10" start="50" angle="130" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-1" y="-8" width="3" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2" y="-10" width="5" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-6" y="-10" width="5" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9" y1="-8" x2="-7" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-21.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c0720987-5ed7-41d6-b1b3-24cec0ec5aa0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3b522a9e-e66d-4787-8339-f6ab32495e23}" name="" x="1" y="9" orientation="s" type="Generic"/>
+    </description>
+</definition>

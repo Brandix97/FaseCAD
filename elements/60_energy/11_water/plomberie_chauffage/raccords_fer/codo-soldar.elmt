@@ -1,0 +1,30 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="50" hotspot_x="39" hotspot_y="37">
+    <uuid uuid="{32d5d05e-a3f5-3da9-c7eb-e9d511ba66ab}"/>
+    <names>
+        <name lang="ar">كوع للحام</name>
+        <name lang="ca">Colze de 45° soldadura</name>
+        <name lang="cs">Koleno k přivaření</name>
+        <name lang="da">Svejsebøjning</name>
+        <name lang="de">Bogen 45° (Löt)</name>
+        <name lang="el">Γωνία για συγκόλληση</name>
+        <name lang="en">Welding elbow</name>
+        <name lang="es">Codo soldar</name>
+        <name lang="fr">Coude à souder</name>
+        <name lang="pt_BR">Codo soldar</name>
+        <name lang="zh">弯头焊接</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-18.55" y="-21.49" width="17.47" height="14.51" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-34.44" y="-34.81" width="48.42" height="41.14" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="5" y="1" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{6b158cb1-0b4a-4187-87b8-82f8e6b3740c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10.08" y1="-6.15" x2="-10.08" y2="6.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-9" x2="7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b3ef5d2f-d017-4e5b-85cb-97e2cc98c2b1}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{4a7b4491-64b6-4d0e-b159-2f2f73162cd1}" name="" x="2" y="-6" orientation="n" type="Generic"/>
+    </description>
+</definition>

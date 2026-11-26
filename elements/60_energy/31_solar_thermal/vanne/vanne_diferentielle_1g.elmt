@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="21">
+    <uuid uuid="{e8c845df-0637-bb06-0ecc-bbfac0386851}"/>
+    <names>
+        <name lang="ar">"صمّام ضغط" يسار</name>
+        <name lang="ca">Vàlvula diferencial esquerra</name>
+        <name lang="cs">Rozdílový uzávěr (levý)</name>
+        <name lang="da">Differentialventil "venstre"</name>
+        <name lang="de">Differenzventil "links"</name>
+        <name lang="el">Διαφορική βαλβίδα "αριστερά"</name>
+        <name lang="en">Differential valve "left"</name>
+        <name lang="es">Válvula diferencial "izquierda"</name>
+        <name lang="fi">Differentiaaliventtiili "vasen"</name>
+        <name lang="fr">Vanne différentielle "gauche"</name>
+        <name lang="hr">Diferencijalni ventil "lijevo"</name>
+        <name lang="hu">Különbségi szelep "bal"</name>
+        <name lang="it">Valvola differenziale SX</name>
+        <name lang="ja">差圧バルブ「左」</name>
+        <name lang="ko">차압 밸브 "왼쪽"</name>
+        <name lang="mn">Дифференциал хавхлага "зүүн"</name>
+        <name lang="nb">Differensialventil "venstre"</name>
+        <name lang="nl">Drukverschil klep</name>
+        <name lang="nl_BE">Differentiaalklep "links"</name>
+        <name lang="pl">Zawór różnicowy</name>
+        <name lang="pt">Válvula diferencial "esquerda"</name>
+        <name lang="pt_BR">Differential valvula &amp;quot;esquerda&amp;quot;</name>
+        <name lang="ro">Supapă diferențială "stânga"</name>
+        <name lang="ru">Дифференциальный клапан "левый"</name>
+        <name lang="sk">Diferenciálny ventil "ľavý"</name>
+        <name lang="sl">Diferencialni ventil "levo"</name>
+        <name lang="sr">Диференцијални вентил "лево"</name>
+        <name lang="sv">Differentialventil "vänster"</name>
+        <name lang="tr">Diferansiyel vana "sol"</name>
+        <name lang="uk">Диференційний клапан "лівий"</name>
+        <name lang="zh">压差阀1左</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="0" y1="0" x2="-10" y2="-6" x3="-10" y3="6" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="0" x2="-6" y2="10" x3="6" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-9" y1="-16" x2="-11" y2="-18" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="9" y1="-16" x2="12" y2="-18" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-9" y="-17.5" width="18" height="3" start="190" angle="160" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="11" y1="-14" x2="15" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-14" x2="-11" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-16" x2="-13" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-12" y="-31" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbff8ffd-bdbb-47f8-9fe7-27479466aec4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="0" x2="0" y2="-4" x3="-3" y3="-6" x4="3" y4="-8" x5="-3" y5="-9" x6="3" y6="-11" x7="-3" y7="-12" x8="3" y8="-14" x9="0" y9="-15" x10="0" y10="-17" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{8250fd21-e249-4911-9645-060b66fde9ab}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{20e791ad-9de9-4945-aaed-75c67c615ce1}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

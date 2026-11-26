@@ -1,0 +1,236 @@
+﻿/*
+   Copyright 2006-2026 The QElectroTech Team
+   This file is part of QElectroTech.
+
+   QElectroTech is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 2 of the License, or
+   (at your option) any later version.
+
+   QElectroTech is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "bomexportdialog.h"
+
+#include "../dataBase/ui/elementquerywidget.h"
+#include "../bomexport.h"
+#include "../qetapp.h"
+#include "../qetinformation.h"
+#include "../qetproject.h"
+#include "ui_bomexportdialog.h"
+
+#include "../qet.h"
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQueryModel>
+#include <QSqlRecord>
+
+/**
+	@brief BOMExportDialog::BOMExportDialog
+	@param project
+	@param parent
+*/
+BOMExportDialog::BOMExportDialog(QETProject *project, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::BOMExportDialog),
+	m_project(project)
+{
+	ui->setupUi(this);
+	QET::trackDialogGeometry(this);
+
+	m_query_widget = new ElementQueryWidget(this);
+	ui->m_main_layout->insertWidget(0, m_query_widget);
+	m_query_widget->setQuery(BomExport::defaultQuery());
+		//The contact blocks are parts of their own, as in the command line
+		//export; unchecking "Contacts esclaves" leaves them out.
+	m_query_widget->setSlavesIncluded(true);
+	on_m_format_as_bom_clicked(false);
+
+	m_preview_model = new QSqlQueryModel(this);
+	ui->m_preview_table->setModel(m_preview_model);
+}
+
+/**
+	@brief BOMExportDialog::~BOMExportDialog
+*/
+BOMExportDialog::~BOMExportDialog()
+{
+	delete ui;
+}
+
+/**
+	@brief BOMExportDialog::exec
+	@return
+*/
+int BOMExportDialog::exec()
+{
+	auto r = QDialog::exec();
+	if (r == QDialog::Accepted)
+	{
+			//save in csv file in same directory as project by default
+		QString dir = m_project->currentDir();
+		if (dir.isEmpty()) dir = QETApp::documentDir();
+		QString file_name = dir % "/" % tr("parts list_") % QString(m_project ->title() % ".csv");
+		QString file_path = QFileDialog::getSaveFileName(this, tr("Save As... "), file_name, tr("Files csv (*.csv)"));
+		if (!file_path.isEmpty())
+		{
+			QString error;
+			const auto csv = getBom(&error);
+			if (!error.isEmpty() || !BomExport::writeCsv(file_path, csv, &error)) {
+				QMessageBox::critical(
+						this, tr("Error"),
+						tr("Unable to save the parts list to %1.\n%2")
+								.arg(file_path, error));
+			}
+		}
+	}
+	return r;
+}
+
+QByteArray BOMExportDialog::getBom(QString *error)
+{
+	if (error) {
+		error->clear();
+	}
+	m_project->dataBase()->updateDB();
+	QString rejection;
+	auto query_ = m_project->dataBase()->newQuery(currentQuery(), &rejection);
+
+	if (!rejection.isEmpty()) {
+		if (error) {
+			*error = rejection;
+		}
+		return {};
+	}
+
+	if (!query_.exec()) {
+		qDebug() << "BOMExportDialog::getBom : query errir : " << query_.lastError();
+		if (error) {
+			*error = query_.lastError().text();
+		}
+		return {};
+	}
+
+	QStringList header_names;
+	if (ui->m_include_headers->isChecked())
+	{
+		const auto record_ = query_.record();
+		for (int i = 0; i < record_.count(); ++i)
+		{
+			const auto field_name = record_.fieldName(i);
+			if (field_name == QLatin1String("position")) {
+				header_names << tr("Position");
+			} else if (field_name == QLatin1String("diagram_position")) {
+				header_names << tr("Sheet position");
+			} else if (field_name == QLatin1String("designation_qty")) {
+				header_names << tr("Designation quantity", "Special field with name : designation quantity");
+			} else if (ui->m_group_parts->isChecked() && groupedHeader(field_name) != field_name) {
+				header_names << groupedHeader(field_name);
+			} else {
+				const auto translated = QETInformation::translatedInfoKey(field_name);
+				header_names << (translated.isEmpty() ? field_name : translated);
+			}
+		}
+	}
+	return BomExport::toCsv(
+			query_, header_names, ui->m_include_headers->isChecked());
+}
+
+/**
+	@brief BOMExportDialog::on_m_format_as_bom_clicked
+	@param checked
+*/
+void BOMExportDialog::on_m_format_as_bom_clicked(bool checked) {
+	m_query_widget->setGroupBy("designation", checked);
+	m_query_widget->setCount("COUNT(*) AS designation_qty", checked);
+}
+
+/**
+	@brief BOMExportDialog::on_m_group_parts_clicked
+	@param checked : true replaces the query of the fields with the grouped
+	parts list, see BomExport::groupedQuery()
+*/
+void BOMExportDialog::on_m_group_parts_clicked(bool checked)
+{
+	m_query_widget->setEnabled(!checked);
+	ui->m_format_as_bom->setEnabled(!checked);
+	ui->m_no_junctions->setEnabled(!checked);
+}
+
+/**
+	@return the query to run: the grouped parts list, or what the fields say
+*/
+QString BOMExportDialog::currentQuery() const
+{
+	return ui->m_group_parts->isChecked()
+			? BomExport::groupedQuery()
+			: m_query_widget->queryStr();
+}
+
+/**
+	@return the heading of a column of the grouped parts list, \a field_name
+	itself for any other column
+*/
+QString BOMExportDialog::groupedHeader(const QString &field_name)
+{
+	if (field_name == QLatin1String("number"))      return tr("No.");
+	if (field_name == QLatin1String("quantity"))    return tr("Quantity");
+	if (field_name == QLatin1String("name"))        return tr("Name");
+	if (field_name == QLatin1String("part_number")) return tr("Part number");
+	if (field_name == QLatin1String("references"))  return tr("References");
+	if (field_name == QLatin1String("manufacturer")) return tr("Manufacturer");
+	if (field_name == QLatin1String("unit"))        return tr("Unit");
+	return field_name;
+}
+
+/**
+	@brief BOMExportDialog::on_m_no_junctions_clicked
+	@param checked : true leaves out the junctions, see
+	BomExport::junctionFilter()
+*/
+void BOMExportDialog::on_m_no_junctions_clicked(bool checked) {
+	m_query_widget->setExtraFilter(BomExport::junctionFilter(), checked);
+}
+
+/**
+	@brief BOMExportDialog::on_m_preview_pb_clicked
+	Run the current query and show its result live, without going through
+	the CSV round-trip -- lets a report be checked and adjusted before
+	committing to a file (qelectrotech-source-mirror#886).
+*/
+void BOMExportDialog::on_m_preview_pb_clicked()
+{
+	m_project->dataBase()->updateDB();
+	QString rejection;
+	auto query_ = m_project->dataBase()->newQuery(currentQuery(), &rejection);
+
+	if (!rejection.isEmpty()) {
+		QMessageBox::warning(this, tr("Request refused"), rejection);
+		return;
+	}
+
+	if (!query_.exec()) {
+		QMessageBox::warning(
+				this, tr("Error"),
+				tr("Error in the request:\n%1").arg(query_.lastError().text()));
+		return;
+	}
+
+	m_preview_model->setQuery(std::move(query_));
+	for (int i = 0; i < m_preview_model->columnCount(); ++i)
+	{
+		const auto field_name = m_preview_model->record().fieldName(i);
+		const auto translated = ui->m_group_parts->isChecked()
+				? groupedHeader(field_name)
+				: QETInformation::translatedInfoKey(field_name);
+		if (!translated.isEmpty() && translated != field_name) {
+			m_preview_model->setHeaderData(i, Qt::Horizontal, translated);
+		}
+	}
+	ui->m_preview_table->resizeColumnsToContents();
+}

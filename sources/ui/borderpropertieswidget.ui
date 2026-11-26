@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BorderPropertiesWidget</class>
+ <widget class="QWidget" name="BorderPropertiesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="border_gb">
+     <property name="title">
+      <string>Sheet size</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="m_rows_height_sp">
+        <property name="suffix">
+         <string comment="pixel" extracomment="pixel">pixel</string>
+        </property>
+        <property name="prefix">
+         <string>× </string>
+        </property>
+        <property name="maximum">
+         <number>1000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="m_colums_count_sp"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QSpinBox" name="m_columns_width_sp">
+        <property name="suffix">
+         <string comment="pixel" extracomment="pixel">pixel</string>
+        </property>
+        <property name="prefix">
+         <string>× </string>
+        </property>
+        <property name="maximum">
+         <number>1000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Rows:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QCheckBox" name="m_display_rows_cb">
+        <property name="text">
+         <string>Display headers</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="m_rows_count_sp"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Columns:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QCheckBox" name="m_display_columns_cb">
+        <property name="text">
+         <string>Display headers</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="m_paper_label">
+        <property name="text">
+         <string>Format:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="m_paper_cb">
+        <property name="toolTip">
+         <string>Sets the columns and rows so the sheet, title block included, has the size of this paper format, at 96 dots per inch like the PDF export.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QComboBox" name="m_orientation_cb"/>
+      </item>
+      <item row="3" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>m_colums_count_sp</tabstop>
+  <tabstop>m_columns_width_sp</tabstop>
+  <tabstop>m_rows_count_sp</tabstop>
+  <tabstop>m_rows_height_sp</tabstop>
+  <tabstop>m_display_columns_cb</tabstop>
+  <tabstop>m_display_rows_cb</tabstop>
+  <tabstop>m_paper_cb</tabstop>
+  <tabstop>m_orientation_cb</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

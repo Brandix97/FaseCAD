@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="20" height="180" hotspot_x="9" hotspot_y="90">
+    <uuid uuid="{a00f164a-b004-981a-fce2-e4790541c23f}"/>
+    <names>
+        <name lang="ar">أنبوب فليوريسنت</name>
+        <name lang="ca">Tub fluorescent</name>
+        <name lang="cs">Zářivka</name>
+        <name lang="da">Lysstofrør</name>
+        <name lang="de">Leuchtstoffröhre</name>
+        <name lang="el">Λάμπα φθορισμού</name>
+        <name lang="en">Fluorescent tube</name>
+        <name lang="es">Tubo fluorescente</name>
+        <name lang="fi">Loisteputki</name>
+        <name lang="fr">Tube fluorescent</name>
+        <name lang="hr">Fluorescentna cijev</name>
+        <name lang="hu">Fénycső</name>
+        <name lang="it">Tubo fluorescente</name>
+        <name lang="ja">蛍光管</name>
+        <name lang="ko">형광등</name>
+        <name lang="mn">Флуоресцент хоолой</name>
+        <name lang="nb">Lysrør</name>
+        <name lang="nl">TL buis</name>
+        <name lang="nl_BE">Fluorescentielamp</name>
+        <name lang="pl">Świetlówka</name>
+        <name lang="pt">Tubo fluorescente</name>
+        <name lang="pt_BR">Tubo fluorescente</name>
+        <name lang="ro">Tub fluorescent</name>
+        <name lang="ru">Люминесцентная лампа</name>
+        <name lang="sk">Žiarivka</name>
+        <name lang="sl">Fluorescentna cev</name>
+        <name lang="sr">Флуоресцентна цев</name>
+        <name lang="sv">Lysrör</name>
+        <name lang="tr">Floresan tüp</name>
+        <name lang="uk">Люмінесцентна лампа</name>
+        <name lang="zh">荧光灯</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-4" y="61" width="9" height="5" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-5" y="-70" width="11" height="140" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-67" x2="0" y2="-80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="67" x2="0" y2="80" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4" y="-66" width="9" height="4" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-60" y="-10.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{93993556-068f-4b42-a839-7fe848f4cdcd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ce33f7e8-fdd4-4606-9310-6e16c13d69fd}" name="" x="0" y="80" orientation="s" type="Generic"/>
+        <terminal uuid="{cb052f8f-99cd-4764-a749-1c5742388d27}" name="" x="0" y="-80" orientation="n" type="Generic"/>
+    </description>
+</definition>

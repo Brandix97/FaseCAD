@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="11" hotspot_y="20">
+    <uuid uuid="{c9ba7059-883d-d424-5b9f-2e06ff0a41fa}"/>
+    <names>
+        <name lang="ar">مفتاح تدفق</name>
+        <name lang="ca">Interruptor de flux</name>
+        <name lang="cs">Průtokový spínač</name>
+        <name lang="da">Flowkontakt</name>
+        <name lang="de">Strömungswächter</name>
+        <name lang="el">Διακόπτης ροής</name>
+        <name lang="en">Flow switch</name>
+        <name lang="es">Flujostato</name>
+        <name lang="fi">Virtauskytkin</name>
+        <name lang="fr">Controleur de débit</name>
+        <name lang="hr">Prekidač protoka</name>
+        <name lang="hu">Áramlásérzékelő</name>
+        <name lang="it">Flussostato</name>
+        <name lang="ja">流量スイッチ</name>
+        <name lang="ko">유량 스위치</name>
+        <name lang="mn">Урсгалын унтраалга</name>
+        <name lang="nb">Strømningsbryter</name>
+        <name lang="nl">Debietschakelaar</name>
+        <name lang="nl_BE">Debietschakelaar</name>
+        <name lang="pl">Przełącznik przepływu</name>
+        <name lang="pt">Detetor de fluxo</name>
+        <name lang="pt_BR">Vazao Interruptor</name>
+        <name lang="ro">Comutator de debit</name>
+        <name lang="ru">Реле потока</name>
+        <name lang="sk">Prietokový spínač</name>
+        <name lang="sl">Pretočno stikalo</name>
+        <name lang="sr">Прекидач протока</name>
+        <name lang="sv">Flödesvakt</name>
+        <name lang="tr">Akış şalteri</name>
+        <name lang="uk">Реле потоку</name>
+        <name lang="zh">流量开关</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-2.65" y1="8.18" x2="2.3" y2="6.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.2" y1="5.41" x2="1.75" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.2" y="2.65" width="5.5" height="6.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4.95" y="-0.71" width="9" height="3.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7.35" y="-11.37" width="3.1" height="2.2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.55" y="9.56" width="0.65" height="5.44" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="15" width="3" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <rect x="-8" y="-12" width="15" height="11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <rect x="-9" y="-7" width="17" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="12.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5c3e42d3-ff4b-4604-9c45-6bd6614fb1ac}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a3a9d4b9-e182-4e3e-ae71-32078ca7da56}" name="" x="11" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

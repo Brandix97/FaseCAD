@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="35" hotspot_y="52">
+    <uuid uuid="{d9141ff0-bf4e-d504-1a39-c76653b9a3af}"/>
+    <names>
+        <name lang="ar">صفّارة</name>
+        <name lang="ca">Zumbador</name>
+        <name lang="cs">bzučák</name>
+        <name lang="da">Summer</name>
+        <name lang="de">Schnarre, Summer</name>
+        <name lang="el">Βομβητής</name>
+        <name lang="en">Buzzer</name>
+        <name lang="es">Zumbador</name>
+        <name lang="fi">Summeri</name>
+        <name lang="fr">Ronfleur</name>
+        <name lang="hr">Zujalica</name>
+        <name lang="hu">Berregő</name>
+        <name lang="it">Cicalino</name>
+        <name lang="ja">ブザー</name>
+        <name lang="ko">부저</name>
+        <name lang="mn">Дуут дохио</name>
+        <name lang="nb">Summer</name>
+        <name lang="nl">Zoemer</name>
+        <name lang="nl_BE">Zoemer</name>
+        <name lang="pl">Dzwonek</name>
+        <name lang="pt">Bezouro</name>
+        <name lang="pt_BR">Buzzer</name>
+        <name lang="ro">Buzzer</name>
+        <name lang="ru">Зуммер</name>
+        <name lang="sk">Bzučiak</name>
+        <name lang="sl">Brenčalo</name>
+        <name lang="sr">Зујалица</name>
+        <name lang="sv">Summer</name>
+        <name lang="tr">Zil</name>
+        <name lang="uk">Зуммер</name>
+        <name lang="zh">汇流端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e14bbc86-2ac9-445e-8571-400d372f612e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-30" y1="-30" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-30" y="-50" width="40" height="40" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-12" x2="-20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-12" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f53a03be-46cd-4a64-8d07-b8ee0727f51a}" name="" x="-20" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{1913f990-a2a7-4055-8890-d2195e91abee}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

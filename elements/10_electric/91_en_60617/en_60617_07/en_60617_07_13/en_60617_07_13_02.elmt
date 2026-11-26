@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="80" hotspot_x="11" hotspot_y="50">
+    <uuid uuid="{a804e6f7-ec1b-1041-093f-68c75230b956}"/>
+    <names>
+        <name lang="ar">كونتكتور؛ ملامس وصل رئيسي لكونتكتور</name>
+        <name lang="ca">Contactor; </name>
+        <name lang="cs">Stykač, hlavní kontakt</name>
+        <name lang="da">Kontaktor; Hovedsluttekontakt på en kontaktor</name>
+        <name lang="de">Schütz,
+Leistungskontakt eines Schützes
+(Kontakt geöffnet)</name>
+        <name lang="el">Επαφή ισχύος; Κύρια επαφή κλεισίματος επαφέα</name>
+        <name lang="en">Contactor; Main make contact of a contactor</name>
+        <name lang="es">Contactor; contacto principal de cierre de un contactor</name>
+        <name lang="fi">Kontaktori; Kontaktorin pääsulkukosketin</name>
+        <name lang="fr">Contacteur,
+Contact principal à fermeture d'un contacteur
+(contact ouvert)</name>
+        <name lang="hr">Kontaktor; Glavni radni kontakt kontaktora</name>
+        <name lang="hu">Kontaktor; Kontaktor fő záróérintkezője</name>
+        <name lang="it">Contattore; Contatto principale di chiusura di un contattore</name>
+        <name lang="ja">接触器；接触器の主メーク接点</name>
+        <name lang="ko">접촉기; 접촉기의 주 메이크 접점</name>
+        <name lang="mn">Контатор; Контакторын үндсэн холбох контакт</name>
+        <name lang="nb">Kontaktor; hovedarbeidskontakt i en kontaktor</name>
+        <name lang="nl">Magneetschakelaar; Hoofdcontact NO van een magneetschakelaar</name>
+        <name lang="nl_BE">Contacteur; Hoofdmaakcontact van een contacteur</name>
+        <name lang="pl">Stycznik; Zestyk główny zwierny stycznika</name>
+        <name lang="pt">Contacteur; Contacto de fecho principal de um contacteur</name>
+        <name lang="pt_BR">Contator; contato principal de fechamento de um contator</name>
+        <name lang="ro">Contactor; Contact principal de lucru al unui contactor</name>
+        <name lang="ru">Контактор; главный замыкающий контакт контактора</name>
+        <name lang="sk">Stýkač; Hlavný pracovný kontakt stýkača</name>
+        <name lang="sl">Kontaktor; glavni delovni kontakt kontaktorja</name>
+        <name lang="sr">Контактор; Главни радни контакт контактора</name>
+        <name lang="sv">Kontaktor; Huvudslutkontakt hos en kontaktor</name>
+        <name lang="tr">Kontaktör; Bir kontaktörün ana kapama kontağı</name>
+        <name lang="uk">Контактор; Головний замикальний контакт контактора</name>
+        <name lang="zh">接线端子排02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="-8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5a88e57c-abec-4eea-a29f-c8ee149bc1ed}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-2.5" y="-24.5" width="5" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{dc619b58-c504-4d74-b0ae-235f296810e4}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{c6326b6c-0100-4d3c-a410-49e19f42ce06}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

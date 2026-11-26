@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{fd154f6c-470f-1005-171d-7087324b3df5}"/>
+    <names>
+        <name lang="ar">مرحل مغناطيسي باقي</name>
+        <name lang="ca">Relleu de remanència</name>
+        <name lang="cs">Bistabilní remanentní relé</name>
+        <name lang="da">Remanensrelæ</name>
+        <name lang="de">Remanenzrelais</name>
+        <name lang="el">Ρελέ παραμένουσας μαγνήτισης</name>
+        <name lang="en">Remanence relay</name>
+        <name lang="es">Relé de remanencia</name>
+        <name lang="fi">Remanenssirele</name>
+        <name lang="fr">Relais à rémanence</name>
+        <name lang="hr">Remanentni relej</name>
+        <name lang="hu">Remanencia relé</name>
+        <name lang="it">Relè</name>
+        <name lang="ja">残留リレー</name>
+        <name lang="ko">잔류 릴레이</name>
+        <name lang="mn">Резидуал реле</name>
+        <name lang="nb">Remanensrelé</name>
+        <name lang="nl">remanent relais</name>
+        <name lang="nl_BE">Remanentierelais</name>
+        <name lang="pl">Przekaźnik remanencyjny</name>
+        <name lang="pt">Relé de remanência</name>
+        <name lang="pt_BR">Relé remanente</name>
+        <name lang="ro">Releu cu remanență</name>
+        <name lang="ru">Реле с остаточной намагниченностью</name>
+        <name lang="sk">Remanentné relé</name>
+        <name lang="sl">Remanenčni rele</name>
+        <name lang="sr">Реманеитни релеј</name>
+        <name lang="sv">Remanensrelä</name>
+        <name lang="tr">Remanans röle</name>
+        <name lang="uk">Реле з залишковою намагніченістю</name>
+        <name lang="zh">剩磁触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="10" x2="-15" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{c6267aef-253c-4f13-80ed-10b1135bf94a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{d4c2ebc0-6fdb-4618-a2bd-02129e994985}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8523a069-101e-4449-bd76-27b6f47caa17}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b845b6b7-43ae-4536-a2fb-8bc09829b740}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c95633f2-7445-4bea-96ef-8e9c6b4e5edd}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

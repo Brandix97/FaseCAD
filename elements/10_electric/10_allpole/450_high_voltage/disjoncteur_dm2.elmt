@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="120" hotspot_x="20" hotspot_y="27">
+    <uuid uuid="{92c39de4-36ac-9360-c382-38a2d72f5501}"/>
+    <names>
+        <name lang="ar">قاطع DM2</name>
+        <name lang="ca">Breaker DM2</name>
+        <name lang="cs">Jednotka vypínače DM2</name>
+        <name lang="da">Afbryder DM2</name>
+        <name lang="de">Leistungsschalter DM2</name>
+        <name lang="el">Διακόπτης DM2</name>
+        <name lang="en">Breaker DM2</name>
+        <name lang="es">Disyuntor DM2</name>
+        <name lang="fi">Katkaisija DM2</name>
+        <name lang="fr">Disjoncteur DM2</name>
+        <name lang="hr">Prekidač DM2</name>
+        <name lang="hu">Megszakító DM2</name>
+        <name lang="it">Sezionatore DM2</name>
+        <name lang="ja">遮断器 DM2</name>
+        <name lang="ko">차단기 DM2</name>
+        <name lang="mn">Таслагч DM2</name>
+        <name lang="nb">Bryter DM2</name>
+        <name lang="nl">Onderbreker DM2</name>
+        <name lang="nl_BE">Vermogensschakelaar DM2</name>
+        <name lang="pl">Wyłącznik DM2</name>
+        <name lang="pt">Disjuntor DM2</name>
+        <name lang="pt_BR">Disjuntor DM2</name>
+        <name lang="ro">Disjunctor DM2</name>
+        <name lang="ru">Выключатель DM2</name>
+        <name lang="sk">Istič DM2</name>
+        <name lang="sl">Odklopnik DM2</name>
+        <name lang="sr">Прекидач DM2</name>
+        <name lang="sv">Dvärgbrytare DM2</name>
+        <name lang="tr">Kesici DM2</name>
+        <name lang="uk">Вимикач DM2</name>
+        <name lang="zh">断路器DM2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="63" y="-1.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cb25ba6d-aea5-4b78-95f8-3c33f810c0dd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="21" y1="-7" x2="28" y2="-7" x3="25" y3="-1" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="42.93" y="47.93" width="14.14" height="14.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="28" y1="-4" x2="42" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-4" x2="23" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="90" x2="50" y2="90" x3="50" y3="6" x4="41" y4="-8" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="7" y1="29" x2="12" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8" y1="32" x2="12" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="37.2" y1="0" x2="37.2" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="47.7" y1="-10" x2="51.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35.2" y1="2" x2="36.2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="49.7" y1="-20" x2="49.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="34.2" y1="-2" x2="34.2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30.2" y1="2" x2="30.2" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="90" x2="10" y2="44" x3="2" y3="33" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="32.2" y1="0" x2="32.2" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="1.7" y1="-8" x2="10" y2="6" x3="10" y3="31" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-1" x2="-10.8" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="1" x2="-11.8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-3" x2="-13.8" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="1" x2="-17.8" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-1" x2="-15.8" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.7" y1="-10" x2="11.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="-20" x2="9.7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{759c86ee-5888-4273-867c-e28344fa647d}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{9135f03f-f0bf-4292-8cf2-fa38895b596e}" name="" x="50" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{50f5041a-e522-43ce-b039-d0a8d7c3d462}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{4dfe5e63-3ad2-4c7b-8a3c-30adcf3d6cd1}" name="" x="50" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

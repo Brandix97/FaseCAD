@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="slave" width="60" height="70" hotspot_x="49" hotspot_y="50">
+    <uuid uuid="{efcb55b6-fa88-dc49-a65d-407d5b0ed339}"/>
+    <names>
+        <name lang="ar">مُلامس NO قاطع دارة مغناطيسي حراري GV</name>
+        <name lang="ca">Contacte NO per a interruptor magnetotèrmic GV</name>
+        <name lang="cs">Kontakt (NO) jističe</name>
+        <name lang="da">Kontakt NO automatsikring magnetotermisk GV</name>
+        <name lang="de">Schliesser Kontakt Leistungsschalter magnetothermisch GV</name>
+        <name lang="el">Επαφή NO μαγνητοθερμικού διακόπτη GV</name>
+        <name lang="en">NO contact magneto-thermal circuit breaker GV</name>
+        <name lang="es">Contacto de disyuntor termico magnetico NA</name>
+        <name lang="fr">Contact NO disjoncteur magnéto-thermique GV</name>
+        <name lang="pt_BR">Contato NA de disjuntor termomagnético</name>
+        <name lang="zh">主开关常开触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">NO</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-27" y1="-16" x2="-27" y2="-20" x3="-22" y3="-20" x4="-22" y4="-26" x5="-27" y5="-26" x6="-27" y6="-30" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-37" y="-30" width="20" height="28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="I>" x="-34" y="-5" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="4" y="-24.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{56a6a9aa-83b0-4fb3-9934-c55a1d9f5d7e}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-37" y1="-16" x2="-17" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-25" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="-10" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-15" x2="-7" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b19a310c-3068-4ad1-51b7-c162b8dc8794}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{55f60bfe-cf4e-28a1-e589-8f5de0bf0ce2}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

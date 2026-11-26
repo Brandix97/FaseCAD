@@ -1,0 +1,182 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef CROSSREFITEM_H
+#define CROSSREFITEM_H
+
+#include "../properties/elementdata.h"
+#include "../properties/xrefproperties.h"
+
+#include <QGraphicsObject>
+#include <QMultiMap>
+#include <QStyleOptionGraphicsItem>
+
+class Element;
+class DynamicElementTextItem;
+class ElementTextItemGroup;
+
+/**
+	@brief The CrossRefItem class
+	This clas provide an item, for show the cross reference,
+	like the contacts linked to a coil.
+	The item setpos automatically when parent move.
+	All slave displayed in cross ref will be updated
+	when folio position change in the project.
+	It's the responsibility of the master element
+	to inform displayed slave are moved,
+	by calling the slot updateLabel
+	By default master element is the parent graphics item of this Xref,
+	but if the Xref must be snap to the label of master,
+	the label become the parent of this Xref.
+	This behavior can be changed at anytime by calling setProperties.
+*/
+class CrossRefItem : public QGraphicsObject
+{
+	Q_OBJECT
+
+		//Methods
+	public:
+		explicit CrossRefItem(Element *elmt);
+		explicit CrossRefItem(
+			Element *elmt, DynamicElementTextItem *text);
+		explicit CrossRefItem(
+			Element *elmt, ElementTextItemGroup *group);
+		~CrossRefItem() override;
+	private:
+		void init();
+		void setUpConnection();
+		void stackAtBottom();
+		static bool textsOverlap(const QList<QRectF> &a,
+								const QList<QRectF> &b);
+	
+	public:
+		enum { Type = UserType + 1009 };
+		int type() const override { return Type; }
+
+		/// Returns true when \a xrp asks the contact comb of \a elmt to show
+		/// every slave contact the master defines, even the ones no slave is
+		/// linked to yet. \a elmt must be a master element.
+		static bool showAllConfiguredSlaves(
+				const Element *elmt,
+				const XRefProperties &xrp);
+
+		static XRefProperties propertiesFor(const Element *elmt);
+		bool followsOwnPosition() const;
+
+		/**
+			@brief The CONTACTS enum
+		*/
+		enum CONTACTS {
+			NO		= 1,
+			NC		= 2,
+			NOC		= 3,
+			SW		= 4,
+			Power		= 8,
+			DelayOn		= 16,
+			DelayOff	= 32,
+			DelayOnOff	= 64,
+			Delay		= 112,
+			Other	   = 128
+		};
+
+		QRectF boundingRect() const override;
+		QPainterPath shape() const override;
+		QString elementPositionText(
+				const Element *elmt,
+				const bool &add_prefix = false) const;
+
+	public slots:
+		void updateProperties();
+		void updateLabel();
+		void autoPos();
+
+	public:
+		/// DXF export: replay this item's paint() on an arbitrary QPainter
+		/// (e.g. one targeting DxfPaintDevice). paint() itself stays
+		/// protected, as it should for the normal
+		/// QGraphicsScene/QGraphicsView paint contract - this is a
+		/// deliberate, narrow escape hatch for exporters, not a general
+		/// relaxation of that contract.
+		void paintForExport(QPainter *painter)
+		{
+			QStyleOptionGraphicsItem option;
+			paint(painter, &option, nullptr);
+		}
+
+	protected:
+		bool sceneEvent(QEvent *event) override;
+		void paint(QPainter *painter,
+			   const QStyleOptionGraphicsItem *option,
+			   QWidget *widget) override;
+		void mouseDoubleClickEvent (
+				QGraphicsSceneMouseEvent * event ) override;
+		void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+		void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+		void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
+		void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
+
+	private:
+		void linkedChanged();
+		void buildHeaderContact(QPainter &painter, QPointF no_pos, QPointF nc_pos);
+		void setUpCrossBoundingRect(QPainter &painter);
+		void drawAsCross(QPainter &painter);
+		void drawAsContacts(QPainter &painter);
+		void drawAsPlcTable(QPainter &painter);
+		bool mustDrawAllConfiguredSlaves() const;
+		QRectF drawLinkedSlaveContacts(QPainter &painter, Element *elmt);
+		QRectF drawContact(QPainter &painter,
+				   int flags,
+				   Element *elmt,
+				   int pole_index = 0,
+				   const QStringList &master_labels = QStringList());
+		void fillCrossRef(QPainter &painter);
+		void AddExtraInfo(QPainter &painter, const QString&);
+		void drawText(QPainter &painter, const QRectF &rect, int flags,
+					  const QString &text);
+		QList<Element *> NOElements() const;
+		QList<Element *> NCElements() const;
+
+		//Attributes
+	private:
+		Element *m_element; //element to display the cross reference
+		QRectF m_bounding_rect;
+		QPainterPath m_shape_path;
+		XRefProperties m_properties;
+		ElementData::XRefDisplay m_display; //the master's own display
+		bool m_dragging = false;
+		QPointF m_drag_origin, m_drag_mouse;
+		int m_drawed_contacts;
+		bool m_update_map = false;
+		QMultiMap <Element *, QRectF> m_hovered_contacts_map;
+		QList <QRectF> m_text_rects; //rects of the drawn texts (local coords)
+		Element *m_hovered_contact = nullptr;
+		DynamicElementTextItem *m_text = nullptr;
+		ElementTextItemGroup *m_group = nullptr;
+		QList <QMetaObject::Connection> m_slave_connection;
+		QList <QMetaObject::Connection> m_update_connection;
+
+	public:
+		/// Returns the map of linked elements and their clickable rects (local coords).
+		/// Used by the PDF export to inject hyperlink annotations.
+		const QMultiMap<Element *, QRectF> &hoveredContactsMap() const
+		{ return m_hovered_contacts_map; }
+};
+
+#endif // CROSSREFITEM_H
+

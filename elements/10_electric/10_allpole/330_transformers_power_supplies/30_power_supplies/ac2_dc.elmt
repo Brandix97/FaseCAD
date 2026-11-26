@@ -1,0 +1,65 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="25">
+    <uuid uuid="{01d12d8d-d804-7851-fedd-acdd23e2c3b0}"/>
+    <names>
+        <name lang="ar">موحد أحادي الوجه -2</name>
+        <name lang="ca">Altern monofàsic u003e Directe</name>
+        <name lang="cs">Napájecí zdroj AC/DC</name>
+        <name lang="da">Enfaset vekselstrøm &amp;gt; Jævnstrøm</name>
+        <name lang="de">Netzteil AC/DC</name>
+        <name lang="el">Μονοφασικό εναλλασσόμενο &gt; Συνεχές</name>
+        <name lang="en">One-phase alternating &gt; Direct</name>
+        <name lang="es">Alterna monofásica &gt; Continua</name>
+        <name lang="fi">Yksivaiheinen vaihtovirta &amp;gt; Tasavirta</name>
+        <name lang="fr">Alternatif monophasé &gt; Continu</name>
+        <name lang="hr">Jednofazna izmjenična &amp;gt; Istosmjerna</name>
+        <name lang="hu">Egyfázisú váltakozó &amp;gt; Egyenáram</name>
+        <name lang="it">AC monofase &gt; DC</name>
+        <name lang="ja">単相交流 &amp;gt; 直流</name>
+        <name lang="ko">단상 교류 &amp;gt; 직류</name>
+        <name lang="mn">Нэг фазын хувьсах &amp;gt; Шууд</name>
+        <name lang="nb">Enfase vekselstrøm &amp;gt; Likestrøm</name>
+        <name lang="nl">Wisselspanning eenfase &gt; gelijkspanning  AC1 &gt; DC</name>
+        <name lang="nl_BE">Wisselspanning een fase &gt; gelijkspanning  AC1 &gt; DC</name>
+        <name lang="pl">Zasilacz jednofazowy</name>
+        <name lang="pt">Alterna monofásica &amp;gt; Continua</name>
+        <name lang="pt_BR">Fonte de alimentação CA/CC monofásica</name>
+        <name lang="ro">Monofazat alternativ &amp;gt; Continuu</name>
+        <name lang="ru">Однофазный перем. ток &amp;gt; Пост. ток</name>
+        <name lang="sk">Jednofázové striedavé &amp;gt; Jednosmerné</name>
+        <name lang="sl">Enofazni izmenični &amp;gt; Enosmerni</name>
+        <name lang="sr">Једнофазна наизменична &amp;gt; Једносмерна</name>
+        <name lang="sv">Enfas växelström &amp;gt; Likström</name>
+        <name lang="tr">Tek fazlı alternatif &amp;gt; Doğru</name>
+        <name lang="uk">Однофазний змінний &amp;gt; постійний</name>
+        <name lang="zh">AC-DC转换器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="N" x="-13" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L" x="-13" y="-7.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="9" y1="0" x2="13" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="-12" x2="11" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-10" x2="13" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-44.33" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e8b12ed7-592b-4935-bc53-b4cc281432e9}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-15" y1="-10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15" y1="-20" x2="15" y2="-20" x3="15" y3="10" x4="-15" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-3.5" y="-17.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="4" x2="9.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="4" x2="6.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="4" x2="3.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="6" x2="9.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-8.5" y="-17.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14.5" y1="-19.5" x2="-14.5" y2="9.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1ea47dc7-4a51-40b8-9036-809b9cbb54ec}" name="L" x="-20" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{e7236990-f185-431b-8046-b36f05fb72f0}" name="N" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{5a72408e-f4ce-4a2e-910a-cb6ac481b06b}" name="L+" x="20" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{2d1ce5eb-fefd-46d6-aae2-ce2f0ba85f15}" name="L-" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

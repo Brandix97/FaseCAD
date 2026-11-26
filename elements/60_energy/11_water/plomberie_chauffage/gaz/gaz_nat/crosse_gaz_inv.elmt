@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="17" hotspot_y="39">
+    <uuid uuid="{7e6027ab-bcb1-08b5-c923-3325c9489f33}"/>
+    <names>
+        <name lang="ar">كوع Cu صمّام</name>
+        <name lang="ca">Vàlvula de creu de Cu</name>
+        <name lang="cs">Koleno Cu ventil</name>
+        <name lang="da">Kobberbøjning til ventil</name>
+        <name lang="de">Bogen Cu Ventil</name>
+        <name lang="el">Καμπύλη Cu βάννας</name>
+        <name lang="en">Copper elbow valve</name>
+        <name lang="fr">Crosse Cu vanne</name>
+        <name lang="it">Curva Cu valvola</name>
+        <name lang="pt_BR">Cruzamentoe Cu valvula</name>
+        <name lang="zh">燃气倒钩接头</name>
+    </names>
+    <informations>Baboune41-2016</informations>
+    <description>
+        <rect x="-10" y="-7" width="9" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="false"/>
+        <line x1="-5" y1="-4" x2="-10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-25.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{809ad3be-11dc-4095-8599-ec4d42e34c06}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-1" y1="-5" x2="19" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="5" x2="19" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-7" x2="-3" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="-7" width="4" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="3" width="4" height="4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="7" x2="-10" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="7" x2="-10" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-7" x2="-4" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-5" x2="-1" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="0" y="-35" width="40" height="40" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="10" y="-25" width="20" height="20" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="19" y1="-35" x2="15" y2="-35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="-25" x2="15" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="12" y="-36" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="12" y="-26" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12" y1="-36" x2="6" y2="-36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-36" x2="6" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-24" x2="12" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-35" x2="14" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{3097f7e0-a618-4a06-adb3-0f58b7fe5cea}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{72ae5bad-40c0-453b-845c-5b0c11378e28}" name="" x="6" y="-30" orientation="w" type="Generic"/>
+    </description>
+</definition>

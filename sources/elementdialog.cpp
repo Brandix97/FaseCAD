@@ -1,0 +1,357 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementdialog.h"
+
+#include "ElementsCollection/elementcollectionitem.h"
+#include "ElementsCollection/elementscollectionmodel.h"
+#include "ElementsCollection/elementstreeview.h"
+#include "qet.h"
+#include "qetapp.h"
+#include "qetmessagebox.h"
+#include "qfilenameedit.h"
+
+#include <QDialogButtonBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QTreeView>
+#include <QVBoxLayout>
+
+/**
+	@brief ElementDialog::ElementDialog
+	@param mode
+	@param parent
+*/
+ElementDialog::ElementDialog(uint mode, QWidget *parent) :
+	QDialog(parent),
+	m_mode(mode)
+{
+	setUpWidget();
+	setUpConnection();
+	QET::trackDialogGeometry(this);
+}
+
+/**
+	@brief ElementDialog::setUpWidget
+	Build and setup the widgets of this dialog
+*/
+void ElementDialog::setUpWidget()
+{
+	setWindowModality(Qt::WindowModal);
+#ifdef Q_OS_MACOS
+	setWindowFlags(Qt::Sheet);
+#endif
+
+	QVBoxLayout *layout = new QVBoxLayout(this);
+
+	QString title_, label_;
+	switch (m_mode)
+	{
+		case OpenElement:
+			title_ = tr("Open an element", "dialog title");
+			label_ = tr("Choose the element you wish to open.", "dialog content");
+			break;
+		case SaveElement:
+			title_ = tr("Save an element", "dialog title");
+			label_ = tr("Choose the element you wish to save your definition into.", "dialog content");
+			break;
+		case OpenCategory:
+			title_ = tr("Open a category", "dialog title");
+			label_ = tr("Choose a category.", "dialog content");
+			break;
+		case SaveCategory:
+			title_ = tr("Save a category", "dialog title");
+			label_ = tr("Choose a category.", "dialog content");
+			break;
+		case SaveTemplate:
+			title_ = tr("Save a template", "dialog title");
+			label_ = tr("Select the location where you want to save your template.", "dialog content");
+			break;
+		default:
+			title_ = tr("Title");
+			label_ = tr("Label");
+			break;
+	}
+	setWindowTitle(title_);
+
+	layout->addWidget(new QLabel(label_));
+
+
+	m_tree_view = new ElementsTreeView(this);
+
+	m_model = new ElementsCollectionModel(m_tree_view);
+
+	QList <QETProject *> prjs;
+	foreach(QETProject *prj, QETApp::registeredProjects())
+			prjs.append(prj);
+
+	if (m_mode == OpenElement) {
+			//No company collection in FaseCAD
+		m_model->loadCollections(true, false, true, prjs);
+	} else if (m_mode == SaveTemplate) {
+		// Load only the templates/macros collection for the template save dialog
+		m_model->loadMacrosCollection();
+	} else {
+		m_model->loadCollections(false, false, true, prjs);
+	}
+
+	m_tree_view->setModel(m_model);
+	m_tree_view->setHeaderHidden(true);
+	layout->addWidget(m_tree_view);
+
+	m_buttons_box = new QDialogButtonBox(this);
+
+	if (m_mode == SaveCategory || m_mode == SaveElement || m_mode == SaveTemplate)
+	{
+		m_buttons_box->setStandardButtons(QDialogButtonBox::Save | QDialogButtonBox::Cancel);
+		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
+
+		m_text_field = new QFileNameEdit();
+		m_text_field->setDisabled(true);
+
+		if (m_mode == SaveCategory) {
+			m_text_field->setPlaceholderText(tr("Name the new folder"));
+		} else if (m_mode == SaveTemplate) {
+			m_text_field->setPlaceholderText(tr("Name of the new template"));
+		} else {
+			// This is the element's file name, not its display name: the field
+			// only accepts file-name characters (QFileNameEdit). The visible
+			// element name is edited separately in the element properties.
+			m_text_field->setPlaceholderText(
+				tr("Element file name",
+				   "placeholder: the element's file name, not its display name"));
+			m_text_field->setToolTip(
+				tr("The element's file name: digits, lowercase letters, '-', "
+				   "'_' and '.' only.\n"
+				   "The element's display name is edited separately in the "
+				   "element properties.",
+				   "tooltip for the element file-name field"));
+		}
+
+		layout->addWidget(m_text_field);
+	}
+	else
+	{
+		m_buttons_box->setStandardButtons(QDialogButtonBox::Open | QDialogButtonBox::Cancel);
+		m_buttons_box->button(QDialogButtonBox::Open)->setDisabled(true);
+	}
+
+	layout->addWidget(m_buttons_box);
+}
+
+/**
+	@brief ElementDialog::setUpConnection
+	Setup connection of this dialog
+*/
+void ElementDialog::setUpConnection()
+{
+	connect(m_tree_view, &QTreeView::clicked, this, &ElementDialog::indexClicked);
+	connect(m_buttons_box, &QDialogButtonBox::accepted, this, &ElementDialog::checkAccept);
+	connect(m_buttons_box, &QDialogButtonBox::rejected, this, &QDialog::reject);
+
+	if (m_text_field) { connect(m_text_field, &QFileNameEdit::textChanged, this, &ElementDialog::checkCurrentLocation); }
+}
+
+/**
+	@brief ElementDialog::indexClicked
+	@param index
+*/
+void ElementDialog::indexClicked(const QModelIndex &index)
+{
+	ElementCollectionItem *eci = static_cast<ElementCollectionItem*> (m_model->itemFromIndex(index));
+	m_location = ElementsLocation(eci->collectionPath());
+	checkCurrentLocation();
+}
+
+/**
+	@brief ElementDialog::checkCurrentLocation
+	Update this dialog according to the current selected location and the current mode
+*/
+void ElementDialog::checkCurrentLocation()
+{
+	if (m_mode == OpenElement) {
+		m_buttons_box->button(QDialogButtonBox::Open)->setEnabled(m_location.isElement() && m_location.exist());
+	}
+	else if (m_mode == SaveElement || m_mode == SaveTemplate)
+	{
+		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
+
+		//Location doesn't exist
+		if (!m_location.exist()) { return; }
+
+		// Accept .elmt for elements, and .qetmak for templates
+		bool is_valid_file = m_location.isElement() || (m_mode == SaveTemplate && m_location.path().endsWith(".qetmak"));
+
+		if (is_valid_file)
+		{
+			m_text_field->setDisabled(true);
+			m_buttons_box->button(QDialogButtonBox::Save)->setEnabled(true);
+		}
+		else if (m_location.isDirectory())
+		{
+			m_text_field->setEnabled(true);
+
+			if (m_text_field->text().isEmpty()) { return; }
+
+			//Only enable save button if the location at path doesn't exist.
+			QString new_path = m_text_field->text();
+			QString extension = (m_mode == SaveTemplate) ? ".qetmak" : ".elmt";
+			if (!new_path.endsWith(extension)) new_path += extension;
+
+			ElementsLocation loc = m_location;
+			loc.addToPath(new_path);
+
+			m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(loc.exist() ? true : false);
+		}
+	}
+}
+
+void ElementDialog::checkAccept()
+{
+	ElementsLocation loc = location();
+
+	if (m_mode == OpenElement)
+	{
+		if (loc.isElement() && loc.exist()) {accept();}
+		if (!loc.exist())
+		{
+			QET::QetMessageBox::critical(this,
+										 tr("Non-existent selection", "message box title"),
+										 tr("The selection does not exist.", "message box content"));
+			return;
+		}
+		else if (!loc.isElement())
+		{
+			QET::QetMessageBox::critical(this,
+										 tr("Wrong selection", "message box title"),
+										 tr("The selection is not an element.", "message box content"));
+			return;
+		}
+	}
+	else if (m_mode == SaveElement || m_mode == SaveTemplate)
+	{
+		bool is_valid_file = loc.isElement() || (m_mode == SaveTemplate && loc.path().endsWith(".qetmak"));
+
+		if (is_valid_file)
+		{
+			if (loc.exist())
+			{
+				QString msgTitle = (m_mode == SaveTemplate) ? tr("Overwrite the template?", "message box title") : tr("Overwrite the element?", "message box title");
+				QString msgContent = (m_mode == SaveTemplate) ? tr("The template already exists. Do you want to overwrite it?", "message box content") : tr("The element already exists. Do you want to overwrite it?", "message box content");
+				QMessageBox::StandardButton answer = QET::QetMessageBox::question(this,
+																				  msgTitle,
+																				  msgContent,
+																				  QMessageBox::Yes | QMessageBox::No,
+																				  QMessageBox::No);
+				if (answer == QMessageBox::Yes) {accept();}
+				else {return;}
+			}
+			else {accept();}
+		}
+		else
+		{
+			QET::QetMessageBox::critical(this,
+										 tr("Wrong selection", "message box title"),
+										 tr("You must select an element or category with a name for the element.", "message box content"));
+			return;
+		}
+	}
+}
+
+/**
+	@brief ElementDialog::location
+	@return The selected location or a null location if user has selected nothing
+	or selection isn't compatible with the current mode
+*/
+ElementsLocation ElementDialog::location() const
+{
+	if (m_mode == OpenElement)
+	{
+		if (m_location.isElement()) { return m_location; }
+		else {return ElementsLocation(); }
+	}
+
+	else if (m_mode == SaveElement || m_mode == SaveTemplate)
+	{
+		//Current selected location is element or template, we return this location
+		bool is_valid_file = m_location.isElement() || (m_mode == SaveTemplate && m_location.path().endsWith(".qetmak"));
+		if (is_valid_file) { return m_location; }
+
+		//Current selected location is directory, we return a location at path :
+		//m_location->collectionPath + m_text_field->text
+		else if (m_location.isDirectory())
+		{
+			QString new_path = m_text_field->text();
+			if (new_path.isEmpty()) { return ElementsLocation(); }
+
+			QString extension = (m_mode == SaveTemplate) ? ".qetmak" : ".elmt";
+			if (!new_path.endsWith(extension)) { new_path += extension; }
+
+			ElementsLocation loc = m_location;
+			loc.addToPath(new_path);
+			return loc;
+		}
+	}
+
+	return ElementsLocation();
+}
+
+/**
+	@brief ElementDialog::getOpenElementLocation
+	Display a dialog for open an element through her location
+	@param parentWidget
+	@return The location of the selected element
+*/
+ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
+	return(ElementDialog::execConfiguredDialog(ElementDialog::OpenElement, parentWidget));
+}
+
+/**
+	@brief ElementDialog::getSaveElementLocation
+	Display a dialog that allow to user to select an element (existing or not) who he want to save
+	@param parentWidget
+	@return The location where the element must be save
+*/
+ElementsLocation ElementDialog::getSaveElementLocation(QWidget *parentWidget) {
+	return(ElementDialog::execConfiguredDialog(ElementDialog::SaveElement, parentWidget));
+}
+
+/**
+ * @brief ElementDialog::getSaveTemplateLocation
+ * Display a dialog that allow to user to select a location for saving a template
+ * @param parentWidget
+ * @return The location where the template must be save
+ */
+ElementsLocation ElementDialog::getSaveTemplateLocation(QWidget *parentWidget) {
+	return(ElementDialog::execConfiguredDialog(ElementDialog::SaveTemplate, parentWidget));
+}
+
+/**
+	@brief ElementDialog::execConfiguredDialog
+	launch a dialog with the chosen mode
+	@param mode : mode of the dialog
+	@param parentWidget : parent widget of the dialog
+	@return the chosen location
+*/
+ElementsLocation ElementDialog::execConfiguredDialog(int mode, QWidget *parentWidget)
+{
+	ElementDialog *element_dialog = new ElementDialog(mode, parentWidget);
+	element_dialog->exec();
+	ElementsLocation location = element_dialog->location();
+	delete element_dialog;
+	return(location);
+}

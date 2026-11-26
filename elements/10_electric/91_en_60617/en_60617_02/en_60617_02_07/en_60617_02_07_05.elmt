@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="25" hotspot_y="15">
+    <uuid uuid="{4069967f-9204-b7f0-299c-53618b47137e}"/>
+    <names>
+        <name lang="ar">مادة، إلكتريت</name>
+        <name lang="ca">Material, electret</name>
+        <name lang="cs">Materiál elektret</name>
+        <name lang="da">Materiale, elektret</name>
+        <name lang="de">Elektret</name>
+        <name lang="el">Υλικό, ηλεκτρέτ</name>
+        <name lang="en">Material, electret</name>
+        <name lang="es">Electreto</name>
+        <name lang="fi">Materiaali, elektret</name>
+        <name lang="fr">Électret</name>
+        <name lang="hr">Materijal, elektret</name>
+        <name lang="hu">Anyag, elektret</name>
+        <name lang="it">Materiale, elettrete</name>
+        <name lang="ja">材料，エレクトレット</name>
+        <name lang="ko">재료, 전기 영구 자성체</name>
+        <name lang="mn">Материал, электрет</name>
+        <name lang="nb">Materiale, elektret</name>
+        <name lang="nl">Materiaal, elektreet</name>
+        <name lang="nl_BE">Materiaal, elektreet</name>
+        <name lang="pl">Materiał, elektret</name>
+        <name lang="pt">Material, eletreto</name>
+        <name lang="pt_BR">Material, eletreto</name>
+        <name lang="ro">Material, electret</name>
+        <name lang="ru">Материал, электрет</name>
+        <name lang="sk">Materiál, elektret</name>
+        <name lang="sl">Material, elektret</name>
+        <name lang="sr">Материјал, електрет</name>
+        <name lang="sv">Material, elektret</name>
+        <name lang="tr">Malzeme, elektret</name>
+        <name lang="uk">Матеріал, електрет</name>
+        <name lang="zh">接线端子05</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{272539d5-9ec3-49bc-a510-005db536feb3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-6" x2="-10" y2="6" x3="10" y3="6" x4="5" y4="-6" x5="0" y5="6" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="-6" x2="5" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

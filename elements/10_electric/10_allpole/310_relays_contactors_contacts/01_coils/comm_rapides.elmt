@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{5033a78c-6b23-d784-e33a-489645d7c1cf}"/>
+    <names>
+        <name lang="ar">مرحل سريع</name>
+        <name lang="ca">Relleu ràpid</name>
+        <name lang="cs">Rychlé relé</name>
+        <name lang="da">Hurtigt relæ</name>
+        <name lang="de">Schnellschaltrelais</name>
+        <name lang="el">Πηνίο γρήγορου ρελέ</name>
+        <name lang="en">Fast relay</name>
+        <name lang="es">Relé rapido</name>
+        <name lang="fi">Nopea rele</name>
+        <name lang="fr">Relais rapide (à mise au travail et à mise au repos rapides)</name>
+        <name lang="hr">Brzi relej</name>
+        <name lang="hu">Gyors működésű relé</name>
+        <name lang="it">Relè rapido</name>
+        <name lang="ja">高速リレー</name>
+        <name lang="ko">고속 릴레이</name>
+        <name lang="mn">Хурдан реле</name>
+        <name lang="nb">Hurtigrelé</name>
+        <name lang="nl">relais snel</name>
+        <name lang="nl_BE">Snel relais</name>
+        <name lang="pl">Przekaźnik szybki</name>
+        <name lang="pt">Relé rápido</name>
+        <name lang="pt_BR">Relé rápido</name>
+        <name lang="ro">Releu rapid</name>
+        <name lang="ru">Быстродействующее реле</name>
+        <name lang="sk">Rýchle relé</name>
+        <name lang="sl">Hitri rele</name>
+        <name lang="sr">Брзи релеј</name>
+        <name lang="sv">Snabb­relä</name>
+        <name lang="tr">Hızlı röle</name>
+        <name lang="uk">Швидкодійне реле</name>
+        <name lang="zh">快速触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-22" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ae284052-bcee-4af2-b5e1-2039abba7db0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{901b0e24-896f-4c6f-b4a0-a453d3e6f0c5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{35778d11-6053-4552-95dc-b65d83b28bfb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{1701afe9-517b-4848-99a6-3ba6d55f1a36}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{31215c1d-4ce4-45f5-93ef-a73152b02f4f}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

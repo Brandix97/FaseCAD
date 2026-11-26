@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="23">
+    <uuid uuid="{7fa58286-4200-88e1-1442-bd2d1db94239}"/>
+    <names>
+        <name lang="ar">محوّل ضغط / تيّار</name>
+        <name lang="ca">Convertidor pressió/corrent</name>
+        <name lang="cs">Tlakově-elektrický převodník</name>
+        <name lang="da">Trykconverter / effekt</name>
+        <name lang="de">Messumformer Druck/Strom</name>
+        <name lang="el">Μετατροπέας πίεσης / ισχύος</name>
+        <name lang="en">Pressure converter / power</name>
+        <name lang="es">Convertidor de presión/power</name>
+        <name lang="fi">Painemuunnin / teho</name>
+        <name lang="fr">Convertisseur pression/courant</name>
+        <name lang="hr">Pretvarač tlaka / snage</name>
+        <name lang="hu">Nyomásátalakító / teljesítmény</name>
+        <name lang="it">Convertitore pressione/corrente</name>
+        <name lang="ja">圧力変換器 / 電力</name>
+        <name lang="ko">압력 변환기 / 전력</name>
+        <name lang="mn">Даралтын хөрвүүлэгч / хүч</name>
+        <name lang="nb">Trykkomformer / effekt</name>
+        <name lang="nl">Stroom/Druk omzetter</name>
+        <name lang="nl_BE">Drukconvertor / vermogen</name>
+        <name lang="pl">Przetwornik ciśnienia</name>
+        <name lang="pt">Conversor de pressão</name>
+        <name lang="pt_BR">Conversor de pressão</name>
+        <name lang="ro">Convertizor de presiune / putere</name>
+        <name lang="ru">Преобразователь давления / мощности</name>
+        <name lang="sk">Prevodník tlaku / výkonu</name>
+        <name lang="sl">Tlačni pretvornik / moč</name>
+        <name lang="sr">Конвертор притиска / снаге</name>
+        <name lang="sv">Tryckomvandlare / effekt</name>
+        <name lang="tr">Basınç dönüştürücü / güç</name>
+        <name lang="uk">Перетворювач тиску / потужності</name>
+        <name lang="zh">压力电流转换器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="1" y="-37" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d9498265-b0b8-4991-8199-5a6835769886}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="a" x="5" y="8" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="P" x="2" y="3" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-11" y1="-7" x2="-4" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-15" y1="-20" x2="15" y2="-20" x3="15" y3="10" x4="-15" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-15" y1="-10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12.5" y1="-19.5" x2="-15" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f30cccb1-5fa4-4d65-9409-8fafc8534bd6}" name="" x="21" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{401c958c-2693-4d12-b66e-2cf277b1978e}" name="" x="21" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{33643e6b-6825-43dd-8ce2-bd6000da0f2d}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7dde018e-9c97-4410-b23a-aab2cddd3dee}" name="" x="-21" y="-10" orientation="w" type="Generic"/>
+    </description>
+</definition>

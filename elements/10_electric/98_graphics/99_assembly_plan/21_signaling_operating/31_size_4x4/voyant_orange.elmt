@@ -1,0 +1,48 @@
+<definition type="element" link_type="thumbnail" hotspot_x="25" hotspot_y="25" width="50" height="50" version="0.100.1">
+    <uuid uuid="{5b912370-3475-43a5-9ec7-32c8f5dbe24c}"/>
+    <names>
+        <name lang="ar">مُؤشّر ضوئي</name>
+        <name lang="ca">Llum</name>
+        <name lang="cs">Kontrolka</name>
+        <name lang="da">Lys orange</name>
+        <name lang="de">Meldeleuchte organge</name>
+        <name lang="el">Λάμπα</name>
+        <name lang="en">Light orange</name>
+        <name lang="es">Lámpara naranja</name>
+        <name lang="fi">Oranssi valo</name>
+        <name lang="fr">Voyant orange</name>
+        <name lang="hr">Svjetlo narančasto</name>
+        <name lang="hu">Lámpa narancssárga</name>
+        <name lang="it">Lampada spia</name>
+        <name lang="ja">橙表示灯</name>
+        <name lang="ko">연한 주황색</name>
+        <name lang="mn">Улбар шар гэрэл</name>
+        <name lang="nb">Lampe oransje</name>
+        <name lang="nl">Lamp</name>
+        <name lang="nl_BE">Lichtoranje</name>
+        <name lang="pl">Lampka sygnalizacyjna</name>
+        <name lang="pt">Luz laranja</name>
+        <name lang="pt_BR">Luz laranja</name>
+        <name lang="ro">Lumină portocalie</name>
+        <name lang="ru">Индикатор оранжевый</name>
+        <name lang="sk">Oranžová kontrolka</name>
+        <name lang="sl">Oranžna luč</name>
+        <name lang="sr">Наранџасто светло</name>
+        <name lang="sv">Indikeringslampa orange</name>
+        <name lang="tr">Turuncu ışık</name>
+        <name lang="uk">Світло оранжеве</name>
+        <name lang="zh">橙色指示灯</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: The QElectroTech team&#xd;
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <circle x="-22" y="-22" antialias="true" style="line-style:normal;line-weight:normal;filling:orange;color:black" diameter="44"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="-7" y="-45.5" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{56c7d17b-d17e-45b9-af0c-3c8239168d56}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-14" y="-14" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" start="90" width="28" height="28" angle="270"/>
+        <circle x="-20" y="-20" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black" diameter="40"/>
+    </description>
+</definition>

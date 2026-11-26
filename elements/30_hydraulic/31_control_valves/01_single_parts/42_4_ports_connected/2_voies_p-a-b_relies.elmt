@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="20" hotspot_y="42">
+    <uuid uuid="{a93620b6-81c4-65b2-b953-32b6149c6b6f}"/>
+    <names>
+        <name lang="ar">مسارات -P-A-B  مُتّصلة 2</name>
+        <name lang="ca">4 ports - P-A-B connectats</name>
+        <name lang="cs">4 cesty - P-A-B spojené</name>
+        <name lang="da">4 porte - P-A-B forbundet</name>
+        <name lang="de">4 Anschlüsse - P-A-B verbunden</name>
+        <name lang="el">4 θύρες - P-A-B συνδεδεμένες</name>
+        <name lang="en">4 ports - P-A-B connected</name>
+        <name lang="es">4 vías - P-A-B conectadas</name>
+        <name lang="fi">4 porttia - P-A-B kytketty</name>
+        <name lang="fr">4 voies - P-A-B Relies</name>
+        <name lang="hr">4 priključka - P-A-B spojena</name>
+        <name lang="hu">4 utas - P-A-B összekötve</name>
+        <name lang="it">4 porte - P-A-B connesse</name>
+        <name lang="ja">4 ポート - P-A-B 接続</name>
+        <name lang="ko">4 포트 - P-A-B 연결됨</name>
+        <name lang="mn">4 порт - P-A-B холбогдсон</name>
+        <name lang="nb">4 porter - P-A-B koblet</name>
+        <name lang="nl">4 P - A - B</name>
+        <name lang="nl_BE">4 poorten - P-A-B verbonden</name>
+        <name lang="pl">4 drogi - P-A-B połączone</name>
+        <name lang="pt">4 vias - P-A-B ligadas</name>
+        <name lang="pt_BR">4 vias P-A-B conectadas</name>
+        <name lang="ro">4 porturi - P-A-B conectate</name>
+        <name lang="ru">4 отверстий - P-A-B соединены</name>
+        <name lang="sk">4 portov - P-A-B spojených</name>
+        <name lang="sl">4 vrat - P-A-B povezana</name>
+        <name lang="sr">4 портова - P-A-B повезано</name>
+        <name lang="sv">4 portar - P-A-B anslutna</name>
+        <name lang="tr">4 port - P-A-B bağlı</name>
+        <name lang="uk">4 отворів - P-A-B з'єднано</name>
+        <name lang="zh">2通P-A-B连接</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-22" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2afc230e-67d0-4287-8b12-1191e88663d8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-5" y="-20" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17.95" y1="5.1" x2="21.95" y2="5.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-35" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f64ea6b0-b3cd-4279-b58a-ec28f83c4f68}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>a</text>
+        </dynamic_text>
+        <line x1="20" y1="-30" x2="20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19.95" y1="20.1" x2="19.95" y2="5.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="18" y="6" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9d8b1ea7-ed01-4db9-8fe5-138c9124c587}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>t</text>
+        </dynamic_text>
+        <ellipse x="-1.15" y="-6.15" width="2.3" height="2.3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <dynamic_text x="-10" y="6" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{f38ebfc2-22f1-4ce0-923e-6605761f93a5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>p</text>
+        </dynamic_text>
+        <dynamic_text x="18" y="-35" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2aebcfb7-64ba-4a90-855b-597e899d90b8}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>b</text>
+        </dynamic_text>
+        <terminal uuid="{d92d02fe-9181-4d61-b302-18a438e452d3}" name="" x="20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{c25824df-c9c5-451b-a36b-be2672bbd4fa}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{6ff39192-9907-4106-bf77-2dc1c06c0b68}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{6f75d3aa-7099-46b1-9c40-c90a411b26d0}" name="" x="20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

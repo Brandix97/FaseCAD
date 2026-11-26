@@ -1,0 +1,84 @@
+<definition version="0.100.0" type="element" link_type="simple" width="130" height="60" hotspot_x="29" hotspot_y="32">
+    <uuid uuid="{2a16ebb1-07d8-baa9-8a8b-e00200d20591}"/>
+    <names>
+        <name lang="ar">مزيل رطوبة المسبح</name>
+        <name lang="ca">Deshumectadora piscina</name>
+        <name lang="cs">Odvlhčovač bazénu</name>
+        <name lang="da">Affugter pool</name>
+        <name lang="de">Schwimmbad-Entfeuchter</name>
+        <name lang="el">Αφυγραντήρας πισίνας</name>
+        <name lang="en">Dehumidifier pool</name>
+        <name lang="es">Deshumectadora para piscina</name>
+        <name lang="fi">Uima-altaan kuivain</name>
+        <name lang="fr">Déshumidificateur pour piscine</name>
+        <name lang="hr">Odvlaživač bazena</name>
+        <name lang="hu">Medence párátlanító</name>
+        <name lang="it">Deumidificatore piscina</name>
+        <name lang="ja">プール用除湿器</name>
+        <name lang="ko">수영장 제습기</name>
+        <name lang="mn">Бассейны чийг зайлуулагч</name>
+        <name lang="nb">Avfukter basseng</name>
+        <name lang="nl">Zwembadontvochtiger</name>
+        <name lang="nl_BE">Ontvochtiger zwembad</name>
+        <name lang="pl">Osuszacz basenowy</name>
+        <name lang="pt">Desumidificador de piscina</name>
+        <name lang="pt_BR">Dehumidifier pool</name>
+        <name lang="ro">Dezumidificator piscină</name>
+        <name lang="ru">Осушитель бассейна</name>
+        <name lang="sk">Odvlhčovač bazéna</name>
+        <name lang="sl">Razvlaževalnik bazena</name>
+        <name lang="sr">Одвлаживач базена</name>
+        <name lang="sv">Poolavfuktare</name>
+        <name lang="tr">Havuz nem alma cihazı</name>
+        <name lang="uk">Осушувач басейну</name>
+        <name lang="zh">除湿机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="51" y1="9" x2="55" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-10" x2="98" y2="-10" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="51" y1="-3" x2="55" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="39" y1="-16" x2="39" y2="-23" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="31" y1="-18" x2="24" y2="-18" x3="14" y3="-12" x4="21" y4="-12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="50" y="9" width="2" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="89" y1="-20" x2="10" y2="-20" x3="-10" y3="-10" x4="-10" y4="20" x5="70" y5="20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="51" y1="13" x2="55" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="70" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="89" y1="-14" x2="86" y2="-14" x3="75" y3="-8" x4="75" y4="7" x5="81" y5="7" x6="81" y6="-7" x7="92" y7="-14" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="54" y="7" width="2" height="4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="75" y1="-7" x2="81" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="81" y1="7" x2="92" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="81" y1="2" x2="86" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="86" y1="-1" x2="92" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="86" y1="-10" x2="86" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-6" x2="-15" y2="-6" x3="-15" y3="10" x4="-10" y4="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-15" y1="-6" x2="-10" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="50" y="-3" width="2" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="51" y1="1" x2="55" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="54" y="-5" width="2" height="4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="+" x="51" y="6" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="46" y1="-18" x2="39" y2="-18" x3="29" y3="-12" x4="36" y4="-12" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="23" y1="-16" x2="23" y2="-23" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Ext." x="28" y="-24" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-27" y1="-4" x2="-19" y2="-4" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="16" x2="10" y2="14" x3="9" y3="17" x4="14" y4="14" x5="11" y5="15" x6="12" y6="16" x7="14" y7="14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="67" y="-6" width="1" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="67" y="5" width="1" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="67" y="16" width="1" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8" y="-7" width="1" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8" y="5" width="0" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8" y="16" width="1" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="3" y="9" width="13" height="11" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="90" y1="-14" x2="90" y2="-20" x3="70" y3="-10" x4="70" y4="20" x5="90" y5="10" x6="90" y6="1" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="92" y1="-13.15" x2="92" y2="-1.83" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="20" y="0" z="37" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ded6e20c-89ec-4fa1-a46e-6c8ae4fd4abb}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{26d507d0-4fd3-48e2-a123-b0e3fef4e037}" name="" x="49" y="-1" orientation="w" type="Generic"/>
+        <terminal uuid="{49cdee3a-70aa-4754-a307-6c92d5521a83}" name="" x="49" y="11" orientation="w" type="Generic"/>
+        <terminal uuid="{cd96bb6c-c734-4c15-8f34-69c0f40338f4}" name="" x="8" y="19" orientation="n" type="Generic"/>
+        <terminal uuid="{e2e94fab-a388-4c7d-b598-d4ae6a5507a7}" name="" x="-17" y="1" orientation="w" type="Generic"/>
+        <terminal uuid="{6e457fdb-dc72-4f89-9d8a-ef24d691931a}" name="" x="94" y="-4" orientation="e" type="Generic"/>
+    </description>
+</definition>

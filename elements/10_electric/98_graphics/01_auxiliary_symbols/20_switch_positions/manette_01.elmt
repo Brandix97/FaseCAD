@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{8a63ff9b-6e2a-8d8f-49aa-12f01edd582c}"/>
+    <names>
+        <name lang="ar">زرّ دوّار بمقبض</name>
+        <name lang="ca">Canvia les posicions del mànec i del pom</name>
+        <name lang="cs">Přepínač 2 polohy</name>
+        <name lang="da">Afbryderhåndtag og knappositioner</name>
+        <name lang="de">Schaltergriff- und Knebelstellungen</name>
+        <name lang="el">Θέσεις διακόπτη</name>
+        <name lang="en">Switch handle and knob positions</name>
+        <name lang="es">Posiciones de la maneta y del pomo del interruptor</name>
+        <name lang="fi">Kytkinvivun ja -nupin asennot</name>
+        <name lang="fr">Boutons tournant à manette</name>
+        <name lang="hr">Položaji ručke i glave prekidača</name>
+        <name lang="hu">Kapcsolókar és gomb állások</name>
+        <name lang="it">Comando, selettore</name>
+        <name lang="ja">スイッチハンドルとノブの位置</name>
+        <name lang="ko">스위치 핸들 및 노브 위치</name>
+        <name lang="mn">Унтраалгын бариул ба товчны байрлал</name>
+        <name lang="nb">Bryterhåndtak og knotteposisjoner</name>
+        <name lang="nl">Schakelstanden</name>
+        <name lang="nl_BE">Schakelaarhendel- en knopstanden</name>
+        <name lang="pl">Pozycja pokrętła łącznika</name>
+        <name lang="pt">Posições do manípulo e do botão do interruptor</name>
+        <name lang="pt_BR">Posições do manípulo e botão da chave</name>
+        <name lang="ro">Poziții ale mânerului și butonului comutatorului</name>
+        <name lang="ru">Позиции рукоятки и головки переключателя</name>
+        <name lang="sk">Polohy rukoväte a gombíka prepínača</name>
+        <name lang="sl">Položaji ročice in gumba stikala</name>
+        <name lang="sr">Положаји ручке и дугмета прекидача</name>
+        <name lang="sv">Brytare handtag och vred lägen</name>
+        <name lang="tr">Şalter kolu ve topuz konumları</name>
+        <name lang="uk">Позиції ручки та головки перемикача</name>
+        <name lang="zh">手柄位置1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="8" y="-19" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9b6e1718-334d-4583-bdbd-6d0668e73e58}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="0" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

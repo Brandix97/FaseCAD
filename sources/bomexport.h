@@ -1,0 +1,58 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef BOMEXPORT_H
+#define BOMEXPORT_H
+
+#include <QByteArray>
+#include <QString>
+#include <QStringList>
+
+class QSqlQuery;
+
+namespace BomExport
+{
+	QStringList defaultColumns();
+	QString defaultQuery(bool include_slaves = true,
+						 bool include_junctions = true);
+	QString junctionFilter();
+
+		/// What the grouped parts list shows, see groupedQuery()
+	struct GroupedOptions
+	{
+			/// Add up each part's quantity field; false counts the rows
+		bool sum_quantity = true;
+			/// A column with the labels of the elements using the part
+		bool references = true;
+			/// A first column numbering the lines
+		bool numbering = true;
+			/// The auxiliary blocks of an element are parts of their own
+		bool auxiliaries = true;
+	};
+	QString groupedQuery(const GroupedOptions &options = GroupedOptions());
+		/// One CSV record: every field quoted, ';' between them, '\n'
+		/// after -- the format every CSV export of this program writes.
+		/// Public so a list which is not read from the project database
+		/// (the cable list) writes the same bytes.
+	QByteArray csvRecord(const QStringList &values);
+	QByteArray toCsv(QSqlQuery &query, const QStringList &headers,
+					 bool include_headers = true, int *row_count = nullptr);
+	bool writeCsv(const QString &file_path, const QByteArray &csv,
+				  QString *error = nullptr);
+}
+
+#endif // BOMEXPORT_H

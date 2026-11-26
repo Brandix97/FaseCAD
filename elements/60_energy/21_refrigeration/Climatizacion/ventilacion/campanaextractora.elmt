@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="25" hotspot_y="28">
+    <uuid uuid="{73c46571-359e-4aa3-32d4-ce6aeecfaabf}"/>
+    <names>
+        <name lang="ca">Campana extractora</name>
+        <name lang="es">Campana extractora</name>
+        <name lang="pt_BR">Campana extractoua</name>
+        <name lang="zh">吸油烟机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="4" y="-6" width="12" height="3" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-2" x2="-18.15" y2="2.44" x3="-18.15" y3="4.21" x4="-2.95" y4="0.67" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <arc x="4" y="-11" width="12" height="3" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="-16.84" x2="4" y2="-0.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4" y="-18.65" width="12" height="2.42" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="16.05" y1="-16.84" x2="16.05" y2="-0.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4" y="-2.35" width="12" height="3" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-15.27" x2="-21" y2="2.44" x3="-21" y3="11.29" x4="7.5" y4="29" x5="7.5" y5="20.15" x6="26.5" y6="2.44" x7="17" y7="-3.76" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-21" y1="2.44" x2="7.5" y2="20.15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-15.27" x2="3.7" y2="-10.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.45" y1="29" x2="25.55" y2="17.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26.5" y1="16.72" x2="26.5" y2="3.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="25.55" y1="14.83" x2="9.4" y2="19.26" x3="9.4" y3="21" x4="24.6" y4="17.49" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="6.55" y="5.1" width="5.7" height="5.31" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="9.4" y1="5.1" x2="9.4" y2="2.44" x3="12.25" y3="2.44" x4="12.25" y4="6.87" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18.9" y1="4.21" x2="19.85" y2="2.44" x3="20.8" y3="4.21" x4="21.75" y4="1.55" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="26.5" y1="17.49" x2="-2" y2="0.67" x3="-2" y3="-14.38" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <line x1="-2" y1="0.67" x2="-21" y2="10.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="-3" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{56869389-8b19-47e3-915d-be026148341f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="4" y="-16" width="12" height="3" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{8bd639e0-e5f2-494f-85e9-28ed4f5e5d87}" name="" x="25" y="-2" orientation="n" type="Generic"/>
+        <terminal uuid="{8e5efd8b-360c-4871-9657-bf7da1dcd18f}" name="" x="9" y="-21" orientation="n" type="Generic"/>
+    </description>
+</definition>

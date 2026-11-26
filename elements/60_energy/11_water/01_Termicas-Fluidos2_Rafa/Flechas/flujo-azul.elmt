@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{da2549ac-c86b-b12a-d616-70725f720c0f}"/>
+    <names>
+        <name lang="ar">سهم أزرق</name>
+        <name lang="ca">Fletxa blava</name>
+        <name lang="cs">Modrá šipka</name>
+        <name lang="da">Blå pil</name>
+        <name lang="de">Blauer Pfeil</name>
+        <name lang="el">Μπλε βέλος</name>
+        <name lang="en">Blue arrow</name>
+        <name lang="es">Flecha azul</name>
+        <name lang="fr">Fléche bleue</name>
+        <name lang="pt_BR">Flecha azul</name>
+        <name lang="zh">蓝色流向</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="-14" y1="-2.63" x2="-14" y2="3.68" x3="4" y3="3.68" x4="4" y4="10" x5="13" y5="0.53" x6="4" y6="-8.95" x7="4" y7="-2.63" antialias="false" style="line-style:normal;line-weight:normal;filling:blue;color:blue"/>
+    </description>
+</definition>

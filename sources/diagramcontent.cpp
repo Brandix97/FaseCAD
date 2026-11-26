@@ -1,0 +1,604 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "diagramcontent.h"
+
+#include "diagram.h"
+#include "itemgroups.h"
+#include "qetgraphicsitem/ViewItem/qetgraphicstableitem.h"
+#include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/dynamicelementtextitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/elementtextitemgroup.h"
+#include "qetgraphicsitem/independenttextitem.h"
+#include "qetgraphicsitem/qetshapeitem.h"
+#include "qetgraphicsitem/dimensionitem.h"
+#include "cabinet/cabinetitem.h"
+#include "qetgraphicsitem/terminal.h"
+#include "TerminalStrip/GraphicsItem/terminalstripitem.h"
+
+#include <QGraphicsItem>
+
+/**
+	@brief DiagramContent::DiagramContent
+*/
+DiagramContent::DiagramContent()
+{}
+
+/**
+	@brief DiagramContent::DiagramContent
+	Constructor
+	@param diagram :
+	Construct a diagramContent and fill it with the selected item of diagram
+	@param selected : this diagramcontent get only selected items if true.
+*/
+DiagramContent::DiagramContent(Diagram *diagram, bool selected) :
+	m_selected_items(diagram->selectedItems())
+{
+	QList<QGraphicsItem *> item_list;
+	if (selected) {
+		item_list = m_selected_items;
+	} else {
+		item_list = diagram->items();
+	}
+
+	for (const auto &item : std::as_const(item_list))
+	{
+		switch (item->type())
+		{
+			case Element::Type:
+			{
+				auto element = qgraphicsitem_cast<Element *>(item);
+				m_elements << element;
+				if (element->elementData().m_type == ElementData::Terminal) {
+					m_terminal_elements << static_cast<TerminalElement*>(element);
+				}
+				break;
+			}
+			case IndependentTextItem::Type: { m_text_fields << qgraphicsitem_cast<IndependentTextItem *>(item); break;}
+			case Conductor::Type:
+			{
+				auto c = qgraphicsitem_cast<Conductor *>(item);
+					//Get the isolated selected conductor (= not movable, but deletable)
+				if (!c->terminal1->parentItem()->isSelected() &&\
+					!c->terminal2->parentItem()->isSelected()) {
+					m_other_conductors << c;
+				}
+
+				m_potential_candidates << c;
+				break;
+			}
+			case DiagramImageItem::Type:       { m_images        << qgraphicsitem_cast<DiagramImageItem *>(item);       break;}
+			case QetShapeItem::Type:           { m_shapes        << qgraphicsitem_cast<QetShapeItem *>(item);           break;}
+			case DimensionItem::Type:          { m_dimensions    << qgraphicsitem_cast<DimensionItem *>(item);          break;}
+			case CabinetItem::Type:            { m_cabinet_items << qgraphicsitem_cast<CabinetItem *>(item);            break;}
+			case DynamicElementTextItem::Type: { m_element_texts << qgraphicsitem_cast<DynamicElementTextItem *>(item); break;}
+			case QGraphicsItemGroup::Type: {
+				if (auto *group = dynamic_cast<ElementTextItemGroup *>(item)) {
+					m_texts_groups << group;
+				}
+				break;
+			}
+			case QetGraphicsTableItem::Type: { m_tables << qgraphicsitem_cast<QetGraphicsTableItem *>(item); break;}
+			case TerminalStripItem::Type : {m_terminal_strip << qgraphicsitem_cast<TerminalStripItem *>(item); break;}
+		}
+	}
+		
+	
+		//For each selected element, we determine if conductors must be moved or updated.
+	for(Element *elmt : m_elements)
+	{
+		if (elmt->isSelected())
+		{
+			for(Terminal *terminal : elmt->terminals())
+			{
+				for(Conductor *conductor : terminal->conductors())
+				{
+					Terminal *other_terminal;
+					if (conductor->terminal1 == terminal)
+						other_terminal = conductor->terminal2;
+					else
+						other_terminal = conductor->terminal1;
+
+						//If the two elements of conductor are movable
+					if (m_elements.contains(other_terminal -> parentElement())) {
+						if (!m_conductors_to_move.contains(conductor))
+							m_conductors_to_move << conductor;
+					}
+					else if (!m_conductors_to_update.contains(conductor))
+						m_conductors_to_update << conductor;
+				}
+			}
+		}
+	}
+}
+
+DiagramContent::~DiagramContent()
+{}
+
+/**
+	@brief DiagramContent::selectedTexts
+	@return a list of every selected texts (every kind of texts)
+	Note that the returned list of texts, correspond to the selected texts
+	at the moment of the creation of this DiagramContent,
+	with the constructor :  DiagramContent::DiagramContent(Diagram *diagram)
+*/
+QList<DiagramTextItem *> DiagramContent::selectedTexts() const
+{
+	QList<DiagramTextItem *> selected_texts;
+	for(QGraphicsItem *qgi : m_selected_items)
+	{
+		if (qgi->type() == ConductorTextItem::Type ||
+			qgi->type() == IndependentTextItem::Type ||
+			qgi->type() == DynamicElementTextItem::Type)
+				selected_texts << static_cast<DiagramTextItem *>(qgi);
+	}
+	return(selected_texts);
+}
+
+/**
+	@brief DiagramContent::selectedTextsGroup
+	@return a list of selected texts group
+	Note that the returned list of texts group, correspond to the selected texts group
+	at the moment of the creation of this DiagramContent,
+	with the constructor :  DiagramContent::DiagramContent(Diagram *diagram)
+*/
+QList<ElementTextItemGroup *> DiagramContent::selectedTextsGroup() const
+{
+	QList<ElementTextItemGroup *> groups;
+	
+	for(QGraphicsItem *qgi : m_selected_items)
+		if(qgi->type() == QGraphicsItemGroup::Type)
+			if(ElementTextItemGroup *grp = dynamic_cast<ElementTextItemGroup *>(qgi))
+				groups << grp;
+	
+	return groups;
+}
+
+/**
+	@brief DiagramContent::conductors
+	@param filter
+	@return Every conductors according to the filter
+*/
+QList<Conductor *> DiagramContent::conductors(int filter) const
+{
+	QList<Conductor *> result;
+	if (filter & ConductorsToMove)   result += m_conductors_to_move;
+	if (filter & ConductorsToUpdate) result += m_conductors_to_update;
+	if (filter & OtherConductors)    result += m_other_conductors;
+	if (filter & SelectedOnly) {
+		for(Conductor *conductor : result)
+		{
+			if (!conductor->isSelected())
+				result.removeAll(conductor);
+		}
+	}
+	return(result);
+}
+
+/**
+	@brief DiagramContent::hasDeletableItems
+	@return true if this diagram content have deletable item
+	The deletable items correspond to the selected items of diagram
+	at the moment of the creation of this DiagramContent,
+	with the constructor :  DiagramContent::DiagramContent(Diagram *diagram)
+*/
+bool DiagramContent::hasDeletableItems() const
+{
+	for(QGraphicsItem *qgi : m_selected_items)
+	{
+		if (qgi->type() == Element::Type
+			|| qgi->type() == Conductor::Type
+			|| qgi->type() == IndependentTextItem::Type
+			|| qgi->type() == QetShapeItem::Type
+			|| qgi->type() == DimensionItem::Type
+			|| qgi->type() == CabinetItem::Type
+			|| qgi->type() == DiagramImageItem::Type
+			|| qgi->type() == DynamicElementTextItem::Type
+			|| qgi->type() == QetGraphicsTableItem::Type
+			|| qgi->type() == TerminalStripItem::Type)
+			return true;
+		if(qgi->type() == QGraphicsItemGroup::Type)
+			if(dynamic_cast<ElementTextItemGroup *>(qgi))
+				return true;
+	}
+	return(false);
+}
+
+/**
+	@brief DiagramContent::hasCopiableItems
+	@return true if this diagram content have copiable items.
+*/
+bool DiagramContent::hasCopiableItems() const
+{
+	if(!m_images.isEmpty())      return true;
+	if(!m_shapes.isEmpty())      return true;
+	if(!m_dimensions.isEmpty())  return true;
+	if(!m_cabinet_items.isEmpty()) return true;
+	if(!m_elements.isEmpty())    return true;
+	if(!m_text_fields.isEmpty()) return true;
+	
+	return false;
+}
+
+/**
+	@brief DiagramContent::clear
+	Remove all items from the diagram content
+*/
+void DiagramContent::clear()
+{
+	m_elements.clear();
+	m_text_fields.clear();
+	m_images.clear();
+	m_shapes.clear();
+	m_dimensions.clear();
+	m_cabinet_items.clear();
+	m_conductors_to_update.clear();
+	m_conductors_to_move.clear();
+	m_other_conductors.clear();
+	m_element_texts.clear();
+	m_texts_groups.clear();
+	m_selected_items.clear();
+	m_tables.clear();
+	m_terminal_strip.clear();
+}
+
+/**
+	@brief DiagramContent::removeNonMovableItems
+	Remove all non movable item.
+	@return : return the numbers of removed item
+*/
+int DiagramContent::removeNonMovableItems()
+{
+	int count_ = removePinnedGroups();
+	
+	const QList<Element *> elements_set = m_elements;
+	for(Element *elmt : elements_set) {
+		if (!elmt->isMovable()) {
+			m_elements.removeAll(elmt);
+			++count_;
+		}
+	}
+	
+	const QSet<DiagramImageItem *> images_set = m_images;
+	for(DiagramImageItem *img : images_set) {
+		if (!img->isMovable()) {
+			m_images.remove(img);
+			++count_;
+		}
+	}
+	
+	const QSet<QetShapeItem *> shapes_set = m_shapes;
+	for(QetShapeItem *shape : shapes_set) {
+		if (!shape->isMovable()) {
+			m_shapes.remove(shape);
+			++count_;
+		}
+	}
+
+	const QSet<DimensionItem *> dimensions_set = m_dimensions;
+	for(DimensionItem *dim : dimensions_set) {
+		if (!dim->isMovable()) {
+			m_dimensions.remove(dim);
+			++count_;
+		}
+	}
+
+	const QSet<CabinetItem *> cabinet_set = m_cabinet_items;
+	for(CabinetItem *part : cabinet_set) {
+		if (!part->isMovable()) {
+			m_cabinet_items.remove(part);
+			++count_;
+		}
+	}
+
+		//A wire whose two ends no longer both move is redrawn, not moved,
+		//or its text would be carried off with the end that still moves
+	const QList<Conductor *> conductors_to_move = m_conductors_to_move;
+	for (Conductor *conductor : conductors_to_move) {
+		if (!m_elements.contains(conductor->terminal1->parentElement()) ||
+			!m_elements.contains(conductor->terminal2->parentElement())) {
+			m_conductors_to_move.removeAll(conductor);
+			if (!m_conductors_to_update.contains(conductor))
+				m_conductors_to_update << conductor;
+		}
+	}
+
+	return count_;
+}
+
+/**
+	@brief DiagramContent::removePinnedGroups
+	A group (#1070) with a locked member does not move at all: moving the
+	rest would pull the group apart around the member that stays (#1146).
+	Only a locked member that is in this content pins its group.
+	Called first by removeNonMovableItems(), while the locked items are
+	still here to be found.
+	@return the number of removed items
+*/
+int DiagramContent::removePinnedGroups()
+{
+	QSet<QUuid> pinned;
+	for (Element *elmt : std::as_const(m_elements))
+		if (!elmt->isMovable())
+			pinned << ItemGroups::groupOf(elmt);
+	for (DiagramImageItem *img : std::as_const(m_images))
+		if (!img->isMovable())
+			pinned << ItemGroups::groupOf(img);
+	for (QetShapeItem *shape : std::as_const(m_shapes))
+		if (!shape->isMovable())
+			pinned << ItemGroups::groupOf(shape);
+	pinned.remove(QUuid());
+	if (pinned.isEmpty())
+		return 0;
+
+	auto isPinned = [&pinned](const QGraphicsItem *item) {
+		return pinned.contains(ItemGroups::groupOf(item));
+	};
+	return int(m_elements.removeIf(isPinned)
+			 + m_images.removeIf(isPinned)
+			 + m_shapes.removeIf(isPinned)
+			 + m_text_fields.removeIf(isPinned));
+}
+
+DiagramContent &DiagramContent::operator+=(const DiagramContent &other)
+{
+	for(Element *elmt : other.m_elements)
+		if(!m_elements.contains(elmt))
+			m_elements << elmt;
+	
+	for(IndependentTextItem *iti : other.m_text_fields)
+		if(!m_text_fields.contains(iti))
+			m_text_fields << iti;
+	
+	for(DiagramImageItem *dii : other.m_images)
+		if(!m_images.contains(dii))
+			m_images << dii;
+	
+	for(QetShapeItem *qsi : other.m_shapes)
+		if(!m_shapes.contains(qsi))
+			m_shapes << qsi;
+
+	for(DimensionItem *di : other.m_dimensions)
+		if(!m_dimensions.contains(di))
+			m_dimensions << di;
+
+	for(CabinetItem *part : other.m_cabinet_items)
+		if(!m_cabinet_items.contains(part))
+			m_cabinet_items << part;
+	
+	for(Conductor *c : other.m_conductors_to_update)
+		if(!m_conductors_to_update.contains(c))
+			m_conductors_to_update << c;
+	
+	for(Conductor *c : other.m_conductors_to_move)
+		if(!m_conductors_to_move.contains(c))
+			m_conductors_to_move << c;
+	
+	for(Conductor *c : other.m_other_conductors)
+		if(!m_other_conductors.contains(c))
+			m_other_conductors << c;
+	
+	for(DynamicElementTextItem *deti : other.m_element_texts)
+		if(!m_element_texts.contains(deti))
+			m_element_texts << deti;
+	
+	for(ElementTextItemGroup *etig : other.m_texts_groups)
+		if(!m_texts_groups.contains(etig))
+			m_texts_groups << etig;
+	
+	for(QGraphicsItem *qgi : other.m_selected_items)
+		if(!m_selected_items.contains(qgi))
+			m_selected_items << qgi;
+	
+	QList<Conductor *> potentials = potentialConductors();
+	for (Conductor *c : other.potentialConductors())
+	{
+	        QList<Conductor *> c_list = c->relatedPotentialConductors(true).values();
+		c_list << c;
+		if (!potentialIsManaged(c_list)) {
+			potentials << c;
+			m_potential_conductors = potentials;
+		}
+	}
+
+	for (auto table : other.m_tables)
+		if (!m_tables.contains(table))
+			m_tables << table;
+	
+	return *this;
+}
+
+/**
+	@brief DiagramContent::potentialIsManaged
+	@param conductors a list of conductors at the same potential.
+	@return true, if m_potential_conductors already have a conductor of this potential.
+*/
+bool DiagramContent::potentialIsManaged(QList<Conductor *> conductors)
+{
+	const QList<Conductor *> potentials = potentialConductors();
+	bool b = false;
+	
+	for (Conductor *c : conductors)
+	{
+		if (potentials.contains(c))
+			b = true;
+	}
+	
+	return b;
+}
+
+/**
+	@brief DiagramContent::potentialConductors
+	@return one wire of each potential of the wires of this content, worked
+	out the first time it is asked (see m_potential_conductors)
+*/
+QList<Conductor *> DiagramContent::potentialConductors() const
+{
+	if (!m_potential_conductors) {
+		QList<Conductor *> potentials;
+		for (Conductor *c : m_potential_candidates) {
+			bool managed = false;
+			if (!potentials.isEmpty())
+				for (Conductor *related : c->relatedPotentialConductors(true))
+					if (potentials.contains(related)) { managed = true; break; }
+			if (!managed)
+				potentials << c;
+		}
+		m_potential_conductors = potentials;
+	}
+	return *m_potential_conductors;
+}
+
+/**
+	@brief DiagramContent::hasTextEditing
+	@return true if handle a text currently in editing interaction
+*/
+bool DiagramContent::hasTextEditing()
+{
+	for (DiagramTextItem *dti : selectedTexts()) {
+		if (dti->textInteractionFlags() == Qt::TextEditorInteraction) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+	@brief DiagramContent::items
+	@param filter
+	@return The items of this diagram content according to filter
+*/
+QList<QGraphicsItem *> DiagramContent::items(int filter) const
+{
+	QList<QGraphicsItem *> items_list;
+	
+	for(auto &&qgi : conductors(filter)) items_list << qgi;
+
+	if (filter & Elements)          for(auto qgi : m_elements)      items_list << qgi;
+	if (filter & TextFields)        for(auto qgi : m_text_fields)   items_list << qgi;
+	if (filter & Images)            for(auto qgi : m_images)        items_list << qgi;
+	if (filter & Shapes)            for(auto qgi : m_shapes)        items_list << qgi;
+	if (filter & ElementTextFields) for(auto qgi : m_element_texts) items_list << qgi;
+	if (filter & TextGroup)			for(auto qgi : m_texts_groups)  items_list << qgi;
+	if (filter & Tables)            for(auto qgi : m_tables)        items_list << qgi;
+	if (filter & TerminalStrip)     for(const auto qgi : std::as_const(m_terminal_strip)) items_list << qgi;
+	if (filter & Dimensions)        for(const auto qgi : std::as_const(m_dimensions))     items_list << qgi;
+	if (filter & CabinetItems)      for(const auto qgi : std::as_const(m_cabinet_items))  items_list << qgi;
+
+	if (filter & SelectedOnly) {
+		for(const auto &qgi : std::as_const(items_list)) {
+			if (!qgi -> isSelected()) items_list.removeOne(qgi);
+		}
+	}
+	return(items_list);
+}
+
+/**
+	@brief DiagramContent::count
+	@param filter
+	@return The number of items, according to filter
+*/
+int DiagramContent::count(int filter) const
+{
+	int count = 0;
+	if (filter & SelectedOnly) {
+		if (filter & Elements)           for(auto element   :     m_elements)         { if (element   -> isSelected()) ++ count; }
+		if (filter & TextFields)         for(auto dti       : m_text_fields)          { if (dti       -> isSelected()) ++ count; }
+		if (filter & Images)             for(auto dii       : m_images)               { if (dii       -> isSelected()) ++ count; }
+		if (filter & Shapes)             for(auto dsi       : m_shapes)               { if (dsi       -> isSelected()) ++ count; }
+		if (filter & ConductorsToMove)   for(auto conductor : m_conductors_to_move)   { if (conductor -> isSelected()) ++ count; }
+		if (filter & ConductorsToUpdate) for(auto conductor : m_conductors_to_update) { if (conductor -> isSelected()) ++ count; }
+		if (filter & OtherConductors)    for(auto conductor : m_other_conductors)     { if (conductor -> isSelected()) ++ count; }
+		if (filter & ElementTextFields)  for(auto deti      : m_element_texts)        { if (deti      -> isSelected()) ++ count; }
+		if (filter & TextGroup)          for(auto etig      : m_texts_groups)         { if (etig      -> isSelected()) ++ count; }
+		if (filter & Tables)             for(auto table     : m_tables)               { if (table     -> isSelected()) ++ count;  }
+		if (filter & TerminalStrip)      for(const auto &strip : std::as_const(m_terminal_strip)) {if (strip->isSelected()) ++ count;}
+		if (filter & Dimensions)         for(const auto &dim   : std::as_const(m_dimensions))     {if (dim->isSelected())   ++ count;}
+		if (filter & CabinetItems)       for(const auto &part  : std::as_const(m_cabinet_items))  {if (part->isSelected())  ++ count;}
+	}
+	else {
+		if (filter & Elements)           count += m_elements.count();
+		if (filter & TextFields)         count += m_text_fields.count();
+		if (filter & Images)             count += m_images.count();
+		if (filter & Shapes)             count += m_shapes.count();
+		if (filter & ConductorsToMove)   count += m_conductors_to_move.count();
+		if (filter & ConductorsToUpdate) count += m_conductors_to_update.count();
+		if (filter & OtherConductors)    count += m_other_conductors.count();
+		if (filter & ElementTextFields)  count += m_element_texts.count();
+		if (filter & TextGroup)			 count += m_texts_groups.count();
+		if (filter & Tables)             count += m_tables.count();
+		if (filter & TerminalStrip)      count += m_terminal_strip.count();
+		if (filter & Dimensions)         count += m_dimensions.count();
+		if (filter & CabinetItems)       count += m_cabinet_items.count();
+	}
+	return(count);
+}
+
+/**
+	@brief DiagramContent::sentence
+	@param filter
+	@return A string that describe the items of the diagram
+	content according to filter.
+	Example : X elements, Y conductors etc....
+*/
+QString DiagramContent::sentence(int filter) const
+{
+	int elements_count   = (filter & Elements) ? m_elements.count() : 0;
+	int conductors_count = conductors(filter).count();
+	int textfields_count = (filter & TextFields) ? (m_text_fields.count()) : 0;
+	int images_count	 = (filter & Images) ? m_images.count() : 0;
+	int shapes_count	 = (filter & Shapes) ? m_shapes.count() : 0;
+	int elmt_text_count  = (filter & ElementTextFields) ? m_element_texts.count() : 0;
+	int tables_count     = (filter & Tables) ? m_tables.count() : 0;
+	const int strip_count = (filter & TerminalStrip) ? m_terminal_strip.count() : 0;
+	return(
+		QET::ElementsAndConductorsSentence(
+			elements_count,
+			conductors_count,
+			textfields_count,
+			images_count,
+			shapes_count,
+			elmt_text_count,
+			tables_count,
+			strip_count
+		)
+	);
+}
+
+/**
+	@brief operator << Use to debug a diagram content
+	@param d : QDebug to use for display the debug info
+	@param content : content to debug
+	@return
+*/
+QDebug &operator<<(QDebug d, DiagramContent &content) {
+	Q_UNUSED(content)
+	d << "DiagramContent {" << "\n";
+	/*
+	FIXME Le double-heritage QObject / QGraphicsItem a casse cet operateur
+	d << "  elements :" << c.elements << "\n";
+	d << "  conductorsToUpdate :" << c.conductorsToUpdate << "\n";
+	d << "  conductorsToMove :" << c.conductorsToMove << "\n";
+	d << "  otherConductors :" << c.otherConductors << "\n";
+	*/
+	d << "}";
+	return(d.space());
+}

@@ -1,0 +1,75 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="130" hotspot_x="33" hotspot_y="80">
+    <uuid uuid="{a5bee164-328d-feea-d5f9-04dd06eb4ada}"/>
+    <names>
+        <name lang="ar">خزّان 1000ل</name>
+        <name lang="ca">Dipòsit d'emmagatzematge 1000L</name>
+        <name lang="cs">Zásobník 1000L</name>
+        <name lang="da">Opbevaringstank 1000L</name>
+        <name lang="de">Speichertank 1000L</name>
+        <name lang="el">Δεξαμενή αποθήκευσης 1000L</name>
+        <name lang="en">Storage tank 1000L</name>
+        <name lang="es">Depósito 1000L</name>
+        <name lang="fi">Säiliö 1000L</name>
+        <name lang="fr">Ballon Stockage 1000L</name>
+        <name lang="hr">Spremnik 1000L</name>
+        <name lang="hu">Tárolótartály 1000L</name>
+        <name lang="it">Serbatoio 1000L</name>
+        <name lang="ja">貯蔵タンク 1000L</name>
+        <name lang="ko">저장 탱크 1000L</name>
+        <name lang="mn">Хадгалах сав 1000Л</name>
+        <name lang="nb">Lagringstank 1000L</name>
+        <name lang="nl">Opslagtank 1000L</name>
+        <name lang="nl_BE">Boiler 1000L</name>
+        <name lang="pl">Zasobnik 1000L</name>
+        <name lang="pt">Depósito 1000L</name>
+        <name lang="pt_BR">Tanque de armazenamento 1000L</name>
+        <name lang="ro">Rezervor 1000L</name>
+        <name lang="ru">Бак-термос 1000л</name>
+        <name lang="sk">Zásobník 1000L</name>
+        <name lang="sl">Hranilnik 1000L</name>
+        <name lang="sr">Резервоар 1000Л</name>
+        <name lang="sv">Ackumulatortank 1000L</name>
+        <name lang="tr">Depolama tankı 1000L</name>
+        <name lang="uk">Бак 1000л</name>
+        <name lang="zh">1000升储热水箱2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-27.19" y="-39.29" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-30" y="-66.11" width="54" height="95.85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-30" y="21.39" width="54" height="17.17" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="17.81" y="-63.13" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="17.81" y="-1.14" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-27.19" y="-1.14" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="17.81" y="-39.29" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="17.81" y="22.7" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-3.9" y1="38.8" x2="-3.9" y2="40.23" x3="-2.1" y3="40.23" x4="-2.1" y4="38.8" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-30" y="-74.7" width="54" height="17.17" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-26" y="-35" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3357fb0a-63f5-4191-b1ca-0cee5778c9f3}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-27.19" y="-63.13" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3.9" y="-52.76" width="1.8" height="1.91" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-4.24" y="-72.19" width="2.48" height="2.62" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="21.75" y1="33.55" x2="21.75" y2="40.71" x3="15" y3="40.71" x4="15" y4="35.94" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-27.75" y1="33.55" x2="-27.75" y2="40.71" x3="-21" y3="40.71" x4="-21" y4="35.94" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-27.19" y="22.7" width="3.38" height="3.58" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3.9" y="14" width="1.8" height="1.91" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-3.9" y="-19.38" width="1.8" height="1.91" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{26b7ce1e-7cba-4067-91c5-44bc9c3e5da8}" name="" x="-26" y="-61" orientation="w" type="Generic"/>
+        <terminal uuid="{95194bb1-d563-4804-be06-fac9722b8ce5}" name="" x="-26" y="24" orientation="w" type="Generic"/>
+        <terminal uuid="{23f51950-b729-471d-9f6b-12ffe41e8eb3}" name="" x="-3" y="-71" orientation="n" type="Generic"/>
+        <terminal uuid="{62097ca9-55a4-4d3e-9fcd-f14405448449}" name="" x="-3" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{30e508b9-550e-4f8b-a996-8bff05808616}" name="" x="-3" y="-52" orientation="e" type="Generic"/>
+        <terminal uuid="{331f83c7-94e4-41ed-847f-f88c56234672}" name="" x="-3" y="-18" orientation="e" type="Generic"/>
+        <terminal uuid="{e0e46d2c-524d-427f-b0c0-f3fbb42ebf3b}" name="" x="-3" y="15" orientation="e" type="Generic"/>
+        <terminal uuid="{39a68722-3199-4e14-8649-ed2784abcb26}" name="" x="20" y="24" orientation="e" type="Generic"/>
+        <terminal uuid="{1d084876-f243-4f6c-8190-d5ba02490b92}" name="" x="20" y="-61" orientation="e" type="Generic"/>
+        <terminal uuid="{4cb8e8f7-ff30-408d-8a8f-a2b611de69e4}" name="" x="20" y="-38" orientation="e" type="Generic"/>
+        <terminal uuid="{ec0626cf-6d0f-40e7-907f-580455dff08c}" name="" x="20" y="1" orientation="e" type="Generic"/>
+        <terminal uuid="{d1d0dbb5-3aa3-47f7-b15d-c5cc100addc4}" name="" x="-26" y="-38" orientation="w" type="Generic"/>
+        <terminal uuid="{023af33f-bd9b-47ff-adc6-4ab8eafb14f5}" name="" x="-26" y="1" orientation="w" type="Generic"/>
+    </description>
+</definition>

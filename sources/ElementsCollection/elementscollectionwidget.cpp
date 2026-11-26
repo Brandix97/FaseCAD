@@ -1,0 +1,1442 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementscollectionwidget.h"
+
+#include "../editor/ui/qetelementeditor.h"
+#include "../elementscategoryeditor.h"
+#include "../newelementwizard.h"
+#include "../qetapp.h"
+#include "../qetdiagrameditor.h"
+#include "../qeticons.h"
+#include "../qetmessagebox.h"
+#include "../qetproject.h"
+#include "elementcollectionitem.h"
+#include "elementpreviewdelegate.h"
+#include "elementscollectionmodel.h"
+#include "elementslocation.h"
+#include "elementstreeview.h"
+#include "fileelementcollectionitem.h"
+#include "partscollectionitem.h"
+#include "xmlprojectelementcollectionitem.h"
+#include "../partsdb/partsmanagerdialog.h"
+#include "../partsdb/partsplacement.h"
+
+#include <QCheckBox>
+#include <QDesktopServices>
+#include <QDir>
+#include <QDomDocument>
+#include <QFile>
+#include <QFileInfo>
+#include <QStandardPaths>
+#include <QSettings>
+#include <QShortcut>
+#include <QListView>
+#include <QStandardItemModel>
+#include <QSet>
+#include <algorithm>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QFileDialog>
+#include <QLabel>
+#include <QMenu>
+#include <QPushButton>
+#include <QTimer>
+#include <QUrl>
+#include <QVBoxLayout>
+#include <QtGlobal>
+#include <QProgressBar>
+#include <QStatusBar>
+#include <QLineEdit>
+
+namespace {
+/**
+	@return true when @p feci cannot be written: the common collection
+	of a read-only installation
+*/
+bool isLocked(const FileElementCollectionItem *feci)
+{
+	return !ElementsLocation(feci->collectionPath()).isWritable();
+}
+
+/**
+	@return true when the file system item at @p location can be deleted
+	from the panel
+*/
+bool isDeletable(const ElementsLocation &location)
+{
+	const QString path = location.collectionPath();
+	return path.startsWith(QLatin1String("company://"))
+			|| path.startsWith(QLatin1String("custom://"))
+			|| path.startsWith(QLatin1String("macros://"))
+			|| (path.startsWith(QLatin1String("common://"))
+				&& location.isWritable());
+}
+
+/**
+	@brief The SearchResultsView class
+	The flat list of search results. Rows are not backed by the collection
+	model, so the drag is built here from the path each row carries, with
+	the same content and pixmap as a drag from the tree.
+*/
+class SearchResultsView : public QListView
+{
+	public:
+		using QListView::QListView;
+
+	protected:
+		void startDrag(Qt::DropActions supportedActions) override
+		{
+			const QString path =
+				currentIndex().data(Qt::UserRole + 2).toString();
+			if (path.isEmpty()) {
+				QListView::startDrag(supportedActions);
+				return;
+			}
+			ElementsTreeView::execElementDrag(this, ElementsLocation(path));
+		}
+};
+}
+
+/**
+	@brief ElementsCollectionWidget::ElementsCollectionWidget
+	Default constructor.
+	@param parent : parent widget of this widget.
+*/
+ElementsCollectionWidget::ElementsCollectionWidget(QWidget *parent):
+	QWidget(parent),
+	m_model(nullptr)
+{
+	//The connection in the method ElementsCollectionWidget::reload
+	//return a warning message at compilation :
+	//**********
+	//QObject::connect: Cannot queue arguments of type 'QVector<int>'
+	//(Make sure 'QVector<int>' is registered using qRegisterMetaType().)
+	//**********
+	//Register meta type has recommended by the message.
+	qRegisterMetaType<QVector<int>>();
+
+	setUpWidget();
+	setUpAction();
+	setUpConnection();
+		//The parts collection follows what the parts manager writes
+	connect(PartsDatabaseChanges::instance(), &PartsDatabaseChanges::changed,
+			this, [this]() {
+		if (m_model) {
+			m_model->reloadPartsCollection();
+		}
+	});
+
+	//Timer is used to avoid launching a new search for each letter typed by user
+	//Timer is started or restarted at every time user type a new letter.
+	//When the timer emit timeout, we start the search.
+	m_search_timer.setInterval(500);
+	m_search_timer.setSingleShot(true);
+}
+
+/**
+	@brief ElementsCollectionWidget::expandFirstItems
+	Expand each first item in the tree view
+*/
+void ElementsCollectionWidget::expandFirstItems()
+{
+	if (!m_model)
+		return;
+
+	for (int i=0; i < m_model->rowCount() ; i++)
+		showAndExpandItem(m_model->index(i, 0), false);
+}
+
+/**
+	@brief ElementsCollectionWidget::addProject
+	Add project to be displayed
+	@param project
+*/
+void ElementsCollectionWidget::addProject(QETProject *project)
+{
+	if (m_model)
+	{
+		m_model->addProject(project, true);
+	}
+	else {
+		m_waiting_project.append(project);
+	}
+}
+
+void ElementsCollectionWidget::removeProject(QETProject *project) {
+		//Before the first load and during a load, the project is also
+		//waiting to be loaded, or in the model being loaded
+	m_waiting_project.removeAll(project);
+	if (m_new_model)
+		m_new_model->removeProject(project);
+	if (m_model)
+		m_model->removeProject(project);
+}
+
+/**
+	@brief ElementsCollectionWidget::highlightUnusedElement
+	highlight the unused element
+	@see ElementsCollectionModel::highlightUnusedElement()
+*/
+void ElementsCollectionWidget::highlightUnusedElement()
+{
+	if (m_model)
+		m_model->highlightUnusedElement();
+}
+
+/**
+	@brief ElementsCollectionWidget::setCurrentLocation
+	Set the current item to be the item for location
+	@param location
+*/
+void ElementsCollectionWidget::setCurrentLocation(
+		const ElementsLocation &location)
+{
+	if (!location.exist())
+		return;
+
+	if (m_model)
+		m_tree_view->setCurrentIndex(
+					m_model->indexFromLocation(location));
+}
+
+/**
+	@brief ElementsCollectionWidget::currentElementLocation
+	@return the symbol highlighted in the collections tree, or a null
+	location when it is a folder or nothing is highlighted
+*/
+ElementsLocation ElementsCollectionWidget::currentElementLocation()
+{
+	if (!m_tree_view)
+		return ElementsLocation();
+	ElementCollectionItem *eci = elementCollectionItemForIndex(m_tree_view->currentIndex());
+	if (!eci || !eci->isElement())
+		return ElementsLocation();
+	return ElementsLocation(eci->collectionPath());
+}
+
+/**
+	@brief ElementsCollectionWidget::addTemplate
+	Show a newly saved template in the templates tab, which is otherwise
+	only read when the collections are loaded or reloaded.
+	@param location : the saved .qetmak file
+*/
+void ElementsCollectionWidget::addTemplate(const ElementsLocation &location)
+{
+	if (m_macros_model && location.exist())
+		m_macros_model->addLocation(location);
+}
+
+void ElementsCollectionWidget::leaveEvent(QEvent *event)
+{
+	if (QETDiagramEditor *qde = QETApp::diagramEditorAncestorOf(this))
+		qde->statusBar()->clearMessage();
+
+	QWidget::leaveEvent(event);
+}
+
+void ElementsCollectionWidget::setUpAction()
+{
+	m_open_dir = new QAction(QET::Icons::FolderOpen,
+				 tr("Open the underlying folder"), this);
+	m_edit_element = new QAction(QET::Icons::ElementEdit,
+					 tr("Edit element"), this);
+	m_delete_element = new QAction(QET::Icons::ElementDelete,
+					   tr("Delete element"), this);
+	m_delete_dir = new QAction(QET::Icons::FolderDelete,
+				   tr("Delete folder"), this);
+	m_reload = new QAction(QET::Icons::ViewRefresh,
+				   tr("Reload collections"), this);
+	m_edit_dir = new QAction(QET::Icons::FolderEdit,
+				 tr("Edit folder"), this);
+	m_new_directory = new QAction(QET::Icons::FolderNew,
+					  tr("New folder"), this);
+	m_new_element = new QAction(QET::Icons::ElementNew,
+					tr("New element"), this);
+	m_show_this_dir = new QAction(QET::Icons::FolderOnlyThis,
+					  tr("Show only this folder"),
+					  this);
+	m_show_all_dir = new QAction(QET::Icons::FolderShowAll,
+					 tr("Show All Folders"), this);
+	m_dir_propertie = new QAction(QET::Icons::FolderProperties,
+					  tr("Folder properties"), this);
+	m_download_element = new QAction(QET::Icons::DocumentSaveAs,
+					  tr("Download the symbol..."), this);
+	connect(m_download_element, &QAction::triggered,
+			this, &ElementsCollectionWidget::downloadElement);
+	m_parts_manager = new QAction(QET::Icons::DocumentSpreadsheet,
+					  tr("Parts manager..."), this);
+	connect(m_parts_manager, &QAction::triggered, this, [this]() {
+			//Opened on the part right clicked
+		qint64 part = 0;
+		if (ElementCollectionItem *eci = elementCollectionItemForIndex(m_index_at_context_menu)) {
+			if (eci->type() == PartsCollectionItem::Type)
+				part = static_cast<PartsCollectionItem *>(eci)->partId();
+		}
+		PartsManagerDialog::showManager(this, part);
+	});
+}
+
+/**
+	@brief ElementsCollectionWidget::setUpWidget
+	Setup this widget
+*/
+void ElementsCollectionWidget::setUpWidget()
+{
+	m_main_vlayout = new QVBoxLayout(this);
+	m_main_vlayout->setContentsMargins(0, 0, 0, 0);
+	m_main_vlayout->setSpacing(2);
+
+	m_search_field = new QLineEdit(this);
+	m_search_field->setPlaceholderText(tr("Search..."));
+	m_search_field->setClearButtonEnabled(true);
+
+	m_tree_view = new ElementsTreeView(this);
+	m_tree_view->setHeaderHidden(true);
+	m_tree_view->setIconSize(QSize(50, 50));
+	m_tree_view->setDragDropMode(QAbstractItemView::DragDrop);
+	m_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
+	m_tree_view->setAutoExpandDelay(500);
+	m_tree_view->setAnimated(true);
+	m_tree_view->setMouseTracking(true);
+	m_tree_view->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+
+	//Setup the macros tree view
+	m_macros_tree_view = new ElementsTreeView(this);
+	m_macros_tree_view->setHeaderHidden(true);
+		//Templates show no picture of their own: the size of the
+		//folders of the other trees
+	m_macros_tree_view->setIconSize(QSize(16, 16));
+	m_macros_tree_view->setDragDropMode(QAbstractItemView::DragDrop);
+	m_macros_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
+	m_macros_tree_view->setAutoExpandDelay(500);
+	m_macros_tree_view->setAnimated(true);
+	m_macros_tree_view->setMouseTracking(true);
+	m_macros_tree_view->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+
+	m_tab_widget = new QTabWidget(this);
+	m_tab_widget->setDocumentMode(true);
+	m_tab_widget->setTabPosition(QTabWidget::North);
+	m_tab_widget->addTab(m_tree_view, tr("Collections"));
+	m_tab_widget->addTab(m_macros_tree_view, tr("Templates"));
+
+		//Flat ranked search results.
+		//The tree search hides non-matching rows, so hits stay scattered
+		//through five levels of expanded folders -- searching "diode" leaves
+		//you scrolling a tree to find them. This shows the same matches as a
+		//ranked list instead, and takes the tab widget's place while a search
+		//is active.
+	m_search_model = new QStandardItemModel(this);
+	m_search_results = new SearchResultsView(this);
+	m_search_results->setModel(m_search_model);
+		//Same dark-palette icons as the tree the list stands in for
+	m_search_results->setItemDelegate(new ElementPreviewDelegate(m_search_results));
+	m_search_results->setDragDropMode(QAbstractItemView::DragOnly);
+	m_search_results->setIconSize(QSize(50, 50));
+	m_search_results->setUniformItemSizes(false);
+	m_search_results->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+	m_search_results->setContextMenuPolicy(Qt::CustomContextMenu);
+	m_search_results->setMouseTracking(true);
+	m_search_results->hide();
+
+	m_main_vlayout->addWidget(m_search_field);
+	m_main_vlayout->addWidget(m_tab_widget);
+	m_main_vlayout->addWidget(m_search_results);
+
+	m_progress_bar = new QProgressBar(this);
+	m_progress_bar->setFormat(QObject::tr("load %p% (%v on %m)"));
+	m_main_vlayout->addWidget(m_progress_bar);
+	m_progress_bar->hide();
+
+	m_context_menu = new QMenu(this);
+}
+
+/**
+	@brief ElementsCollectionWidget::setUpConnection
+	Setup the connection used in this widget
+*/
+void ElementsCollectionWidget::setUpConnection()
+{
+	connect(m_tree_view, &QTreeView::customContextMenuRequested,
+		this, &ElementsCollectionWidget::customContextMenu);
+	connect(m_search_field, &QLineEdit::textEdited,
+		[this]() {m_search_timer.start();});
+	connect(&m_search_timer, &QTimer::timeout,
+		this, &ElementsCollectionWidget::search);
+	connect(m_open_dir, &QAction::triggered,
+		this, &ElementsCollectionWidget::openDir);
+	connect(m_edit_element, &QAction::triggered,
+		this, &ElementsCollectionWidget::editElement);
+	connect(m_delete_element, &QAction::triggered,
+		this, &ElementsCollectionWidget::deleteElement);
+	connect(m_delete_dir, &QAction::triggered,
+		this, &ElementsCollectionWidget::deleteDirectory);
+	connect(m_reload, &QAction::triggered,
+		this, &ElementsCollectionWidget::reload);
+	connect(m_edit_dir, &QAction::triggered,
+		this, &ElementsCollectionWidget::editDirectory);
+	connect(m_new_directory, &QAction::triggered,
+		this, &ElementsCollectionWidget::newDirectory);
+	connect(m_new_element, &QAction::triggered,
+		this, &ElementsCollectionWidget::newElement);
+	connect(m_show_this_dir, &QAction::triggered,
+		this, &ElementsCollectionWidget::showThisDir);
+	connect(m_show_all_dir, &QAction::triggered,
+		this, &ElementsCollectionWidget::resetShowThisDir);
+	connect(m_dir_propertie, &QAction::triggered,
+		this, &ElementsCollectionWidget::dirProperties);
+
+	connect(m_tree_view, &QTreeView::doubleClicked,
+			[this](const QModelIndex &index) { this->activateIndex(index); });
+
+	connect(m_tree_view, &QTreeView::entered,
+		[this] (const QModelIndex &index) {
+		QETDiagramEditor *qde = QETApp::diagramEditorAncestorOf(this);
+		ElementCollectionItem *eci = elementCollectionItemForIndex(index);
+		if (qde && eci)
+			qde->statusBar()->showMessage(eci->localName());
+	});
+
+		//Enter on the highlighted item does the same as a double click, so a
+		//run of elements can be placed without leaving the keyboard. Bound as
+		//a shortcut on the view rather than by reimplementing keyPressEvent,
+		//which would mean subclassing ElementsTreeView for one key.
+	for (const auto key : {Qt::Key_Return, Qt::Key_Enter}) {
+		auto *sc = new QShortcut(QKeySequence(key), m_tree_view);
+		sc->setContext(Qt::WidgetShortcut);
+		connect(sc, &QShortcut::activated, this, [this]() {
+			this->activateIndex(m_tree_view->currentIndex());
+		});
+	}
+
+		//The flat results list carries the collection path directly, so it
+		//does not go through activateIndex() -- there is no tree index behind
+		//a row to look an ElementCollectionItem up from.
+	auto place_from_results = [this](const QModelIndex &index) {
+		const QString path = index.data(Qt::UserRole + 2).toString();
+		if (path.isEmpty()) {
+			return;
+		}
+		ElementsLocation location(path);
+		if (location.exist()) {
+			emit insertElementRequested(location);
+		}
+	};
+	connect(m_search_results, &QListView::doubleClicked, this, place_from_results);
+	for (const auto key : {Qt::Key_Return, Qt::Key_Enter}) {
+		auto *sc = new QShortcut(QKeySequence(key), m_search_results);
+		sc->setContext(Qt::WidgetShortcut);
+		connect(sc, &QShortcut::activated, this, [this, place_from_results]() {
+			place_from_results(m_search_results->currentIndex());
+		});
+	}
+		//Down from the search field moves into the results, so the whole
+		//type-then-place run happens without touching the mouse.
+	auto *to_results = new QShortcut(QKeySequence(Qt::Key_Down), m_search_field);
+	to_results->setContext(Qt::WidgetShortcut);
+	connect(to_results, &QShortcut::activated, this, [this]() {
+		if (!m_search_results->isVisible() || !m_search_model->rowCount()) {
+			return;
+		}
+		m_search_results->setFocus();
+		if (!m_search_results->currentIndex().isValid()) {
+			m_search_results->setCurrentIndex(m_search_model->index(0, 0));
+		}
+	});
+
+	connect(m_macros_tree_view, &QTreeView::customContextMenuRequested,
+			this, &ElementsCollectionWidget::customContextMenu);
+
+	connect(m_macros_tree_view, &QTreeView::doubleClicked,
+			[this](const QModelIndex &index) { this->activateIndex(index); });
+
+	connect(m_macros_tree_view, &QTreeView::entered,
+		[this] (const QModelIndex &index) {
+			QETDiagramEditor *qde = QETApp::diagramEditorAncestorOf(this);
+			ElementCollectionItem *eci = elementCollectionItemForIndex(index);
+			if (qde && eci)
+				qde->statusBar()->showMessage(eci->localName());
+		});
+}
+
+/**
+ * @brief ElementsCollectionWidget::customContextMenu
+ * Display the context menu of this widget at point
+ * @param point
+ */
+void ElementsCollectionWidget::customContextMenu(const QPoint &point)
+{
+	QTreeView *clicked_tree = qobject_cast<QTreeView *>(sender());
+	if (!clicked_tree) clicked_tree = m_tree_view; // Fallback
+
+	m_index_at_context_menu = clicked_tree->indexAt(point);
+	if (!m_index_at_context_menu.isValid()) return;
+
+	m_context_menu->clear();
+
+	ElementCollectionItem *eci = elementCollectionItemForIndex(
+		m_index_at_context_menu);
+	bool add_open_dir = false;
+
+		//The parts are kept in the parts manager
+	if (eci->type() == PartsCollectionItem::Type) {
+		if (eci->isElement())
+			m_context_menu->addAction(m_download_element);
+		m_context_menu->addAction(m_parts_manager);
+		m_context_menu->addSeparator();
+		m_context_menu->addAction(m_reload);
+		m_context_menu->popup(mapToGlobal(clicked_tree->mapToParent(point)));
+		return;
+	}
+
+	if (eci->isElement() && !eci->collectionPath().endsWith(".qetmak")) {
+		m_context_menu->addAction(m_edit_element);
+		m_context_menu->addAction(m_download_element);
+	}
+
+	if (eci->type() == FileElementCollectionItem::Type)
+	{
+		add_open_dir = true;
+		FileElementCollectionItem *feci =
+		static_cast<FileElementCollectionItem*>(eci);
+		if (!isLocked(feci))
+		{
+			if (feci->isDir())
+			{
+				if (!feci->isMacrosCollection()) {
+					m_context_menu->addAction(m_new_element);
+				}
+				m_context_menu->addAction(m_new_directory);
+				if (!feci->isCollectionRoot())
+				{
+					m_context_menu->addAction(m_edit_dir);
+					m_context_menu->addAction(m_delete_dir);
+				}
+			}
+			else
+				m_context_menu->addAction(m_delete_element);
+		}
+	}
+	if (eci->type() == XmlProjectElementCollectionItem::Type)
+	{
+		XmlProjectElementCollectionItem *xpeci =
+		static_cast<XmlProjectElementCollectionItem *>(eci);
+		if (xpeci->isCollectionRoot())
+			add_open_dir = true;
+	}
+
+	m_context_menu->addSeparator();
+	if (eci->isDir())
+	{
+		m_context_menu->addAction(m_show_this_dir);
+		//there is a current filtered dir, add entry to reset it
+		if (m_showed_index.isValid())
+			m_context_menu->addAction(m_show_all_dir);
+
+		m_context_menu->addAction(m_dir_propertie);
+	}
+	if (add_open_dir)
+		m_context_menu->addAction(m_open_dir);
+	m_context_menu->addAction(m_reload);
+
+	m_context_menu->popup(mapToGlobal(clicked_tree->mapToParent(point)));
+}
+
+bool ElementsCollectionWidget::saveSymbol(const ElementsLocation &symbol, const QString &path,
+										  QString *error)
+{
+	auto fail = [error](const QString &text) {
+		if (error) *error = text;
+		return false;
+	};
+	if (!symbol.exist() || !symbol.isElement()) {
+		return fail(tr("The symbol %1 is not there.").arg(symbol.collectionPath()));
+	}
+	QByteArray content;
+	if (symbol.isFileSystem()) {
+		QFile source(symbol.fileSystemPath());
+		if (!source.open(QIODevice::ReadOnly)) {
+			return fail(tr("%1 cannot be read.").arg(QDir::toNativeSeparators(symbol.fileSystemPath())));
+		}
+		content = source.readAll();
+	} else {
+		QDomDocument document;
+		document.appendChild(document.importNode(symbol.xml(), true));
+		content = document.toByteArray(4);
+	}
+	QFile file(path);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)
+		|| file.write(content) != content.size()) {
+		return fail(tr("%1 cannot be written.").arg(QDir::toNativeSeparators(path)));
+	}
+	return true;
+}
+
+/**
+	@brief ElementsCollectionWidget::downloadElement
+	Save the symbol right clicked to a file of the user (Brandon,
+	2026-11-21); the symbols of a part of the parts collection to a folder
+	when it has several
+*/
+void ElementsCollectionWidget::downloadElement()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(m_index_at_context_menu);
+	if (!eci) return;
+	QList<ElementsLocation> symbols;
+	if (eci->type() == PartsCollectionItem::Type) {
+		for (const QString &each : static_cast<PartsCollectionItem *>(eci)->symbols())
+			symbols << ElementsLocation(each);
+	} else if (eci->isElement()) {
+		symbols << ElementsLocation(eci->collectionPath());
+	}
+	if (symbols.isEmpty()) return;
+
+	QSettings settings;
+	const QString key = QStringLiteral("collection/download-folder");
+	const QString folder = settings.value(key, QStandardPaths::writableLocation(
+											  QStandardPaths::DocumentsLocation)).toString();
+	auto fileNameOf = [](const ElementsLocation &symbol) {
+		const QString name = QFileInfo(symbol.collectionPath(false)).fileName();
+		return name.isEmpty() ? QStringLiteral("symbol.elmt") : name;
+	};
+	QStringList errors;
+	if (symbols.size() == 1) {
+		const QString path = QFileDialog::getSaveFileName(
+					this, tr("Download the symbol"), QDir(folder).filePath(fileNameOf(symbols.first())),
+					tr("Symbols (*.elmt)"));
+		if (path.isEmpty()) return;
+		settings.setValue(key, QFileInfo(path).absolutePath());
+		QString error;
+		if (!saveSymbol(symbols.first(), path, &error)) errors << error;
+	} else {
+		const QString chosen = QFileDialog::getExistingDirectory(this, tr("Download the symbols"), folder);
+		if (chosen.isEmpty()) return;
+		settings.setValue(key, chosen);
+		for (const ElementsLocation &symbol : std::as_const(symbols))
+		{
+			QString error;
+			if (!saveSymbol(symbol, QDir(chosen).filePath(fileNameOf(symbol)), &error))
+				errors << error;
+		}
+	}
+	if (!errors.isEmpty()) {
+		QET::QetMessageBox::warning(this, tr("Download the symbol"), errors.join(QLatin1Char('\n')));
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::openDir
+	Open the directory represented by the current selected item
+*/
+void ElementsCollectionWidget::openDir()
+{
+	ElementCollectionItem *eci =
+			elementCollectionItemForIndex(m_index_at_context_menu);
+	if (!eci) return;
+
+	if (eci->type() == FileElementCollectionItem::Type)
+
+#ifdef Q_OS_LINUX
+		QDesktopServices::openUrl(static_cast<FileElementCollectionItem*>(eci)->dirPath());
+#else
+		QDesktopServices::openUrl(QUrl("file:///" + static_cast<FileElementCollectionItem*>(eci)->dirPath()));
+#endif
+	else if (eci->type() == XmlProjectElementCollectionItem::Type)
+
+#ifdef Q_OS_LINUX
+		QDesktopServices::openUrl(static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir());
+#else
+		QDesktopServices::openUrl(QUrl("file:///" + static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir()));
+#endif
+
+}
+
+/**
+	@brief ElementsCollectionWidget::activateIndex
+	What a double click (or Enter) on @a index does.
+
+	Historically this opened the element editor, which is the slowest action
+	available on a symbol you are most likely about to place. Placing is now
+	the default and editing has moved to the context menu, where it already
+	was. The old behaviour is preserved behind a preference for anyone who
+	relies on it.
+	@param index
+*/
+void ElementsCollectionWidget::activateIndex(const QModelIndex &index)
+{
+	m_index_at_context_menu = index;
+
+	ElementCollectionItem *eci = elementCollectionItemForIndex(index);
+	if (!eci) {
+		return;
+	}
+	//Macros are placed, never edited, and were already skipped here.
+	const bool is_macro = eci->collectionPath().endsWith(".qetmak");
+
+	QSettings settings;
+	const bool insert = settings.value(
+		QStringLiteral("elementscollection/double-click-inserts"), true).toBool();
+
+	if (insert) {
+		insertCurrentElement();
+		return;
+	}
+	if (!is_macro) {
+		editElement();
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::insertCurrentElement
+	Ask for the current item to be placed on the folio.
+*/
+void ElementsCollectionWidget::insertCurrentElement()
+{
+	ElementCollectionItem *eci =
+		elementCollectionItemForIndex(m_index_at_context_menu);
+	if (!(eci && eci->isElement())) {
+		return;
+	}
+
+		//A part is placed as its symbol, with the part
+	if (eci->type() == PartsCollectionItem::Type) {
+		auto *part = static_cast<PartsCollectionItem *>(eci);
+		ElementsLocation symbol(part->symbols().value(0));
+		if (symbol.exist()) {
+			emit insertPartRequested(symbol, PartsPlacement::encode(
+										 {part->manufacturer(), part->orderNumber(),
+										  part->symbols()}));
+		}
+		return;
+	}
+
+	ElementsLocation location(eci->collectionPath());
+	if (!location.exist()) {
+		return;
+	}
+	emit insertElementRequested(location);
+}
+
+/**
+	@brief ElementsCollectionWidget::editElement
+	Edit the element represented by the current selected item
+*/
+void ElementsCollectionWidget::editElement()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(m_index_at_context_menu);
+
+	if ( !(eci && eci->isElement()) ) return;
+
+	editLocation(ElementsLocation(eci->collectionPath()));
+}
+
+/**
+	@brief ElementsCollectionWidget::editLocation
+	Open the element editor on @a location. Macros have no editor and are
+	ignored.
+	@param location
+*/
+void ElementsCollectionWidget::editLocation(const ElementsLocation &location)
+{
+	// Prevent the element editor from opening for macros
+	if (!location.exist() || location.path().endsWith(".qetmak")) return;
+
+	QETApp *app = QETApp::instance();
+	app->openElementLocations(QList<ElementsLocation>() << location);
+
+	foreach (QETElementEditor *element_editor, app->elementEditors())
+		connect(element_editor,
+			&QETElementEditor::saveToLocation,
+			this,
+			&ElementsCollectionWidget::locationWasSaved);
+}
+
+/**
+	@brief ElementsCollectionWidget::deleteElement
+	Delete the element represented by the current selected item.
+*/
+void ElementsCollectionWidget::deleteElement()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(
+				m_index_at_context_menu);
+
+	if (!eci) return;
+
+	ElementsLocation loc(eci->collectionPath());
+
+	bool isDeletableFile = loc.isElement() || eci->collectionPath().endsWith(".qetmak");
+
+	if (! (isDeletableFile
+		&& loc.exist()
+		&& loc.isFileSystem()
+		&& isDeletable(loc)) ) return;
+
+	if (QET::QetMessageBox::question(
+		this,
+		tr("Delete element?", "message box title"),
+		tr("Do you really wish to delete this element ?\n",
+		   "message box content"),
+		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
+	{
+		QFile file(loc.fileSystemPath());
+		if (file.remove())
+		{
+			QAbstractItemModel *clicked_model = const_cast<QAbstractItemModel*>(m_index_at_context_menu.model());
+			if (clicked_model) {
+				clicked_model->removeRows(m_index_at_context_menu.row(), 1, m_index_at_context_menu.parent());
+			}
+		}
+		else
+		{
+			QET::QetMessageBox::warning(
+				this,
+				tr("Deleting element",
+				   "message box title"),
+				tr("Deleting element failed.",
+				   "message box content"));
+		}
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::deleteDirectory
+	Delete directory represented by the current selected item
+*/
+void ElementsCollectionWidget::deleteDirectory()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(
+				m_index_at_context_menu);
+
+	if (!eci) return;
+
+	ElementsLocation loc (eci->collectionPath());
+	if (! (loc.isDirectory()
+		&& loc.exist()
+		&& loc.isFileSystem()
+		&& isDeletable(loc)) ) return;
+
+	if (QET::QetMessageBox::question(
+		this,
+		tr("Deleting folder?", "message box title"),
+		tr("Are you sure you want to delete the folder?\n"
+		"All the elements and contents file in this folder will be deleted.",
+		"message box content"),
+		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
+	{
+		QDir dir (loc.fileSystemPath());
+		if (dir.removeRecursively())
+		{
+			QAbstractItemModel *clicked_model = const_cast<QAbstractItemModel*>(m_index_at_context_menu.model());
+			if (clicked_model) {
+				clicked_model->removeRows(m_index_at_context_menu.row(), 1, m_index_at_context_menu.parent());
+			}
+		}
+		else
+		{
+			QET::QetMessageBox::warning(
+				this,
+				tr("Folder Delete",
+				   "message box title"),
+				tr("Folder deletion failed.",
+				   "message box content"));
+		}
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::editDirectory
+	Edit the directory represented by the current selected item
+*/
+void ElementsCollectionWidget::editDirectory()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(
+				m_index_at_context_menu);
+
+	if (eci->type() != FileElementCollectionItem::Type) return;
+
+	FileElementCollectionItem *feci =
+			static_cast<FileElementCollectionItem*>(eci);
+	if(isLocked(feci)) return;
+
+	ElementsLocation location(feci->collectionPath());
+	ElementsCategoryEditor ece(location, true, this);
+
+	if (ece.exec() == QDialog::Accepted)
+		eci->clearData();
+}
+
+/**
+	@brief ElementsCollectionWidget::newDirectory
+	Create a new directory
+*/
+void ElementsCollectionWidget::newDirectory()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(m_index_at_context_menu);
+
+	if (!eci || eci->type() != FileElementCollectionItem::Type) return;
+
+	FileElementCollectionItem *feci = static_cast<FileElementCollectionItem*>(eci);
+	if(isLocked(feci)) return;
+
+	ElementsLocation location(feci->collectionPath());
+	ElementsCategoryEditor new_dir_editor(location, false, this);
+
+	if (new_dir_editor.exec() == QDialog::Accepted) {
+		ElementsLocation new_loc = new_dir_editor.createdLocation();
+
+		if (new_loc.isMacrosCollection()) {
+			if (m_macros_model) {
+				m_macros_model->addLocation(new_loc);
+			}
+		} else {
+			if (m_model) {
+				m_model->addLocation(new_loc);
+			}
+		}
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::newElement
+	Create a new element.
+*/
+void ElementsCollectionWidget::newElement()
+{
+	ElementCollectionItem *eci = elementCollectionItemForIndex(
+				m_index_at_context_menu);
+
+	if (eci->type() != FileElementCollectionItem::Type) {
+		return;
+	}
+
+	FileElementCollectionItem *feci =
+			static_cast<FileElementCollectionItem*>(eci);
+	if(isLocked(feci)) {
+		return;
+	}
+
+	NewElementWizard elmt_wizard(this);
+	ElementsLocation loc(feci->collectionPath());
+	elmt_wizard.preselectedLocation(loc);
+	elmt_wizard.exec();
+
+	foreach (QETElementEditor *element_editor,
+			 QETApp::instance()->elementEditors())
+		connect(element_editor,
+			&QETElementEditor::saveToLocation,
+			this,
+			&ElementsCollectionWidget::locationWasSaved);
+}
+
+/**
+	@brief ElementsCollectionWidget::showThisDir
+	Hide all directories except the pointed dir;
+*/
+void ElementsCollectionWidget::showThisDir()
+{
+		//Disable the yellow background of the previous index
+	if (m_showed_index.isValid())
+	{
+		ElementCollectionItem *eci =
+				elementCollectionItemForIndex(m_showed_index);
+		if (eci)
+		{
+			eci->setBackground(QBrush());
+			eci->setForeground(QBrush());
+		}
+	}
+
+	m_showed_index = m_index_at_context_menu;
+	if (m_showed_index.isValid())
+	{
+		hideCollection(true);
+		showAndExpandItem(m_showed_index, true, true);
+		ElementCollectionItem *eci =
+				elementCollectionItemForIndex(m_showed_index);
+		if (eci)
+		{
+			// Amber under black, whatever the palette's text color.
+			eci->setBackground(QBrush(QColor(255, 204, 0, 255)));
+			eci->setForeground(QBrush(Qt::black));
+		}
+		search();
+	}
+	else
+		resetShowThisDir();
+}
+
+/**
+	@brief ElementsCollectionWidget::resetShowThisDir
+	reset show this dir, all collection are show.
+	If search field isn't empty, apply the search after show all collection
+*/
+void ElementsCollectionWidget::resetShowThisDir()
+{
+	if (m_showed_index.isValid())
+	{
+		ElementCollectionItem *eci = elementCollectionItemForIndex(
+					m_showed_index);
+		if (eci)
+		{
+			eci->setBackground(QBrush());
+			eci->setForeground(QBrush());
+		}
+	}
+
+	m_showed_index = QModelIndex();
+	search();
+}
+
+/**
+	@brief ElementsCollectionWidget::dirProperties
+	Open an informative dialog about the current index
+*/
+void ElementsCollectionWidget::dirProperties()
+{
+	ElementCollectionItem* eci =
+		elementCollectionItemForIndex(m_index_at_context_menu);
+
+	if (eci && eci->isDir())
+	{
+		QString filePath;
+		if (eci->type() == FileElementCollectionItem::Type) {
+			filePath = tr("Path in the file system :  %1")
+						   .arg(
+							   static_cast<FileElementCollectionItem*>(eci)
+								   ->fileSystemPath());
+		}
+		QString out =
+			tr("the folder %1 contains").arg(eci->localName()) % " "
+			% tr("%n elements, spread", "", eci->elementsChild().size())
+			% " "
+			% tr("across %n folders.", "", eci->directoriesChild().size())
+			% "\n\n"
+			% tr("Path of collection :  %1").arg(eci->collectionPath())
+			% "\n" % filePath;
+		qInfo() << out;
+		QMessageBox::information(
+			this,
+			tr("Property of the folder %1").arg(eci->localName()),
+			out);
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::reload, the displayed collections.
+*/
+void ElementsCollectionWidget::reload()
+{
+	m_loading_timer.reset(new QElapsedTimer());
+	qInfo()<<"Elements collection reload";
+	m_loading_timer->start();
+
+	m_progress_bar->show();
+	// Force to repaint now,
+	// else progress bar will be not displayed immediately
+	m_progress_bar->setValue(1);
+	m_tree_view->setDisabled(true);
+	// Force to repaint now,
+	// else tree view will be not disabled immediately
+	m_tree_view->repaint();
+	m_progress_bar->setFormat(QObject::tr("load %p% (%v on %m)"));
+	
+	QList <QETProject *> project_list;
+	project_list.append(m_waiting_project);
+	m_waiting_project.clear();
+	if (m_model)
+		project_list.append(m_model->project());
+
+	if(m_new_model) {
+		m_new_model->deleteLater();
+	}
+	m_new_model = new ElementsCollectionModel(m_tree_view);
+	connect(m_new_model,
+		&ElementsCollectionModel::loadingProgressRangeChanged,
+		m_progress_bar,
+		&QProgressBar::setRange);
+	connect(m_new_model,
+		&ElementsCollectionModel::loadingProgressValueChanged,
+		m_progress_bar,
+		&QProgressBar::setValue);
+	connect(m_new_model,
+		&ElementsCollectionModel::loadingFinished,
+		this,
+		&ElementsCollectionWidget::loadingFinished);
+
+		//No company collection in FaseCAD
+	m_new_model->loadCollections(true, false, true, project_list);
+	m_new_model->addPartsCollection();
+
+	if (m_macros_model) {
+		m_macros_model->deleteLater();
+	}
+	m_macros_model = new ElementsCollectionModel(m_macros_tree_view);
+	m_macros_tree_view->setModel(m_macros_model);
+	m_macros_model->loadMacrosCollection();
+}
+
+/**
+ * @brief ElementsCollectionWidget::loadingFinished
+ * Process when collection finished to be loaded
+ */
+void ElementsCollectionWidget::loadingFinished()
+{
+	if (m_new_model)
+	{
+		m_new_model->highlightUnusedElement();
+		m_tree_view->setModel(m_new_model);
+		m_index_at_context_menu = QModelIndex();
+		m_showed_index = QModelIndex();
+		if (m_model) delete m_model;
+		m_model = m_new_model;
+		m_new_model = nullptr;
+		expandFirstItems();
+	}
+	else {
+		m_model->highlightUnusedElement();
+	}
+
+	m_progress_bar->hide();
+	m_tree_view->setEnabled(true);
+
+	if (m_loading_timer) {
+		qInfo()<<"Elements collection finished to be loaded in" << m_loading_timer->elapsed()/1000.0 << "seconds";
+		m_loading_timer.reset();
+	}
+	else {
+		qInfo()<<"Elements collection finished to be loaded";
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::locationWasSaved
+	This method is connected with the signal savedToLocation
+	of Element editor (see ElementsCollectionWidget::editElement())
+	Update or add the item represented by location to m_model
+	@param location
+*/
+void ElementsCollectionWidget::locationWasSaved(
+		const ElementsLocation& location)
+{
+	//Because this method update an item in the model, location must
+	//represent an existing element (in file system of project)
+	if (!location.exist())
+		return;
+
+	QModelIndex index = m_model->indexFromLocation(location);
+
+	if (index.isValid()) {
+		QStandardItem *item = m_model->itemFromIndex(index);
+		if (item) {
+			static_cast<ElementCollectionItem *>(item)->clearData();
+			static_cast<ElementCollectionItem *>(item)->setUpData();
+		}
+	}
+	else {
+		m_model->addLocation(location);
+	}
+}
+
+/**
+	@brief ElementsCollectionWidget::search
+	Search every item (directory or element)
+	that match the text of m_search_field and display it,
+	other item who does not match text is hidden
+*/
+void ElementsCollectionWidget::search()
+{
+	QString text = m_search_field->text();
+		//Reset the search
+	if (text.isEmpty())
+	{
+		clearFlatResults();
+		QModelIndex current_index = m_tree_view->currentIndex();
+		m_tree_view->reset();
+
+		if (m_showed_index.isValid())
+		{
+			hideCollection(true);
+			showAndExpandItem(m_showed_index, true, true);
+		}
+		else
+			expandFirstItems();
+
+		//Expand the tree and scroll to the last selected index
+		if (current_index.isValid())
+		{
+			showAndExpandItem(current_index);
+			m_tree_view->setCurrentIndex(current_index);
+			m_tree_view->scrollTo(current_index);
+		}
+		return;
+	}
+
+		//start the search when text have at least 3 letters.
+	if (text.size() < 3) {
+		return;
+	}
+
+	QSettings settings;
+	if (settings.value(QStringLiteral("elementscollection/search-flat-list"),
+					   true).toBool())
+	{
+		showFlatResults(rankedSearch(text, m_showed_index));
+		return;
+	}
+
+		//Tree search: hide what does not match, expand what does.
+	clearFlatResults();
+	hideCollection(true);
+	const QStringList text_list = text.split("+", Qt::SkipEmptyParts);
+	QModelIndexList match_index;
+	for (const QString &txt : text_list) {
+		match_index << m_model->match(m_showed_index.isValid()
+						  ? m_model->index(0,0,m_showed_index)
+						  : m_model->index(0,0),
+						  Qt::UserRole+1,
+						  QVariant(txt),
+						  -1,
+						  Qt::MatchContains
+						  | Qt::MatchRecursive);
+	}
+
+	for (const QModelIndex &index : std::as_const(match_index))
+		showAndExpandItem(index);
+}
+
+/**
+	@brief ElementsCollectionWidget::rankedSearch
+	Run the collection search for @a text and return the element hits, best
+	first. The hits carry no model index, so a list that is not backed by the
+	collection model can show them too.
+	@param text : search text, "+" separating terms
+	@param within : restrict the search to this item's children, or the
+	whole collection when invalid
+	@return ranked hits, best first
+*/
+QVector<ElementSearchHit> ElementsCollectionWidget::rankedSearch(
+		const QString &text,
+		const QModelIndex &within)
+{
+	QVector<ElementSearchHit> hits;
+	if (!m_model || text.size() < 3) {
+		return hits;
+	}
+
+	const QStringList terms = text.split("+", Qt::SkipEmptyParts);
+	QModelIndexList matches;
+	for (const QString &term : terms) {
+		matches << m_model->match(within.isValid()
+					  ? m_model->index(0, 0, within)
+					  : m_model->index(0, 0),
+					  Qt::UserRole+1,
+					  QVariant(term),
+					  -1,
+					  Qt::MatchContains
+					  | Qt::MatchRecursive);
+	}
+
+	const QString needle = terms.value(0).toLower();
+	QVector<QPair<int, ElementSearchHit>> scored;
+	QSet<QString> seen;
+
+	for (const QModelIndex &index : std::as_const(matches))
+	{
+		ElementCollectionItem *eci = elementCollectionItemForIndex(index);
+		if (!(eci && eci->isElement())) {
+			continue;
+		}
+			//The list places symbols alone: a part is found in its tree
+		if (eci->type() == PartsCollectionItem::Type) {
+			continue;
+		}
+		const QString path = eci->collectionPath();
+			//match() is run once per "+"-separated term, so the same element
+			//can arrive several times.
+		if (path.isEmpty() || seen.contains(path)) {
+			continue;
+		}
+		seen.insert(path);
+
+		ElementSearchHit hit;
+		hit.path = path;
+		hit.name = index.data(Qt::DisplayRole).toString();
+		hit.icon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
+			//Where it lives, so two similarly-named symbols are tellable apart
+		QStringList parts;
+		for (QModelIndex p = index.parent(); p.isValid(); p = p.parent()) {
+			parts.prepend(p.data(Qt::DisplayRole).toString());
+		}
+		hit.folder = parts.join(QStringLiteral(" / "));
+
+		const QString hay = index.data(Qt::UserRole + 1).toString().toLower();
+		scored.append({rankMatch(needle, hit.name, hay), hit});
+	}
+
+	std::stable_sort(scored.begin(), scored.end(),
+			 [](const QPair<int, ElementSearchHit> &a,
+			    const QPair<int, ElementSearchHit> &b) {
+				 return a.first > b.first;
+			 });
+	hits.reserve(scored.size());
+	for (const auto &p : std::as_const(scored)) {
+		hits.append(p.second);
+	}
+	return hits;
+}
+
+/**
+	@brief ElementsCollectionWidget::rankMatch
+	Score a hit so the list can be ordered by how well it matches.
+
+	The tree search treats every hit equally, which is fine when they stay in
+	place but useless in a ranked list: typing "diode" should not put an
+	element whose *description* mentions diodes above one actually called
+	"Diode". Name beats element-info field, earlier beats later, shorter beats
+	longer.
+	@param needle : lower-cased search text
+	@param name : the element's display name
+	@param haystack : the full indexed string (name + every info field)
+	@return a score, higher is better
+*/
+int ElementsCollectionWidget::rankMatch(const QString &needle,
+					const QString &name,
+					const QString &haystack)
+{
+	const QString n = name.toLower();
+	int score = 0;
+
+	if (n == needle) {
+		score = 1000;
+	} else if (n.startsWith(needle)) {
+		score = 800;
+	} else if (n.contains(needle)) {
+		score = 600 - qMin(n.indexOf(needle), 99);
+	} else if (haystack.contains(needle)) {
+			//Matched only on an info field -- manufacturer, reference,
+			//description. Still a real hit, just a weaker one.
+		score = 300;
+	}
+		//Among equally-placed hits prefer the shorter name: "Diode" over
+		//"Diode Zener bidirectional".
+	return score - qMin(n.size(), 99);
+}
+
+/**
+	@brief ElementsCollectionWidget::showFlatResults
+	Replace the tree with a flat list of @a hits, in the order given.
+	@param hits : from rankedSearch()
+*/
+void ElementsCollectionWidget::showFlatResults(const QVector<ElementSearchHit> &hits)
+{
+	m_search_model->clear();
+
+	for (const ElementSearchHit &hit : hits)
+	{
+		auto *item = new QStandardItem(hit.icon, hit.name);
+		item->setEditable(false);
+		item->setToolTip(hit.folder);
+		item->setData(hit.path, Qt::UserRole + 2);
+		m_search_model->appendRow(item);
+	}
+
+	m_tab_widget->hide();
+	m_search_results->show();
+}
+
+/**
+	@brief ElementsCollectionWidget::clearFlatResults
+	Put the tree back when the search field is emptied.
+*/
+void ElementsCollectionWidget::clearFlatResults()
+{
+	m_search_model->clear();
+	m_search_results->hide();
+	m_tab_widget->show();
+}
+
+/**
+	@brief ElementsCollectionWidget::hideCollection
+	Hide all collection displayed in this tree
+	@param hide- true = hide , false = visible
+*/
+void ElementsCollectionWidget::hideCollection(bool hide)
+{
+	for (int i=0 ; i <m_model->rowCount() ; i++)
+		hideItem(hide, m_model->index(i, 0), true);
+}
+
+/**
+	@brief ElementsCollectionWidget::hideItem
+	Hide the item index. If recursive is true,
+	hide all subchilds of index
+	@param hide : - true = hide , false = visible
+	@param index : - index to hide
+	@param recursive : - true = apply to child , false = only for index
+*/
+void ElementsCollectionWidget::hideItem(bool hide,
+					const QModelIndex &index,
+					bool recursive)
+{
+	m_tree_view->setRowHidden(index.row(), index.parent(), hide);
+
+	if (recursive)
+		for (int i=0 ; i<m_model->rowCount(index) ; i++)
+			hideItem(hide, m_model->index(i, 0, index), recursive);
+}
+
+/**
+	@brief ElementsCollectionWidget::showAndExpandItem
+	Show the item index and expand it.
+	If parent is true, ensure parents of index is show and expanded
+	If child is true, ensure all childs of index is show and expended
+	@param index- index to show
+	@param parent- Apply to parent
+	@param child- Apply to all childs
+*/
+void ElementsCollectionWidget::showAndExpandItem(const QModelIndex &index,
+						 bool parent,
+						 bool child)
+{
+	if (index.isValid()) {
+		if (parent)
+			showAndExpandItem(index.parent(), parent);
+
+		hideItem(false, index, child);
+		m_tree_view->expand(index);
+	}
+}
+
+/**
+ * @brief ElementsCollectionWidget::elementCollectionItemForIndex
+ * @param index
+ * @return The internal pointer of index casted to ElementCollectionItem;
+ */
+ElementCollectionItem *ElementsCollectionWidget::elementCollectionItemForIndex(const QModelIndex &index)
+{
+	if (!index.isValid()) return nullptr;
+
+	if (m_macros_model && index.model() == m_macros_model) {
+		return static_cast<ElementCollectionItem *>(m_macros_model->itemFromIndex(index));
+	}
+
+	if (m_model && index.model() == m_model) {
+		return static_cast<ElementCollectionItem *>(m_model->itemFromIndex(index));
+	}
+
+	return nullptr;
+}

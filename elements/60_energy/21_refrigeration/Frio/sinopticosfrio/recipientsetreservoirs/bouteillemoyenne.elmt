@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="25" hotspot_y="15">
+    <uuid uuid="{6e7a0993-8097-e840-5d2a-a9666eb5290c}"/>
+    <names>
+        <name lang="ar">قارورة متوسطة</name>
+        <name lang="ca">Ampolla mitjana</name>
+        <name lang="cs">Střední láhev</name>
+        <name lang="da">Mellemstor flaske</name>
+        <name lang="de">Mittlere Flasche</name>
+        <name lang="el">Μέτρια φιάλη</name>
+        <name lang="en">Average bottle</name>
+        <name lang="es">Botella mediana</name>
+        <name lang="fi">Keskikokoinen pullo</name>
+        <name lang="fr">Bouteille moyenne</name>
+        <name lang="hr">Srednja boca</name>
+        <name lang="hu">Közepes palack</name>
+        <name lang="it">Bottiglia media</name>
+        <name lang="ja">中ボンベ</name>
+        <name lang="ko">중형 용기</name>
+        <name lang="mn">Дунд сав</name>
+        <name lang="nb">Middels flaske</name>
+        <name lang="nl">Middel tank</name>
+        <name lang="nl_BE">Middelgrote fles</name>
+        <name lang="pl">Średnia butla</name>
+        <name lang="pt">Garrafa média</name>
+        <name lang="pt_BR">Average bottle</name>
+        <name lang="ro">Butelie medie</name>
+        <name lang="ru">Средний ресивер</name>
+        <name lang="sk">Stredná fľaša</name>
+        <name lang="sl">Srednja jeklenka</name>
+        <name lang="sr">Средња боца</name>
+        <name lang="sv">Medelstor flaska</name>
+        <name lang="tr">Orta tüp</name>
+        <name lang="uk">Середній балон</name>
+        <name lang="zh">中号储液瓶</name>
+    </names>
+    <informations>Rotation possible</informations>
+    <description>
+        <dynamic_text x="-24" y="-29" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b4e4c4a7-5fcc-4c03-94c1-f2cd7fd36db6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-12" y1="-7" x2="12" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="7" x2="12" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="10" y="-7" width="5" height="14" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15" y="-7" width="5" height="14" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1a68261e-e038-4840-9158-4e10340ed4cf}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{c950adc9-9e9a-4dab-9f0a-11e4da93dbff}" name="" x="10" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{05682458-e522-41f1-9e96-d93a3bf076de}" name="" x="14" y="4" orientation="e" type="Generic"/>
+        <terminal uuid="{0fc7ee22-ba4a-4b4e-af0e-33d53bafadfa}" name="" x="0" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{7820b63d-2c6b-430f-8b58-d915b38ec718}" name="" x="0" y="7" orientation="s" type="Generic"/>
+        <terminal uuid="{e6222579-d75f-4327-981c-da9767ba9e5b}" name="" x="14" y="-4" orientation="e" type="Generic"/>
+        <terminal uuid="{895be615-1bce-45d1-ad13-9e97e2d1b388}" name="" x="-10" y="-7" orientation="n" type="Generic"/>
+        <terminal uuid="{0ef5136a-3110-4668-9819-33aa5ac22875}" name="" x="-10" y="7" orientation="s" type="Generic"/>
+        <terminal uuid="{ec2c21cb-949f-45d5-9eef-0c2f4f0a3670}" name="" x="10" y="7" orientation="s" type="Generic"/>
+        <terminal uuid="{307f8705-0837-493a-86c2-58502f1c7d20}" name="" x="15" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

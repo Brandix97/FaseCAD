@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="27" hotspot_y="9">
+    <uuid uuid="{53054600-4758-0fff-e507-9068dee04a6b}"/>
+    <names>
+        <name lang="ar">خرج ECS</name>
+        <name lang="ca">sortida</name>
+        <name lang="cs">Východ ECS</name>
+        <name lang="da">produktion</name>
+        <name lang="de">Ausgang</name>
+        <name lang="el">παραγωγή</name>
+        <name lang="en">output</name>
+        <name lang="es">Salida ECS</name>
+        <name lang="fi">lähtö</name>
+        <name lang="fr">sortie ECS</name>
+        <name lang="hr">izlaz</name>
+        <name lang="hu">Kimenet</name>
+        <name lang="it">Uscita acqua calda sanit.</name>
+        <name lang="ja">出力</name>
+        <name lang="ko">출력</name>
+        <name lang="mn">гаралт</name>
+        <name lang="nb">produksjon</name>
+        <name lang="nl">Afvoer</name>
+        <name lang="nl_BE">uitgang</name>
+        <name lang="pl">Przyłącze CWU</name>
+        <name lang="pt">saída</name>
+        <name lang="pt_BR">Saída</name>
+        <name lang="ro">ieșire</name>
+        <name lang="ru">вывод</name>
+        <name lang="sk">výstup</name>
+        <name lang="sl">izhod</name>
+        <name lang="sr">излаз</name>
+        <name lang="sv">utgång</name>
+        <name lang="tr">çıktı</name>
+        <name lang="uk">вихід</name>
+        <name lang="zh">生活热水出口</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="4" y1="0" x2="12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="-27.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cf61e9ee-4111-4100-9368-1ed85f7a4381}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-2" y1="0" x2="4" y2="-5" x3="4" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="ECS" x="-16" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{5c03c9e3-6c17-4766-8156-1b734b687070}" name="" x="12" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

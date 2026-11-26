@@ -1,0 +1,57 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{0e61ad43-d339-5414-bd4b-1e969ba6b760}"/>
+    <names>
+        <name lang="ar">مقبس ثلاثي 16 A</name>
+        <name lang="ca">Presa Tri 16 A</name>
+        <name lang="cs">Zásuvka 3f+PEN 16A</name>
+        <name lang="da">Stikdåse trefaset 16 A</name>
+        <name lang="de">Steckdose Drehstrom 16 A</name>
+        <name lang="el">Πρίζα τριφασική 16 A</name>
+        <name lang="en">Three-phase socket 16 A</name>
+        <name lang="es">Toma trifásica 16 A</name>
+        <name lang="fr">Prise Tri 16 A</name>
+        <name lang="pl">Gniazdo wtyczkowe czterobiegunowe 3P+E</name>
+        <name lang="pt_BR">Tomada trifásica 16 A</name>
+        <name lang="zh">三相16A插座</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="29" y="-44" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{35b6db7e-fcb5-4418-a098-11966e4e8ebc}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>16</text>
+        </dynamic_text>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{a43c04b7-bc50-4b9a-a731-8b3b036d4b55}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="30" y="-160" width="60" height="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="56" y="-148" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="41" y="-134" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="71" y="-134" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="54" y="-118" width="12" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-170" x2="60" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-170" x2="80" y2="-153" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="34" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{48cfbcb3-1b8b-4859-93f1-4e1e1942acc0}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="36" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{16919f30-1144-444d-b193-1ad9280a79c2}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="39" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{1d9caa4b-93b3-48f6-ba58-701a417080d9}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Prise 3 P + T 16 A</text>
+        </dynamic_text>
+        <line x1="40" y1="-170" x2="40" y2="-152" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8bdada1d-67f4-4a89-b907-5901f1531fc9}" name="" x="80" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{5c24ae76-bfc5-4ccd-8e2f-a3c22fa768ae}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{cf25aa71-ef28-4ddb-bdc9-11d33fdea3a2}" name="" x="60" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{f1d8ee80-c359-4741-937a-aab7c32737ce}" name="" x="40" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

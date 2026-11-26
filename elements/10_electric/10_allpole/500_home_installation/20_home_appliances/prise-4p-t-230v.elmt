@@ -1,0 +1,64 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="210" hotspot_x="14" hotspot_y="201">
+    <uuid uuid="{1cef217b-a98a-357f-e8d5-cc2d3c9a7566}"/>
+    <names>
+        <name lang="ar">مقبس 3 P+ N+ T 230 V</name>
+        <name lang="ca">Presa 3 P+ N+ T 230 V</name>
+        <name lang="cs">Zásuvka 3f+N+PE 230 V</name>
+        <name lang="da">Stikdåse 3 P+ N+ T 230 V</name>
+        <name lang="de">Steckdose 3 P+ N+ T 230 V</name>
+        <name lang="el">Πρίζα 3 P+ N+ T 230 V</name>
+        <name lang="en">Socket 3 P+ N+ E 230 V</name>
+        <name lang="es">Toma de corriente 3P+N+T 230 V</name>
+        <name lang="fr">Prise 3 P+ N+ T 230 V</name>
+        <name lang="pl">Gniazdo wtyczkowe pięciobiegunowe 3P+N+E</name>
+        <name lang="pt_BR">Tomada 3 P+ N+ T 230 V</name>
+        <name lang="zh">4P+T 230V插座</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{e4e85cee-07ad-48cd-a0c5-2792b2f3648b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>1000</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{89a690fd-3db2-49eb-998b-c57cc35bc5d1}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="30" y="-160" width="60" height="60" start="278" angle="344" style="line-style:normal;line-weight:normal;filling:none;color:blue" antialias="true"/>
+        <arc x="56" y="-104" width="8" height="8" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:blue" antialias="true"/>
+        <ellipse x="32.5" y="-157.5" width="55" height="55" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <ellipse x="55" y="-120" width="10" height="10" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="65" y="-146" width="8" height="8" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="42" y="-128" width="8" height="8" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="70" y="-128" width="8" height="8" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="47" y="-146" width="8" height="8" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-28.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{958b6e3f-bf64-4583-8f6c-fba8413f5b83}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="41" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{b857e30d-05aa-49a8-9315-c4373755cb5a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="42" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{8782609e-7299-4ccd-ac95-558cde0c3c4f}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Prise 3 P + N +T 230 V</text>
+        </dynamic_text>
+        <line x1="50" y1="-190" x2="50" y2="-158" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-190" x2="70" y2="-158" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-190" x2="30" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-170" x2="44" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-190" x2="90" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-170" x2="76" y2="-156" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{65d86c92-90df-46be-9fea-6d2a66d83a74}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{1e44dc8f-45a8-4f04-938e-195fd89dd9b9}" name="" x="50" y="-190" orientation="n" type="Generic"/>
+        <terminal uuid="{4e0e9e9d-d69b-4549-a2af-c252d40c26fb}" name="" x="90" y="-190" orientation="n" type="Generic"/>
+        <terminal uuid="{63a92906-ecda-4181-b79f-1fc36c9fba14}" name="" x="70" y="-190" orientation="n" type="Generic"/>
+        <terminal uuid="{2bcb5569-fd81-4ceb-94cc-c73d3cf80e90}" name="" x="30" y="-190" orientation="n" type="Generic"/>
+    </description>
+</definition>

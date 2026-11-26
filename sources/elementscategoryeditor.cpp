@@ -1,0 +1,204 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementscategoryeditor.h"
+
+#include "ElementsCollection/elementcollectionhandler.h"
+#include "NameList/ui/namelistwidget.h"
+#include "qet.h"
+#include "qetmessagebox.h"
+#include "qfilenameedit.h"
+
+#include <QDialogButtonBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QVBoxLayout>
+
+/**
+	@brief ElementsCategoryEditor::ElementsCategoryEditor
+	Constructor
+	@param location : location of the category to edit, or parent directory/category for the creation of a new category
+	@param edit : true = edit mode, false = creation mode
+	@param parent : parent widget
+*/
+ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location, bool edit, QWidget *parent) :
+	QDialog(parent),
+	m_edit_mode(edit),
+	m_location(location)
+{
+	setUpWidget();
+	QET::trackDialogGeometry(this);
+
+	if (m_location.isElement()) {
+		QET::QetMessageBox::warning(this,
+									tr("The item is not a category", "message box title"),
+									tr("The item requested is not a category. Abort.", "message box content"));
+		return;
+	}
+
+	if (!location.exist()) {
+		QET::QetMessageBox::warning(this,
+									tr("Non-existent category", "message box title"),
+									tr("The required category does not exist. Giving up.", "message box content"));
+		return;
+	}
+	
+	if (m_edit_mode) {
+		setWindowTitle(tr("Edit category", "window title"));
+		connect(m_buttons, &QDialogButtonBox::accepted, this, &ElementsCategoryEditor::acceptUpdate);
+		
+		m_names_list -> setNames(m_location.nameList());
+		m_file_line_edit -> setText(m_location.fileSystemPath());
+		m_file_line_edit -> setReadOnly(true);
+	} else {
+		setWindowTitle(tr("Add a new category", "window title"));
+		connect(m_buttons, &QDialogButtonBox::accepted, this, &ElementsCategoryEditor::acceptCreation);
+		
+		NamesList cat_names;
+		cat_names.addName(QLocale::system().name().left(2), tr("Name of the new category", "default name when creating a new category"));
+		m_names_list -> setNames(cat_names);
+	}
+
+		//Location is ReadOnly
+	if (!m_location.isWritable()) {
+		QET::QetMessageBox::warning(
+			this,
+			tr("Read only edition", "message box title"),
+			tr("You are not allowed to modify this category. Thus it will be edited read-only.", "message box content")
+		);
+		m_names_list -> setReadOnly(true);
+		m_file_line_edit -> setReadOnly(true);
+	}
+}
+
+/**
+	@brief ElementsCategoryEditor::~ElementsCategoryEditor
+	Destructor
+*/
+ElementsCategoryEditor::~ElementsCategoryEditor()
+{
+}
+
+/**
+	@brief ElementsCategoryEditor::createdLocation
+	@return the location of the created directory
+*/
+ElementsLocation ElementsCategoryEditor::createdLocation() const
+{
+	return m_created_location;
+}
+
+/**
+	@brief ElementsCategoryEditor::setUpWidget
+*/
+void ElementsCategoryEditor::setUpWidget()
+{
+	QVBoxLayout *editor_layout = new QVBoxLayout();
+	setLayout(editor_layout);
+	
+	m_names_list = new NameListWidget(this);
+	m_file_name = new QLabel(tr("Internal name : "));
+	m_file_line_edit = new QFileNameEdit();
+	
+	m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	connect(m_buttons, &QDialogButtonBox::rejected, this, &ElementsCategoryEditor::reject);
+	
+	QHBoxLayout *internal_name_layout = new QHBoxLayout();
+	internal_name_layout -> addWidget(m_file_name);
+	internal_name_layout -> addWidget(m_file_line_edit);
+	
+	editor_layout -> addLayout(internal_name_layout);
+	editor_layout -> addWidget(new QLabel(tr("You can add a name per language for the category.")));
+	editor_layout -> addWidget(m_names_list);
+	editor_layout -> addWidget(m_buttons);
+}
+
+/**
+	@brief ElementsCategoryEditor::acceptCreation
+	Valid the creation of the category
+*/
+void ElementsCategoryEditor::acceptCreation()
+{
+	if (!m_location.isWritable()) {
+		QDialog::accept();
+	}
+	
+		//there must be at least one name
+	if (m_names_list->isEmpty()) {
+		return;
+	}
+	
+		//User must enter a directory name
+	if (!m_file_line_edit -> isValid()) {
+		QET::QetMessageBox::critical(this,
+									 tr("Missing internal name", "message box title"),
+									 tr("You must provide an internal name.", "message box content"));
+		return;
+	}
+	QString dirname = m_file_line_edit -> text();
+	
+
+		//Check if dirname already exist.
+	ElementsLocation created_location = m_location;
+	created_location.addToPath(dirname);
+
+	if (created_location.exist()) {
+		QET::QetMessageBox::critical(this,
+									 tr("Internal name already used", "message box title"),
+									 tr("The internal name you chose is already used by another "
+										"category. Please choose another one.",
+										"message box content"));
+		return;
+	}
+
+	ElementCollectionHandler ech_;
+	NamesList nl = m_names_list->names();
+	m_created_location = ech_.createDir(m_location, dirname, nl);
+	if (m_created_location.isNull()) {
+		QET::QetMessageBox::critical(this,
+									 tr("Error", "message box title"),
+									 tr("Unable to create the category", "message box content"));
+		return;
+	}
+	
+	QDialog::accept();
+}
+
+/**
+	@brief ElementsCategoryEditor::acceptUpdate
+	Valid the update of the category
+*/
+void ElementsCategoryEditor::acceptUpdate()
+{
+	if (!m_location.isWritable()) {
+		QDialog::accept();
+	}
+	
+		//There must be at least one name
+	if (m_names_list->isEmpty()) {
+		return;
+	}
+	
+	ElementCollectionHandler ech;
+
+	if (ech.setNames(m_location, m_names_list->names())){
+		QDialog::accept();
+	}
+	else {
+		return;
+	}
+}

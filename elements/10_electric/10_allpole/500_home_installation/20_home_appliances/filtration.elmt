@@ -1,0 +1,86 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{6291b25f-dc33-9ca5-3c20-8218485a38cf}"/>
+    <names>
+        <name lang="ar">ترشيح</name>
+        <name lang="ca">Filtració</name>
+        <name lang="cs">Filtrace</name>
+        <name lang="da">Filtrering</name>
+        <name lang="de">Filter</name>
+        <name lang="el">Φίλτρανση</name>
+        <name lang="en">Filtration</name>
+        <name lang="es">Filtración</name>
+        <name lang="fi">Suodatus</name>
+        <name lang="fr">Filtration</name>
+        <name lang="hr">Filtracija</name>
+        <name lang="hu">Szűrés</name>
+        <name lang="it">Filtrazione</name>
+        <name lang="ja">ろ過</name>
+        <name lang="ko">여과</name>
+        <name lang="mn">Шүүлт</name>
+        <name lang="nb">Filtrering</name>
+        <name lang="nl">Filtratie</name>
+        <name lang="nl_BE">Filtering</name>
+        <name lang="pl">Filtracja</name>
+        <name lang="pt">Filtragem</name>
+        <name lang="pt_BR">Filtração</name>
+        <name lang="ro">Filtrare</name>
+        <name lang="ru">Фильтрация</name>
+        <name lang="sk">Filtrácia</name>
+        <name lang="sl">Filtracija</name>
+        <name lang="sr">Филтрација</name>
+        <name lang="sv">Filtrering</name>
+        <name lang="tr">Filtrasyon</name>
+        <name lang="uk">Фільтрація</name>
+        <name lang="zh">过滤</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Baboune41</informations>
+    <description>
+        <ellipse x="68" y="-172" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="49.25" y="-156.19" width="21.7" height="2.27" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-157" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="45.05" y="-155.44" width="29.4" height="9.07" style="line-style:normal;line-weight:none;filling:blue;color:black" antialias="false"/>
+        <rect x="45.05" y="-150.9" width="29.4" height="10.58" rx="0" ry="0" style="line-style:normal;line-weight:none;filling:blue;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="42.25" y="-150.9" width="2.8" height="9.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{d0c53e7b-f7fe-4253-af04-85dab3aa2c09}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <rect x="74.45" y="-150.9" width="2.8" height="9.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <arc x="45.05" y="-155.44" width="29.4" height="9.07" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="45.05" y1="-144.86" x2="45.05" y2="-140.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-63" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{e430b243-3ae3-4a03-9108-aeed27cec95f}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <line x1="45.05" y1="-140.33" x2="74.45" y2="-140.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="74.45" y1="-140.33" x2="74.45" y2="-144.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="46.45" y1="-140.33" x2="49.25" y2="-95" x3="70.25" y3="-95" x4="73.05" y4="-140.33" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="52.05" y="-140.33" width="15.4" height="45.33" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:bdiag;color:black" antialias="false"/>
+        <rect x="45.75" y="-140.33" width="28" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="59.75" y1="-140.33" x2="59.75" y2="-134.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="51.35" y1="-140.33" x2="51.35" y2="-134.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="68.15" y1="-140.33" x2="68.15" y2="-134.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="30" y="-28.5" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c0c90ee2-528f-4c15-86d6-0191263bd23b}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{75f1d387-8e9b-488d-ba81-7700c49e319d}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="48" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c48be967-2583-463c-8456-6e4de26ae9fc}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Fitration</text>
+        </dynamic_text>
+        <ellipse x="48" y="-172" width="4" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="50" y1="-170" x2="50" y2="-157" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{424196f6-7674-48ca-ab78-6610ebe31f7a}" name="" x="60" y="-95" orientation="s" type="Generic"/>
+        <terminal uuid="{34a9cb5c-b5b5-479a-8b07-2fd10ecb5227}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{2362a69a-8c7b-4d60-a628-086f57cb98be}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

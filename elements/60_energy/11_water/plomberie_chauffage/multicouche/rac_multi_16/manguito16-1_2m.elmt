@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="39" hotspot_y="15">
+    <uuid uuid="{a614d21e-fece-4e35-840b-b369ac37bfd4}"/>
+    <names>
+        <name lang="ca">Maneguet 16-1/2" F</name>
+        <name lang="es">Manguito16-1/2"M</name>
+        <name lang="pt_BR">Manguito16-1/2"M</name>
+        <name lang="zh">直通接头16-1/2英寸公</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-3" y1="5" x2="1" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.8" y="-5" width="4.2" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1" y="5" width="3" height="6" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="2" y="-5.78" width="8.06" height="11.85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.31" y1="6.07" x2="4.66" y2="-5.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5.33" y1="6.07" x2="7.35" y2="-5.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7.35" y1="6.07" x2="10" y2="-5.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-11" width="5" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-5" x2="1" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1" y="-11" width="3" height="6" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-5" width="2" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-29.9" y="-5" width="2.1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-27.8" y="-8" width="18.9" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.9" y="-11" width="2.1" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <dynamic_text x="-27" y="8" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d5e878bd-6767-479a-8565-14c55f4f927d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{36fe9b44-5ed4-4f44-bfcf-672ba01e67ed}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{70633dc5-c5f8-4325-af7c-bdb9157df9db}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="37" hotspot_y="10">
+    <uuid uuid="{7cb2e442-313f-db67-f926-ad820fed038e}"/>
+    <names>
+        <name lang="ar">منطقة شبه موصلة، عدة وصلات</name>
+        <name lang="ca">Regió de semiconductors, diverses connexions</name>
+        <name lang="cs">Polovodičová oblast s několika ohmickými připojeními</name>
+        <name lang="da">Halvlederområde, flere forbindelser</name>
+        <name lang="de">Halbleiterzone mit mehreren ohmschen
+Anschlüssen</name>
+        <name lang="el">Περιοχή ημιαγωγού, πολλαπλές συνδέσεις</name>
+        <name lang="en">Semiconductor region, several connections</name>
+        <name lang="es">Región semiconductora, varias conexiones</name>
+        <name lang="fi">Puolijohdealue, useita liitäntöjä</name>
+        <name lang="fr">Région de semiconducteur avec plusieurs
+connexions</name>
+        <name lang="hr">Poluvodičko područje, više spojeva</name>
+        <name lang="hu">Félvezető tartomány, több csatlakozás</name>
+        <name lang="it">Regione semiconduttrice, più connessioni</name>
+        <name lang="ja">半導体領域、複数の接続</name>
+        <name lang="ko">반도체 영역, 여러 연결</name>
+        <name lang="mn">Хагас дамжуулагчийн муж, хэд хэдэн холболт</name>
+        <name lang="nb">Halvlederområde, flere forbindelser</name>
+        <name lang="nl">Halfgeleidergebied, meerdere aansluitingen</name>
+        <name lang="nl_BE">Halfgeleidergebied, meerdere aansluitingen</name>
+        <name lang="pl">Obszar półprzewodnika, kilka połączeń</name>
+        <name lang="pt">Região semicondutora, várias conexões</name>
+        <name lang="pt_BR">Região semicondutora, várias conexões</name>
+        <name lang="ro">Regiune semiconductor, mai multe conexiuni</name>
+        <name lang="ru">Область полупроводника, несколько выводов</name>
+        <name lang="sk">Polovodičová oblasť, niekoľko pripojení</name>
+        <name lang="sl">Polprevodniško območje, več povezav</name>
+        <name lang="sr">Полупроводничка област, више веза</name>
+        <name lang="sv">Halvledarområde, flera anslutningar</name>
+        <name lang="tr">Yarı iletken bölgesi, birkaç bağlantı</name>
+        <name lang="uk">Напівпровідникова область, кілька з'єднань</name>
+        <name lang="zh">端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="32.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e550fa32-6d59-4dc0-8087-a3ae8909c2d5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="10" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Form 2 / Forme 2" x="-29" y="0" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+    </description>
+</definition>

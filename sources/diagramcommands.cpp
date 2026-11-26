@@ -1,0 +1,704 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "diagramcommands.h"
+#include "terminals/faseterminal.h"
+
+#include "autoNum/elementautonumschemecommand.h"
+#include "diagram.h"
+#include "itemgroups.h"
+#include "qetproject.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/dynamicelementtextitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/elementtextitemgroup.h"
+#include "qetgraphicsitem/independenttextitem.h"
+#include "qetgraphicsitem/qetshapeitem.h"
+#include "cabinet/cabinetitem.h"
+#include "qetinformation.h"
+#include "qgimanager.h"
+
+namespace {
+/// Is @p element among those the numberings in @p schemes are given to?
+bool pasted_schemes_has(const QMap<QString, QVector<Element *>> &schemes, const Element *element)
+{
+	for (auto it = schemes.constBegin() ; it != schemes.constEnd() ; ++it) {
+		if (it.value().contains(const_cast<Element *>(element))) {
+			return true;
+		}
+	}
+	return false;
+}
+} // namespace
+
+/**
+	@brief PasteDiagramCommand::PasteDiagramCommand
+	Constructor
+	@param dia : diagram where we must paste
+	@param c : content to paste
+	@param parent : parent undo command
+*/
+PasteDiagramCommand::PasteDiagramCommand( Diagram *dia, const DiagramContent &c, QUndoCommand *parent) :
+	QUndoCommand(parent),
+	content(c),
+	diagram(dia),
+	filter(DiagramContent::Elements|DiagramContent::TextFields|DiagramContent::Images|DiagramContent::ConductorsToMove | DiagramContent::Shapes | DiagramContent::Dimensions | DiagramContent::CabinetItems),
+	first_redo(true)
+{
+	setText(QObject::tr("paste %1", "undo caption - %1 is a sentence listing the content to paste").arg(content.sentence(filter)));
+	diagram -> qgiManager().manage(content.items(filter));
+}
+
+/**
+	@brief PasteDiagramCommand::~PasteDiagramCommand
+	Destructor
+*/
+PasteDiagramCommand::~PasteDiagramCommand()
+{
+	diagram -> qgiManager().release(content.items(filter));
+}
+
+/**
+	@brief PasteDiagramCommand::undo
+	Undo this command
+*/
+void PasteDiagramCommand::undo()
+{
+	diagram -> showMe();
+
+		//The numbering of the pasted elements, if any: gives the numbers
+		//back to the numberings they came from
+	QUndoCommand::undo();
+
+	foreach(QGraphicsItem *item, content.items(filter))
+		diagram->removeItem(item);
+}
+
+/**
+	@brief PasteDiagramCommand::redo
+	Redo this command
+*/
+void PasteDiagramCommand::redo()
+{
+	diagram -> showMe();
+	QSettings settings;
+
+	if (first_redo)
+	{
+		first_redo = false;
+
+		//Resolve a linked master/slave pair pasted together (bugtracker
+		//#607) before anything below renews their uuids: at this exact
+		//moment a pasted element's tmp_uuids_link still holds its
+		//source's original partner uuid, which still equals the
+		//not-yet-renewed uuid of that partner's own pasted copy if it
+		//was carried along in the same batch. Scoped to this batch only
+		//(not a project-wide search), so a pair pasted together links to
+		//each other and not to an original element left elsewhere that
+		//happens to still carry that same soon-to-be-replaced uuid. If
+		//only one half of a linked group was pasted, its link entry
+		//simply finds no match here and is dropped -- same "leave it
+		//unlinked" outcome as always.
+		const QList <Element *> elmts_list = content.m_elements;
+		for (Element *e : elmts_list) {
+			e->initLink(elmts_list);
+		}
+			//The terminals naming a strip, read before their labels are
+			//erased: they get the next free numbers of their strips below
+		const QList<FaseTerminal::Pasted> pasted_terminals =
+				FaseTerminal::pastedTerminals(elmts_list);
+
+		//The numberings the pasted elements follow, known now: the label
+		//erasing below empties their formula. Pasted elements get the next
+		//number of their numbering, as placed ones do, instead of the
+		//label of the element they were copied from.
+		const bool autonumber = m_autonumber && settings.value(
+					"diagramcommands/autonumber-pasted-elements", true).toBool();
+		QETProject *project = diagram->project();
+		QMap<QString, QVector<Element *>> pasted_schemes;
+		if (project && autonumber) {
+			pasted_schemes = ElementAutoNumSchemeCommand::pastedSchemes(project, elmts_list);
+		}
+
+		//make new uuid for every pasted conductor, because old uuid are
+		//the uuid of the copied conductor
+		const QList <Conductor *> all_pasted_conductors = content.conductors();
+		for (Conductor *c : all_pasted_conductors) {
+			c -> newUuid();
+		}
+		for (IndependentTextItem *t : std::as_const(content.m_text_fields)) {
+			t -> newUuid();
+		}
+		for (DiagramImageItem *i : std::as_const(content.m_images)) {
+			i -> newUuid();
+		}
+		for (QetShapeItem *s : std::as_const(content.m_shapes)) {
+			s -> newUuid();
+		}
+		for (CabinetItem *part : std::as_const(content.m_cabinet_items)) {
+			part -> newUuid();
+		}
+
+		//this is the first paste, we do some actions for the new element
+		for (Element *e : elmts_list)
+		{
+			//make new uuid, because old uuid are the uuid of the copied element
+			e -> newUuid();
+
+			// PLC slaves carry master-specific data (type, address,
+			// function, cross-ref, etc.) in their elementInformations.
+			// Always clear those on paste so the duplicate starts clean,
+			// regardless of the user's erase-label-on-copy preference.
+			// A slave pasted together with its master was relinked to the
+			// master's copy by initLink() above: that data is still right,
+			// and its texts show the master's label, so leave it alone.
+			const bool is_slave = (e->linkType() == Element::Slave);
+			if (is_slave && e->isFree()) {
+				DiagramContext dc = e->elementInformations();
+				dc.remove(QETInformation::ELMT_PLC_TYPE);
+				dc.remove(QETInformation::ELMT_PLC_ADDRESS);
+				dc.remove(QETInformation::ELMT_PLC_FUNCTION);
+				dc.remove(QETInformation::ELMT_PLC_COMMENT);
+				dc.remove(QETInformation::ELMT_PLC_CROSSREF);
+				dc.remove(QETInformation::ELMT_LABEL);
+				dc.remove(QETInformation::ELMT_PLC_TC);
+				dc.remove(QETInformation::ELMT_PLC_T1);
+				dc.remove(QETInformation::ELMT_PLC_T2);
+				dc.remove(QETInformation::ELMT_PLC_T3);
+				dc.remove(QETInformation::ELMT_PLC_T4);
+				dc.remove(QStringLiteral("xref"));
+
+				// Block alignment before setElementInformations so
+				// that elementInfoChanged() resolves texts without
+				// finishAlignment() shifting right/center-aligned items.
+				for (DynamicElementTextItem *deti : e->dynamicTextItems())
+					deti->m_block_alignment = true;
+				for (auto *group : e->textGroups())
+					group->blockAlignmentUpdate(true);
+
+				e->setElementInformations(dc);
+
+				for (DynamicElementTextItem *deti : e->dynamicTextItems())
+					deti->m_block_alignment = false;
+				for (auto *group : e->textGroups())
+					group->blockAlignmentUpdate(false);
+
+				// After setElementInformations, elementInfoChanged()
+				// resolves composite text with cleaned dc.  Clear
+				// all non-UserText items directly as a safety net.
+				for (DynamicElementTextItem *deti : e->dynamicTextItems()) {
+					if (deti->textFrom() != DynamicElementTextItem::UserText) {
+						deti->m_block_alignment = true;
+						deti->setPlainText(QString());
+						deti->m_block_alignment = false;
+					}
+				}
+				for (auto *group : e->textGroups()) {
+					for (DynamicElementTextItem *deti : group->texts()) {
+						if (deti->textFrom() != DynamicElementTextItem::UserText) {
+							deti->m_block_alignment = true;
+							deti->setPlainText(QString());
+							deti->m_block_alignment = false;
+						}
+					}
+				}
+			}
+
+			if (settings.value("diagramcommands/erase-label-on-copy", true).toBool())
+			{
+				bool chained = diagram && diagram->project() && diagram->project()->chainedReports();
+				if (!chained || !(e->linkType() & Element::AllReport)) {
+				//Reset the information about the label, the comment and location
+				DiagramContext dc = e->elementInformations();
+				dc.addValue("formula", "");
+				dc.addValue("label", "");
+				dc.addValue("comment", "");
+				dc.addValue("location", "");
+
+				// Block alignment during setElementInformations
+				// for non-slaves, same as Element::fromXml() (line 890-896).
+				if (!is_slave) {
+					for (DynamicElementTextItem *deti : e->dynamicTextItems())
+						deti->m_block_alignment = true;
+					for (auto *group : e->textGroups())
+						group->blockAlignmentUpdate(true);
+				}
+
+				e->setElementInformations(dc);
+
+				for (DynamicElementTextItem *deti : e->dynamicTextItems())
+					deti->m_block_alignment = false;
+				for (auto *group : e->textGroups())
+					group->blockAlignmentUpdate(false);
+				}
+				
+				//Reset the text of conductors, the same way the label/comment/
+				//location above are reset to "" rather than to some other
+				//value - "erase on copy" means erase, not "replace with the
+				//project's default new-conductor text" (which happens to
+				//default to a literal "_" character, unrelated to whether the
+				//user wanted this copy's old label kept or cleared; see
+				//issue #413).
+				const QList <Conductor *> conductors_list = content.m_conductors_to_move;
+				for (Conductor *c : conductors_list)
+				{
+					ConductorProperties cp = c -> properties();
+					cp.text = "";
+					c -> setProperties(cp);
+				}
+			}
+		}
+
+			//What the pasted elements keep of their numbering names a
+			//numbering of this project, or none (a paste from another
+			//project, or from a file written before the ids)
+		if (project) {
+			ElementAutoNumSchemeCommand::linkPasted(project, elmts_list);
+			if (autonumber)
+			{
+					//A formula which names no numbering of this project is
+					//not kept: it would stand for a numbering which does
+					//not exist here, with a label which is not its result.
+					//The label is what the erase preference made of it.
+				for (Element *e : elmts_list)
+				{
+					const DiagramContext &info = e->elementInformations();
+					if (e->linkType() == Element::Slave || (e->linkType() & Element::AllReport)
+							|| info.value(QETInformation::ELMT_FORMULA).toString().isEmpty()
+							|| !ElementAutoNumSchemeCommand::followedScheme(project, info).isEmpty()
+							|| pasted_schemes_has(pasted_schemes, e)) {
+						continue;
+					}
+					DiagramContext dc = info;
+					dc.addValue(QETInformation::ELMT_FORMULA, QString());
+					for (DynamicElementTextItem *deti : e->dynamicTextItems())
+						deti->m_block_alignment = true;
+					for (auto *group : e->textGroups())
+						group->blockAlignmentUpdate(true);
+					e->setElementInformations(dc);
+					for (DynamicElementTextItem *deti : e->dynamicTextItems())
+						deti->m_block_alignment = false;
+					for (auto *group : e->textGroups())
+						group->blockAlignmentUpdate(false);
+				}
+			}
+			if (!pasted_schemes.isEmpty()) {
+				ElementAutoNumSchemeCommand::numberPasted(project, pasted_schemes, this);
+			}
+			if (autonumber) {
+				FaseTerminal::numberPasted(project, pasted_terminals, this);
+			}
+		}
+
+			//Pasted groups become new groups: the members of one source
+			//group all get the same new uuid, never the source's, or the
+			//copy would join the original's group. After the elements got
+			//their own uuids: the database row is found by uuid, and before
+			//that it would have been the source element's row.
+		QHash<QUuid, QUuid> renewed_groups;
+		for (QGraphicsItem *item : content.items(DiagramContent::Elements
+												 | DiagramContent::TextFields
+												 | DiagramContent::Images
+												 | DiagramContent::Shapes))
+		{
+			const QUuid source_group = ItemGroups::groupOf(item);
+			if (source_group.isNull()) {
+				continue;
+			}
+			if (!renewed_groups.contains(source_group)) {
+				renewed_groups.insert(source_group, QUuid::createUuid());
+			}
+			diagram -> setItemGroup(item, renewed_groups.value(source_group));
+		}
+	}
+	else
+	{
+		const QList<QGraphicsItem *> qgis_list = content.items(filter);
+		for (QGraphicsItem *item : qgis_list) {
+			diagram->addItem(item);
+		}
+	}
+
+		//The numbering of the pasted elements, if any, on the first redo
+		//as well as on the next ones
+	QUndoCommand::redo();
+
+	const QList<QGraphicsItem *> qgis_list = content.items();
+	for (QGraphicsItem *qgi : qgis_list)
+		qgi -> setSelected(true);
+}
+
+/**
+	@brief CutDiagramCommand::CutDiagramCommand
+	Constructeur
+	@param dia Schema dont on coupe des elements et conducteurs
+	@param content Contenu coupe
+	@param parent QUndoCommand parent
+*/
+CutDiagramCommand::CutDiagramCommand(
+	Diagram *dia,
+	const DiagramContent &content,
+	QUndoCommand *parent
+) : 
+	DeleteQGraphicsItemCommand(dia, content, parent)
+{
+	setText(
+		QString(
+			QObject::tr(
+				"cut %1",
+				"undo caption - %1 is a sentence listing the content to cut"
+			).arg(content.sentence(DiagramContent::All))
+		)
+	);
+}
+
+/**
+	@brief CutDiagramCommand::~CutDiagramCommand
+	Destructeur
+*/
+CutDiagramCommand::~CutDiagramCommand()
+{
+}
+
+/**
+	@brief MoveConductorsTextsCommand::MoveConductorsTextsCommand
+	Constructeur
+	@param diagram Schema sur lequel on deplace des champs de texte
+	@param parent QUndoCommand parent
+*/
+MoveConductorsTextsCommand::MoveConductorsTextsCommand(
+	Diagram *diagram,
+	QUndoCommand *parent
+) :
+	QUndoCommand(parent),
+	diagram(diagram),
+	first_redo(true)
+{
+}
+
+/**
+	@brief MoveConductorsTextsCommand::~MoveConductorsTextsCommand
+	Destructeur
+*/
+MoveConductorsTextsCommand::~MoveConductorsTextsCommand()
+{
+}
+
+/**
+	@brief MoveConductorsTextsCommand::undo
+	annule le deplacement
+*/
+void MoveConductorsTextsCommand::undo()
+{
+	diagram -> showMe();
+	foreach(ConductorTextItem *cti, texts_to_move_.keys()) {
+		QPointF movement = texts_to_move_[cti].first;
+		bool was_already_moved = texts_to_move_[cti].second;
+		
+		cti -> forceMovedByUser(was_already_moved);
+		if (was_already_moved) {
+			cti -> setPos(cti -> pos() - movement);
+		}
+	}
+}
+
+/**
+	@brief MoveConductorsTextsCommand::redo
+	refait le deplacement
+*/
+void MoveConductorsTextsCommand::redo()
+{
+	diagram -> showMe();
+	if (first_redo) {
+		first_redo = false;
+	} else {
+		foreach(ConductorTextItem *cti, texts_to_move_.keys()) {
+			QPointF movement = texts_to_move_[cti].first;
+			
+			cti -> forceMovedByUser(true);
+			cti -> setPos(cti -> pos() + movement);
+		}
+	}
+}
+
+/**
+	@brief MoveConductorsTextsCommand::addTextMovement
+	Ajout un mouvement de champ de texte a cet objet
+	@param text_item Champ de texte deplace ;
+	si celui-ci est deja connu de l'objet d'annulation,
+	il sera ignore
+	@param old_pos Position du champ de texte avant le mouvement
+	@param new_pos Position du champ de texte apres le mouvement
+	@param already_moved true si le champ de texte etait deja a une position
+	personnalisee par l'utilisateur, false sinon
+*/
+void MoveConductorsTextsCommand::addTextMovement(ConductorTextItem *text_item,
+						 const QPointF &old_pos,
+						 const QPointF &new_pos,
+						 bool already_moved) {
+	// si le champ de texte est deja connu de l'objet d'annulation, il sera ignore
+	if (texts_to_move_.contains(text_item)) return;
+	
+	// on memorise le champ de texte,
+	//en l'associant au mouvement effectue et a son etat avant le deplacement
+	texts_to_move_.insert(text_item, qMakePair(new_pos - old_pos, already_moved));
+	
+	// met a jour la description de l'objet d'annulation
+	regenerateTextLabel();
+}
+
+/**
+	@brief MoveConductorsTextsCommand::regenerateTextLabel
+	Genere la description de l'objet d'annulation
+*/
+void MoveConductorsTextsCommand::regenerateTextLabel()
+{
+	QString moved_content_sentence = QET::ElementsAndConductorsSentence(0, 0, texts_to_move_.count());
+	
+	setText(
+		QString(
+			QObject::tr(
+				"move %1",
+				"undo caption - %1 is a sentence listing the moved content"
+			).arg(moved_content_sentence)
+		)
+	);
+}
+
+/**
+	@brief ChangeDiagramTextCommand::ChangeDiagramTextCommand
+	Constructeur
+	@param dti Champ de texte modifie
+	@param before texte avant
+	@param after texte apres
+	@param parent QUndoCommand parent
+*/
+ChangeDiagramTextCommand::ChangeDiagramTextCommand(
+	DiagramTextItem *dti,
+	const QString &before,
+	const QString &after,
+	QUndoCommand *parent
+) :
+	QUndoCommand(QObject::tr("modify text", "undo caption"), parent),
+	text_item(dti),
+	text_before(before),
+	text_after(after),
+	first_redo(true),
+	diagram(dti->diagram())
+{
+}
+
+/**
+	@brief ChangeDiagramTextCommand::~ChangeDiagramTextCommand
+	destructeur
+*/
+ChangeDiagramTextCommand::~ChangeDiagramTextCommand()
+{
+}
+
+/**
+	@brief ChangeDiagramTextCommand::undo
+	annule la modification de texte
+*/
+void ChangeDiagramTextCommand::undo()
+{
+	diagram -> showMe();
+	text_item -> setHtml(text_before);
+}
+
+/**
+	@brief ChangeDiagramTextCommand::redo
+*/
+void ChangeDiagramTextCommand::redo()
+{
+	diagram -> showMe();
+	text_item->setHtml(text_after);
+}
+
+/**
+	@brief ChangeConductorCommand::ChangeConductorCommand
+	Constructeur
+	@param c Conducteur modifie
+	@param old_p ancien profil du conducteur
+	@param new_p nouveau profil du conducteur
+	@param path_t Trajectoire du trajet modifie
+	@param parent QUndoCommand parent
+*/
+ChangeConductorCommand::ChangeConductorCommand(
+	Conductor *c,
+	const ConductorProfile &old_p,
+	const ConductorProfile &new_p,
+	Qt::Corner path_t,
+	QUndoCommand *parent
+) :
+	QUndoCommand(QObject::tr("modify a conductor", "undo caption"), parent),
+	conductor(c),
+	old_profile(old_p),
+	new_profile(new_p),
+	path_type(path_t),
+	first_redo(true),
+	diagram (c->diagram())
+{
+}
+
+/**
+	@brief ChangeConductorCommand::~ChangeConductorCommand
+	Destructeur
+*/
+ChangeConductorCommand::~ChangeConductorCommand()
+{
+}
+
+/**
+	@brief ChangeConductorCommand::undo
+	Annule la modification du conducteur
+*/
+void ChangeConductorCommand::undo()
+{
+	diagram -> showMe();
+	conductor -> setProfile(old_profile, path_type);
+	conductor -> textItem() -> setPos(text_pos_before_mov_);
+}
+
+/**
+	@brief ChangeConductorCommand::redo
+	Refait la modification du conducteur
+*/
+void ChangeConductorCommand::redo()
+{
+	diagram -> showMe();
+	if (first_redo) {
+		first_redo = false;
+	} else {
+		conductor -> setProfile(new_profile, path_type);
+		conductor -> textItem() -> setPos(text_pos_after_mov_);
+	}
+}
+
+/**
+	@brief ChangeConductorCommand::setConductorTextItemMove
+	Integre dans cet objet d'annulation le repositionnement du champ de texte
+	du conducteur
+	@param pos_before Position du texte avant la modification du conducteur
+	@param pos_after  Position du texte apres la modification du conducteur
+*/
+void ChangeConductorCommand::setConductorTextItemMove(const QPointF &pos_before, const QPointF &pos_after) {
+	text_pos_before_mov_ = pos_before;
+	text_pos_after_mov_  = pos_after;
+}
+
+/**
+	@brief ResetConductorCommand::ResetConductorCommand
+	@param cp
+	@param parent
+*/
+ResetConductorCommand::ResetConductorCommand(
+	const QHash<Conductor *, ConductorProfilesGroup> &cp,
+	QUndoCommand *parent
+) :
+	QUndoCommand(parent),
+	conductors_profiles(cp),
+	diagram(cp.keys().first()->diagram())
+{
+	setText(
+		QObject::tr(
+			"Reset %1",
+			"undo caption - %1 is a sentence listing the reset content"
+		).arg(QET::ElementsAndConductorsSentence(0, cp.count()))
+	);
+}
+
+/**
+	@brief ResetConductorCommand::~ResetConductorCommand
+*/
+ResetConductorCommand::~ResetConductorCommand()
+{
+}
+
+/**
+	@brief ResetConductorCommand::undo
+*/
+void ResetConductorCommand::undo()
+{
+	diagram -> showMe();
+	foreach(Conductor *c, conductors_profiles.keys()) {
+		c -> setProfiles(conductors_profiles[c]);
+	}
+}
+
+/**
+	@brief ResetConductorCommand::redo
+*/
+void ResetConductorCommand::redo()
+{
+	diagram -> showMe();
+	foreach(Conductor *c, conductors_profiles.keys()) {
+		c -> textItem() -> forceMovedByUser  (false);
+		c -> textItem() -> forceRotateByUser (false);
+		c -> setProfiles(ConductorProfilesGroup());
+	}
+}
+
+/**
+	@brief ChangeBorderCommand::ChangeBorderCommand
+	Constructeur
+	@param dia Schema modifie
+	@param old_bp Anciennes proprietes du cadre du schema
+	@param new_bp Nouvelles proprietes du cadre du schema
+	@param parent QUndoCommand parent
+*/
+ChangeBorderCommand::ChangeBorderCommand(Diagram *dia,
+					 const BorderProperties &old_bp,
+					 const BorderProperties &new_bp,
+					 QUndoCommand *parent) :
+	QUndoCommand(
+		QObject::tr("change the sheet size", "undo caption"),
+		parent),
+	diagram(dia),
+	old_properties(old_bp),
+	new_properties(new_bp)
+{
+}
+
+/**
+	@brief ChangeBorderCommand::~ChangeBorderCommand
+	Destructeur
+*/
+ChangeBorderCommand::~ChangeBorderCommand()
+{
+}
+
+/**
+	@brief ChangeBorderCommand::undo
+	Annule les changements apportes au schema
+*/
+void ChangeBorderCommand::undo()
+{
+	diagram -> showMe();
+	diagram -> border_and_titleblock.importBorder(old_properties);
+}
+
+/**
+	@brief ChangeBorderCommand::redo
+	Refait les changements apportes au schema
+*/
+void ChangeBorderCommand::redo()
+{
+	diagram -> showMe();
+	diagram -> border_and_titleblock.importBorder(new_properties);
+}

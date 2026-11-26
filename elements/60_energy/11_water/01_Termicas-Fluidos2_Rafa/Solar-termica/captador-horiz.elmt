@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="70" hotspot_x="60" hotspot_y="31">
+    <uuid uuid="{03c4cdae-42dc-d66f-c90a-0959a02ebabe}"/>
+    <names>
+        <name lang="ar">لاقط شمسي أفقي</name>
+        <name lang="ca">Captador solar horitzontal</name>
+        <name lang="cs">Horizontální solární kolektor</name>
+        <name lang="da">Horisontal solfanger</name>
+        <name lang="de">Horizontaler Solarkollektor</name>
+        <name lang="el">Οριζόντιος ηλιακός συλλέκτης</name>
+        <name lang="en">Horizontal solar capturator</name>
+        <name lang="es">Captador solar horiz</name>
+        <name lang="fi">Vaakasuora aurinkokeräin</name>
+        <name lang="fr">Capteur solaire Horizontal</name>
+        <name lang="hr">Horizontalni solarni kolektor</name>
+        <name lang="hu">Vízszintes napkollektor</name>
+        <name lang="it">Collettore solare orizzontale</name>
+        <name lang="ja">水平型太陽熱集熱器</name>
+        <name lang="ko">수평 태양열 집열기</name>
+        <name lang="mn">Хэвтээ нарны коллектор</name>
+        <name lang="nb">Horisontal solfanger</name>
+        <name lang="nl">Horizontale zonnecollector</name>
+        <name lang="nl_BE">Horizontale zonnecollector</name>
+        <name lang="pl">Kolektor słoneczny poziomy</name>
+        <name lang="pt">Coletor solar horizontal</name>
+        <name lang="pt_BR">Horizontal solar capturatou</name>
+        <name lang="ro">Captator solar orizontal</name>
+        <name lang="ru">Горизонтальный солнечный коллектор</name>
+        <name lang="sk">Horizontálny solárny kolektor</name>
+        <name lang="sl">Vodoravni sončni kolektor</name>
+        <name lang="sr">Хоризонтални соларни колектор</name>
+        <name lang="sv">Horisontell solfångare</name>
+        <name lang="tr">Yatay güneş kolektörü</name>
+        <name lang="uk">Горизонтальний сонячний колектор</name>
+        <name lang="zh">水平集热器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-45" y="-22.64" width="89" height="53.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <line x1="-18.67" y1="27.42" x2="-18.67" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-12.5" y1="27.42" x2="-12.5" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24.85" y1="27.42" x2="-24.85" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-37.2" y1="27.42" x2="-37.2" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-31" y1="27.42" x2="-31" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7.56" y1="27.42" x2="-7.56" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-49.3" y="-22.46" width="4.08" height="4.33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.25" y1="27.42" x2="18.25" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.12" y1="27.42" x2="-2.12" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="28.44" y1="27.42" x2="28.44" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-49.3" y="26.8" width="4.08" height="3.92" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="44.07" y="27" width="4.08" height="3.92" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="37.27" y1="27.42" x2="37.27" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="8.07" y1="27.42" x2="8.07" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-42.06" y="-20.8" width="83.22" height="49.69" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="2.63" y1="27.42" x2="2.63" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="33.2" y1="27.42" x2="33.2" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="12.82" y1="27.42" x2="12.82" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="27.42" x2="23" y2="-18.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="44.07" y="-21.41" width="4.08" height="4.33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14.91" y="-38.1" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5e95eb4a-1a62-4dc1-a675-9dd89f163e06}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{97ef361d-7b48-401c-9944-b86d14c98d74}" name="" x="-49" y="29" orientation="w" type="Generic"/>
+        <terminal uuid="{9471492e-32a9-48a6-9083-32299646938c}" name="" x="48" y="29" orientation="e" type="Generic"/>
+        <terminal uuid="{4333f71c-e83e-4f3b-bfaa-6e29f5456e8b}" name="" x="-49" y="-21" orientation="w" type="Generic"/>
+        <terminal uuid="{d3f69013-5555-46e3-ad04-9443469fb773}" name="" x="48" y="-19" orientation="e" type="Generic"/>
+    </description>
+</definition>

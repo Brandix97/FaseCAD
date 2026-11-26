@@ -1,0 +1,78 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="120" hotspot_x="58" hotspot_y="61">
+    <uuid uuid="{13e3d3b0-d1f2-3c7c-8dc7-791c75050eff}"/>
+    <names>
+        <name lang="ar">NE555</name>
+        <name lang="ca">NE555</name>
+        <name lang="cs">NE555</name>
+        <name lang="da">NE555</name>
+        <name lang="de">NE555</name>
+        <name lang="el">NE555</name>
+        <name lang="en">NE555</name>
+        <name lang="es">NE555</name>
+        <name lang="fi">NE555</name>
+        <name lang="hr">NE555</name>
+        <name lang="hu">NE555</name>
+        <name lang="it">NE555</name>
+        <name lang="ja">NE555</name>
+        <name lang="ko">NE555</name>
+        <name lang="mn">NE555</name>
+        <name lang="nb">NE555</name>
+        <name lang="nl">NE555</name>
+        <name lang="nl_BE">NE555</name>
+        <name lang="pl">Układ scalony NE555</name>
+        <name lang="pt">NE555</name>
+        <name lang="pt_BR">Temporizador NE555</name>
+        <name lang="ro">NE555</name>
+        <name lang="ru">NE555</name>
+        <name lang="sk">NE555</name>
+        <name lang="sl">NE555</name>
+        <name lang="sr">NE555</name>
+        <name lang="sv">NE555</name>
+        <name lang="tr">NE555</name>
+        <name lang="uk">NE555</name>
+        <name lang="zh">NE555定时器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="20" y1="-41.65" x2="20" y2="-50.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="10" x2="-41" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="30" x2="-41" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-10" x2="-41" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-30" x2="-41" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-41.65" x2="-20" y2="-50.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="0" x2="49" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="48.49" x2="0" y2="41.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-49" y="47.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e033f74f-b97d-473a-b050-3c9efec7fb2a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <rect x="-40" y="-41" width="80" height="82" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="TRIG" x="-39" y="32" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="THRES" x="-39" y="12" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="DISCH" x="-39" y="-8" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="RESET" x="-39" y="-28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="CONT" x="-23" y="-35" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Vcc" x="10" y="-35" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="OUT" x="26" y="1" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="8" x="15" y="-43" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="42" y="-2" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="-4" y="47" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="GND" x="-6" y="39" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="5" x="-25" y="-43" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="-45" y="-31" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="7" x="-45" y="-12" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="6" x="-45" y="8" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="-45" y="28" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-10" y="-7.5" z="27" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ec9d0541-62e9-4972-a474-ad59ad807f39}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5dbc77df-dcf7-4dbc-80be-5dd9f445c401}" name="" x="-20" y="-54" orientation="n" type="Generic"/>
+        <terminal uuid="{d87cd3a4-9c7d-4bca-bd58-e1b1b4396473}" name="" x="54" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{efb07801-afc7-4482-843b-1652e8c0b1e7}" name="" x="0" y="52" orientation="s" type="Generic"/>
+        <terminal uuid="{26843a60-5ee2-4abf-8066-724d654e3646}" name="" x="-51" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{fa7906b6-3e7b-4b5e-8987-fb2bdaa34eef}" name="" x="-51" y="30" orientation="w" type="Generic"/>
+        <terminal uuid="{1563dca0-f9f3-4325-95b7-7e53ae46bcd8}" name="" x="-51" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{3abe99a1-ce52-459f-9a50-e207d504bbbc}" name="" x="-51" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{2866f6a7-69a5-4c40-a3c7-845fd2777737}" name="" x="20" y="-54" orientation="n" type="Generic"/>
+    </description>
+</definition>

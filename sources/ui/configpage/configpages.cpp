@@ -1,0 +1,726 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "configpages.h"
+
+#include "../../NameList/nameslist.h"
+#include "../../bordertitleblock.h"
+#include "../../exportpropertieswidget.h"
+#include "../../properties/reportproperties.h"
+#include "../../qetapp.h"
+#include "../../qeticons.h"
+#include "../../qetproject.h"
+#include "../borderpropertieswidget.h"
+#include "../conductorpropertieswidget.h"
+#include "../potentialtypeswidget.h"
+#include "../reportpropertiewidget.h"
+#include "../titleblockpropertieswidget.h"
+#include "../xrefpropertieswidget.h"
+#include "guidespropertieswidget.h"
+#include "../autoNum/numerotationcontext.h"
+#include "../autoNum/ui/selectautonumw.h"
+#include <QFont>
+#include <QFontDialog>
+#include <QSizePolicy>
+#include <utility>
+
+/**
+	@brief NewDiagramPage::NewDiagramPage
+	Default constructor
+	@param project : QETProject
+	@param parent : QWidget
+	@param ppd : ProjectPropertiesDialog
+*/
+NewDiagramPage::NewDiagramPage(QETProject *project,
+			       QWidget *parent,
+			       ProjectPropertiesDialog *ppd) :
+	ConfigPage (parent),
+	ppd_ (ppd),
+	m_project  (project)
+{
+	//By default we set the global default properties
+
+	// dimensions by default for diagram
+	bpw = new BorderPropertiesWidget(BorderProperties::defaultProperties());
+	// default titleblock properties
+	QList <TitleBlockTemplatesCollection *> c;
+	c << QETApp::commonTitleBlockTemplatesCollection()
+	  << QETApp::companyTitleBlockTemplatesCollection()
+	  << QETApp::customTitleBlockTemplatesCollection();
+	if (m_project) c << m_project->embeddedTitleBlockTemplatesCollection();
+	ipw = new TitleBlockPropertiesWidget(
+				c,
+				TitleBlockProperties::defaultProperties(),
+				true,
+				project,
+				parent);
+	// default conductor properties
+	m_cpw = new ConductorPropertiesWidget(ConductorProperties::defaultProperties());
+	m_cpw->setHiddenAvailableAutonum(true);
+	// default properties of report label
+	rpw = new ReportPropertieWidget(ReportProperties::defaultProperties());
+	// default properties of xref
+	xrefpw = new XRefPropertiesWidget(XRefProperties::defaultProperties(), this);
+	// default guides properties
+	m_gpw = new GuidesPropertiesWidget(this);
+
+	QSettings settings;
+	QList<Diagram::Guide> loaded_guides;
+	if (m_project) {
+		for (const auto &pg : m_project->defaultGuides()) {
+			Diagram::Guide g;
+			g.orientation = static_cast<Diagram::Guide::Orientation>(pg.orientation);
+			g.position = pg.position;
+			g.color = pg.color;
+			loaded_guides.append(g);
+		}
+	} else {
+		QSettings settings;
+		int size = settings.beginReadArray(QStringLiteral("diagrameditor/defaultguides"));
+		for (int i = 0; i < size; ++i) {
+			settings.setArrayIndex(i);
+			Diagram::Guide g;
+			g.orientation = static_cast<Diagram::Guide::Orientation>(settings.value(QStringLiteral("orientation"), 0).toInt());
+			g.position = settings.value(QStringLiteral("position"), 0.0).toReal();
+			g.color = QColor(settings.value(QStringLiteral("color"), QStringLiteral("#ff0000")).toString());
+			loaded_guides.append(g);
+		}
+		settings.endArray();
+	}
+	m_gpw->setGuides(loaded_guides);
+
+	// global auto-numbering defaults (only when editing global settings, not a project)
+	if (!m_project) {
+		auto saw_conductor = new SelectAutonumW(1);
+		auto saw_element = new SelectAutonumW(0);
+		auto saw_folio = new SelectAutonumW(2);
+		auto saw_cable = new SelectAutonumW(3);
+			//A cable is numbered by one rule and that is all there is:
+			//the row which lists the available numberings is hidden.
+		saw_cable->setSingleRuleMode(true);
+
+		initAutoNumTab(m_autonum_conductor, saw_conductor, QStringLiteral("autonum/conductor"));
+		initAutoNumTab(m_autonum_element, saw_element, QStringLiteral("autonum/element"));
+		initAutoNumTab(m_autonum_folio, saw_folio, QStringLiteral("autonum/folio"));
+		initAutoNumTab(m_autonum_cable, saw_cable, QStringLiteral("autonum/cable"));
+		m_autonum_cable.fixed_name = QETProject::cableAutoNumRuleName();
+
+		QSettings autonum_settings;
+		loadAutoNumTab(m_autonum_conductor, autonum_settings);
+		loadAutoNumTab(m_autonum_element, autonum_settings);
+		loadAutoNumTab(m_autonum_folio, autonum_settings);
+		loadAutoNumTab(m_autonum_cable, autonum_settings);
+
+		// Intercept Return key in the combo line edits so it doesn't
+		// activate the dialog's default button (OK).
+		for (auto *tab : {&m_autonum_conductor, &m_autonum_element, &m_autonum_folio, &m_autonum_cable}) {
+			if (QComboBox *combo = tab->widget->contextComboBox()) {
+				if (combo->lineEdit()) {
+					combo->lineEdit()->installEventFilter(this);
+				}
+			}
+		}
+	}
+
+		//How the terminals of a new project draw their label, built for
+		//the application's defaults only: per project this is a project
+		//property (project properties > General page), which is where the
+		//project gets it from. Same group box, same words, same choice as
+		//there -- only what a new project starts with is read and written
+		//here, in the settings (diagrameditor/defaultterminallabelling).
+	if (!m_project) {
+		m_terminal_label_gb = new QGroupBox(tr("Display of the terminal labelling", "group box title"));
+		m_terminal_label_combined_rb = new QRadioButton(
+					tr("Show the label and the terminal number in one field", "radio button label"));
+		m_terminal_label_combined_rb -> setToolTip(tr(
+				"A terminal's label (X1:1) is drawn as a whole, the way it has always been.",
+				"tooltip"));
+		m_terminal_label_split_rb = new QRadioButton(tr("Split the label and the terminal number",
+														"radio button label"));
+		m_terminal_label_split_rb -> setToolTip(tr(
+				"The label (X1) is drawn in one field and the terminal number (1) in another, "
+				"which a terminal symbol may place where it wants -- and hide when it must. "
+				"A symbol without such a field shows the two, one under the other.",
+				"tooltip"));
+		m_terminal_label_help = new QLabel(tr("Only the drawing changes: what is written in the element, "
+											  "the numbering, the sorting and the exports keep the whole label.",
+											  "informative label"));
+		m_terminal_label_help -> setWordWrap(true);
+
+		QVBoxLayout *terminal_label_layout = new QVBoxLayout(m_terminal_label_gb);
+		terminal_label_layout -> addWidget(m_terminal_label_combined_rb);
+		terminal_label_layout -> addWidget(m_terminal_label_split_rb);
+		terminal_label_layout -> addWidget(m_terminal_label_help);
+
+		if (settings.value(QStringLiteral("diagrameditor/defaultterminallabelling"), true).toBool()) {
+			m_terminal_label_split_rb -> setChecked(true);
+		} else {
+			m_terminal_label_combined_rb -> setChecked(true);
+		}
+	}
+
+	//If there is a project, we edit his properties
+	if (m_project) {
+		bpw -> setProperties (m_project -> defaultBorderProperties());
+		m_cpw -> setProperties (m_project -> defaultConductorProperties());
+		ipw -> setProperties (m_project -> defaultTitleBlockProperties());
+		rpw -> setReportProperties (m_project -> defaultReportProperties());
+		xrefpw -> setProperties (m_project -> defaultXRefProperties());
+		m_ptw = new PotentialTypesWidget(this);
+		m_ptw -> setPotentialTypes(m_project -> potentialTypes());
+	}
+
+	connect(ipw, &TitleBlockPropertiesWidget::openAutoNumFolioEditor, this, &NewDiagramPage::changeToAutoFolioTab);
+	bpw -> setTitleBlockSize(ipw -> currentTitleBlockHeight(),
+							 ipw -> currentTitleBlockEdge());
+	connect(ipw, &TitleBlockPropertiesWidget::titleBlockSizeChanged,
+			bpw, &BorderPropertiesWidget::setTitleBlockSize);
+
+	// main tab widget
+	QTabWidget *tab_widget      = new QTabWidget(this);
+	m_tab_widget = tab_widget;
+	QWidget *diagram_widget     = new QWidget();
+	QVBoxLayout *diagram_layout = new QVBoxLayout(diagram_widget);
+
+	diagram_layout -> addWidget(bpw);
+		//The free height of the tab belongs to the title block widget:
+		//the stretch factor says so outright, here on the application's
+		//defaults as well as on a project's own page (which ends here),
+		//so a widget added after it later -- the way the labelling group
+		//was added at the end of the tab -- cannot take the height away
+		//from it and bring the empty band at the bottom back. Nothing
+		//here grows to reach for the height either: the group box is
+		//Preferred like every QGroupBox, and what the title block does
+		//with the height says titleblockpropertieswidget.ui -- the
+		//pages of its tab take it, the Template row keeps its own.
+	diagram_layout -> addWidget(ipw, 1);
+		//The default labelling of the terminals, application's defaults
+		//only. It sits at its natural height at the end of the tab.
+	if (m_terminal_label_gb) {
+		diagram_layout -> addWidget(m_terminal_label_gb);
+	}
+		//A width only: a minimum height set by hand replaces the one the
+		//tabs ask for, so on a low screen (1080p with display scaling,
+		//#1562) the dialog's scroll area never scrolled and the tallest
+		//tab (cross-references) was squeezed, its widgets drawn on top
+		//of each other. Without it the dialog scrolls instead.
+	tab_widget->setMinimumWidth(800);
+
+	tab_widget -> addTab (diagram_widget, tr("Sheet"));
+	tab_widget -> addTab (m_cpw,            tr("Conductor"));
+	tab_widget -> addTab (rpw,            tr("Sheet references"));
+	tab_widget -> addTab (xrefpw,         tr("Cross-references"));
+	tab_widget -> addTab (m_gpw,          tr("Guides"));
+		//Potential types belong to a project: there is no application default
+	if (m_ptw) {
+		tab_widget -> addTab (m_ptw,      tr("Potential types"));
+	}
+
+	// No numbering tab: the numbering formulas are gone. FaseCAD names
+	// a device as it is placed (DeviceNaming) and a cable -W1, -W2...
+	// (CableManager::nextDesignation). The editors stay hidden, held by
+	// this page, so that what they read is still kept as it was.
+	if (!m_project) {
+		for (QWidget *unused : {static_cast<QWidget *>(m_autonum_conductor.widget),
+								static_cast<QWidget *>(m_autonum_element.widget),
+								static_cast<QWidget *>(m_autonum_folio.widget),
+								static_cast<QWidget *>(m_autonum_cable.widget)}) {
+			unused->setParent(this);
+			unused->hide();
+		}
+	}
+
+	QVBoxLayout *vlayout1 = new QVBoxLayout();
+	vlayout1->addWidget(tab_widget);
+
+	setLayout(vlayout1);
+}
+
+/**
+	@brief NewDiagramPage::~NewDiagramPage
+*/
+NewDiagramPage::~NewDiagramPage()
+{
+	disconnect(ipw, &TitleBlockPropertiesWidget::openAutoNumFolioEditor, this, &NewDiagramPage::changeToAutoFolioTab);
+}
+
+/**
+	@brief NewDiagramPage::applyConf
+	Apply conf for this page.
+	If there is a project, save in the project,
+	else save to the default conf of QElectroTech
+*/
+void NewDiagramPage::applyConf()
+{
+	if (m_project) { //If project we save to the project
+		if (m_project -> isReadOnly()) return;
+		bool modified_project = false;
+
+		BorderProperties new_border_prop = bpw -> properties();
+		if (m_project -> defaultBorderProperties() != new_border_prop) {
+			m_project -> setDefaultBorderProperties(bpw -> properties());
+			modified_project = true;
+		}
+
+		TitleBlockProperties new_tbt_prop = ipw -> properties();
+		if (m_project -> defaultTitleBlockProperties() != new_tbt_prop) {
+			m_project -> setDefaultTitleBlockProperties(ipw -> properties());
+			modified_project = true;
+		}
+
+		ConductorProperties new_conductor_prop = m_cpw -> properties();
+		if (m_project -> defaultConductorProperties() != new_conductor_prop) {
+			m_project -> setDefaultConductorProperties(m_cpw -> properties());
+			modified_project = true;
+		}
+
+		QString new_report_prop = rpw -> ReportProperties();
+		if (m_project -> defaultReportProperties() != new_report_prop) {
+			m_project -> setDefaultReportProperties(new_report_prop);
+			modified_project = true;
+		}
+
+		QHash<QString, XRefProperties> new_xref_properties = xrefpw -> properties();
+		if (m_project -> defaultXRefProperties() != new_xref_properties) {
+			m_project -> setDefaultXRefProperties(new_xref_properties);
+			modified_project = true;
+		}
+
+		QList<GuideProperties> proj_guides;
+		for (const auto &g : m_gpw->guides()) {
+			GuideProperties pg;
+			pg.orientation = static_cast<int>(g.orientation);
+			pg.position = g.position;
+			pg.color = g.color;
+			proj_guides.append(pg);
+		}
+		if (m_project->defaultGuides() != proj_guides) {
+			m_project->setDefaultGuides(proj_guides);
+			modified_project = true;
+		}
+
+			//setPotentialTypes() marks the project modified itself
+		if (m_ptw) {
+			m_project -> setPotentialTypes(m_ptw -> potentialTypes());
+		}
+
+		if (modified_project) {
+			m_project -> setModified(modified_project);
+		}
+
+	} else { //Else we save to the default value
+		QSettings settings;
+
+		// dimensions des nouveaux schemas
+		bpw -> properties().toSettings(settings, "diagrameditor/default");
+
+		// proprietes du cartouche
+		ipw-> properties().toSettings(settings, "diagrameditor/default");
+
+		// proprietes par defaut des conducteurs
+		m_cpw -> properties().toSettings(settings, "diagrameditor/defaultconductor");
+
+		// default report properties
+		rpw->toSettings(settings, "diagrameditor/defaultreport");
+
+		// default xref properties
+		const QHash<QString, XRefProperties> hash_xrp = xrefpw->properties();
+		for (auto it = hash_xrp.constBegin() ; it != hash_xrp.constEnd() ; ++it) {
+			it.value().toSettings(settings,
+						  QStringLiteral("diagrameditor/defaultxref") % it.key());
+		}
+
+		// Global in QSettings speichern
+		QList<Diagram::Guide> current_guides = m_gpw->guides();
+		settings.beginWriteArray(QStringLiteral("diagrameditor/defaultguides"));
+		for (int i = 0; i < current_guides.size(); ++i) {
+			settings.setArrayIndex(i);
+			settings.setValue(QStringLiteral("orientation"), static_cast<int>(current_guides[i].orientation));
+			settings.setValue(QStringLiteral("position"), current_guides[i].position);
+			settings.setValue(QStringLiteral("color"), current_guides[i].color.name());
+		}
+		settings.endArray();
+
+		// How a new project's terminals draw their label. Kept with the
+		// other defaults of a new project (the key starts with
+		// "diagrameditor/default", the prefix of that part of a
+		// configuration profile, see ConfigProfile::partOf())
+		settings.setValue(QStringLiteral("diagrameditor/defaultterminallabelling"),
+						  m_terminal_label_split_rb -> isChecked());
+
+		// save global auto-numbering defaults
+		//
+		// The cable rule is written here as well as by its own Apply
+		// button. The cable tool asks a project for that rule the
+		// moment he tries to draw a cable, and a project built out of
+		// settings he has just filled in and confirmed must not turn
+		// up without one -- which is what would happen if only the
+		// Apply button of that one tab could save it. A rule nobody
+		// has finished filling in is left alone, and a tab he has not
+		// touched writes nothing at all.
+		if (m_autonum_cable.widget
+			&& m_autonum_cable.widget->isModified()
+			&& m_autonum_cable.widget->isValid()) {
+			saveAutoNumContext(m_autonum_cable);
+		}
+		persistAutonumSettings();
+	}
+}
+
+/**
+	@brief NewDiagramPage::icon
+	@return  icon of this page
+*/
+QIcon NewDiagramPage::icon() const
+{
+	if (m_project) return(QET::Icons::NewDiagram);
+	return(QET::Icons::Projects);
+}
+
+/**
+	@brief NewDiagramPage::title
+	@return title of this page
+*/
+QString NewDiagramPage::title() const
+{
+	if (m_project) return(tr("New sheet", "configuration page title"));
+	return(tr("New project", "configuration page title"));
+}
+
+/**
+	@brief NewDiagramPage::changeToAutoFolioTab
+	Set the current tab to Autonum
+*/
+void NewDiagramPage::changeToAutoFolioTab()
+{
+	if (m_project){
+		ppd_->setCurrentPage(ProjectPropertiesDialog::Autonum);
+		ppd_->changeToFolio();
+		ppd_->exec();
+	}
+}
+
+/**
+	@brief NewDiagramPage::setFolioAutonum
+	Set temporary TBP to use in auto folio num
+*/
+void NewDiagramPage::setFolioAutonum(QString autoNum){
+	TitleBlockProperties tbptemp = ipw->propertiesAutoNum(std::move(autoNum));
+	ipw->setProperties(tbptemp);
+	applyConf();
+}
+
+/**
+	@brief NewDiagramPage::saveCurrentTbp
+	Save current TBP to retrieve after auto folio	num
+*/
+void NewDiagramPage::saveCurrentTbp()
+{
+	savedTbp = ipw->properties();
+}
+
+/**
+	@brief NewDiagramPage::loadSavedTbp
+	Retrieve saved auto folio num
+*/
+void NewDiagramPage::loadSavedTbp()
+{
+	ipw->setProperties(savedTbp);
+	applyConf();
+}
+
+/**
+	@brief NewDiagramPage::isPlaceholder
+	Return true if @a name matches the combo box's built-in placeholder text
+	(first item). This is locale-independent because it reads the actual item text.
+*/
+bool NewDiagramPage::isPlaceholder(QComboBox *combo, const QString &name)
+{
+	return !combo->count() || name == combo->itemText(0);
+}
+
+/**
+	@brief NewDiagramPage::initAutoNumTab
+	Initialise an AutoNumTab struct and connect its signals.
+*/
+void NewDiagramPage::initAutoNumTab(AutoNumTab &tab, SelectAutonumW *w, const QString &prefix)
+{
+	tab.widget = w;
+	tab.prefix = prefix;
+
+	connect(w, &SelectAutonumW::applyPressed, this, [this, &tab]() { saveAutoNumContext(tab); });
+	connect(w, &SelectAutonumW::removeClicked, this, [this, &tab]() { removeAutoNumContext(tab); });
+	connect(w->contextComboBox(), &QComboBox::activated, this, [this, &tab](int index) {
+		if (index >= 0) {
+			QString name = tab.widget->contextComboBox()->itemText(index);
+			if (tab.contexts.contains(name)) {
+				tab.widget->setContext(tab.contexts.value(name));
+			}
+		}
+	});
+}
+
+/**
+	@brief NewDiagramPage::loadAutoNumTab
+	Load saved rules from QSettings into an AutoNumTab.
+*/
+void NewDiagramPage::loadAutoNumTab(AutoNumTab &tab, QSettings &settings)
+{
+	auto data = NumerotationContext::loadFromSettings(settings, tab.prefix);
+	tab.contexts = data.first;
+	for (auto it = tab.contexts.constBegin(); it != tab.contexts.constEnd(); ++it) {
+		tab.widget->contextComboBox()->addItem(it.key());
+	}
+	if (!tab.contexts.isEmpty() && !data.second.isEmpty()
+	    && tab.contexts.contains(data.second)) {
+		tab.widget->contextComboBox()->setCurrentText(data.second);
+		tab.widget->setContext(tab.contexts.value(data.second));
+	}
+		//A tab which keeps one single rule can take it away again with
+		//a button of its own -- the row the others delete from is
+		//hidden here -- but only when there really is one to take away.
+	if (!tab.fixed_name.isEmpty()) {
+		tab.widget->setRuleRemovable(tab.contexts.contains(tab.fixed_name));
+	}
+}
+
+/**
+	@brief NewDiagramPage::saveAutoNumContext
+	Save the current context from an AutoNumTab's widget into its hash and
+	persist to QSettings immediately.
+*/
+void NewDiagramPage::saveAutoNumContext(AutoNumTab &tab)
+{
+	// A tab which keeps one single rule has no visible combo box to name
+	// it with (the row is hidden): it saves under its fixed name.
+	QString name = tab.fixed_name;
+	if (name.isEmpty()) {
+		name = tab.widget->contextComboBox()->currentText().trimmed();
+		if (name.isEmpty() || isPlaceholder(tab.widget->contextComboBox(), name)) {
+			return;
+		}
+	}
+	tab.contexts.insert(name, tab.widget->toNumContext());
+	if (tab.widget->contextComboBox()->findText(name) == -1) {
+		tab.widget->contextComboBox()->addItem(name);
+	}
+	tab.widget->contextComboBox()->setCurrentText(name);
+	persistAutonumSettings();
+		//There is a rule now, so there is something to take away again.
+	if (!tab.fixed_name.isEmpty()) {
+		tab.widget->setRuleRemovable(true);
+	}
+}
+
+/**
+	@brief NewDiagramPage::removeAutoNumContext
+	Remove the current context from an AutoNumTab's hash and persist.
+*/
+void NewDiagramPage::removeAutoNumContext(AutoNumTab &tab)
+{
+	QString name = tab.fixed_name;
+	if (name.isEmpty()) {
+		name = tab.widget->contextComboBox()->currentText().trimmed();
+		if (name.isEmpty() || isPlaceholder(tab.widget->contextComboBox(), name)) {
+			return;
+		}
+	}
+	int idx = tab.widget->contextComboBox()->findText(name);
+		// A name which is not in the list was never saved, so there is
+		// nothing to take out -- unless it is a single rule, which is
+		// always under its fixed name whether the combo knows it or not.
+	if (idx == -1 && tab.fixed_name.isEmpty()) return;
+	if (idx != -1) {
+		tab.widget->contextComboBox()->removeItem(idx);
+		tab.widget->contextComboBox()->setCurrentText(QString());
+	}
+	tab.contexts.remove(name);
+	tab.widget->setContext(NumerotationContext());
+	persistAutonumSettings();
+
+		//A tab which keeps one single rule has no list to delete it
+		//from, so this is where the button of its own goes away too.
+		//And having just taken the rule away means numbering cables by
+		//hand again: every project of its own asks once more whether
+		//one should be defined -- that answer is kept per project, so
+		//there is nothing to take back here.
+	if (!tab.fixed_name.isEmpty()) {
+		tab.widget->setRuleRemovable(false);
+	}
+}
+
+/**
+	@brief NewDiagramPage::persistAutonumSettings
+	Save all autonum contexts to QSettings immediately.
+*/
+void NewDiagramPage::persistAutonumSettings()
+{
+	QSettings settings;
+	for (auto *tab : {&m_autonum_conductor, &m_autonum_element, &m_autonum_folio, &m_autonum_cable}) {
+		QString current;
+		if (!tab->fixed_name.isEmpty()) {
+			// The one rule of a single-rule tab is in use as soon as
+			// it exists: there is nothing to choose between.
+			if (tab->contexts.contains(tab->fixed_name)) {
+				current = tab->fixed_name;
+			}
+		}
+		else {
+			QComboBox *combo = tab->widget->contextComboBox();
+			if (!isPlaceholder(combo, combo->currentText().trimmed())
+			    && tab->contexts.contains(combo->currentText().trimmed())) {
+				current = combo->currentText().trimmed();
+			}
+		}
+		NumerotationContext::saveToSettings(tab->contexts, current,
+						   settings, tab->prefix);
+	}
+}
+
+/**
+	@brief NewDiagramPage::eventFilter
+	Intercept Return/Enter in combo box line edits so it doesn't close the
+	settings dialog.
+*/
+bool NewDiagramPage::eventFilter(QObject *obj, QEvent *event)
+{
+	if (event->type() == QEvent::KeyPress) {
+		auto *ke = static_cast<QKeyEvent *>(event);
+		if ((ke->key() == Qt::Key_Return || ke->key() == Qt::Key_Enter)) {
+			// Check if this is a line edit inside one of our autonum combos
+			for (auto *tab : {&m_autonum_conductor, &m_autonum_element, &m_autonum_folio, &m_autonum_cable}) {
+				if (QComboBox *combo = tab->widget->contextComboBox()) {
+					if (combo->lineEdit() && combo->lineEdit() == obj) {
+						return true; // eat the event
+					}
+				}
+			}
+		}
+	}
+	return ConfigPage::eventFilter(obj, event);
+}
+
+/**
+	Constructeur
+	@param parent QWidget parent
+*/
+ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
+	// epw contient les options d'export
+	epw = new ExportPropertiesWidget(ExportProperties::defaultExportProperties());
+
+	// layout vertical contenant le titre, une ligne horizontale et epw
+	QVBoxLayout *vlayout1 = new QVBoxLayout();
+
+	QLabel *title = new QLabel(this -> title());
+	vlayout1 -> addWidget(title);
+
+	QFrame *horiz_line = new QFrame();
+	horiz_line -> setFrameShape(QFrame::HLine);
+	vlayout1 -> addWidget(horiz_line);
+	vlayout1 -> addWidget(epw);
+	vlayout1 -> addStretch();
+
+	// activation du layout
+	setLayout(vlayout1);
+}
+
+/// Destructeur
+ExportConfigPage::~ExportConfigPage()
+{
+}
+
+/**
+	Applique la configuration de cette page
+*/
+void ExportConfigPage::applyConf()
+{
+	QSettings settings;
+	epw -> exportProperties().toSettings(settings, "export/default");
+}
+
+/// @return l'icone de cette page
+QIcon ExportConfigPage::icon() const
+{
+	return(QET::Icons::DocumentExport);
+}
+
+/// @return le titre de cette page
+QString ExportConfigPage::title() const
+{
+	return(tr("Export", "configuration page title"));
+}
+
+/**
+	Constructeur
+	@param parent QWidget parent
+*/
+PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
+	// epw contient les options d'export
+	epw = new ExportPropertiesWidget(ExportProperties::defaultPrintProperties());
+	epw -> setPrintingMode(true);
+
+	// layout vertical contenant le titre, une ligne horizontale et epw
+	QVBoxLayout *vlayout1 = new QVBoxLayout();
+
+	QLabel *title = new QLabel(this -> title());
+	vlayout1 -> addWidget(title);
+
+	QFrame *horiz_line = new QFrame();
+	horiz_line -> setFrameShape(QFrame::HLine);
+	vlayout1 -> addWidget(horiz_line);
+	vlayout1 -> addWidget(epw);
+	vlayout1 -> addStretch();
+
+	// activation du layout
+	setLayout(vlayout1);
+}
+
+/// Destructeur
+PrintConfigPage::~PrintConfigPage()
+{
+}
+
+/**
+	@brief PrintConfigPage::applyConf
+	Apply the config of this page
+*/
+void PrintConfigPage::applyConf()
+{
+	QString prefix = "print/default";
+
+	QSettings settings;
+	epw -> exportProperties().toSettings(settings, prefix);
+
+	// annule l'enregistrement de certaines proprietes non pertinentes
+	settings.remove(prefix % "path");
+	settings.remove(prefix % "format");
+	settings.remove(prefix % "area");
+}
+
+/// @return l'icone de cette page
+QIcon PrintConfigPage::icon() const
+{
+	return(QET::Icons::Printer);
+}
+
+/// @return le titre de cette page
+QString PrintConfigPage::title() const
+{
+	return(tr("Printing", "configuration page title"));
+}
+

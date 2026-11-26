@@ -1,0 +1,88 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="40" height="110" hotspot_x="11" hotspot_y="9">
+    <uuid uuid="{40e4fc33-34ff-8921-77e0-b611d488d66a}"/>
+    <names>
+        <name lang="ar">30mA 40A Legrand</name>
+        <name lang="ca">30mA 40A Legrand</name>
+        <name lang="cs">30mA 40A Legrand</name>
+        <name lang="da">30mA 40A Legrand</name>
+        <name lang="de">30mA 40A Legrand</name>
+        <name lang="el">30mA 40A Legrand</name>
+        <name lang="en">30mA 40A Legrand</name>
+        <name lang="es">30mA 40A Legrand</name>
+        <name lang="fi">30mA 40A Legrand</name>
+        <name lang="fr">30mA 40A Legrand</name>
+        <name lang="hr">30mA 40A Legrand</name>
+        <name lang="hu">30mA 40A Legrand</name>
+        <name lang="it">30mA 40A Legrand</name>
+        <name lang="ja">30mA 40A Legrand</name>
+        <name lang="ko">30mA 40A Legrand</name>
+        <name lang="mn">30mA 40A Legrand</name>
+        <name lang="nb">30mA 40A Legrand</name>
+        <name lang="nl">30mA 40A Legrand</name>
+        <name lang="nl_BE">30mA 40A Legrand</name>
+        <name lang="pl">30mA 40A Legrand</name>
+        <name lang="pt">30mA 40A Legrand</name>
+        <name lang="pt_BR">30mA 40A Legre</name>
+        <name lang="ro">30mA 40A Legrand</name>
+        <name lang="ru">30мА 40А Legrand</name>
+        <name lang="sk">30mA 40A Legrand</name>
+        <name lang="sl">30mA 40A Legrand</name>
+        <name lang="sr">30mA 40A Legrand</name>
+        <name lang="sv">30mA 40A Legrand</name>
+        <name lang="tr">30mA 40A Legrand</name>
+        <name lang="uk">30mA 40A Legrand</name>
+        <name lang="zh">差动开关</name>
+    </names>
+    <elementInformations>
+        <elementInformation show="1" name="supplier">Legrand</elementInformation>
+    </elementInformations>
+    <informations>Alexandre DIS</informations>
+    <description>
+        <rect x="-8" y="0.2" width="35.2" height="91.3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:white;color:black" antialias="false"/>
+        <text text="Legrand" x="-2.72" y="66.85" rotation="0" font="Liberation Sans,1,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="-4.48" y="16.18" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="C16A" x="-3.6" y="62.28" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="DX3" x="-3.6" y="58.17" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="3" y="6.59" width="4.4" height="4.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4.32" y1="8" x2="6.08" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.08" y1="8" x2="4.32" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.2" y1="8" x2="5.2" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-5.8" y="6.59" width="4.4" height="4.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4.32" y1="8.87" x2="6.08" y2="8.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4.48" y1="8" x2="-2.72" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="23" width="35.2" height="45.65" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.72" y1="8" x2="-4.48" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.6" y1="8" x2="-3.6" y2="9.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-4.48" y1="8.87" x2="-2.72" y2="8.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-4.92" y="38.09" width="11" height="11.41" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <text text="0-OFF" x="-2.72" y="40.83" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-4.92" y="41.74" width="11" height="8.22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <arc x="-4.48" y="36.26" width="0.44" height="0.46" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="10" y="45" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{fc7ed60f-cca2-4664-bc03-db658f4be62c}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text>Type A</text>
+        </dynamic_text>
+        <text text="30 mA" x="15" y="45" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-8" y="-13.95" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{e558e262-f4a1-48d5-9deb-73cc0812c33a}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-8" y1="82.37" x2="27.2" y2="82.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-5.8" y="50.41" width="13.2" height="2.74" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <line x1="-4.92" y1="52.24" x2="6.08" y2="52.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-4.92" y1="51.33" x2="6.08" y2="51.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="9.6" y1="0.2" x2="9.6" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="16.2" y="64.11" width="11" height="4.57" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:gray;color:black" antialias="false"/>
+        <text text="T" x="20.6" y="67.31" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-5.8" y1="55" x2="-5.8" y2="66.39" x3="-3.6" y3="66.39" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <polygon x1="5.2" y1="66.39" x2="14" y2="66.39" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <rect x="-8" y="23" width="35.2" height="13.7" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:cyan;color:black" antialias="false"/>
+        <line x1="18.4" y1="7.05" x2="18.4" y2="13.89" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="15" z="37" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{b06e6142-0074-42c5-befb-aeedfa79690f}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <terminal uuid="{e5748c59-ef35-4858-9d79-223167a79209}" name="" x="5" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{deaaa7f7-66fc-403f-952e-c1137b62cd71}" name="" x="-4" y="0" orientation="n" type="Generic"/>
+        <terminal uuid="{27259409-ee37-4bb6-b9c7-83ba1793387f}" name="" x="5" y="91" orientation="s" type="Generic"/>
+        <terminal uuid="{e9d152ea-6293-4155-b245-950a20eb01d5}" name="" x="-4" y="91" orientation="s" type="Generic"/>
+    </description>
+</definition>

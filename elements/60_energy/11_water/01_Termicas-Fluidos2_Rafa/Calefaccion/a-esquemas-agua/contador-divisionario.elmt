@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="70" hotspot_x="10" hotspot_y="40">
+    <uuid uuid="{7a4ec6fc-6a15-f5e3-55e3-86778dad8d38}"/>
+    <names>
+        <name lang="ar">عدّاد نهاري/ليلي</name>
+        <name lang="ca">Comptador divisionari</name>
+        <name lang="cs">Dvoutarifní elektroměr</name>
+        <name lang="da">Dag/nat-måler</name>
+        <name lang="de">Tag/Nacht-Zähler</name>
+        <name lang="el">Μετρητής ημέρας/νύχτας</name>
+        <name lang="en">Day/night meter</name>
+        <name lang="es">Contador divisionario</name>
+        <name lang="fi">Päivä/yö-mittari</name>
+        <name lang="fr">Compteur divisionnaire</name>
+        <name lang="hr">Dnevni/noćni vodomjer</name>
+        <name lang="hu">Nappali/éjszakai mérő</name>
+        <name lang="it">Contatore giorno/notte</name>
+        <name lang="ja">昼夜メーター</name>
+        <name lang="ko">주간/야간 계량기</name>
+        <name lang="mn">Өдөр/шөнийн тоолуур</name>
+        <name lang="nb">Dag/natt måler</name>
+        <name lang="nl">Dag/nachtmeter</name>
+        <name lang="nl_BE">Dag/nachtmeter</name>
+        <name lang="pl">Licznik dzień/noc</name>
+        <name lang="pt">Contador dia/noite</name>
+        <name lang="pt_BR">Medidor dia/noite</name>
+        <name lang="ro">Contor zi/noapte</name>
+        <name lang="ru">Счётчик день/ночь</name>
+        <name lang="sk">Merač deň/noc</name>
+        <name lang="sl">Števec dan/noč</name>
+        <name lang="sr">Двотарифно бројило</name>
+        <name lang="sv">Dag/natt-mätare</name>
+        <name lang="tr">Gündüz/gece sayacı</name>
+        <name lang="uk">Лічильник день/ніч</name>
+        <name lang="zh">分户水表</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="0" y1="-14" x2="0" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-2" y1="-16" x2="4" y2="-16" x3="-3" y3="-22" x4="4" y4="-22" x5="-3" y5="-16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-22.48" x2="0" y2="-28.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="18.52" x2="0" y2="12.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-4" width="8" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="0" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="13" x2="3" y2="13" x3="-4" y3="7" x4="3" y4="7" x5="-4" y5="13" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="7" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4" y1="-13" x2="4" y2="-13" x3="-4" y3="-7" x4="3" y4="-7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4" y1="-4" x2="-4" y2="4" x3="4" y3="4" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-21" y="6" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="ElementInfo" uuid="{35c4dd2f-fa68-40fb-b80d-bfd2ddb386d0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2ff055ed-0774-49e1-af19-f705b8622fd4}" name="" x="0" y="19" orientation="s" type="Generic"/>
+        <terminal uuid="{2d947ba1-00f1-4567-83a1-6b0a7106d67d}" name="" x="0" y="-29" orientation="n" type="Generic"/>
+    </description>
+</definition>

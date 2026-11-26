@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="50" hotspot_x="45" hotspot_y="25">
+    <uuid uuid="{ef31fab3-9c20-0bf3-a5e0-efdcac2d193f}"/>
+    <names>
+        <name lang="ar">موصلات في كابل</name>
+        <name lang="ca">Conductors en un cable</name>
+        <name lang="cs">Vodiče v kabelu</name>
+        <name lang="da">Ledere i et kabel</name>
+        <name lang="de">Leiter in einem Kabel</name>
+        <name lang="el">Αγωγοί σε καλώδιο</name>
+        <name lang="en">Conductors in a cable</name>
+        <name lang="es">Conductores en un cable</name>
+        <name lang="fi">Johtimet kaapelissa</name>
+        <name lang="fr">Conducteur dans un câble</name>
+        <name lang="hr">Vodiči u kabelu</name>
+        <name lang="hu">Vezetékek egy kábelben</name>
+        <name lang="it">Conduttori in un cavo</name>
+        <name lang="ja">ケーブル内の導体</name>
+        <name lang="ko">케이블 내 도체</name>
+        <name lang="mn">Кабель доторх дамжуулагчид</name>
+        <name lang="nb">Ledere i en kabel</name>
+        <name lang="nl">Geleiders in een kabel</name>
+        <name lang="nl_BE">Geleiders in een kabel</name>
+        <name lang="pl">Przewody w kablu</name>
+        <name lang="pt">Condutores num cabo</name>
+        <name lang="pt_BR">Condutores em um cabo</name>
+        <name lang="ro">Conductoare într-un cablu</name>
+        <name lang="ru">Проводники в кабеле</name>
+        <name lang="sk">Vodiče v kábli</name>
+        <name lang="sl">Vodniki v kablu</name>
+        <name lang="sr">Проводници у каблу</name>
+        <name lang="sv">Förbindningar i en kabel</name>
+        <name lang="tr">Kablo içindeki iletkenler</name>
+        <name lang="uk">Провідники в кабелі</name>
+        <name lang="zh">端子板</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{22ef8af6-27cf-4fcf-a428-4c9ed796bb1c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-40" y1="0" x2="40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="10" x2="40" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-10" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-10" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="-20" width="20" height="20" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="0" width="20" height="20" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

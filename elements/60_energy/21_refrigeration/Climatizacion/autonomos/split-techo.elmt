@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="50" hotspot_x="50" hotspot_y="26">
+    <uuid uuid="{13ed15a2-09f0-88c5-484c-97a305799610}"/>
+    <names>
+        <name lang="ca">Split Sostre</name>
+        <name lang="es">Split Techo</name>
+        <name lang="pt_BR">Split Techo</name>
+        <name lang="zh">天花分体机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-30.5" y="1.12" width="2.6" height="1.15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.77" y="-15.14" width="1.95" height="0.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.53" y1="-14.57" x2="-39.77" y2="-14.57" x3="-39.77" y3="-5.39" x4="-35.22" y4="-5.39" x5="-33.27" y5="-2.52" x6="0.53" y6="-2.52" x7="10.93" y7="-9.4" x8="11.58" y8="-12.27" x9="10.28" y9="-14.57" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-37.17" y="-4.24" width="2.6" height="1.15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-33.27" y="-15.14" width="1.95" height="0.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-37.82" y="-12.85" width="0.65" height="0.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-37.82" y="-7.11" width="0.65" height="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="9" y="-12.85" width="0.65" height="0.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-0.12" y="-4.24" width="0.65" height="0.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-33.27" y="-4.24" width="0.65" height="0.57" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-32.84" y1="-3" x2="-18.1" y2="8.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-3" x2="21.77" y2="10.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.5" y1="-9.32" x2="32.17" y2="4.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11.37" y1="-11.7" x2="33" y2="1.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.5" y1="-14.88" x2="32.17" y2="-0.57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5.3" y1="-3" x2="10.5" y2="-6.14" x3="27" y3="5" x4="21.77" y4="8.17" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="-3" x2="-18.1" y2="8.17" x3="-12.9" y3="8.17" x4="-11.17" y4="10.55" x5="22.63" y5="10.55" x6="32.17" y6="4.2" x7="33.9" y7="1.81" x8="32.17" y8="-0.57" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0.1" y1="-2.16" x2="20" y2="10.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="6.17" y1="-3.75" x2="10.5" y2="-3.75" x3="26.1" y3="6.58" x4="20.9" y4="6.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-34" y="-26.9" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{74e566dc-86b3-4bb7-8a76-c0317c1e2ed4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-3.3" y="-13" width="6.67" height="3.53" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-11.63" y="9.84" width="2.67" height="5.89" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f9e993ae-b5c2-46b2-a035-11fbfea160a7}" name="" x="2" y="-17" orientation="n" type="Generic"/>
+        <terminal uuid="{3b76f5a5-7e35-476b-8e50-2108aa9b2143}" name="" x="-39" y="-4" orientation="w" type="Generic"/>
+        <terminal uuid="{cea48249-77ce-46a8-8edf-3cc8e0791760}" name="" x="-10" y="15" orientation="s" type="Generic"/>
+        <terminal uuid="{5e622eca-525d-4c6d-8170-165369167bcd}" name="" x="-32" y="2" orientation="w" type="Generic"/>
+    </description>
+</definition>

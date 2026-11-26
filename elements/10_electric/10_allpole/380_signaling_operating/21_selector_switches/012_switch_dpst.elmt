@@ -1,0 +1,58 @@
+<definition version="0.80" type="element" link_type="simple" width="40" height="60" hotspot_x="21" hotspot_y="40">
+    <uuid uuid="{36d209f9-6f50-822d-9f90-84e43ddead3d}"/>
+    <names>
+        <name lang="ar">مفتاح، DPST، مفتوح</name>
+        <name lang="ca">Commutador, DPST, n.o.</name>
+        <name lang="cs">Dvoupólový spínač</name>
+        <name lang="da">Afbryder, DPST, n.o.</name>
+        <name lang="de">Schalter, DPST, Schließer</name>
+        <name lang="el">Διακόπτης, DPST, n.o.</name>
+        <name lang="en">Switch, DPST, n.o.</name>
+        <name lang="es">Conmutador bipolar NA</name>
+        <name lang="fi">Kytkin, DPST, n.o.</name>
+        <name lang="fr">Commutateur bipolaire n.o.</name>
+        <name lang="hr">Sklopka, DPST, n.o.</name>
+        <name lang="hu">Kapcsoló, DPST, n.o.</name>
+        <name lang="it">Interruttore, DPST, n.o.</name>
+        <name lang="ja">スイッチ、DPST、ノーマルオープン</name>
+        <name lang="ko">스위치, DPST, n.o.</name>
+        <name lang="mn">Унтраалга, DPST, н.т.</name>
+        <name lang="nb">Bryter, DPST, n.o.</name>
+        <name lang="nl">Schakelaar, DPST, n.o.</name>
+        <name lang="nl_BE">Schakelaar, DPST, n.o.</name>
+        <name lang="pl">Zestyki zwierne o przełączaniu niezawodnym</name>
+        <name lang="pt">Interruptor, DPST, n.o.</name>
+        <name lang="pt_BR">Interruptor, DPST, n.o.</name>
+        <name lang="ro">Comutator bipolar n,d.</name>
+        <name lang="ru">Выключатель, DPST, НО</name>
+        <name lang="sk">Spínač, DPST, n.o.</name>
+        <name lang="sl">Stikalo, DPST, n.o.</name>
+        <name lang="sr">Прекидач, ДПСТ, НО</name>
+        <name lang="sv">Brytare, DPST, n.o.</name>
+        <name lang="tr">Şalter, DPST, n.a.</name>
+        <name lang="uk">Перемикач, DPST, n.o.</name>
+        <name lang="zh">012_双刀单掷开关</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="8.25" y="-21.75" width="3.5" height="3.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="8.25" y="-1.75" width="3.5" height="3.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.75" y="-1.75" width="3.5" height="3.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.75" y="-21.75" width="3.5" height="3.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-30" x2="10" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18" y1="-10" x2="13" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="16" y="-18" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{131bf174-6f11-49a5-8e31-1366974c78b9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="10" x2="-10" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="10" x2="10" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.6" y1="-1.7" x2="-15" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.4" y1="-1.7" x2="5" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{62d6aa78-c93e-4ce0-9108-17cc95085452}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{52bf346a-cfa7-498c-85fd-4400fd338bc3}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{53465032-346d-4056-9a81-87c47bb07dda}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{b2675506-49be-4c22-8d32-aa9be7a200d4}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

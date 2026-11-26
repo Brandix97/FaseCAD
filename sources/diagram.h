@@ -1,0 +1,641 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef DIAGRAM_H
+#define DIAGRAM_H
+#include "autoNum/numerotationcontext.h"
+#include "bordertitleblock.h"
+#include "conductorproperties.h"
+#include "elementsmover.h"
+#include "elementtextsmover.h"
+#include "exportproperties.h"
+#include "properties/xrefproperties.h"
+#include "qgimanager.h"
+
+#include <QHash>
+#include <QPointer>
+#include <QUuid>
+#include <QtWidgets>
+
+#include <functional>
+#include <QtXml>
+
+class Conductor;
+class Bridge;
+class CablePart;
+class CustomElement;
+class DiagramContent;
+class DiagramPosition;
+class DiagramTextItem;
+class Element;
+class Terminal;
+class ElementsLocation;
+class DiagramImageItem;
+class DiagramEventInterface;
+class DiagramFolioList;
+class QETProject;
+struct GuideProperties;
+
+/**
+	@brief The Diagram class
+	This class represents an electric diagram.
+	It manages its various child elements,
+	conductors and texts and handles their graphic rendering.
+*/
+class Diagram : public QGraphicsScene
+{
+	friend DiagramFolioList;
+	friend QETProject;
+
+	Q_OBJECT
+	
+		// constructors, destructor
+	private:
+		Diagram(QETProject *project);
+		~Diagram() override;
+		Diagram(const Diagram &diagram);
+	
+	// ATTRIBUTES
+	public:
+		struct Guide {
+			enum Orientation { Horizontal, Vertical };
+			Orientation orientation;
+			qreal position;
+			QColor color;
+		};
+
+		/**
+			@brief The BorderOptions enum
+			Represents available options when rendering a particular diagram:
+			EmptyBorder: display border only
+			TitleBlock: display title block
+			Columns: display columns
+		*/
+		enum BorderOptions { EmptyBorder, TitleBlock, Columns };
+		/// What a folio is drawn for: a schematic (every folio so far),
+		/// the construction of a cabinet, drawn to scale in millimetres,
+		/// or the routing of the wires on a mounting plate of a cabinet
+		/// (CabinetRouting)
+		enum class FolioKind { Schematic, Cabinet, Routing };
+		/// Pixels of a folio for one millimetre of paper (as the
+		/// dimensions measure it)
+		static constexpr qreal pixelsPerPaperMm = 2.0;
+		/// The scale a new cabinet folio is drawn at: 1:5
+		static constexpr qreal defaultCabinetScale = 5.0;
+		/// Represents available option of Numerotation type.
+		enum NumerotationType { Conductors };
+		/// Default properties for new conductors
+		ConductorProperties defaultConductorProperties;
+		/// Diagram dimensions and title block
+		BorderTitleBlock border_and_titleblock;
+		/// abscissa grid step size
+		static int xGrid;
+		/// ordinate grid step size
+		static int yGrid;
+		/// Key grid x step size
+		static int xKeyGrid;
+		/// Key grid y step size
+		static int yKeyGrid;
+		/// Key grid fine x step size
+		static int xKeyGridFine;
+		/// Key grid fine y step size
+		static int yKeyGridFine;
+		/// margin around the diagram
+		static const qreal margin;
+		/// background color of diagram
+		static QColor background_color;
+		/// Hash containing max values for folio sequential autonums in this diagram
+		QHash <QString, QStringList> m_elmt_unitfolio_max;
+		QHash <QString, QStringList> m_elmt_tenfolio_max;
+		QHash <QString, QStringList> m_elmt_hundredfolio_max;
+		/// Hash containing max values for folio sequential autonums in this diagram
+		QHash <QString, QStringList> m_cnd_unitfolio_max;
+		QHash <QString, QStringList> m_cnd_tenfolio_max;
+		QHash <QString, QStringList> m_cnd_hundredfolio_max;
+
+	private:
+		QGraphicsLineItem *conductor_setter_;
+		ElementsMover     m_elements_mover;
+		ElementTextsMover m_element_texts_mover;
+		QGIManager        *qgi_manager_;
+		QETProject        *m_project;
+		QPointer<QGraphicsObject> m_keyboard_item;
+
+		QDomDocument xml_document_;
+
+		qreal diagram_qet_version_;
+
+		bool draw_grid_;
+		bool m_inverted_lightness = false;
+		bool use_border_;
+		bool draw_guides_;
+		QList<Diagram::Guide> m_guides_list;
+		bool draw_terminals_;
+		bool draw_colored_conductors_;
+		bool m_small_pictures = false;
+
+		QString m_conductors_autonum_name;
+		DiagramEventInterface *m_event_interface;
+		bool m_press_went_to_tool = false;   ///< the last press went to a tool
+
+		bool m_freeze_new_elements;
+		FolioKind m_folio_kind = FolioKind::Schematic;
+		qreal m_cabinet_scale = defaultCabinetScale;
+			/// A routing sheet: its cabinet sheet and the mounting plate
+		QUuid m_routing_source;
+		QUuid m_routing_plate;
+		bool m_freeze_new_conductors_;
+		QUuid m_uuid = QUuid::createUuid();
+			/// The XML of this folio's items, while they are not built yet
+		QDomElement m_deferred;
+		QString m_kept_part;
+		QHash<QUuid, Element *> m_partial_elements;
+		QHash<int, Terminal *> m_partial_table;
+		bool m_partial_changed = false;
+		Element *buildElement(QDomElement element_xml, QHash<int, Terminal *> &table_adr_id,
+							  bool consider_informations);
+		QString m_opened_header;
+		QByteArray m_kept_text;
+		bool m_loading_deferred = false;
+
+			//Selection before the current click, see completeGroupSelection()
+		QList<QPointer<QGraphicsObject>> m_previous_selection;
+		void rememberSelection();
+			//Member of a wholly selected group under the current click, which
+			//the click picks out on its own if it ends without a drag
+		QPointer<QGraphicsObject> m_member_to_pick;
+
+		bool uuidUsedByOtherDiagram(const QUuid &uuid) const;
+		QUuid derivedUuid(const QDomElement &root, const QString &reason) const;
+	public:
+		static QUuid derivedUuid(const QString &reason, const QString &project_title,
+								 int index, const QString &title,
+								 const std::function<bool(const QUuid &)> &used);
+	private:
+
+			//Wires of the loaded file whose ends could not be found
+		QStringList m_wires_not_reconnected;
+			//Symbols of the loaded file that could not be built
+		QStringList m_symbols_not_loaded;
+
+			//What the folio could not load, written back as it was read
+			//(F127, F128): symbols whose definition is missing, and wires
+			//to a terminal not found
+		struct KeptWire {
+			QDomElement xml;
+			QPointer<Terminal> end[2]; ///< an end found, null if not
+			bool found[2] = {false, false};
+			QUuid element[2];          ///< an end not found: its symbol
+			QUuid terminal[2];         ///< and its terminal
+			bool as_read = false;      ///< no end can be read: written unchanged
+		};
+		QDomDocument m_kept_document;
+		QList<QDomElement> m_kept_symbols;
+		QList<KeptWire> m_kept_wires;
+		QUuid derivedSymbolUuid(const QDomElement &element_xml) const;
+		void keepWire(const QDomElement &wire, Terminal *found1, Terminal *found2,
+					  const QList<QPair<QUuid, QDomElement>> &symbols);
+		void writeKept(QDomDocument &document, QDomElement &elements,
+					   QDomElement &conductors, const QHash<Terminal *, int> &table_adr_id) const;
+
+	// METHODS
+	protected:
+		void drawBackground(QPainter *, const QRectF &) override;
+
+		void mouseDoubleClickEvent (
+				QGraphicsSceneMouseEvent *event) override;
+		void mousePressEvent (QGraphicsSceneMouseEvent *event) override;
+		void mouseMoveEvent (QGraphicsSceneMouseEvent *event) override;
+		void mouseReleaseEvent (
+				QGraphicsSceneMouseEvent *event) override;
+		void wheelEvent (QGraphicsSceneWheelEvent *event) override;
+		void keyPressEvent (QKeyEvent *event) override;
+		void keyReleaseEvent (QKeyEvent *) override;
+		bool event(QEvent *event) override;
+
+	private:
+		void selectNextItem(bool forward);
+
+	public:
+		void correctTextPos(Element* elmt);
+		void restoreText(Element* elmt);
+		QUuid uuid();
+		QStringList wiresNotReconnected() const;
+		QStringList itemsOutsideSheet() const;
+		QStringList symbolsNotLoaded() const;
+		QSet<QUuid> keptSymbolUuids() const;
+		void setEventInterface (DiagramEventInterface *event_interface);
+		void clearEventInterface();
+
+		//methods related to autonum
+		QString conductorsAutonumName() const;
+		void setConductorsAutonumName(const QString &name);
+
+		static bool clipboardMayContainDiagram();
+	
+		// methods related to parent project
+		QETProject *project() const;
+		int         folioIndex() const;
+		void        showMe() {emit showDiagram(this);}
+		bool        isReadOnly() const;
+	
+		// methods related to conductor creation
+		void setConductor(bool);
+		void setConductorStart (QPointF);
+		void setConductorStop(QPointF);
+		QList < QSet <Conductor *> > potentials();
+	
+		// methods related to XML import/export
+		QDomDocument toXml(bool wholeContent = true, bool is_copy_command = false);
+		void writeHeader(QDomDocument &document, QDomElement &dom_root);
+		void appendValuesXml(QDomDocument &document, QDomElement &dom_root) const;
+			/// What this folio saves that no other table of the project
+			/// database holds, in a <diagram> made in @p document
+		QDomElement ownValuesXml(QDomDocument &document) const;
+		void queueValuesStore();
+		QList<QDomElement> keptXml(QDomDocument &document) const;
+		bool initFromXml(QDomElement &,
+				 QPointF = QPointF(),
+				 bool = true,
+				 DiagramContent * = nullptr);
+			/// false while this folio's items wait in its XML to be
+			/// built (lazy folios)
+		bool isLoaded() const {return m_deferred.isNull();}
+		QDomElement deferredXml() const;
+			/// The part @p file of the .qetz the project was opened from
+			/// holds this folio as it is while not built: saving may copy it
+			/// (QETProject::toXml(), stage D4)
+		void setKeptPart(const QString &file) {m_kept_part = file;}
+		QString keptPart() const {return m_kept_part;}
+		QList<Element *> buildSymbols(const QSet<QUuid> &uuids);
+			/// Symbols built as partners (buildSymbols()) changed since:
+			/// the folio must be built to be saved
+		bool partialChanged() const {return m_partial_changed;}
+			/// The symbols built as partners (buildSymbols()), by uuid
+		QHash<QUuid, Element *> partialElements() const {return m_partial_elements;}
+		QString headerXml();
+			/// The folio's text in the file it was read from, while it is
+			/// not built (QETProject::toXml())
+		QByteArray keptText() const {return m_kept_text;}
+		void setKeptText(const QByteArray &text) {m_kept_text = text;}
+			/// Remember the folio's own data as it is now, for
+			/// headerChanged() (QETProject::toXml())
+		void rememberHeader() {m_opened_header = headerXml();}
+		bool headerChanged() {return headerXml() != m_opened_header;}
+		bool headerChangeShowsOnly();
+		QDomElement deferredXmlWithHeader(QDomDocument &document);
+		void ensureLoaded();
+		bool buildDeferred();
+			//The last argument is only for a copy fragment: when it is
+			//given, the cable lines that fragment carries are built as
+			//well and handed back through it -- they are not part of a
+			//DiagramContent, so the caller has to know about them to
+			//put them on the undo stack (see CableCopy)
+		bool fromXml(QDomDocument &,
+			     QPointF = QPointF(),
+			     bool = true,
+			     DiagramContent * = nullptr,
+			     QList<CablePart *> * = nullptr,
+			     QList<Bridge *> * = nullptr);
+		bool fromXml(QDomElement &,
+			     QPointF = QPointF(),
+			     bool = true,
+			     DiagramContent * = nullptr,
+			     QList<CablePart *> * = nullptr,
+			     QList<Bridge *> * = nullptr);
+		void folioSequentialsToXml(QHash<QString,
+					   QStringList>*,
+					   QDomElement *,
+					   const QString&,
+					   const QString&,
+					   QDomDocument *);
+		void folioSequentialsFromXml(const QDomElement&,
+					     QHash<QString,
+					     QStringList>*,
+					     const QString&,
+					     const QString&,
+					     const QString&,
+					     const QString&,
+					     const QString &owner = QString(),
+					     const QString &level = QString());
+	
+		void refreshContents();
+	
+		// methods related to graphics items addition/removal on the diagram
+		virtual void addItem    (QGraphicsItem *item);
+		virtual void removeItem (QGraphicsItem *item);
+		bool eventInterfaceIsRunning() const;
+		bool toolTookLastPress() const;
+		bool cableToolIsRunning() const;
+		bool dimensionToolIsRunning() const;
+		DiagramEventInterface *eventInterface() const { return m_event_interface; }
+		Element *pendingElement() const;
+	
+		// methods related to graphics options
+		ExportProperties applyProperties(const ExportProperties &);
+		void setDisplayGrid(bool);
+		bool displayGrid();
+		void setInvertedLightness(bool);
+		void setDisplayGuides(bool);
+		bool displayGuides();
+		void updateProjectGuides(const QList<GuideProperties> &guides);
+		void setUseBorder(bool);
+		bool useBorder();
+		void setBorderOptions(BorderOptions);
+		BorderOptions borderOptions();
+		DiagramPosition convertPosition(const QPointF &);
+		static QPointF snapToGrid(const QPointF &p);
+			/// Snap to the grid on (the default) or off: off, snapToGrid()
+			/// gives the nearest point, as with Ctrl held. Kept in the
+			/// settings.
+		static bool gridSnap();
+		static void setGridSnap(bool snap);
+		static QPointF snapToTextGrid(const QPointF &p);
+	
+		bool drawTerminals() const;
+		void setDrawTerminals(bool);
+		bool drawColoredConductors() const;
+		void setDrawColoredConductors(bool);
+			/// While true, pictures draw a copy of a few times the size
+			/// they are drawn at, not their full resolution (SVG export,
+			/// ExportProperties::svg_small_pictures)
+		bool smallPictures() const {return m_small_pictures;}
+		void setSmallPictures(bool small) {m_small_pictures = small;}
+	
+		QString title() const;
+		bool toPaintDevice(QPaintDevice &, int = -1, int = -1,
+				   Qt::AspectRatioMode = Qt::KeepAspectRatio);
+		QSize imageSize() const;
+		QRectF visibleItemsBoundingRect() const;
+		
+		bool isEmpty() const;
+	
+		QList<Element *> elements() const;
+		QList<Conductor *> conductors() const;
+		QSet<Conductor *> selectedConductors() const;
+		DiagramContent content() const;
+		bool canRotateSelection() const;
+		ElementsMover &elementsMover();
+		ElementTextsMover &elementTextsMover();
+		bool usesElement(const ElementsLocation &);
+		bool usesTitleBlockTemplate(const QString &);
+		
+		QUndoStack &undoStack();
+		QGIManager &qgiManager();
+		/// The item that gets keys before the view's own shortcuts, while
+		/// it is in a state Escape must end (a picture whose handle is
+		/// dragged). nullptr the rest of the time.
+		void setKeyboardItem(QGraphicsObject *item) { m_keyboard_item = item; }
+		QGraphicsObject *keyboardItem() const { return m_keyboard_item; }
+	
+		//methods related to element label Update Policy
+		void freezeElements(bool freeze);
+		void unfreezeElements();
+		void setFreezeNewElements(bool);
+		bool freezeNewElements();
+
+		//methods related to the kind of folio and the scale of a cabinet
+		FolioKind folioKind() const {return m_folio_kind;}
+		void setFolioKind(FolioKind kind);
+		bool isCabinetFolio() const {return m_folio_kind == FolioKind::Cabinet;}
+		bool isRoutingFolio() const {return m_folio_kind == FolioKind::Routing;}
+			/// The cabinet sheet and the mounting plate a routing sheet
+			/// routes the wires of
+		QUuid routingSource() const {return m_routing_source;}
+		QUuid routingPlate() const {return m_routing_plate;}
+		void setRouting(const QUuid &cabinet_folio, const QUuid &plate);
+		qreal cabinetScale() const {return m_cabinet_scale;}
+		void setCabinetScale(qreal scale);
+		qreal drawingScale() const;
+		qreal pixelsPerMm() const;
+		static QString folioKindToString(FolioKind kind);
+		static FolioKind folioKindFromString(const QString &text);
+	
+		//methods related to conductor label Update Policy
+		void freezeConductors(bool freeze);
+		void setFreezeNewConductors(bool);
+		bool freezeNewConductors();
+	
+		//methods related to insertion and loading of folio sequential
+		void insertFolioSeqHash (QHash<QString, QStringList> *hash,
+					 const QString& title,
+					 const QString& seq,
+					 NumerotationContext *nc,
+					 const QString &owner = QString());
+		void loadFolioSeqHash (QHash<QString, QStringList> *hash,
+				       const QString& title, const QString& seq,
+				       NumerotationContext *nc);
+			/// The folio's own counters of @p owner ("element" or
+			/// "conductor"), @p level ("unitfolio", "tenfolio" or
+			/// "hundredfolio") and @p title are @p values now: in the
+			/// hash this folio numbers from, and in the rows the
+			/// project saves them in.
+		void setFolioSeqValues(const QString &owner,
+				       const QString &level,
+				       const QString &title,
+				       const QStringList &values);
+		void changeZValue(QET::DepthOption option);
+		void setItemGroup(QGraphicsItem *item, const QUuid &group);
+
+	public slots:
+		void adjustSceneRect ();
+		void titleChanged();
+		void titleBlockTemplateChanged(const QString &);
+		void titleBlockTemplateRemoved(const QString &,
+					       const QString & = QString());
+		void setTitleBlockTemplate(const QString &);
+		void loadElmtFolioSeq();
+		void loadCndFolioSeq();
+	
+		// methods related to graphics items selection
+		void selectAll();
+		void deselectAll();
+		void invertSelection();
+		void selectAllConductors();
+		void selectAllTextFields();
+		void completeGroupSelection();
+
+	signals:
+		void showDiagram (Diagram *);
+		void usedTitleBlockTemplateChanged(const QString &);
+		void diagramTitleChanged(Diagram *);
+
+		/// Signal emitted when users wish to locate an element
+		/// from the diagram within elements collection
+		void findElementRequired(const ElementsLocation &);
+
+		void diagramActivated();
+		void diagramInformationChanged();
+			/// The kind of this folio or the scale of its cabinet changed
+		void folioKindChanged();
+		void cabinetScaleChanged();
+
+			/// Emitted by setItemGroup(): an item joined or left a group
+			/// without the selection changing (#1144)
+		void itemGroupChanged();
+};
+Q_DECLARE_METATYPE(Diagram *)
+
+/**
+	@brief Diagram::setConductor
+	Display or hide the conductor setter,
+	i.e. a dashed conductor stub which appears
+	when creating a conductor between two terminals.
+	@param adding true add conductor ,false remove conductor
+*/
+inline void Diagram::setConductor(bool adding) {
+	if (adding) {
+		if (!conductor_setter_ -> scene()) addItem(conductor_setter_);
+	} else {
+		if (conductor_setter_ -> scene()) removeItem(conductor_setter_);
+	}
+}
+
+/**
+	@brief Diagram::setConductorStart
+	Set the start point of the conductor setter.
+	@param start the point (in scene coordinates) which the newly created
+	conductor should start from.
+*/
+inline void Diagram::setConductorStart(QPointF start) {
+	conductor_setter_ -> setLine(QLineF(start, conductor_setter_ -> line().p2()));
+}
+
+/**
+	@brief Diagram::setConductorStop
+	Set the end point of the conductor setter.
+	@param end the point (in scene coordinates) upon to which the newly created
+	conductor should be drawn.
+*/
+inline void Diagram::setConductorStop(QPointF end) {
+	conductor_setter_ -> setLine(QLineF(conductor_setter_ -> line().p1(), end));
+}
+
+/**
+	@brief Diagram::setDisplayGrid
+	Set whether the diagram grid should be drawn.
+	@param dg true to render the grid, false otherwise.
+*/
+inline void Diagram::setDisplayGrid(bool dg) {
+	draw_grid_ = dg;
+}
+
+/**
+	@brief Diagram::setInvertedLightness
+	Tell the diagram whether the view painting it will show the result
+	with its lightness inverted (PaletteGraphicsView on a dark palette).
+	drawBackground draws a softer grid in that case. Printing
+	and export never set this.
+	@param inverted
+*/
+inline void Diagram::setInvertedLightness(bool inverted) {
+	m_inverted_lightness = inverted;
+}
+
+/**
+	@brief Diagram::displayGrid
+	@return draw_grid_ true if the grid is drawn, false otherwise.
+*/
+inline bool Diagram::displayGrid() {
+	return(draw_grid_);
+}
+
+inline void Diagram::setDisplayGuides(bool dg) {
+	if (draw_guides_ != dg) {
+		draw_guides_ = dg;
+		update();
+	}
+}
+
+inline bool Diagram::displayGuides() {
+	return(draw_guides_);
+}
+/**
+	@brief Diagram::setUseBorder
+	Set whether the diagram border (including rows/columns headers and the title
+	block) should be rendered along with the diagram. When set to false, the size
+	of the smallest rectangle containing all items is considered as the diagram
+	size.
+	@param ub true to take the border into account, false otherwise
+*/
+inline void Diagram::setUseBorder(bool ub) {
+	use_border_ = ub;
+}
+
+/**
+	@brief Diagram::useBorder
+	@return use_border_ true if the border is rendered and take into account,
+	false otherwise.
+*/
+inline bool Diagram::useBorder() {
+	return(use_border_);
+}
+
+/**
+	@brief Diagram::setBorderOptions
+	Set the rendering options for the diagram border (including rows/columns
+	headers and the title block)
+	@param bo Enabled options ORed together
+	@see BorderOptions
+*/
+inline void Diagram::setBorderOptions(Diagram::BorderOptions bo) {
+	border_and_titleblock.displayBorder(!(bo & EmptyBorder));
+	border_and_titleblock.displayColumns(bo & Columns);
+	border_and_titleblock.displayTitleBlock(bo & TitleBlock);
+}
+
+/**
+	@brief Diagram::borderOptions
+	@return The rendering options for the diagram border
+	@see setBorderOptions
+*/
+inline Diagram::BorderOptions Diagram::borderOptions() {
+	BorderOptions options = EmptyBorder;
+	if (border_and_titleblock.titleBlockIsDisplayed())
+		options = (BorderOptions)(options|TitleBlock);
+	if (border_and_titleblock.columnsAreDisplayed())
+		options = (BorderOptions)(options|Columns);
+	return(options);
+}
+
+/**
+	@brief Diagram::qgiManager
+	@return the diagram graphics item manager
+*/
+inline QGIManager &Diagram::qgiManager() {
+	return(*qgi_manager_);
+}
+
+/**
+	@brief Diagram::drawTerminals
+	@return true if terminals are rendered, false otherwise
+*/
+inline bool Diagram::drawTerminals() const
+{
+	return(draw_terminals_);
+}
+
+/**
+	@brief Diagram::drawColoredConductors
+	@return true if conductors colors are rendered, false otherwise.
+*/
+inline bool Diagram::drawColoredConductors() const
+{
+	return(draw_colored_conductors_);
+}
+
+#endif

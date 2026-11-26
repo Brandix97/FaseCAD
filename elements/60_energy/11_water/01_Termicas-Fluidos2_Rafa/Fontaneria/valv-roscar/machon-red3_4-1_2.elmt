@@ -1,0 +1,35 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="24">
+    <uuid uuid="{d7ac442b-0ad1-4ab8-c3a5-7e0d12e0a2e3}"/>
+    <names>
+        <name lang="ca">Mascle red. 3/4-1/2</name>
+        <name lang="es">Machón red. 3/4-1/2</name>
+        <name lang="pt_BR">Machón red. 3/4-1/2</name>
+        <name lang="zh">3/4转1/2英寸异径外接头</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-4.59" y1="6.41" x2="-5.46" y2="-4.36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-3.11" y="6.54" width="2.82" height="10" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-0.58" y="6.54" width="2.82" height="10" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5.69" y1="6.41" x2="-6.56" y2="-4.36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-3.11" y="-14.78" width="2.82" height="10" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="5.88" y1="4.61" x2="5" y2="-3.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="0.23" y="-4.75" width="2" height="11.29" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="4.61" x2="6.1" y2="-3.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-3.11" y="-11" width="5.35" height="22.58" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.78" y1="4.61" x2="3.91" y2="-3.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0.63" y1="-4.75" x2="-1.73" y2="-4.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="2.74" y="-3.58" width="5.52" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.79" y1="6.41" x2="-7.66" y2="-4.36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-0.58" y="-14.78" width="2.82" height="10" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-12" y="14.68" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0bda2076-06ea-4c12-9327-b261095eeda0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-1.71" y1="6.54" x2="0.6" y2="6.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.82" y="-4.9" width="5.52" height="11.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.11" y="-4.75" width="2" height="11.29" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{b4452f05-536a-4086-8701-da732b3a9ce9}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{94ac27f2-fe2e-4a31-b985-e95e7c8b409d}" name="" x="8" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

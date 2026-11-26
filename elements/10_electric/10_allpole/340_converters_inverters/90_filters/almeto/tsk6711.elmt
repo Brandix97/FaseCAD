@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="80" hotspot_x="36" hotspot_y="39">
+    <uuid uuid="{c51a0893-38c5-10ad-4320-d2f6b1b3cf25}"/>
+    <names>
+        <name lang="ar">TSK 6711</name>
+        <name lang="ca">TSK 6711</name>
+        <name lang="cs">RFI filtr TSK 6711</name>
+        <name lang="da">TSK 6711</name>
+        <name lang="de">TSK 6711</name>
+        <name lang="el">TSK 6711</name>
+        <name lang="en">TSK 6711</name>
+        <name lang="es">TSK 6711</name>
+        <name lang="fi">TSK 6711</name>
+        <name lang="fr">TSK 6711</name>
+        <name lang="hr">TSK 6711</name>
+        <name lang="hu">TSK 6711</name>
+        <name lang="it">TSK 6711</name>
+        <name lang="ja">TSK 6711</name>
+        <name lang="ko">TSK 6711</name>
+        <name lang="mn">TSK 6711</name>
+        <name lang="nb">TSK 6711</name>
+        <name lang="nl">TSK 6711</name>
+        <name lang="nl_BE">TSK 6711</name>
+        <name lang="pl">TSK 6711</name>
+        <name lang="pt">TSK 6711</name>
+        <name lang="pt_BR">Filtro RFI Almeto TSK 6711</name>
+        <name lang="ro">TSK 6711</name>
+        <name lang="ru">TSK 6711</name>
+        <name lang="sk">TSK 6711</name>
+        <name lang="sl">TSK 6711</name>
+        <name lang="sr">TSK 6711</name>
+        <name lang="sv">TSK 6711</name>
+        <name lang="tr">TSK 6711</name>
+        <name lang="uk">TSK 6711</name>
+        <name lang="zh">TSK6711 滤波器</name>
+    </names>
+    <elementInformations>
+        <elementInformation show="1" name="designation">TSK 6711</elementInformation>
+        <elementInformation show="1" name="manufacturer">Almeto</elementInformation>
+    </elementInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-30" y="-28" width="60" height="58" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="L" x="-22" y="-18" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="-3" y="-18" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="PE" x="14" y="-18" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L'" x="-12" y="27" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N'" x="6" y="27" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="RFI Filter&#10;TSK6711" x="-24" y="-2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-48" y="-33" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{73313bd0-f4e7-438c-a074-0d733181576d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="-28" x2="-20" y2="-32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-28" x2="0" y2="-32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-28" x2="20" y2="-32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="30" x2="10" y2="34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="30" x2="-10" y2="34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{746ccf7a-34a3-2d45-d9b5-d2887a7571c9}" name="" x="0" y="-32" orientation="n" type="Generic"/>
+        <terminal uuid="{8c9c60f3-cf25-d52e-43bb-6ae07e293ebb}" name="" x="-20" y="-32" orientation="n" type="Generic"/>
+        <terminal uuid="{e803c43f-3613-6e1f-e496-2563e7c5d53c}" name="" x="20" y="-32" orientation="n" type="Generic"/>
+        <terminal uuid="{9cf14dc3-37bd-0869-fdaf-3b95143e453e}" name="" x="10" y="34" orientation="s" type="Generic"/>
+        <terminal uuid="{5cf3d1c7-2b5c-363d-9fb3-7c35fceeb6ad}" name="" x="-10" y="34" orientation="s" type="Generic"/>
+    </description>
+</definition>

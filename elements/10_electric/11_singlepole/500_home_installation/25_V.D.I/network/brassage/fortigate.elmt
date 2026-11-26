@@ -1,0 +1,82 @@
+<definition width="440" height="80" hotspot_x="215" hotspot_y="35" type="element" version="0.100.0" link_type="simple">
+    <uuid uuid="{f1c7f93c-f0c2-4a89-a5fe-2a16166ec552}"/>
+    <names>
+        <name lang="ar">Fortigate 20C</name>
+        <name lang="ca">Fortificar 20ºC</name>
+        <name lang="cs">Fortigate 20C</name>
+        <name lang="da">Fortigate 20C</name>
+        <name lang="de">Fortigate 20C SOHO Firewall</name>
+        <name lang="el">Fortigate 20C</name>
+        <name lang="en">Fortigate 20C</name>
+        <name lang="es">Fortigate 20C</name>
+        <name lang="fi">Fortigate 20C</name>
+        <name lang="fr">Fortigate 20C</name>
+        <name lang="hr">Fortigate 20C</name>
+        <name lang="hu">Fortigate 20C</name>
+        <name lang="it">Fortigate 20C</name>
+        <name lang="ja">Fortigate 20C</name>
+        <name lang="ko">Fortigate 20C</name>
+        <name lang="mn">Fortigate 20C</name>
+        <name lang="nb">Fortigate 20C</name>
+        <name lang="nl">Fortigate 20C</name>
+        <name lang="nl_BE">Fortigate 20C</name>
+        <name lang="pl">Fortigate 20C</name>
+        <name lang="pt">Fortigate 20C</name>
+        <name lang="pt_BR">Firewall Fortigate 20C</name>
+        <name lang="ro">Fortigate 20C</name>
+        <name lang="ru">Fortigate 20C</name>
+        <name lang="sk">Fortigate 20C</name>
+        <name lang="sl">Fortigate 20C</name>
+        <name lang="sr">Fortigate 20C</name>
+        <name lang="sv">Fortigate 20C</name>
+        <name lang="tr">Fortigate 20C</name>
+        <name lang="uk">Fortigate 20C</name>
+        <name lang="zh">飞塔防火墙</name>
+    </names>
+    <elementInformations>
+        <elementInformation show="1" name="description">Pare-feu</elementInformation>
+        <elementInformation show="1" name="designation">Fortigate 20C</elementInformation>
+        <elementInformation show="1" name="manufacturer">Fortinet</elementInformation>
+    </elementInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect width="30" ry="0" y="-5" rx="0" x="-15" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:gray;color:black"/>
+        <rect width="30" ry="0" y="-5" rx="0" x="75" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:black"/>
+        <rect width="30" ry="0" y="-5" rx="0" x="45" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:gray;color:black"/>
+        <rect width="30" ry="0" y="-5" rx="0" x="15" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:gray;color:black"/>
+        <polygon x5="-195" y5="40" y2="-30" y1="-30" y4="40" x3="220" x4="200" antialias="false" x1="-210" style="line-style:normal;line-weight:normal;filling:white;color:black" x2="220" y6="20" x6="-210" y3="30"/>
+        <polygon x2="-5" y13="1" x1="-5" y4="12" y2="3" y11="-2" antialias="false" x5="11" x9="3" x11="-3" y9="1" x10="3" x13="-4" x12="-3" x4="-11" y3="3" y12="1" y8="1" x7="5" style="line-style:normal;line-weight:normal;filling:white;color:black" y6="3" y10="-2" y5="12" x8="5" x3="-11" y7="3" y1="1" x6="11"/>
+        <polygon x2="85" y13="1" x1="85" y4="12" y2="3" y11="-2" antialias="false" x5="101" x9="93" x11="87" y9="1" x10="93" x13="86" x12="87" x4="79" y3="3" y12="1" y8="1" x7="95" style="line-style:normal;line-weight:normal;filling:white;color:black" y6="3" y10="-2" y5="12" x8="95" x3="79" y7="3" y1="1" x6="101"/>
+        <polygon x2="25" y13="1" x1="25" y4="12" y2="3" y11="-2" antialias="false" x5="41" x9="33" x11="27" y9="1" x10="33" x13="26" x12="27" x4="19" y3="3" y12="1" y8="1" x7="35" style="line-style:normal;line-weight:normal;filling:white;color:black" y6="3" y10="-2" y5="12" x8="35" x3="19" y7="3" y1="1" x6="41"/>
+        <polygon x2="55" y13="1" x1="55" y4="12" y2="3" y11="-2" antialias="false" x5="71" x9="63" x11="57" y9="1" x10="63" x13="56" x12="57" x4="49" y3="3" y12="1" y8="1" x7="65" style="line-style:normal;line-weight:normal;filling:white;color:black" y6="3" y10="-2" y5="12" x8="65" x3="49" y7="3" y1="1" x6="71"/>
+        <rect width="30" ry="0" y="-5" rx="0" x="-45" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:gray;color:black"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="7" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:orange;color:orange"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="97" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:orange;color:orange"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="67" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:orange;color:orange"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="37" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:orange;color:orange"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="-11" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="19" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="49" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="79" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <polygon x2="-35" y13="1" x1="-35" y4="12" y2="3" y11="-2" antialias="false" x5="-19" x9="-27" x11="-33" y9="1" x10="-27" x13="-34" x12="-33" x4="-41" y3="3" y12="1" y8="1" x7="-25" style="line-style:normal;line-weight:normal;filling:white;color:black" y6="3" y10="-2" y5="12" x8="-25" x3="-41" y7="3" y1="1" x6="-19"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="-23" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:orange;color:orange"/>
+        <rect width="4" ry="0" y="-3" rx="0" x="-41" height="2" antialias="false" style="line-style:normal;line-weight:normal;filling:green;color:green"/>
+        <text color="#000000" rotation="0" y="30" x="61" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text="1"/>
+        <text color="#000000" rotation="0" y="30" x="31" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text="2"/>
+        <text color="#000000" rotation="0" y="30" x="2" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text="3"/>
+        <text color="#000000" rotation="0" y="30" x="-28" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text="4"/>
+        <text color="#000000" rotation="0" y="30" x="91" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" text="WAN"/>
+        <rect width="10" ry="0" y="-3" rx="0" x="-124" height="20" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <rect width="3" ry="0" y="-1" rx="0" x="-122" height="16" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <dynamic_text Valignment="AlignTop" rotation="0" y="-4" frame="false" text_width="-1" keep_visual_rotation="true" x="225" uuid="{869e33e5-5999-41f4-8b1c-c09334882268}" text_from="ElementInfo" Halignment="AlignLeft" z="82" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal y="10" orientation="s" name="USB" x="-120" uuid="{e13f3fe2-ad25-44a5-94ab-4ad5e08b9d9e}" type="Generic"/>
+        <terminal y="15" orientation="s" name="P1" x="60" uuid="{b3cce7d0-cbc6-4d58-8fea-7156eb0379b1}" type="Generic"/>
+        <terminal y="15" orientation="s" name="P4" x="-30" uuid="{664fb8f3-b43e-4f3b-8f2e-41502552163c}" type="Generic"/>
+        <terminal y="15" orientation="s" name="P3" x="0" uuid="{e72d07bd-6a44-4e73-ba2a-05d2b9eee6cf}" type="Generic"/>
+        <terminal y="15" orientation="s" name="P2" x="30" uuid="{360bbf80-f409-486c-aedd-ac5690331d6c}" type="Generic"/>
+        <terminal y="15" orientation="s" name="WAN" x="90" uuid="{c2b7bb55-069b-4124-a43e-1d3b0ccbaaeb}" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="previous_report" width="30" height="20" hotspot_x="15" hotspot_y="16">
+    <uuid uuid="{5cdddc3b-b932-513a-1e39-94ca32498dd6}"/>
+    <names>
+        <name lang="ar">مرجع مُؤشر ضوئي</name>
+        <name lang="ca">llum de referència</name>
+        <name lang="cs">Odkaz_3 - Kontrolka (svisle)</name>
+        <name lang="da">arkhenvisning lys</name>
+        <name lang="de">Referenzleuchte</name>
+        <name lang="el">λυχνία αναφοράς</name>
+        <name lang="en">reference light</name>
+        <name lang="es">referencia luz</name>
+        <name lang="fi">viittausvalo</name>
+        <name lang="fr">Reference voyant</name>
+        <name lang="hr">referentno svjetlo</name>
+        <name lang="hu">lámpa hivatkozás</name>
+        <name lang="it">Rif. spia luminosa / (verticale)</name>
+        <name lang="ja">ライト参照</name>
+        <name lang="ko">라이트 참조</name>
+        <name lang="mn">гэрлийн лавлагаа</name>
+        <name lang="nb">referanselys</name>
+        <name lang="nl">referentie vorig lamp</name>
+        <name lang="nl_BE">verwijzing licht</name>
+        <name lang="pl">Odsyłacz 3 (pionowo)</name>
+        <name lang="pt">referência luz</name>
+        <name lang="pt_BR">Luz de referência</name>
+        <name lang="ro">referință lumină</name>
+        <name lang="ru">ссылка на лампу</name>
+        <name lang="sk">Odkaz na svetlo</name>
+        <name lang="sl">sklic na luč</name>
+        <name lang="sr">референца светла</name>
+        <name lang="sv">Hänvisning lampa</name>
+        <name lang="tr">lamba referansı</name>
+        <name lang="uk">посилання на лампу</name>
+        <name lang="zh">指示灯垂直参考</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="3" y1="-3" x2="7" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-7" x2="7" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="1.5" y="-8.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-4" y="-7" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2589a2d9-a295-4e83-97d1-372b6f713712}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>/</text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="90" hotspot_x="40" hotspot_y="35">
+    <uuid uuid="{9a1c6652-da84-8111-b9ce-77f2e22ef8a0}"/>
+    <names>
+        <name lang="ar">لاقط شمسي سطح 2</name>
+        <name lang="ca">Captador solar de terrassa 2</name>
+        <name lang="cs">Terénní solární kolektor 2</name>
+        <name lang="da">Terrassesolfanger 2</name>
+        <name lang="de">Terrasse Solarkollektor 2</name>
+        <name lang="el">Ηλιακός συλλέκτης δώματος 2</name>
+        <name lang="en">Terrace solar capturator 2</name>
+        <name lang="es">Captador solar terraza 2</name>
+        <name lang="fi">Terassi-aurinkokeräin 2</name>
+        <name lang="fr">Capteur solaire incliné 2</name>
+        <name lang="hr">Krovni solarni kolektor 2</name>
+        <name lang="hu">Terasz napkollektor 2</name>
+        <name lang="it">Collettore solare da terrazzo 2</name>
+        <name lang="ja">屋根置き型太陽熱集熱器 2</name>
+        <name lang="ko">테라스형 태양열 집열기 2</name>
+        <name lang="mn">Дээврийн нарны коллектор 2</name>
+        <name lang="nb">Terrassesolfanger 2</name>
+        <name lang="nl">Terras zonnecollector 2</name>
+        <name lang="nl_BE">Terras zonnecollector 2</name>
+        <name lang="pl">Kolektor słoneczny dachowy 2</name>
+        <name lang="pt">Coletor solar de terraço 2</name>
+        <name lang="pt_BR">Terrace solar capturatou 2</name>
+        <name lang="ro">Captator solar de terasă 2</name>
+        <name lang="ru">Солнечный коллектор на крыше 2</name>
+        <name lang="sk">Terasa solárny kolektor 2</name>
+        <name lang="sl">Strešni sončni kolektor 2</name>
+        <name lang="sr">Терасни соларни колектор 2</name>
+        <name lang="sv">Terrassolfångare 2</name>
+        <name lang="tr">Teras güneş kolektörü 2</name>
+        <name lang="uk">Сонячний колектор на терасі 2</name>
+        <name lang="zh">露台太阳能集热器（双）</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="39" y1="32" x2="0" y2="-28" x3="-27" y3="-12" x4="12" y4="48" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-1" y1="-25" x2="-24" y2="-11" x3="12" y3="45" x4="36" y4="31" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="12" y1="48" x2="8" y2="48" x3="-31" y3="-12" x4="-27" y4="-12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-31" y1="-12" x2="-4" y2="-28" x3="0" y3="-28" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-33" y1="-12" x2="-8" y2="-27" x3="-6" y3="-27" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-32" y="-36" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ea9cd02b-6dde-49fb-b2ae-7e86b99abad4}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{faeecc55-5a3e-4b21-8ef8-99d871357f51}" name="" x="-30" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{f742350d-c840-4a92-b183-802b054ac3ad}" name="" x="5" y="47" orientation="w" type="Generic"/>
+        <terminal uuid="{4a680c16-c2ae-4029-870c-56007b90c9fc}" name="" x="3" y="-27" orientation="e" type="Generic"/>
+        <terminal uuid="{0ed1982c-53aa-4cbb-b188-27ffe36bb498}" name="" x="40" y="31" orientation="e" type="Generic"/>
+    </description>
+</definition>

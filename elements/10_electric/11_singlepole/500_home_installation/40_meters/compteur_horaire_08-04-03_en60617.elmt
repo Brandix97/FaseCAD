@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="90" hotspot_x="25" hotspot_y="45">
+    <uuid uuid="{1a3ee7f9-f795-c1dd-36cd-17b9177e5582}"/>
+    <names>
+        <name lang="ar">عدّاد زمني(en_60617)</name>
+        <name lang="ca">Comptador d'hores(en_60617)</name>
+        <name lang="cs">Měřič provozních hodin</name>
+        <name lang="da">Timetæller(en_60617)</name>
+        <name lang="de">Betriebsstundenzähler (en_60617)</name>
+        <name lang="el">Ωρόμετρο (en_60617)</name>
+        <name lang="en">Hour counter(en_60617)</name>
+        <name lang="es">Contador horario(en_60617)</name>
+        <name lang="fi">Tuntilaskuri(en_60617)</name>
+        <name lang="fr">Compteur horaire (en_60617)</name>
+        <name lang="hr">Brojilo radnih sati (en_60617)</name>
+        <name lang="hu">Üzemóra számláló(en_60617)</name>
+        <name lang="it">Conta tempo (en_60617)</name>
+        <name lang="ja">アワーカウンター(en_60617)</name>
+        <name lang="ko">시간 카운터(en_60617)</name>
+        <name lang="mn">Цаг тоолуур(en_60617)</name>
+        <name lang="nb">Timeteller(en_60617)</name>
+        <name lang="nl">Bedrijfsurenteller (en_60617)</name>
+        <name lang="nl_BE">Urenteller(en_60617)</name>
+        <name lang="pl">Licznik godzin (en_60617)</name>
+        <name lang="pt">Contador horário(en_60617)</name>
+        <name lang="pt_BR">Contador de horas (EN 60617)</name>
+        <name lang="ro">Contor de ore (en_60617)</name>
+        <name lang="ru">Счетчик моточасов(en_60617)</name>
+        <name lang="sk">Počítadlo hodín (en_60617)</name>
+        <name lang="sl">Števec obratovalnih ur (en_60617)</name>
+        <name lang="sr">Бројило радних сати (en_60617)</name>
+        <name lang="sv">Timmätare(en_60617)</name>
+        <name lang="tr">Saat sayacı(en_60617)</name>
+        <name lang="uk">Лічильник годин (en_60617)</name>
+        <name lang="zh">计时器_08-04-03_en60617</name>
+    </names>
+    <informations>https://github.com/jonasstein/qelectrotech-symbols
+EN 60617</informations>
+    <description>
+        <text text="h" x="-4" y="12" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="23" y="-11.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{99902077-8f40-4b38-a5f8-204e279de186}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-30" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{94a11875-8b23-4c3d-92cb-f2912366a9d6}" name="" x="0" y="-34" orientation="n" type="Generic"/>
+        <terminal uuid="{58408b1b-42a6-43f4-b393-acdbfa437bec}" name="" x="0" y="34" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,25 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="30" hotspot_y="15">
+    <uuid uuid="{8f6e42e0-5640-584d-2738-e45df242a549}"/>
+    <names>
+        <name lang="ca">Disc cec</name>
+        <name lang="es">Disco ciego</name>
+        <name lang="pt_BR">Disco ciego</name>
+        <name lang="zh">燃气盲板</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-3" y="-10" width="3" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-10" width="3" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-10" y1="-13" x2="1" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-12" x2="-5" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-13" y="-32" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a545af3a-44de-461a-afad-fba647b51690}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{fb5a3099-a684-42d8-9c01-40fb08232054}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{5a16fd60-3697-44b4-a78c-a01481927792}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

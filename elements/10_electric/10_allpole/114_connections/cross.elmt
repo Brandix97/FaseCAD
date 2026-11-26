@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="30" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{6677d3a7-ff0b-78a7-47c1-4b370ddaf408}"/>
+    <names>
+        <name lang="ar">صليب</name>
+        <name lang="ca">Creu</name>
+        <name lang="cs">Kříž</name>
+        <name lang="da">Kryds</name>
+        <name lang="de">Kreuz</name>
+        <name lang="el">Σταυρός</name>
+        <name lang="en">Cross</name>
+        <name lang="es">Cruzar</name>
+        <name lang="fi">Risteys</name>
+        <name lang="fr">Croix</name>
+        <name lang="hr">Križ</name>
+        <name lang="hu">Kereszt alakú</name>
+        <name lang="it">Croce</name>
+        <name lang="ja">クロス</name>
+        <name lang="ko">교차</name>
+        <name lang="mn">Загалмай</name>
+        <name lang="nb">Kryss</name>
+        <name lang="nl">Kruis</name>
+        <name lang="nl_BE">Kruis</name>
+        <name lang="pl">Połączenie 2</name>
+        <name lang="pt">Cruzamento</name>
+        <name lang="pt_BR">Cruzamento de condutores sem conexão elétrica</name>
+        <name lang="ro">Cruce</name>
+        <name lang="ru">Пересечение</name>
+        <name lang="sk">Kríženie</name>
+        <name lang="sl">Križ</name>
+        <name lang="sr">Крст</name>
+        <name lang="sv">Kors</name>
+        <name lang="tr">Artı</name>
+        <name lang="uk">Перехрестя</name>
+        <name lang="zh">交叉</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-1" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <dynamic_text x="-0.5" y="-9.45" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{fc5c039b-1fca-40d9-a6ff-a9e1775de38b}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <line x1="-4" y1="0" x2="4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-4" x2="0" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{667d83d2-8840-40ec-bf41-8dc659926fe2}" name="1" x="0" y="-4" orientation="n" type="Generic"/>
+        <terminal uuid="{c9b40e74-5d24-4cd5-9dc7-3be318007661}" name="3" x="0" y="4" orientation="s" type="Generic"/>
+        <terminal uuid="{935e3f1e-3dc0-4b41-8252-6e7ee9f1a3e1}" name="4" x="-4" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{340c983a-1f7e-4939-b844-c50c8e28302d}" name="2" x="4" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

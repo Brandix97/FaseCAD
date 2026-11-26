@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="20">
+    <uuid uuid="{ccdae081-d58f-0ba2-2a2b-63b0d647faae}"/>
+    <names>
+        <name lang="ar">قابس و مقبس</name>
+        <name lang="ca">Endoll i endoll</name>
+        <name lang="cs">Spojený pin</name>
+        <name lang="da">Stik og bøsning</name>
+        <name lang="de">Steckverbindung Buchse + Stecker</name>
+        <name lang="el">Βύσμα και υποδοχή</name>
+        <name lang="en">Plug and socket</name>
+        <name lang="es">Enchufe y socket</name>
+        <name lang="fi">Pistoke ja pistorasia</name>
+        <name lang="fr">Fiche et prise</name>
+        <name lang="hr">Utikač i utičnica</name>
+        <name lang="hu">Csatlakozó dugó + aljzat</name>
+        <name lang="it">Spina e presa</name>
+        <name lang="ja">プラグとソケット</name>
+        <name lang="ko">플러그 및 소켓</name>
+        <name lang="mn">Залгуур ба гнездо</name>
+        <name lang="nb">Plugg og kontakt</name>
+        <name lang="nl">Steker en contact</name>
+        <name lang="nl_BE">Stekker en contactdoos</name>
+        <name lang="pl">Złącze wtykowe</name>
+        <name lang="pt">Terminal duplo</name>
+        <name lang="pt_BR">plugue e tomada</name>
+        <name lang="ro">Ștecher și priză</name>
+        <name lang="ru">Соединение (стар.)</name>
+        <name lang="sk">Konektor a zásuvka</name>
+        <name lang="sl">Vtič in vtičnica</name>
+        <name lang="sr">Утикач и утичница</name>
+        <name lang="sv">Stickpropp och uttag</name>
+        <name lang="tr">Fiş ve priz</name>
+        <name lang="uk">Штекер і гніздо</name>
+        <name lang="zh">插座插头</name>
+    </names>
+    <informations>EN 60617: 03-03-05</informations>
+    <description>
+        <line x1="-1" y1="2" x2="-1" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="3" y="-7" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{164228ee-e62e-4fb7-b0be-af31bffa1b13}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="2" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-1" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="2" x2="1" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3" y="0" width="6" height="6" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{ecb180ab-4e59-4b98-b929-7d6b4dd2bec7}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{7d2a89d8-444d-407f-8112-59b42fe0ff30}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

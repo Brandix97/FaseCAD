@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="22" hotspot_y="41">
+    <uuid uuid="{332d69e7-d33e-d1de-74ef-4dc6b94431f5}"/>
+    <names>
+        <name lang="ar">ملامس NO يتحكم به مؤقت</name>
+        <name lang="ca">Contacte amb rellotge controlat NO</name>
+        <name lang="cs">Kontakt NO řízený elektrickými hodinami</name>
+        <name lang="da">Kontakt NO-styret ur</name>
+        <name lang="de">Schliesser zeitgesteuert</name>
+        <name lang="el">Ανοικτή επαφή χρονοδιακόπτη</name>
+        <name lang="en">Contact NO-controlled clock</name>
+        <name lang="es">Contacto NA controlado por reloj</name>
+        <name lang="fi">Kellon ohjaama kosketin NO</name>
+        <name lang="fr">Commande par horloge électrique NO</name>
+        <name lang="hr">Kontakt NO upravljan satom</name>
+        <name lang="hu">Óravezérelt NO érintkező</name>
+        <name lang="it">Contatto NO comandato da orologio</name>
+        <name lang="ja">NO制御時計接点</name>
+        <name lang="ko">NO 제어 클록 접점</name>
+        <name lang="mn">NO удирдлагатай цаг контакт</name>
+        <name lang="nb">Kontakt NO-styrt klokke</name>
+        <name lang="nl">Klok contact (NO)</name>
+        <name lang="nl_BE">Contact NO-gestuurde klok</name>
+        <name lang="pl">Zestyk zwierny zegara sterującego</name>
+        <name lang="pt">Contacto NO comandado por relógio</name>
+        <name lang="pt_BR">Contato NA controlado por relógio</name>
+        <name lang="ro">Contact NO comandat de ceas</name>
+        <name lang="ru">Контакт НР с часовым управлением</name>
+        <name lang="sk">Kontakt NO ovládaný hodinami</name>
+        <name lang="sl">Kontakt NO krmiljen z uro</name>
+        <name lang="sr">Контакт NO управљан часовником</name>
+        <name lang="sv">Kontakt NO-styrd klocka</name>
+        <name lang="tr">NO kontrollü saat kontağı</name>
+        <name lang="uk">Контакт з керуванням годинником НР</name>
+        <name lang="zh">水平并联常开触点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="-10" x2="-3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-20" y="-15" width="10" height="10" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-10" y="-2" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{58f0957d-3d34-430b-8ad2-35b707dc601f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <dynamic_text x="-10" y="-34" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9bb27f67-eedb-4f3c-93ab-edf125e70bb0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="1" y="-22" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3b9c708a-c111-4fa1-888d-dd7dda162daa}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="-20" x2="0" y2="0" x3="0" y3="10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="-10" x2="-15" y2="-10" x3="-15" y3="-14" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{32d4a1b2-663a-47db-90de-b6e791627cbf}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{022ebb4c-3495-4b7d-85ed-052462e761dd}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

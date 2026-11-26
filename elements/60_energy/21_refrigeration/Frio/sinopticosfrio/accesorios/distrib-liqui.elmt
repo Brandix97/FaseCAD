@@ -1,0 +1,22 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="24">
+    <uuid uuid="{d1868a2d-e9cd-53ba-e842-63f3aac78f11}"/>
+    <names>
+        <name lang="ca">Distribuidor de líquid</name>
+        <name lang="es">Distribuidor líquido</name>
+        <name lang="pt_BR">Distribuidou líquido</name>
+        <name lang="zh">液体分配器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="4.89" y="-14.41" width="8.6" height="7.41" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-17.1" width="11.29" height="13.1" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-7.6" y1="-10" x2="8.4" y2="-10" x3="0.4" y3="4" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="9.11" y1="-14.41" x2="12.37" y2="-14.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.16" y1="-17.1" x2="12.85" y2="-17.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.4" y1="3.3" x2="0.4" y2="8.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="-19.49" width="17" height="17.49" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="-19.49" x2="13" y2="-19.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b7970fd7-6f46-4953-9ae4-f8f77bb3fe03}" name="" x="0" y="9" orientation="s" type="Generic"/>
+        <terminal uuid="{aa1b4f59-1cea-4049-a1c6-79f8b2dc30a1}" name="" x="13" y="-17" orientation="e" type="Generic"/>
+    </description>
+</definition>

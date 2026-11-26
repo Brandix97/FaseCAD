@@ -1,0 +1,79 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef ELEMENTINFOPARTWIDGET_H
+#define ELEMENTINFOPARTWIDGET_H
+
+#include <QWidget>
+
+class QCompleter;
+class QStringListModel;
+
+namespace Ui {
+	class ElementInfoPartWidget;
+}
+
+/**
+	@brief The ElementInfoPartWidget class
+	gebruikt bij schema editor
+	als men edit dit Element aanklikt
+*/
+class ElementInfoPartWidget : public QWidget
+{
+	Q_OBJECT
+
+	//METHODS
+	public:
+		explicit ElementInfoPartWidget(
+			QString key,
+			const QString& translated_key,
+			QWidget *parent = nullptr);
+		~ElementInfoPartWidget() override;
+
+		QString key () const {return key_;}
+		QString text () const;
+		bool hasAcceptableInput() const;
+		void setText (const QString &);
+		void setPlaceHolderText (const QString &text);
+		void setSuggestions (const QStringList &suggestions);
+		void setFocusTolineEdit();
+		void setEnabled(bool e);
+		void setDisabled(bool d);
+		void setEraseTextVisible (bool visible);
+		void setEraseTextChecked (bool check);
+		Qt::CheckState EraseTextCheckState ()const;
+		void setMaterialButtonVisible (bool visible);
+
+	signals:
+		void textEdited  (const QString & text);
+		void textChanged (const QString & text);
+		void materialButtonClicked();
+
+		//ATTRIBUTES
+	private slots:
+		void on_m_erase_text_clicked();
+		void editOnSeveralLines();
+		
+	private:
+		Ui::ElementInfoPartWidget *ui;
+		QString key_;
+		bool m_show_erase = false;
+		QCompleter *m_completer = nullptr;
+		QStringListModel *m_suggestions_model = nullptr;
+};
+
+#endif // ELEMENTINFOPARTWIDGET_H

@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="23" hotspot_y="21">
+    <uuid uuid="{cc886d61-2433-7292-771f-e9a89ff3d30a}"/>
+    <names>
+        <name lang="ca">Canaleta corba</name>
+        <name lang="es">Canaleta giro</name>
+        <name lang="pt_BR">Canaleta giro</name>
+        <name lang="zh">线槽弯头</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-11" y="-10" width="10" height="10" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-11" y="-10" width="20" height="20" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="9" y1="0" x2="9" y2="-10" x3="-1" y3="-10" x4="-1" y4="-5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-1" y1="10" x2="-11" y2="10" x3="-11" y3="0" x4="-6" y4="0" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="2" y="2.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f3794538-b214-4b9c-b74e-5f5d02d2c15e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{39c82890-d3ef-4ac7-abbb-64896c576a50}" name="" x="1" y="-11" orientation="n" type="Generic"/>
+        <terminal uuid="{12a97659-6cf9-46c9-9146-6a2d3e6431aa}" name="" x="6" y="-11" orientation="n" type="Generic"/>
+        <terminal uuid="{09ca6e87-1ac8-4833-8518-7f2edc81159f}" name="" x="-12" y="2" orientation="w" type="Generic"/>
+        <terminal uuid="{702f80fe-5b0f-4401-908f-b52d6a7ad3fd}" name="" x="-12" y="8" orientation="w" type="Generic"/>
+    </description>
+</definition>

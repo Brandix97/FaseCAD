@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="42" hotspot_y="21">
+    <uuid uuid="{cb09a60c-21d7-8f7c-bd81-6490da3507e3}"/>
+    <names>
+        <name lang="ca">Forn de pizza</name>
+        <name lang="es">Horno de pizza</name>
+        <name lang="pt_BR">Houno de pizza</name>
+        <name lang="zh">披萨炉</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-35.69" y="11.55" width="34.5" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-4" x2="-29" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="24" x2="20" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3.13" y="4.08" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-28.5" y1="16.53" x2="-29.94" y2="17.77" x3="-9.81" y3="17.77" x4="-8.38" y4="16.53" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="3.13" y="-0.9" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-40" y="-3.39" width="48.88" height="27.39" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-3" x2="20" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35.69" y="-0.9" width="34.5" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-28.5" y1="4.08" x2="-29.94" y2="5.32" x3="-9.81" y3="5.32" x4="-8.38" y4="4.08" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="3.13" y="9.06" width="2.88" height="2.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-30" y1="-14" x2="20" y2="-14" x3="20" y3="14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-29" y="20.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{44d4a82b-e847-424b-8c5e-e85a0dc81983}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{97d68a27-107f-4804-b371-7d25d2bad76a}" name="" x="-32" y="-11" orientation="w" type="Generic"/>
+        <terminal uuid="{3ed1edea-41af-4973-9984-5f6e1a90934b}" name="" x="21" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="27" hotspot_y="50">
+    <uuid uuid="{3ae323a8-dd55-76e4-e5e1-95d9651ba51c}"/>
+    <names>
+        <name lang="ar">ملامس فصل، فتح متأخر</name>
+        <name lang="ca">Contacte trencat, obertura retardada</name>
+        <name lang="cs">Vypínací kontakt se zpožděním při aktivaci</name>
+        <name lang="da">Brydekontakt, forsinket åbning</name>
+        <name lang="de">anzugverzögerter Öffner</name>
+        <name lang="el">Επαφή ανοίγματος, καθυστερημένο άνοιγμα</name>
+        <name lang="en">Break contact, delayed opening</name>
+        <name lang="es">Contacto de apertura, apertura retardada</name>
+        <name lang="fi">Avauskosketin, viivästynyt avautuminen</name>
+        <name lang="fr">Contact à fermeture, retardé, dispositif activé</name>
+        <name lang="hr">Mirni kontakt, odgođeno otvaranje</name>
+        <name lang="hu">Nyitóérintkező, késleltetett nyitás</name>
+        <name lang="it">Contatto di apertura, apertura ritardata</name>
+        <name lang="ja">ブレーク接点，遅延開路</name>
+        <name lang="ko">브레이크 접점, 지연 열림</name>
+        <name lang="mn">Салах контакт, сааталтай нээгдэх</name>
+        <name lang="nb">Hvilekontakt, forsinket åpning</name>
+        <name lang="nl">Verbreekcontact, vertraagd openend</name>
+        <name lang="nl_BE">Verbrekingscontact, vertraagd openend</name>
+        <name lang="pl">Zestyk rozwierny, opóźnione otwieranie</name>
+        <name lang="pt">Contacto de abertura, abertura retardada</name>
+        <name lang="pt_BR">Contato NF, abertura temporizada</name>
+        <name lang="ro">Contact de repaus, deschidere întârziată</name>
+        <name lang="ru">Размыкающий контакт, замедленное размыкание</name>
+        <name lang="sk">Kľudový kontakt, oneskorené vypnutie</name>
+        <name lang="sl">Mirovni kontakt, zakasnjeno odpiranje</name>
+        <name lang="sr">Мирни контакт, одложено отварање</name>
+        <name lang="sv">Brytande kontakt, fördröjd öppning</name>
+        <name lang="tr">Açma kontağı, gecikmeli açılma</name>
+        <name lang="uk">Розмикальний контакт, розмикання із затримкою</name>
+        <name lang="zh">连接端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7dac8fa7-9898-44a3-8f28-a26e4b7c03ef}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-25" y="-20" width="20" height="20" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-24" y1="-11" x2="3" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-9" x2="3" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{23757067-db3a-4829-82a1-3c8fedd58e7a}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{b9b7228e-ed93-4aaa-87fa-cf34d142e18c}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

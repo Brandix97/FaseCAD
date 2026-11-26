@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="25" hotspot_y="36">
+    <uuid uuid="{df1600c1-3d91-6cc2-a550-f260afad7c56}"/>
+    <names>
+        <name lang="ar">إناء تسخين 02</name>
+        <name lang="ca">Vas de calefacció</name>
+        <name lang="cs">Nádoba, ohřívání</name>
+        <name lang="da">Varmebeholder</name>
+        <name lang="de">Ausdehnungsgefäß</name>
+        <name lang="el">Δοχείο θέρμανσης</name>
+        <name lang="en">Heating Vase</name>
+        <name lang="es">Vaso de calefacción</name>
+        <name lang="fi">Lämmityssäiliö</name>
+        <name lang="fr">Vase Chauffage 50L</name>
+        <name lang="hr">Posuda za grijanje</name>
+        <name lang="hu">Fűtési tartály</name>
+        <name lang="it">Vaso di espansione 50L</name>
+        <name lang="ja">加熱バイス</name>
+        <name lang="ko">난방 보일러</name>
+        <name lang="mn">Халаалтын сав</name>
+        <name lang="nb">Varmekolbe</name>
+        <name lang="nl">Expansie tank</name>
+        <name lang="nl_BE">Verwarmingsvat</name>
+        <name lang="pl">Naczynie wzbiorcze</name>
+        <name lang="pt">Vaso de aquecimento</name>
+        <name lang="pt_BR">aquecimento Vase</name>
+        <name lang="ro">Vas de încălzire</name>
+        <name lang="ru">Расширительный бак отопления</name>
+        <name lang="sk">Vykurovacia nádoba</name>
+        <name lang="sl">Grelec posode</name>
+        <name lang="sr">Грејна посуда</name>
+        <name lang="sv">Värmande vas</name>
+        <name lang="tr">Isıtma kabı</name>
+        <name lang="uk">Опалювальний бак</name>
+        <name lang="zh">封闭式膨胀罐</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license
+Baboune41-2016
+Modifications</informations>
+    <description>
+        <line x1="-2" y1="-24" x2="2" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-2" y1="-24" x2="-2" y2="-28" x3="2" y3="-28" x4="2" y4="-24" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-20" y="-24.5" width="40" height="15" style="line-style:normal;line-weight:thin;filling:red;color:none" antialias="false"/>
+        <rect x="-20" y="-17" width="40" height="17" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:red;color:none" antialias="false"/>
+        <rect x="-20" y="0" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:red;color:none" antialias="false"/>
+        <ellipse x="-20" y="12.5" width="40" height="15" style="line-style:normal;line-weight:thin;filling:red;color:none" antialias="false"/>
+        <polygon x1="0" y1="0" x2="-3" y2="3" x3="3" y3="3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-11" y="34" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{236c65b1-4792-41e7-b069-e8133daf3f61}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="20" y1="-17" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-17" x2="-20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="-24.5" width="40" height="15" start="0" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="12.5" width="40" height="15" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="28" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.5" y="29" width="1" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-27" x2="2" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-26" x2="2" y2="-27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-25" x2="2" y2="-26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{96134d2c-7e9a-4b3a-ab35-92becba22abc}" name="" x="0" y="-28" orientation="n" type="Generic"/>
+    </description>
+</definition>

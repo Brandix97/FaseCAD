@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{7e9f7cc2-c1a2-67e0-29f9-66a4817a4c15}"/>
+    <names>
+        <name lang="ar">مفتاح فصل</name>
+        <name lang="ca">Interruptor de desconnexió amb fusible</name>
+        <name lang="cs">Pojistkový odpínač</name>
+        <name lang="da">Skilleafbryder med sikring</name>
+        <name lang="de">Trenn- und Sicherungsklemme</name>
+        <name lang="el">Αποζεύκτης με ασφάλεια</name>
+        <name lang="en">Disconnecting switch fused</name>
+        <name lang="es">Interruptor de desconexión</name>
+        <name lang="fi">Erottava kytkin sulakkeella</name>
+        <name lang="fr">Sectionneur</name>
+        <name lang="hr">Rastavni prekidač s osiguračem</name>
+        <name lang="hu">Szakaszoló kapcsoló olvadó betéttel</name>
+        <name lang="it">Sezionatore</name>
+        <name lang="ja">ヒューズ付き断路器</name>
+        <name lang="ko">퓨즈 부착 단로기</name>
+        <name lang="mn">Салгах унтраалга хайлмагтай</name>
+        <name lang="nb">Skillebryter med sikring</name>
+        <name lang="nl">Scheidingschakelaar met smeltzekering</name>
+        <name lang="nl_BE">Scheidingsschakelaar met zekering</name>
+        <name lang="pl">Odłącznik bezpiecznikowy</name>
+        <name lang="pt">Seccionador com fusível</name>
+        <name lang="pt_BR">Interruptor-seccionador fusível</name>
+        <name lang="ro">Întrerupător secționator cu fuzibil</name>
+        <name lang="ru">Выключатель-разъединитель с предохранителем</name>
+        <name lang="sk">Odpojovací spínač s poistkou</name>
+        <name lang="sl">Odklopno stikalo z varovalko</name>
+        <name lang="sr">Раставни прекидач са осигурачем</name>
+        <name lang="sv">Frånskiljande brytare med säkring</name>
+        <name lang="tr">Sigortalı ayırıcı şalter</name>
+        <name lang="uk">Роз'єднувач із запобіжником</name>
+        <name lang="zh">熔断器隔离开关1（闭合）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="7" y1="0" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8" y="-6" width="4" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-8" x2="0" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="9.8" x2="10" y2="19.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="9.8" x2="8" y2="9.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="10" x2="-2" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-10" x2="-2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="12.75" y="-9.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{97cd54a1-8506-440e-acbe-9bdd253f3528}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="12" y1="-10" x2="8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1611b738-de32-485c-b5e0-c49a65785e48}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{f0e68f35-4345-4edc-9897-a72646fe5fe2}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{999fdb48-3494-49ac-bc9d-02919054d908}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a2f0d00a-aa8c-460d-8e88-c1734cf21769}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

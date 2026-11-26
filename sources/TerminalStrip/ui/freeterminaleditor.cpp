@@ -1,0 +1,344 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "freeterminaleditor.h"
+#include "ui_freeterminaleditor.h"
+
+#include "../undocommand/changeelementdatacommand.h"
+#include "../../diagram.h"
+#include "../../elementprovider.h"
+#include "freeterminalmodel.h"
+#include "../terminalstrip.h"
+#include "../UndoCommand/addterminaltostripcommand.h"
+
+#include <QSortFilterProxyModel>
+
+/**
+ * @brief FreeTerminalEditor::FreeTerminalEditor
+ * @param project
+ * @param parent
+ */
+FreeTerminalEditor::FreeTerminalEditor(QETProject *project, QWidget *parent) :
+	QWidget(parent),
+    ui(new Ui::FreeTerminalEditor),
+    m_project(project)
+{
+	ui->setupUi(this);
+	ui->m_table_view->setItemDelegate(new FreeTerminalModelDelegate(ui->m_table_view));
+
+    m_model = new FreeTerminalModel(m_project, this);
+
+		//The view works on a filtered proxy of the model. The filter is a plain,
+		//case insensitive "contains" on the label, so typing Z1 shows Z1:1, Z1:2...
+		//Not dynamic : an edited label must not vanish from the table while it is typed.
+	m_proxy_model = new QSortFilterProxyModel(this);
+	m_proxy_model->setSourceModel(m_model);
+	m_proxy_model->setFilterKeyColumn(FreeTerminalModel::Label);
+	m_proxy_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+	m_proxy_model->setDynamicSortFilter(false);
+	ui->m_table_view->setModel(m_proxy_model);
+	ui->m_table_view->setCurrentIndex(m_proxy_model->index(0,0));
+
+	connect(ui->m_filter_le, &QLineEdit::textChanged, this, [this](const QString &text)
+	{
+		m_proxy_model->setFilterFixedString(text);
+		selectionChanged();
+	});
+		//Selected rows can be dragged onto a strip of the terminal strip tree
+	ui->m_table_view->setDragEnabled(true);
+	ui->m_table_view->setDragDropMode(QAbstractItemView::DragOnly);
+
+    if (m_project) {
+        connect(m_project, &QObject::destroyed, this, &FreeTerminalEditor::reload);
+    }
+
+		//Disable the move button while cells are edited (yellow), re-evaluate on every change
+	connect(m_model, &FreeTerminalModel::dataChanged, this, &FreeTerminalEditor::selectionChanged);
+
+	connect(ui->m_table_view->selectionModel(), &QItemSelectionModel::selectionChanged,
+			this, &FreeTerminalEditor::selectionChanged);
+
+	connect(ui->m_table_view, &QAbstractItemView::doubleClicked, this, [this](const QModelIndex &proxy_index)
+	{
+		const auto index = m_proxy_model->mapToSource(proxy_index);
+		if (m_model->columnTypeForIndex(index) == FreeTerminalModel::XRef)
+		{
+			auto mrtd = m_model->dataAtRow(index.row());
+			if (mrtd.element_)
+			{
+				auto elmt = mrtd.element_;
+				auto diagram = elmt->diagram();
+				if (diagram)
+				{
+					diagram->showMe();
+					if (diagram->views().size())
+					{
+						auto fit_view = elmt->sceneBoundingRect();
+						fit_view.adjust(-200,-200,200,200);
+						diagram->views().at(0)->fitInView(fit_view, Qt::KeepAspectRatioByExpanding);
+					}
+				}
+			}
+		}
+	});
+}
+
+/**
+ * @brief FreeTerminalEditor::~FreeTerminalEditor
+ */
+FreeTerminalEditor::~FreeTerminalEditor()
+{
+	delete ui;
+}
+
+/**
+ * @brief FreeTerminalEditor::reload
+ * Reload the editor to be up to date with
+ * the current state of the project.
+ * Every not applied change will be lost.
+ */
+void FreeTerminalEditor::reload()
+{
+	m_model->clear();
+	ui->m_move_in_cb->clear();
+
+	if (m_project)
+	{
+		const auto strip_vector = m_project->terminalStrip();
+		for (const auto &strip : strip_vector)
+		{
+			QString str(strip->installation() + " " + strip->location() + " " + strip->name());
+			ui->m_move_in_cb->addItem(str, strip->uuid());
+		}
+		selectionChanged();
+	}
+}
+
+/**
+ * @brief FreeTerminalEditor::apply
+ * Applu current edited values
+ */
+void FreeTerminalEditor::apply()
+{
+	const auto modified_data = m_model->modifiedModelRealTerminalData();
+	if (modified_data.size())
+	{
+		m_project->undoStack()->beginMacro(tr("Modify terminal strip properties"));
+
+		for (const auto &data_ : modified_data)
+		{
+			if (auto element_ = data_.element_)
+			{
+				auto current_data = element_->elementData();
+				current_data.setTerminalType(data_.type_);
+				current_data.setTerminalFunction(data_.function_);
+				current_data.setTerminalLED(data_.led_);
+				current_data.m_informations.addValue(QStringLiteral("label"), data_.label_);
+
+				if (element_->elementData() != current_data) {
+					m_project->undoStack()->push(new ChangeElementDataCommand(element_, current_data));
+				}
+			}
+		}
+
+		m_project->undoStack()->endMacro();
+	}
+
+	reload();
+}
+
+/**
+ * @brief FreeTerminalEditor::setProject
+ * Set @project as project handled by this editor.
+ * If a previous project was setted, everything is clear.
+ * This function track the destruction of the project,
+ * that  mean if the project pointer is deleted
+ * no need to call this function with a nullptr,
+ * everything is made inside this class.
+ * @param project
+ */
+void FreeTerminalEditor::setProject(QETProject *project)
+{
+    if(m_project) {
+        disconnect(m_project, &QObject::destroyed, this, &FreeTerminalEditor::reload);
+    }
+    m_project = project;
+    if (m_model) {
+        m_model->setProject(project);
+    }
+    if (m_project) {
+        connect(m_project, &QObject::destroyed, this, &FreeTerminalEditor::reload);
+    }
+    reload();
+}
+
+void FreeTerminalEditor::on_m_type_cb_activated(int index)
+{
+	if (m_model)
+	{
+		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
+
+		for (auto model_index : index_list)
+		{
+			auto type_index = m_model->index(m_proxy_model->mapToSource(model_index).row(), FreeTerminalModel::Type);
+			if (type_index.isValid())
+			{
+				ElementData::TerminalType override_type;
+				switch (index) {
+					case 0:
+						override_type = ElementData::TTGeneric; break;
+					case 1:
+						override_type = ElementData::TTFuse; break;
+					case 2:
+						override_type = ElementData::TTSectional; break;
+					case 3:
+						override_type = ElementData::TTDiode; break;
+					case 4:
+						override_type = ElementData::TTGround; break;
+					case 5:
+						override_type = ElementData::TTAntiParallelDiodes; break;
+					case 6:
+						override_type = ElementData::TTResistor; break;
+					case 7:
+						override_type = ElementData::TTVaristor; break;
+					case 8:
+						override_type = ElementData::TTTestSocket; break;
+					case 9:
+						override_type = ElementData::TTDiodeReversed; break;
+					default:
+						override_type = ElementData::TTGeneric; break;
+				}
+				m_model->setData(type_index, override_type);	
+			}
+		}
+	}
+}
+
+
+void FreeTerminalEditor::on_m_function_cb_activated(int index)
+{
+	if (m_model)
+	{
+		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
+
+		for (auto model_index : index_list)
+		{
+			auto function_index = m_model->index(m_proxy_model->mapToSource(model_index).row(), FreeTerminalModel::Function);
+			if (function_index.isValid())
+			{
+				ElementData::TerminalFunction override_function;
+				switch (index) {
+					case 0:
+						override_function = ElementData::TFGeneric; break;
+					case 1:
+						override_function = ElementData::TFPhase; break;
+					case 2:
+						override_function = ElementData::TFNeutral; break;
+					default:
+						override_function = ElementData::TFGeneric; break;
+				}
+				m_model->setData(function_index, override_function);
+			}
+		}
+	}
+}
+
+
+void FreeTerminalEditor::on_m_led_cb_activated(int index)
+{
+	if (m_model)
+	{
+		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
+
+		for (auto model_index : index_list)
+		{
+			auto led_index = m_model->index(m_proxy_model->mapToSource(model_index).row(), FreeTerminalModel::Led);
+
+			if (led_index.isValid()) {
+				m_model->setData(led_index,
+								 index == 0 ? false : true);
+			}
+		}
+	}
+}
+
+
+void FreeTerminalEditor::on_m_move_pb_clicked()
+{
+		//Get the selected real terminal
+	QModelIndexList index_list;
+	for (const auto &proxy_index : ui->m_table_view->selectionModel()->selectedIndexes()) {
+		index_list.append(m_proxy_model->mapToSource(proxy_index));
+	}
+	const auto real_t_vector = m_model->realTerminalForIndex(index_list);
+	if (real_t_vector.isEmpty()) {
+		return;
+	}
+
+		//Get the terminal strip who receive the real terminal
+	const auto strip_uuid = ui->m_move_in_cb->currentData().toUuid();
+	TerminalStrip *terminal_strip{nullptr};
+	for (const auto &strip : m_project->terminalStrip()) {
+		if (strip->uuid() == strip_uuid) {
+			terminal_strip = strip;
+			break;
+		}
+	}
+
+	if (!terminal_strip) {
+		return;
+	}
+
+	m_project->undoStack()->push(new AddTerminalToStripCommand(real_t_vector, terminal_strip));
+
+	reload();
+}
+
+/**
+ * @brief FreeTerminalEditor::hasPendingEdits
+ * @return true if cells were edited and not yet applied
+ */
+bool FreeTerminalEditor::hasPendingEdits() const {
+	return !m_model->modifiedModelRealTerminalData().isEmpty();
+}
+
+void FreeTerminalEditor::selectionChanged()
+{
+	const bool has_selection = !ui->m_table_view->selectionModel()->selectedIndexes().isEmpty();
+	const bool has_pending   = !m_model->modifiedModelRealTerminalData().isEmpty();
+	const bool has_strip     = ui->m_move_in_cb->count() > 0;
+	setDisabledMove(!has_strip || !has_selection || has_pending);
+
+		//Say why the button is disabled, the most basic reason first
+	if (!has_strip) {
+		ui->m_move_pb->setToolTip(tr("The project has no terminal strip: create one with the + button"));
+	} else if (has_pending) {
+		ui->m_move_pb->setToolTip(tr("Apply or cancel the current changes before moving"));
+	} else if (!has_selection) {
+		ui->m_move_pb->setToolTip(tr("Select the terminals to move in the table"));
+	} else {
+		ui->m_move_pb->setToolTip(tr("Move the selected terminals to the chosen terminal block"));
+	}
+}
+
+void FreeTerminalEditor::setDisabledMove(bool b)
+{
+	ui->m_move_label->setDisabled(b);
+	ui->m_move_in_cb->setDisabled(b);
+	ui->m_move_pb->setDisabled(b);
+}
+

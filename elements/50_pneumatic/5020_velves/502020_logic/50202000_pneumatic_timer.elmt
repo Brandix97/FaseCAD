@@ -1,0 +1,56 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="60" hotspot_x="31" hotspot_y="30">
+    <uuid uuid="{fc7a5d48-601f-a121-2919-0c8d4497fbf5}"/>
+    <names>
+        <name lang="ar">توقيت هوائي</name>
+        <name lang="ca">temporitzador pneumàtic</name>
+        <name lang="cs">pneumatický časovač</name>
+        <name lang="da">pneumatisk timer</name>
+        <name lang="de">pneumatischer Timer</name>
+        <name lang="el">πνευματικό χρονόμετρο</name>
+        <name lang="en">pneumatic timer</name>
+        <name lang="es">temporizador neumático</name>
+        <name lang="fi">pneumaattinen ajastin</name>
+        <name lang="fr">temporisateur pneumatique</name>
+        <name lang="hr">pneumatski mjerač vremena</name>
+        <name lang="hu">pneumatikus időzítő</name>
+        <name lang="it">temporizzatore pneumatico</name>
+        <name lang="ja">空気圧タイマー</name>
+        <name lang="ko">공압 타이머</name>
+        <name lang="mn">пневматик таймер</name>
+        <name lang="nb">pneumatisk timer</name>
+        <name lang="nl">pneumatische timer</name>
+        <name lang="nl_BE">pneumatische timer</name>
+        <name lang="pl">pneumatyczny timer</name>
+        <name lang="pt">temporizador pneumático</name>
+        <name lang="pt_BR">Temporizador pneumático</name>
+        <name lang="ro">cronometru pneumatic</name>
+        <name lang="ru">пневматический таймер</name>
+        <name lang="sk">pneumatický časovač</name>
+        <name lang="sl">pnevmatski časovnik</name>
+        <name lang="sr">пнеуматски тајмер</name>
+        <name lang="sv">pneumatisk timer</name>
+        <name lang="tr">pnömatik zamanlayıcı</name>
+        <name lang="uk">Пневматичний таймер</name>
+        <name lang="zh">气动定时器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="8" y="-47" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{c7fe176a-401d-4fd6-ab54-84b1ec282477}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="1" x="12" y="20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="-14" y="20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="t1" x="13" y="-1" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="-4" y="-16" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="16" y1="5" x2="-17" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="2" x2="-17" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17" y1="2" x2="17" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="9" x2="10" y2="-1" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="t0" x="-20" y="-1" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-25" y="-15" width="50" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{c9510c17-2a71-42f3-833c-77b994b1be8a}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{af1cce47-2db4-422c-a64a-8b37e6e6f489}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{8021e182-085f-4a81-b6e1-10d3367d2bf7}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

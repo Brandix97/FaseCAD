@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="17" hotspot_y="25">
+    <uuid uuid="{fa984303-42c2-4784-b00b-f4eef42e22dc}"/>
+    <names>
+        <name lang="ar">مروحة</name>
+        <name lang="ca">Ventilador</name>
+        <name lang="cs">Větrák</name>
+        <name lang="da">Ventilator</name>
+        <name lang="de">Lüfter</name>
+        <name lang="el">Ανεμιστήρας</name>
+        <name lang="en">Fan</name>
+        <name lang="es">Ventilador</name>
+        <name lang="fi">Tuuletin</name>
+        <name lang="fr">Ventilateur</name>
+        <name lang="hr">Ventilator</name>
+        <name lang="hu">Ventilátor</name>
+        <name lang="it">Ventilatore</name>
+        <name lang="ja">ファン</name>
+        <name lang="ko">팬</name>
+        <name lang="mn">Сэнс</name>
+        <name lang="nb">Vifte</name>
+        <name lang="nl">Ventilator</name>
+        <name lang="nl_BE">Ventilator</name>
+        <name lang="pl">Wentylator</name>
+        <name lang="pt">Ventilador</name>
+        <name lang="pt_BR">Ventilador</name>
+        <name lang="ro">Ventilator</name>
+        <name lang="ru">Вентилятор</name>
+        <name lang="sk">Ventilátor</name>
+        <name lang="sl">Ventilator</name>
+        <name lang="sr">Вентилатор</name>
+        <name lang="sv">Fläkt</name>
+        <name lang="tr">Fan</name>
+        <name lang="uk">Вентилятор</name>
+        <name lang="zh">风扇</name>
+    </names>
+    <informations>EN 60617: 11-16-02</informations>
+    <description>
+        <dynamic_text x="3" y="-10" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4dbf59bf-836b-4257-ad3c-9cfe6a9010e7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="0" y="-20" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="3" y="-12.25" width="7" height="4.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-10" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="10" y="-12.25" width="7" height="4.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{046f8921-d6d3-4322-a4aa-a718a1a4e394}" name="" x="-10" y="-10" orientation="w" type="Generic"/>
+    </description>
+</definition>

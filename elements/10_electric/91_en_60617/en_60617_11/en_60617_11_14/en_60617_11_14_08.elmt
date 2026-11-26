@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="22" hotspot_y="47">
+    <uuid uuid="{24f1c800-85f1-51ac-566c-e19ce1fe3454}"/>
+    <names>
+        <name lang="ar">مفتاح حاكم جهد</name>
+        <name lang="ca">Dimmer</name>
+        <name lang="cs">Stmívač</name>
+        <name lang="da">Lysdæmper</name>
+        <name lang="de">Dimmer</name>
+        <name lang="el">Ροοστάτης</name>
+        <name lang="en">Dimmer</name>
+        <name lang="es">Dimmer (regulador de intensidad)</name>
+        <name lang="fi">Himmennin</name>
+        <name lang="fr">Interrupteur gradateur</name>
+        <name lang="hr">Regulator svjetline</name>
+        <name lang="hu">Dimmer</name>
+        <name lang="it">Dimmer</name>
+        <name lang="ja">調光器</name>
+        <name lang="ko">디머</name>
+        <name lang="mn">Гэрэл тохируулагч</name>
+        <name lang="nb">Dimmer</name>
+        <name lang="nl">Lichtregelaar</name>
+        <name lang="nl_BE">Dimmer</name>
+        <name lang="pl">Ściemniacz</name>
+        <name lang="pt">Dimmer</name>
+        <name lang="pt_BR">Dimmer</name>
+        <name lang="ro">Variator de lumină</name>
+        <name lang="ru">Димер</name>
+        <name lang="sk">Stmievač</name>
+        <name lang="sl">Zatemnilnik</name>
+        <name lang="sr">Диммер</name>
+        <name lang="sv">Dimmer</name>
+        <name lang="tr">Dimmer</name>
+        <name lang="uk">Регулятор яскравості</name>
+        <name lang="zh">接线端子08</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3c987c77-c404-4688-bc23-f9ab033a9d5d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-20" y="-20" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="15" y1="-40" x2="-5" y2="-30" x3="15" y3="-30" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-45" x2="-5" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="18" hotspot_y="18">
+    <uuid uuid="{2347d299-1579-e8c9-dffd-51cc359d93cd}"/>
+    <names>
+        <name lang="ar">ترموستات</name>
+        <name lang="ca">Termòstat</name>
+        <name lang="cs">Termostat</name>
+        <name lang="da">Termostat</name>
+        <name lang="de">Thermostat</name>
+        <name lang="el">Θερμοστάτης</name>
+        <name lang="en">Thermostat</name>
+        <name lang="es">Termostato</name>
+        <name lang="fi">Termostaatti</name>
+        <name lang="hr">Termostat</name>
+        <name lang="hu">Termosztát</name>
+        <name lang="it">Termostato</name>
+        <name lang="ja">サーモスタット</name>
+        <name lang="ko">서모스탯</name>
+        <name lang="mn">Термостат</name>
+        <name lang="nb">Termostat</name>
+        <name lang="nl">Thermostaat</name>
+        <name lang="nl_BE">Thermostaat</name>
+        <name lang="pl">Termostat</name>
+        <name lang="pt">Termóstato</name>
+        <name lang="pt_BR">Thermostat</name>
+        <name lang="ro">Termostat</name>
+        <name lang="ru">Термостат</name>
+        <name lang="sk">Termostat</name>
+        <name lang="sl">Termostat</name>
+        <name lang="sr">Термостат</name>
+        <name lang="sv">Termostat</name>
+        <name lang="tr">Termostat</name>
+        <name lang="uk">Термостат</name>
+        <name lang="zh">恒温器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="0" y1="4" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="T" x="-4" y="1" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-7" y="-12" width="14" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-22.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{95764a0c-a653-463f-aa56-9f35bc89b08f}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e01d0978-ed66-48a6-9c2b-0d9794349985}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

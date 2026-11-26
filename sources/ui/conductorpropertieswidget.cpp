@@ -1,0 +1,544 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "conductorpropertieswidget.h"
+
+#include "../conductorproperties.h"
+#include "../qetapp.h"
+#include "../qtextorientationspinboxwidget.h"
+#include "ui_conductorpropertieswidget.h"
+
+#include <QIcon>
+#include <QPainter>
+#include <QPixmap>
+
+/**
+	@brief ConductorPropertiesWidget::ConductorPropertiesWidget
+	Constructor
+	@param parent : paretn widget
+*/
+ConductorPropertiesWidget::ConductorPropertiesWidget(QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::ConductorPropertiesWidget)
+{
+	ui->setupUi(this);
+	initWidget();
+}
+
+
+
+
+/**
+	@brief ConductorPropertiesWidget::ConductorPropertiesWidget
+	Constructor with properties
+	@param properties : properties to edit
+	@param parent : parent widget
+*/
+ConductorPropertiesWidget::ConductorPropertiesWidget(
+		const ConductorProperties &properties,
+		QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::ConductorPropertiesWidget)
+{
+	ui -> setupUi(this);
+	initWidget();
+	setProperties(properties);
+}
+
+/**
+	@brief ConductorPropertiesWidget::~ConductorPropertiesWidget
+	destructor
+*/
+ConductorPropertiesWidget::~ConductorPropertiesWidget()
+{
+	delete ui;
+}
+
+/**
+	@brief ConductorPropertiesWidget::setProperties
+	Set the properties
+	@param properties
+*/
+void ConductorPropertiesWidget::setProperties(
+		const ConductorProperties &properties)
+{
+	if (m_properties == properties)
+		return;
+
+	m_properties = properties;
+
+	int index = ui -> m_line_style_cb -> findData(QPen(m_properties.style));
+	if (index != -1) ui -> m_line_style_cb -> setCurrentIndex(index);
+
+	ui->m_color_2_gb            -> setChecked  (m_properties.m_bicolor);
+	ui->m_dash_size_sb          -> setValue    (m_properties.m_dash_size);
+	ui->m_custom_dash_gb        -> setChecked  (m_properties.m_dash_pattern.enabled);
+	ui->m_pattern_dash_sb       -> setValue    (m_properties.m_dash_pattern.dash);
+	ui->m_pattern_gap_sb        -> setValue    (m_properties.m_dash_pattern.gap);
+	ui->m_pattern_dot_sb        -> setValue    (m_properties.m_dash_pattern.dot);
+	ui->m_pattern_dot_gap_sb    -> setValue    (m_properties.m_dash_pattern.dot_gap);
+	ui->m_formula_le            -> setText    (m_properties.m_formula);
+	ui->m_text_le               -> setText    (m_properties.text);
+	ui->m_function_le           -> setText    (m_properties.m_function);
+	selectPotentialType(m_properties.m_potential_type);
+	ui->m_cable_le              -> setText    (m_properties.m_cable);
+	ui->m_bus_le                -> setText    (m_properties.m_bus);
+	ui->m_tension_protocol_le   -> setText    (m_properties.m_tension_protocol);
+	ui->m_wire_color_le         -> setText    (m_properties.m_wire_color);
+	ui->m_wire_section_le       -> setText    (m_properties.m_wire_section);
+	ui->m_conductor_type_le     -> setText    (m_properties.m_conductor_type);
+	ui->m_text_size_sb          -> setValue   (m_properties.text_size);
+	ui->m_cond_size_sb          -> setValue   (m_properties.cond_size);
+	ui->m_show_text_cb          -> setChecked (m_properties.m_show_text);
+	ui->m_one_text_per_folio_cb -> setChecked (m_properties.m_one_text_per_folio);
+	ui->m_definition_mark_cb    -> setChecked (m_properties.m_definition_mark);
+	ui->m_definition_mark_hides_text_cb -> setChecked (m_properties.m_definition_mark_hides_text);
+	ui->m_definition_mark_at_sb -> setValue  (m_properties.m_definition_mark_at < 0
+						   ? -1 : qRound(m_properties.m_definition_mark_at * 100));
+	ui->m_earth_cb              -> setChecked (m_properties.singleLineProperties.hasGround);
+	ui->m_neutral_cb            -> setChecked (m_properties.singleLineProperties.hasNeutral);
+	ui->m_pen_cb                -> setChecked (m_properties.singleLineProperties.isPen());
+	ui->m_phase_cb              -> setChecked (m_properties.singleLineProperties.phasesCount());
+	ui->m_phase_slider          -> setValue   (m_properties.singleLineProperties.phasesCount());
+	ui->m_color_kpb             -> setColor(m_properties.color);
+	ui->m_color_2_kpb           -> setColor(m_properties.m_color_2);
+	ui->m_text_color_kpb        -> setColor(m_properties.text_color);
+
+	ui->m_horiz_cb->setCurrentIndex(m_properties.m_horizontal_alignment == Qt::AlignTop? 0 : 1);
+	ui->m_verti_cb->setCurrentIndex(m_properties.m_vertical_alignment == Qt::AlignLeft? 0 : 1);
+	m_verti_select -> setValue (m_properties.verti_rotate_text);
+	m_horiz_select -> setValue (m_properties.horiz_rotate_text);
+
+	setConductorType(m_properties.type);
+	updatePreview(false);
+	updateDashPatternPreview();
+
+		//A core of a cable says what its section, colour and type are:
+		//those three fields are locked here, so an edit made on one
+		//side of a terminal cannot write over what the cable says.
+		//The small sign beside each says why when the mouse rests on it
+	const bool from_cable = !m_properties.m_cable_uuid.isNull();
+	ui->m_wire_color_le->setDisabled(from_cable);
+	ui->m_wire_section_le->setDisabled(from_cable);
+	ui->m_conductor_type_le->setDisabled(from_cable);
+	ui->m_wire_color_locked_info->setVisible(from_cable);
+	ui->m_wire_section_locked_info->setVisible(from_cable);
+	ui->m_conductor_type_locked_info->setVisible(from_cable);
+	const QString why = from_cable
+			? (m_properties.m_cable.isEmpty()
+			   ? tr("This wire is a core of a cable: section, colour and type come from the cable.")
+			   : tr("This wire is core of cable %1: section, colour and type come from the cable.")
+					 .arg(m_properties.m_cable))
+			: QString();
+	ui->m_wire_color_locked_info->setToolTip(why);
+	ui->m_wire_section_locked_info->setToolTip(why);
+	ui->m_conductor_type_locked_info->setToolTip(why);
+}
+
+/**
+	@brief ConductorPropertiesWidget::properties
+	@return the edited properties
+*/
+ConductorProperties ConductorPropertiesWidget::properties() const
+{
+	ConductorProperties properties_;
+	if (ui -> m_multiwires_gb  -> isChecked()) properties_.type = ConductorProperties::Multi;
+	else if (ui -> m_singlewire_gb -> isChecked()) properties_.type = ConductorProperties::Single;
+
+	properties_.color                   = ui -> m_color_kpb->color();
+	properties_.m_bicolor               = ui->m_color_2_gb->isChecked();
+	properties_.m_color_2               = ui->m_color_2_kpb->color();
+	properties_.m_dash_size             = ui->m_dash_size_sb->value();
+	properties_.m_dash_pattern.enabled  = ui->m_custom_dash_gb->isChecked();
+	properties_.m_dash_pattern.dash     = ui->m_pattern_dash_sb->value();
+	properties_.m_dash_pattern.gap      = ui->m_pattern_gap_sb->value();
+	properties_.m_dash_pattern.dot      = ui->m_pattern_dot_sb->value();
+	properties_.m_dash_pattern.dot_gap  = ui->m_pattern_dot_gap_sb->value();
+		//The box starts at 2, so the default size 1 shows as 2: keep the
+		//stored size unless the box shows something else.
+	if (properties_.m_dash_size == qBound(ui->m_dash_size_sb->minimum(),
+										  m_properties.m_dash_size,
+										  ui->m_dash_size_sb->maximum()))
+		properties_.m_dash_size = m_properties.m_dash_size;
+	properties_.style                   = ui -> m_line_style_cb->itemData(ui->m_line_style_cb->currentIndex()).value<QPen>().style();
+	properties_.m_formula               = ui->m_formula_le->text();
+	properties_.text                    = ui -> m_text_le -> text();
+	properties_.text_color              = ui -> m_text_color_kpb->color();
+	properties_.m_function              = ui -> m_function_le->text();
+		//Hidden when the project does not draw from potential types: the
+		//conductor keeps the type it has
+	properties_.m_potential_type        = ui->m_potential_type_cb->isHidden()
+			? m_properties.m_potential_type
+			: ui->m_potential_type_cb->currentData().toString();
+	properties_.m_cable                 = ui -> m_cable_le->text();
+	properties_.m_bus                   = ui -> m_bus_le->text();
+	properties_.m_tension_protocol      = ui -> m_tension_protocol_le->text();
+	properties_.m_wire_color            = ui -> m_wire_color_le->text();
+	properties_.m_wire_section          = ui -> m_wire_section_le->text();
+	properties_.m_conductor_type        = ui -> m_conductor_type_le->text();
+	properties_.text_size               = ui -> m_text_size_sb -> value();
+	properties_.cond_size               = ui -> m_cond_size_sb -> value();
+	properties_.m_show_text             = ui -> m_show_text_cb -> isChecked();
+	properties_.m_one_text_per_folio    = ui -> m_one_text_per_folio_cb -> isChecked();
+	properties_.m_definition_mark       = ui -> m_definition_mark_cb -> isChecked();
+	properties_.m_definition_mark_hides_text = ui -> m_definition_mark_hides_text_cb -> isChecked();
+	const int at_percent = ui->m_definition_mark_at_sb->value();
+	properties_.m_definition_mark_at   = at_percent < 0 ? -1 : at_percent / 100.0;
+		//The box shows whole percents: keep the stored place unless it
+		//shows another
+	if ((m_properties.m_definition_mark_at < 0 ? -1 : qRound(m_properties.m_definition_mark_at * 100)) == at_percent)
+		properties_.m_definition_mark_at = m_properties.m_definition_mark_at;
+	properties_.verti_rotate_text       = m_verti_select -> value();
+	properties_.horiz_rotate_text       = m_horiz_select -> value();
+	properties_.m_vertical_alignment    = ui->m_verti_cb->currentIndex() == 0? Qt::AlignLeft : Qt::AlignRight;
+	properties_.m_horizontal_alignment  = ui->m_horiz_cb->currentIndex() == 0? Qt::AlignTop : Qt::AlignBottom;
+
+	properties_.singleLineProperties.hasGround  = ui -> m_earth_cb -> isChecked();
+	properties_.singleLineProperties.hasNeutral = ui -> m_neutral_cb -> isChecked();
+	properties_.singleLineProperties.is_pen     = ui -> m_pen_cb -> isChecked();
+	properties_.singleLineProperties.setPhasesCount(ui -> m_phase_cb -> isChecked() ? ui -> m_phase_sb -> value() : 0);
+
+	return properties_;
+}
+
+/**
+	@brief ConductorPropertiesWidget::event
+	@param event
+	@return
+*/
+bool ConductorPropertiesWidget::event(QEvent *event)
+{
+	if (event->type() == QEvent::WindowActivate) {
+		ui -> m_formula_le -> setFocus();
+	}
+	return(QWidget::event(event));
+}
+
+
+/**
+	@brief ConductorPropertiesWidget::setReadOnly
+	@param ro if true this widget is disabled
+*/
+void ConductorPropertiesWidget::setReadOnly(const bool &ro) {
+	this->setDisabled(ro);
+}
+
+/**
+	@brief ConductorPropertiesWidget::addAutonumWidget
+	@param widget
+*/
+void ConductorPropertiesWidget::addAutonumWidget(QWidget *widget) {
+	ui->m_autonum_layout->addWidget(widget);
+}
+
+/**
+	@brief ConductorPropertiesWidget::setPotentialTypes
+	Offer the potential types of a project that draws from them. Without
+	this call the choice stays hidden, which is what a project that has not
+	turned the feature on, and the application defaults page, show.
+	@param types
+*/
+void ConductorPropertiesWidget::setPotentialTypes(const PotentialTypes &types)
+{
+	const bool shown = types.isEnabled();
+	ui->m_potential_type_cb->clear();
+	ui->m_potential_type_cb->addItem(tr("None"), QString());
+	for (const PotentialType &type : types.types()) {
+		QPixmap swatch(24, 12);
+		swatch.fill(type.color);
+		ui->m_potential_type_cb->addItem(QIcon(swatch), type.name, type.name);
+	}
+	selectPotentialType(m_properties.m_potential_type);
+	ui->m_potential_type_cb->setVisible(shown);
+	ui->m_potential_type_label->setVisible(shown);
+}
+
+/**
+	@brief ConductorPropertiesWidget::selectPotentialType
+	Show \p name in the potential type choice. A name the project no
+	longer lists is added to it, so opening and closing the dialog does not
+	lose it.
+	@param name
+*/
+void ConductorPropertiesWidget::selectPotentialType(const QString &name)
+{
+	QComboBox *cb = ui->m_potential_type_cb;
+	int index = cb->findData(name);
+	if (index == -1) {
+		cb->addItem(name, name);
+		index = cb->count() - 1;
+	}
+	cb->setCurrentIndex(index);
+}
+
+/**
+	@brief ConductorPropertiesWidget::setHiddenOneTextPerFolio
+	@param hide
+*/
+void ConductorPropertiesWidget::setHiddenOneTextPerFolio(const bool &hide) {
+	ui -> m_one_text_per_folio_cb -> setHidden(hide);
+}
+
+/**
+	@brief ConductorPropertiesWidget::setMixedTextFields
+	Mark the text fields whose value differs between several edited
+	conductors: they are shown blank, with a hint saying why.
+	@param mixed
+*/
+void ConductorPropertiesWidget::setMixedTextFields(
+		const QList<ConductorMultiEdit::TextField> &mixed)
+{
+	using namespace ConductorMultiEdit;
+	const QList<QPair<TextField, QLineEdit *>> edits {
+		{Text,            ui->m_text_le},
+		{Formula,         ui->m_formula_le},
+		{Function,        ui->m_function_le},
+		{TensionProtocol, ui->m_tension_protocol_le},
+		{WireColor,       ui->m_wire_color_le},
+		{WireSection,     ui->m_wire_section_le},
+		{WireType,        ui->m_conductor_type_le},
+		{Cable,           ui->m_cable_le},
+		{Bus,             ui->m_bus_le}};
+
+	for (const auto &edit : edits)
+		edit.second->setPlaceholderText(mixed.contains(edit.first)
+			? tr("Several values", "several conductors, different values")
+			: QString());
+}
+
+/**
+	@brief ConductorPropertiesWidget::setTextLocked
+	Lock the conductor text while several conductors are edited at once:
+	the same number on all of them would make duplicates.
+	@param locked
+*/
+void ConductorPropertiesWidget::setTextLocked(bool locked)
+{
+	m_text_locked = locked;
+	ui->m_text_le->setEnabled(!locked);
+	ui->m_text_le->setToolTip(locked
+		? tr("Several conductors selected: the text is changed on one "
+		     "conductor at a time.")
+		: tr("Text"));
+}
+
+/**
+	@brief ConductorPropertiesWidget::setDisabledShowText
+	@param disable
+*/
+void ConductorPropertiesWidget::setDisabledShowText(const bool &disable) {
+	ui->m_show_text_cb->setDisabled(disable==true? true : false);
+		//Say why the box is locked: the setting that locks it is not in this dialog
+	ui->m_show_text_cb->setToolTip(disable
+		? tr("Visible text\n"
+		     "Locked by this sheet's “Show one potential text per sheet” "
+		     "option, in Sheet properties.")
+		: tr("Visible text"));
+}
+
+/**
+	@brief ConductorPropertiesWidget::setHiddenAvailableAutonum
+	Hide the label, combo box and push button of available autonum
+	@param hide
+*/
+void ConductorPropertiesWidget::setHiddenAvailableAutonum(const bool &hide)
+{
+		//Always hidden: FaseCAD has no numbering formulas
+	Q_UNUSED(hide)
+	ui->m_autonum_label->hide();
+	ui->m_available_autonum_cb->hide();
+	ui->m_edit_autonum_pb->hide();
+}
+
+QComboBox *ConductorPropertiesWidget::autonumComboBox() const
+{
+	return ui->m_available_autonum_cb;
+}
+
+QPushButton *ConductorPropertiesWidget::editAutonumPushButton() const
+{
+	return ui->m_edit_autonum_pb;
+}
+
+/**
+	@brief ConductorPropertiesWidget::initWidget
+*/
+void ConductorPropertiesWidget::initWidget()
+{
+		//Shown by setPotentialTypes(), for a project that draws from them
+	ui->m_potential_type_cb->hide();
+	ui->m_potential_type_label->hide();
+	m_verti_select = QETApp::createTextOrientationSpinBoxWidget();
+	ui -> m_text_angle_gl -> addWidget(m_verti_select, 2, 0, Qt::AlignHCenter);
+	m_horiz_select = QETApp::createTextOrientationSpinBoxWidget();
+	ui -> m_text_angle_gl -> addWidget(m_horiz_select, 2, 1, Qt::AlignHCenter);
+
+	ui -> m_line_style_cb -> addItem(tr("Solid line", "conductor style: solid line"), QPen(Qt::SolidLine));
+	ui -> m_line_style_cb -> addItem(tr("Dashed line", "conductor style: dashed line"), QPen(Qt::DashLine));
+	ui -> m_line_style_cb -> addItem(tr("Dots and dashes", "conductor style: dashed and dotted line"), QPen(Qt::DashDotLine));
+
+	ui -> m_update_preview_pb -> setHidden(true);
+
+	for (QDoubleSpinBox *sb : {ui->m_pattern_dash_sb, ui->m_pattern_gap_sb,
+				   ui->m_pattern_dot_sb, ui->m_pattern_dot_gap_sb, ui->m_cond_size_sb})
+		connect(sb, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+			this, &ConductorPropertiesWidget::updateDashPatternPreview);
+	connect(ui->m_custom_dash_gb, &QGroupBox::toggled,
+		this, &ConductorPropertiesWidget::updateDashPatternPreview);
+	connect(ui->m_line_style_cb, QOverload<int>::of(&QComboBox::currentIndexChanged),
+		this, &ConductorPropertiesWidget::updateDashPatternPreview);
+	connect(ui->m_color_kpb, &KColorButton::changed,
+		this, &ConductorPropertiesWidget::updateDashPatternPreview);
+
+	connect(ui->m_multiwires_gb, &QGroupBox::toggled, [this](bool toggle) {this->ui->m_singlewire_gb->setChecked(!toggle);});
+	connect(ui->m_singlewire_gb, &QGroupBox::toggled, [this](bool toggle) {this->ui->m_multiwires_gb->setChecked(!toggle);});
+		//No numbering formulas in FaseCAD: neither the formula nor the
+		//numberings are shown, and a text typed in place of an old
+		//project's formula replaces the formula
+	for (QWidget *numbering : {static_cast<QWidget *>(ui->label_11),
+							   static_cast<QWidget *>(ui->m_formula_le),
+							   static_cast<QWidget *>(ui->m_autonum_label),
+							   static_cast<QWidget *>(ui->m_available_autonum_cb),
+							   static_cast<QWidget *>(ui->m_edit_autonum_pb)}) {
+		numbering->hide();
+	}
+	connect(ui->m_text_le, &QLineEdit::textEdited, this, [this]() {
+		ui->m_formula_le->clear();
+	});
+	ui->m_multiwires_gb->setChecked(true);
+	ui->m_singlewire_gb->setChecked(true);
+#if TODO_LIST
+#pragma message("@TODO Add Kabel and Bus to qet")
+#else
+	ui->m_cable_le->setDisabled(true);
+	ui->m_bus_le->setDisabled(true);
+#endif
+}
+
+/**
+	@brief ConductorPropertiesWidget::setConductorType
+	Update this widget to the new conductor type
+	@param type
+*/
+void ConductorPropertiesWidget::setConductorType(ConductorProperties::ConductorType type) {
+	switch (type) {
+		case ConductorProperties::Multi:
+			ui -> m_multiwires_gb -> setChecked(true);
+			break;
+		case ConductorProperties::Single:
+			ui -> m_singlewire_gb -> setChecked(true);
+			break;
+		default:
+			ui -> m_multiwires_gb -> setChecked(true);
+			break;
+	}
+}
+
+/**
+	@brief ConductorPropertiesWidget::updatePreview
+	Update the preview for single lien
+	@param b true: update from the value displayed by this widget
+		 false: update from the properties given at the constructor of this widget
+*/
+void ConductorPropertiesWidget::updatePreview(bool b) {
+	const QRect pixmap_rect(0, 0, 96, 96);
+	QPixmap pixmap(pixmap_rect.width(), pixmap_rect.height());
+	QPainter painter;
+	painter.begin(&pixmap);
+	painter.eraseRect(pixmap_rect);
+	painter.drawRect(pixmap_rect.adjusted(0,0,-1,-1));
+	painter.drawLine(QLineF(0, pixmap_rect.height() / 2, pixmap_rect.width(), pixmap_rect.height() / 2));
+
+	if (b) properties().singleLineProperties.draw(&painter, QET::Horizontal, pixmap_rect);
+	else   m_properties.singleLineProperties.draw(&painter, QET::Horizontal, pixmap_rect);
+
+	painter.end();
+	ui -> m_preview_label -> setPixmap(pixmap);
+}
+
+/**
+	@brief ConductorPropertiesWidget::on_m_earth_cb_toggled
+	Update the widget when toggled
+	@param checked
+*/
+void ConductorPropertiesWidget::on_m_earth_cb_toggled(bool checked) {
+	if (checked && ui -> m_neutral_cb -> isChecked())
+		 ui -> m_pen_cb -> setEnabled(true);
+	else ui -> m_pen_cb -> setDisabled(true);
+}
+
+/**
+	@brief ConductorPropertiesWidget::on_m_neutral_cb_toggled
+	Update the widget when toggled
+	@param checked
+*/
+void ConductorPropertiesWidget::on_m_neutral_cb_toggled(bool checked) {
+	if (checked && ui -> m_earth_cb -> isChecked())
+		ui -> m_pen_cb -> setEnabled(true);
+	else ui -> m_pen_cb -> setDisabled(true);
+}
+
+/**
+	@brief ConductorPropertiesWidget::on_m_update_preview_pb_clicked
+	Update the preview of single line.
+	m_update_preview_pb is a no used button and hidden, his role is only
+	to centralize signal from various widget to edit single ligne properties,
+	for update the preview
+*/
+void ConductorPropertiesWidget::on_m_update_preview_pb_clicked()
+{
+	updatePreview();
+}
+
+/**
+	@brief ConductorPropertiesWidget::updateDashPatternPreview
+	Enable the custom dash pattern group only for a dashed style, and draw
+	a sample of the conductor with the lengths currently entered.
+*/
+void ConductorPropertiesWidget::updateDashPatternPreview()
+{
+	const ConductorProperties cp = properties();
+	const bool dashed = cp.style == Qt::DashLine || cp.style == Qt::DashDotLine;
+	const bool dotted = cp.style == Qt::DashDotLine;
+	const bool custom = ui->m_custom_dash_gb->isChecked();
+
+	ui->m_custom_dash_gb->setEnabled(dashed);
+	for (QWidget *w : {static_cast<QWidget *>(ui->m_pattern_dot_label),
+			   static_cast<QWidget *>(ui->m_pattern_dot_sb),
+			   static_cast<QWidget *>(ui->m_pattern_dot_gap_label),
+			   static_cast<QWidget *>(ui->m_pattern_dot_gap_sb)})
+		w->setEnabled(dotted && custom);
+
+	const qreal ratio = devicePixelRatioF();
+	QPixmap pixmap(qRound(280 * ratio), qRound(36 * ratio));
+	pixmap.setDevicePixelRatio(ratio);
+	pixmap.fill(palette().color(QPalette::Base));
+	QPainter painter(&pixmap);
+	QPen pen(cp.color);
+	pen.setWidthF(cp.cond_size);
+	if (!cp.m_dash_pattern.apply(pen, cp.style))
+	{
+		if (cp.style == Qt::DashLine)
+			pen.setDashPattern({5, 4});
+		else if (cp.style == Qt::DashDotLine)
+			pen.setDashPattern({6, 4, 1, 4});
+	}
+	painter.setPen(pen);
+	painter.drawLine(QLineF(10, 18, 270, 18));
+	painter.end();
+	ui->m_pattern_preview_label->setPixmap(pixmap);
+}

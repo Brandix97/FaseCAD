@@ -1,0 +1,56 @@
+<definition version="0.90" type="element" link_type="simple" width="90" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{93ce1f7b-773f-f8c1-61a3-84089add7d3d}"/>
+    <names>
+        <name lang="ar">صمّام بفتح سريع و بارتداد خلفي ميكانيكي</name>
+        <name lang="ca">Vàlvules d'obertura ràpida amb retroalimentació mecànica</name>
+        <name lang="cs">Rychle se otevírající klapky s mechanickým zpětným působením</name>
+        <name lang="da">Hurtigåbningsventiler med mekanisk tilbagemelding</name>
+        <name lang="de">Schnellkupplung offen</name>
+        <name lang="el">Βαλβίδες ταχείας εκκένωσης με μηχανική ανάδραση</name>
+        <name lang="en">Quick opening valves with mechanical feedback</name>
+        <name lang="es">Válvulas de apertura rápida con realimentación mecánica</name>
+        <name lang="fi">Pikaventtiilit, joissa mekaaninen palaute</name>
+        <name lang="fr">Vannes à ouverture rapide avec rétroaction mécanique</name>
+        <name lang="hr">Brzi ventili s mehaničkom povratnom vezom</name>
+        <name lang="hu">Gyorsnyitó szelepek mechanikus visszacsatolással</name>
+        <name lang="it">Valvola ad apertura rapida con feedback meccanico</name>
+        <name lang="ja">機械的フィードバック付きクイック開閉弁</name>
+        <name lang="ko">기계적 피드백이 있는 퀵 오프닝 밸브</name>
+        <name lang="mn">Механик эргэх холбоо бүхий хурдан нээгдэх хавхлага</name>
+        <name lang="nb">Hurtigåpnende ventiler med mekanisk tilbakemelding</name>
+        <name lang="nl">Snelkoppeling met kleppen</name>
+        <name lang="nl_BE">Snelle openingskleppen met mechanische terugkoppeling</name>
+        <name lang="pl">Szybkozłączka z mechanicznie otwieranymi zaworami zwrotnymi - rozłączona</name>
+        <name lang="pt">Válvulas de abertura rápida com retroação mecânica</name>
+        <name lang="pt_BR">Válvula de abertura rápida com realimentação mecânica</name>
+        <name lang="ro">Supape cu deschidere rapidă cu reacție mecanică</name>
+        <name lang="ru">Быстрооткрывающиеся клапаны с механической обратной связью</name>
+        <name lang="sk">Rýchlootváracie ventily s mechanickou spätnou väzbou</name>
+        <name lang="sl">Hitro odpirajoči ventili z mehansko povratno zvezo</name>
+        <name lang="sr">Брзоотварајући вентили са механичком повратном везом</name>
+        <name lang="sv">Snabböppnande ventiler med mekanisk återkoppling</name>
+        <name lang="tr">Mekanik geri bildirimli hızlı açma valfi</name>
+        <name lang="uk">Швидкодійні клапани з механічним зворотним зв'язком</name>
+        <name lang="zh">快排阀（常开）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-1" y="-32" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{04a82f35-21f5-49db-8170-1d35297c8f42}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="15" y1="0" x2="23" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="30" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="6" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="27" y1="-2" x2="27" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="0" x2="56" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="-5" x2="15" y2="0" x3="10" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="40" y1="5" x2="35" y2="0" x3="40" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="23" y1="-2" x2="23" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a64fa476-1375-4545-a727-7c7cf4883dbc}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{912cc78b-cd95-4ef1-8fda-aecd517da709}" name="" x="60" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

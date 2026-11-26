@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="20">
+    <uuid uuid="{1318b092-a945-79ce-4c0d-947c899d521a}"/>
+    <names>
+        <name lang="ar">مضخّة طرديّة</name>
+        <name lang="ca">Bomba centrífuga</name>
+        <name lang="cs">Odstředivé čerpadlo</name>
+        <name lang="da">Centrifugalpumpe</name>
+        <name lang="de">Kreiselpumpe</name>
+        <name lang="el">Φυγοκεντρική αντλία</name>
+        <name lang="en">Centrifugal pump</name>
+        <name lang="es">Bomba centrífuga</name>
+        <name lang="fi">Keskipakopumppu</name>
+        <name lang="fr">Pompe centrifuge</name>
+        <name lang="hr">Centrifugalna pumpa</name>
+        <name lang="hu">Centrifugál szivattyú</name>
+        <name lang="it">Pompa centrifuga</name>
+        <name lang="ja">遠心ポンプ</name>
+        <name lang="ko">원심 펌프</name>
+        <name lang="mn">Төвөөс зугтах насос</name>
+        <name lang="nb">Sentrifugalpumpe</name>
+        <name lang="nl">Centrifugaal pomp</name>
+        <name lang="nl_BE">Centrifugaalpomp</name>
+        <name lang="pl">Pompa odśrodkowa</name>
+        <name lang="pt">Bomba centrífuga</name>
+        <name lang="pt_BR">Bomba centrifuga</name>
+        <name lang="ro">Pompă centrifugală</name>
+        <name lang="ru">Центробежный насос</name>
+        <name lang="sk">Odstredivé čerpadlo</name>
+        <name lang="sl">Centrifugalna črpalka</name>
+        <name lang="sr">Центрифугална пумпа</name>
+        <name lang="sv">Centrifugalpump</name>
+        <name lang="tr">Santrifüj pompa</name>
+        <name lang="uk">Відцентровий насос</name>
+        <name lang="zh">离心泵</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0a3fbad6-8a4f-47f0-94c4-f670bc3229b9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <line x1="-15" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a57b9202-dcd4-44ee-99af-4241d9d56a69}" name="" x="-16" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{d359a2d8-12d0-4442-8f51-1b17f39db837}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

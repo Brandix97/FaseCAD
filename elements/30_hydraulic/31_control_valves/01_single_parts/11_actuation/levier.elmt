@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="20" hotspot_y="14">
+    <uuid uuid="{62bf8f95-b866-0d75-83b7-6fba37883dae}"/>
+    <names>
+        <name lang="ar">رافعة</name>
+        <name lang="ca">Palanca</name>
+        <name lang="cs">Páka</name>
+        <name lang="da">Håndtag</name>
+        <name lang="de">Hebel</name>
+        <name lang="el">Μοχλός</name>
+        <name lang="en">Lever</name>
+        <name lang="es">Comando por nivel</name>
+        <name lang="fi">Vipu</name>
+        <name lang="fr">Levier</name>
+        <name lang="hr">Poluga</name>
+        <name lang="hu">Kar</name>
+        <name lang="it">Comando a leva</name>
+        <name lang="ja">レバー</name>
+        <name lang="ko">레버</name>
+        <name lang="mn">Хөшүүрэг</name>
+        <name lang="nb">Spak</name>
+        <name lang="nl">hefboom</name>
+        <name lang="nl_BE">Hendel</name>
+        <name lang="pl">Dźwignia</name>
+        <name lang="pt">Alavanca</name>
+        <name lang="pt_BR">Alavanca</name>
+        <name lang="ro">Manetă</name>
+        <name lang="ru">Рычаг</name>
+        <name lang="sk">Páka</name>
+        <name lang="sl">Ročica</name>
+        <name lang="sr">Полуга</name>
+        <name lang="sv">Spak</name>
+        <name lang="tr">Kol</name>
+        <name lang="uk">Важіль</name>
+        <name lang="zh">杠杆</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-16" y="-9" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-32" y="-11.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{96586bcf-8063-4c9a-8a7b-34e600f869d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-13" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="11" x2="-14" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

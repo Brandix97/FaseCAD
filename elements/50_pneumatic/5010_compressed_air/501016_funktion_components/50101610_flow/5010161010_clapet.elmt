@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{f013adb6-02c1-0169-c381-81dce47aae83}"/>
+    <names>
+        <name lang="ar">صمام بدون زنبرك</name>
+        <name lang="ca">Vàlvula sense molla</name>
+        <name lang="cs">Ventil bez pružiny</name>
+        <name lang="da">Ventil uden fjeder</name>
+        <name lang="de">Ventil ohne Feder</name>
+        <name lang="el">Βαλβίδα χωρίς ελατήριο</name>
+        <name lang="en">Valve without spring</name>
+        <name lang="es">Válvula sin resorte</name>
+        <name lang="fi">Venttiili ilman jousta</name>
+        <name lang="fr">Soupape sans ressort</name>
+        <name lang="hr">Ventil bez opruge</name>
+        <name lang="hu">Szelep rugó nélkül</name>
+        <name lang="it">Valvola senza molla</name>
+        <name lang="ja">スプリングなしのバルブ</name>
+        <name lang="ko">스프링 없는 밸브</name>
+        <name lang="mn">Пүршгүй хавхлаг</name>
+        <name lang="nb">Ventil uten fjær</name>
+        <name lang="nl">Klep zonder veer</name>
+        <name lang="nl_BE">Klep zonder veer</name>
+        <name lang="pl">Zawór bez sprężyny</name>
+        <name lang="pt">Válvula sem mola</name>
+        <name lang="pt_BR">valvula sem mola</name>
+        <name lang="ro">Supapă fără arc</name>
+        <name lang="ru">Клапан без пружины</name>
+        <name lang="sk">Ventil bez pružiny</name>
+        <name lang="sl">Ventil brez vzmeti</name>
+        <name lang="sr">Вентил без опруге</name>
+        <name lang="sv">Ventil utan fjäder</name>
+        <name lang="tr">Yaysız valf</name>
+        <name lang="uk">Клапан без пружини</name>
+        <name lang="zh">单向阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="3" y="-15.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d205177c-5c7f-4725-ae66-f6b52304fd15}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="25" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="-16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="5" x2="10" y2="0" x3="5" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="1" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{04f8fe9e-5759-4afd-ae3d-f4655e7a5f61}" name="" x="30" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{6fa36735-5600-4f32-a918-6d3e35153eb1}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

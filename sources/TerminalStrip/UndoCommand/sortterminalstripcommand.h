@@ -1,0 +1,83 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef SORTTERMINALSTRIPCOMMAND_H
+#define SORTTERMINALSTRIPCOMMAND_H
+
+#include "../terminalstrip.h"
+
+#include <QHash>
+#include <QList>
+#include <QUndoCommand>
+#include <QPointer>
+#include <QSharedPointer>
+#include <QVector>
+
+class TerminalStrip;
+class PhysicalTerminal;
+class RealTerminal;
+
+/**
+ * @brief The SortTerminalStripCommand class
+ * An undo command use to sort the terminals element who
+ * compose a terminal strip
+ */
+class SortTerminalStripCommand : public QUndoCommand
+{
+	public:
+		SortTerminalStripCommand(TerminalStrip *strip, QUndoCommand *parent = nullptr);
+
+		void undo() override;
+		void redo() override;
+
+		/**
+		 * @brief planOrderLessThan
+		 * Order two real terminals the way the plan is drawn : folio by
+		 * folio, then left to right (top to bottom only breaks ties
+		 * within a column). A spare has no folio and comes last, by
+		 * label, and the label breaks every remaining tie (two
+		 * terminals at the very same spot), which keeps the result
+		 * stable.
+		 *
+		 * The auto import sorts with it too, so the order it works out
+		 * cannot be rewritten by the SortTerminalStripCommand it then
+		 * pushes for the strip it just created.
+		 * @param a_ : first terminal
+		 * @param b_ : second terminal
+		 * @return true if @a a_ comes before @a b_
+		 */
+		static bool planOrderLessThan(const QSharedPointer<RealTerminal> &a_,
+									  const QSharedPointer<RealTerminal> &b_);
+
+	private:
+		void sort();
+
+	private:
+		QPointer<TerminalStrip> m_strip;
+		QVector<QSharedPointer<PhysicalTerminal>> m_old_order,
+												  m_new_order;
+			//What the drawing says about the bridges before and after:
+			//the sorting brings the bridges in step with the plan too,
+			//and one undo takes both back
+			//What the drawing says about the bridges, for every strip of
+			//the project: one click brings them all in step, whichever
+			//strip the button was pressed in
+		QHash<TerminalStrip *, QList<TerminalStrip::DrawingBridge>> m_bridges_before;
+		QHash<TerminalStrip *, QList<TerminalStrip::DrawingBridge>> m_bridges_after;
+};
+
+#endif // SORTTERMINALSTRIPCOMMAND_H

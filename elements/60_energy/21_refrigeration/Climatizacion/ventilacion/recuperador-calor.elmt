@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="50" hotspot_x="40" hotspot_y="28">
+    <uuid uuid="{45f1f3ec-f0f1-88b3-9c86-7542f8c141bc}"/>
+    <names>
+        <name lang="ca">Recuperador de calor</name>
+        <name lang="es">Recuperador de calor</name>
+        <name lang="pt_BR">Recuperadou de calou</name>
+        <name lang="zh">热回收器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-35" y1="3.38" x2="-29.23" y2="3.38" x3="-32.38" y3="2.8" x4="-32.38" y4="3.95" x5="-29.75" y5="3.38" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-17.78" y1="-14.61" x2="-24.08" y2="-14.61" x3="-20.4" y3="-15.18" x4="-20.4" y4="-14" x5="-24.08" y5="-14.61" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-27.13" y="6.23" width="37.27" height="11.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20.11" y1="2.23" x2="18.54" y2="5.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11.38" y1="-17.75" x2="-27.13" y2="6.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="19.06" y="-5.19" width="2.1" height="7.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25.89" y1="-17.75" x2="10.14" y2="6.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.05" y1="-14.89" x2="-20.3" y2="-6.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12.24" y1="14.22" x2="10.14" y2="17.65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.31" y1="-13.18" x2="19.06" y2="-5.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11.38" y1="-17.75" x2="25.89" y2="-17.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26.41" y1="-13.18" x2="21.16" y2="-5.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26.41" y1="-5.76" x2="21.16" y2="2.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="25.89" y1="-6.33" x2="25.89" y2="-17.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11.19" y="6.8" width="2.1" height="7.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="26.41" y1="-13.18" x2="26.41" y2="-5.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.31" y1="-13.18" x2="25.89" y2="-13.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16.44" y1="-1.19" x2="11.19" y2="6.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22.93" y1="-2.9" x2="-28.7" y2="5.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.43" y1="-5.76" x2="26.29" y2="-5.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.54" y1="-1.19" x2="13.29" y2="6.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.54" y1="6.23" x2="13.29" y2="14.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="24.31" y1="-5.69" x2="24.31" y2="-9.82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21.16" y1="-1.19" x2="24.31" y2="-5.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="18.54" y1="-1.19" x2="18.54" y2="6.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16.44" y1="-1.19" x2="18" y2="-1.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16.55" y1="6.23" x2="18.41" y2="6.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16.44" y1="6.3" x2="16.44" y2="2.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.29" y1="10.8" x2="16.44" y2="6.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-22.93" y1="-2.9" x2="-21.35" y2="-2.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.05" y1="-14.89" x2="-13.48" y2="-14.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.43" y1="5.09" x2="-26.85" y2="5.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.3" y1="-6.9" x2="-18.73" y2="-6.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.3" y1="-6.9" x2="-20.3" y2="-4.62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.7" y1="5.19" x2="-28.7" y2="16.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.7" y1="16.51" x2="-27.13" y2="16.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19.25" y1="-5.76" x2="3.84" y2="-17.75" x3="17" y3="-4.62" x4="-7.18" y4="6.23" x5="-18.73" y5="-5.76" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-23.45" y1="1.09" x2="-12.43" y2="1.09" x3="9.61" y3="-12" x4="21.16" y4="-11.47" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-15.58" y1="-11.47" x2="-8.23" y2="-11.47" x3="4.89" y3="0.52" x4="13.81" y4="0.52" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="24.94" y1="-1.05" x2="30.71" y2="-1.05" x3="27.56" y3="-1.62" x4="27.56" y4="-0.47" x5="30.18" y5="-1.05" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="26.84" y1="7.65" x2="20.54" y2="7.65" x3="24.21" y3="7.08" x4="24.21" y4="8.23" x5="20.54" y5="7.65" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="15.64" y1="-16.76" x2="23.05" y2="-16.76" x3="21.19" y3="-13.95" x4="12.55" y4="-13.95" x5="15" y5="-16.76" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="15" y1="-13.95" x2="17.49" y2="-15.36" x3="16.87" y3="-13.95" x4="20" y4="-16.06" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-20.05" y="6.79" z="44" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e56cd5ca-e542-4cf7-bad5-f88a5559f714}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{531c0842-f81f-4ae4-b34f-87054a08916b}" name="" x="-20" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{aa55f1ee-036c-452d-861b-718fb783a471}" name="" x="-29" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a9b9b69f-8367-4a08-a2ee-02f5391f107c}" name="" x="30" y="-9" orientation="e" type="Generic"/>
+        <terminal uuid="{4fc76ba3-2e4d-4cbb-aaa2-724f16225dcf}" name="" x="20" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{e6a3f566-526d-4575-bce1-8cc143a1dbbf}" name="" x="20" y="-19" orientation="n" type="Generic"/>
+    </description>
+</definition>

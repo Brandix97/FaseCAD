@@ -1,0 +1,80 @@
+<definition version="0.80" type="element" link_type="simple" width="130" height="190" hotspot_x="7" hotspot_y="181">
+    <uuid uuid="{33f2b780-452e-2474-f228-9949d09aacda}"/>
+    <names>
+        <name lang="ar">إنارة</name>
+        <name lang="ca">Il·luminació</name>
+        <name lang="cs">Osvětlení</name>
+        <name lang="da">Belysning</name>
+        <name lang="de">Beleuchtung</name>
+        <name lang="el">Φωτισμός</name>
+        <name lang="en">Lighting</name>
+        <name lang="es">Alumbrado</name>
+        <name lang="fi">Valaistus</name>
+        <name lang="fr">Éclairage</name>
+        <name lang="hr">Rasvjeta</name>
+        <name lang="hu">Világítás</name>
+        <name lang="it">Illuminazione</name>
+        <name lang="ja">照明</name>
+        <name lang="ko">조명</name>
+        <name lang="mn">Гэрэлтүүлэг</name>
+        <name lang="nb">Belysning</name>
+        <name lang="nl">Verlichting</name>
+        <name lang="nl_BE">Verlichting</name>
+        <name lang="pl">Oświetlenie</name>
+        <name lang="pt">Iluminação</name>
+        <name lang="pt_BR">Iluminação</name>
+        <name lang="ro">Iluminat</name>
+        <name lang="ru">Освещение</name>
+        <name lang="sk">Osvetlenie</name>
+        <name lang="sl">Razsvetljava</name>
+        <name lang="sr">Осветљење</name>
+        <name lang="sv">Belysning</name>
+        <name lang="tr">Aydınlatma</name>
+        <name lang="uk">Освітлення</name>
+        <name lang="zh">照明1</name>
+    </names>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{2a1e4db2-b7a6-4841-997a-943c43f53ee6}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{fe3767e5-9c44-4598-b29a-d9a6dc4a80b8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Éclairage" x="2" y="-69" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="48" y1="-123" x2="48" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="72" y1="-123" x2="72" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-100" x2="56" y2="-97" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="72" y1="-100" x2="63" y2="-97" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="40" y="-160" width="40" height="40" start="310" angle="280" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="48" y1="-124" x2="72" y2="-124" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="56" y="-99" width="8" height="4" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="56" y1="-97" x2="63" y2="-97" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-100" x2="72" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-100" x2="72" y2="-104" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-104" x2="72" y2="-108" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-108" x2="72" y2="-112" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-112" x2="72" y2="-116" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-116" x2="72" y2="-120" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-120" x2="59" y2="-122" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-28.5" z="28" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{015362b7-952e-482e-9aec-4e0cefa9d509}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="29" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{f34bf41a-2eeb-4cf2-affa-7e1efc261730}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 1.5</text>
+        </dynamic_text>
+        <line x1="50" y1="-170" x2="50" y2="-158" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-158" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a91e64ff-4368-499e-b0f8-342c19fe5ef8}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{7a268d3e-b07f-4af4-aa2c-5f08b8108be8}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{3cedbdb8-6f20-4768-ae19-21ebacf4300e}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+    </description>
+</definition>

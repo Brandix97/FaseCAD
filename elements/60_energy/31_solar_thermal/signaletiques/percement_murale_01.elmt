@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="25" hotspot_y="30">
+    <uuid uuid="{12c5b7ef-3d2f-0c79-caff-2d451cbbaca0}"/>
+    <names>
+        <name lang="ar">ممر حائطي</name>
+        <name lang="ca">Mur del pas</name>
+        <name lang="cs">Přechod přes stěnu</name>
+        <name lang="da">Gennemføring væg</name>
+        <name lang="de">Wanddurchgang</name>
+        <name lang="el">Δίοδος τοίχου</name>
+        <name lang="en">Passage wall</name>
+        <name lang="es">Perforación del muro 01</name>
+        <name lang="fi">Läpivientiseinä</name>
+        <name lang="fr">Passage murale</name>
+        <name lang="hr">Prolaz kroz zid</name>
+        <name lang="hu">Fal átvezetés</name>
+        <name lang="it">Passaggio a muro</name>
+        <name lang="ja">壁通過</name>
+        <name lang="ko">관통 벽</name>
+        <name lang="mn">Ханын нэвтрэлт</name>
+        <name lang="nb">Gjennomføring vegg</name>
+        <name lang="nl">Doorgang Muur</name>
+        <name lang="nl_BE">Doorgang muur</name>
+        <name lang="pl">Przejście przez ścianę</name>
+        <name lang="pt">Passagem de parede</name>
+        <name lang="pt_BR">Passage wall</name>
+        <name lang="ro">Trecere perete</name>
+        <name lang="ru">Проход через стену</name>
+        <name lang="sk">Prechod stenou</name>
+        <name lang="sl">Prehodna stena</name>
+        <name lang="sr">Прелаз кроз зид</name>
+        <name lang="sv">Väggenomföring</name>
+        <name lang="tr">Duvar geçişi</name>
+        <name lang="uk">Прохід крізь стіну</name>
+        <name lang="zh">墙壁穿孔01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-20" y1="0" x2="-16" y2="0" x3="-13" y3="-5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="-20" x2="-4" y2="-20" x3="-10" y3="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-16" y="-17" width="12" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-14.25" y="-14.25" width="8.5" height="8.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-3" y="-9.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{1fd4e192-3e6d-48ee-be28-c614a87d4ca9}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3d047899-1153-007e-7afa-e90195c1fe3e}" name="" x="-10" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{b8ac8b00-819d-6555-46ef-e4e759799d8f}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

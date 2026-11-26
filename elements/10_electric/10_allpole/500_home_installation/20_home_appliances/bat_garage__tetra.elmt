@@ -1,0 +1,87 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{597bc1d0-c477-612e-13f4-81ee570b8492}"/>
+    <names>
+        <name lang="ar">مرآب 3P+N</name>
+        <name lang="ca">Garatge 3P+N</name>
+        <name lang="cs">Garáž 3f</name>
+        <name lang="da">Garage 3P+N</name>
+        <name lang="de">Garage 3P+N</name>
+        <name lang="el">Γκαράζ 3P+N</name>
+        <name lang="en">Garage 3P+N</name>
+        <name lang="es">Garaje 3P+N</name>
+        <name lang="fi">Autotalli 3P+N</name>
+        <name lang="fr">Garage tétra</name>
+        <name lang="hr">Garaža 3P+N</name>
+        <name lang="hu">Garázs 3F+N</name>
+        <name lang="it">Garage 3P+N</name>
+        <name lang="ja">ガレージ 3P+N</name>
+        <name lang="ko">차고 3P+N</name>
+        <name lang="mn">Гараж 3P+N</name>
+        <name lang="nb">Garasje 3P+N</name>
+        <name lang="nl">Garage 3P+N</name>
+        <name lang="nl_BE">Garage 3P+N</name>
+        <name lang="pl">Garaż 3P+N</name>
+        <name lang="pt">Garagem 3P+N</name>
+        <name lang="pt_BR">Garagem trifásica + neutro</name>
+        <name lang="ro">Garaj 3P+N</name>
+        <name lang="ru">Гараж 3P+N</name>
+        <name lang="sk">Garáž 3P+N</name>
+        <name lang="sl">Garaža 3P+N</name>
+        <name lang="sr">Гаража 3P+N</name>
+        <name lang="sv">Garage 3P+N</name>
+        <name lang="tr">Garaj 3P+N</name>
+        <name lang="uk">Гараж 3P+N</name>
+        <name lang="zh">车库建筑四极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{93785c08-d9be-4e10-ae44-6bb57a1ab334}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>20</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{7ab45588-79e9-4f06-a28d-bcb59598d0ad}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-160" x2="35" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="85" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-140" x2="40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-100" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-100" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.5" y1="-100" x2="45.5" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.93" y1="-125" x2="74.07" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="74.5" y1="-125" x2="74.5" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="45.93" y1="-120" x2="74.07" y2="-120" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-110" x2="74" y2="-110" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-105" x2="74" y2="-105" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="46" y1="-115" x2="74" y2="-115" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="45" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{346daaa4-dacb-4520-8d5a-b5e03bb83ab9}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="46" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{cda1ee8d-ccfe-4045-99f4-34e8ed9519d4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="47" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{525b40a5-81a4-4abb-8cba-715f568df8ee}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Garage</text>
+        </dynamic_text>
+        <line x1="50" y1="-170" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-170" x2="90" y2="-155" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-155" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-165" x2="30" y2="-155" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-155" x2="40" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{fd224ec8-a206-4f1b-9c6a-77d1c8d720af}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{cab960c8-9a88-4778-93e8-8870d1a45ec6}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{4ff9ca97-d39b-4b69-8c29-64878c5a8216}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{ea3d5e12-550a-4020-9d77-7f68df1c346f}" name="" x="90" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{c0a75599-da2d-4ba3-acf9-6712290142f9}" name="" x="30" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

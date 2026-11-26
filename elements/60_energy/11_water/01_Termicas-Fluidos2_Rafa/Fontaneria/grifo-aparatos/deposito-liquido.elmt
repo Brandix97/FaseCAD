@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="70" hotspot_x="46" hotspot_y="31">
+    <uuid uuid="{878ea950-a3d9-7b63-bc11-88c297b7b192}"/>
+    <names>
+        <name lang="ar">خزان ماء</name>
+        <name lang="ca">Dipòsit d'aigua</name>
+        <name lang="cs">Nádrž na vodu</name>
+        <name lang="da">Vandtank</name>
+        <name lang="de">Wassertank</name>
+        <name lang="el">Δεξαμενή νερού</name>
+        <name lang="en">Water tank</name>
+        <name lang="es">Depósito de agua</name>
+        <name lang="fi">Vesisäiliö</name>
+        <name lang="hr">Spremnik za vodu</name>
+        <name lang="hu">Víztartály</name>
+        <name lang="it">Serbatoio acqua</name>
+        <name lang="ja">水タンク</name>
+        <name lang="ko">물 탱크</name>
+        <name lang="mn">Усны сав</name>
+        <name lang="nb">Vanntank</name>
+        <name lang="nl">Watertank</name>
+        <name lang="nl_BE">Watertank</name>
+        <name lang="pl">Zbiornik wody</name>
+        <name lang="pt">Depósito de água</name>
+        <name lang="pt_BR">Tanque de agua</name>
+        <name lang="ro">Rezervor de apă</name>
+        <name lang="ru">Водяной резервуар</name>
+        <name lang="sk">Nádrž na vodu</name>
+        <name lang="sl">Rezervoar za vodo</name>
+        <name lang="sr">Резервоар за воду</name>
+        <name lang="sv">Vattentank</name>
+        <name lang="tr">Su tankı</name>
+        <name lang="uk">Водяний бак</name>
+        <name lang="zh">液体储罐</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-31" y="-23" width="60" height="14" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-31" y1="-17.58" x2="-31" y2="25.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.94" y1="-19.33" x2="-14" y2="-17" x3="-11.88" y3="-17" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="-31" y="-25" width="60" height="14" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-31" y="19" width="60" height="14" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-31" y="-26" width="60" height="14" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="29" y1="-17.58" x2="29" y2="25.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-34" y="18" width="3" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="17" y1="-16" x2="17" y2="-20" x3="24" y3="-20" x4="24" y4="-18" x5="19" y5="-18" x6="19" y6="-16" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-31" y="-1" width="60" height="12" style="line-style:dashed;line-weight:thin;filling:none;color:red" antialias="true"/>
+        <polygon x1="18.06" y1="-12" x2="17" y2="-14" x3="19.12" y3="-14" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="18" y1="-16" x2="18" y2="-13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="15" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ebdd4425-301b-48fd-9f78-a12ca35e3b58}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{5f8d2140-4c48-40fd-9f12-d00ba41a20fe}" name="" x="-36" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{47525cef-9823-49b7-b355-9c954d054735}" name="" x="24" y="-19" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="90" hotspot_x="25" hotspot_y="45">
+    <uuid uuid="{6c7b6e1c-c513-165f-faf7-ae45b68b1a8b}"/>
+    <names>
+        <name lang="ar">عدّاد زمني(en_60617)</name>
+        <name lang="ca">Comptador d'hores(en_60617)</name>
+        <name lang="cs">Počítadlo provozních hodin</name>
+        <name lang="da">Timetæller(en_60617)</name>
+        <name lang="de">Betriebsstundenzähler (en_60617)</name>
+        <name lang="el">Ωρόμετρο (en_60617)</name>
+        <name lang="en">Hour counter(en_60617)</name>
+        <name lang="es">Contador horario(en_60617)</name>
+        <name lang="fi">Tuntilaskuri(en_60617)</name>
+        <name lang="fr">Compteur horaire (en_60617)</name>
+        <name lang="hr">Brojilo radnih sati (en_60617)</name>
+        <name lang="hu">Üzemóra számláló(en_60617)</name>
+        <name lang="it">Conta tempo (en_60617)</name>
+        <name lang="ja">アワーカウンター(en_60617)</name>
+        <name lang="ko">시간 카운터(en_60617)</name>
+        <name lang="mn">Цаг тоолуур(en_60617)</name>
+        <name lang="nb">Timeteller(en_60617)</name>
+        <name lang="nl">Bedrijfsurenteller (en_60617)</name>
+        <name lang="nl_BE">Urenteller(en_60617)</name>
+        <name lang="pl">Licznik godzin (en_60617)</name>
+        <name lang="pt">Contador horário(en_60617)</name>
+        <name lang="pt_BR">Contador de horas (EN 60617)</name>
+        <name lang="ro">Contor de ore (en_60617)</name>
+        <name lang="ru">Счетчик моточасов(en_60617)</name>
+        <name lang="sk">Počítadlo hodín (en_60617)</name>
+        <name lang="sl">Števec obratovalnih ur (en_60617)</name>
+        <name lang="sr">Бројило радних сати (en_60617)</name>
+        <name lang="sv">Timmätare(en_60617)</name>
+        <name lang="tr">Saat sayacı(en_60617)</name>
+        <name lang="uk">Лічильник годин (en_60617)</name>
+        <name lang="zh">计时器_08-04-03_en60617</name>
+    </names>
+    <informations>https://github.com/jonasstein/qelectrotech-symbols
+EN 60617</informations>
+    <description>
+        <text text="h" x="-4" y="12" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="18" y="-8" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{300feccc-c4a5-4b2b-83b9-9506acca5d5e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-30" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9a227ca5-b7b2-48e6-ae35-05bc2652447c}" name="" x="0" y="34" orientation="s" type="Generic"/>
+        <terminal uuid="{d104592f-17d9-4772-9e30-8bae32900c85}" name="" x="0" y="-34" orientation="n" type="Generic"/>
+    </description>
+</definition>

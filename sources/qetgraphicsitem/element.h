@@ -1,0 +1,499 @@
+﻿/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef ELEMENT_H
+#define ELEMENT_H
+
+#include "../ElementsCollection/elementslocation.h"
+#include "../NameList/nameslist.h"
+#include "../autoNum/assignvariables.h"
+#include "../diagramcontext.h"
+#include "../dataBase/elementplacement.h"
+#include "../qet.h"
+#include "qetgraphicsitem.h"
+#include "../properties/elementdata.h"
+
+#include <QHash>
+#include <QMap>
+#include <QSet>
+#include <QPicture>
+#include <algorithm>
+
+class QETProject;
+class Terminal;
+class Conductor;
+class DynamicElementTextItem;
+class ElementTextItemGroup;
+class QUndoCommand;
+
+/**
+	This is the base class for electrical elements.
+*/
+class projectDataBase;
+
+class Element : public QetGraphicsItem
+{
+	friend class DiagramEventAddElement;
+	friend class DynamicElementTextItem;
+
+	Q_OBJECT
+	Q_PROPERTY(bool horizontalMirror READ hasHorizontalMirror WRITE setHorizontalMirror NOTIFY mirrorChanged)
+	Q_PROPERTY(bool verticalMirror READ hasVerticalMirror WRITE setVerticalMirror NOTIFY mirrorChanged)
+
+	public:
+			/**
+				@brief The kind enum
+				Used to know the kind of this element
+				(master, slave, report ect...)
+			*/
+		enum kind {
+            Simple = 1,
+            NextReport = 2,
+            PreviousReport = 4,
+            AllReport = 6,
+            Master = 8,
+            Slave = 16,
+            Terminale = 32,
+            Thumbnail = 64,
+            ConductorDefinition = 128};
+
+		/**
+		 * @brief The LinkInfo struct
+		 * Stores link data for element connections.
+		 * For slave elements, group_index indicates which contact group
+		 * of the master this slave is assigned to (-1 = no group assigned).
+		 */
+		struct LinkInfo {
+			QUuid uuid;
+			int group_index = -1;  ///< Index into master's slaveContactGroups, -1 = not assigned
+
+			LinkInfo() = default;
+			LinkInfo(const QUuid &u, int gi = -1) : uuid(u), group_index(gi) {}
+		};
+
+		Element(const ElementsLocation &location,
+			QGraphicsItem * = nullptr,
+			int *state = nullptr,
+			Element::kind link_type = Element::Simple);
+		~Element() override;
+	private:
+		bool definitionGeometryMatches(const QDomElement &definition,
+									   bool check_frame = true) const;
+		Element(const Element &);
+
+		// attributes
+	public:
+			/**
+				Enable the use of qgraphicsitem_cast
+				to safely cast a QGraphicsItem into an Element.
+				@return the QGraphicsItem type
+			*/
+		enum { Type = UserType + 1000 };
+		int type() const override { return Type; }
+
+	signals:
+		void linkedElementChanged(); //This signal is emitted when the linked elements with this element change
+		void elementInfoChange(
+				DiagramContext old_info,
+				DiagramContext new_info);
+		void textAdded(DynamicElementTextItem *deti);
+		void textRemoved(DynamicElementTextItem *deti);
+		void textsGroupAdded(ElementTextItemGroup *group);
+		void textsGroupAboutToBeRemoved(ElementTextItemGroup *group);
+		void textAddedToGroup(
+				DynamicElementTextItem *text,
+				ElementTextItemGroup *group);
+		void textRemovedFromGroup(
+				DynamicElementTextItem *text,
+				ElementTextItemGroup *group);
+		void mirrorChanged();
+		void terminalTextsChanged();
+
+	public slots:
+		void updateConductorTexts();
+		void watchConductorText(Conductor *conductor);
+
+	public:
+		QList<Terminal *> terminals() const;
+		QList<Conductor *> conductors() const;
+		QList<QPair<Terminal *,Terminal *>> AlignedFreeTerminals() const;
+
+		void clearPendingLinks() {
+			tmp_uuids_link.clear();
+			m_group_index_map.clear();
+		}
+
+			//METHODS related to information
+		DiagramContext elementInformations()const;
+			/// This symbol's own copy of its information, whatever the store holds
+		DiagramContext ownInformations() const {return m_data.m_informations;}
+		virtual void setElementInformations(DiagramContext dc);
+
+		ElementData elementData() const;
+		void setElementData (ElementData data);
+
+		/**
+		 * @brief kindInformations
+		 * @deprecated
+		 * use elementData function instead
+		 * @return
+		 */
+		DiagramContext kindInformations() const;
+			/// This symbol's own copy of its kind information, whatever the store holds
+		DiagramContext ownKindInformations() const {return m_kind_informations;}
+			/// Where this symbol comes from and sits, from its own members,
+			/// never from the store
+		ElementPlacement ownPlacement() const;
+		void storePlacement();
+			/// This symbol's texts and text groups as it saves them, in an
+			/// <element> made in @p document, from its own items
+		QDomElement ownTextsXml(QDomDocument &document) const;
+			/// What this symbol saves that no other table holds, in an
+			/// <element> made in @p document, from its own members
+		QDomElement ownValuesXml(QDomDocument &document) const;
+			/// The texts this placed symbol gives some of its terminals
+			/// instead of their names, by Terminal::stableUuid() as a
+			/// string (@see Terminal::name())
+		QMap<QString, QString> terminalTexts() const {return m_terminal_texts;}
+		QString terminalText(const Terminal *terminal) const;
+		void setTerminalTexts(const QMap<QString, QString> &texts);
+		void setMovable(bool movable) override;
+		//@kind_information_ is used to store more information
+		//about the herited class like contactelement for know
+		// kind of contact (simple tempo) or number of contact show by the element.
+
+		autonum::sequentialNumbers sequenceStruct() const
+		{return m_autoNum_seq;}
+			/// Replace the numbers and tell the project database
+		void setSequenceStruct(const autonum::sequentialNumbers &numbers);
+		void storeSequence();
+		void setUpFormula(bool code_letter = true, QUndoCommand *parent_undo = nullptr);
+		void setFormulaSchemeId(const QUuid &id);
+		void setPrefix(QString);
+		QString getPrefix() const;
+		void freezeLabel(bool freeze);
+		bool isFreezeLabel() const {return m_freeze_label;}
+		void freezeNewAddedElement();
+		QString actualLabel() const;
+			/**
+				What the drawing shows of the label and of the terminal
+				number, the terminal labelling of the project being
+				read (@sa QETProject::terminalLabelSplit). The label itself
+				is never changed by any of them.
+			*/
+		QString labelForDisplay();
+			/// The label is drawn as its terminal number alone ("2" for
+			/// "-XPERS:2"): the terminal on its left on the folio names the
+			/// same strip (TerminalElement, TerminalStripLabels)
+		virtual bool showsTerminalNumberOnly() const {return false;}
+		QString terminalNumberForDisplay();
+		QString conductorTextForDisplay();
+		QString conductorInfoForDisplay(const QString &info_name);
+		void addDisplayValues(DiagramContext &dc);
+		QString infoForDisplay(const QString &info_name);
+		bool hasTerminalNumberText() const;
+		bool labelShown() const;
+			/**
+				The fields which draw the label draw it again: called when
+				what they show of the label has changed under them, a
+				field for the terminal number added or removed, or the
+				terminal labelling setting of the project switched (@sa
+				QETProject::terminalLabelSplit).
+			*/
+		void refreshLabelFields();
+
+		QString name() const override;
+		QString englishName() const;
+		ElementsLocation location() const;
+		/// Result of Element::reloadPicture()
+		enum class ReloadPictureResult {
+			Reloaded,          ///< drawing replaced by the current definition
+			Unavailable,       ///< definition missing or unreadable, old drawing kept
+			GeometryChanged    ///< size, hotspot or terminals changed, old drawing kept
+		};
+		ReloadPictureResult reloadPicture(bool adopt_frame = false);
+		virtual void setHighlighted(bool);
+		void showAsJumpTarget();
+		bool isShownAsJumpTarget() const { return m_jump_highlight > 0; }
+		Element *jumpTarget() const;
+		static void jumpTo(Element *target);
+		void displayHelpLine(bool b = true);
+		QSize size() const;
+		QPixmap pixmap();
+		QPoint setHotspot(QPoint);
+		QPoint hotspot() const;
+			/// The area the symbol is drawn on, in its own coordinates
+		QRectF drawingRect() const;
+		void editProperty() override;
+		static bool valideXml(QDomElement &);
+		static QUuid savedTerminalUuid(const QList<QDomElement> &records, int index);
+		virtual bool fromXml(
+				QDomElement &,
+				QHash<int,
+				Terminal *> &);
+		virtual QDomElement toXml(
+				QDomDocument &,
+				QHash<Terminal *,
+				int> &) const;
+		QUuid uuid() const;
+		int orientation() const;
+		bool hasHorizontalMirror() const {return m_horizontal_mirror;}
+		bool hasVerticalMirror() const {return m_vertical_mirror;}
+		bool isMirrored() const {return m_horizontal_mirror || m_vertical_mirror;}
+		void setHorizontalMirror(bool mirror);
+		void setVerticalMirror(bool mirror);
+		QTransform mirrorTransform() const;
+		bool hasUprightSymbolTexts() const;
+		QTransform symbolTextsTransform() const;
+		void updateSymbolPictures(bool force = false);
+		void keepReadable(QGraphicsItem *child) const;
+
+			//METHODS related to texts
+		void addDynamicTextItem(DynamicElementTextItem *deti = nullptr);
+		void removeDynamicTextItem(DynamicElementTextItem *deti);
+		QList<DynamicElementTextItem *> dynamicTextItems() const;
+		ElementTextItemGroup *addTextGroup(const QString &name);
+		void addTextGroup(ElementTextItemGroup *group);
+		void removeTextGroup(ElementTextItemGroup *group);
+		ElementTextItemGroup *textGroup(const QString &name) const;
+		QList<ElementTextItemGroup *> textGroups() const;
+		bool addTextToGroup(
+				DynamicElementTextItem *text,
+				ElementTextItemGroup *group);
+		bool removeTextFromGroup(
+				DynamicElementTextItem *text,
+				ElementTextItemGroup *group);
+
+			//METHODS related to linked element
+		bool isFree() const;
+		virtual void linkToElement(Element *) {}
+		virtual void unlinkAllElements() {}
+		virtual void unlinkElement(Element *) {}
+		virtual void initLink(QETProject *);
+			/// The links this symbol was read with (its file's links_uuids),
+			/// until it is linked: the project database writes its link rows
+			/// from them while it holds none for it (opening)
+		QList<std::pair<QUuid, int>> savedLinkList() const;
+		void dropSavedLinks() {tmp_uuids_link.clear();}
+		void restoreLinkOrder(const QList<QUuid> &order);
+			/**
+				Resolve tmp_uuids_link against a caller-supplied candidate
+				list instead of a project-wide search (bugtracker #607).
+				Used right after an XML round-trip (paste, folio
+				duplication) and before the pasted/duplicated elements'
+				uuids are renewed: at that moment a copy's tmp_uuids_link
+				still holds its source's original partner uuid, which
+				still matches the not-yet-renewed uuid of that partner's
+				own copy if it was carried along in the same batch.
+				Resolving only within @p candidates -- not the whole
+				project -- is what stops a linked pair pasted together
+				from matching an original element left elsewhere that
+				happens to still carry that same soon-to-be-replaced
+				uuid. If only one half of a linked group is in
+				@p candidates, its entry finds no match and is dropped,
+				same as initLink(QETProject *) leaving an unresolvable
+				link unlinked.
+			*/
+		void initLink(const QList<Element *> &candidates);
+		QList<Element *> linkedElements ();
+
+		int groupIndexForElement(Element *elmt) const;
+		void setGroupIndexForElement(Element *elmt, int index);
+		void applyContactGroupLabels(Element *slave, int index) const;
+
+		/**
+		 * @brief linkType
+		 * use elementData function instead
+		 * @return
+		 */
+		virtual kind linkType() const {return m_link_type;} // return the linkable type
+			/// A corner only turns a wire: QElectroTech's own corner
+			/// symbol, or any symbol whose definition says so with the
+			/// kind information "corner" set to "true"
+		bool isCorner() const {return m_corner;}
+		/**
+		 * @brief takesSchemeNumber
+		 * Whether this element is given a number by an element numbering
+		 * scheme (@sa ElementData::takesSchemeNumber): a slave, a report or
+		 * a conductor definition is not numbered.
+		 * @return true when the element numbering schemes apply to it
+		 */
+		bool takesSchemeNumber() const;
+		/**
+		 * @brief linkTypeToString
+		 * use elementData function instead
+		 * @return
+		 */
+		QString linkTypeToString() const;
+
+		void newUuid() {setUuid(QUuid::createUuid());} 	//create new uuid for this element
+		void setUuid(const QUuid &uuid);
+
+	protected:
+		void drawAxes(QPainter *, const QStyleOptionGraphicsItem *);
+		void setSize(int, int);
+
+	private:
+		void drawHighlight(
+				QPainter *,
+				const QStyleOptionGraphicsItem *);
+		bool buildFromXml(const QDomElement &, int * = nullptr);
+		bool parseElement(const QDomElement &dom);
+		bool parseInput(const QDomElement &dom_element);
+		DynamicElementTextItem *parseDynamicText(
+				const QDomElement &dom_element);
+		Terminal *parseTerminal(const QDomElement &dom_element);
+		void matchMovedTerminals(const QList<QDomElement> &records,
+								 const QSet<int> &matched_records,
+								 const QSet<Terminal *> &matched_terminals,
+								 QHash<int, Terminal *> &id_adr);
+
+	public:
+		Terminal *terminalFromOldPlace(const QUuid &old_place_uuid) const;
+		bool terminalWasMoved(const Terminal *terminal) const;
+
+	private:
+			/// How far, in x and y, a terminal may have moved from where
+			/// a project saved it and still be recognised
+		static constexpr qreal moved_terminal_reach = 5.0;
+			/// Terminals paired with a saved one that was elsewhere,
+			/// and the uuid derived from that old place
+		QHash<QUuid, Terminal *> m_old_place_terminals;
+		QSet<Terminal *> m_moved_terminals;
+
+		//Reimplemented from QGraphicsItem
+	public:
+		void paint(
+				QPainter *,
+				const QStyleOptionGraphicsItem *,
+				QWidget *) override;
+		QRectF boundingRect() const override;
+	protected:
+		void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseReleaseEvent(
+				QGraphicsSceneMouseEvent *event) override;
+		void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+		void hoverEnterEvent(QGraphicsSceneHoverEvent *) override;
+		void hoverLeaveEvent(QGraphicsSceneHoverEvent *) override;
+		QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+
+	protected:
+			//ATTRIBUTES related to linked element
+		QList <Element *> connected_elements;
+		QList <LinkInfo>  tmp_uuids_link;
+		bool m_corner = false;
+		QHash <Element *, int> m_group_index_map;  ///< Maps linked elements to their group index (for slave->master links)
+		QUuid             m_uuid;
+		kind              m_link_type = Element::Simple;
+
+			//ATTRIBUTES related to informations
+		DiagramContext m_kind_informations;
+		autonum::sequentialNumbers m_autoNum_seq;
+		bool m_freeze_label = false;
+		QString m_F_str;
+
+	ElementsLocation m_location;
+	QList <Terminal *> m_terminals;
+	QPicture m_picture;
+	QPicture m_low_zoom_picture;
+		/// The drawing with its texts kept readable, when the symbol's
+		/// mirror or turn would not leave them so (m_readable_transform)
+	QPicture m_readable_picture;
+	QPicture m_readable_low_zoom_picture;
+	QTransform m_readable_transform;
+		/// What the drawings cover beyond the symbol's frame, if
+		/// anything: see boundingRect()
+	QRectF m_drawn_rect;
+	void updateDrawnRect();
+	ElementData m_data;
+	QList<QPointF> m_plc_table_positions;  // Positions of plc_table parts in the element definition
+
+	void drawPlcTable(QPainter *painter);
+	void setMirror(bool horizontal, bool vertical);
+	void applyMirrorTransform();
+	void keepChildrenReadable() const;
+
+	public:
+		/// Positions where the PLC IO table is drawn (from the .elmt file).
+		QList<QPointF> plcTablePositions() const { return m_plc_table_positions; }
+
+	private:
+		void storeInformation();
+		projectDataBase *placedStore() const;
+		void appendTextsXml(QDomDocument &document, QDomElement &element) const;
+		void appendDataXml(QDomDocument &document, QDomElement &element) const;
+		void scheduleTextsStore();
+		void connectTextStore(DynamicElementTextItem *deti);
+		void connectTextStore(ElementTextItemGroup *group);
+			/// Set while the texts are being written: taking a group's
+			/// texts out to write them moves them, which is no change
+		mutable bool m_writing_texts = false;
+		bool m_must_highlight = false;
+		int m_jump_highlight = 0;  ///< pending jump-target highlights, see showAsJumpTarget()
+		bool m_jump_cursor = false;
+		QSize   dimensions;
+		QPoint  hotspot_coord;
+		bool m_mouse_over = false;
+		bool m_horizontal_mirror = false;
+		bool m_vertical_mirror = false;
+		QString m_prefix;
+		QMap<QString, QString> m_terminal_texts;
+		QList <DynamicElementTextItem *> m_dynamic_text_list;
+		QList <ElementTextItemGroup *> m_texts_group;
+
+};
+
+bool comparPos(const Element * elmt1, const Element * elmt2);
+
+inline bool Element::isFree() const
+{
+	return (connected_elements.isEmpty());
+}
+
+/**
+	Indicate the current orientation of this element
+	O = 0°
+	1 = 90°
+	2 = 180°
+	3 = 270°
+	@return the current orientation of this element
+*/
+inline int Element::orientation() const
+{
+	return(QET::correctAngle(rotation())/90);
+}
+
+/**
+	@brief Element::uuid
+	@return the uuid of this element
+*/
+inline QUuid Element::uuid() const
+{return m_uuid;}
+
+/**
+	@brief Element::linkedElements
+	@return the list of linked elements, sorted by position. A sorted copy:
+	the element's own list keeps the order it is saved in.
+*/
+inline QList <Element *> Element::linkedElements()
+{
+	QList <Element *> sorted = connected_elements;
+	std::sort(sorted.begin(), sorted.end(), comparPos);
+	return sorted;
+}
+
+#endif

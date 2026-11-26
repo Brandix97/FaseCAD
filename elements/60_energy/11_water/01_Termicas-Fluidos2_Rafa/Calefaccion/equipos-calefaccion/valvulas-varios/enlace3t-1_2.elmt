@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="19" hotspot_y="5">
+    <uuid uuid="{a5395d2c-b03b-b13d-f51c-c3087791bb47}"/>
+    <names>
+        <name lang="ar">وصلة 3"</name>
+        <name lang="ca">Enllaç 3 femelles</name>
+        <name lang="cs">Spojka 3"</name>
+        <name lang="da">Union 3"</name>
+        <name lang="de">Verschraubung 3"</name>
+        <name lang="el">Ένωση 3"</name>
+        <name lang="en">Union 3"</name>
+        <name lang="es">Enlace 3tuercas</name>
+        <name lang="fi">Liitin 3"</name>
+        <name lang="fr">Union 3"</name>
+        <name lang="hr">Spojnica 3"</name>
+        <name lang="hu">Kötőelem 3"</name>
+        <name lang="it">Raccordo a unione 3"</name>
+        <name lang="ja">ユニオン 3"</name>
+        <name lang="ko">유니온 3"</name>
+        <name lang="mn">Холболт 3"</name>
+        <name lang="nb">Union 3"</name>
+        <name lang="nl">Koppeling 3"</name>
+        <name lang="nl_BE">Unie 3"</name>
+        <name lang="pl">Złącze 3"</name>
+        <name lang="pt">União 3"</name>
+        <name lang="pt_BR">Enlace 3tuercas</name>
+        <name lang="ro">Racord 3"</name>
+        <name lang="ru">Соединение 3"</name>
+        <name lang="sk">Spojka 3"</name>
+        <name lang="sl">Unija 3"</name>
+        <name lang="sr">Спојница 3"</name>
+        <name lang="sv">Koppling 3"</name>
+        <name lang="tr">Rakor 3"</name>
+        <name lang="uk">Муфта 3"</name>
+        <name lang="zh">三通接头1_2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="8.6" y1="4" x2="8.6" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="8.6" y="6" width="3.6" height="7" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-8.16" y="4.08" width="6.54" height="11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1.63" y="15.59" width="3.52" height="8.77" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2.9" y="15.59" width="3.52" height="8.77" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-1.63" y="-3" width="3.52" height="8.77" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="6.42" y="4.08" width="5.53" height="11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="3.9" y="5.73" width="2.51" height="9.87" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-1.63" y="0.24" width="8" height="19.73" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.12" y1="5.73" x2="0.69" y2="5.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2.9" y="-3" width="3.52" height="8.77" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0.73" y1="15.59" x2="5.08" y2="15.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1.63" y="5.73" width="2.51" height="9.87" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-4" y="-12" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{59d1c727-c44c-44bf-8795-5999fd79e0ae}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-8.2" y="6" width="3.6" height="7" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-3.4" y1="4" x2="-3.4" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a9a1e473-40b2-42ae-870e-e4e591182723}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{578c7667-ef80-4704-ad22-b917ad626408}" name="" x="12" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

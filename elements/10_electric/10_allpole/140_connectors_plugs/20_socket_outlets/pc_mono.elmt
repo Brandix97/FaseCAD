@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="24">
+    <uuid uuid="{a36a30e0-319b-e459-2d45-6d0c5c17b142}"/>
+    <names>
+        <name lang="ar">مقبس أحادي الوجه</name>
+        <name lang="ca">Sortida 3 pols</name>
+        <name lang="cs">Zásuvka jednofázová</name>
+        <name lang="da">Udtag 3 poler</name>
+        <name lang="de">Steckdose 3-polig</name>
+        <name lang="el">Πρίζα 3 πόλων</name>
+        <name lang="en">Outlet 3 poles</name>
+        <name lang="es">Toma corriente 3P</name>
+        <name lang="fi">Pistorasia 3 napaa</name>
+        <name lang="fr">PC mono</name>
+        <name lang="hr">Utičnica 3 polova</name>
+        <name lang="hu">F + N + PE csatlakozó aljzat</name>
+        <name lang="it">Presa monofase</name>
+        <name lang="ja">コンセント 3 極</name>
+        <name lang="ko">콘센트 3 극</name>
+        <name lang="mn">Гнездо 3 туйл</name>
+        <name lang="nb">Uttak 3 poler</name>
+        <name lang="nl">Contact AC + aarde</name>
+        <name lang="nl_BE">Contactdoos 3 polen</name>
+        <name lang="pl">Gniazdo wtyczkowe</name>
+        <name lang="pt">Tomada 3 polos</name>
+        <name lang="pt_BR">Tomada 3 polos</name>
+        <name lang="ro">Priză 3 poli</name>
+        <name lang="ru">Розетка 3 полюсов</name>
+        <name lang="sk">Zásuvka 3 pólov</name>
+        <name lang="sl">Vtičnica 3 polov</name>
+        <name lang="sr">Утичница 3 полова</name>
+        <name lang="sv">Uttag 3 poler</name>
+        <name lang="tr">Priz 3 kutuplu</name>
+        <name lang="uk">Розетка 3 полюсів</name>
+        <name lang="zh">单相插座</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="13" y="-17.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2b88f4ae-f822-4c12-bb99-6b61a8822fbd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="7" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10.05" y="-10.05" width="20.1" height="20.1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="-8" x2="-6" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="-6" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-2" y="3" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="6" y1="-8" x2="6" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="2" y="-6" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{a678e055-e8e7-4241-8267-8426f1d8497f}" name="" x="-6" y="-15" orientation="n" type="Generic"/>
+        <terminal uuid="{f9814f9c-9e57-4a8e-bce5-7d721bdb44c3}" name="" x="6" y="-15" orientation="n" type="Generic"/>
+        <terminal uuid="{e82e2c68-8aee-4b06-8ac4-68f5abc1a99b}" name="" x="0" y="17" orientation="s" type="Generic"/>
+    </description>
+</definition>

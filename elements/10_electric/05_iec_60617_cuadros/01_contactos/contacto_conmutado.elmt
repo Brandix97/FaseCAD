@@ -1,0 +1,34 @@
+<definition height="50" hotspot_x="25" hotspot_y="25" link_type="slave" type="element" version="0.200.1" width="30">
+    <uuid uuid="{ad5fbe9f-8671-41fb-bc01-6885c0c9ec9f}"/>
+    <names>
+        <name lang="de">Wechsler</name>
+        <name lang="en">Change-over contact</name>
+        <name lang="es">Contacto conmutado</name>
+        <name lang="fr">Contact inverseur</name>
+        <name lang="it">Contatto in scambio</name>
+        <name lang="pt">Contacto comutado</name>
+        <name lang="tr">Değişken kontak</name>
+        <name lang="zh">转换触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">SW</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{b6686c72-6623-4d71-a1ad-fec7bfc218f1}" x1="0" x2="0" y1="10" y2="20"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{419576bb-240e-47b1-a2c4-5c8de8e22e54}" x1="0" x2="-12" y1="10" y2="-12"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{9769364a-1304-596f-b475-29f7bc8cf5c2}" x="-29" y="-10.49" z="5">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{d475acf1-f2a1-489e-a8ba-6aee8895d966}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <polygon antialias="true" closed="false" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{4cd0dbc1-a142-4869-9ee1-52227beb524f}" x1="-20" x2="-20" x3="-11" y1="-20" y2="-10" y3="-10"/>
+        <terminal name="12" orientation="n" type="Generic" uuid="{d589c730-9b59-5fde-9d4a-2b654f7f6a16}" x="-20" y="-20" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal name="14" orientation="n" type="Generic" uuid="{c67cb775-a590-54b5-9331-eed83328cad6}" x="0" y="-20" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal name="11" orientation="s" type="Generic" uuid="{b96320f9-b4bf-5fdb-98e8-b1523a1342da}" x="0" y="20" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

@@ -1,0 +1,247 @@
+﻿/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef TERMINALSTRIP_H
+#define TERMINALSTRIP_H
+
+#include <QObject>
+#include <QPair>
+#include <QPointer>
+#include <QColor>
+#include <QSharedPointer>
+#include <QVector>
+
+#include "terminalstripdata.h"
+#include "../properties/elementdata.h"
+
+class Element;
+class RealTerminal;
+class QETProject;
+class PhysicalTerminal;
+class TerminalStripIndex;
+class TerminalElement;
+class TerminalStrip;
+class TerminalStripBridge;
+
+/**
+ * @brief The TerminalStrip class
+ * This class hold all the datas and configurations
+ * of a terminal strip (but the not the visual aspect).
+ * A terminal strip have some informations (name comment etc...)
+ * and is composed by one or several PhysicalTerminal.
+ */
+class TerminalStrip : public QObject
+{
+	friend class TerminalStripModel;
+	friend class RealTerminalData;
+
+	Q_OBJECT
+
+	public:
+	signals:
+		void orderChanged(); //Emitted when the order of the physical terminal is changed
+		void bridgeChanged();
+		void bridgeColorChanged(QSharedPointer<TerminalStripBridge> bridge);
+			//Emitted when the data of the strip (name...) or of one of its
+			//terminals (width, color, type...) is changed : what is drawn changes
+		void dataChanged();
+	public:
+
+		TerminalStrip(QETProject *project);
+
+		TerminalStrip(const QString &installation,
+					  const QString &location,
+					  const QString &name,
+					  QETProject *project);
+
+		void setInstallation(const QString &installation);
+		QString installation() const {return m_data.m_installation;}
+		void setLocation(const QString &location);
+		QString location() const {return m_data.m_location;}
+		void setName(const QString &name);
+		QString name() const {return m_data.m_name;}
+		void setComment(const QString &comment);
+		QString comment() const {return m_data.m_comment;}
+		void setDescription(const QString &description);
+		QString description() const {return m_data.m_description;}
+			///Manufacturer of the terminals proposed by the editor, empty = all
+		QString manufacturer() const {return m_data.m_manufacturer;}
+		QUuid uuid() const {return m_data.m_uuid;}
+		QETProject *project() const;
+
+		TerminalStripData data() const;
+		void setData(const TerminalStripData &data);
+		void terminalDataChanged();
+
+		bool addTerminal (QSharedPointer<RealTerminal> real_t);
+		void addTerminals (QVector<QSharedPointer<RealTerminal>> real_t_vector);
+		void addAndGroupTerminals (const QVector<QVector<QSharedPointer<RealTerminal>>> &real_t_vector);
+		bool removeTerminal (QSharedPointer<RealTerminal> real_t);
+		void removeTerminals (QVector<QSharedPointer<RealTerminal>> real_t_vector);
+		bool addTerminal    (Element *terminal);
+		bool removeTerminal (Element *terminal);
+		bool addTerminal   (QSharedPointer<PhysicalTerminal> phy_t);
+		void addTerminals (QVector<QSharedPointer<PhysicalTerminal>> phy_t_vector);
+		bool removeTerminal (QSharedPointer<PhysicalTerminal> phy_t);
+		void removeTerminals (QVector<QSharedPointer<PhysicalTerminal>> phy_t_vector);
+		QVector<QSharedPointer<PhysicalTerminal>> insertSpareTerminals(int pos, const QVector<QSharedPointer<RealTerminal>> &spare_terminals);
+		void insertTerminals(int pos, const QVector<QSharedPointer<PhysicalTerminal>> &phy_t_vector);
+
+			/**
+				Where terminals stood in this strip before takeOut() took
+				them out -- their symbols were deleted from the folio --,
+				for putBack() to put them in the very same place when the
+				deletion is undone.
+			*/
+		struct Hole
+		{
+				///The physical terminals which went whole, in the order
+				///of the strip, and the position each one stood at
+			QVector<QSharedPointer<PhysicalTerminal>> physical;
+			QVector<int> positions;
+				///The physical terminals which lost some of their levels,
+				///with their levels as they were
+			QVector<QPair<QSharedPointer<PhysicalTerminal>,
+						  QVector<QSharedPointer<RealTerminal>>>> levels;
+				///The bridges they lay in, as they were
+			QVector<QPair<QSharedPointer<TerminalStripBridge>,
+						  QVector<QSharedPointer<RealTerminal>>>> bridges;
+
+			bool isEmpty() const {return physical.isEmpty() && levels.isEmpty();}
+		};
+		Hole takeOut(const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+		void putBack(const Hole &hole);
+
+		int pos(const QSharedPointer<PhysicalTerminal> &terminal) const;
+		int physicalTerminalCount() const;
+		QSharedPointer<PhysicalTerminal> physicalTerminal(int index) const;
+		QSharedPointer<PhysicalTerminal> physicalTerminal(const QUuid &uuid) const;
+		QVector<QSharedPointer<PhysicalTerminal>> physicalTerminal() const;
+		QSharedPointer<RealTerminal> realTerminalForUuid(const QUuid &uuid) const;
+		QVector<QSharedPointer<RealTerminal>> realTerminals() const;
+
+		bool setOrderTo(const QVector<QSharedPointer<PhysicalTerminal>> &sorted_vector);
+		bool groupTerminals(const QSharedPointer<PhysicalTerminal> &receiver_terminal, const QVector<QSharedPointer<RealTerminal>> &added_terminals);
+		void unGroupTerminals(const QVector<QSharedPointer<RealTerminal>> &terminals_to_ungroup);
+		bool setLevel(const QSharedPointer<RealTerminal> &real_terminal, int level);
+
+		bool isBridgeable(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		bool isBridgeable(QSharedPointer<TerminalStripBridge> bridge, const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		bool setBridge(const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+		bool setBridge(const QSharedPointer<TerminalStripBridge> &bridge, const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+		void unBridge(const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+		bool canUnBridge(const QVector <QSharedPointer<RealTerminal>> &real_terminals) const;
+			///A terminal carries up to two bars, one in each groove
+		static constexpr int maxBridgesPerTerminal = 2;
+			///The bridge every terminal of @a real_terminals sits in (the
+			///one in the highest groove when two do), null if none
+		QSharedPointer<TerminalStripBridge> commonBridge(
+				const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+
+			/**
+				A bridge the drawing brought here: the bridges drawn on the
+				plan become bridges of this strip when its terminals are
+				sorted, and what the drawing says, those bridges say. They
+				are read-only here -- only the bridges he set by hand are
+				his to change.
+			*/
+		struct DrawingBridge
+		{
+				///The drawn bridge it comes from
+			QUuid source;
+			QVector<QSharedPointer<RealTerminal>> real_terminals;
+			QColor color;
+				///Which of the four grooves its bar sits in
+			int track = 1;
+		};
+		QList<DrawingBridge> automaticBridges() const;
+		void setAutomaticBridges(const QList<DrawingBridge> &bridges);
+			/// The bridges the drawing brought become bridges of this
+			/// strip of their own, as if set by hand (Brandon, 2026-11-25:
+			/// the drawn bridges were taken out, see
+			/// QETProject::convertDrawnBridges())
+		void keepAutomaticBridges();
+			/**
+				A bar joining @p real_terminals (Brandon, 2026-11-26): the
+				bridge a wire between them makes. Gaps allowed, as a comb
+				with teeth taken out joins every other terminal: two or
+				more terminals of this strip, one level, distinct physical
+				terminals. The bar one of them sits in already is
+				lengthened; none, a new bar. Not when they sit in two
+				different bars.
+			*/
+		bool canJoinWithBar(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+			/// Make it; the terminals put on the bar in @p added
+		QSharedPointer<TerminalStripBridge> joinWithBar(
+				const QVector<QSharedPointer<RealTerminal>> &real_terminals,
+				QVector<QSharedPointer<RealTerminal>> *added = nullptr);
+			/// @p real_terminals off @p bar; the bar goes when fewer than
+			/// two are left on it
+		void leaveBar(const QSharedPointer<TerminalStripBridge> &bar,
+					  const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+			/// @p bar in this strip again, on @p real_terminals exactly
+		void restoreBar(const QSharedPointer<TerminalStripBridge> &bar,
+						const QVector<QSharedPointer<RealTerminal>> &real_terminals);
+
+			/**
+				Every bridge this terminal sits in: a terminal may lie
+				under several bars at once -- they run side by side in the
+				grooves of the rail -- and asking for "the" bridge of a
+				terminal only ever gave back one of them, so the others
+				were never drawn at all.
+			*/
+		QVector<QSharedPointer<TerminalStripBridge>> bridgesOf(
+				const QSharedPointer<RealTerminal> &real_terminal) const;
+
+	private:
+			///The first groove (1 to 4) no bar of a bridge lying across
+			///the same terminals already sits in
+		int freeTrackFor(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+
+	public:
+		QSharedPointer<TerminalStripBridge> isBridged(const QSharedPointer<RealTerminal> real_terminal) const;
+			///True when at least one bridge joins terminals of this strip :
+			///the bridge cells of the terminal strip editor are the only thing
+			///drawn from them (see TerminalStripModel::bridgePixmapFor)
+		bool hasBridges() const { return !m_bridge.isEmpty(); }
+		QSharedPointer<TerminalStripBridge> bridgeFor (const QVector<QSharedPointer<RealTerminal>> &terminal_vector) const;
+
+	private:
+		bool canLieAcross(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		QSharedPointer<TerminalStripBridge> extendedBridge(
+				const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+		bool canTakeNewBar(const QVector<QSharedPointer<RealTerminal>> &real_terminals) const;
+
+	public:
+
+		QSharedPointer<RealTerminal> previousTerminalInLevel(const QSharedPointer<RealTerminal> &real_terminal) const;
+		QSharedPointer<RealTerminal> nextTerminalInLevel(const QSharedPointer<RealTerminal> &real_terminal) const;
+		QSharedPointer<RealTerminal> previousRealTerminal(const QSharedPointer<RealTerminal> &real_terminal) const;
+		QSharedPointer<RealTerminal> nextRealTerminal(const QSharedPointer<RealTerminal> &real_terminal) const;
+
+		static QString xmlTagName() {return QStringLiteral("terminal_strip");}
+		QDomElement toXml(QDomDocument &parent_document);
+		bool fromXml(QDomElement &xml_element);
+
+	private:
+		TerminalStripData m_data;
+		QPointer<QETProject> m_project;
+		QVector<QSharedPointer<PhysicalTerminal>> m_physical_terminals;
+		QVector<QSharedPointer<TerminalStripBridge>> m_bridge;
+};
+
+#endif // TERMINALSTRIP_H

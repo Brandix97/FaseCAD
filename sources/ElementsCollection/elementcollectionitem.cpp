@@ -1,0 +1,327 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "elementcollectionitem.h"
+
+#include <QCoreApplication>
+#include <QThread>
+
+/**
+	@brief ElementCollectionItem::ElementCollectionItem
+	Constructor
+*/
+ElementCollectionItem::ElementCollectionItem()
+{}
+
+/**
+	@brief ElementCollectionItem::clearData
+	Reset the data
+*/
+void ElementCollectionItem::clearData()
+{
+	setText(QString());
+	setToolTip(QString());
+	setIcon(QIcon());
+	setData(QString());
+}
+
+/**
+	@brief ElementCollectionItem::lastItemForPath
+	Return the last existing item in this ElementCollectionItem hierarchy
+	according to the given path.
+	Next_item is the first non existing item in this hierarchy according
+	to the given path.
+	@param path : The path to find last item.
+	The path must be in form : path/otherPath/.../.../myElement.elmt.
+	@param no_found_path : The first item that not exist in this hierarchy
+	@return : The last item that exist in this hierarchy,
+	or nullptr can't find (an error was occurred, or path already exist)
+*/
+ElementCollectionItem *ElementCollectionItem::lastItemForPath(
+		const QString &path,
+		QString &no_found_path)
+{
+	QStringList str_list = path.split("/");
+	if (str_list.isEmpty()) return nullptr;
+
+	ElementCollectionItem *return_eci = this;
+	foreach (QString str, str_list)
+	{
+		ElementCollectionItem *eci = return_eci->childWithCollectionName(str);
+		if (!eci)
+		{
+			no_found_path = str;
+			return return_eci;
+		}
+		else
+			return_eci = eci;
+	}
+
+	return nullptr;
+}
+
+/**
+	@brief ElementCollectionItem::childWithCollectionName
+	Return the child with the collection name name, else return nullptr
+	@param name
+	@return
+*/
+ElementCollectionItem *ElementCollectionItem::childWithCollectionName(
+		const QString& name) const
+{
+	rowCount();
+	foreach (QStandardItem *qsi, directChilds()) {
+		ElementCollectionItem *eci = static_cast<ElementCollectionItem *>(qsi);
+		if (eci->name() == name)
+			return eci;
+	}
+
+	return nullptr;
+}
+
+/**
+	@brief ElementCollectionItem::directChilds
+	Return the direct child of this item
+	@return
+*/
+QList<QStandardItem *> ElementCollectionItem::directChilds() const
+{
+	QList <QStandardItem *> item_list;
+
+	for (int i=0 ; i<rowCount() ; i++)
+		item_list.append(child(i));
+
+	return item_list;
+}
+
+/**
+	@brief ElementCollectionItem::rowForInsertItem
+	Return the row for insert a new child item to this item with name.
+	@param name
+	@return
+	If row can't be found (name is null, or already exist) return -1;
+*/
+int ElementCollectionItem::rowForInsertItem(const QString &name)
+{
+	if (name.isEmpty())
+		return -1;
+
+	QList <ElementCollectionItem *> child;
+	//The item to insert is an element/template we search from element child
+	if (name.endsWith(".elmt") || name.endsWith(".qetmak"))
+	{
+		child = elementsDirectChild();
+			//There isn't element, we insert at last position
+		if (child.isEmpty())
+			return rowCount();
+	}
+	//The item is a directory, we search from directory child
+	else
+	{
+		child = directoriesDirectChild();
+		//There isn't directory, we insert at first position
+		if(child.isEmpty())
+			return 0;
+	}
+
+	foreach (ElementCollectionItem *eci, child)
+		if (eci->name() > name)
+			return model()->indexFromItem(eci).row();
+
+	return (model()->indexFromItem(child.last()).row() + 1);
+}
+
+/**
+	@brief ElementCollectionItem::itemAtPath
+	@param path
+	@return the item at path or nullptr if doesn't exist
+*/
+ElementCollectionItem *ElementCollectionItem::itemAtPath(const QString &path)
+{
+	QStringList str_list = path.split("/");
+	if (str_list.isEmpty())
+		return nullptr;
+
+	ElementCollectionItem *match_eci = this;
+	foreach (QString str, str_list) {
+		ElementCollectionItem *eci = match_eci->childWithCollectionName(str);
+		if (!eci)
+			return nullptr;
+		else
+			match_eci = eci;
+	}
+
+	return match_eci;
+}
+
+/**
+	@brief ElementCollectionItem::elementsDirectChild
+	@return The direct element child of this item
+*/
+QList<ElementCollectionItem *> ElementCollectionItem::elementsDirectChild() const
+{
+	QList <ElementCollectionItem *> element_child;
+
+	foreach (QStandardItem *qsi, directChilds()) {
+		ElementCollectionItem *eci = static_cast<ElementCollectionItem *>(qsi);
+		if (eci->isElement())
+			element_child.append(eci);
+	}
+
+	return element_child;
+}
+
+/**
+	@brief ElementCollectionItem::directoriesDirectChild
+	@return the direct directory child of this item
+*/
+QList<ElementCollectionItem *> ElementCollectionItem::directoriesDirectChild() const
+{
+	QList <ElementCollectionItem *> dir_child;
+
+	foreach (QStandardItem *qsi, directChilds()) {
+		ElementCollectionItem *eci = static_cast<ElementCollectionItem *>(qsi);
+		if (eci->isDir())
+			dir_child.append(eci);
+	}
+
+	return dir_child;
+}
+
+/**
+	@brief ElementCollectionItem::elementsChild
+	@return Every elements child (direct and indirect) of this item
+*/
+QList<ElementCollectionItem *> ElementCollectionItem::elementsChild() const
+{
+	QList <ElementCollectionItem *> list = elementsDirectChild();
+
+	foreach (ElementCollectionItem *eci, directoriesChild())
+		list.append(eci->elementsDirectChild());
+
+	return list;
+}
+
+/**
+	@brief ElementCollectionItem::directoriesChild
+	@return Every directories child (direct and indirect) of this item
+*/
+QList<ElementCollectionItem *> ElementCollectionItem::directoriesChild() const
+{
+	QList<ElementCollectionItem *> list = directoriesDirectChild();
+	QList<ElementCollectionItem *> child_list;
+	foreach (ElementCollectionItem *eci, list) {
+		child_list.append(eci->directoriesChild());
+	}
+
+	list.append(child_list);
+	return list;
+}
+
+/**
+	@brief ElementCollectionItem::items
+	@return every childs of this item (direct and indirect childs)
+*/
+QList<ElementCollectionItem *> ElementCollectionItem::items() const
+{
+	QList <ElementCollectionItem *> list;
+
+	for (int i=0 ; i<rowCount() ; i++) {
+		ElementCollectionItem *eci = static_cast<ElementCollectionItem *>(child(i));
+		list.append(eci);
+		list.append(eci->items());
+	}
+
+	return list;
+}
+
+/**
+	@brief onGuiThread
+	@return true when called from the thread the application lives in.
+	False once the application object is gone: a worker of
+	ElementsCollectionModel::loadCollections() can still be setting up
+	items while the program quits, after the application was destroyed,
+	and it then keeps the values on the item as from any worker thread.
+*/
+static bool onGuiThread()
+{
+	const QCoreApplication *app = QCoreApplication::instance();
+	return app && QThread::currentThread() == app->thread();
+}
+
+/**
+	@brief ElementCollectionItem::setData
+	ElementsCollectionModel::loadCollections() runs setUpData() for every
+	item on worker threads (QtConcurrent::map), while the items are
+	already in the model. QStandardItem::setData() updates the model and
+	emits its dataChanged() signal, which is not safe from a worker
+	thread. So a value set from a worker thread is kept on the item, and
+	the model applies it on the GUI thread with applyDeferredData() once
+	every item is set up. setText(), setFlags(), setToolTip() and setIcon()
+	all end up here.
+	@param value
+	@param role
+*/
+void ElementCollectionItem::setData(const QVariant &value, int role)
+{
+	if (role == Qt::EditRole)
+		role = Qt::DisplayRole;
+
+	if (onGuiThread())
+		QStandardItem::setData(value, role);
+	else
+		m_deferred_data.insert(role, value);
+}
+
+/**
+	@brief ElementCollectionItem::data
+	On a worker thread, a value set by setData() but not applied yet is
+	returned, so setUpData() reads back what it has just set
+	(localName() tests text() for example).
+	@param role
+	@return
+*/
+QVariant ElementCollectionItem::data(int role) const
+{
+	if (role == Qt::EditRole)
+		role = Qt::DisplayRole;
+
+	if (!onGuiThread())
+	{
+		const auto it = m_deferred_data.constFind(role);
+		if (it != m_deferred_data.constEnd())
+			return it.value();
+	}
+	return QStandardItem::data(role);
+}
+
+/**
+	@brief ElementCollectionItem::applyDeferredData
+	Apply the values set from a worker thread, see setData().
+	Must be called on the GUI thread, after the worker is done.
+*/
+void ElementCollectionItem::applyDeferredData()
+{
+	for (auto it = m_deferred_data.constBegin() ; it != m_deferred_data.constEnd() ; ++it)
+		QStandardItem::setData(it.value(), it.key());
+	m_deferred_data.clear();
+}
+
+void setUpData(ElementCollectionItem *eci) {
+	eci->setUpData();
+}

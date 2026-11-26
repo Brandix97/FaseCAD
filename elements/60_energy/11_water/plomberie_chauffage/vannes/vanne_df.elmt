@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="29" hotspot_y="26">
+    <uuid uuid="{c00d1395-d7ba-bb20-8bb9-3130b6a0aa52}"/>
+    <names>
+        <name lang="ar">صمام كروي DF</name>
+        <name lang="ca">Vàlvula de bola DF</name>
+        <name lang="cs">Kulový ventil</name>
+        <name lang="da">Kugleventil DF</name>
+        <name lang="de">Kugelventil IG</name>
+        <name lang="el">Βάννα σφαιρική DF</name>
+        <name lang="en">Ball valve FF</name>
+        <name lang="es">Valv bola H-H</name>
+        <name lang="fr">Vanne à sphère DF</name>
+        <name lang="it">Valvola a sfera  F-F</name>
+        <name lang="pl">Zawór kulowy</name>
+        <name lang="pt_BR">Valv bola H-H</name>
+        <name lang="zh">双法兰阀</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-4" y="-14" width="8" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="9" y="-7" width="4" height="4" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-18" y="-7" width="9" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <rect x="9" y="-7" width="9" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <arc x="-18" y="3" width="4" height="4" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-18" y="-7" width="4" height="4" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-18" y="-3" width="4" height="6" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-23" y="11.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9f3af6ca-e020-42fc-b48f-417e942904cd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="14" y="3" width="4" height="4" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="14" y="-7" width="4" height="4" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="9" y="3" width="4" height="4" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-13" y="3" width="4" height="4" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="11" y1="-3" x2="16" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="3" x2="16" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="9" y="-3" width="4" height="6" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-3" y="-12" width="6" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-3" x2="-11" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="3" x2="-11" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-13" y="-3" width="4" height="6" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-13" y="-7" width="4" height="4" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="14" y="-3" width="4" height="6" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-3" y="-16" width="6" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-17" width="4" height="1" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-17" x2="-1" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-17" x2="1" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-1" y="-18" width="2" height="1" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="8" y="-21" width="17" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:green;color:black" antialias="false"/>
+        <polygon x1="3" y1="-16" x2="8" y2="-21" x3="8" y3="-19" x4="3" y4="-14" x5="3" y5="-16" x6="5" y6="-18" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <arc x="-5" y="-11" width="2" height="4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2" y1="-8" x2="9" y2="-8" x3="9" y3="8" x4="2" y4="8" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-9" y1="-7" x2="-4" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="7" x2="2" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{5733882c-40f6-4dad-9443-e140864b1667}" name="" x="-18" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{f5cbd23a-0ea7-4feb-8867-38d23989c874}" name="" x="18" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

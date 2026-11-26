@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="10">
+    <uuid uuid="{61dbaf82-a026-3cf0-1fdc-7f08ef0e9277}"/>
+    <names>
+        <name lang="ar">ترنزيستور حقلي ذو بوابة معزولة IGFET من نوع التعزيز، بوابة واحدة، N-</name>
+        <name lang="ca">Transistor d'efecte de camp de porta aïllada tipus de millora IGFET, porta única, N-</name>
+        <name lang="cs">IGFET-Tranzisstor, obohacovací typ, jedno hradlo, kanál N,
+s podložkou vnitřně připojenou k emitoru</name>
+        <name lang="da">Isoleret gate-felteffekttransistor IGFET, enhancement-type, enkelt gate, N-</name>
+        <name lang="de">IGFET-Transisstor, Anreicherungstyp, ein
+Gate, N-Kanal, Substrat intern mit Source
+verbunden</name>
+        <name lang="el">Τρανζίστορ επαφής πεδίου μονωμένης πύλης IGFET τύπου ενίσχυσης, μονή πύλη, N</name>
+        <name lang="en">Insulated gate field effect transistor IGFET enhancement type, single gate, N-</name>
+        <name lang="es">Transistor de efecto de campo de puerta aislada IGFET de enriquecimiento, puerta única, N</name>
+        <name lang="fi">Eristetty hilakanavatransistori IGFET, rikastustyyppi, yksi hila, N-</name>
+        <name lang="fr">Transistor IGFET à enrichissement à une seule
+grille, canal N, avec substrat relié
+intérieurement à la source</name>
+        <name lang="hr">Izolirani tranzistor s efektom polja IGFET obogaćenog tipa, jednostruka vrata, N-</name>
+        <name lang="hu">Szigetelt kapus térvezérlésű tranzisztor IGFET dúsítási típus, egy kapu, N-</name>
+        <name lang="it">Transistor a effetto di campo a porta isolata IGFET tipo arricchimento, porta singola, N-</name>
+        <name lang="ja">絶縁ゲート電界効果トランジスタIGFET増強型、単一ゲート、N型</name>
+        <name lang="ko">절연 게이트 전계 효과 트랜지스터 IGFET 증가형, 단일 게이트, N-</name>
+        <name lang="mn">Тусгаарлагдсан хаалгат талбайн эффект транзистор IGFET өсгөх төрөл, нэг хаалга, N-</name>
+        <name lang="nb">Isolert gate felt-effekttransistor IGFET enhancement type, enkelt gate, N-</name>
+        <name lang="nl">Geïsoleerde poort veldeffecttransistor IGFET enhancementtype, enkele poort, N-kanaal</name>
+        <name lang="nl_BE">Geïsoleerde poort veldeffecttransistor IGFET enhancementtype, enkele poort, N-type</name>
+        <name lang="pl">Tranzystor polowy z bramką izolowaną IGFET typu wzbogacanego, jedna bramka, N-</name>
+        <name lang="pt">Transístor de efeito de campo de porta isolada IGFET tipo enriquecimento, porta única, N</name>
+        <name lang="pt_BR">Transistor IGFET de enriquecimento, porta simples, canal N</name>
+        <name lang="ro">Tranzistor cu efect de câmp cu poartă izolată IGFET, tip îmbogățire, o singură poartă, N-</name>
+        <name lang="ru">Полевой транзистор с изолированным затвором IGFET обогащённого типа, один затвор, N-</name>
+        <name lang="sk">Tranzistor riadený poľom s izolovaným hradlom IGFET obohacovacieho typu, jedno hradlo, N-</name>
+        <name lang="sl">Poljski tranzistor z izoliranimi vrati IGFET obogatitvenega tipa, enojna vrata, N-</name>
+        <name lang="sr">Изоловани транзистор са ефектом поља IGFET тип обогаћења, једна гејт, N-</name>
+        <name lang="sv">Isolerad gate-fälteffekttransistor IGFET anrikningstyp, enkel gate, N-</name>
+        <name lang="tr">Yalıtılmış kapılı alan etkili transistör IGFET zenginleştirme tipi, tek kapı, N-</name>
+        <name lang="uk">Польовий транзистор з ізольованим затвором IGFET збагаченого типу, один затвор, N-</name>
+        <name lang="zh">接线端子14</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="32.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{968f3d5e-e6ce-4d23-94ac-b7e63a47cd35}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-20" y1="20" x2="-5" y2="20" x3="-5" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="25" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="4" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="15" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="6" x2="0" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="6" x2="4" y2="10" x3="10" y3="14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="15" y1="10" x2="15" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

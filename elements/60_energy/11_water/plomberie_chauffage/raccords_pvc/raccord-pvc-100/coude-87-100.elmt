@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="33" hotspot_y="44">
+    <uuid uuid="{14119047-b042-dcc5-03ed-d38803cebb60}"/>
+    <names>
+        <name lang="ar">كوع 87°30 PVC 100</name>
+        <name lang="ca">Colze 87°30 PVC 100</name>
+        <name lang="cs">Koleno 87°30 PVC 100</name>
+        <name lang="da">Bøjning 87°30 PVC 100</name>
+        <name lang="de">Bogen 87°30 PVC 100</name>
+        <name lang="el">Γωνία 87°30 PVC 100</name>
+        <name lang="en">Elbow 87°30 PVC 100</name>
+        <name lang="fr">Coude 87°30 PVC 100</name>
+        <name lang="pt_BR">Coude 87°30 PVC 100</name>
+        <name lang="zh">87度弯头-100</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-5" y="-4" width="9" height="26" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7" y="-16" width="26" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1.5" y="18" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6cb2adb5-3e97-44a2-a664-0168f5226715}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-24" y="-35" width="56" height="56" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="-9" width="6" height="6" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{f2adc476-8a2a-4589-8ba3-659135a01166}" name="" x="-5" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{7229b44a-a527-4978-adf4-24bcab0c99ac}" name="" x="20" y="-16" orientation="n" type="Generic"/>
+    </description>
+</definition>

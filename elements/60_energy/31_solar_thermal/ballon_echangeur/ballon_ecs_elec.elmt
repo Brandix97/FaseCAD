@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="180" hotspot_x="52" hotspot_y="88">
+    <uuid uuid="{121f3921-cb39-3e11-e4b7-298667dbca19}"/>
+    <names>
+        <name lang="ar">سخّان ماء كهربائي</name>
+        <name lang="ca">ACS elèctrica</name>
+        <name lang="cs">Elektrický zásobnik ECS</name>
+        <name lang="da">Elektrisk DHW</name>
+        <name lang="de">Elektro-Warmwasser</name>
+        <name lang="el">Ηλεκτρικό DHW</name>
+        <name lang="en">Electric DHW</name>
+        <name lang="es">balón eléctrico ECS</name>
+        <name lang="fi">Sähköinen käyttövesi</name>
+        <name lang="fr">ballon ECS electrique</name>
+        <name lang="hr">Električni PTV</name>
+        <name lang="hu">Elektromos HMV</name>
+        <name lang="it">Scambiatore elettrico ACS</name>
+        <name lang="ja">電気温水器</name>
+        <name lang="ko">전기 DHW</name>
+        <name lang="mn">Цахилгаан DHW</name>
+        <name lang="nb">Elektrisk DHW</name>
+        <name lang="nl">Boiler Electrisch</name>
+        <name lang="nl_BE">Elektrische SWW</name>
+        <name lang="pl">Zasobnik elektryczny CWU</name>
+        <name lang="pt">AQS elétrico</name>
+        <name lang="pt_BR">AQS eletrica</name>
+        <name lang="ro">ACM electric</name>
+        <name lang="ru">Электрический ГВС</name>
+        <name lang="sk">Elektrický ohrev TÚV</name>
+        <name lang="sl">Električni bojler</name>
+        <name lang="sr">Електрични ПТВ</name>
+        <name lang="sv">El-VVB</name>
+        <name lang="tr">Elektrikli KSH</name>
+        <name lang="uk">Електричний ГВП</name>
+        <name lang="zh">电生活热水水箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="78.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{02141967-ed9d-4835-ad55-a3d95bbe9aec}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Ballon&#10; ECS" x="-37" y="-24" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="0" y1="82" x2="-10" y2="70" x3="9" y3="65" x4="-10" y4="60" x5="10" y5="56" x6="-10" y6="50" x7="10" y7="45" x8="-11" y8="40" x9="10" y9="35" x10="-10" y10="30" x11="2" y11="30" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="41" y="10" width="11" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-31" y="60" width="1" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="29" y="-80" width="1" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-60" x2="50" y2="70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-59" x2="-50" y2="70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-50" y="57.5" width="100" height="25" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-50" y="-72.5" width="100" height="25" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{77e4f86a-0f0e-4e19-878c-6ab8eb010ce8}" name="" x="51" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{4644c0b6-b1f1-47b2-87f6-1c441fa6620e}" name="" x="29" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{b178a9b1-db40-45c5-a704-2113aee51455}" name="" x="-31" y="84" orientation="s" type="Generic"/>
+    </description>
+</definition>

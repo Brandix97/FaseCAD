@@ -1,0 +1,46 @@
+<definition type="element" link_type="next_report" hotspot_x="18" hotspot_y="10" width="30" height="20" version="0.100.1">
+    <uuid uuid="{e2f489ab-d81a-48ce-afff-93bb2f989c2b}"/>
+    <names>
+        <name lang="ar">كابل متعدد الأسلاك الصفحة التالية أفقي</name>
+        <name lang="ca">Enllaç cable multifilar sortint</name>
+        <name lang="cs">Vícežilový kabel další list horizontální</name>
+        <name lang="da">Flerleder kabel næste ark vandret</name>
+        <name lang="de">Mehrleiterkabel nächste Folie horizontal</name>
+        <name lang="el">Πολυαγωγικό καλώδιο επόμενης σελίδας οριζόντιο</name>
+        <name lang="en">Multi wire cable next folio horizontal</name>
+        <name lang="es">Cable multifilar folio siguiente horizontal</name>
+        <name lang="fi">Monijohdinkaapeli seuraava sivu vaakasuora</name>
+        <name lang="fr">Multiconducteur Cable Folio suivant</name>
+        <name lang="hr">Višežilni kabel sljedeći list vodoravno</name>
+        <name lang="hu">Többeres kábel következő tervlap vízszintes</name>
+        <name lang="it">Cavo multipolare foglio successivo orizzontale</name>
+        <name lang="ja">多芯ケーブル 次フォリオ 水平</name>
+        <name lang="ko">다심 케이블 다음 도면 가로</name>
+        <name lang="mn">Олон утаст кабель дараагийн хуудас хэвтээ</name>
+        <name lang="nb">Flerlederkabel neste ark horisontal</name>
+        <name lang="nl">Meerdraadskabel volgend blad horizontaal</name>
+        <name lang="nl_BE">Meeraderige kabel volgende folio horizontaal</name>
+        <name lang="pl">Przewód wielożyłowy następny arkusz poziomo</name>
+        <name lang="pt">Cabo multifilar folha seguinte horizontal</name>
+        <name lang="pt_BR">Cabo multipolar - próxima folha horizontal</name>
+        <name lang="ro">Cablu multifilar folio următor orizontal</name>
+        <name lang="ru">Многожильный кабель следующий лист горизонтальный</name>
+        <name lang="sk">Viacvodičový kábel nasledujúci list horizontálny</name>
+        <name lang="sl">Večžilni kabel naslednji list vodoravno</name>
+        <name lang="sr">Вишежилни кабл следећи лист хоризонтално</name>
+        <name lang="sv">Flerledarkabel nästa blad horisontell</name>
+        <name lang="tr">Çok telli kablo sonraki sayfa yatay</name>
+        <name lang="uk">Багатожильний кабель наступний аркуш горизонтальний</name>
+        <name lang="zh">多芯电缆下一图页水平</name>
+    </names>
+    <informations>Author: Moritz Scholjegerdes</informations>
+    <description>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="10" y="-12" z="2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{a71c5c93-fecc-4482-8749-fc6a3c14c6f8}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignVCenter">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon y1="0" antialias="false" y2="-5" y3="5" style="line-style:normal;line-weight:thin;filling:black;color:black" x1="6" x2="-6" x3="-6"/>
+        <line end1="none" end2="none" y1="0" antialias="false" y2="0" style="line-style:normal;line-weight:hight;filling:none;color:black" x1="-10" length1="1.5" x2="-3" length2="1.5"/>
+        <terminal type="Generic" x="-10" y="0" name="1" uuid="{77245c5b-82fd-4b52-b521-50417b3cd63a}" orientation="w"/>
+    </description>
+</definition>

@@ -1,0 +1,10 @@
+[submodule "pugixml"]
+	path = pugixml
+	url = https://github.com/zeux/pugixml.git
+[submodule "SingleApplication"]
+	path = SingleApplication
+	url = https://github.com/itay-grudev/SingleApplication.git
+
+[submodule "doxygen-awesome-css"]
+	path = doxygen-awesome-css
+	url = https://github.com/jothepro/doxygen-awesome-css.git

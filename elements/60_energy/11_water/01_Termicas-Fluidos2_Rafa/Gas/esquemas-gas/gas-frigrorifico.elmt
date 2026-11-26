@@ -1,0 +1,25 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="15" hotspot_y="19">
+    <uuid uuid="{d06c0b8f-51e6-dd7a-536b-f5b72015d93f}"/>
+    <names>
+        <name lang="ca">Frigorífic a gas</name>
+        <name lang="es">Frigorífico a gas</name>
+        <name lang="pt_BR">Frigouífico a gas</name>
+        <name lang="zh">燃气冰箱</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="1" y1="-13" x2="1" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-13" x2="-5" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-13" x2="7" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-13" x2="4" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-13" x2="-2" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-14" width="20" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-13" x2="-8" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-32" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1ae63d05-e22c-4d66-ba93-1be7a542a0ff}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{09d4b45a-7786-4b33-935d-096379b326be}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

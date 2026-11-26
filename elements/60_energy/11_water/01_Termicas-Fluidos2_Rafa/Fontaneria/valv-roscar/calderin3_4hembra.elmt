@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="70" hotspot_x="21" hotspot_y="21">
+    <uuid uuid="{f6ec46ac-bd6a-cd6e-9618-d8b002a2490f}"/>
+    <names>
+        <name lang="ar">إناء تسخين 02</name>
+        <name lang="ca">Calderín</name>
+        <name lang="cs">Nádoba, ohřívání 02</name>
+        <name lang="da">Varme vase 02</name>
+        <name lang="de">Heizung Gefäß 02</name>
+        <name lang="el">Δοχείο θέρμανσης 02</name>
+        <name lang="en">Heating Vase 02</name>
+        <name lang="es">Calderin</name>
+        <name lang="fi">Lämmitys malja 02</name>
+        <name lang="fr">Vase Chauffage 02</name>
+        <name lang="hr">Posuda za grijanje 02</name>
+        <name lang="hu">Fűtés váz 02</name>
+        <name lang="it">Vaso di espansione 50L</name>
+        <name lang="ja">暖房用膨張タンク 02</name>
+        <name lang="ko">난방 바이스 02</name>
+        <name lang="mn">Халаалтын ваар 02</name>
+        <name lang="nb">Varmevase 02</name>
+        <name lang="nl">Expansie tank</name>
+        <name lang="nl_BE">Verwarming vaas 02</name>
+        <name lang="pl">Naczynie wzbiorcze</name>
+        <name lang="pt">Vaso de aquecimento 02</name>
+        <name lang="pt_BR">aquecimento Vase 02</name>
+        <name lang="ro">Vas de încălzire 02</name>
+        <name lang="ru">Расширительный бак отопления 02</name>
+        <name lang="sk">Vykurovacia váza 02</name>
+        <name lang="sl">Ogrevalna posoda 02</name>
+        <name lang="sr">Посуда за грејање 02</name>
+        <name lang="sv">Värme Vas 02</name>
+        <name lang="tr">Isıtma Vazo 02</name>
+        <name lang="uk">Опалювальний розширювальний бак 02</name>
+        <name lang="zh">3/4英寸内螺纹膨胀罐</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-7.4" y="31.19" width="2.8" height="2.24" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4.6" y1="29.58" x2="-4.6" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.6" y1="4.76" x2="13.4" y2="4.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13.4" y1="-10.14" x2="13.4" y2="22.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-14.6" y1="-10.14" x2="-14.6" y2="22.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="3.24" y="31.19" width="2.8" height="2.24" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1.3" y1="-16.18" x2="-1.3" y2="-17.94" x3="0.1" y3="-17.94" x4="0.1" y4="-16.18" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-14.6" y="-16.71" width="28" height="13.14" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4.6" y="31.19" width="7.84" height="2.24" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-7.4" y="28.91" width="13.44" height="4.52" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-14.6" y="15.71" width="28" height="13.14" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3.24" y1="29.58" x2="3.24" y2="33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5.32" y="33.55" width="10" height="6.79" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.4" y="35.06" width="6.16" height="5.28" rx="0" ry="0" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-3.4" y1="38.83" x2="2.76" y2="38.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-3.4" y1="37.32" x2="2.76" y2="36.57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <dynamic_text x="-11" y="-15" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3ee336e0-71c3-43d4-ac02-1aced957c3be}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2462a424-25c8-4615-87d2-e7dc4e19ada0}" name="" x="-1" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

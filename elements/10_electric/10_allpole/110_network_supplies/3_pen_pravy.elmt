@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="21" hotspot_y="38">
+    <uuid uuid="{249b62f5-d813-7fbb-1cc1-c7020cbf43d0}"/>
+    <names>
+        <name lang="ar">مصدر ثلاثي القطبيّة + PEN</name>
+        <name lang="ca">Font tripolar + PEN</name>
+        <name lang="cs">Přípojnice 3f+PEN pravá</name>
+        <name lang="da">Tre-polet kilde + PEN</name>
+        <name lang="de">Drehstrom + PEN</name>
+        <name lang="el">Τριφασικό + PEN</name>
+        <name lang="en">Three-pole source + PEN</name>
+        <name lang="es">Fuente tripolar + PEN</name>
+        <name lang="fi">Kolmivaiheinen lähde + PEN</name>
+        <name lang="fr">Source tripolaire + PEN</name>
+        <name lang="hr">Tropolni izvor + PEN</name>
+        <name lang="hu">3F + PEN</name>
+        <name lang="it">Sorgente tripolare + PEN</name>
+        <name lang="ja">三極電源 + PEN</name>
+        <name lang="ko">삼극 전원 + PEN</name>
+        <name lang="mn">Гурван туйлын эх үүсвэр + PEN</name>
+        <name lang="nb">Trepolet kilde + PEN</name>
+        <name lang="nl">driefasen + aardenul</name>
+        <name lang="nl_BE">Driefasige bron + PEN</name>
+        <name lang="pl">Linia trójfazowa (PEN)</name>
+        <name lang="pt">Fonte tripolar + PEN</name>
+        <name lang="pt_BR">Fonte tripolar + PEN</name>
+        <name lang="ro">Sursă tripolară + PEN</name>
+        <name lang="ru">Трёхполюсный + PEN</name>
+        <name lang="sk">Trojpólový zdroj + PEN</name>
+        <name lang="sl">Tripolni vir + PEN</name>
+        <name lang="sr">Трополски извор + PEN</name>
+        <name lang="sv">Trepolig källa + PEN</name>
+        <name lang="tr">Üç kutuplu kaynak + PEN</name>
+        <name lang="uk">Триполюсне джерело + PEN</name>
+        <name lang="zh">三相PEN右</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-60.45" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{7c68cf51-b979-4e89-97b2-a93b5ad61f95}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="PEN" x="7" y="33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L3" x="7" y="13" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L2" x="7" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L1" x="7" y="-27" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-10" y1="-30" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-10" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="30" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{16ce45be-7e97-4409-b179-fdd188972351}" name="L1" x="-10" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{c8ea3eaf-15d6-47e7-8987-7afdf9ae4c1a}" name="L2" x="-10" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{aa438bb4-35e4-475d-87bb-f4e1f6896ed8}" name="PEN" x="-10" y="30" orientation="w" type="Generic"/>
+        <terminal uuid="{c1bcd2f0-42d9-4ddb-9d71-da86a3b76b7f}" name="L3" x="-10" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

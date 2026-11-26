@@ -1,0 +1,1031 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "../bordercelllabels.h"
+#include "assignvariables.h"
+
+#include <QRegularExpression>
+
+#include "../diagram.h"
+#include "../diagramposition.h"
+#include "../qetapp.h"
+#include "../qetgraphicsitem/conductor.h"
+#include "../qetgraphicsitem/element.h"
+#include "../qetxml.h"
+#include "../qetproject.h"
+#include "../ElementsCollection/qetlabelsfile.h"
+#include <QDir>
+#include <QDomDocument>
+#include <QStringList>
+#include <QVariant>
+#include <algorithm>
+#include <utility>
+
+namespace autonum
+{
+	/**
+		@brief sequentialNumbers::sequentialNumbers
+	*/
+	sequentialNumbers::sequentialNumbers()
+	{}
+
+	sequentialNumbers::sequentialNumbers(const sequentialNumbers &other)
+	{
+		unit          = other.unit;
+		wrap          = other.wrap;
+		unit_folio    = other.unit_folio;
+		ten           = other.ten;
+		ten_folio     = other.ten_folio;
+		hundred       = other.hundred;
+		hundred_folio = other.hundred_folio;
+		alpha         = other.alpha;
+	}
+
+	sequentialNumbers::~sequentialNumbers()
+	{}
+
+	sequentialNumbers &sequentialNumbers::operator=(
+			const sequentialNumbers &other)
+	{
+		if (&other == this || other == *this)
+			return (*this);
+
+		unit          = other.unit;
+		wrap          = other.wrap;
+		unit_folio    = other.unit_folio;
+		ten           = other.ten;
+		ten_folio     = other.ten_folio;
+		hundred       = other.hundred;
+		hundred_folio = other.hundred_folio;
+		alpha         = other.alpha;
+
+		return (*this);
+	}
+
+	bool sequentialNumbers::operator==(const sequentialNumbers &other) const
+	{
+		if (unit          == other.unit && \
+			wrap          == other.wrap && \
+			unit_folio    == other.unit_folio && \
+			ten           == other.ten && \
+			ten_folio     == other.ten_folio && \
+			hundred       == other.hundred && \
+			hundred_folio == other.hundred_folio && \
+			alpha         == other.alpha)
+			return true;
+		else
+			return false;
+	}
+
+	bool sequentialNumbers::operator!=(const sequentialNumbers &other) const
+	{
+		if (*this == other)
+			return false;
+		else
+			return true;
+	}
+
+	/**
+		@brief sequentialNumbers::toXml
+		export this sequential numbers into a QDomElement.
+		@param document : QDomDocument used to create the QDomElement
+		@param tag_name : the tag name used for the QDomElement.
+		@return A QDomElement, if this sequential have no value,
+		the returned QDomELement is empty
+	*/
+	QDomElement sequentialNumbers::toXml(QDomDocument &document,
+					     const QString& tag_name) const
+	{
+		QDomElement element = document.createElement(tag_name);
+
+		if (!unit.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "unit",
+						    unit.join(";")));
+		if (!wrap.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "wrap",
+						    wrap.join(";")));
+		if (!unit_folio.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "unitFolio",
+						    unit_folio.join(";")));
+		if(!ten.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "ten",
+						    ten.join(";")));
+		if(!ten_folio.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "tenFolio",
+						    ten_folio.join(";")));
+		if(!hundred.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "hundred",
+						    hundred.join(";")));
+		if(!hundred_folio.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "hundredFolio",
+						    hundred_folio.join(";")));
+		if(!alpha.isEmpty())
+			element.appendChild(QETXML::textToDomElement(
+						    document,
+						    "alpha",
+						    alpha.join(";")));
+
+		return element;
+	}
+
+	/**
+		@brief sequentialNumbers::fromXml
+		Import sequential values from a QDomElement
+		@param element
+	*/
+	void sequentialNumbers::fromXml(const QDomElement &element)
+	{
+		if (!element.hasChildNodes())
+			return;
+
+		QDomElement from;
+
+		from = element.firstChildElement("unit");
+		unit = from.text().split(";");
+
+			//Absent from files written before cyclic parts could be
+			//rendered; an empty list is the correct reading of that.
+		from = element.firstChildElement("wrap");
+		wrap = from.text().split(";");
+
+		from = element.firstChildElement("unitFolio");
+		unit_folio = from.text().split(";");
+
+		from = element.firstChildElement("ten");
+		ten = from.text().split(";");
+
+		from = element.firstChildElement("tenFolio");
+		ten_folio = from.text().split(";");
+
+		from = element.firstChildElement("hundred");
+		hundred = from.text().split(";");
+
+		from = element.firstChildElement("hundredFolio");
+		hundred_folio = from.text().split(";");
+
+		from = element.firstChildElement("alpha");
+		alpha = from.text().split(";");
+	}
+	
+		//Clear this sequence
+	void sequentialNumbers::clear()
+	{
+		unit.clear();
+		wrap.clear();
+		unit_folio.clear();
+		ten.clear();
+		ten_folio.clear();
+		hundred.clear();
+		hundred_folio.clear();
+		alpha.clear();
+	}
+
+	/**
+		@brief AssignVariables::formulaToLabel
+		Return the formula with variable assigned
+		(ready to be displayed)
+		@param formula - the formula to work
+		@param seqStruct - struct where is stocked int values
+		(struct is passed as a reference
+		and modified by this static method)
+		@param diagram - the diagram where occure the formula.
+		@param elmt - parent element (if any) of the formula
+		@return the string with variable assigned.
+	*/
+	QString AssignVariables::formulaToLabel(QString formula,
+						sequentialNumbers &seqStruct,
+						Diagram *diagram,
+						const Element *elmt,
+						const Conductor *cndr)
+	{
+		if (!diagram) {
+			return formula;
+		}
+
+		FormulaContext context;
+		const BorderTitleBlock &border = diagram->border_and_titleblock;
+		context.folio = border.folio();
+		context.folio_title = border.title();
+		context.folio_index = diagram->folioIndex();
+		context.folio_total = border.folioTotal();
+		context.plant = border.plant();
+		context.locmach = border.locmach();
+		context.title_block_fields = border.additionalFields();
+		context.project_properties = diagram->project()->projectProperties();
+		if (elmt)
+		{
+			context.has_element = true;
+			context.element_position = diagram->convertPosition(elmt->scenePos());
+			context.element_prefix = elmt->getPrefix();
+		}
+		if (cndr)
+		{
+			context.has_conductor = true;
+			context.wire_function = cndr->properties().m_function;
+			context.wire_tension_protocol = cndr->properties().m_tension_protocol;
+			context.wire_color = cndr->properties().m_wire_color;
+			context.wire_section = cndr->properties().m_wire_section;
+		}
+		return formulaToLabel(std::move(formula), seqStruct, context);
+	}
+
+	/**
+		@brief AssignVariables::formulaToLabel
+		Return the formula with its variables assigned from @p context,
+		which describes a folio and the element or conductor the formula
+		belongs to without needing either to be built.
+		@param formula - the formula to work
+		@param seqStruct - struct where is stocked int values
+		(struct is passed as a reference
+		and modified by this static method)
+		@param context - what the variables are read from
+		@return the string with variable assigned.
+	*/
+	QString AssignVariables::formulaToLabel(QString formula,
+						sequentialNumbers &seqStruct,
+						const FormulaContext &context)
+	{
+		AssignVariables av(std::move(formula),
+				   seqStruct,
+				   context);
+		seqStruct = av.m_seq_struct;
+		return av.m_assigned_label;
+	}
+	
+	/**
+		@brief AssignVariables::replaceVariable
+		Replace the variables in formula in form %{my-var}
+		to the corresponding value stored in dc
+		@param formula
+		@param dc
+		@return
+	*/
+	QString AssignVariables::replaceVariable(const QString &formula,
+						 const DiagramContext &dc)
+	{
+		QString str = formula;
+		str.replace("%{label}", dc.value("label").toString());
+		str.replace("%{plant}", dc.value("plant").toString());
+		str.replace("%{comment}", dc.value("comment").toString());
+		str.replace("%{description}", dc.value("description").toString());
+		str.replace("%{designation}", dc.value("designation").toString());
+		str.replace("%{manufacturer}", dc.value("manufacturer").toString());
+		str.replace("%{manufacturer_reference}",
+				dc.value("manufacturer_reference").toString());
+		str.replace("%{supplier}", dc.value("supplier").toString());
+		str.replace("%{quantity}", dc.value("quantity").toString());
+		str.replace("%{unity}", dc.value("unity").toString());
+
+		str.replace("%{auxiliary1}", dc.value("auxiliary1").toString());
+		str.replace("%{description_auxiliary1}", dc.value("description_auxiliary1").toString());
+		str.replace("%{designation_auxiliary1}", dc.value("designation_auxiliary1").toString());
+		str.replace("%{manufacturer_auxiliary1}", dc.value("manufacturer_auxiliary1").toString());
+		str.replace("%{manufacturer_reference_auxiliary1}", dc.value("manufacturer_reference_auxiliary1").toString());
+		str.replace("%{machine_manufacturer_reference_auxiliary1}", dc.value("machine_manufacturer_reference_auxiliary1").toString());
+		str.replace("%{supplier_auxiliary1}", dc.value("supplier_auxiliary1").toString());
+		str.replace("%{quantity_auxiliary1}", dc.value("quantity_auxiliary1").toString());
+		str.replace("%{unity_auxiliary1}", dc.value("unity_auxiliary1").toString());
+		
+		str.replace("%{auxiliary2}", dc.value("auxiliary2").toString());
+		str.replace("%{description_auxiliary2}", dc.value("description_auxiliary2").toString());
+		str.replace("%{designation_auxiliary2}", dc.value("designation_auxiliary2").toString());
+		str.replace("%{manufacturer_auxiliary2}", dc.value("manufacturer_auxiliary2").toString());
+		str.replace("%{manufacturer_reference_auxiliary2}", dc.value("manufacturer_reference_auxiliary2").toString());
+		str.replace("%{machine_manufacturer_reference_auxiliary2}", dc.value("machine_manufacturer_reference_auxiliary2").toString());
+		str.replace("%{supplier_auxiliary2}", dc.value("supplier_auxiliary2").toString());
+		str.replace("%{quantity_auxiliary2}", dc.value("quantity_auxiliary2").toString());
+		str.replace("%{unity_auxiliary2}", dc.value("unity_auxiliary2").toString());
+		
+		
+		str.replace("%{auxiliary3}", dc.value("auxiliary3").toString());
+		str.replace("%{description_auxiliary3}", dc.value("description_auxiliary3").toString());
+		str.replace("%{designation_auxiliary3}", dc.value("designation_auxiliary3").toString());
+		str.replace("%{manufacturer_auxiliary3}", dc.value("manufacturer_auxiliary3").toString());
+		str.replace("%{manufacturer_reference_auxiliary3}", dc.value("manufacturer_reference_auxiliary3").toString());
+		str.replace("%{machine_manufacturer_reference_auxiliary3}", dc.value("machine_manufacturer_reference_auxiliary3").toString());
+		str.replace("%{supplier_auxiliary3}", dc.value("supplier_auxiliary3").toString());
+		str.replace("%{quantity_auxiliary3}", dc.value("quantity_auxiliary3").toString());
+		str.replace("%{unity_auxiliary3}", dc.value("unity_auxiliary3").toString());
+		
+		
+		str.replace("%{auxiliary4}", dc.value("auxiliary4").toString());
+		str.replace("%{description_auxiliary4}", dc.value("description_auxiliary4").toString());
+		str.replace("%{designation_auxiliary4}", dc.value("designation_auxiliary4").toString());
+		str.replace("%{manufacturer_auxiliary4}", dc.value("manufacturer_auxiliary4").toString());
+		str.replace("%{manufacturer_reference_auxiliary4}", dc.value("manufacturer_reference_auxiliary4").toString());
+		str.replace("%{machine_manufacturer_reference_auxiliary4}", dc.value("machine_manufacturer_reference_auxiliary4").toString());
+		str.replace("%{supplier_auxiliary4}", dc.value("supplier_auxiliary4").toString());
+		str.replace("%{quantity_auxiliary4}", dc.value("quantity_auxiliary4").toString());
+		str.replace("%{unity_auxiliary4}", dc.value("unity_auxiliary4").toString());
+		
+		
+		str.replace("%{machine_manufacturer_reference}", dc.value("machine_manufacturer_reference").toString());
+
+		str.replace("%{location}", dc.value("location").toString());
+		str.replace("%{function}", dc.value("function").toString());
+		str.replace("%{tension_protocol}", dc.value("tension_protocol").toString());
+		str.replace("%{conductor_section}", dc.value("conductor_section").toString());
+		str.replace("%{conductor_color}", dc.value("conductor_color").toString());
+		str.replace("%{conductor_text}", dc.value("conductor_text").toString());
+			//The wires of one connection point of a terminal symbol
+			//(@sa QETInformation::terminalConductorInfoKeys)
+		if (str.contains(QLatin1String("%{conductor_"))) {
+			static const QRegularExpression rx(
+						QStringLiteral("%\\{(conductor_(?:text|color|section)_[1-9]\\d*)\\}"));
+			QRegularExpressionMatch match;
+			int from = 0;
+			while ((match = rx.match(str, from)).hasMatch()) {
+				const QString value = dc.value(match.captured(1)).toString();
+				str.replace(match.capturedStart(), match.capturedLength(), value);
+				from = match.capturedStart() + value.size();
+			}
+		}
+
+		str.replace("%{void}", QString());
+
+		str.replace("%{plc_type}", dc.value("plc_type").toString());
+		str.replace("%{plc_address}", dc.value("plc_address").toString());
+		str.replace("%{plc_function}", dc.value("plc_function").toString());
+		str.replace("%{plc_comment}", dc.value("plc_comment").toString());
+		str.replace("%{plc_crossref}", dc.value("plc_crossref").toString());
+		str.replace("%{plc_tc}", dc.value("plc_tc").toString());
+		str.replace("%{plc_t1}", dc.value("plc_t1").toString());
+		str.replace("%{plc_t2}", dc.value("plc_t2").toString());
+		str.replace("%{plc_t3}", dc.value("plc_t3").toString());
+		str.replace("%{plc_t4}", dc.value("plc_t4").toString());
+
+		return str;
+	}
+
+	/**
+	 * @brief AssignVariables::genericXref
+	 * @param element
+	 * @return a simple Xref string in form of 'folio-letterNumber'
+	 */
+	QString AssignVariables::genericXref(const Element *element)
+	{
+		QString str;
+		if (!element->diagram()) {
+			return str;
+		}
+
+
+		QSettings settings;
+		auto diagram = element->diagram();
+		if (settings.value(QLatin1String("genericpanel/folio"), true).toBool()) {
+			str = diagram->border_and_titleblock.finalfolio();
+		} else {
+			str = QString::number(diagram->folioIndex()+1);
+		}
+
+		str.append("-");
+		str.append(diagram->convertPosition(element->scenePos()).toString());
+
+		return str;
+	}
+	
+	
+	AssignVariables::AssignVariables(const QString& formula,
+					 const sequentialNumbers& seqStruct,
+					 const FormulaContext &context):
+	m_context(context),
+	m_arg_formula(formula),
+	m_assigned_label(formula),
+	m_seq_struct(seqStruct)
+	{
+		m_assigned_label.replace("%F", m_context.folio);
+		m_assigned_label.replace("%f",
+					 QString::number(m_context.folio_index+1));
+		m_assigned_label.replace("%id",
+					 QString::number(m_context.folio_index+1));
+		m_assigned_label.replace("%total",
+					 QString::number(m_context.folio_total));
+		m_assigned_label.replace("%M", m_context.plant);
+		m_assigned_label.replace("%LM", m_context.locmach);
+
+		if (m_context.has_element)
+		{
+		QSettings settings;
+		if (settings.value("border-columns_0", BorderCellLabels::defaultColumnsFromZero).toBool()){
+			m_assigned_label.replace("%c", QString::number(m_context.element_position.number() - 1));
+			}else{
+			m_assigned_label.replace("%c", QString::number(m_context.element_position.number()));
+			}
+			m_assigned_label.replace("%l", m_context.element_position.letter());
+			m_assigned_label.replace("%prefix", m_context.element_prefix);
+		}
+
+		if (m_context.has_conductor)
+		{
+			m_assigned_label.replace("%wf", m_context.wire_function);
+			m_assigned_label.replace("%wv", m_context.wire_tension_protocol);
+			m_assigned_label.replace("%wc", m_context.wire_color);
+			m_assigned_label.replace("%ws", m_context.wire_section);
+		}
+
+		assignTitleBlockVar();
+		assignProjectVar();
+		assignSequence();
+
+			//The folio title last: it is free text, and a title such as
+			//"Schema %c" must stay as typed, not have the variables in it
+			//replaced. %T on its own only, not the start of a longer word.
+		static const QRegularExpression folio_title(QStringLiteral("%T(?![A-Za-z0-9_])"));
+		m_assigned_label.replace(folio_title, m_context.folio_title);
+	}
+
+	void AssignVariables::assignTitleBlockVar()
+	{
+		DiagramContext fields = m_context.title_block_fields;
+		for (int i = 0; i < fields.count(); i++)
+		{
+			QString folio_variable = fields.keys().at(i);
+			QVariant folio_value = fields[folio_variable];
+
+			if (m_assigned_label.contains(folio_variable)) {
+				m_assigned_label.replace("%{" + folio_variable + "}", folio_value.toString());
+				m_assigned_label.replace("%"  + folio_variable      , folio_value.toString());
+			}
+		}
+	}
+
+	void AssignVariables::assignProjectVar()
+	{
+		DiagramContext properties = m_context.project_properties;
+		for (int i = 0; i < properties.count(); i++)
+		{
+			QString folio_variable = properties.keys().at(i);
+			QVariant folio_value = properties[folio_variable];
+
+			if (m_assigned_label.contains(folio_variable)) {
+				m_assigned_label.replace("%{" + folio_variable + "}", folio_value.toString());
+				m_assigned_label.replace("%"  + folio_variable      , folio_value.toString());
+			}
+		}
+	}
+
+	void AssignVariables::assignSequence()
+	{
+		int max = qMax(
+						qMax(
+							qMax(m_seq_struct.unit_folio.size(),
+								 m_seq_struct.ten_folio.size()),
+							qMax(m_seq_struct.hundred_folio.size(),
+								 m_seq_struct.unit.size())),
+						qMax(
+							qMax(m_seq_struct.hundred.size(),
+								 m_seq_struct.ten.size()),
+							qMax(m_seq_struct.alpha.size(),
+								 m_seq_struct.wrap.size()))
+					);
+
+			// Highest number first: "%sequ_1" is also the start of
+			// "%sequ_10", so replacing 1 before 10 would turn %sequ_10
+			// into the first value followed by a "0".
+		for (int i=max; i>=1 ; i--)
+		{
+			if (m_assigned_label.contains("%sequ_" + QString::number(i)) && m_seq_struct.unit.size() >= i) {
+				m_assigned_label.replace("%sequ_" + QString::number(i),m_seq_struct.unit.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqw_" + QString::number(i)) && m_seq_struct.wrap.size() >= i) {
+				m_assigned_label.replace("%seqw_" + QString::number(i),m_seq_struct.wrap.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqt_" + QString::number(i)) && m_seq_struct.ten.size() >= i) {
+				m_assigned_label.replace("%seqt_" + QString::number(i),m_seq_struct.ten.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqh_" + QString::number(i)) && m_seq_struct.hundred.size() >= i) {
+				m_assigned_label.replace("%seqh_" + QString::number(i),m_seq_struct.hundred.at(i-1));
+			}
+			if (m_assigned_label.contains("%sequf_" + QString::number(i)) && m_seq_struct.unit_folio.size() >= i) {
+				m_assigned_label.replace("%sequf_" + QString::number(i),m_seq_struct.unit_folio.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqtf_" + QString::number(i)) && m_seq_struct.ten_folio.size() >= i) {
+				m_assigned_label.replace("%seqtf_" + QString::number(i),m_seq_struct.ten_folio.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqhf_" + QString::number(i)) && m_seq_struct.hundred_folio.size() >= i) {
+				m_assigned_label.replace("%seqhf_" + QString::number(i),m_seq_struct.hundred_folio.at(i-1));
+			}
+			if (m_assigned_label.contains("%seqa_" + QString::number(i)) && m_seq_struct.alpha.size() >= i) {
+				m_assigned_label.replace("%seqa_" + QString::number(i),m_seq_struct.alpha.at(i-1));
+			}
+		}
+	}
+
+	/**
+		@brief setSequentialToList
+		Append all sequential of type type owned by context in list
+		@param list : list to have value inserted
+		@param context : numerotation context to retrieve value
+		@param type : type of sequential
+		(unit, unitfolio, ten, tenfolio, hundred, hundredfolio)
+	*/
+	void setSequentialToList(QStringList &list,
+				 NumerotationContext &context,
+				 const QString& type)
+	{
+		for (int i = 0; i < context.size(); i++)
+		{
+			if (context.itemAt(i).at(0) == type)
+			{
+				const QStringList item = context.itemAt(i);
+					//A zero-padding mask, spreadsheet style: its length is the
+					//minimum number of digits. It overrides the width implied
+					//by the part type, so "Chiffre 01" with a mask of "0000"
+					//pads to four. An absent mask -- which is every context
+					//written before the field existed -- falls through to the
+					//type's own width, so nothing about existing projects
+					//changes.
+				const QString mask = NumerotationContext::formatOf(item);
+				QString number;
+				if (type == "alpha")
+						//Alphabetic value, not an integer -- used as-is.
+					number = item.at(1);
+				else if (!mask.isEmpty())
+					number = QString("%1").arg(item.at(1).toInt(), mask.length(), 10, QChar('0'));
+				else if (type == "ten" || type == "tenfolio")
+					number = QString("%1").arg(item.at(1).toInt(), 2, 10, QChar('0'));
+				else if (type == "hundred" || type == "hundredfolio")
+					number = QString("%1").arg(item.at(1).toInt(), 3, 10, QChar('0'));
+				else number = QString::number(item.at(1).toInt());
+					list.append(number);
+			}
+		}
+	}
+
+	/**
+		@brief setFolioSequentialToHash
+		Insert all value of list in hash with key autoNumName
+		@param list : list to get values from
+		@param hash : hash to have values inserted
+		@param autoNumName : name to use as key of hash
+	*/
+	void setFolioSequentialToHash(QStringList &list,
+				      QHash<QString,
+				      QStringList> &hash,
+				      const QString& autoNumName)
+	{
+		if (hash.isEmpty() || !hash.contains(autoNumName))
+		{
+			QStringList max;
+			for (int i = 0; i < list.size(); i++)
+			{
+				max.append(list.at(i));
+			}
+			hash.insert(autoNumName,max);
+		}
+		else if (hash.contains(autoNumName))
+		{
+				//Load the String List and update it
+			QStringList max = hash.value(autoNumName);
+			for (int i = 0; i < list.size(); i++)
+			{
+				if ((list.at(i).toInt()) > max.at(i).toInt())
+				{
+					max.replace(i,list.at(i));
+					hash.remove(autoNumName);
+					hash.insert(autoNumName,max);
+				}
+			}
+		}
+	}
+
+	/**
+		@brief storeFolioSequential
+		The numbers @p seq has just given on @p diagram under the name
+		@p key are what that folio's own counter reads now.
+
+		setFolioSequentialToHash() only ever raises the counter, which
+		is right while numbers only go up and wrong as soon as a folio
+		is numbered over from the start or its counter is put back by
+		hand: the old high value would be read again the next time the
+		folio is opened, and the numbering would go on from there.
+		Both the hash and the saved rows are written, the way
+		insertFolioSeqHash() writes them.
+	*/
+	void storeFolioSequential(Diagram *diagram, const QString &key,
+				  const sequentialNumbers &seq)
+	{
+		if (!diagram) {
+			return;
+		}
+		const struct {
+			const QString level;
+			const QStringList *values;
+		} levels[] = {
+			{QStringLiteral("unitfolio"),   &seq.unit_folio},
+			{QStringLiteral("tenfolio"),    &seq.ten_folio},
+			{QStringLiteral("hundredfolio"), &seq.hundred_folio},
+		};
+		for (const auto &level : levels)
+		{
+			if (level.values->isEmpty()) {
+				continue;
+			}
+			diagram->setFolioSeqValues(QStringLiteral("element"),
+						  level.level, key, *level.values);
+		}
+	}
+
+	/**
+		@brief setSequential
+		Fill seqStruct
+		@param label : label of sequential to fill
+		(%sequ_, %sequf_, %seqt_, ect....)
+		@param seqStruct : struct to fill
+		@param context : numerotation context use
+		to know the current sequential num.
+		@param diagram : diagram where the sequential occur,
+		notably use when label is folio type
+		(%sequf_, %seqtf_, %seqhf_),
+		to keep up to date the current sequential of folio.
+		@param hashKey :
+		the hash key used to store the sequential for folio type.
+	*/
+	void setSequential(const QString& label, sequentialNumbers &seqStruct, NumerotationContext &context, Diagram *diagram, const QString& hashKey)
+	{
+		if (!context.isEmpty())
+		{
+			if (label.contains("%sequ_"))
+			{
+				autonum::setSequentialToList(seqStruct.unit, context,"unit");
+			}
+			if (label.contains("%seqw_"))
+			{
+				autonum::setSequentialToList(seqStruct.wrap, context,"wrap");
+			}
+			if (label.contains("%sequf_"))
+			{
+				autonum::setSequentialToList(seqStruct.unit_folio, context,"unitfolio");
+				autonum::setFolioSequentialToHash(seqStruct.unit_folio, diagram->m_elmt_unitfolio_max, hashKey);
+			}
+			if (label.contains("%seqt_"))
+			{
+				autonum::setSequentialToList(seqStruct.ten, context,"ten");
+			}
+			if (label.contains("%seqtf_"))
+			{
+				autonum::setSequentialToList(seqStruct.ten_folio, context,"tenfolio");
+				autonum::setFolioSequentialToHash(seqStruct.ten_folio, diagram->m_elmt_tenfolio_max, hashKey);
+			}
+			if (label.contains("%seqh_"))
+			{
+				autonum::setSequentialToList(seqStruct.hundred, context,"hundred");
+			}
+			if (label.contains("%seqhf_"))
+			{
+				autonum::setSequentialToList(seqStruct.hundred_folio, context,"hundredfolio");
+				autonum::setFolioSequentialToHash(seqStruct.hundred_folio, diagram->m_elmt_hundredfolio_max, hashKey);
+			}
+			if (label.contains("%seqa_"))
+			{
+				autonum::setSequentialToList(seqStruct.alpha, context,"alpha");
+			}
+		}
+	}
+
+	/**
+		@brief resetFolioCounters
+		@param nc the rule to read
+		@return the same rule, with the parts whose counter belongs to a
+		single folio put back to the beginning that folio is numbered
+		from -- the initial value the rule carries for it -- while the
+		parts counting over the whole project are left alone
+	*/
+	NumerotationContext resetFolioCounters(const NumerotationContext &nc)
+	{
+		NumerotationContext out = nc;
+		for (int i = 0; i < out.size(); ++i)
+		{
+			const QStringList parts = out.itemAt(i);
+			if (parts.isEmpty()) continue;
+
+			const QString &type = parts.at(0);
+			if (type == QLatin1String("unitfolio")
+					|| type == QLatin1String("tenfolio")
+					|| type == QLatin1String("hundredfolio"))
+			{
+					//The beginning a folio is numbered from is the one
+					//written into the rule, never a hard 1: a counter
+					//starting at 5 starts every folio at 5.
+				const bool has_start = parts.size() > 3
+						&& !parts.at(3).isEmpty();
+				out.replaceValue(i, has_start ? parts.at(3)
+											  : QStringLiteral("1"));
+			}
+		}
+		return out;
+	}
+
+	/**
+		@brief folioCounters
+		@param nc the rule to read, its counters as they are
+		@param diagram the folio which is being numbered
+		@param key the numbering's name in the folio's own counters
+		@return @p nc with its folio-bound counters set to where
+		@p diagram has got to under @p key -- the numbers it has handed
+		out, plus one step -- or to where the rule says a folio starts
+		when it has handed out none yet. The parts which count over the
+		whole project are left exactly as they are.
+	*/
+	NumerotationContext folioCounters(const NumerotationContext &nc,
+					  Diagram *diagram,
+					  const QString &key)
+	{
+		NumerotationContext out = nc;
+		if (!diagram) {
+			return out;
+		}
+		const QStringList unit = diagram->m_elmt_unitfolio_max.value(key);
+		const QStringList ten = diagram->m_elmt_tenfolio_max.value(key);
+		const QStringList hundred = diagram->m_elmt_hundredfolio_max.value(key);
+		int i_unit = 0;
+		int i_ten = 0;
+		int i_hundred = 0;
+
+		for (int i = 0 ; i < out.size() ; ++i)
+		{
+			const QStringList parts = out.itemAt(i);
+			if (parts.isEmpty()) {
+				continue;
+			}
+			const QString &type = parts.at(0);
+			const QStringList *given = nullptr;
+			int *index = nullptr;
+			if (type == QLatin1String("unitfolio")) {
+				given = &unit;
+				index = &i_unit;
+			} else if (type == QLatin1String("tenfolio")) {
+				given = &ten;
+				index = &i_ten;
+			} else if (type == QLatin1String("hundredfolio")) {
+				given = &hundred;
+				index = &i_hundred;
+			} else {
+				continue;
+			}
+
+				//The beginning a folio is numbered from is the one
+				//written into the rule, never a hard 1: a counter
+				//starting at 5 starts every folio at 5.
+			const bool has_start = parts.size() > 3
+					&& !parts.at(3).isEmpty();
+			const int start = has_start ? parts.at(3).toInt() : 1;
+			const int increase = parts.size() > 2
+					&& !parts.at(2).isEmpty()
+					? std::max(1, parts.at(2).toInt()) : 1;
+
+			const int value = *index < given->size()
+					? given->at(*index).toInt() + increase
+					: start;
+			++(*index);
+			out.replaceValue(i, QString::number(value));
+		}
+		return out;
+	}
+
+	/**
+		@brief resetContextCounters
+		@param nc the rule to read
+		@return the same rule, with every part which counts set back to
+		the value it started from
+	*/
+	NumerotationContext resetContextCounters(const NumerotationContext &nc)
+	{
+		NumerotationContext out = resetFolioCounters(nc);
+		for (int i = 0; i < out.size(); ++i)
+		{
+			const QStringList parts = out.itemAt(i);
+			if (parts.isEmpty()) continue;
+
+			const QString &type = parts.at(0);
+			if (type == QLatin1String("unit")
+					|| type == QLatin1String("ten")
+					|| type == QLatin1String("hundred"))
+			{
+				out.replaceValue(i, QStringLiteral("1"));
+			}
+			else if (type == QLatin1String("wrap"))
+			{
+					//A cyclic part walks over [0, modulus), so it goes
+					//back to 0 rather than to 1
+				out.replaceValue(i, QStringLiteral("0"));
+			}
+			else if (type == QLatin1String("alpha"))
+			{
+				out.replaceValue(i, QStringLiteral("a"));
+			}
+		}
+		return out;
+	}
+
+	/**
+		@brief numerotationContextToFormula
+		@param nc
+		@return the numerotation context, converted to formula
+	*/
+	QString numerotationContextToFormula(const NumerotationContext &nc)
+	{
+		QString type;
+		QString value;
+		QString formula;
+		int count_unit = 0;
+		int count_wrap = 0;
+		int count_unitf = 0;
+		int count_ten = 0;
+		int count_tenf = 0;
+		int count_hundred = 0;
+		int count_hundredf = 0;
+		int count_alpha = 0;
+
+		for(int i=0 ; i<nc.size() ; i++)
+		{
+			type = nc.itemAt(i).at(0);
+			value = nc.itemAt(i).at(1);
+
+			if (type == "idfolio") {
+				formula.append("%id");
+			}
+			else if (type == "folio") {
+				formula.append("%F");
+			}
+			else if (type == "plant") {
+				formula.append("%M");
+			}
+			else if (type == "locmach") {
+				formula.append("%LM");
+			}
+
+
+			else if (type == "elementcolumn") {
+				formula.append("%c");
+			}
+			else if (type == "elementline") {
+				formula.append("%l");
+			}
+			else if (type == "elementprefix") {
+				formula.append("%prefix");
+			}
+			else if (type == "string") {
+				formula.append(value);
+			}
+			else if (type == "unit") {
+				count_unit++;
+				formula.append("%sequ_" + QString::number(count_unit));
+			}
+			else if (type == "wrap") {
+				count_wrap++;
+				formula.append("%seqw_" + QString::number(count_wrap));
+			}
+			else if (type == "unitfolio") {
+				count_unitf++;
+				formula.append("%sequf_" + QString::number(count_unitf));
+			}
+			else if (type == "ten") {
+				count_ten++;
+				formula.append("%seqt_" + QString::number(count_ten));
+			}
+			else if (type == "tenfolio") {
+				count_tenf++;
+				formula.append("%seqtf_" + QString::number(count_tenf));
+			}
+			else if (type == "hundred") {
+				count_hundred++;
+				formula.append("%seqh_" + QString::number(count_hundred));
+			}
+			else if (type == "hundredfolio") {
+				count_hundredf++;
+				formula.append("%seqhf_" + QString::number(count_hundredf));
+			}
+			else if (type == "alpha") {
+				count_alpha++;
+				formula.append("%seqa_" + QString::number(count_alpha));
+			}
+		}
+
+		return formula;
+	}
+
+	/**
+		@brief elementPrefixForLocation
+		@param location
+		@return the prefix for an element represented by location,
+			prefix can be null.
+		Search for a prefix only if location represent
+		an element embedded in a project
+	*/
+	QString elementPrefixForLocation(const ElementsLocation &location)
+	{
+		if (!location.isProject())
+			return QString();
+
+			//Directory names from the element up to (not including) the
+			//collection root, outermost last -- path[dirLevel] is the
+			//top-level category, path[1] the element's immediate parent
+			//directory, path[0] the element's own file name (never matched
+			//against a category: the search stops descending once it has
+			//matched path[1], the deepest real directory). An unbounded
+			//QStringList rather than a fixed-size array, because a custom
+			//collection can nest deeper than the shipped one -- see
+			//bugtracker #671 item 3.
+		QStringList path;
+		ElementsLocation current_location = location;
+		while ((current_location.parent() != current_location)
+			   && (current_location.parent().fileName() != "import"))
+		{
+			path << current_location.fileName();
+			current_location = current_location.parent();
+		}
+			//User element without folder treatment
+		if (path.isEmpty()) {
+			path << current_location.fileName();
+			current_location = current_location.parent();
+		}
+		const int dirLevel = path.size() - 1;
+			//Name of the top-level tree the element's path was found
+			//under, e.g. "10_electric" -- or, for a custom/company
+			//collection not organised that way, whatever its top-level
+			//folder happens to be called.
+		const QString collection_root = current_location.fileName();
+
+			//Every top-level common-collection tree (10_electric,
+			//20_logic, 30_hydraulic, ...) may carry its own
+			//qet_labels.xml, with categories relative to that tree, the
+			//same way 10_electric/qet_labels.xml already does -- not just
+			//10_electric, which is all the hardcoded check this replaces
+			//used to allow (bugtracker #671 item 2). commonElementsDir()
+			//-- unlike customElementsDir(), which normalises this itself
+			//-- returns whatever path the user configured verbatim, with
+			//no guaranteed trailing separator; concatenating a suffix onto
+			//it directly used to silently mangle the path (and so the
+			//prefix lookup) for any install relocated to a directory
+			//without a trailing slash (#671 item 1). QDir::filePath()
+			//joins correctly either way.
+		{
+			const QString common_file = QDir(QETApp::commonElementsDir())
+					.filePath(collection_root + QStringLiteral("/qet_labels.xml"));
+			const QString prefix = QetLabelsFile::prefixForPath(common_file, path, dirLevel);
+			if (!prefix.isNull()) {
+				return prefix;
+			}
+		}
+
+			/* Which collection an element actually came from is not
+			 * recoverable post-import (addElement() strips the protocol),
+			 * so custom and company labels files are tried against two
+			 * possible layouts: with the collection's top-level tree name
+			 * folded into the path (a custom/company file organised as a
+			 * mirror of the common collection, tree name included) and
+			 * without it (a file scoped to just this one tree, matching
+			 * how the common collection's own files are written). Custom
+			 * is tried before company, so a user override wins over a
+			 * shared one.
+			 */
+		QStringList path_from_root = path;
+		path_from_root << collection_root;
+
+		const QStringList candidate_dirs = {
+			QETApp::customElementsDir(),
+			QETApp::companyElementsDir()
+		};
+		for (const QString &dir : candidate_dirs) {
+			const QString candidate =
+					QDir(dir).filePath(QStringLiteral("qet_labels.xml"));
+			for (const QStringList &segments : {path_from_root, path}) {
+				const QString prefix = QetLabelsFile::prefixForPath(
+							candidate, segments, segments.size() - 1);
+				if (!prefix.isNull()) {
+					return prefix;
+				}
+			}
+		}
+		return QString();
+	}
+}

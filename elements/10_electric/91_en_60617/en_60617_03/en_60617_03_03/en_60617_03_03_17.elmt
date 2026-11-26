@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="40" hotspot_y="10">
+    <uuid uuid="{1a1a6512-5332-cd25-c9f7-85034e734219}"/>
+    <names>
+        <name lang="ar">وصلة ربط، مغلقة</name>
+        <name lang="ca">Enllaç de connexió, tancat</name>
+        <name lang="cs">Spojka, uzavřená</name>
+        <name lang="da">Forbindelsesled, lukket</name>
+        <name lang="de">Trennstelle, Lasche geschlossen</name>
+        <name lang="el">Σύνδεσμος σύνδεσης, κλειστός</name>
+        <name lang="en">Connecting link, closed</name>
+        <name lang="es">Enlace de conexión, cerrado</name>
+        <name lang="fi">Kytkentälenkki, suljettu</name>
+        <name lang="fr">Barrette de connexion, fermée</name>
+        <name lang="hr">Spojna spojka, zatvorena</name>
+        <name lang="hu">Összekötő híd, zárva</name>
+        <name lang="it">Collegamento di connessione, chiuso</name>
+        <name lang="ja">接続片、閉</name>
+        <name lang="ko">연결 링크, 닫힘</name>
+        <name lang="mn">Холбох холбоос, хаалттай</name>
+        <name lang="nb">Koblingslenke, lukket</name>
+        <name lang="nl">Verbindingsschakel, gesloten</name>
+        <name lang="nl_BE">Verbindingsschakel, gesloten</name>
+        <name lang="pl">Łącznik zamykający, zamknięty</name>
+        <name lang="pt">Ligação de ligação, fechada</name>
+        <name lang="pt_BR">Elo de conexão, fechado</name>
+        <name lang="ro">Legătură de conexiune, închisă</name>
+        <name lang="ru">Соединительная перемычка, замкнутая</name>
+        <name lang="sk">Spojovacia prepojka, zatvorená</name>
+        <name lang="sl">Povezovalni mostiček, zaprt</name>
+        <name lang="sr">Спојна веза, затворена</name>
+        <name lang="sv">Förbindningslänk, sluten</name>
+        <name lang="tr">Bağlantı köprüsü, kapalı</name>
+        <name lang="uk">З'єднувальна перемичка, замкнена</name>
+        <name lang="zh">17号元件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ef33a843-5890-4c3c-9103-983da0b2cdf1}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-3" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-23" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-3" x2="0" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="3" x2="0" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-23" y1="0" x2="-30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e4ff7eba-b02d-4c83-a31c-c514e13e2a1e}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{468d6b4d-5566-40d7-a9ed-fa8f15f50a5d}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

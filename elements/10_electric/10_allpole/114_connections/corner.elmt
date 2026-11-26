@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="20" height="20" hotspot_x="12" hotspot_y="8">
+    <uuid uuid="{b4bba5d9-a60d-8f6c-a61d-1b18a5c9397d}"/>
+    <names>
+        <name lang="ar">ركن</name>
+        <name lang="ca">Cantó</name>
+        <name lang="cs">Roh</name>
+        <name lang="da">Hjørne</name>
+        <name lang="de">Ecke</name>
+        <name lang="el">Γωνία</name>
+        <name lang="en">Corner</name>
+        <name lang="es">Esquina</name>
+        <name lang="fi">Kulma</name>
+        <name lang="fr">Coin</name>
+        <name lang="hr">Kut</name>
+        <name lang="hu">Sarok</name>
+        <name lang="it">Angolo</name>
+        <name lang="ja">コーナー</name>
+        <name lang="ko">코너</name>
+        <name lang="mn">Булан</name>
+        <name lang="nb">Hjørne</name>
+        <name lang="nl">Hoek</name>
+        <name lang="nl_BE">Hoek</name>
+        <name lang="pl">Narożnik</name>
+        <name lang="pt">Canto</name>
+        <name lang="pt_BR">Conexão em angulo</name>
+        <name lang="ro">Colț</name>
+        <name lang="ru">Угол</name>
+        <name lang="sk">Roh</name>
+        <name lang="sl">Kot</name>
+        <name lang="sr">Угао</name>
+        <name lang="sv">Hörn</name>
+        <name lang="tr">Köşe</name>
+        <name lang="uk">Кут</name>
+        <name lang="zh">转角</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-0.5" y="-5.45" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{9b8dd22d-096a-4989-b6f7-1de9e0339f53}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <polygon x1="-4" y1="0" x2="0" y2="0" x3="0" y3="4" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{e1ea331a-7456-47f0-b991-0a2299d3023c}" name="1" x="-4" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{eacfd29f-4682-41c2-9783-cedb80773f13}" name="2" x="0" y="4" orientation="s" type="Generic"/>
+    </description>
+</definition>

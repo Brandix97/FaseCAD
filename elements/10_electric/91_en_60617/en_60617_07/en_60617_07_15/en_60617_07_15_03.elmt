@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="60" hotspot_x="65" hotspot_y="30">
+    <uuid uuid="{4b766625-3c5a-9506-1c30-9c288d535bcf}"/>
+    <names>
+        <name lang="ar">جهاز تشغيل؛ ملف مرحل (تمثيل ملحق)</name>
+        <name lang="ca">Dispositiu operatiu; </name>
+        <name lang="cs">Ovládací ústrojí se dvěma oodělenými vinutími,
+uspořádanými v jednom celku</name>
+        <name lang="da">Betjeningsanordning; Relæspole (tilknyttet visning)</name>
+        <name lang="de">Antrieb mit zwei getrennten Wicklungen,
+zusammenhängende Darstellung</name>
+        <name lang="el">Διάταξη χειρισμού; Πηνίο ρελέ (συνημμένη αναπαράσταση)</name>
+        <name lang="en">Operating device; Relay coil (attached representation)</name>
+        <name lang="es">Dispositivo de accionamiento; bobina de relé (representación adosada)</name>
+        <name lang="fi">Käyttölaite; Releen käämi (liitetty esitystapa)</name>
+        <name lang="fr">Organe de commande avec deux
+enroulements séparés, représentation
+assemblée</name>
+        <name lang="hr">Upravljački uređaj; Zavojnica releja (priključeni prikaz)</name>
+        <name lang="hu">Működtető készülék; Relétekercs (csatolt ábrázolás)</name>
+        <name lang="it">Dispositivo di comando; Bobina di relè (rappresentazione annessa)</name>
+        <name lang="ja">操作装置；継電器コイル（付属表現）</name>
+        <name lang="ko">작동 장치; 릴레이 코일 (부착 표현)</name>
+        <name lang="mn">Ажиллуулах төхөөрөмж; Релений ороомог (хавсаргасан дүрслэл)</name>
+        <name lang="nb">Betjeningsinnretning; reléspole (tilknyttet fremstilling)</name>
+        <name lang="nl">Bedieningstoestel; Relaisspoel (aangebouwde weergave)</name>
+        <name lang="nl_BE">Bedieningstoestel; Relaisspoel (aangesloten voorstelling)</name>
+        <name lang="pl">Napęd; Cewka przekaźnika (przedstawienie dołączone)</name>
+        <name lang="pt">Dispositivo de comando; Bobina de relé (representação anexa)</name>
+        <name lang="pt_BR">Dispositivo de acionamento; bobina de relé (representação acoplada)</name>
+        <name lang="ro">Dispozitiv de acționare; Bobină de releu (reprezentare atașată)</name>
+        <name lang="ru">Приводной элемент; катушка реле (присоединённое изображение)</name>
+        <name lang="sk">Ovládacie zariadenie; Cievka relé (pripojené zobrazenie)</name>
+        <name lang="sl">Upravljalna naprava; tuljava releja (prikaz pritrjen)</name>
+        <name lang="sr">Управљачки уређај; Калем релеја (прикључени приказ)</name>
+        <name lang="sv">Manöverdon; Reläspole (ansluten återgivning)</name>
+        <name lang="tr">Kumanda cihazı; Röle bobini (bağlı gösterim)</name>
+        <name lang="uk">Пристрій керування; Котушка реле (приєднане зображення)</name>
+        <name lang="zh">接线端子03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-60" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7aad9168-0d8a-4a1f-ad31-be656763dc4a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-40" y1="-20" x2="-40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="10" x2="-40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{fc3efe4f-f356-44a3-895d-056738482ff9}" name="" x="-40" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{4b3ffc33-7ca3-43c1-b80c-89fbdead8b83}" name="" x="-40" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{e26e74dd-7d8e-4936-a775-b9c8fab798ca}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{e059b0d9-49dc-4598-881c-8c247be7b08d}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

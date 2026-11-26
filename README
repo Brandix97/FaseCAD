@@ -1,0 +1,21 @@
+[en]
+FaseCAD is a free application to draw electrical schematics and produce the
+documentation of a control panel: diagrams, terminal strips, cable lists and
+bills of material. Website: https://fasecad.com/
+
+FaseCAD is based on QElectroTech (https://qelectrotech.org/),
+(c) 2006-2026 the developers of QElectroTech, and is distributed under the
+GNU General Public License, version 2 or later (see LICENSE).
+
+Windows: start FaseCAD with FaseCAD.exe in this folder.
+
+[es]
+FaseCAD es una aplicación libre para dibujar esquemas eléctricos y preparar
+la documentación de un cuadro eléctrico: esquemas, regleteros, listas de
+cables y listas de materiales. Web: https://fasecad.com/
+
+FaseCAD está basado en QElectroTech (https://qelectrotech.org/),
+(c) 2006-2026 los desarrolladores de QElectroTech, y se distribuye bajo la
+Licencia Pública General GNU, versión 2 o posterior (ver LICENSE).
+
+Windows: abre FaseCAD con FaseCAD.exe de esta carpeta.

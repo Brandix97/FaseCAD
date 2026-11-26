@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{88b2cc33-63fb-a31e-21a8-33eb8116771b}"/>
+    <names>
+        <name lang="ar">مقبس أحادي الوجه لخزانة</name>
+        <name lang="ca">Armari d'endolls</name>
+        <name lang="cs">Zásuvka jednofázová v krytu</name>
+        <name lang="da">Stikdåse kabinet</name>
+        <name lang="de">Steckdose Schaltschrank 1P+N+PE</name>
+        <name lang="el">Πρίζα πίνακα</name>
+        <name lang="en">Socket cabinet</name>
+        <name lang="es">Gabinete de toma corriente</name>
+        <name lang="fi">Kaappipistorasia</name>
+        <name lang="fr">PC mono armoire</name>
+        <name lang="hr">Utičnica u ormaru</name>
+        <name lang="hu">F + N + PE csatlakozó aljzat</name>
+        <name lang="it">Presa monofase da pannello</name>
+        <name lang="ja">キャビネット用コンセント</name>
+        <name lang="ko">소켓 캐비닛</name>
+        <name lang="mn">Гнездо шүүгээ</name>
+        <name lang="nb">Kontakt kapsling</name>
+        <name lang="nl">Contact 1AC + aarde</name>
+        <name lang="nl_BE">Contactdoos kast</name>
+        <name lang="pl">Gniazdo wtyczkowe</name>
+        <name lang="pt">Tomada de armário</name>
+        <name lang="pt_BR">Tomada de gabinete</name>
+        <name lang="ro">Priză de dulap</name>
+        <name lang="ru">Розетка шкафная</name>
+        <name lang="sk">Zásuvka rozvádzača</name>
+        <name lang="sl">Vtičnica omare</name>
+        <name lang="sr">Утичница у ормару</name>
+        <name lang="sv">Uttag apparatskåp</name>
+        <name lang="tr">Pano prizi</name>
+        <name lang="uk">Розетка для шафи</name>
+        <name lang="zh">机柜单相插座</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="11" y="-19.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bb59afb8-e30a-43ae-9f6c-d12b9b97b073}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-6" y1="-10" x2="-6" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="-2" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8" y="-8" width="16" height="16" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-10" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="16" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-10" x2="6" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1.5" y="-6.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="2" y="-2" width="4" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{3a51aed4-9200-40a6-8430-67c587846116}" name="" x="6" y="-17" orientation="n" type="Generic"/>
+        <terminal uuid="{adcc3f0f-bc5d-4c8a-af37-47b676d2d827}" name="" x="0" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{9b82e604-95c1-4569-9131-603a3ff20b5c}" name="" x="-6" y="-17" orientation="n" type="Generic"/>
+    </description>
+</definition>

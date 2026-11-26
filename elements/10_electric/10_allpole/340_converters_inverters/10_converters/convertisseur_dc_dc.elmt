@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="40" hotspot_y="42">
+    <uuid uuid="{88ab24d4-e80a-e8d4-43b2-6c9b46d774ae}"/>
+    <names>
+        <name lang="ar">مقطع : محول مستمر / مستمر</name>
+        <name lang="ca">Convertidor DC/DC</name>
+        <name lang="cs">Měnič DC/DC</name>
+        <name lang="da">DC/DC-konverter</name>
+        <name lang="de">Umrichter DC/DC</name>
+        <name lang="el">Μετατροπέας DC/DC</name>
+        <name lang="en">DC/DC converter</name>
+        <name lang="es">Convertidor DC/DC</name>
+        <name lang="fi">DC/DC-muunnin</name>
+        <name lang="fr">Convertisseur DC/DC</name>
+        <name lang="hr">DC/DC pretvarač</name>
+        <name lang="hu">DC/DC átalakító</name>
+        <name lang="it">Convertitore DC/DC</name>
+        <name lang="ja">DC/DCコンバータ</name>
+        <name lang="ko">DC/DC 컨버터</name>
+        <name lang="mn">DC/DC хөрвүүлэгч</name>
+        <name lang="nb">DC/DC-omformer</name>
+        <name lang="nl">Gelijkspanning &gt; gelijkspanning DC &gt; DC</name>
+        <name lang="nl_BE">Gelijkspanning &gt; gelijkspanning DC &gt; DC</name>
+        <name lang="pl">Zasilacz prądu stałego</name>
+        <name lang="pt">Conversor DC/DC</name>
+        <name lang="pt_BR">Conversor de CC para CC</name>
+        <name lang="ro">Convertizor DC/DC</name>
+        <name lang="ru">Преобразователь DC/DC</name>
+        <name lang="sk">DC/DC menič</name>
+        <name lang="sl">DC/DC pretvornik</name>
+        <name lang="sr">DC/DC конвертор</name>
+        <name lang="sv">DC/DC-omvandlare</name>
+        <name lang="tr">DC/DC dönüştürücü</name>
+        <name lang="uk">Перетворювач постійного струму/постійного струму</name>
+        <name lang="zh">直流-直流转换器</name>
+    </names>
+    <informations>EN 60617: 06-14-02</informations>
+    <description>
+        <dynamic_text x="-25" y="-61.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dc613dae-9e25-4960-b6ab-5ffe6653cbf8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-25" y1="-33" x2="-21" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-40" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18" y1="-33" x2="-14" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-5" x2="-2" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-35" x2="-14" y2="-35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-5" x2="5" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="-7" x2="5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="0" x2="10" y2="-40" end1="simple" end2="simple" length1="0" length2="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{b26430da-bcf6-4001-9507-04440710e4f6}" name="" x="10" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{60d861a4-0f77-4cbb-9a6f-01f99e059a50}" name="" x="-10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{8b4f6b8a-5dd1-4f2a-b1e2-ceaf7caa13fb}" name="" x="-30" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{a3de003a-9197-427a-97e3-c4e86999964d}" name="" x="-30" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{fa2a4e80-b5da-44c4-9e8b-54d995015d81}" name="" x="10" y="-30" orientation="e" type="Generic"/>
+    </description>
+</definition>

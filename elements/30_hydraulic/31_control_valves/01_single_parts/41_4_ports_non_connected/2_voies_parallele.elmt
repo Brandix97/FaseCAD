@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{c8101d0f-b7d1-4d2d-1d0d-4213af8a1efa}"/>
+    <names>
+        <name lang="ar">4سارات مُتّصلة 2</name>
+        <name lang="ca">4 ports paral·lels</name>
+        <name lang="cs">4 cesty souběžné</name>
+        <name lang="da">4 porte parallelt</name>
+        <name lang="de">4 Anschlüsse parallel</name>
+        <name lang="el">4 θύρες παράλληλες</name>
+        <name lang="en">4 ports parallel</name>
+        <name lang="es">4 vías en paralelo</name>
+        <name lang="fi">4 porttia rinnan</name>
+        <name lang="fr">4 voies parallèles</name>
+        <name lang="hr">4 priključka paralelno</name>
+        <name lang="hu">4 utas párhuzamos</name>
+        <name lang="it">4 porte parallele</name>
+        <name lang="ja">4ポート並列</name>
+        <name lang="ko">4 포트 병렬</name>
+        <name lang="mn">4 порт зэрэгцээ</name>
+        <name lang="nb">4 porter parallell</name>
+        <name lang="nl">4 P -&gt; A, B -&gt; T</name>
+        <name lang="nl_BE">4 poorten parallel</name>
+        <name lang="pl">4 drogi</name>
+        <name lang="pt">4 vias paralelas</name>
+        <name lang="pt_BR">4 vias paralelas</name>
+        <name lang="ro">4 porturi în paralel</name>
+        <name lang="ru">4 отверстий параллельно</name>
+        <name lang="sk">4 portov paralelných</name>
+        <name lang="sl">4 vrat vzporedno</name>
+        <name lang="sr">4 портова паралелно</name>
+        <name lang="sv">4 portar parallella</name>
+        <name lang="tr">4 port paralel</name>
+        <name lang="uk">4 отворів паралельно</name>
+        <name lang="zh">2位 并联</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-31" y="-9.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8f4b4599-673f-4a2b-8ec3-a09773fc5af5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-10" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="20" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9.95" y1="-9.95" x2="-11.95" y2="-4.95" x3="-7.95" y3="-4.95" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="10" y1="16" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="15" x2="12" y2="15" x3="10" y3="20" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <terminal uuid="{612b183c-3c1b-4831-b781-fa52319e4d58}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{d8a0d2b7-57b0-49ac-b00e-714b32d7b917}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{145778f5-01a4-4761-afca-beaaecada2f5}" name="" x="10" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{703c57ca-2eb8-49c2-8b37-d3aca1095237}" name="" x="10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

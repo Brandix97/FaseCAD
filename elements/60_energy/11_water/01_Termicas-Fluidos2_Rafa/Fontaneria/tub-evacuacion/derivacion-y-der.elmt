@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="28" hotspot_y="35">
+    <uuid uuid="{847e53ca-6966-8bde-461a-569913735015}"/>
+    <names>
+        <name lang="ca">Derivació Y-D</name>
+        <name lang="es">Derivación Y-D</name>
+        <name lang="pt_BR">Derivación Y-D</name>
+        <name lang="zh">Y型三通右</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="6.11" y="-6.92" width="6.41" height="16.51" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20.4" y="-7.39" width="6.41" height="16.51" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.48" y1="7.23" x2="6" y2="7.23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.84" y1="-5.5" x2="-9" y2="-5.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.51" y1="-5.5" x2="6" y2="-5.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.51" y1="-2.05" x2="-8.86" y2="-5.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.28" y1="-5.46" x2="-3.23" y2="-2.29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.73" y1="-15.77" x2="-8.48" y2="-5.46" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6.23" y1="-19.73" x2="1.28" y2="-6.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15.23" y1="-15" x2="-4.73" y2="-21.31" x3="-7" y3="-25.28" x4="-17.48" y4="-18.94" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-10.73" y="5.95" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fa3cacdd-fb54-4f7a-bf59-41dfe6a6954d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f28fc8a2-00ce-470d-aa04-e408612a568c}" name="" x="-20" y="1" orientation="w" type="Generic"/>
+        <terminal uuid="{b9744b38-09cf-46a7-9022-9310801ee2d6}" name="" x="13" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{175cf5ab-1df1-4ffa-8929-eab8fc2e5707}" name="" x="-12" y="-24" orientation="n" type="Generic"/>
+    </description>
+</definition>

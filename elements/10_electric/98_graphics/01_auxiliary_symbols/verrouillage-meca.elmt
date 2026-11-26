@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="7" hotspot_y="3">
+    <uuid uuid="{c3734f29-c34e-eb84-8e00-b76a6535294a}"/>
+    <names>
+        <name lang="ar">قفل ميكانيكي</name>
+        <name lang="ca">Bloqueig mecànic</name>
+        <name lang="cs">Mechanická aretace</name>
+        <name lang="da">Mekanisk lås</name>
+        <name lang="de">Mechanische Verriegelung</name>
+        <name lang="el">Μηχανική μανδάλωση</name>
+        <name lang="en">Mechanical lock</name>
+        <name lang="es">Bloqueo mecánico</name>
+        <name lang="fi">Mekaaninen lukitus</name>
+        <name lang="fr">Verrouillage Mécannique</name>
+        <name lang="hr">Mehanička blokada</name>
+        <name lang="hu">Mechanikus retesz</name>
+        <name lang="it">blocco meccanico</name>
+        <name lang="ja">機械的ロック</name>
+        <name lang="ko">기계식 잠금장치</name>
+        <name lang="mn">Механик түгжээ</name>
+        <name lang="nb">Mekanisk lås</name>
+        <name lang="nl">mechanisch grendel</name>
+        <name lang="nl_BE">Mechanische vergrendeling</name>
+        <name lang="pl">Blokada mechaniczna</name>
+        <name lang="pt">Bloqueio mecânico</name>
+        <name lang="pt_BR">Mechanical lock</name>
+        <name lang="ro">Blocare mecanică</name>
+        <name lang="ru">Механическая блокировка</name>
+        <name lang="sk">Mechanický zámok</name>
+        <name lang="sl">Mehanska zapora</name>
+        <name lang="sr">Механичка блокада</name>
+        <name lang="sv">Mekaniskt lås</name>
+        <name lang="tr">Mekanik kilit</name>
+        <name lang="uk">Механічне блокування</name>
+        <name lang="zh">机械锁定</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-2" y1="3" x2="8" y2="3" x3="3" y3="14" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-1" y="7.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{61841e85-0316-4301-8ba5-a3f4817a9ff8}" font="Liberation Sans,1,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

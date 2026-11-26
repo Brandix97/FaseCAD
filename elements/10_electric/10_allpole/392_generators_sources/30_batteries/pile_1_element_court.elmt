@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="21" hotspot_y="13">
+    <uuid uuid="{400b45da-7444-8521-dfc2-9b4a2d08118b}"/>
+    <names>
+        <name lang="ar">بطارية خليّة واحدة (قصيرة)</name>
+        <name lang="ca">Bateria un element (curt)</name>
+        <name lang="cs">Baterie 1 článek</name>
+        <name lang="da">Batteri ét element (kort)</name>
+        <name lang="de">Batterie 1 Element</name>
+        <name lang="el">Μπαταρία (1 στοιχείο, κοντό)</name>
+        <name lang="en">Battery one element (short)</name>
+        <name lang="es">Bateria 1 elemento, terminales cortos</name>
+        <name lang="fi">Akku yksi kenno (lyhyt)</name>
+        <name lang="fr">Pile 1 élément (court)</name>
+        <name lang="hr">Baterija jedan element (kratki)</name>
+        <name lang="hu">Akkumulátor egy cella (rövid)</name>
+        <name lang="it">Batteria (un elemento corto)</name>
+        <name lang="ja">電池 単一素子（短）</name>
+        <name lang="ko">배터리 1셀 (단축)</name>
+        <name lang="mn">Нэг элементтэй батерей (богино)</name>
+        <name lang="nb">Batteri ett element (kort)</name>
+        <name lang="nl">Accu DC</name>
+        <name lang="nl_BE">Batterij een element (kort)</name>
+        <name lang="pl">Ogniwo elektrochemiczne</name>
+        <name lang="pt">Bateria de um elemento (curto)</name>
+        <name lang="pt_BR">Bateria de 1 elemento (curta)</name>
+        <name lang="ro">Baterie cu un element (scurt)</name>
+        <name lang="ru">Батарея один элемент (короткий)</name>
+        <name lang="sk">Batéria jeden článok (krátka)</name>
+        <name lang="sl">Baterija en element (kratko)</name>
+        <name lang="sr">Батерија један елемент (кратко)</name>
+        <name lang="sv">Batteri ett element (kort)</name>
+        <name lang="tr">Tek elemanlı akü (kısa)</name>
+        <name lang="uk">Батарея один елемент (короткий)</name>
+        <name lang="zh">单电池短路</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="2" y="-28" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bb59b305-1e7e-4a58-9f94-7d497271a90d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="0" x2="3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-9" x2="-3" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-6" width="3" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <text text="-" x="6" y="6.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="+" x="-11" y="6.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{91173d39-e085-4b29-9fde-b92b117e1f5c}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{25089bb4-80b1-48c8-b3ee-412438ac8c93}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

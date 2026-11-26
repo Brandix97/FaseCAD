@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="29" hotspot_y="31">
+    <uuid uuid="{4397693b-b550-73ee-fccb-cde745f8413d}"/>
+    <names>
+        <name lang="ar">مشعاع</name>
+        <name lang="ca">Radiador d'alumini alt</name>
+        <name lang="cs">Deskové topné těleso</name>
+        <name lang="da">Stålradiator</name>
+        <name lang="de">Stahlheizkörper</name>
+        <name lang="el">Χαλύβδινο σώμα</name>
+        <name lang="en">Steel radiator</name>
+        <name lang="es">Radiador alum Alto</name>
+        <name lang="fi">Teräspatteri</name>
+        <name lang="fr">Radiateur Acier</name>
+        <name lang="hr">Čelični radijator</name>
+        <name lang="hu">Acél radiátor</name>
+        <name lang="it">Radiatore</name>
+        <name lang="ja">鋼製ラジエーター</name>
+        <name lang="ko">강철 라디에이터</name>
+        <name lang="mn">Ган радиатор</name>
+        <name lang="nb">Stål radiator</name>
+        <name lang="nl">Radiator staal</name>
+        <name lang="nl_BE">Stalen radiator</name>
+        <name lang="pl">Grzejnik płytowy</name>
+        <name lang="pt">Radiador de aço</name>
+        <name lang="pt_BR">Steel radiatou</name>
+        <name lang="ro">Radiator din oțel</name>
+        <name lang="ru">Стальной радиатор</name>
+        <name lang="sk">Oceľový radiátor</name>
+        <name lang="sl">Jekleni radiator</name>
+        <name lang="sr">Челични радијатор</name>
+        <name lang="sv">Stålradiator</name>
+        <name lang="tr">Çelik radyatör</name>
+        <name lang="uk">Сталевий радіатор</name>
+        <name lang="zh">铝制高散热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="4" y1="-16.36" x2="3" y2="-16.36" x3="3" y3="-22.84" x4="8" y4="-22.84" x5="8" y5="-16.36" x6="8" y6="13.45" x7="8" y7="19.93" x8="3" y8="19.93" x9="3" y9="13.45" x10="4" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="-16.36" x2="-12" y2="-16.36" x3="-12" y3="-22.84" x4="-7" y4="-22.84" x5="-7" y5="-16.36" x6="-7" y6="13.45" x7="-7" y7="19.93" x8="-12" y8="19.93" x9="-12" y9="13.45" x10="-11" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-6" y1="-16.36" x2="-7" y2="-16.36" x3="-7" y3="-22.84" x4="-2" y4="-22.84" x5="-2" y5="-16.36" x6="-2" y6="13.45" x7="-2" y7="19.93" x8="-7" y8="19.93" x9="-7" y9="13.45" x10="-6" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-1" y1="-16.36" x2="-2" y2="-16.36" x3="-2" y3="-22.84" x4="3" y4="-22.84" x5="3" y5="-16.36" x6="3" y6="13.45" x7="3" y7="19.93" x8="-2" y8="19.93" x9="-2" y9="13.45" x10="-1" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="9" y1="-16.36" x2="8" y2="-16.36" x3="8" y3="-22.84" x4="13" y4="-22.84" x5="13" y5="-16.36" x6="13" y6="13.45" x7="13" y7="19.93" x8="8" y8="19.93" x9="8" y9="13.45" x10="9" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="14" y1="-16.36" x2="13" y2="-16.36" x3="13" y3="-22.84" x4="18" y4="-22.84" x5="18" y5="-16.36" x6="18" y6="13.45" x7="18" y7="19.93" x8="13" y8="19.93" x9="13" y9="13.45" x10="14" y10="13.45" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="11" y1="-15" x2="11" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-15" x2="6" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-15" x2="1" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-15" x2="-4" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-15" x2="-9" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="16" y1="-15" x2="16" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19.5" y="15.05" width="2.5" height="3.65" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="18.5" y="-21.32" width="2.5" height="3.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="18.5" y="15.05" width="2.5" height="3.65" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19.5" y="-21.32" width="2.5" height="3.84" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="-16.36" x2="-17" y2="-16.36" x3="-17" y3="-22.84" x4="-12" y4="-22.84" x5="-12" y5="-16.36" x6="-12" y6="13.45" x7="-12" y7="19.93" x8="-17" y8="19.93" x9="-17" y9="13.45" x10="-17" y10="-16.36" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-14" y1="-15" x2="-14" y2="-10.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="-32.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f06e38e5-f82d-458b-a6a4-d5915f490374}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2f54704a-df27-4e66-a6c1-b6cd68f8900c}" name="" x="-18" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{65fe8858-6ffb-496b-ac20-20e464fb80c9}" name="" x="19" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{2c2a5a93-f696-4a1c-b96d-eab7049e0b6e}" name="" x="20" y="17" orientation="e" type="Generic"/>
+        <terminal uuid="{d3732abe-46da-41d1-ae38-08b66812f9e3}" name="" x="-18" y="17" orientation="w" type="Generic"/>
+    </description>
+</definition>

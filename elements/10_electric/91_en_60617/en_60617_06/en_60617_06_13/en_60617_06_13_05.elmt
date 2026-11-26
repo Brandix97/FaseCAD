@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="130" hotspot_x="86" hotspot_y="81">
+    <uuid uuid="{8ad9c03d-f11e-ec05-ab91-cf2b8f522c65}"/>
+    <names>
+        <name lang="ar">محول تيار بملفين ثانويين على قلب واحد</name>
+        <name lang="ca">Transformador de corrent amb dos bobinatges secundaris en un nucli</name>
+        <name lang="cs">Transformátor proudu
+se dvěma sekundárními vinutími na jednom jádru</name>
+        <name lang="da">Strømtransformer med to sekundærviklinger på én kerne</name>
+        <name lang="de">Stromwandler mit zwei Sekundärwickungen auf
+einem Kern</name>
+        <name lang="el">Μετασχηματιστής έντασης με δύο δευτερεύοντα τυλίγματα σε έναν πυρήνα</name>
+        <name lang="en">Current transformer with two secondary windings on one core</name>
+        <name lang="es">Transformador de corriente con dos devanados secundarios en un núcleo</name>
+        <name lang="fi">Virtamuuntaja, kaksi toisiokäämiä yhdessä sydämessä</name>
+        <name lang="fr">Transformateur de courant, à deux
+enroulements secondaires sur un circuit
+magnétique commun</name>
+        <name lang="hr">Strujni transformator s dva sekundarna namota na jednoj jezgri</name>
+        <name lang="hu">Áramváltó két szekunder tekercseléssel egy magon</name>
+        <name lang="it">Trasformatore di corrente con due avvolgimenti secondari su un nucleo</name>
+        <name lang="ja">一つの鉄心に2つの二次巻線を有する変流器</name>
+        <name lang="ko">하나의 코어에 두 개의 2차 권선이 있는 변류기</name>
+        <name lang="mn">Гүйдлийн трансформатор нэг цөм дээр хоёр хоёрдогч ороомогтой</name>
+        <name lang="nb">Strømtransformator med to sekundærviklinger på én kjerne</name>
+        <name lang="nl">Stroomtransformator met twee secundaire wikkelingen op één kern</name>
+        <name lang="nl_BE">Stroomtransformator met twee secundaire wikkelingen op één kern</name>
+        <name lang="pl">Przekładnik prądowy z dwoma uzwojeniami wtórnymi na jednym rdzeniu</name>
+        <name lang="pt">Transformador de corrente com dois enrolamentos secundários num núcleo</name>
+        <name lang="pt_BR">Transformador de corrente com two secondary windings on one coue</name>
+        <name lang="ro">Transformator de curent cu două înfășurări secundare pe un miez</name>
+        <name lang="ru">Трансформатор тока с двумя вторичными обмотками на одном сердечнике</name>
+        <name lang="sk">Prúdový transformátor s dvoma sekundárnymi vinutiami na jednom jadre</name>
+        <name lang="sl">Tokovni transformator z dvema sekundarnima navitjema na enem jedru</name>
+        <name lang="sr">Струјни трансформатор са два секундарна намотаја на једном језгру</name>
+        <name lang="sv">Strömtransformator med två sekundärlindningar på en kärna</name>
+        <name lang="tr">Bir çekirdekte iki sekonder sargılı akım transformatörü</name>
+        <name lang="uk">Трансформатор струму з двома вторинними обмотками на одному осерді</name>
+        <name lang="zh">接线端子排05</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="22.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{df8cd062-db01-4273-8d12-3b33dc6b6dd3}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Form 2 / Forme 2" x="-74" y="-70" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-35" y="-30" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="10" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-20" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="20" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-30" x2="-40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="10" x2="-40" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="10" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="30" x2="-10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-10" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-30" x2="-10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="47" x2="-30" y2="-47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

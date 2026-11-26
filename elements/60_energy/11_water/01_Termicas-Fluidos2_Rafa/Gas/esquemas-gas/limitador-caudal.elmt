@@ -1,0 +1,25 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{e56606ae-b498-2451-b2a9-ce595dd811e0}"/>
+    <names>
+        <name lang="ca">Limitador de cabal</name>
+        <name lang="es">Limitador de caudal</name>
+        <name lang="pt_BR">Limitador de caudal</name>
+        <name lang="zh">限流器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="5" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Q" x="-3" y="3" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-10" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="2" y="-10" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2" y1="-8" x2="0" y2="-8" x3="0" y3="-5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-7" y="-23" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{38ca8cb8-e831-4264-8754-4fa223f08eb6}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7ce7f6af-7df4-43d1-87be-3abd5ce347cc}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{64071fb2-9450-4bb8-b487-ef3cc6891cae}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

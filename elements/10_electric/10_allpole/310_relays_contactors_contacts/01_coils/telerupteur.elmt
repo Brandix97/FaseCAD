@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="32">
+    <uuid uuid="{c3e27fcc-0fdf-5566-6ea8-c7477e48e0e2}"/>
+    <names>
+        <name lang="ar">مفتاح تحكم عن بعد</name>
+        <name lang="ca">Interruptor controlat a distància</name>
+        <name lang="cs">Dálkově ovládaný spínač</name>
+        <name lang="da">Fjernbetjent afbryder</name>
+        <name lang="de">Stromstossrelais</name>
+        <name lang="el">Τηλεχειριζόμενος διακόπτης</name>
+        <name lang="en">Remote controlled switch</name>
+        <name lang="es">Interruptor a control remoto 1P1T</name>
+        <name lang="fi">Kauko-ohjattu kytkin</name>
+        <name lang="fr">Télérupteur</name>
+        <name lang="hr">Daljinski upravljana sklopka</name>
+        <name lang="hu">Távoli vezérlésű relé</name>
+        <name lang="it">Teleruttore</name>
+        <name lang="ja">遠隔操作スイッチ</name>
+        <name lang="ko">원격 제어 스위치</name>
+        <name lang="mn">Алсын удирдлагатай унтраалга</name>
+        <name lang="nb">Fjernstyrt bryter</name>
+        <name lang="nl">Afstand bestuurbaar schakelaar</name>
+        <name lang="nl_BE">Op afstand bediende schakelaar</name>
+        <name lang="pl">Łącznik zdalnie sterowany</name>
+        <name lang="pt">Interruptor de comando remoto</name>
+        <name lang="pt_BR">Telerruptor</name>
+        <name lang="ro">Întrerupător cu comandă la distanță</name>
+        <name lang="ru">Выключатель с дистанционным управлением</name>
+        <name lang="sk">Diaľkovo ovládaný spínač</name>
+        <name lang="sl">Daljinsko krmiljeno stikalo</name>
+        <name lang="sr">Даљински управљан прекидач</name>
+        <name lang="sv">Fjärrstyrd brytare</name>
+        <name lang="tr">Uzaktan kumandalı şalter</name>
+        <name lang="uk">Вимикач з дистанційним керуванням</name>
+        <name lang="zh">脉冲继电器</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-14" y="-8" width="28" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="10" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e7d01fa3-624d-4352-ab91-3835a857eb6c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="2" y="-25" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{8991dfc2-0aad-4335-a32b-e3c7f259ee89}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="25" y="-9" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a722277c-64df-4d4c-a1ec-16ac6ad26741}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-9" y1="4" x2="0" y2="4" x3="0" y3="-4" x4="10" y4="-4" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{c7aed243-b486-4579-915f-a2e2ef0f4f13}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a2a00a77-40e7-4067-ae33-d55c3b0236b9}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

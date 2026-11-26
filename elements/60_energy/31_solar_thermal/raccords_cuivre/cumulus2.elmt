@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="70" hotspot_x="20" hotspot_y="40">
+    <uuid uuid="{df2f4e50-f1ec-bcc8-c070-1a25f561e44f}"/>
+    <names>
+        <name lang="ar">مُراكم كهربائي</name>
+        <name lang="ca">Cúmuls elèctrics</name>
+        <name lang="cs">Elektrický ohřívač</name>
+        <name lang="da">El-varmtvandsbeholder</name>
+        <name lang="de">Elektrische Heizung</name>
+        <name lang="el">Ηλεκτρικός θερμοσίφωνας</name>
+        <name lang="en">Electric cumulus</name>
+        <name lang="es">Calentador eléctrico</name>
+        <name lang="fi">Sähköinen varaaja</name>
+        <name lang="fr">Cumulus electrique</name>
+        <name lang="hr">Električni kumulus</name>
+        <name lang="hu">Elektromos bojler</name>
+        <name lang="it">Riscaldamento elettrico</name>
+        <name lang="ja">電気温水器</name>
+        <name lang="ko">전기 축열기</name>
+        <name lang="mn">Цахилгаан кумулус</name>
+        <name lang="nb">Elektrisk cumulus</name>
+        <name lang="nl">Cumulus elektrisch</name>
+        <name lang="nl_BE">Elektrische cumulus</name>
+        <name lang="pl">Ogrzewacz elektryczny</name>
+        <name lang="pt">Cúmulo elétrico</name>
+        <name lang="pt_BR">Aquecedou acumuladou eletrico</name>
+        <name lang="ro">Cumulus electric</name>
+        <name lang="ru">Электрический бойлер</name>
+        <name lang="sk">Elektrický bojler</name>
+        <name lang="sl">Električni bojler</name>
+        <name lang="sr">Електрични кумулус</name>
+        <name lang="sv">El-cumulus</name>
+        <name lang="tr">Elektrikli kazan</name>
+        <name lang="uk">Електричний бойлер</name>
+        <name lang="zh">储热水箱2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="13.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8bc1fb7b-9839-4d74-af01-0034eb0cabfa}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-25" width="20" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.25" y1="-6.5" x2="-1" y2="-9.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9.5" y1="-6" x2="-0.75" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="1.5" x2="-0.25" y2="-2.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-9.75" y1="1.75" x2="-1.25" y2="4.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10.5" y1="7.5" x2="-1" y2="4.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{c8b9849f-f9a0-4e0b-b928-bf4e13fdf0b1}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{393f1798-4d13-44d3-bf54-e8b5f68737f7}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

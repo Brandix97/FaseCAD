@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="15" hotspot_y="11">
+    <uuid uuid="{ff084147-59b9-bf28-cf6d-8d734d130245}"/>
+    <names>
+        <name lang="ar">صمّام ضدّ الرجع</name>
+        <name lang="ca">Vàlvula de retenció simple</name>
+        <name lang="cs">Jednoduchý pojistný ventil</name>
+        <name lang="da">Enkel kontraventil</name>
+        <name lang="de">Einfaches Rückschlagventil</name>
+        <name lang="el">Ανεπίστροφη βαλβίδα απλή</name>
+        <name lang="en">Simple check valve</name>
+        <name lang="es">Válvula de retención simple</name>
+        <name lang="fi">Yksinkertainen takaiskuventtiili</name>
+        <name lang="fr">Clapet anti-retour simple</name>
+        <name lang="hr">Jednostavni nepovratni ventil</name>
+        <name lang="hu">Egyszerű visszacsapó szelep</name>
+        <name lang="it">Valvola di ritegno</name>
+        <name lang="ja">単純チェックバルブ</name>
+        <name lang="ko">단순 역류 밸브</name>
+        <name lang="mn">Энгийн буцах хавхлага</name>
+        <name lang="nb">Enkel tilbakeslagsventil</name>
+        <name lang="nl">Terugslagklep</name>
+        <name lang="nl_BE">Eenvoudige terugslagklep</name>
+        <name lang="pl">Zawór zwrotny</name>
+        <name lang="pt">Válvula de retenção simples</name>
+        <name lang="pt_BR">Simple check valvula</name>
+        <name lang="ro">Supapă de reținere simplă</name>
+        <name lang="ru">Простой обратный клапан</name>
+        <name lang="sk">Jednoduchý spätný ventil</name>
+        <name lang="sl">Enostavni povratni ventil</name>
+        <name lang="sr">Једноставни неповратни вентил</name>
+        <name lang="sv">Enkel backventil</name>
+        <name lang="tr">Basit çek valf</name>
+        <name lang="uk">Зворотний клапан простий</name>
+        <name lang="zh">简单止回阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-10" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{89177735-7fa7-45cf-b4f3-de17e2340a93}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="3" y1="0" x2="-3" y2="-5" x3="-3" y3="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="6" y1="-7" x2="-6" y2="-7" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="0" x2="7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="0" x2="-3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-4" x2="2" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1129f2d4-e7f7-4b2a-ae4d-88b0d7353bc5}" name="" x="7" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{3013e59b-062c-4dea-8c15-b274b703be3e}" name="" x="-7" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

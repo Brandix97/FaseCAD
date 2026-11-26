@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="21">
+    <uuid uuid="{32030cce-eb9c-6be4-6025-1862435d5932}"/>
+    <names>
+        <name lang="ar">صمّام بضغط ثابت (يسار)</name>
+        <name lang="ca">Vàlvula de pressió constant (esquerra)</name>
+        <name lang="cs">Ventil stálého tlaku (levý)</name>
+        <name lang="da">Konstanttrykventil (venstre)</name>
+        <name lang="de">Konstantdruckventil (links)</name>
+        <name lang="el">Βαλβίδα σταθερής πίεσης (αριστερή)</name>
+        <name lang="en">Constant pressure valve (left)</name>
+        <name lang="es">Válvula de presión constante (izquierda)</name>
+        <name lang="fi">Vakiopaineventtiili (vasen)</name>
+        <name lang="fr">Vanne à pression constante (gauche)</name>
+        <name lang="hr">Ventil konstantnog tlaka (lijevo)</name>
+        <name lang="hu">Állandó nyomású szelep (bal)</name>
+        <name lang="it">A pressione costante (sinistra)</name>
+        <name lang="ja">定圧弁（左）</name>
+        <name lang="ko">정압 밸브 (좌)</name>
+        <name lang="mn">Тогтмол даралтын хавхлага (зүүн)</name>
+        <name lang="nb">Konstanttrykkventil (venstre)</name>
+        <name lang="nl">Constante druk klep links</name>
+        <name lang="nl_BE">Constantdrukregelaar (links)</name>
+        <name lang="pl">Zawór stałego ćiśnienia (lewy)</name>
+        <name lang="pt">Válvula de pressão constante (esquerda)</name>
+        <name lang="pt_BR">Válvula de pressão constante (esquerda)</name>
+        <name lang="ro">Supapă de presiune constantă (stânga)</name>
+        <name lang="ru">Клапан постоянного давления (слева)</name>
+        <name lang="sk">Ventil konštantného tlaku (ľavý)</name>
+        <name lang="sl">Ventil s konstantnim tlakom (levo)</name>
+        <name lang="sr">Вентил константног притиска (лево)</name>
+        <name lang="sv">Konstanttryckventil (vänster)</name>
+        <name lang="tr">Sabit basınç valfi (sol)</name>
+        <name lang="uk">Клапан постійного тиску (лівий)</name>
+        <name lang="zh">定压阀左</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-13" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b97efaca-07f3-49e7-83c2-be46421ea61d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-10" y1="-5" x2="-14" y2="-7" x3="-14" y3="-12" x4="-6" y4="-12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="PC" x="-4.7" y="-9.67" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-5.83" y="-17.83" width="11.66" height="11.66" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2" y1="1" x2="0" y2="3" x3="-2" y3="1" x4="-10" y4="5" x5="-10" y5="-5" x6="10" y6="5" x7="10" y7="-5" x8="-2" y8="1" x9="0" y9="0" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <line x1="0" y1="0" x2="0" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{89965f0e-a394-49fa-846c-b8bd62a0e502}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b01a5270-6e18-4f47-91cb-61e778989762}" name="" x="11" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

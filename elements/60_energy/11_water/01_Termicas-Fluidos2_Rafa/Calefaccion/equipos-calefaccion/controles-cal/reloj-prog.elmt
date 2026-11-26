@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="15" hotspot_y="30">
+    <uuid uuid="{11e726ec-3c15-d405-bbed-9c9618145426}"/>
+    <names>
+        <name lang="ar">ساعة برمجة</name>
+        <name lang="ca">Rellotge programador</name>
+        <name lang="cs">Časové hodiny</name>
+        <name lang="da">Ur</name>
+        <name lang="de">Schaltuhr</name>
+        <name lang="el">Χρονοδιακόπτης προγραμματισμού</name>
+        <name lang="en">scheduler clock</name>
+        <name lang="es">Reloj programador</name>
+        <name lang="fi">ajastin kello</name>
+        <name lang="fr">Programmateur horaire</name>
+        <name lang="hr">Programski sat</name>
+        <name lang="hu">Programozható óra</name>
+        <name lang="it">Orologio programmatore</name>
+        <name lang="ja">タイマー時計</name>
+        <name lang="ko">스케줄러 시계</name>
+        <name lang="mn">Хуваарьлагч цаг</name>
+        <name lang="nb">tidsur klokke</name>
+        <name lang="nl">Klokprogramma</name>
+        <name lang="nl_BE">Schedulerklok</name>
+        <name lang="pl">Zegar sterujący</name>
+        <name lang="pt">Relógio programador</name>
+        <name lang="pt_BR">scheduler Relogio</name>
+        <name lang="ro">ceas programator</name>
+        <name lang="ru">Программируемый таймер</name>
+        <name lang="sk">Časové hodiny</name>
+        <name lang="sl">Programska ura</name>
+        <name lang="sr">Програмски сат</name>
+        <name lang="sv">tidprogrammeringsklocka</name>
+        <name lang="tr">zamanlayıcı saat</name>
+        <name lang="uk">Програмований таймер</name>
+        <name lang="zh">可编程定时器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="2.18" y="-8.5" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8.18" y="-18.55" width="13.73" height="13" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-6.27" y="-16.09" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-20.28" width="17.21" height="16.44" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1.84" y1="-10.15" x2="-0.78" y2="-11.06" x3="-5" y3="-14.72" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-0.78" y1="-10.15" x2="4.5" y2="-12" x3="-0.78" y3="-11.06" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-8" y="-11.43" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.84" y="-18.37" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.84" y="-6.67" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6.06" y="-8.32" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="4.08" y="-11.43" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3.39" y="-15.72" width="1.06" height="0.91" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12.71" y="-21.21" width="28.51" height="20.57" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12.4" y1="-21.68" x2="-8.23" y2="-24.6" x3="18.39" y3="-24.6" x4="15.78" y4="-21.68" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18.5" y1="-23.87" x2="18.5" y2="-4.11" x3="16.24" y3="-1.18" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="11" y="-15" width="3" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="11" y="-11" width="3" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <dynamic_text x="3" y="-26" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7bf58902-beae-4326-aaa5-197e004026c9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{35b94fd9-7c9f-4452-a9ca-0955a8ce415f}" name="" x="7" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{86749c36-3a5c-4e12-95f2-864c92ef8eed}" name="" x="18" y="-1" orientation="s" type="Generic"/>
+    </description>
+</definition>

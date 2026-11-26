@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="660" height="60" hotspot_x="6" hotspot_y="32">
+    <uuid uuid="{33b59bcd-d6ec-8b5e-8cd3-a84ba86d805c}"/>
+    <names>
+        <name lang="ar">عنوان جدول التسمية</name>
+        <name lang="ca">Nomenclatura del títol de la taula</name>
+        <name lang="cs">Záhlaví nomenklaturní tabulky (řecky)</name>
+        <name lang="da">Tabel titel stykliste</name>
+        <name lang="de">Stückliste Kopfzeile grieschisch</name>
+        <name lang="el">Επικεφαλίδα πίνακα (Ελληνικά)</name>
+        <name lang="en">Table Title Nomenclature</name>
+        <name lang="es">Nomenclatura cuadro de titulo</name>
+        <name lang="fi">Taulukko otsikko nimikkeistö</name>
+        <name lang="fr">Titre tableau nomenclature</name>
+        <name lang="hr">Naslov tablice nomenklature</name>
+        <name lang="hu">Nómenklatúra táblázat címe</name>
+        <name lang="it">Intestazione tabella elenco (Greco)</name>
+        <name lang="ja">表題欄 部品表</name>
+        <name lang="ko">표 제목 명세표</name>
+        <name lang="mn">Нэршлийн хүснэгтийн гарчиг</name>
+        <name lang="nb">Tabell tittel nomenklatur</name>
+        <name lang="nl">Titelveld</name>
+        <name lang="nl_BE">Tabel titel onderdelenlijst</name>
+        <name lang="pl">Tabliczka rysunkowa - tytuł</name>
+        <name lang="pt">Tabela de título da nomenclatura</name>
+        <name lang="pt_BR">Table Title Nomenclature</name>
+        <name lang="ro">Tabel titlu nomenclator</name>
+        <name lang="ru">Титульный лист спецификации</name>
+        <name lang="sk">Tabuľka titul kusovníka</name>
+        <name lang="sl">Naslov tabele kosovnica</name>
+        <name lang="sr">Табела наслов номенклатуре</name>
+        <name lang="sv">Tabell titel förteckning</name>
+        <name lang="tr">Tablo Başlığı Nomenklatür</name>
+        <name lang="uk">Заголовок таблиці номенклатури</name>
+        <name lang="zh">标题标签_明细表-el</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="-52.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{60322307-837c-40f5-9d40-8d5e136444bb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="ΥΠΟΜΝΗΜΑ" x="250" y="-10" rotation="0" font="Liberation Sans,15,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="0" y="-30" width="650" height="30" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="0" width="650" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="0" width="400" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="Λειτουργία" x="115" y="15" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Περιγραφή" x="407" y="15" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Θέση" x="7" y="15" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="0" y="0" width="100" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

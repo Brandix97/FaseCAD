@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{0df745c8-c96c-59ea-52d1-0a7502d80417}"/>
+    <names>
+        <name lang="ar">مقاومة مرتبطة بالجهد (فاريستور)</name>
+        <name lang="ca">Varistor d'òxid metàl·lic</name>
+        <name lang="cs">Varistor</name>
+        <name lang="da">Metaloxidvaristor</name>
+        <name lang="de">Varistor</name>
+        <name lang="el">Βαρίστορ οξειδίου μετάλλου</name>
+        <name lang="en">Metal-Oxide Varistor</name>
+        <name lang="es">Varistor oxido-metal</name>
+        <name lang="fi">Metallioksidivaristori</name>
+        <name lang="fr">Varistance Metal-Oxide</name>
+        <name lang="hr">Metal-oksidni varistor</name>
+        <name lang="hu">Fém-oxid varisztor</name>
+        <name lang="it">Varistore Metal-oxide</name>
+        <name lang="ja">金属酸化物バリスタ</name>
+        <name lang="ko">금속 산화물 바리스터</name>
+        <name lang="mn">Металл-оксидын варистор</name>
+        <name lang="nb">Metalloksidvaristor</name>
+        <name lang="nl">Varistor Metal-oxide</name>
+        <name lang="nl_BE">Metaaloxidevaristor</name>
+        <name lang="pl">Warystor</name>
+        <name lang="pt">Varistor de óxido metálico</name>
+        <name lang="pt_BR">Varistor de óxido metálico</name>
+        <name lang="ro">Varistor cu oxid metalic</name>
+        <name lang="ru">Металлооксидный варистор</name>
+        <name lang="sk">Varistor z oxidu kovu</name>
+        <name lang="sl">Kovinsko-oksidni varistor</name>
+        <name lang="sr">Метал-оксидни варистор</name>
+        <name lang="sv">Metalloxidvaristor</name>
+        <name lang="tr">Metal oksit varistör</name>
+        <name lang="uk">Металоксидний варистор</name>
+        <name lang="zh">金属氧化物压敏电阻</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="6" x2="-7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="10" x2="7" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="10.5" y="-10.17" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{81a5ca7c-13d1-48e3-ab3d-9eb19f4a6eda}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b22a7d91-ec99-4515-8383-053a167a1ebd}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{9faa0ecf-4768-4ade-8c20-1a2798c655c7}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

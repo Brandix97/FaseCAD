@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="70" hotspot_x="53" hotspot_y="35">
+    <uuid uuid="{6486d3ac-6993-faac-3511-058b8ab6c498}"/>
+    <names>
+        <name lang="ar">شبه مباشر "B</name>
+        <name lang="ca">B semidirecte 2</name>
+        <name lang="cs">B polopřímý</name>
+        <name lang="da">B semidirekte 2</name>
+        <name lang="de">B halbdirekt 2</name>
+        <name lang="el">B ημι-άμεσο 2</name>
+        <name lang="en">B semi-direct 2</name>
+        <name lang="es">B semi-directo 2</name>
+        <name lang="fi">B puoliepäsuora 2</name>
+        <name lang="fr">B" semi directe bis</name>
+        <name lang="hr">B poluizravni 2</name>
+        <name lang="hu">B fél-közvetett 2</name>
+        <name lang="it">B Semi-diretto 2</name>
+        <name lang="ja">Bセミダイレクト 2</name>
+        <name lang="ko">B 반간접 2</name>
+        <name lang="mn">B хагас шууд 2</name>
+        <name lang="nb">B semi-direkte 2</name>
+        <name lang="nl">type B Sub direct 2</name>
+        <name lang="nl_BE">B semi-direct 2</name>
+        <name lang="pl">B" półpośredni</name>
+        <name lang="pt">B semidireto 2</name>
+        <name lang="pt_BR">B semi-direct 2</name>
+        <name lang="ro">Semi-direct B 2</name>
+        <name lang="ru">Б полупрямой 2</name>
+        <name lang="sk">B semidirektný 2</name>
+        <name lang="sl">B polposredna 2</name>
+        <name lang="sr">Б полудиректни 2</name>
+        <name lang="sv">B semidirekt 2</name>
+        <name lang="tr">B yarı dolaylı 2</name>
+        <name lang="uk">B напівпрямий 2</name>
+        <name lang="zh">半直接式-辅助</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="B&quot;" x="-41" y="-22" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-7" y="-61.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bc696503-62f6-4532-975a-0f6b9abe5fff}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-32" y1="-9.5" x2="2" y2="-9.5" x3="-8" y3="-4.5" x4="2" y4="0.5" x5="-8" y5="5.5" x6="2" y6="10.5" x7="-18" y7="10.5" x8="-32" y8="10.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-15" y="-29.5" width="32" height="59" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="20" y="-7.5" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-30" y="6.5" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="20" y="20.5" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="22" y1="24.5" x2="25" y2="21.5" x3="25" y3="27.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="22" y1="-3.5" x2="25" y2="-6.5" x3="25" y3="-0.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-28" y1="10.5" x2="-25" y2="7.5" x3="-25" y3="13.5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="12" y1="4.5" x2="44" y2="4.5" x3="34" y3="9.5" x4="44" y4="14.5" x5="34" y5="19.5" x6="44" y6="24.5" x7="24" y7="24.5" x8="12" y8="24.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="9" y1="-23.5" x2="43" y2="-23.5" x3="33" y3="-18.5" x4="43" y4="-13.5" x5="33" y5="-8.5" x6="43" y6="-3.5" x7="23" y7="-3.5" x8="9" y8="-3.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="solaire" x="-34" y="2.5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="chauff." x="19" y="16.5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ECS" x="22" y="-10.5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ballon" x="-13" y="-20.5" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-9" y1="-9.5" x2="-42" y2="-9.5" x3="-32" y3="-4.5" x4="-42" y4="0.5" x5="-32" y5="5.5" x6="-42" y6="10.5" x7="-9" y7="10.5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

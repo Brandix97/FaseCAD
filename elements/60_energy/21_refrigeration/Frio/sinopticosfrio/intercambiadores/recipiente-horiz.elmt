@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="36" hotspot_y="31">
+    <uuid uuid="{c69ce794-19b3-5a1e-e6d7-3cffe374eb9a}"/>
+    <names>
+        <name lang="ca">Recipient horitzontal</name>
+        <name lang="es">Recipiente horiz.</name>
+        <name lang="pt_BR">Recipiente houiz.</name>
+        <name lang="zh">卧式容器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-26" y1="2" x2="25" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-31" y="-16" width="9" height="18" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="20" y="-16" width="9" height="18" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-27" y1="-16" x2="24" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-20" x2="-20" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-20" x2="20" y2="-16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{54ccf635-1848-4a08-a33f-899bd847d1cd}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{fd9b9ba4-ba4d-4a58-ba22-eb1f6f5ff8e3}" name="" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a1016616-7361-4604-8f6b-ff8fee6a91de}" name="" x="20" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

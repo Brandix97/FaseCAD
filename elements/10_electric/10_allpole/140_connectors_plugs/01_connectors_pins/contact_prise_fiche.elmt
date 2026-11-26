@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="11">
+    <uuid uuid="{20a26759-9f5f-6daf-72b0-af570b182ecf}"/>
+    <names>
+        <name lang="ar">قابس ذكري</name>
+        <name lang="ca">endoll mascle</name>
+        <name lang="cs">Kontakt zástrčka</name>
+        <name lang="da">hanstik</name>
+        <name lang="de">Steckverbindung Stecker</name>
+        <name lang="el">αρσενικό βύσμα</name>
+        <name lang="en">plug male</name>
+        <name lang="es">Enchufe macho</name>
+        <name lang="fi">urosliitin</name>
+        <name lang="fr">Contact mâle fiche</name>
+        <name lang="hr">Muški utikač</name>
+        <name lang="hu">Apa csatlakozó</name>
+        <name lang="it">Contatto maschio</name>
+        <name lang="ja">オスプラグ</name>
+        <name lang="ko">수 플러그</name>
+        <name lang="mn">эрэгтэй залгуур</name>
+        <name lang="nb">plugg hann</name>
+        <name lang="nl">Steker</name>
+        <name lang="nl_BE">Mannelijke stekker</name>
+        <name lang="pl">Wtyk</name>
+        <name lang="pt">ficha macho</name>
+        <name lang="pt_BR">plugue macho</name>
+        <name lang="ro">Ștecher tată</name>
+        <name lang="ru">штекер штыревой</name>
+        <name lang="sk">Konektor samec</name>
+        <name lang="sl">moški vtič</name>
+        <name lang="sr">мушки утикач</name>
+        <name lang="sv">hane stickpropp</name>
+        <name lang="tr">erkek fiş</name>
+        <name lang="uk">штекер</name>
+        <name lang="zh">插头插座触点</name>
+    </names>
+    <informations>EN 60617: 03-03-03</informations>
+    <description>
+        <dynamic_text x="1" y="-10" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{21222ab9-37b3-4875-844c-e51e05f8f357}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-1" y1="-8" x2="-1" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-8" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-8" x2="1" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f280fe7a-d33e-45e4-824b-bcb17424b8d4}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

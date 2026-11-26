@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="90" height="90" hotspot_x="45" hotspot_y="45">
+    <uuid uuid="{422537df-d604-16c5-56dc-c4f07d98aa49}"/>
+    <names>
+        <name lang="ar">توقيف طوارئ - دوران للإطلاق</name>
+        <name lang="ca">La parada d'emergència es va desbloquejar</name>
+        <name lang="cs">Nouzové zastavení odblokované otočením</name>
+        <name lang="da">Nødstop drejet oplåst</name>
+        <name lang="de">Not-Aus Taster mit Drehentriegelung</name>
+        <name lang="el">Στάση κινδύνου περιστροφική απασφαλισμένη</name>
+        <name lang="en">Emergency stop turned unlocked</name>
+        <name lang="es">Paro de emergencia girado desbloqueado</name>
+        <name lang="fi">Hätäpysäytys käännetty avattu</name>
+        <name lang="fr">Arret d'urgence tourné dévérouillé</name>
+        <name lang="hr">Nužno zaustavljanje okrenuto deblokirano</name>
+        <name lang="hu">Elfordított vészleállítás kioldva</name>
+        <name lang="it">Arresto d'emergenza, sblocco a rotazione</name>
+        <name lang="ja">回して解除する非常停止</name>
+        <name lang="ko">비상 정지 회전 해제</name>
+        <name lang="mn">Яаралтай зогсоол эргүүлэн сулласан</name>
+        <name lang="nb">Nødstopp dreid opplåst</name>
+        <name lang="nl">Knop Noodstop draai reset</name>
+        <name lang="nl_BE">Noodstop gedraaid ontgrendeld</name>
+        <name lang="pl">Łącznik awaryjny odblokowywany przez obracanie</name>
+        <name lang="pt">Paragem de emergência rodada desbloqueada</name>
+        <name lang="pt_BR">Botão de emergência destravado por giro</name>
+        <name lang="ro">Oprire de urgență rotită deblocată</name>
+        <name lang="ru">Аварийный стоп поворотный с расфиксацией</name>
+        <name lang="sk">Núdzové zastavenie otočné odblokované</name>
+        <name lang="sl">Zasilni izklop z vrtenjem za odklep</name>
+        <name lang="sr">Нужно заустављање окренуто откључано</name>
+        <name lang="sv">Nödstopp vridet upplåst</name>
+        <name lang="tr">Acil durdurma döndürülerek kilidi açıldı</name>
+        <name lang="uk">Аварійний зупин з розблокуванням поворотом</name>
+        <name lang="zh">旋转解锁急停按钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-66.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ce2274c-270c-4cac-8c2a-6f36984581c8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-25" y="-25" width="50" height="50" start="200" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-25" y="-25" width="50" height="50" start="320" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-25" y="-25" width="50" height="50" start="80" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-36" y="-36" width="72" height="72" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-38" y="-38" width="76" height="76" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-12" y="-12" width="24" height="24" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-40" y="-40" width="80" height="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3.24" y1="-24.81" x2="6.24" y2="-24.31" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="-22.32" y1="12.28" x2="-24.12" y2="6.68" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="20" y1="14.58" x2="18" y2="17.58" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+    </description>
+</definition>

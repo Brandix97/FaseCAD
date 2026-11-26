@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="65" hotspot_y="65">
+    <uuid uuid="{e9c16619-f420-844c-ed6b-4fa691baff22}"/>
+    <names>
+        <name lang="ar">مفتاح متعدد المواضع، أربعة مواضع كحد أقصى</name>
+        <name lang="ca">Interruptor de múltiples posicions, màxim quatre posicions</name>
+        <name lang="cs">Vícepolohový spínač</name>
+        <name lang="da">Flertrinsafbryder, maksimalt fire positioner</name>
+        <name lang="de">Mehrstellungsschalter (geringe Anzahl von
+Schaltstellungen</name>
+        <name lang="el">Διακόπτης πολλαπλών θέσεων, μέγιστο τέσσερις θέσεις</name>
+        <name lang="en">Multi-position switch, maximum four positions</name>
+        <name lang="es">Conmutador multiposición, máximo cuatro posiciones</name>
+        <name lang="fi">Moniasentokytkin, enintään neljä asentoa</name>
+        <name lang="fr">Commutateur multipolaire à quatre directions</name>
+        <name lang="hr">Višepoložajna sklopka, najviše četiri položaja</name>
+        <name lang="hu">Többállású kapcsoló, legfeljebb négy állás</name>
+        <name lang="it">Interruttore a più posizioni, massimo quattro posizioni</name>
+        <name lang="ja">多位置スイッチ，最大4位置</name>
+        <name lang="ko">다중 위치 스위치, 최대 4개 위치</name>
+        <name lang="mn">Олон байрлалтай унтраалга, дээд тал нь дөрвөн байрлал</name>
+        <name lang="nb">Flervalgssbryter, maksimalt fire stillinger</name>
+        <name lang="nl">Meerstandenschakelaar, maximaal vier standen</name>
+        <name lang="nl_BE">Meerstandenschakelaar, maximaal vier standen</name>
+        <name lang="pl">Łącznik wielopołożeniowy, maksymalnie cztery położenia</name>
+        <name lang="pt">Interruptor de várias posições, máximo quatro posições</name>
+        <name lang="pt_BR">Chave multiposição, máximo quatro posições</name>
+        <name lang="ro">Întrerupător cu mai multe poziții, maximum patru poziții</name>
+        <name lang="ru">Многопозиционный выключатель, максимум четыре положения</name>
+        <name lang="sk">Viacpolohový spínač, maximálne štyri polohy</name>
+        <name lang="sl">Večpoložajno stikalo, največ štirje položaji</name>
+        <name lang="sr">Вишеположајни прекидач, највише четири положаја</name>
+        <name lang="sv">Flerlägesbrytare, högst fyra lägen</name>
+        <name lang="tr">Çok konumlu şalter, en fazla dört konum</name>
+        <name lang="uk">Багатопозиційний вимикач, максимум чотири положення</name>
+        <name lang="zh">05 元件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2cb0afa5-256e-4658-9b4c-64d9bca96772}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-40" x2="0" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-40" x2="-20" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-40" x2="-40" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-40" x2="-60" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-40" y1="0" x2="-40" y2="-20" x3="-60" y3="-35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

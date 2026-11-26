@@ -1,0 +1,59 @@
+<definition type="element" link_type="simple" hotspot_x="30" hotspot_y="26" width="60" height="50" version="0.100.1">
+    <uuid uuid="{b1c8879f-adbb-4d76-85a6-78a5942ed8a5}"/>
+    <names>
+        <name lang="ar">مقبس USB-3.0 A</name>
+        <name lang="ca">Connector USB-3.0 A</name>
+        <name lang="cs">USB-3.0 zásuvka A</name>
+        <name lang="da">USB-3.0 A-stik</name>
+        <name lang="de">USB-3.0 A Buchse</name>
+        <name lang="el">Υποδοχή USB-3.0 A</name>
+        <name lang="en">USB-3.0 A Socket</name>
+        <name lang="es">Toma USB-3.0 A</name>
+        <name lang="fi">USB-3.0 A-pistorasia</name>
+        <name lang="hr">USB-3.0 A utičnica</name>
+        <name lang="hu">USB-3.0 A aljzat</name>
+        <name lang="it">Presa USB-3.0 A</name>
+        <name lang="ja">USB-3.0 A ソケット</name>
+        <name lang="ko">USB-3.0 A 소켓</name>
+        <name lang="mn">USB-3.0 A залгуур</name>
+        <name lang="nb">USB-3.0 A-kontakt</name>
+        <name lang="nl">USB-3.0 A contactdoos</name>
+        <name lang="nl_BE">USB-3.0 A contactdoos</name>
+        <name lang="pl">Gniazdo USB-3.0 A</name>
+        <name lang="pt">Tomada USB-3.0 A</name>
+        <name lang="pt_BR">USB-3.0 A Tomada</name>
+        <name lang="ro">Priză USB-3.0 A</name>
+        <name lang="ru">Розетка USB-3.0 A</name>
+        <name lang="sk">USB-3.0 zásuvka A</name>
+        <name lang="sl">Vtičnica USB-3.0 A</name>
+        <name lang="sr">USB-3.0 A утичница</name>
+        <name lang="sv">USB-3.0 A-uttag</name>
+        <name lang="tr">USB-3.0 A Priz</name>
+        <name lang="uk">Розетка USB-3.0 A</name>
+        <name lang="zh">USB-3.0 A 型插座</name>
+    </names>
+    <elementInformations>
+        <elementInformation name="description" show="1">USB-3.0 USB-A Socket</elementInformation>
+    </elementInformations>
+    <informations>Author: Moritz Scholjegerdes</informations>
+    <description>
+        <rect ry="0" x="-15" y="-10.25" antialias="false" style="line-style:normal;line-weight:thin;filling:gray;color:black" width="30" height="15" rx="0"/>
+        <rect ry="0" x="-12.5" y="-8.45" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="25" height="11.5" rx="0"/>
+        <rect ry="0" x="-3.2" y="-2.65" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="2.5" height="2" rx="0"/>
+        <rect ry="0" x="2" y="1.55" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="4" height="1.5" rx="0"/>
+        <rect ry="0" x="-8.3" y="-2.65" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="2.5" height="2" rx="0"/>
+        <rect ry="0" x="5.5" y="-2.65" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="2.5" height="2" rx="0"/>
+        <rect ry="0" x="-7" y="1.55" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="4" height="1.5" rx="0"/>
+        <rect ry="0" x="-10.1" y="-5.75" antialias="false" style="line-style:normal;line-weight:thin;filling:HTMLBlueDodgerBlue;color:black" width="20" height="3.1" rx="0"/>
+        <rect ry="0" x="0.5" y="-2.65" antialias="false" style="line-style:normal;line-weight:thin;filling:white;color:black" width="2.5" height="2" rx="0"/>
+        <dynamic_text frame="false" Halignment="AlignHCenter" x="-26" y="2" z="11" rotation="0" font="Liberation Sans,7,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{e1e678fb-26df-4c20-8d34-84b41b886952}" keep_visual_rotation="false" text_from="UserText" Valignment="AlignVCenter">
+            <text>USB-3.0 A</text>
+        </dynamic_text>
+        <rect ry="0" x="-25" y="-20" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black" width="50" height="40" rx="0"/>
+        <dynamic_text frame="false" Halignment="AlignLeft" x="30" y="-21" z="12" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{7bcec6d7-e58a-458c-a8ae-54861989da9c}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal type="Generic" x="0" y="-20" name="USB" uuid="{6778492a-4a38-41c6-bc55-a8d0f244eee3}" orientation="n"/>
+    </description>
+</definition>

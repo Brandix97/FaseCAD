@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="50" height="50" hotspot_x="25" hotspot_y="25">
+    <uuid uuid="{a5757e98-04ed-22b6-063e-1ee37e8317c4}"/>
+    <names>
+        <name lang="ar">توقيف طوارئ - دوران للإطلاق</name>
+        <name lang="ca">La parada d'emergència es va desbloquejar</name>
+        <name lang="cs">Nouzové zastavení odblokované otočením</name>
+        <name lang="da">Nødstop drejet oplåst</name>
+        <name lang="de">Not-Aus Taster mit Drehentriegelung</name>
+        <name lang="el">Στάση κινδύνου περιστροφική απασφαλισμένη</name>
+        <name lang="en">Emergency stop turned unlocked</name>
+        <name lang="es">Paro de emergencia girado desbloqueado</name>
+        <name lang="fi">Hätäpysäytys käännetty avattu</name>
+        <name lang="fr">Arret d'urgence tourné dévérouillé</name>
+        <name lang="hr">Nužno zaustavljanje okrenuto deblokirano</name>
+        <name lang="hu">Elfordított vészleállítás kioldva</name>
+        <name lang="it">Arresto d'emergenza sblocco a rotazione</name>
+        <name lang="ja">回して解除する非常停止</name>
+        <name lang="ko">비상 정지 회전 해제</name>
+        <name lang="mn">Яаралтай зогсоол эргүүлэн сулласан</name>
+        <name lang="nb">Nødstopp dreid opplåst</name>
+        <name lang="nl">Stop nood draai reset</name>
+        <name lang="nl_BE">Noodstop gedraaid ontgrendeld</name>
+        <name lang="pl">Przycisk awaryjny odblokowywany przez obracanie</name>
+        <name lang="pt">Paragem de emergência rodada desbloqueada</name>
+        <name lang="pt_BR">Botão de emergência destravado por giro</name>
+        <name lang="ro">Oprire de urgență rotită deblocată</name>
+        <name lang="ru">Аварийный стоп поворотный с расфиксацией</name>
+        <name lang="sk">Núdzové zastavenie otočné odblokované</name>
+        <name lang="sl">Zasilni izklop z vrtenjem za odklep</name>
+        <name lang="sr">Нужно заустављање окренуто откључано</name>
+        <name lang="sv">Nödstopp vridet upplåst</name>
+        <name lang="tr">Acil durdurma döndürülerek kilidi açıldı</name>
+        <name lang="uk">Аварійний зупин з розблокуванням поворотом</name>
+        <name lang="zh">旋转解锁急停按钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-42" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7a4f13f1-f554-47b1-8102-0341e7fce78b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10.5" y1="8" x2="-12.3" y2="2.4" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="1" y1="-12.5" x2="4" y2="-12" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="11" y1="6" x2="9" y2="9" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <arc x="-12.5" y="-12.5" width="25" height="25" start="200" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12.5" y="-12.5" width="25" height="25" start="320" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12.5" y="-12.5" width="25" height="25" start="80" angle="100" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-18" y="-18" width="36" height="36" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-19" y="-19" width="38" height="38" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-6" y="-6" width="12" height="12" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-20" y="-20" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="27" hotspot_y="19">
+    <uuid uuid="{95c76ded-ddd8-07c6-0cdb-a5b5468e08c1}"/>
+    <names>
+        <name lang="ca">Reducció excèntrica brides</name>
+        <name lang="es">Reducción excéntrica bridas</name>
+        <name lang="pt_BR">Reducción excéntrica bridas</name>
+        <name lang="zh">偏心大小头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-21.2" y="-17.45" width="2.5" height="34.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="17.17" y="-3.69" width="3.09" height="3.26" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="17.17" y="9.36" width="3.09" height="3.26" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-18.13" y="-12.89" width="4.5" height="4.93" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="20.22" y="-6.41" width="2.41" height="20.66" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-18.13" y="9" width="4.5" height="5.48" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="11.35" y1="-0.48" x2="18.61" y2="-0.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-15" y="12" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9ca12ed6-3c88-4826-b390-058680942670}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-15.77" y1="-8" x2="-8.83" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.79" y1="9" x2="17.79" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-8" x2="12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1aad0fa7-21f2-4804-9fdc-a2b6e1ef593c}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{7e0c05ab-78f8-455c-9a01-ad36235a3f30}" name="" x="25" y="4" orientation="e" type="Generic"/>
+    </description>
+</definition>

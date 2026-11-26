@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="13" hotspot_y="22">
+    <uuid uuid="{8f4a6cae-8591-e16b-0fb5-5aef22a376f4}"/>
+    <names>
+        <name lang="ca">Ventilador de bobina horitzontal (fancoil)</name>
+        <name lang="es">Fancoil Horiz</name>
+        <name lang="pt_BR">Fancoil Houiz</name>
+        <name lang="zh">卧式风机盘管</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <ellipse x="-4" y="-4.65" width="8" height="7.41" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="-8.35" x2="11.5" y2="-8.35" x3="11.5" y3="-2.33" x4="8" y4="-2.33" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-8" y="-8.35" width="16" height="14.35" start="88" angle="280" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="15" y="-12" width="11" height="21" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="-16" x2="20" y2="-10" x3="25" y3="-9" x4="16" y4="-5" x5="25" y5="-3" x6="15" y6="1" x7="26" y7="3" x8="16" y8="6" x9="21" y9="7" x10="21" y10="12" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9" y="-12" width="42" height="21" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-9" y="11.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{76ab6a72-8e50-4979-a976-67ef31f9025a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{8d28389d-90c2-4763-bd25-68e9271b15fb}" name="" x="-2" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{6b43b232-a6a1-4870-a1b3-1710067e8d1a}" name="" x="20" y="-15" orientation="n" type="Generic"/>
+        <terminal uuid="{fc62752f-6154-41f5-b210-ebd13b9e5002}" name="" x="21" y="11" orientation="s" type="Generic"/>
+    </description>
+</definition>

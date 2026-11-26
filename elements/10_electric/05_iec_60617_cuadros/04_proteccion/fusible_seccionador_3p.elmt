@@ -1,0 +1,44 @@
+<definition height="60" hotspot_x="13" hotspot_y="32" link_type="simple" type="element" version="0.200.1" width="60">
+    <uuid uuid="{da73bd6c-e110-4c26-b6ea-8c6edd2211bf}"/>
+    <names>
+        <name lang="de">Sicherungs-Trennschalter, 3-polig</name>
+        <name lang="en">Fuse-disconnector, 3 poles</name>
+        <name lang="es">Fusible-seccionador, 3 polos</name>
+        <name lang="fr">Fusible-sectionneur, 3 pôles</name>
+        <name lang="it">Fusibile-sezionatore, 3 poli</name>
+        <name lang="pt">Fusível-seccionador, 3 polos</name>
+        <name lang="tr">Sigortalı ayırıcı, 3 kutuplu</name>
+        <name lang="zh">熔断器式隔离器，3极</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{2920034e-d22f-4da7-9891-70ae749b2b44}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{7e1798d2-1f44-4397-9e6f-1920f2f48617}" x1="0" x2="0" y1="10" y2="20"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{751c8f49-e137-43f7-82d5-b8bd670a2d42}" x1="0" x2="-8" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{52030784-cafb-41d9-9d84-05ab90f209e8}" x1="-3" x2="3" y1="-10" y2="-10"/>
+        <polygon antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{9e8e0cbf-c336-46b0-a85b-9397d93467e0}" x1="-4.19" x2="-9.01" x3="-3.81" x4="1.01" y1="-7.46" y2="-5.53" y3="7.46" y4="5.53"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{e80015c2-5911-57e4-8009-55fdcd698306}" x="-18.01" y="-10.49" z="8">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{29a6943f-6ce7-403c-a684-bd5fdaaf7c35}" x1="20" x2="20" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{c0c8fe4f-06af-4bf9-9f14-524fb6eea4c4}" x1="20" x2="20" y1="10" y2="20"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{b68b4ac1-a613-46f9-830c-219bddf0a49f}" x1="20" x2="12" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{09c12ef1-5168-46d6-b12d-0f96b48e5c82}" x1="17" x2="23" y1="-10" y2="-10"/>
+        <polygon antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{8070b295-acaf-4f3e-952b-0f445263bd83}" x1="15.81" x2="10.99" x3="16.19" x4="21.01" y1="-7.46" y2="-5.53" y3="7.46" y4="5.53"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{1f37d937-6b06-4328-ad06-2d546ee66027}" x1="40" x2="40" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{26896f0d-a778-4204-b31f-0799245ae6e5}" x1="40" x2="40" y1="10" y2="20"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{f1e1febf-806e-4272-930d-0fe0480f958e}" x1="40" x2="32" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{c5d97031-db58-493e-82ac-3c99ba9ca160}" x1="37" x2="43" y1="-10" y2="-10"/>
+        <polygon antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{7ec8834e-88b3-471f-80b8-c54522775bbd}" x1="35.81" x2="30.99" x3="36.19" x4="41.01" y1="-7.46" y2="-5.53" y3="7.46" y4="5.53"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{fe82f143-087a-4aa3-8594-6ca77b531d2a}" x1="-4" x2="36" y1="0" y2="0"/>
+        <terminal name="2" orientation="s" type="Generic" uuid="{a75f379b-044e-5eef-9f2b-b03211cd8634}" x="0" y="20" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{6571d144-b203-59f8-8c76-8927a30d8f4d}" x="0" y="-20"/>
+        <terminal name="3" orientation="n" type="Generic" uuid="{aa660a81-a983-5a21-ab39-b510f73b572f}" x="20" y="-20" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal name="5" orientation="n" type="Generic" uuid="{f947ccfc-f71e-5107-8fe4-a9c77bae8f07}" x="40" y="-20" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal name="6" orientation="s" type="Generic" uuid="{8ea61241-a621-5391-9302-854f92b5a588}" x="40" y="20" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal name="4" orientation="s" type="Generic" uuid="{2dabac43-de99-5047-89f1-4c924ae3d1bf}" x="20" y="20" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

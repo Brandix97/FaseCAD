@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="24" hotspot_y="30">
+    <uuid uuid="{5ea7b279-f9e6-7a6b-1564-bab6add79014}"/>
+    <names>
+        <name lang="ar">مصباح برّاق</name>
+        <name lang="ca">Llum intermitent</name>
+        <name lang="cs">Maják</name>
+        <name lang="da">Blinklys</name>
+        <name lang="de">Rundumleuchte</name>
+        <name lang="el">Φάρος</name>
+        <name lang="en">Flashing light</name>
+        <name lang="es">Luz intermitente</name>
+        <name lang="fi">Vilkkuvalo</name>
+        <name lang="fr">Gyrophare</name>
+        <name lang="hr">Bljeskajuće svjetlo</name>
+        <name lang="hu">Villogó fény</name>
+        <name lang="it">Lampaggiatore</name>
+        <name lang="ja">点滅灯</name>
+        <name lang="ko">점멸등</name>
+        <name lang="mn">Анивчих гэрэл</name>
+        <name lang="nb">Blinklys</name>
+        <name lang="nl">Lamp Alarm</name>
+        <name lang="nl_BE">Knipperlicht</name>
+        <name lang="pl">Sygnalizator świetlny napędzany silnikiem</name>
+        <name lang="pt">Luz intermitente</name>
+        <name lang="pt_BR">Luz piscante</name>
+        <name lang="ro">Lumină intermitentă</name>
+        <name lang="ru">Проблесковый маяк</name>
+        <name lang="sk">Blikajúce svetlo</name>
+        <name lang="sl">Utripajoča luč</name>
+        <name lang="sr">Трепћуће светло</name>
+        <name lang="sv">Blinkljus</name>
+        <name lang="tr">Yanıp sönen ışık</name>
+        <name lang="uk">Проблисковий маяк</name>
+        <name lang="zh">旋转警示灯</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="M" x="7" y="2" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="28" y="-11.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ef58990b-2378-43d8-8ebb-5e53bc0f4ef9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="3" y="-8" width="16" height="16" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="1" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-20" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-7" x2="-17" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="-7" x2="-3" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{5b31eea4-ed41-4a2c-958d-944839cccd38}" name="A1" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{838c2581-c0f0-43c2-9e1a-661ca0f53e80}" name="A2" x="-10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

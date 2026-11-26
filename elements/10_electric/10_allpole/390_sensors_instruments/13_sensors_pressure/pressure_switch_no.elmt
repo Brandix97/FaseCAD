@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="15" hotspot_y="31">
+    <uuid uuid="{f299f528-87b6-8775-40aa-d0733d8dbc52}"/>
+    <names>
+        <name lang="ar">راصد ضغط (برسوستات) - NO</name>
+        <name lang="ca">Pressostat (NO)</name>
+        <name lang="cs">Tlakový spínač NO</name>
+        <name lang="da">Pressostat (NO)</name>
+        <name lang="de">Druckschalter Schliesser</name>
+        <name lang="el">Διακόπτης πίεσης (NO)</name>
+        <name lang="en">Pressure switch (NO)</name>
+        <name lang="es">Presóstato NA</name>
+        <name lang="fi">Painekytkin (NO)</name>
+        <name lang="fr">Pressostat (NO)</name>
+        <name lang="hr">Tlačni prekidač (NO)</name>
+        <name lang="hu">Nyomáskapcsoló (NO)</name>
+        <name lang="it">Presostato (NO)</name>
+        <name lang="ja">圧力スイッチ (NO)</name>
+        <name lang="ko">압력 스위치 (NO)</name>
+        <name lang="mn">Даралтын унтраалга (NO)</name>
+        <name lang="nb">Trykkbryter (NO)</name>
+        <name lang="nl">Pressostaat 2 (NO)</name>
+        <name lang="nl_BE">Drukschakelaar (NO)</name>
+        <name lang="pl">Presostat (zestyk zwierny)</name>
+        <name lang="pt">Pressostato (NO)</name>
+        <name lang="pt_BR">Pressostato (NA)</name>
+        <name lang="ro">Presostat (NO)</name>
+        <name lang="ru">Реле давления (НР)</name>
+        <name lang="sk">Tlakový spínač (NO)</name>
+        <name lang="sl">Tlačno stikalo (NO)</name>
+        <name lang="sr">Прекидач притиска (NO)</name>
+        <name lang="sv">Tryckvakt (NO)</name>
+        <name lang="tr">Basınç şalteri (NO)</name>
+        <name lang="uk">Реле тиску (NO)</name>
+        <name lang="zh">常开压力开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="PE" x="35" y="-9" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="4" x="-2" y="-9" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="18" y="-9" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="17.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="37.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6" y="8" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="P" x="8" y="16" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-40" y="-27.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{efa71f04-818c-4879-89ab-c025888be50d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-2.5" y="-22.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="4" x2="30" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="30" y1="10" x2="40" y2="10" x3="40" y3="-6" closed="false" antialias="false" style="line-style:dashdotted;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="0" y1="-6" x2="0" y2="0" x3="3" y3="0" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="20" y1="-6" x2="20" y2="0" x3="18" y3="0" x4="4" y4="4" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="11" y1="8" x2="11" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="-20" x2="-10" y2="-20" x3="-10" y3="25" x4="50" y4="25" x5="50" y5="-20" x6="43" y6="-20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="3" y1="-20" x2="17" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="-20" x2="37" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{443e1675-1388-493d-ae5c-f4e45aa06937}" name="" x="40" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{c285719f-2855-4137-b39d-ce48598fe05f}" name="" x="0" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{c44f247b-3642-476f-a077-e6e58649b49e}" name="" x="20" y="-23" orientation="n" type="Generic"/>
+    </description>
+</definition>

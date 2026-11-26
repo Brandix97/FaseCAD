@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{131bc013-5def-4214-9510-38bf1d2604c6}"/>
+    <names>
+        <name lang="ar">مشعاع</name>
+        <name lang="ca">Radidador ferro colat alt</name>
+        <name lang="cs">Deskové topné těleso</name>
+        <name lang="da">Stålradiator</name>
+        <name lang="de">Stahlheizkörper</name>
+        <name lang="el">Χαλύβδινο σώμα</name>
+        <name lang="en">Steel radiator</name>
+        <name lang="es">Radiador fundicion alto</name>
+        <name lang="fi">Teräspatteri</name>
+        <name lang="fr">Radiateur Acier</name>
+        <name lang="hr">Čelični radijator</name>
+        <name lang="hu">Acél radiátor</name>
+        <name lang="it">Radiatore</name>
+        <name lang="ja">鋼製ラジエーター</name>
+        <name lang="ko">강철 라디에이터</name>
+        <name lang="mn">Ган радиатор</name>
+        <name lang="nb">Stål radiator</name>
+        <name lang="nl">Radiator staal</name>
+        <name lang="nl_BE">Stalen radiator</name>
+        <name lang="pl">Grzejnik płytowy</name>
+        <name lang="pt">Radiador de aço</name>
+        <name lang="pt_BR">Steel radiatou</name>
+        <name lang="ro">Radiator din oțel</name>
+        <name lang="ru">Стальной радиатор</name>
+        <name lang="sk">Oceľový radiátor</name>
+        <name lang="sl">Jekleni radiator</name>
+        <name lang="sr">Челични радијатор</name>
+        <name lang="sv">Stålradiator</name>
+        <name lang="tr">Çelik radyatör</name>
+        <name lang="uk">Сталевий радіатор</name>
+        <name lang="zh">高柱式散热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="17.16" y1="-17.46" x2="16.23" y2="-17.46" x3="16.23" y3="-22.76" x4="21.81" y4="-22.76" x5="21.81" y5="-17.46" x6="20.88" y6="-17.46" x7="20.88" y7="25.58" x8="21.81" y8="25.58" x9="21.81" y9="31.09" x10="16.23" y10="31.09" x11="16.23" y11="25.58" x12="17.16" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0.43" y1="-17.46" x2="-0.5" y2="-17.46" x3="-0.5" y3="-22.76" x4="5.08" y4="-22.76" x5="5.08" y5="-17.46" x6="4.15" y6="-17.46" x7="4.15" y7="25.58" x8="5.08" y8="25.58" x9="5.08" y9="31.09" x10="-0.5" y10="31.09" x11="-0.5" y11="25.58" x12="0.43" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-10.72" y1="-17.46" x2="-11.65" y2="-17.46" x3="-11.65" y3="-22.76" x4="-6.07" y4="-22.76" x5="-6.07" y5="-17.46" x6="-7" y6="-17.46" x7="-7" y7="25.58" x8="-6.07" y8="25.58" x9="-6.07" y9="31.09" x10="-11.65" y10="31.09" x11="-11.65" y11="25.58" x12="-10.72" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-5.14" y1="-17.46" x2="-6.07" y2="-17.46" x3="-6.07" y3="-22.76" x4="-0.5" y4="-22.76" x5="-0.5" y5="-17.46" x6="-1.43" y6="-17.46" x7="-1.43" y7="25.58" x8="-0.5" y8="25.58" x9="-0.5" y9="31.09" x10="-6.07" y10="31.09" x11="-6.07" y11="25.58" x12="-5.14" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-19.55" y="26.93" width="2.32" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="11.59" y1="-17.46" x2="10.66" y2="-17.46" x3="10.66" y3="-22.76" x4="16.23" y4="-22.76" x5="16.23" y5="-17.46" x6="15.3" y6="-17.46" x7="15.3" y7="25.58" x8="16.23" y8="25.58" x9="16.23" y9="31.09" x10="10.66" y10="31.09" x11="10.66" y11="25.58" x12="11.59" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="22.74" y1="-17.46" x2="21.81" y2="-17.46" x3="21.81" y3="-22.76" x4="27.39" y4="-22.76" x5="27.39" y5="-17.46" x6="26.46" y6="-17.46" x7="26.46" y7="25.58" x8="27.39" y8="25.58" x9="27.39" y9="31.09" x10="21.81" y10="31.09" x11="21.81" y11="25.58" x12="22.74" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="6" y1="-17.46" x2="5.08" y2="-17.46" x3="5.08" y3="-22.76" x4="10.66" y4="-22.76" x5="10.66" y5="-17.46" x6="9.73" y6="-17.46" x7="9.73" y7="25.58" x8="10.66" y8="25.58" x9="10.66" y9="31.09" x10="5.08" y10="31.09" x11="5.08" y11="25.58" x12="6" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="27.85" y="-21.52" width="2.32" height="3.13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="27.85" y="26.93" width="2.32" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19.55" y="-21.52" width="2.32" height="3.13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16.3" y1="-17.46" x2="-17.23" y2="-17.46" x3="-17.23" y3="-22.76" x4="-11.65" y4="-22.76" x5="-11.65" y5="-17.46" x6="-12.58" y6="-17.46" x7="-12.58" y7="25.58" x8="-11.65" y8="25.58" x9="-11.65" y9="31.09" x10="-17.23" y10="31.09" x11="-17.23" y11="25.58" x12="-16.3" y12="25.58" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="6" y="-33.69" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{402daeec-34ad-45cb-ab1d-906f167450d7}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{bf9067a3-2978-41e3-a192-fa8818833904}" name="" x="-20" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{3687443a-8844-45d0-bbc1-ce134fbf828c}" name="" x="30" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{340ae526-ad6a-427f-8830-7ca4cc0dfc7a}" name="" x="30" y="30" orientation="e" type="Generic"/>
+        <terminal uuid="{95642180-6a33-4b0d-b43b-f63bc794184a}" name="" x="-19" y="30" orientation="w" type="Generic"/>
+    </description>
+</definition>

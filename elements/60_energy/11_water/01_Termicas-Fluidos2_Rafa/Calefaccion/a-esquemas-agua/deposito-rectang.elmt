@@ -1,0 +1,37 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="80" hotspot_x="30" hotspot_y="44">
+    <uuid uuid="{5388f40c-f797-b9ed-1689-af47d9383b74}"/>
+    <names>
+        <name lang="ar">إناء مستطيل</name>
+        <name lang="ca">Dipòsit rectangular</name>
+        <name lang="cs">Obdélníková nádoba</name>
+        <name lang="da">Rektangulær beholder</name>
+        <name lang="de">Ausdehnungsgefäß rechteckig</name>
+        <name lang="el">Ορθογώνιο δοχείο</name>
+        <name lang="en">Rectangular expansion vessel</name>
+        <name lang="es">Depósito Rectangular</name>
+        <name lang="fr">Vase rectangle</name>
+        <name lang="pt_BR">Depósito Rectangular</name>
+        <name lang="zh">矩形水箱</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="14" y="27" width="5" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-30" x2="20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-35" width="40" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="16" width="40" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-30" x2="-20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-21" y="-35" width="42" height="61" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="26" width="5" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-27" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{212167db-83f7-40af-ace7-de49da04af5a}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{bfe913db-4dfb-2dbe-9130-da844f558e71}" name="" x="20" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{8d1613fe-26a1-c59e-fdae-f38798cb04bf}" name="" x="0" y="-34" orientation="n" type="Generic"/>
+        <terminal uuid="{53764c90-ad0f-c25a-dad8-e17ffb7be5e1}" name="" x="20" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{27a1606b-8da2-cb61-8028-3da2a527ef9f}" name="" x="-20" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{48bd6aab-7e0f-0b5a-74b3-97ac3909a341}" name="" x="0" y="26" orientation="s" type="Generic"/>
+        <terminal uuid="{b3d405e7-0411-6b1b-bfe7-14008ae2b7b7}" name="" x="-20" y="-20" orientation="w" type="Generic"/>
+    </description>
+</definition>

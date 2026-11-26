@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="160" height="150" hotspot_x="90" hotspot_y="55">
+    <uuid uuid="{16848e2e-74a1-37e1-13aa-d8770715abb4}"/>
+    <names>
+        <name lang="ar">قارن TV-Sat</name>
+        <name lang="ca">Acoblador TV-Sat</name>
+        <name lang="cs">Slučovač TV – SAT</name>
+        <name lang="da">TV-Sat-kobler</name>
+        <name lang="de">Koppler TV-Sat</name>
+        <name lang="el">Συζεύκτης TV-Sat</name>
+        <name lang="en">TV-Sat coupler</name>
+        <name lang="es">Mezclador TV-Sat</name>
+        <name lang="fr">Coupleur TV-Sat</name>
+        <name lang="pt_BR">Acoplador TV/Sat externo</name>
+        <name lang="zh">电视卫星室外耦合器</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-75" y="62" width="22" height="20" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-55" y1="-50" x2="-85" y2="-50" x3="-85" y3="60" x4="-73" y4="60" x5="-55" y5="60" x6="-55" y6="30" x7="-50" y7="30" x8="-50" y8="0" x9="-55" y9="0" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-5" y="50" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="50" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="52" x2="-5" y2="54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="54" x2="-5" y2="56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="56" x2="-5" y2="58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="58" x2="-4" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="60" width="8" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="-30" width="90" height="80" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="35" y="50" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-71" y="-81.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{18a543d6-d49a-408c-827b-98bc9156afb7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="45" y1="52" x2="35" y2="54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="52" x2="-25" y2="54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="54" x2="-25" y2="56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="54" x2="35" y2="56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="56" x2="-25" y2="58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="56" x2="35" y2="58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="45" y1="58" x2="36" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="58" x2="-24" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-24" y="60" width="8" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="36" y="60" width="8" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="40" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-20" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="5" y1="0" x2="40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="40" y1="0" x2="40" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-55" y1="-50" x2="-45" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-53" y1="82" x2="-47" y2="88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-75" y1="82" x2="-69" y2="88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-69" y1="88" x2="-47" y2="88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-85" y1="60" x2="-75" y2="70" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-45" y1="-40" x2="-55" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-35" y1="70" x2="-45" y2="70" x3="-45" y3="-40" x4="65" y4="-40" x5="65" y5="70" x6="55" y6="70" x7="55" y7="90" x8="-35" y8="90" x9="-35" y9="70" x10="-35" y10="80" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="0" y1="40" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-5" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="5" y1="-5" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <text text="TV" x="-24" y="48" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Sat" x="-5" y="48" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="OUT" x="33" y="48" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-47" y1="68" x2="-53" y2="68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-55" y1="60" x2="-53" y2="62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-45" y1="70" x2="-47" y2="68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-47" y1="68" x2="-47" y2="88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b1605770-0d14-426f-afcb-5a9617efd248}" name="" x="0" y="60" orientation="s" type="Generic"/>
+        <terminal uuid="{31411658-6c0b-4ab9-84ec-e97458fb6ee2}" name="" x="40" y="60" orientation="s" type="Generic"/>
+        <terminal uuid="{59b4cef9-eb31-46dd-8cd1-60643426a1d5}" name="" x="-20" y="60" orientation="s" type="Generic"/>
+    </description>
+</definition>

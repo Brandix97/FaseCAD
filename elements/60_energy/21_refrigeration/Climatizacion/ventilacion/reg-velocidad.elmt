@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="18">
+    <uuid uuid="{ce16cd3f-276c-872a-7d6d-188a0a249a0b}"/>
+    <names>
+        <name lang="ca">Regulador velocidad</name>
+        <name lang="es">Regulador velocitat</name>
+        <name lang="pt_BR">Regulador de velocidade</name>
+        <name lang="zh">速度调节器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-6.65" y="-8.28" width="13.78" height="16.32" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-7" y1="-7.43" x2="-7" y2="8.58" x3="7.14" y3="8.58" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-3" y="-7" width="8" height="3.2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.2" y="-1.89" width="5.75" height="5.14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-1.72" y1="-0.61" x2="0.67" y2="0.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="3.07" y1="6.17" x2="-2.6" y2="6.17" x3="-2.6" y3="4.82" antialias="false" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <dynamic_text x="-7" y="4.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{51726cb8-fd89-455b-8820-11b99f8ff50a}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{fe8fea05-75d6-4e34-914b-a41805405a87}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

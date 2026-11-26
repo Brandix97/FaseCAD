@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{1ddaefbe-97fa-e14e-cae0-27b001bc5043}"/>
+    <names>
+        <name lang="ar">صمّام - تحكّم كهرومغناطييسي</name>
+        <name lang="ca">Vàlvula - control electromagnètic</name>
+        <name lang="cs">Klapka řízená elektromagnetem</name>
+        <name lang="da">Ventil - elektromagnetisk styret</name>
+        <name lang="de">Ventil - elektromagnetisch betätigt</name>
+        <name lang="el">Βαλβίδα - Ηλεκτρομαγνητικός έλεγχος</name>
+        <name lang="en">Valve - electromagnetic control</name>
+        <name lang="es">Válvula - control electromagnético</name>
+        <name lang="fi">Venttiili - sähkömagneettiohjaus</name>
+        <name lang="fr">Vanne - commande électromagnétique</name>
+        <name lang="hr">Ventil - elektromagnetsko upravljanje</name>
+        <name lang="hu">Szelep - elektromágneses vezérlés</name>
+        <name lang="it">Elettrovalvola</name>
+        <name lang="ja">弁 - 電磁制御</name>
+        <name lang="ko">밸브 - 전자 제어</name>
+        <name lang="mn">Хавхлага - цахилгаан соронзон удирдлага</name>
+        <name lang="nb">Ventil - elektromagnetisk styring</name>
+        <name lang="nl">Klep elektrisch</name>
+        <name lang="nl_BE">Klep - elektromagnetische bediening</name>
+        <name lang="pl">Zawór zasuwowy odcinający sterowany elektromagnetycznie</name>
+        <name lang="pt">Válvula - comando eletromagnético</name>
+        <name lang="pt_BR">Válvula com comando eletromagnético</name>
+        <name lang="ro">Supapă - comandă electromagnetică</name>
+        <name lang="ru">Клапан - электромагнитное управление</name>
+        <name lang="sk">Ventil - elektromagnetické ovládanie</name>
+        <name lang="sl">Ventil - elektromagnetno krmiljenje</name>
+        <name lang="sr">Вентил - електромагнетно управљање</name>
+        <name lang="sv">Ventil - elektromagnetisk styrning</name>
+        <name lang="tr">Valf - elektromanyetik kumandalı</name>
+        <name lang="uk">Клапан - електромагнітне керування</name>
+        <name lang="zh">电磁阀1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="20" y="-25.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c302fac8-6484-4c9e-a0d3-c99f4eaad9bc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="5" y="-16" width="10" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-14" x2="15" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="9" x2="9" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="9" x2="11" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="10" x2="30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="20" y1="16" x2="10" y2="10" x3="20" y3="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="4" x2="0" y2="16" x3="10" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{a95bdc14-e821-4b81-826e-f5af1f47b098}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{20d7d9fc-345b-4844-8848-2cc635f1c75f}" name="" x="30" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

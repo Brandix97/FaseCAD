@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="9" hotspot_y="27">
+    <uuid uuid="{87fbc435-c949-047e-0520-42b0ac26dc51}"/>
+    <names>
+        <name lang="ar">قارورة تبريد</name>
+        <name lang="ca">Ampolla de refrigerant</name>
+        <name lang="cs">Chladicí láhev</name>
+        <name lang="da">Kølemiddelflaske</name>
+        <name lang="de">Kältemittelflasche</name>
+        <name lang="el">Φιάλη ψυκτικού</name>
+        <name lang="en">Refrigerant bottle</name>
+        <name lang="es">Botella refrigerante</name>
+        <name lang="fi">Kylmäainepullo</name>
+        <name lang="fr">Bouteille réfrigérante</name>
+        <name lang="hr">Boca rashladnog sredstva</name>
+        <name lang="hu">Hűtőközeg-palack</name>
+        <name lang="it">Bombola refrigerante</name>
+        <name lang="ja">冷媒ボンベ</name>
+        <name lang="ko">냉매 용기</name>
+        <name lang="mn">Хөргөлтийн шингэний сав</name>
+        <name lang="nb">Kjølemediumflaske</name>
+        <name lang="nl">Koudemiddelfles</name>
+        <name lang="nl_BE">Koudemiddelfles</name>
+        <name lang="pl">Zbiornik czynnika chłodniczego</name>
+        <name lang="pt">Garrafa de refrigerante</name>
+        <name lang="pt_BR">Botella refrigerante</name>
+        <name lang="ro">Butelie de agent frigorific</name>
+        <name lang="ru">Ресивер хладагента</name>
+        <name lang="sk">Fľaša s chladivom</name>
+        <name lang="sl">Hladilna jeklenka</name>
+        <name lang="sr">Боца расхладног средства</name>
+        <name lang="sv">Kylmediumflaska</name>
+        <name lang="tr">Soğutucu tüpü</name>
+        <name lang="uk">Балон холодоагенту</name>
+        <name lang="zh">制冷瓶</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-4" y="-13" width="19" height="6" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="11" y1="15" x2="12" y2="16" x3="15" y3="15" x4="14" y4="14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-7" y="12" width="25" height="9" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-16" width="21" height="7" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-12" x2="-5" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="8" width="21" height="7" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="16" y1="-12" x2="16" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="12" x2="-7" y2="14" x3="-7" y3="16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="16" y1="12" x2="18" y2="13" x3="18" y3="16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-3" y1="14" x2="-4" y2="15" x3="-1" y3="16" x4="0" y4="15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="4" y1="15" x2="4" y2="17" x3="8" y3="17" x4="8" y4="15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="-13" x2="9" y2="-17" x3="12" y3="-18" x4="13" y4="-14" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-3" y1="-14" x2="-2" y2="-18" x3="2" y3="-19" x4="2" y4="-16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="3" y1="-21" x2="3" y2="-14" x3="4" y3="-13" x4="5" y4="-13" x5="6" y5="-13" x6="7" y6="-14" x7="7" y7="-21" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <ellipse x="3" y="-22" width="4" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="6" y1="-20" x2="10" y2="-20" x3="10" y3="-19" x4="6" y4="-19" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-4" y="-5.5" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{e3d84e70-68fb-410f-9595-4e7a2c42b16d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4bde9096-f31e-5edc-2fa9-11a24038f050}" name="" x="10" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

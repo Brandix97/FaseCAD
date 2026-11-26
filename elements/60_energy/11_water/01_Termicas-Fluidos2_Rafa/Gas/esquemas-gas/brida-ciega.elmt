@@ -1,0 +1,18 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="9" hotspot_y="15">
+    <uuid uuid="{a9d91fe7-b506-836f-8d81-081c3db8ec11}"/>
+    <names>
+        <name lang="ca">Brida cega</name>
+        <name lang="de">Blindflansch</name>
+        <name lang="es">Brida Ciega</name>
+        <name lang="pt_BR">Brida Ciega</name>
+        <name lang="zh">盲板法兰</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="15" y="-10" width="2" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="10" y="-10" width="2" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{257fccab-141d-4f7b-85bf-87f74453dd52}" name="" x="0" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

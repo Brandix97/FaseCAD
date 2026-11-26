@@ -1,0 +1,83 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{4fbffd09-f1d0-9f3f-8d49-03d82516ba1a}"/>
+    <names>
+        <name lang="ar">مجمّد</name>
+        <name lang="ca">Congelador</name>
+        <name lang="cs">Mrazák</name>
+        <name lang="da">Fryser</name>
+        <name lang="de">Gefrierschrank</name>
+        <name lang="el">Καταψύκτης</name>
+        <name lang="en">Freezer</name>
+        <name lang="es">Congelador</name>
+        <name lang="fi">Pakastin</name>
+        <name lang="fr">Congélateur</name>
+        <name lang="hr">Zamrzivač</name>
+        <name lang="hu">Fagyasztó</name>
+        <name lang="it">Congelatore</name>
+        <name lang="ja">冷凍庫</name>
+        <name lang="ko">냉동고</name>
+        <name lang="mn">Хөлдөөгч</name>
+        <name lang="nb">Fryser</name>
+        <name lang="nl">Vriezer</name>
+        <name lang="nl_BE">Diepvriezer</name>
+        <name lang="pl">Zamrażarka</name>
+        <name lang="pt">Congelador</name>
+        <name lang="pt_BR">Congelador</name>
+        <name lang="ro">Congelator</name>
+        <name lang="ru">Морозильник</name>
+        <name lang="sk">Mraznička</name>
+        <name lang="sl">Zamrzovalnik</name>
+        <name lang="sr">Замрзивач</name>
+        <name lang="sv">Frys</name>
+        <name lang="tr">Dondurucu</name>
+        <name lang="uk">Морозильна камера</name>
+        <name lang="zh">冰柜(电磁兼容)</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>CBH41</informations>
+    <description>
+        <line x1="46" y1="-145" x2="56" y2="-145" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="63" y1="-150" x2="63" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="58" y1="-145" x2="68" y2="-145" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{2ea6780b-2369-4a5e-a760-6920058ee792}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>20</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{290d93bf-b882-41cb-a24e-d15d9f0ef1f8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="30" y="-160" width="60" height="70" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="34" y="-150" width="2" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="72" y1="-148" x2="78" y2="-142" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="78" y1="-148" x2="72" y2="-142" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-145" x2="80" y2="-145" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="75" y1="-150" x2="75" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="51" y1="-150" x2="51" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-142" x2="66" y2="-148" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-142" x2="54" y2="-148" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="48" y1="-148" x2="54" y2="-142" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-148" x2="66" y2="-142" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-28.5" z="46" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{534af790-9352-447e-b69b-4769486fa3a5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="47" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{ef3bb590-5136-459d-8b48-687350384a63}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 2.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="48" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{de206224-3ab4-44aa-8151-de6cbb6a4310}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Congélateur</text>
+        </dynamic_text>
+        <line x1="50" y1="-170" x2="50" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{693ace1d-578b-449a-aa1d-e0727faf1cd2}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{c1d23393-51de-4b04-829e-fedbfd3dcda1}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{13bf67c5-cf17-4734-b275-c161474e3383}" name="" x="60" y="-90" orientation="s" type="Generic"/>
+    </description>
+</definition>

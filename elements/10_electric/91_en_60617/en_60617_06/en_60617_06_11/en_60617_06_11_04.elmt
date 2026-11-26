@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="100" hotspot_x="92" hotspot_y="84">
+    <uuid uuid="{1167ef6c-9f6e-3b78-085e-1e9fedca6632}"/>
+    <names>
+        <name lang="ar">محول ذاتي، ثلاثي الأوجه، توصيل نجمة</name>
+        <name lang="ca">Autotransformador, trifàsic, estrella de connexió</name>
+        <name lang="cs">Třífázový autotransformátor do hvězdy</name>
+        <name lang="da">Autotransformer, trefaset, kobling stjerne</name>
+        <name lang="de">Drehstrom-Spartransformator, Sternschaltung</name>
+        <name lang="el">Αυτομετασχηματιστής, τριφασικός, συνδεσμολογία αστέρα</name>
+        <name lang="en">Auto-transformer, three-phase, connection star</name>
+        <name lang="es">Autotransformador, trifásico, conexión estrella</name>
+        <name lang="fi">Automaattimuuntaja, kolmivaiheinen, kytkentä tähti</name>
+        <name lang="fr">Autotransformateur, triphasé, couplage étoile</name>
+        <name lang="hr">Autotransformator, trofazni, spoj zvijezda</name>
+        <name lang="hu">Autotranszformátor, háromfázisú, csillagkapcsolás</name>
+        <name lang="it">Autotrasformatore, trifase, collegamento a stella</name>
+        <name lang="ja">三相単巻変圧器、スター結線</name>
+        <name lang="ko">오토 트랜스포머, 삼상, 성형 연결</name>
+        <name lang="mn">Автотрансформатор, гурван фазын, од холболт</name>
+        <name lang="nb">Autotransformator, trefase, kobling stjerne</name>
+        <name lang="nl">Autotransformator, driefase, schakeling ster</name>
+        <name lang="nl_BE">Autotransformator, driefase, schakeling ster</name>
+        <name lang="pl">Autotransformator, trójfazowy, połączenie gwiazda</name>
+        <name lang="pt">Autotransformador, trifásico, ligação estrela</name>
+        <name lang="pt_BR">Autotransformador trifásico em estrela</name>
+        <name lang="ro">Autotransformator, trifazat, conexiune stea</name>
+        <name lang="ru">Автотрансформатор, трёхфазный, соединение звезда</name>
+        <name lang="sk">Autotransformátor, trojfázový, zapojenie do hviezdy</name>
+        <name lang="sl">Avtotransformator, trifazni, vezava zvezda</name>
+        <name lang="sr">Аутотрансформатор, трофазни, спој звезда</name>
+        <name lang="sv">Autotransformator, trefas, koppling stjärna</name>
+        <name lang="tr">Oto transformatör, üç fazlı, yıldız bağlantı</name>
+        <name lang="uk">Автотрансформатор, трифазний, з'єднання зірка</name>
+        <name lang="zh">接线端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9a564aec-d06a-4ae3-a944-d32f0436085e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="5" y="-30" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-50" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-50" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="Form 2 / Forme 2" x="-74" y="-70" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-35" y="-30" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-75" y="-50" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-20" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-20" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-35" y="-40" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-40" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-75" y="-30" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-75" y="-20" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-75" y="-40" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-70" y1="-10" x2="-70" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-70" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-10" x2="-30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-70" y1="-20" x2="-90" y2="-20" x3="-90" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-30" y1="-20" x2="-50" y2="-20" x3="-50" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10" y1="-20" x2="-10" y2="-20" x3="-10" y3="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

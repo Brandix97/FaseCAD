@@ -1,0 +1,55 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="40" hotspot_x="28" hotspot_y="10">
+    <uuid uuid="{77112959-b5cd-53d2-cda9-a2da33cb8051}"/>
+    <names>
+        <name lang="ar">القابض المتوازي مفتوح عادة + مغناطيس</name>
+        <name lang="ca">Pinça paral·lela normalment oberta + imant</name>
+        <name lang="cs">Paralelní chapadlo normálně otevřené + magnet</name>
+        <name lang="da">Parallel griber normalt åben + magnet</name>
+        <name lang="de">Parallelgreifer normal offen + Magnet</name>
+        <name lang="el">Παράλληλη λαβή κανονικά ανοιχτή + μαγνήτης</name>
+        <name lang="en">Parallel gripper normally open + magnet</name>
+        <name lang="es">Pinza paralela normalmente abierta + imán</name>
+        <name lang="fi">Rinnakkaistarttuja normaalisti auki + magneetti</name>
+        <name lang="fr">Pince parallèle normalement ouverte + aimant</name>
+        <name lang="hr">Paralelna hvataljka normalno otvorena + magnet</name>
+        <name lang="hu">Párhuzamos megfogó alaphelyzetben nyitott + mágnes</name>
+        <name lang="it">Pinza parallela normalmente aperta + magnete</name>
+        <name lang="ja">パラレルグリッパーノーマルオープン+マグネット</name>
+        <name lang="ko">평행 그리퍼 상시 개방형 + 자석</name>
+        <name lang="mn">Зэрэгцээ атгагч нь ихэвчлэн нээлттэй + соронз</name>
+        <name lang="nb">Parallellgriper normalt åpen + magnet</name>
+        <name lang="nl">Parallelgrijper normaal open + magneet</name>
+        <name lang="nl_BE">Parallelgrijper normaal open + magneet</name>
+        <name lang="pl">Chwytak równoległy normalnie otwarty + magnes</name>
+        <name lang="pt">Garra paralela normalmente aberta + ímã</name>
+        <name lang="pt_BR">Garra paralela normalmente aberta + ímã</name>
+        <name lang="ro">Grip paralel deschis normal + magnet</name>
+        <name lang="ru">Параллельный захват нормально открытый + магнит</name>
+        <name lang="sk">Paralelný uchopovač normálne otvorený + magnet</name>
+        <name lang="sl">Vzporedno prijemalo normalno odprto + magnet</name>
+        <name lang="sr">Паралелна хватаљка нормално отворена + магнет</name>
+        <name lang="sv">Parallellegrepp normalt öppen + magnet</name>
+        <name lang="tr">Paralel tutucu normalde açık + mıknatıs</name>
+        <name lang="uk">Паралельний захват нормально відкритий + магніт</name>
+        <name lang="zh">双作用夹爪气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-24" y="-25" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="13" y1="-3" x2="18" y2="-3" x3="21" y3="-5" x4="24" y4="-3" x5="26" y5="-3" x6="28" y6="-3" x7="28" y7="0" x8="26" y8="0" x9="24" y9="0" x10="21" y10="2" x11="18" y11="0" x12="13" y12="0" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="10" y1="13" x2="10" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="13" y1="10" x2="18" y2="10" x3="21" y3="8" x4="24" y4="10" x5="26" y5="10" x6="28" y6="10" x7="28" y7="13" x8="26" y8="13" x9="24" y9="13" x10="21" y10="15" x11="18" y11="13" x12="13" y12="13" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <rect x="-17" y="-3" width="7" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="13" x2="-20" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-22" y1="13" x2="-18" y2="13" x3="-20" y3="9" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="8" y1="13" x2="10" y2="9" x3="12" y3="13" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <polygon x1="-14.52" y1="1.06" x2="-14.52" y2="9.06" x3="-14.52" y3="1.06" x4="-13.52" y4="1.06" x5="-13.52" y5="9.06" x6="-12.52" y6="9.06" x7="-12.52" y7="7.06" x8="-13.52" y8="6.06" x9="-13.52" y9="4.06" x10="-12.52" y10="3.06" x11="-12.52" y11="1.06" x12="-14.52" y12="1.06" x13="-14.52" y13="9.06" x14="-13.52" y14="9.06" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-23" y="-3" width="36" height="16" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{de73745d-d228-4f0e-9cc1-137e246cb3d4}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-20" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

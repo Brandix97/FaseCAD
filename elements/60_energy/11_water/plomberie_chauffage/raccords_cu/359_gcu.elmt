@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="19" hotspot_y="10">
+    <uuid uuid="{df68b42e-48b3-0561-131f-f88899e0b8d2}"/>
+    <names>
+        <name lang="ar">وصلة 359 GCU</name>
+        <name lang="ca">Adaptació de 359 GCU</name>
+        <name lang="cs">Spojka 359 GCU</name>
+        <name lang="da">Fitting 359 GCU</name>
+        <name lang="de">Raccord 359 GCU</name>
+        <name lang="el">Σύνδεσμος 359 GCU</name>
+        <name lang="en">Fitting 359 GCU</name>
+        <name lang="fr">Raccord 359 GCU</name>
+        <name lang="it">Raccordo 359 GCU</name>
+        <name lang="pt_BR">Raccoud 359 GCU</name>
+        <name lang="zh">359度铜弯头</name>
+    </names>
+    <informations>Baboune41-2016</informations>
+    <description>
+        <rect x="-10" y="-7" width="7" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <line x1="-5" y1="-4" x2="-10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-25.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{aa5b6d29-5a20-4872-9c2a-a43d2322a487}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-1" y="-9" width="4" height="4" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-1" y="5" width="4" height="4" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-3" y1="-5" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="5" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="-7" width="8" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <terminal uuid="{d42d8dff-b64d-4138-bbe4-142cf997f31a}" name="" x="11" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{3332a562-cae3-495f-8b00-9a1d403061b8}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

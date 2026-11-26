@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="40" hotspot_x="10" hotspot_y="20">
+    <uuid uuid="{736a6108-6424-5afa-eddc-8cb72fdd8941}"/>
+    <names>
+        <name lang="ar">ممر نفقي</name>
+        <name lang="ca">Transició de túnels</name>
+        <name lang="cs">Přechod</name>
+        <name lang="da">Tunnelovergang</name>
+        <name lang="de">Durchgangsloch</name>
+        <name lang="el">Μετάβαση τούνελ</name>
+        <name lang="en">Tunneling transition</name>
+        <name lang="es">Túnel de transición</name>
+        <name lang="fi">Tunneloiva siirtymä</name>
+        <name lang="fr">Passage percement</name>
+        <name lang="hr">Tunelska tranzicija</name>
+        <name lang="hu">Alagút átmenet</name>
+        <name lang="it">Foro di passaggio</name>
+        <name lang="ja">トンネル遷移</name>
+        <name lang="ko">터널링 전환</name>
+        <name lang="mn">Туннелийн шилжилт</name>
+        <name lang="nb">Tunnelovergang</name>
+        <name lang="nl">Ondergronds doorgang</name>
+        <name lang="nl_BE">Tunnelingovergang</name>
+        <name lang="pl">Przejście</name>
+        <name lang="pt">Transição em túnel</name>
+        <name lang="pt_BR">Tunneling Transicao</name>
+        <name lang="ro">Tranziție îngropată</name>
+        <name lang="ru">Переход туннельный</name>
+        <name lang="sk">Prechod tunelom</name>
+        <name lang="sl">Prehod tunela</name>
+        <name lang="sr">Тунелски прелаз</name>
+        <name lang="sv">Tunnelövergång</name>
+        <name lang="tr">Tünel geçişi</name>
+        <name lang="uk">Перехід тунельний</name>
+        <name lang="zh">穿孔</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="10" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-7" width="12" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-4.24" y="-4.24" width="8.49" height="8.49" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="7" y="-1" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{06907d6e-40a5-4e80-a492-556a913f002f}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{14e55657-ef7c-44fa-89d0-eeb52f414c51}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{1fc57f49-6c42-49e2-a373-08485f5696d9}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="master" width="70" height="60" hotspot_x="40" hotspot_y="30">
+    <uuid uuid="{736a63c6-1813-1081-ac51-805682a9136d}"/>
+    <names>
+        <name lang="ar">مفتاح عزل ثلاثي بمصهرات</name>
+        <name lang="ca">interruptors de fusibles</name>
+        <name lang="cs">Pojistkový odpínač 3p</name>
+        <name lang="da">sikringsafbrydere</name>
+        <name lang="de">Sicherungstrenner 3-polig</name>
+        <name lang="el">Ασφαλειοδιακόπτης 3P</name>
+        <name lang="en">switchfuses</name>
+        <name lang="es">Seccionador 3P</name>
+        <name lang="fi">Kytkinvarokkeet</name>
+        <name lang="fr">Sectionneur portes fusible tri</name>
+        <name lang="hr">Osigurač-prekidači</name>
+        <name lang="hu">Olvadóbiztosítós szakaszoló karos működtetésű 3F</name>
+        <name lang="it">Sezionatore con fusibile 3P</name>
+        <name lang="ja">ヒューズ付き開閉器</name>
+        <name lang="ko">스위치퓨즈</name>
+        <name lang="mn">унтраалга-хайлмагууд</name>
+        <name lang="nb">sikringsbrytere</name>
+        <name lang="nl">Zekeringscheider 3</name>
+        <name lang="nl_BE">Schakelaars met zekering</name>
+        <name lang="pl">Odłącznik bezpiecznikowy</name>
+        <name lang="pt">Seccionador</name>
+        <name lang="pt_BR">Seccionadora porta-fusíveis</name>
+        <name lang="ro">întrerupătoare cu fuzibil</name>
+        <name lang="ru">Выключатель-предохранитель</name>
+        <name lang="sk">Prepínače s poistkou</name>
+        <name lang="sl">Varovalke s stikalom</name>
+        <name lang="sr">прекидачи-осигурачи</name>
+        <name lang="sv">switchfuses</name>
+        <name lang="tr">şalterli sigortalar</name>
+        <name lang="uk">Перемикачі-запобіжники</name>
+        <name lang="zh">3熔断器隔离开关</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-33" y1="0" x2="-26" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-35" y1="-10" x2="-30" y2="10" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-5.69" y1="-4.51" x2="-3.19" y2="5.49" x3="0.69" y3="4.51" x4="-1.81" y4="-5.49" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-25" y1="-10" x2="-20" y2="10" x3="-20" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="15" y1="-10" x2="20" y2="10" x3="20" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="2" y1="-10" x2="-2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="14.31" y1="-4.51" x2="16.81" y2="5.49" x3="20.69" y3="4.51" x4="18.19" y4="-5.49" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="18" y1="-10" x2="22" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-20" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-25.69" y1="-4.51" x2="-23.19" y2="5.49" x3="-19.31" y3="4.51" x4="-21.81" y4="-5.49" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-20" y1="-20" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="40" y="-12" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{afaf2110-b031-4739-956b-2db9824ecb65}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-18" y1="-10" x2="-22" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1526f9a3-250a-4cf6-969a-b31676e5f22e}" name="" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{5e536f82-9940-4ce6-8f22-be21f94794f5}" name="" x="-20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{2dff235e-6f71-4dd4-ab52-0f176fcc1d75}" name="" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{dd63830c-ec42-4bf0-84fd-5f6b328d946f}" name="" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{aa2c4010-807c-4d81-9c11-c7c41f39c6cd}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{97166189-0172-4ddd-a95d-e339880ef427}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,3892 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "element.h"
+
+#include "../bridge/bridgemanager.h"
+#include "../qetapp.h"
+#include "../qetproject.h"
+#include "../dataBase/projectdatabase.h"
+#include "../ElementsCollection/terminaluuids.h"
+#include "../PropertiesEditor/propertieseditordialog.h"
+#include "../autoNum/assignvariables.h"
+#include "../autoNum/elementautonumschemecommand.h"
+#include "../autoNum/numerotationcontextcommands.h"
+#include "../diagram.h"
+#include "../diagramcommands.h"
+#include "../diagramcontext.h"
+#include "../diagramposition.h"
+#include "../elementprovider.h"
+#include "../factory/elementpicturefactory.h"
+#include "../properties/terminaldata.h"
+#include "../properties/xrefproperties.h"
+#include "../qetinformation.h"
+#include "../qetgraphicsitem/conductor.h"
+#include "../qetgraphicsitem/terminal.h"
+#include "../ui/elementpropertieswidget.h"
+#include "../undocommand/changeelementinformationcommand.h"
+#include "../undocommand/setautonumcontextcommand.h"
+#include "crossrefitem.h"
+#include "terminalelement.h"
+#include "../TerminalStrip/terminalstrip.h"
+#include "dynamicelementtextitem.h"
+#include "elementtextitemgroup.h"
+#include "iostream"
+
+#include <QAbstractTextDocumentLayout>
+#include <QApplication>
+#include <QCursor>
+#include <QGuiApplication>
+#include <QCollator>
+#include <QScreen>
+#include <QTextDocument>
+#include <QTimer>
+#include <QPointer>
+#include "../diagramview.h"
+
+static const QString plcTerminalKeys[] = {
+	QETInformation::ELMT_PLC_T1,
+	QETInformation::ELMT_PLC_T2,
+	QETInformation::ELMT_PLC_T3,
+	QETInformation::ELMT_PLC_T4
+};
+#include "../qetxml.h"
+#include "../positionorder.h"
+#include "../qetversion.h"
+#include "qgraphicsitemutility.h"
+#include <QDebug>
+
+#include <QDomElement>
+#include <QtCore/qnumeric.h>
+#include <utility>
+
+class ElementXmlRetroCompatibility
+{
+	friend class Element;
+
+	static void loadSequential(
+			const QDomElement &dom_element,
+			const QString& seq,
+			QStringList* list)
+	{
+		int i = 0;
+		while (!dom_element.attribute(seq +
+						  QString::number(i+1)).isEmpty())
+		{
+				list->append(dom_element.attribute(
+							 seq +
+							 QString::number(i+1)));
+				i++;
+		}
+	}
+
+	static void loadSequential(
+			const QDomElement &dom_element, Element *element)
+	{
+		autonum::sequentialNumbers sn;
+
+		loadSequential(dom_element, QStringLiteral("sequ_"),  &sn.unit);
+		loadSequential(dom_element, QStringLiteral("sequf_"), &sn.unit_folio);
+		loadSequential(dom_element, QStringLiteral("seqt_"),  &sn.ten);
+		loadSequential(dom_element, QStringLiteral("seqtf_"), &sn.ten_folio);
+		loadSequential(dom_element, QStringLiteral("seqh_"),  &sn.hundred);
+		loadSequential(dom_element, QStringLiteral("seqhf_"), &sn.hundred_folio);
+
+		element->setSequenceStruct(sn);
+	}
+};
+
+/**
+	@brief Element::Element
+	@param location : location of this element
+	@param parent : parent graphics item
+	@param state : state of the instantiation
+	@param link_type
+*/
+Element::Element(
+		const ElementsLocation &location,
+		QGraphicsItem *parent,
+		int *state,
+		kind link_type) :
+	QetGraphicsItem(parent),
+	m_link_type (link_type),
+	m_location (location)
+{
+	if(! (location.isElement() && location.exist()))
+	{
+		if (state)
+		{
+			*state = 1;
+			return;
+		}
+	}
+	int elmt_state;
+	buildFromXml(location.xml(), &elmt_state);
+	if (state) {
+		*state = elmt_state;
+	}
+	if (elmt_state) {
+		return;
+	}
+	if (state) {
+		*state = 0;
+	}
+
+	setPrefix(autonum::elementPrefixForLocation(location));
+	m_uuid = QUuid::createUuid();
+	setZValue(10);
+	setFlags(QGraphicsItem::ItemIsMovable
+		 | QGraphicsItem::ItemIsSelectable);
+	setAcceptHoverEvents(true);
+
+	/* Keep docked conductors attached whenever this element's
+	 * rotation OR scene position changes. Ordinary single-item
+	 * dragging already refreshes conductors explicitly, via
+	 * ElementsMover::continueMovement() calling
+	 * Conductor::updatePath(). But other code paths change an
+	 * element's rotation/pos properties directly -- notably
+	 * RotateSelectionCommand's group-rotation mode, which moves
+	 * each element around a shared pivot via a "pos"
+	 * QPropertyUndoCommand instead of going through
+	 * ElementsMover -- and those need this hook or the
+	 * conductor's path is left stale, still drawn to the
+	 * terminal's old scene position. */
+	auto update_docked_conductors = [this]()
+	{
+		for(QGraphicsItem *qgi : childItems())
+		{
+			if (Terminal *t = qgraphicsitem_cast<Terminal *>(qgi))
+				t->updateConductor();
+		}
+			//An end of a bridge docked to a pin of this symbol goes
+			//along: the line grows or shrinks with it the way a wire
+			//follows the terminal it is docked to
+		BridgeManager::followDocks(diagram() ? diagram()->project() : nullptr, this);
+	};
+	connect(this, &Element::rotationChanged, update_docked_conductors);
+	connect(this, &Element::xChanged, update_docked_conductors);
+	connect(this, &Element::yChanged, update_docked_conductors);
+	connect(this, &Element::mirrorChanged, update_docked_conductors);
+		//The project's database holds the symbol's place
+	connect(this, &Element::xChanged, this, &Element::storePlacement);
+	connect(this, &Element::yChanged, this, &Element::storePlacement);
+	connect(this, &Element::zChanged, this, &Element::storePlacement);
+	connect(this, &Element::rotationChanged, this, &Element::storePlacement);
+	connect(this, &Element::mirrorChanged, this, &Element::storePlacement);
+		//The mirror is about the element's own axis, so it follows the
+		//rotation, see applyMirrorTransform()
+	connect(this, &Element::rotationChanged, this, &Element::applyMirrorTransform);
+		//Texts kept horizontal in a turned symbol depend on the turn
+	connect(this, &Element::rotationChanged, this, [this]() {updateSymbolPictures();});
+		//And its texts and their groups
+	for (DynamicElementTextItem *deti : std::as_const(m_dynamic_text_list))
+		connectTextStore(deti);
+	connect(this, &Element::textAdded, this, [this](DynamicElementTextItem *deti) {
+		connectTextStore(deti);
+		scheduleTextsStore();
+	});
+	connect(this, &Element::textsGroupAdded, this, [this](ElementTextItemGroup *group) {
+		connectTextStore(group);
+		scheduleTextsStore();
+	});
+	connect(this, &Element::textRemoved, this, &Element::scheduleTextsStore);
+	connect(this, &Element::textsGroupAboutToBeRemoved, this, &Element::scheduleTextsStore);
+	connect(this, &Element::textAddedToGroup, this, &Element::scheduleTextsStore);
+	connect(this, &Element::textRemovedFromGroup, this, &Element::scheduleTextsStore);
+}
+
+/**
+	@brief Element::~Element
+*/
+Element::~Element()
+{
+		//Nothing of this element answers anything while it goes: its
+		//terminals say "a wire left" on their way out, and the texts they
+		//would ask are gone before them. Without this the element is
+		//asked to fill texts which are already deleted, and the symbol
+		//takes the whole application with it when it is closed.
+	disconnect(nullptr, nullptr, this, nullptr);
+
+	qDeleteAll (m_dynamic_text_list);
+	m_dynamic_text_list.clear();
+	qDeleteAll (m_terminals);
+	m_terminals.clear();
+}
+
+/**
+	@brief Element::terminals
+	@return the list of terminals of this element.
+*/
+QList<Terminal *> Element::terminals() const
+{
+	return m_terminals;
+}
+
+/**
+	@brief Element::conductors
+	@return The list of conductors docked to this element
+	the list is sorted according to the position of the terminal where the conductor is docked
+	from top to bottom, and left to right.
+*/
+QList<Conductor *> Element::conductors() const
+{
+	QList<Conductor *> conductors;
+
+	for (Terminal *t : m_terminals) {
+		conductors << t -> conductors();
+	}
+
+	return(conductors);
+}
+
+void Element::editProperty()
+{
+	if (diagram() && !diagram()->isReadOnly())
+	{
+		ElementPropertiesWidget *epw = new ElementPropertiesWidget(this);
+		PropertiesEditorDialog dialog(epw, QApplication::activeWindow());
+		connect(epw,
+			&ElementPropertiesWidget::findEditClicked,
+			&dialog,
+			&QDialog::reject);
+		//Must be windowModal, else when user do a drag and drop
+		//with the "text" tab of ElementPropertiesWidget,
+		//the ui freeze, until user press escape key
+		dialog.setWindowModality(Qt::WindowModal);
+
+		// A PLC master carries a 6-column IO table: without an explicit
+		// size the dialog falls back to its (cramped) sizeHint, so open it
+		// at three times its natural width instead. The height stays at
+		// the natural one, and the width never exceeds the screen.
+		const ElementData data = elementData();
+		if (data.m_type == ElementData::Master
+			&& data.m_master_type == ElementData::PLC) {
+			const QSize natural = dialog.sizeHint();
+			int width = natural.width() * 3;
+			if (QScreen *screen = QApplication::primaryScreen())
+				width = qMin(width, screen->availableGeometry().width());
+			dialog.resize(width, natural.height());
+		}
+
+		dialog.exec();
+	}
+}
+
+/**
+	@param hl true pour mettre l'element en evidence, false sinon
+*/
+void Element::setHighlighted(bool hl)
+{
+	m_must_highlight = hl;
+	update();
+}
+
+/**
+	@brief Element::showAsJumpTarget
+	Highlight this element for a moment, so the user sees where a jump
+	from a folio report (or a cross reference) landed. Independent of
+	setHighlighted(), which follows the mouse over a linked element and
+	would be cleared as soon as the mouse leaves the element jumped from.
+*/
+void Element::showAsJumpTarget()
+{
+		//The symbol and its texts, so that the label jumped to is seen too
+	QList<DynamicElementTextItem *> texts = dynamicTextItems();
+	for (ElementTextItemGroup *group : textGroups())
+		texts.append(group->texts());
+	for (DynamicElementTextItem *text : std::as_const(texts))
+		text->setJumpHighlight(true);
+
+	++m_jump_highlight;
+	update();
+	QPointer<Element> self(this);
+	QTimer::singleShot(3000, this, [self]() {
+		if (!self) return;
+		if (self->m_jump_highlight > 0)
+			--self->m_jump_highlight;
+		if (self->m_jump_highlight == 0) {
+			QList<DynamicElementTextItem *> texts = self->dynamicTextItems();
+			for (ElementTextItemGroup *group : self->textGroups())
+				texts.append(group->texts());
+			for (DynamicElementTextItem *text : std::as_const(texts))
+				text->setJumpHighlight(false);
+		}
+		self->update();
+	});
+}
+
+/**
+	@brief Element::jumpTo
+	Go to @a target, the other end of a folio report or the master of a
+	cross reference: its folio is shown whole, as a page, without zooming
+	in on it, and the target and its texts are shaded blue for a moment,
+	so that the eye finds it on the page.
+	The mouse pointer is put on it too, except on Wayland, which does not
+	let a program move the pointer.
+*/
+void Element::jumpTo(Element *target)
+{
+	if (!target || !target->diagram())
+		return;
+	Diagram *diagram = target->diagram();
+	diagram->showMe();
+	diagram->clearSelection();
+	target->setSelected(true);
+	for (QGraphicsView *view : diagram->views())
+	{
+		if (auto *diagram_view = qobject_cast<DiagramView *>(view))
+			diagram_view->zoomFit();
+		else
+			view->fitInView(diagram->sceneRect(), Qt::KeepAspectRatio);
+	}
+	target->showAsJumpTarget();
+
+		//Put the mouse pointer on the target, so that a double click
+		//there jumps back. Once the folio shown has its size (next turn
+		//of the event loop). Wayland does not let a program move the
+		//pointer: there the highlight alone shows where the jump landed.
+	if (QGuiApplication::platformName().startsWith(QLatin1String("wayland")))
+		return;
+	QTimer::singleShot(0, target, [target]() {
+		if (!target->diagram())
+			return;
+		for (QGraphicsView *view : target->diagram()->views())
+		{
+			if (!view->isVisible())
+				continue;
+			const QPoint pos = view->mapFromScene(target->sceneBoundingRect().center());
+			if (view->viewport()->rect().contains(pos))
+				QCursor::setPos(view->viewport()->mapToGlobal(pos));
+			return;
+		}
+	});
+}
+
+/**
+	@brief Element::jumpTarget
+	@return the element a double click on this one jumps to: the other end
+	of a linked folio report, or nullptr.
+*/
+Element *Element::jumpTarget() const
+{
+	if ((linkType() & AllReport) && !connected_elements.isEmpty())
+		return connected_elements.first();
+	return nullptr;
+}
+
+/**
+	@brief Element::displayHelpLine
+	Display the help line of each terminal if b is true
+	@param b
+*/
+void Element::displayHelpLine(bool b)
+{
+	foreach (Terminal *t, terminals())
+		t->drawHelpLine(b);
+}
+
+/**
+	@brief Element::setHorizontalMirror
+	Mirror this element about its own vertical axis (its left and right
+	swap), or put it back. See setMirror().
+	@param mirror
+*/
+void Element::setHorizontalMirror(bool mirror)
+{
+	setMirror(mirror, m_vertical_mirror);
+}
+
+/**
+	@brief Element::setVerticalMirror
+	Mirror this element about its own horizontal axis (its top and bottom
+	swap), or put it back. See setMirror().
+	@param mirror
+*/
+void Element::setVerticalMirror(bool mirror)
+{
+	setMirror(m_horizontal_mirror, mirror);
+}
+
+/**
+	@brief Element::setMirror
+	The mirrors are about the element's own axes, through its hotspot, and
+	are applied before the rotation: a mirrored element still turns
+	clockwise with "Pivoter", and orientation() keeps its meaning. On the
+	folio, a mirror of a turned element is the other mirror of the element
+	itself, see MirrorSelectionCommand.
+	The texts of the element, its cross reference and the texts drawn in
+	its symbol are moved to their mirrored place but keep reading normally.
+	@param horizontal : the left and right of the element swap
+	@param vertical : the top and bottom of the element swap
+*/
+void Element::setMirror(bool horizontal, bool vertical)
+{
+	if (horizontal == m_horizontal_mirror && vertical == m_vertical_mirror)
+		return;
+
+	m_horizontal_mirror = horizontal;
+	m_vertical_mirror = vertical;
+
+	updateSymbolPictures();
+	applyMirrorTransform();
+	keepChildrenReadable();
+	update();
+	emit mirrorChanged();
+}
+
+/**
+	@brief Element::mirrorTransform
+	@return the mirrors of this element, about its own axes
+*/
+QTransform Element::mirrorTransform() const
+{
+	return QTransform::fromScale(m_horizontal_mirror ? -1 : 1,
+								 m_vertical_mirror ? -1 : 1);
+}
+
+/**
+	@brief Element::hasUprightSymbolTexts
+	@return true if the project of this element keeps the texts of its
+	turned symbols horizontal (QETProject::uprightSymbolTexts())
+*/
+bool Element::hasUprightSymbolTexts() const
+{
+	const Diagram *d = diagram();
+	return d && d->project() && d->project()->uprightSymbolTexts();
+}
+
+/**
+	@brief Element::symbolTextsTransform
+	@return what this element does to the texts drawn in its symbol, which
+	the drawing undoes to keep them readable (updateSymbolPictures()):
+	its mirrors, and its turn when the project keeps them horizontal.
+	The identity when the symbol is drawn as it is.
+*/
+QTransform Element::symbolTextsTransform() const
+{
+		//QTransform's product applies its left operand first
+	QTransform transform = mirrorTransform();
+	if (hasUprightSymbolTexts())
+		transform *= QTransform().rotate(orientation() * 90);
+	return transform;
+}
+
+/**
+	@brief Element::updateSymbolPictures
+	Take the drawing of the symbol whose texts read normally once this
+	element has mirrored and turned it (symbolTextsTransform()), or drop it
+	when the plain drawing does.
+	@param force : take it again even if the transform did not change, as
+	when the symbol's definition was reloaded
+*/
+void Element::updateSymbolPictures(bool force)
+{
+	const QTransform transform = symbolTextsTransform();
+	if (transform.isIdentity())
+	{
+		if (!m_readable_transform.isIdentity())
+		{
+			m_readable_transform = QTransform();
+			m_readable_picture = QPicture();
+			m_readable_low_zoom_picture = QPicture();
+			updateDrawnRect();
+			update();
+		}
+		return;
+	}
+	if (transform == m_readable_transform && !force)
+		return;
+
+	m_readable_transform = transform;
+	m_readable_picture = QPicture();
+	m_readable_low_zoom_picture = QPicture();
+	ElementPictureFactory::instance()->getReadablePictures(
+				m_location,
+				transform,
+				m_readable_picture,
+				m_readable_low_zoom_picture);
+	updateDrawnRect();
+	update();
+}
+
+/**
+	@brief Element::applyMirrorTransform
+	QGraphicsItem applies transform() after the rotation, so the mirrors of
+	the element's own axes (S, before rotating) are given here as the
+	mirrors about the rotated axes: R . S . R^-1, which is then applied
+	after R.
+*/
+void Element::applyMirrorTransform()
+{
+	if (!isMirrored())
+	{
+		if (!transform().isIdentity())
+			setTransform(QTransform());
+		return;
+	}
+
+		//QTransform's product applies its left operand first
+	setTransform(QTransform().rotate(-rotation())
+				 * mirrorTransform()
+				 * QTransform().rotate(rotation()));
+}
+
+/**
+	@brief Element::keepReadable
+	Keep @p child, a text, a group of texts or a cross reference of this
+	element, reading normally when this element is mirrored.
+	The child is mirrored a second time, the same way, about the centre of
+	its own box: the box keeps its place in the element, so it lands
+	mirrored with the element, but the two mirrors cancel on what is drawn
+	inside it.
+	Does nothing for an item that is not a direct child of this element.
+	@param child
+*/
+void Element::keepReadable(QGraphicsItem *child) const
+{
+	if (!child || child->parentItem() != this)
+		return;
+
+		//A text that reads from top to bottom may be turned to read from
+		//bottom to top, see DynamicElementTextItem::readingFlip()
+	QTransform flip;
+	if (child->type() == DynamicElementTextItem::Type)
+		flip = static_cast<DynamicElementTextItem *>(child)->readingFlip();
+
+	if (!isMirrored())
+	{
+		if (child->transform() != flip)
+			child->setTransform(flip);
+		return;
+	}
+
+		//The rotation part of the child's own transformation, which
+		//QGraphicsItem applies before transform()
+	const QPointF origin = child->transformOriginPoint();
+	QTransform rotation;
+	rotation.translate(origin.x(), origin.y());
+	rotation.rotate(child->rotation());
+	rotation.translate(-origin.x(), -origin.y());
+	const QPointF centre = rotation.mapRect(child->boundingRect()).center();
+
+	const QTransform mirror = flip
+							  * QTransform::fromTranslate(-centre.x(), -centre.y())
+							  * mirrorTransform()
+							  * QTransform::fromTranslate(centre.x(), centre.y());
+	if (child->transform() != mirror)
+		child->setTransform(mirror);
+}
+
+/**
+	@brief Element::keepChildrenReadable
+	keepReadable() for every text, group of texts and cross reference
+	which is a direct child of this element.
+*/
+void Element::keepChildrenReadable() const
+{
+	const QList<QGraphicsItem *> children = childItems();
+	for (QGraphicsItem *child : children)
+	{
+		if (child->type() == DynamicElementTextItem::Type
+			|| child->type() == CrossRefItem::Type
+			|| dynamic_cast<ElementTextItemGroup *>(child))
+			keepReadable(child);
+	}
+}
+
+/**
+	@brief Element::paint
+	@param painter
+	@param options
+*/
+void Element::paint(
+		QPainter *painter,
+		const QStyleOptionGraphicsItem *options,
+		QWidget *)
+{
+	if (m_must_highlight || m_jump_highlight > 0) {
+		drawHighlight(painter, options);
+	}
+
+		//Set default pen and brush to QPainter to avoid a strange bug when
+		//the Qt theme is a "dark" theme.
+		//Some parts of an element are gray or white instead of black.
+		//This bug seems append only when the QPainter uses drawPicture method.
+		//See bug 175. https://qelectrotech.org/bugtracker/view.php?id=175
+	painter->save();
+	QPen pen;
+	QBrush brush;
+	painter->setPen(pen);
+	painter->setBrush(brush);
+	const bool readable = !m_readable_transform.isIdentity();
+	const QPicture &picture = readable ? m_readable_picture : m_picture;
+	const QPicture &low_zoom_picture = readable ? m_readable_low_zoom_picture
+												: m_low_zoom_picture;
+	if (options && options->levelOfDetailFromTransform(painter->worldTransform()) < 0.5)
+	{
+		if (!low_zoom_picture.isNull())
+			painter->drawPicture(0, 0, low_zoom_picture);
+	} else {
+		if (!picture.isNull())
+			painter->drawPicture(0, 0, picture);
+	}
+
+	painter->restore(); //Restore the QPainter after use drawPicture
+
+	// Draw PLC table from in-memory data (overwrites the stale cached picture)
+	if (scene() && painter->isActive() &&
+		m_data.m_type == ElementData::Master &&
+		m_data.m_master_type == ElementData::PLC)
+	{
+		const auto &plc_data = m_data.plcMasterData();
+		if (!plc_data.ios.isEmpty())
+			drawPlcTable(painter);
+	}
+
+		//Draw the selection rectangle
+	if ( isSelected() || m_mouse_over ) {
+		QGIUtility::drawBoundingRectSelection(this, painter);
+	}
+}
+
+/**
+	@return Le rectangle delimitant le contour de l'element
+*/
+/**
+	@brief Element::drawingRect
+	@return the area its drawing covers, in this symbol's coordinates:
+	tighter than boundingRect(), which is rounded up to the grid. The
+	bounding rect for a symbol with nothing drawn.
+*/
+QRectF Element::drawingRect() const
+{
+	const QRect drawn = m_picture.isNull() ? QRect() : m_picture.boundingRect();
+	return drawn.isEmpty() ? boundingRect() : QRectF(drawn);
+}
+
+/**
+	@brief Element::boundingRect
+	@return the symbol's frame (its size and hotspot), widened to what its
+	drawing covers when a symbol draws beyond its frame: QGraphicsView
+	repaints only within this rect, so a part outside it was cut off at
+	some zooms and left out at others.
+*/
+QRectF Element::boundingRect() const
+{
+	const QRectF frame(QPointF(-hotspot_coord.x(), -hotspot_coord.y()),
+					   dimensions);
+	return m_drawn_rect.isNull() ? frame : frame.united(m_drawn_rect);
+}
+
+/**
+	@brief Element::updateDrawnRect
+	Keep m_drawn_rect, what boundingRect() adds to the frame, up to date
+	with the drawings, with a pixel more for the width of their lines.
+*/
+void Element::updateDrawnRect()
+{
+	QRectF drawn;
+	for (const QPicture *picture : {&m_picture, &m_readable_picture})
+		if (!picture->isNull() && picture->boundingRect().isValid())
+			drawn = drawn.united(QRectF(picture->boundingRect()).adjusted(-1, -1, 1, 1));
+	if (drawn != m_drawn_rect)
+	{
+		prepareGeometryChange();
+		m_drawn_rect = drawn;
+	}
+}
+
+/**
+	@brief Element::setSize
+	Define the size of the element.
+	The size must be a multiple of 10.
+	If not, the dimensions indicated will be arrrondies to higher tens.
+	@param wid
+	@param hei
+*/
+void Element::setSize(int wid, int hei)
+{
+	prepareGeometryChange();
+
+	while (wid % 10) ++ wid;
+	while (hei % 10) ++ hei;
+	dimensions = QSize(wid, hei);
+}
+
+/**
+	@return la taille de l'element sur le schema
+*/
+QSize Element::size() const
+{
+	return(dimensions);
+}
+
+/**
+	Definit le hotspot de l'element par rapport au coin superieur gauche de son rectangle delimitant.
+	Necessite que la taille ait deja ete definie
+	@param hs Coordonnees du hotspot
+*/
+QPoint Element::setHotspot(QPoint hs)
+{
+	// la taille doit avoir ete definie
+	prepareGeometryChange();
+	if (dimensions.isNull()) hotspot_coord = QPoint(0, 0);
+	else {
+		// les coordonnees indiquees ne doivent pas depasser les dimensions de l'element
+		int hsx = qMin(hs.x(), dimensions.width());
+		int hsy = qMin(hs.y(), dimensions.height());
+		hotspot_coord = QPoint(hsx, hsy);
+	}
+	return(hotspot_coord);
+}
+
+/**
+	@return Le hotspot courant de l'element
+*/
+QPoint Element::hotspot() const
+{
+	return(hotspot_coord);
+}
+
+/**
+	@brief Element::pixmap
+	@return the pixmap of this element
+*/
+QPixmap Element::pixmap()
+{
+	return ElementPictureFactory::instance()->pixmap(m_location);
+}
+
+/*** Methodes protegees ***/
+
+/**
+	Dessine un petit repere (axes x et y) relatif a l'element
+	@param painter Le QPainter a utiliser pour dessiner les axes
+	@param options Les options de style a prendre en compte
+*/
+void Element::drawAxes(
+		QPainter *painter,
+		const QStyleOptionGraphicsItem *options)
+{
+	Q_UNUSED(options)
+	painter -> setPen(Qt::blue);
+	painter -> drawLine(0, 0, 10, 0);
+	painter -> drawLine(7,-3, 10, 0);
+	painter -> drawLine(7, 3, 10, 0);
+	painter -> setPen(Qt::red);
+	painter -> drawLine(0,  0, 0, 10);
+	painter -> drawLine(0, 10,-3,  7);
+	painter -> drawLine(0, 10, 3,  7);
+}
+
+/*** Methodes privees ***/
+
+/**
+	Dessine le cadre de selection de l'element de maniere systematiquement non antialiasee.
+	@param painter Le QPainter a utiliser pour dessiner les bornes.
+	@param options Les options de style a prendre en compte
+*/
+void Element::drawHighlight(
+		QPainter *painter,
+		const QStyleOptionGraphicsItem *options)
+{
+	Q_UNUSED(options)
+	painter -> save();
+
+	qreal gradient_radius = qMin(boundingRect().width(),
+					 boundingRect().height()) / 2.0;
+	QRadialGradient gradient(
+		boundingRect().center(),
+		gradient_radius,
+		boundingRect().center()
+	);
+	gradient.setColorAt(0.0, QColor::fromRgb(69, 137, 255, 255));
+	gradient.setColorAt(1.0, QColor::fromRgb(69, 137, 255, 0));
+	QBrush brush(gradient);
+
+	painter -> setPen(Qt::NoPen);
+	painter -> setBrush(brush);
+	// Le dessin se fait a partir du rectangle delimitant
+	painter -> drawRoundedRect(boundingRect().adjusted(1, 1, -1, -1),
+				   10,
+				   10);
+	painter -> restore();
+}
+
+/**
+	@brief Element::buildFromXml
+	Build this element from an xml description
+	@param xml_def_elmt
+	@param state
+	Optional pointer which define the status of build
+	0 - evreything all right
+	4 - xml isn't a "definition"
+	5 - attribute of the definition isn't present or valid
+	6 - the definition is empty
+	7 - parsing of a xml node who describe a graphical part failed.
+	8 - No part of the drawing could be loaded
+	@return
+*/
+bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
+{
+	m_state = QET::GIBuildingFromXml;
+
+	if (xml_def_elmt.tagName() != QLatin1String("definition")
+			|| xml_def_elmt.attribute(QStringLiteral("type")) != QLatin1String("element"))
+	{
+		if (state) *state = 4;
+		m_state = QET::GIOK;
+		return(false);
+	}
+
+		//Check if the current version can read the xml description
+	const auto elmt_version = QetVersion::fromXmlAttribute(xml_def_elmt);
+	if (!elmt_version.isNull()
+		&& QetVersion::currentVersion() < elmt_version)
+	{
+		std::cerr << qPrintable(
+						 QObject::tr("Warning: the element has been "
+									 "saved with a more recent version "
+									 "of QElectroTech.")
+						 ) << std::endl;
+	}
+
+		//This attribute must be present and valid
+	int w = 0, h = 0, hot_x = 0, hot_y = 0;
+	if (!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("width"), &w)         ||
+		!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("height"), &h)        ||
+		!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("hotspot_x"), &hot_x) ||
+		!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("hotspot_y"), &hot_y))
+	{
+		if (state) *state = 5;
+		m_state = QET::GIOK;
+		return(false);
+	}
+
+	setSize(w, h);
+	setHotspot(QPoint(hot_x, hot_y));
+
+		//the definition must have childs
+	if (xml_def_elmt.firstChild().isNull())
+	{
+		if (state) *state = 6;
+		m_state = QET::GIOK;
+		return(false);
+	}
+
+	m_data.fromXml(xml_def_elmt);
+	setToolTip(name());
+
+	QString my_type_str = xml_def_elmt.attribute(QStringLiteral("link_type"), QStringLiteral("simple"));
+	if (my_type_str == QLatin1String("conductor_definition")) {
+		m_link_type = Element::ConductorDefinition;
+	}
+
+		//load kind informations
+	m_kind_informations.fromXml(
+				xml_def_elmt.firstChildElement(QStringLiteral("kindInformations")),
+				QStringLiteral("kindInformation"));
+	m_corner = m_kind_informations.value(QStringLiteral("corner")).toString() == QLatin1String("true")
+		|| QUuid(xml_def_elmt.firstChildElement(QStringLiteral("uuid")).attribute(QStringLiteral("uuid")))
+			== QUuid(QStringLiteral("{b4bba5d9-a60d-8f6c-a61d-1b18a5c9397d}")); //114_connections/corner.elmt
+		//load element information
+	m_data.m_informations.fromXml(
+				xml_def_elmt.firstChildElement(QStringLiteral("elementInformations")),
+				QStringLiteral("elementInformation"));
+	storeInformation();
+
+		//scroll of the Children of the Definition: Parts of the Drawing
+	int parsed_elements_count = 0;
+	for (QDomNode node = xml_def_elmt.firstChild() ;
+		 !node.isNull() ;
+		 node = node.nextSibling())
+	{
+		QDomElement elmts = node.toElement();
+		if (elmts.isNull())
+			continue;
+
+		if (elmts.tagName() == QLatin1String("description"))
+		{
+				//Minor workaround to find if there is a "input" tagg as label.
+				//If not, we set the tagg "label" to the first "input.
+			QList <QDomElement> input_field;
+			bool have_label = false;
+			for (QDomElement input_node = node.firstChildElement(QStringLiteral("input")) ;
+				 !input_node.isNull() ;
+				 input_node = input_node.nextSiblingElement(QStringLiteral("input")))
+			{
+				if (!input_node.isNull())
+				{
+					input_field << input_node;
+					if (input_node.attribute(QStringLiteral("tagg"), QStringLiteral("none"))
+							== QLatin1String("label"))
+						have_label = true;
+				}
+			}
+			if(!have_label && !input_field.isEmpty())
+				input_field.first().setAttribute(QStringLiteral("tagg"), QStringLiteral("label"));
+
+				//Parse the definition
+			for (QDomNode n = node.firstChild() ;
+				 !n.isNull() ;
+				 n = n.nextSibling())
+			{
+				QDomElement qde = n.toElement();
+				if (qde.isNull())
+					continue;
+
+				// Store plc_table positions for runtime rendering
+				if (qde.tagName() == QLatin1String("plc_table")) {
+					qreal x = qde.attribute("x", "0").toDouble();
+					qreal y = qde.attribute("y", "0").toDouble();
+					m_plc_table_positions.append(QPointF(x, y));
+				}
+
+				if (parseElement(qde)) {
+					++ parsed_elements_count;
+				}
+				else
+				{
+					if (state)
+						*state = 7;
+					m_state = QET::GIOK;
+					return(false);
+				}
+			}
+		}
+	}
+
+	ElementPictureFactory *epf = ElementPictureFactory::instance();
+	epf->getPictures(m_location,
+			 m_picture,
+			 m_low_zoom_picture);
+	updateDrawnRect();
+
+	if(!m_picture.isNull())
+		++ parsed_elements_count;
+
+		//They must be at least one parsed graphics part
+	if (!parsed_elements_count)
+	{
+		if (state)
+			*state = 8;
+		m_state = QET::GIOK;
+		return(false);
+	}
+	else
+	{
+		if (state)
+			*state = 0;
+		m_state = QET::GIOK;
+		return(true);
+	}
+}
+
+/**
+	@brief Element::parseElement
+	Parse the element of the xml description of this element
+	@param dom
+	@return
+*/
+bool Element::parseElement(const QDomElement &dom)
+{
+	if      (dom.tagName() == QLatin1String("terminal"))     return(parseTerminal(dom));
+	else if (dom.tagName() == QLatin1String("input"))        return(parseInput(dom));
+	else if (dom.tagName() == QLatin1String("dynamic_text")) return(parseDynamicText(dom));
+	else return(true);
+}
+
+/**
+	@brief Element::parseInput
+	Parse the input (old text field)
+	the parsed input are converted to dynamic text field, this function
+	is only here to keep compatibility with old text.
+	@param dom_element
+	@return
+*/
+bool Element::parseInput(const QDomElement &dom_element)
+{
+	qreal pos_x, pos_y;
+	int size;
+	if (!QET::attributeIsAReal(dom_element, QStringLiteral("x"), &pos_x) ||
+		!QET::attributeIsAReal(dom_element, QStringLiteral("y"), &pos_y) ||
+		!QET::attributeIsAnInteger(dom_element, QStringLiteral("size"), &size)) {
+		return(false);
+	} else {
+		DynamicElementTextItem *deti = new DynamicElementTextItem(this);
+		deti->setText(dom_element.attribute(QStringLiteral("text"), QStringLiteral("_")));
+		QFont font = deti->font();
+		font.setPointSize(dom_element.attribute(QStringLiteral("size"),
+							QString::number(9)).toInt());
+		deti->setFont(font);
+		deti->setRotation(dom_element.attribute(QStringLiteral("rotation"),
+							QString::number(0)).toDouble());
+
+		if(dom_element.attribute(QStringLiteral("tagg"), QStringLiteral("none")) != QLatin1String("none"))
+		{
+			deti->setTextFrom(DynamicElementTextItem::ElementInfo);
+			deti->setInfoName(dom_element.attribute(QStringLiteral("tagg")));
+		}
+
+			//the origin transformation point of PartDynamicTextField is the top left corner, no matter the font size
+			//The origin transformation point of ElementTextItem is the middle of left edge, and so by definition, change with the size of the font
+			//We need to use a QTransform to find the pos of this text from the saved pos of text item
+		QTransform transform;
+			//First make the rotation
+		transform.rotate(dom_element.attribute(QStringLiteral("rotation"),
+											   QStringLiteral("0")).toDouble());
+		QPointF pos = transform.map(
+						  QPointF(0,
+								  -deti->boundingRect().height()/2));
+		transform.reset();
+			//Second translate to the pos
+		QPointF p(dom_element.attribute(QStringLiteral("x"),
+										QString::number(0)).toDouble(),
+				  dom_element.attribute(QStringLiteral("y"),
+										QString::number(0)).toDouble());
+		transform.translate(p.x(), p.y());
+		deti->setPos(transform.map(pos));
+		m_dynamic_text_list.append(deti);
+		return true;
+	}
+}
+
+/**
+	@brief Element::parseDynamicText
+	Create the dynamic text field described in dom_element
+	@param dom_element
+	@return
+*/
+DynamicElementTextItem *Element::parseDynamicText(
+		const QDomElement &dom_element)
+{
+	DynamicElementTextItem *deti = new DynamicElementTextItem(this);
+		//Because the xml description of a .elmt file is the same as how a dynamic text field is saved to xml in a .qet file
+		//we call fromXml, we just change the tagg name (.elmt = dynamic_text, .qet = dynamic_elmt_text)
+		//and the uuid (because the uuid, is the uuid of the description and not the uuid of instantiated dynamic text field)
+
+	QDomElement dom(dom_element.cloneNode(true).toElement());
+	dom.setTagName(DynamicElementTextItem::xmlTagName());
+	deti->fromXml(dom);
+	deti->m_uuid = QUuid::createUuid();
+	this->addDynamicTextItem(deti);
+	return deti;
+}
+
+/*!
+	\brief Element::parseTerminal
+	Parse partTerminal from xml structure
+	\param dom_element
+	\return
+*/
+Terminal *Element::parseTerminal(const QDomElement &dom_element)
+{
+	TerminalData* data = new TerminalData();
+	if (!data->fromXml(dom_element)) {
+		delete data;
+		return nullptr;
+	}
+
+	Terminal *new_terminal = new Terminal(data, this);
+		//Terminals are parsed in the order of the definition, and the list
+		//is not kept in that order (sort below)
+	int rank = 0;
+	for (Terminal *t : std::as_const(m_terminals)) {
+		if (t->dock_elmt_ == new_terminal->dock_elmt_
+			&& t->orientation() == new_terminal->orientation()) {
+			++rank;
+		}
+	}
+	new_terminal->setPlaceRank(rank);
+	m_terminals << new_terminal;
+
+	connect(new_terminal, &Terminal::conductorWasAdded,   this, &Element::watchConductorText);
+	connect(new_terminal, &Terminal::conductorWasRemoved, this, &Element::updateConductorTexts);
+
+		//Sort from top to bottom and left to right
+	std::sort(m_terminals.begin(),
+		  m_terminals.end(),
+		  [](Terminal *a,
+		  Terminal *b)
+	{
+		if(a->dockConductor().y() == b->dockConductor().y())
+			return (a->dockConductor().x() < b->dockConductor().x());
+		else
+			return (a->dockConductor().y() < b->dockConductor().y());
+	});
+
+	return(new_terminal);
+}
+
+/**
+	Permet de savoir si un element XML (QDomElement) represente bien un element
+	@param e Le QDomElement a valide
+	@return true si l'element XML est un Element, false sinon
+*/
+bool Element::valideXml(QDomElement &e)
+{
+	if (e.tagName() != QLatin1String("element") ||
+		!e.hasAttribute(QStringLiteral("type")) ||
+		!e.hasAttribute(QStringLiteral("x"))    ||
+		!e.hasAttribute(QStringLiteral("y"))) {
+		return(false);
+	}
+
+	bool conv_ok;
+		//QString::toDouble() accepts "nan"/"inf"/"-inf" and reports a
+		//successful conversion for them, so conv_ok alone doesn't reject a
+		//non-finite coordinate. A NaN position reaching the scene can hang
+		//QGraphicsScene::addItem() forever inside Qt's own polygon-clipping
+		//code when an existing conductor's collision test runs against it.
+	double x = e.attribute(QStringLiteral("x")).toDouble(&conv_ok);
+	if (!conv_ok || !qIsFinite(x)) return(false);
+
+	double y = e.attribute(QStringLiteral("y")).toDouble(&conv_ok);
+	if (!conv_ok || !qIsFinite(y)) return(false);
+
+	return(true);
+}
+
+/**
+	@brief Element::savedTerminalUuid
+	@return the uuid TerminalUuids derives for the terminal saved as
+	@p records [@p index] (a symbol's saved terminals, in file order) at the
+	place it was saved: its docking point less the stub Terminal::init()
+	adds, and its rank among the records at that place, as the project
+	counted it when it gave the terminals their uuids
+*/
+QUuid Element::savedTerminalUuid(const QList<QDomElement> &records, int index)
+{
+	const auto dock_of = [](const QDomElement &r) {
+		return QPointF(r.attribute(QStringLiteral("x")).toDouble(),
+					   r.attribute(QStringLiteral("y")).toDouble());
+	};
+	const QDomElement &record = records.at(index);
+	const int orientation = record.attribute(QStringLiteral("orientation")).toInt();
+	const QPointF dock = dock_of(record);
+	QPointF old_pos = dock;
+	switch (orientation) {
+		case Qet::North: old_pos -= QPointF(0, Terminal::terminalSize);  break;
+		case Qet::East : old_pos -= QPointF(-Terminal::terminalSize, 0); break;
+		case Qet::West : old_pos -= QPointF(Terminal::terminalSize, 0);  break;
+		case Qet::South: old_pos -= QPointF(0, -Terminal::terminalSize); break;
+	}
+	int rank = 0;
+	for (int j = 0; j < index; ++j) {
+		const QPointF other = dock_of(records.at(j));
+		if (records.at(j).attribute(QStringLiteral("orientation")).toInt() == orientation
+			&& qAbs(other.x() - dock.x()) < 1e-6
+			&& qAbs(other.y() - dock.y()) < 1e-6)
+			++rank;
+	}
+	return TerminalUuids::derived(old_pos.x(), old_pos.y(), orientation, rank);
+}
+
+/**
+	@brief Element::matchMovedTerminals
+	Pair the saved terminals that no live terminal matched exactly with the
+	live terminals that moved a little: the definition of the symbol was
+	replaced or redrawn since the project was saved. A saved record gives
+	the old docking point and orientation of its terminal, so it is paired
+	with a live terminal of the same orientation whose docking point is
+	within moved_terminal_reach in x and y. Two steps, both only where the
+	pairing is clear:
+	- a rigid offset: if exactly one offset (the same for every terminal)
+	  maps every unmatched record onto a distinct live terminal, as when a
+	  whole drawing was moved, all are paired by it;
+	- otherwise per terminal: a record and a live terminal that are each
+	  the only candidate of the other. Several records at one place and as
+	  many live terminals at one place are paired in order.
+	Anything less clear stays unmatched, as before.
+
+	A pair registers the record's legacy id, and the uuid TerminalUuids
+	derived for the terminal at its old place, so that a wire naming either
+	reattaches (see Diagram::findTerminals()).
+	@param records : the saved terminals of this symbol
+	@param matched_records : indexes in records already matched
+	@param matched_terminals : the live terminals already matched
+	@param id_adr : receives the legacy id of each pair
+*/
+void Element::matchMovedTerminals(const QList<QDomElement> &records,
+								  const QSet<int> &matched_records,
+								  const QSet<Terminal *> &matched_terminals,
+								  QHash<int, Terminal *> &id_adr)
+{
+	if (matched_records.size() == records.size()) return;
+
+	const auto dock_of = [](const QDomElement &r) {
+		return QPointF(r.attribute(QStringLiteral("x")).toDouble(),
+					   r.attribute(QStringLiteral("y")).toDouble());
+	};
+	const auto orientation_of = [](const QDomElement &r) {
+		return r.attribute(QStringLiteral("orientation")).toInt();
+	};
+
+	QHash<int, QList<Terminal *>> candidates;  // record -> live terminals in reach
+	QHash<Terminal *, QList<int>> claimants;   // live terminal -> records in reach
+	for (int i = 0; i < records.size(); ++i) {
+		if (matched_records.contains(i)) continue;
+		const QPointF dock = dock_of(records.at(i));
+		for (Terminal *t : std::as_const(m_terminals)) {
+			if (matched_terminals.contains(t)) continue;
+			if (static_cast<int>(t->orientation()) != orientation_of(records.at(i))) continue;
+			if (qAbs(t->dock_elmt_.x() - dock.x()) > moved_terminal_reach
+				|| qAbs(t->dock_elmt_.y() - dock.y()) > moved_terminal_reach) continue;
+			candidates[i] << t;
+			claimants[t] << i;
+		}
+	}
+
+		//Pair a record with a live terminal: register its legacy id, and the
+		//uuid derived for the terminal at its old place
+	const auto pair_up = [&](int index, Terminal *t) {
+		id_adr.insert(records.at(index).attribute(QStringLiteral("id")).toInt(), t);
+		m_old_place_terminals.insert(savedTerminalUuid(records, index), t);
+		m_moved_terminals << t;
+	};
+	const auto same_place = [](const QPointF &a, const QPointF &b) {
+		return qAbs(a.x() - b.x()) < 1e-6 && qAbs(a.y() - b.y()) < 1e-6;
+	};
+
+		//Rigid offset: when a whole drawing was moved, every terminal moved
+		//by the same amount. Try each offset seen between a record and a
+		//live terminal; if exactly one maps every unmatched record onto a
+		//distinct live terminal, the pairs are settled by it.
+	QList<int> unmatched;
+	QList<QPointF> offsets;
+	for (int i = 0; i < records.size(); ++i) {
+		if (matched_records.contains(i)) continue;
+		unmatched << i;
+		for (Terminal *t : candidates.value(i)) {
+			const QPointF offset = t->dock_elmt_ - dock_of(records.at(i));
+			const bool known = std::any_of(offsets.cbegin(), offsets.cend(),
+										   [&](const QPointF &o) { return same_place(o, offset); });
+			if (!known) offsets << offset;
+		}
+	}
+	QList<QPair<int, Terminal *>> rigid;
+	int rigid_offsets = 0;
+	for (const QPointF &offset : std::as_const(offsets)) {
+		QList<QPair<int, Terminal *>> mapping;
+		QSet<Terminal *> used;
+		for (int i : std::as_const(unmatched)) {
+			Terminal *found = nullptr;  // records at one place take the live ones in order
+			for (Terminal *t : candidates.value(i)) {
+				if (!used.contains(t)
+					&& same_place(t->dock_elmt_, dock_of(records.at(i)) + offset)) {
+					found = t;
+					break;
+				}
+			}
+			if (!found) break;
+			used << found;
+			mapping.append({i, found});
+		}
+		if (mapping.size() != unmatched.size()) continue;
+		++rigid_offsets;
+		rigid = mapping;
+	}
+	if (rigid_offsets == 1) {
+		for (const auto &pair : std::as_const(rigid)) pair_up(pair.first, pair.second);
+		return;
+	}
+
+		//Per terminal: a record and a live terminal that are each the only
+		//candidate of the other. Several records at one place with as many
+		//live terminals at one place pair in order.
+	for (int i : std::as_const(unmatched)) {
+		const QList<Terminal *> live = candidates.value(i);
+		if (live.isEmpty()) continue;
+		QList<int> group;
+		for (int j : std::as_const(unmatched)) {
+			if (orientation_of(records.at(j)) == orientation_of(records.at(i))
+				&& same_place(dock_of(records.at(j)), dock_of(records.at(i))))
+				group << j;
+		}
+		if (group.first() != i || live.size() != group.size()) continue;
+		bool clear = true;
+		for (Terminal *t : live) {
+			if (!same_place(t->dock_elmt_, live.first()->dock_elmt_)
+				|| claimants.value(t) != group) clear = false;
+		}
+		if (!clear) continue;
+		for (int k = 0; k < group.size(); ++k) pair_up(group.at(k), live.at(k));
+	}
+}
+
+/**
+	@return the terminal that was paired with the saved terminal whose uuid
+	derived from its old place is @p old_place_uuid, if any
+	@see matchMovedTerminals()
+*/
+Terminal *Element::terminalFromOldPlace(const QUuid &old_place_uuid) const
+{
+	return m_old_place_terminals.value(old_place_uuid, nullptr);
+}
+
+/**
+	@return true if @p terminal was paired with a saved terminal at another
+	place than its own
+	@see matchMovedTerminals()
+*/
+bool Element::terminalWasMoved(const Terminal *terminal) const
+{
+	return m_moved_terminals.contains(const_cast<Terminal *>(terminal));
+}
+
+/**
+	@brief Element::fromXml
+	Import the parameters of this element from a xml document.
+	When call this function ensure this element is already in a scene, because
+	the dynamic text item and element text item group (in the xml file) are created in this function
+	and need a diagram for create their Xref, when this element is linked to another.
+	If not the Xref can be not displayed, until the next call of update Xref of the group or text item.
+	@param e : the dom element where the parameter is stored
+	@param table_id_adr : Reference to the mapping table between IDs of the XML file
+	and the addresses in memory. If the import succeeds, it must be add the right couples (id, address).
+	@return
+*/
+bool Element::fromXml(QDomElement &e,
+					  QHash<int,Terminal *> &table_id_adr)
+{
+	m_state = QET::GILoadingFromXml;
+	/*
+		les bornes vont maintenant etre recensees pour associer leurs id a leur adresse reelle
+		ce recensement servira lors de la mise en place des fils
+	*/
+	QList<QDomElement> liste_terminals;
+	for (auto qde :
+			QET::findInDomElement(e, QStringLiteral("terminals"), QStringLiteral("terminal"))) {
+		if (Terminal::valideXml(qde)) liste_terminals << qde;
+	}
+
+	QHash<int, Terminal *> priv_id_adr;
+	QSet<Terminal *> matched_terminals;
+	QSet<int> matched_records;
+
+	for (auto *qgi : childItems())
+	{
+		if (auto terminal_ = qgraphicsitem_cast<Terminal *>(qgi))
+		{
+			for (int i = 0; i < liste_terminals.size(); ++i)
+			{
+				QDomElement qde = liste_terminals.at(i);
+				if (terminal_ -> fromXml(qde))
+				{
+					priv_id_adr.insert(qde.attribute(QStringLiteral("id")).toInt(),
+									   terminal_);
+					matched_terminals << terminal_;
+					matched_records << i;
+				}
+			}
+		}
+	}
+
+	matchMovedTerminals(liste_terminals, matched_records, matched_terminals, priv_id_adr);
+
+		//Check that associated id/address doesn't conflict with table_id_adr
+	for(auto found_id : priv_id_adr.keys())
+	{
+		if (table_id_adr.contains(found_id))
+		{
+				//This element got an id who is already referenced (= conflict)
+			m_state = QET::GIOK;
+			return(false);
+		}
+	}
+
+		//Copie the association id/address
+	for(auto found_id : priv_id_adr.keys()) {
+		table_id_adr.insert(found_id,
+							priv_id_adr.value(found_id));
+	}
+
+	//load uuid of connected elements
+	QList <QDomElement> uuid_list = QET::findInDomElement(e,
+														  QStringLiteral("links_uuids"),
+														  QStringLiteral("link_uuid"));
+	foreach (QDomElement qdo, uuid_list) {
+		QUuid uuid(qdo.attribute(QStringLiteral("uuid")));
+		int group_index = qdo.attribute(QStringLiteral("group_index"), QStringLiteral("-1")).toInt();
+		tmp_uuids_link << LinkInfo(uuid, group_index);
+	}
+
+	//uuid of this element
+	//Through setUuid(): a folio adds a symbol before reading it, so its
+	//stored information has to follow from the uuid it was born with.
+	setUuid(QUuid(e.attribute(QStringLiteral("uuid"), QUuid::createUuid().toString())));
+
+		//load prefix
+	m_prefix = e.attribute(QStringLiteral("prefix"));
+
+	QString fl = e.attribute(QStringLiteral("freezeLabel"), QStringLiteral("false"));
+	m_freeze_label = fl == QLatin1String("false") ? false : true;
+
+		//Load Sequential Values
+	if (e.hasAttribute(QStringLiteral("sequ_1"))
+			|| e.hasAttribute(QStringLiteral("sequf_1"))
+			|| e.hasAttribute(QStringLiteral("seqt_1"))
+			|| e.hasAttribute(QStringLiteral("seqtf_1"))
+			|| e.hasAttribute(QStringLiteral("seqh_1"))
+			|| e.hasAttribute(QStringLiteral("seqhf_1")))
+		ElementXmlRetroCompatibility::loadSequential(e, this);
+	else
+		m_autoNum_seq.fromXml(e.firstChildElement(QStringLiteral("sequentialNumbers")));
+	storeSequence();
+
+		//Position and selection.
+		//We directly call setPos from QGraphicsObject, because QetGraphicsItem will snap to grid
+	QGraphicsObject::setPos(e.attribute(QStringLiteral("x")).toDouble(),
+							e.attribute(QStringLiteral("y")).toDouble());
+	setZValue(e.attribute(QStringLiteral("z"), QString::number(this->zValue())).toDouble());
+	setFlags(QGraphicsItem::ItemIsMovable
+		 | QGraphicsItem::ItemIsSelectable);
+	is_movable_ = e.attribute(QStringLiteral("is_movable"), QStringLiteral("1")).toInt();
+
+	// orientation
+	bool conv_ok;
+	int read_ori = e.attribute(QStringLiteral("orientation")).toInt(&conv_ok);
+	if (!(conv_ok) || (read_ori < 0) || (read_ori > 3)) {
+		read_ori = 0;
+	}
+	setRotation(90*read_ori);
+
+		//Before loading the dynamic text field,
+		//we remove the dynamic text field created from the description of this element, to avoid doubles.
+	for(DynamicElementTextItem *deti : m_dynamic_text_list)
+		delete deti;
+	m_dynamic_text_list.clear();
+
+		//************************//
+		//***Dynamic texts item***//
+		//************************//
+	for (const QDomElement& qde : QET::findInDomElement(
+			 e,
+			 QStringLiteral("dynamic_texts"),
+			 DynamicElementTextItem::xmlTagName()))
+	{
+		DynamicElementTextItem *deti = new DynamicElementTextItem(this);
+		addDynamicTextItem(deti);
+		deti->fromXml(qde);
+	}
+
+	for (QDomElement qde : QET::findInDomElement(
+			 e,
+			 QStringLiteral("texts_groups"),
+			 ElementTextItemGroup::xmlTaggName()))
+	{
+		ElementTextItemGroup *group =
+				addTextGroup(QStringLiteral("loaded_from_xml_group"));
+		group->fromXml(qde);
+	}
+
+		//load informations
+	DiagramContext dc;
+	dc.fromXml(e.firstChildElement(QStringLiteral("elementInformations")),
+			   QStringLiteral("elementInformation"));
+		//Changed through the project database while its folio was not
+		//built (lazy folios): the change, not what the file says
+	if (diagram() && diagram()->project())
+		if (const auto edited = diagram()->project()->dataBase()->takeUnbuiltEdit(m_uuid))
+			dc = *edited;
+
+		//Load override properties (For now, only used when the element is a terminal)
+	if (m_data.m_type == ElementData::Terminal)
+	{
+
+		auto elmt_type_list = QETXML::subChild(e, QStringLiteral("properties"), QStringLiteral("element_type"));
+		if (elmt_type_list.size())
+		{
+			auto elmt_type = elmt_type_list.first();
+			m_data.setTerminalType(
+						m_data.terminalTypeFromString(
+							elmt_type.attribute(QStringLiteral("terminal_type"))));
+
+			m_data.setTerminalFunction(
+						m_data.terminalFunctionFromString(
+							elmt_type.attribute(QStringLiteral("terminal_function"))));
+
+			m_data.setTerminalLED(
+						QETXML::boolFromString(
+							elmt_type.attribute(QStringLiteral("terminal_led")), false));
+		}
+	}
+
+		//Load PLC master data override from diagram XML
+	if (m_data.m_type == ElementData::Master &&
+		m_data.m_master_type == ElementData::PLC)
+	{
+		auto xml_plc = e.firstChildElement(QStringLiteral("plcMasterData"));
+		if (!xml_plc.isNull())
+			m_data.plcMasterDataFromXml(xml_plc);
+	}
+
+		//Load the master's own cross reference display
+	if (m_data.m_type == ElementData::Master &&
+		m_data.m_master_type != ElementData::PLC)
+		m_data.xrefDisplayFromXml(e.firstChildElement(QStringLiteral("xrefDisplay")));
+
+		//The texts it gives its terminals instead of their names, read
+		//as the prefix is: the terminals are not drawn nor listed yet
+	m_terminal_texts.clear();
+	const QDomElement terminal_texts = e.firstChildElement(QStringLiteral("terminalTexts"));
+	for (QDomElement text = terminal_texts.firstChildElement(QStringLiteral("terminalText")) ;
+		 !text.isNull() ; text = text.nextSiblingElement(QStringLiteral("terminalText"))) {
+		const QUuid terminal(text.attribute(QStringLiteral("terminal")));
+		const QString value = text.attribute(QStringLiteral("text"));
+		if (!terminal.isNull() && !value.isEmpty()) {
+			m_terminal_texts.insert(terminal.toString(), value);
+		}
+	}
+
+	//We must block the update of the alignment when loading the information
+	//otherwise the pos of the text will not be the same as it was at save time.
+	for(DynamicElementTextItem *deti : m_dynamic_text_list)
+		deti->m_block_alignment = true;
+	setElementInformations(dc);
+	for(DynamicElementTextItem *deti : m_dynamic_text_list)
+		deti->m_block_alignment = false;
+
+		//Last, so that the texts and groups loaded above are kept readable
+	const QString mirror = e.attribute(QStringLiteral("mirror"));
+	setMirror(mirror == QLatin1String("horizontal") || mirror == QLatin1String("both"),
+			  mirror == QLatin1String("vertical") || mirror == QLatin1String("both"));
+
+	m_state = QET::GIOK;
+	return(true);
+}
+
+/**
+	@brief Element::toXml
+	Allows to export the element in XML
+	\~French Permet d'exporter l'element en XML
+	\~ @param document : XML document to use
+	\~French Document XML a utiliser
+	\~ @param table_adr_id :
+	Correspondence table between the addresses of the terminals
+	and their id in the XML representation;
+	this table completed by this method
+	\~French Table de correspondance entre les adresses des bornes
+	et leur id dans la representation XML ;
+	cette table completee par cette methode
+	\~ @return The XML element representing this electrical element
+	\~French L'element XML representant cet element electrique
+*/
+QDomElement Element::toXml(
+		QDomDocument &document,
+		QHash<Terminal *,
+		int> &table_adr_id) const
+{
+	QDomElement element = document.createElement(QStringLiteral("element"));
+
+		// type
+	element.setAttribute(QStringLiteral("type"), m_location.path());
+
+		// uuid
+	element.setAttribute(QStringLiteral("uuid"), uuid().toString());
+
+		// prefix
+	element.setAttribute(QStringLiteral("prefix"), m_prefix);
+
+		//frozen label
+	element.setAttribute(QStringLiteral("freezeLabel"), m_freeze_label? QStringLiteral("true") : QStringLiteral("false"));
+
+		// sequential num
+	QDomElement seq = m_autoNum_seq.toXml(document);
+	if (seq.hasChildNodes())
+		element.appendChild(seq);
+
+	// position, selection et orientation
+	element.setAttribute(QStringLiteral("x"), QString::number(pos().x()));
+	element.setAttribute(QStringLiteral("y"), QString::number(pos().y()));
+	element.setAttribute(QStringLiteral("z"), QString::number(this->zValue()));
+	element.setAttribute(QStringLiteral("orientation"), QString::number(orientation()));
+		//Written only when set, so a project without a mirrored element
+		//saves exactly as before
+	if (isMirrored())
+		element.setAttribute(QStringLiteral("mirror"),
+							 !m_vertical_mirror ? QStringLiteral("horizontal")
+							 : !m_horizontal_mirror ? QStringLiteral("vertical")
+							 : QStringLiteral("both"));
+	element.setAttribute(QStringLiteral("is_movable"), bool(is_movable_));
+
+	/* get the first id to use for the bounds of this element
+	 * recupere le premier id a utiliser pour les bornes de cet element */
+	int id_terminal = 0;
+	if (!table_adr_id.isEmpty()) {
+		// trouve le plus grand id
+		int max_id_t = -1;
+		foreach (int id_t, table_adr_id.values()) {
+			if (id_t > max_id_t) max_id_t = id_t;
+		}
+		id_terminal = max_id_t + 1;
+	}
+
+	// registration of device terminals
+	// enregistrement des bornes de l'appareil
+	QDomElement xml_terminals = document.createElement(QStringLiteral("terminals"));
+	// for each child of the element
+	// pour chaque enfant de l'element
+	foreach(Terminal *t, terminals()) {
+		// alors on enregistre la borne
+		QDomElement terminal = t -> toXml(document);
+		terminal.setAttribute(QStringLiteral("id"), id_terminal); // for backward compatibility
+		table_adr_id.insert(t, id_terminal ++);
+		xml_terminals.appendChild(terminal);
+	}
+	element.appendChild(xml_terminals);
+
+	// enregistrement des champ de texte de l'appareil
+	QDomElement inputs = document.createElement(QStringLiteral("inputs"));
+	element.appendChild(inputs);
+
+	//if this element is linked to other elements, save the uuid of each:
+	//as the project database's link rows list them (QETZ-DB-FIRST stage
+	//2a), or, for a symbol the database does not hold, its partners
+	QList<std::pair<QUuid, int>> links;
+	projectDataBase *database = diagram() && diagram()->project()
+			? diagram()->project()->dataBase() : nullptr;
+	if (!database || !database->savedLinks(this, &links)) {
+		links.clear();
+		for (Element *elmt : std::as_const(connected_elements))
+			links.append({elmt->uuid(), m_group_index_map.value(elmt, -1)});
+	}
+	if (!links.isEmpty()) {
+		QDomElement links_uuids = document.createElement(QStringLiteral("links_uuids"));
+		for (const auto &link : std::as_const(links)) {
+			QDomElement link_uuid =
+					document.createElement(QStringLiteral("link_uuid"));
+			link_uuid.setAttribute(QStringLiteral("uuid"), link.first.toString());
+
+			// Save group index if assigned (for slave->master links)
+			if (link.second >= 0) {
+				link_uuid.setAttribute(QStringLiteral("group_index"), link.second);
+			}
+
+			links_uuids.appendChild(link_uuid);
+		}
+		element.appendChild(links_uuids);
+	}
+
+	//save information of this element
+	const DiagramContext informations = elementInformations();
+	if (! informations.keys().isEmpty()) {
+		QDomElement infos =
+				document.createElement(QStringLiteral("elementInformations"));
+		informations.toXml(infos, QStringLiteral("elementInformation"));
+			//toXml() skips empty values: an element whose information is
+			//all empty would otherwise be written an empty block, which the
+			//next load reads as no information and the next save drops.
+		if (infos.hasChildNodes())
+			element.appendChild(infos);
+	}
+
+	appendDataXml(document, element);
+
+	//Dynamic texts
+	appendTextsXml(document, element);
+
+	return(element);
+}
+
+/**
+	@brief Element::addDynamiqueTextItem
+	Add deti as a dynamic text item of this element,
+	deti is reparented to this
+	If deti is null, a new DynamicElementTextItem is created
+	and added to this element.
+	@param deti
+*/
+void Element::addDynamicTextItem(DynamicElementTextItem *deti)
+{
+	if (!deti || m_dynamic_text_list.contains(deti))
+		deti = new DynamicElementTextItem(this);
+	else
+		deti->setParentItem(this);
+
+	m_dynamic_text_list.append(deti);
+
+		//An element whose name must not be drawn does not keep the
+		//field of its label on the sheet either (@sa Element::labelShown)
+	deti->refreshLabelShown();
+
+		//A field of its own for the terminal number is what the label
+		//leaves the number to: the fields which draw the label follow
+		//when such a field lands on the symbol
+	if (deti->infoName() == QETInformation::ELMT_TERMINAL_NUMBER) {
+		refreshLabelFields();
+	}
+
+		//On a mirrored element, the mirror of the text depends on the size
+		//and the rotation of the text, see keepReadable()
+	connect(deti->document()->documentLayout(),
+			&QAbstractTextDocumentLayout::documentSizeChanged,
+			this, [this, deti]() {keepReadable(deti);});
+	connect(deti, &DynamicElementTextItem::rotationChanged,
+			this, [this, deti]() {keepReadable(deti);});
+	connect(deti, &DynamicElementTextItem::rotationPointCenterChanged,
+			this, [this, deti]() {keepReadable(deti);});
+	keepReadable(deti);
+
+	emit textAdded(deti);
+}
+
+/**
+	@brief Element::removeDynamicTextItem
+	Remove deti, no matter if is a child of this element
+	or a child of a group of this element.
+	Set he parent item of deti to 0, deti is not deleted.
+	@param deti
+*/
+void Element::removeDynamicTextItem(DynamicElementTextItem *deti)
+{
+		//Undo the connections and the mirror of addDynamicTextItem()
+	auto forget = [this, deti]() {
+		disconnect(deti->document()->documentLayout(), nullptr, this, nullptr);
+		disconnect(deti, nullptr, this, nullptr);
+		deti->resetTransform();
+	};
+
+	if (m_dynamic_text_list.contains(deti))
+	{
+		m_dynamic_text_list.removeOne(deti);
+		deti->setParentItem(nullptr);
+		forget();
+		if (deti->infoName() == QETInformation::ELMT_TERMINAL_NUMBER) {
+			refreshLabelFields();
+		}
+		emit textRemoved(deti);
+		return;
+	}
+
+	for(ElementTextItemGroup *group : m_texts_group)
+	{
+		if(group->texts().contains(deti))
+		{
+			removeTextFromGroup(deti, group);
+			m_dynamic_text_list.removeOne(deti);
+			deti->setParentItem(nullptr);
+			forget();
+			if (deti->infoName() == QETInformation::ELMT_TERMINAL_NUMBER) {
+				refreshLabelFields();
+			}
+			emit textRemoved(deti);
+			return;
+		}
+	}
+}
+
+/**
+	@brief Element::refreshLabelFields
+	The fields which draw the label draw it again: what they show of the
+	label has changed under them (a field for the terminal number added
+	or removed, @sa Element::hasTerminalNumberText), or the terminal
+	labelling setting of the project was switched
+	(@sa QETProject::terminalLabelSplit).
+	Only the fields which draw a label are refreshed, every other field
+	follows its own information.
+*/
+void Element::refreshLabelFields()
+{
+	for (DynamicElementTextItem *text : m_dynamic_text_list) {
+		text->refreshLabelConnection();
+	}
+	for (ElementTextItemGroup *group : m_texts_group) {
+		for (DynamicElementTextItem *text : group->texts()) {
+			text->refreshLabelConnection();
+		}
+	}
+}
+
+/**
+	@brief Element::dynamicTextItems
+	@return all dynamic text items of this element directly child of this element.
+	Texts in text-groups belonging to this element are not returned by this function.
+	@see ElementTextItemGroup::texts
+*/
+QList<DynamicElementTextItem *> Element::dynamicTextItems() const
+{
+	return m_dynamic_text_list;
+}
+
+/**
+	@brief Element::addTextGroup
+	Create and add an element text item group to this element.
+	If this element already have a group with the same name,
+	then name will renamed to name1 or name2 etc....
+	@param name : the name of the group
+	@return the created group.
+*/
+ElementTextItemGroup *Element::addTextGroup(const QString &name)
+{
+	if(m_texts_group.isEmpty())
+	{
+		ElementTextItemGroup *group = new ElementTextItemGroup(name,
+									   this);
+		m_texts_group << group;
+		emit textsGroupAdded(group);
+		return group;
+	}
+
+		//Set a new name if name already exist
+	QString rename = name;
+	int i=1;
+	while (textGroup(rename))
+	{
+		rename = name+QString::number(i);
+		i++;
+	}
+
+		//Create the group
+	ElementTextItemGroup *group = new ElementTextItemGroup(rename, this);
+	m_texts_group << group;
+	emit textsGroupAdded(group);
+	return group;
+}
+
+/**
+	@brief Element::addTextGroup
+	@param group add group to the group of this element.
+	the group must not be owned by an element.
+*/
+void Element::addTextGroup(ElementTextItemGroup *group)
+{
+	if(group->parentElement())
+		return;
+
+	m_texts_group << group;
+	group->setParentItem(this);
+	emit textsGroupAdded(group);
+}
+
+/**
+	@brief Element::removeTextGroup
+	Remove the text group group from this element,
+	and set the parent of group to 0.
+	group is not deleted.
+	All texts owned by the group will be reparented to this element
+	@param group
+*/
+void Element::removeTextGroup(ElementTextItemGroup *group)
+{
+	if(!m_texts_group.contains(group))
+		return;
+
+	const QList<QGraphicsItem *> items_list = group->childItems();
+
+	for(QGraphicsItem *qgi : items_list)
+	{
+		if(qgi->type() == DynamicElementTextItem::Type)
+		{
+			DynamicElementTextItem *deti =
+				static_cast<DynamicElementTextItem *>(qgi);
+			removeTextFromGroup(deti, group);
+		}
+	}
+
+
+	emit textsGroupAboutToBeRemoved(group);
+	m_texts_group.removeOne(group);
+	group->setParentItem(nullptr);
+}
+
+/**
+	@brief Element::textGroup
+	@param name
+	@return the text group named name or nullptr if this element
+	haven't got a group with this name
+*/
+ElementTextItemGroup *Element::textGroup(const QString &name) const
+{
+	for (ElementTextItemGroup *group : m_texts_group)
+		if(group->name() == name)
+			return group;
+
+	return nullptr;
+}
+
+/**
+	@brief Element::textGroups
+	@return All texts groups of this element
+*/
+QList<ElementTextItemGroup *> Element::textGroups() const
+{
+	return m_texts_group;
+}
+
+/**
+	@brief Element::addTextToGroup
+	Add the text text to the group group;
+	If group isn't owned by this element return false.
+	The text must be a text of this element.
+	@return : true if the text was successfully added to the group.
+*/
+bool Element::addTextToGroup(DynamicElementTextItem *text,
+				 ElementTextItemGroup *group)
+{
+	if(!m_dynamic_text_list.contains(text))
+		return false;
+	if(!m_texts_group.contains(group))
+		return false;
+
+	m_dynamic_text_list.removeOne(text);
+	emit textRemoved(text);
+
+	group->addToGroup(text);
+	emit textAddedToGroup(text, group);
+
+	return true;
+}
+
+/**
+	@brief Element::removeTextFromGroup
+	Remove the text text from the group group,
+	en reparent text to this element
+	@return true if text was successfully removed
+*/
+bool Element::removeTextFromGroup(DynamicElementTextItem *text,
+				  ElementTextItemGroup *group)
+{
+	if(!m_texts_group.contains(group))
+		return false;
+
+	if(group->texts().contains(text))
+	{
+		group->removeFromGroup(text);
+		emit textRemovedFromGroup(text, group);
+		addDynamicTextItem(text);
+		return true;
+	}
+
+	return false;
+}
+
+/**
+	@brief Element::AlignedFreeTerminals
+	@return a list of terminal (owned by this element) aligned to other terminal (from other element)
+	The first Terminal of QPair is a Terminal owned by this element,
+	this terminal haven't got any conductor docked.
+	The second Terminal of QPair is a Terminal owned by an other element,
+	which is aligned with the first Terminal. The second Terminal can have or not docked conductors,
+	but no more than the project's wires-per-terminal limit allows (discussion #1158).
+*/
+QList <QPair <Terminal *, Terminal *> > Element::AlignedFreeTerminals() const
+{
+	QList <QPair <Terminal *, Terminal *> > list;
+
+	foreach (Terminal *terminal, terminals())
+	{
+		if (terminal->conductors().isEmpty())
+		{
+			Terminal *other_terminal =
+					terminal -> alignedWithTerminal();
+			if (other_terminal
+				&& terminal->hasRoomForWire()
+				&& other_terminal->hasRoomForWire())
+				list << qMakePair(terminal, other_terminal);
+		}
+	}
+
+	return list;
+}
+
+/**
+	@brief Element::initLink
+	Link this symbol, just read, to its partners already built. Once the
+	project database holds the link rows, the partners are those its rows
+	name (QETZ-DB-FIRST stage 2a-3): its own rows, in their order, then the
+	symbols whose rows name it, then any its file names that the rows miss.
+	A partner not built yet (lazy folios) is linked when it is, from the
+	rows, which keep it until then. While a project opens, before the
+	database is filled, the partners are those its file names, and the list
+	is kept for the fill.
+
+	@param prj :
+	ownership project of this element and other element to be linked
+*/
+void Element::initLink(QETProject *prj)
+{
+		// if nothing to link return now
+	if (tmp_uuids_link.isEmpty()) return;
+
+	projectDataBase *database = prj->dataBase();
+	const bool from_rows = database->holdsLinks();
+	QList<LinkInfo> links;
+	QSet<QUuid> listed;
+	const QList<std::pair<QUuid, int>> rows = from_rows ? database->partnersToLink(uuid())
+														: QList<std::pair<QUuid, int>>();
+	const QList<std::pair<QUuid, int>> own_rows = from_rows ? database->linkRowsOf(uuid())
+															: QList<std::pair<QUuid, int>>();
+		//Its own rows first, then its file's list, then the symbols whose
+		//rows name it: a partner's row gives no contact group, so it
+		//comes after the lists that do
+	for (const auto &row : own_rows) {
+		if (!listed.contains(row.first)) {
+			listed.insert(row.first);
+			links << LinkInfo(row.first, row.second);
+		}
+	}
+	for (const auto &link_info : std::as_const(tmp_uuids_link)) {
+		if (!listed.contains(link_info.uuid)) {
+			listed.insert(link_info.uuid);
+			links << link_info;
+		}
+	}
+	for (const auto &row : rows) {
+		if (!listed.contains(row.first)) {
+			listed.insert(row.first);
+			links << LinkInfo(row.first, row.second);
+		}
+	}
+
+		//The symbols built: on the folios built, and those built alone as
+		//partners on folios not built (Diagram::buildSymbols())
+	ElementProvider ep(prj->folios());
+	QList<QUuid> uuids;
+	for (const auto &linkInfo : std::as_const(links)) {
+		uuids.append(linkInfo.uuid);
+	}
+	QList<Element *> elements = ep.fromUuids(uuids);
+	for (const auto &link_info : std::as_const(links)) {
+		for (Element *elmt : elements) {
+			if (elmt->uuid() == link_info.uuid) {
+				elmt->linkToElement(this);
+				if (link_info.group_index >= 0) {
+					m_group_index_map[elmt] = link_info.group_index;
+					applyContactGroupLabels(elmt, link_info.group_index);
+				} else if (from_rows && linkType() == Slave
+						   && elmt->linkType() == Master
+						   && elmt->groupIndexForElement(this) < 0) {
+						//A slave built after its master (lazy folios):
+						//the contact group is in the master's row
+					for (const auto &row : database->linkRowsOf(elmt->uuid())) {
+						if (row.first == uuid() && row.second >= 0) {
+							elmt->setGroupIndexForElement(this, row.second);
+							elmt->applyContactGroupLabels(this, row.second);
+							break;
+						}
+					}
+				}
+				break;
+			}
+		}
+	}
+	restoreLinkOrder(uuids);
+	if (from_rows) {
+			//Each partner puts its partners back in the order of its rows:
+			//this one was linked last
+		for (Element *partner : std::as_const(connected_elements)) {
+			QList<QUuid> order;
+			for (const auto &row : database->partnersToLink(partner->uuid()))
+				order << row.first;
+			partner->restoreLinkOrder(order);
+		}
+		tmp_uuids_link.clear();
+	}
+		//Otherwise the project opens: the list is kept for the database's
+		//fill, which takes its order and its partners not built from it
+		//(QETProject::readProjectXml() drops it after)
+}
+
+/**
+	@brief Element::savedLinkList
+	@return the links this symbol was read with and keeps (initLink()):
+	each partner's uuid and contact group (-1 if none), in its file's order
+*/
+QList<std::pair<QUuid, int>> Element::savedLinkList() const
+{
+	QList<std::pair<QUuid, int>> list;
+	for (const auto &link_info : tmp_uuids_link) {
+		list.append({link_info.uuid, link_info.group_index});
+	}
+	return list;
+}
+
+/**
+	@brief Element::initLink
+	Overload resolving tmp_uuids_link against @p candidates instead of a
+	project-wide ElementProvider search -- see the header comment for
+	why the search has to be scoped this way right after a paste or
+	folio-duplication XML round-trip, before uuids are renewed.
+	@param candidates the elements to search for a link partner in
+*/
+void Element::initLink(const QList<Element *> &candidates)
+{
+		// if nothing to link return now
+	if (tmp_uuids_link.isEmpty()) return;
+
+	for (int i = 0; i < tmp_uuids_link.size(); ++i) {
+		for (Element *elmt : candidates) {
+			if (elmt->uuid() == tmp_uuids_link[i].uuid) {
+				elmt->linkToElement(this);
+				if (tmp_uuids_link[i].group_index >= 0) {
+					m_group_index_map[elmt] = tmp_uuids_link[i].group_index;
+					applyContactGroupLabels(elmt, tmp_uuids_link[i].group_index);
+				}
+				break;
+			}
+		}
+	}
+	QList<QUuid> order;
+	for (const auto &link_info : std::as_const(tmp_uuids_link))
+		order << link_info.uuid;
+	restoreLinkOrder(order);
+	tmp_uuids_link.clear();
+}
+
+/**
+	@brief Element::restoreLinkOrder
+	Put connected_elements back in the order @p order gives (the order this
+	symbol saves its partners in). Partners link in the order the folios'
+	items are visited, and for items at the same height that order changes
+	from run to run, so a master's contacts were saved in a different order
+	each time. Linked elements missing from @p order keep their place after it.
+*/
+void Element::restoreLinkOrder(const QList<QUuid> &order)
+{
+	QList<Element *> ordered;
+	for (const QUuid &uuid : order) {
+		for (Element *elmt : std::as_const(connected_elements)) {
+			if (elmt->uuid() == uuid && !ordered.contains(elmt)) {
+				ordered << elmt;
+				break;
+			}
+		}
+	}
+	for (Element *elmt : std::as_const(connected_elements)) {
+		if (!ordered.contains(elmt))
+			ordered << elmt;
+	}
+	connected_elements = ordered;
+}
+
+/**
+ * @brief Element::linkTypeToString
+ * \deprecated use instead ElementData::typeToString
+ * \todo remove this function
+ * @return
+ */
+QString Element::linkTypeToString() const
+{
+	switch (m_link_type)
+	{
+		case Simple:
+			return QStringLiteral("Simple");
+		case NextReport :
+			return QStringLiteral("NextReport");
+		case PreviousReport:
+			return QStringLiteral("PreviousReport");
+		case Master:
+			return QStringLiteral("Master");
+		case Slave:
+			return QStringLiteral("Slave");
+		case Terminale:
+			return QStringLiteral("Terminale");
+		case Thumbnail:
+			return QStringLiteral("Thumbnail");
+		case ConductorDefinition:
+			return QStringLiteral("ConductorDefinition");
+		default:
+			return QStringLiteral("Unknown");
+	}
+}
+
+/**
+ * @brief Element::takesSchemeNumber
+ * Whether this element is given a number by an element numbering scheme.
+ * A slave or a report takes its name from the element it is linked to, and
+ * a conductor definition labels a wire rather than naming an item of the
+ * drawing: numbering one of them would give a wire label a BMK and advance
+ * a scheme's counter for nothing.
+ * @return true when the element numbering schemes apply to this element
+ */
+bool Element::takesSchemeNumber() const
+{
+	return ElementData::takesSchemeNumber(m_data.m_type);
+}
+
+/**
+ * @brief Element::groupIndexForElement
+ * Returns the group index assigned to the given linked element.
+ * For slave elements, this indicates which contact group of the master
+ * this slave is assigned to.
+ * @param elmt the linked element to query
+ * @return group index, or -1 if not assigned
+ */
+int Element::groupIndexForElement(Element *elmt) const
+{
+	return m_group_index_map.value(elmt, -1);
+}
+
+/**
+ * @brief Element::setGroupIndexForElement
+ * Sets the group index for a linked element.
+ * @param elmt the linked element
+ * @param index the group index to assign
+ */
+void Element::setGroupIndexForElement(Element *elmt, int index)
+{
+	if (index >= 0) {
+		m_group_index_map[elmt] = index;
+	} else {
+		m_group_index_map.remove(elmt);
+	}
+}
+
+/**
+	@brief Element::applyContactGroupLabels
+	Give the terminals of @p slave the names of contact group @p index of
+	this master (Terminal::name()): the terminals of the slave, sorted by
+	their own names, take the labels of the group in order (for a PLC
+	master, the terminals of its I/O number @p index).
+	Done when the link is made (LinkElementCommand) and again when the link
+	is read back (initLink()): the terminal of a placed symbol saves only
+	its position and orientation, so this is not in the file, and without
+	it the contact numbers vanish once the project is reopened (bug 346).
+	@param slave the slave linked to this master
+	@param index the contact group of this master the slave is assigned to
+*/
+void Element::applyContactGroupLabels(Element *slave, int index) const
+{
+	if (!slave || index < 0 || linkType() != Master) {
+		return;
+	}
+
+	QStringList labels;
+	if (m_data.m_master_type == ElementData::PLC) {
+		const auto &ios = m_data.plcMasterData().ios;
+		if (index >= ios.size()) {
+			return;
+		}
+		labels = ios.at(index).effectiveTerminals();
+	} else {
+		const auto &groups = m_data.m_slave_contact_groups;
+		if (index >= groups.size()) {
+			return;
+		}
+		labels = groups.at(index).labels;
+	}
+
+	QList<Terminal *> slave_terms = slave->terminals();
+	QCollator collator;
+	collator.setNumericMode(true);
+	std::sort(slave_terms.begin(), slave_terms.end(),
+			  [&collator](Terminal *a, Terminal *b) {
+		return collator.compare(a->baseName(), b->baseName()) < 0;
+	});
+	for (int i = 0; i < slave_terms.size() && i < labels.size(); ++i) {
+		slave_terms.at(i)->setUseMasterLabel(true);
+		slave_terms.at(i)->setMasterLabelIndex(i);
+	}
+}
+
+/**
+	@brief Element::setElementInformations
+	Set new information for this element.
+	If new information is different of current infotmation emit elementInfoChange
+	@param dc
+*/
+namespace {
+/**
+	An element follows a numbering scheme only through a formula: an
+	information context whose formula is emptied (paste with labels
+	erased, the formula deleted by hand...) no longer names one.
+*/
+void dropOrphanFormulaId(DiagramContext &dc)
+{
+	if (dc.contains(QETInformation::ELMT_FORMULA_ID)
+			&& dc.value(QETInformation::ELMT_FORMULA).toString().isEmpty()) {
+		dc.remove(QETInformation::ELMT_FORMULA_ID);
+	}
+}
+} // namespace
+
+/**
+	@brief Element::setFormulaSchemeId
+	Make this element follow the element numbering scheme with uuid @p id,
+	or none if @p id is null, without touching anything else: no label
+	update, no signal, no undo. For QETProject when it ties freshly loaded
+	elements to their schemes.
+*/
+void Element::setFormulaSchemeId(const QUuid &id)
+{
+	if (id.isNull()) {
+		m_data.m_informations.remove(QETInformation::ELMT_FORMULA_ID);
+	} else {
+		m_data.m_informations.addValue(QETInformation::ELMT_FORMULA_ID,
+									   id.toString(), false);
+	}
+	storeInformation();
+}
+
+/**
+	@brief Element::setUuid
+	A placed symbol's stored information and its database rows follow its
+	uuid (a paste or a folio copy renews it).
+*/
+void Element::setUuid(const QUuid &uuid)
+{
+	const QUuid old_uuid = m_uuid;
+	m_uuid = uuid;
+	if (diagram() && diagram()->project() && diagram()->project()->dataBase())
+		diagram()->project()->dataBase()->elementUuidChanged(this, old_uuid);
+}
+
+namespace {
+/**
+	@brief notifyTerminalStrip
+	If @a element is a terminal of a terminal strip, tell the strip that the
+	data of the terminal changed, so that the strip is redrawn on the folios.
+*/
+void notifyTerminalStrip(Element *element)
+{
+	if (auto terminal_ = dynamic_cast<TerminalElement *>(element)) {
+		if (auto strip_ = terminal_->parentTerminalStrip()) {
+			strip_->terminalDataChanged();
+		}
+	}
+}
+}
+
+/**
+	@brief Element::storeInformation
+	Write this symbol's information to its project's store, once it is
+	placed: every change of a placed
+	symbol's information comes through here.
+*/
+void Element::storeInformation()
+{
+	if (diagram() && diagram()->project() && diagram()->project()->dataBase()
+		&& diagram()->project()->dataBase()->hasElementInformation(m_uuid))
+		diagram()->project()->dataBase()->elementInformationChanged(this, m_data.m_informations);
+}
+
+void Element::setElementInformations(DiagramContext dc)
+{
+	dropOrphanFormulaId(dc);
+	if (m_data.m_informations == dc) {
+		return;
+	}
+
+	const auto old_info = m_data.m_informations;
+	m_data.m_informations = dc;
+
+	const auto actual_label{actualLabel()};
+	if (!actual_label.isEmpty()) {
+		m_data.m_informations.addValue(QStringLiteral("label"), actual_label); //Update the label if there is a formula
+	}
+	storeInformation();
+	emit elementInfoChange(old_info, m_data.m_informations);
+	notifyTerminalStrip(this);
+
+	bool label_changed = old_info.value("label").toString() != dc.value("label").toString();
+	if (label_changed && (linkType() & Element::AllReport)) {
+		if (diagram() && diagram()->project() && diagram()->project()->chainedReports()) {
+			diagram()->project()->scheduleAutoLink();
+		}
+	}
+
+	// Propagate label change to linked PLC slaves (label is changed via
+	// setElementInformations through the undo stack, not via setElementData)
+	if (m_data.m_type == ElementData::Master && m_data.m_master_type == ElementData::PLC)
+	{
+		if (!m_group_index_map.isEmpty())
+		{
+			const QString new_label = actualLabel();
+			for (auto it = m_group_index_map.constBegin(); it != m_group_index_map.constEnd(); ++it)
+			{
+				Element *slave = it.key();
+				if (!slave)
+					continue;
+				if (slave->elementInformations().value(QETInformation::ELMT_LABEL).toString() == new_label)
+					continue;
+				DiagramContext ctx = slave->elementInformations();
+				ctx.addValue(QETInformation::ELMT_LABEL, new_label);
+				slave->setElementInformations(ctx);
+			}
+		}
+	}
+}
+
+/**
+ * @brief Element::elementData
+ * @return the element data used by this element
+ */
+ElementData Element::elementData() const
+{
+	if (projectDataBase *store = placedStore()) {
+		ElementData data = m_data;
+		data.m_informations = store->elementInformation(m_uuid);
+		return data;
+	}
+	return m_data;
+}
+
+/**
+	@brief Element::elementInformations
+	@return this symbol's information: for a placed symbol the project's
+	store holds it, for one not placed
+	(a preview, the symbol editor) its own copy.
+*/
+DiagramContext Element::elementInformations() const
+{
+	if (projectDataBase *store = placedStore())
+		return store->elementInformation(m_uuid);
+	return m_data.m_informations;
+}
+
+/**
+	@brief Element::kindInformations
+	@return this symbol's kind information (NO/NC/SW/power and the like,
+	baked into its own definition, never edited after it is built): the
+	project's store holds it once this symbol is placed, for one not
+	placed (a preview, the symbol editor) its own copy.
+*/
+DiagramContext Element::kindInformations() const
+{
+	if (projectDataBase *store = placedStore())
+		return store->elementKindInformation(m_uuid);
+	return m_kind_informations;
+}
+
+/**
+	@brief Element::ownPlacement
+	@return where this symbol comes from and sits, as toXml() writes it
+*/
+ElementPlacement Element::ownPlacement() const
+{
+	ElementPlacement placement;
+	placement.type = m_location.path();
+	placement.x = pos().x();
+	placement.y = pos().y();
+	placement.z = zValue();
+	placement.rotation = orientation();
+	placement.horizontal_mirror = m_horizontal_mirror;
+	placement.vertical_mirror = m_vertical_mirror;
+	return placement;
+}
+
+/**
+	@brief Element::storePlacement
+	Write this symbol's placement to its project's store, once it is
+	placed and alone with its uuid (F100).
+*/
+void Element::storePlacement()
+{
+	Diagram *d = diagram();
+	QETProject *project = d ? d->project() : nullptr;
+	projectDataBase *store = project ? project->dataBase() : nullptr;
+	if (store && store->hasElementInformation(m_uuid) && store->placedElementCount(m_uuid) == 1)
+		store->storeElementPlacement(m_uuid, ownPlacement());
+}
+
+/**
+	@brief Element::appendTextsXml
+	Append this symbol's texts and text groups to @p element, as a saved
+	symbol holds them.
+*/
+void Element::appendTextsXml(QDomDocument &document, QDomElement &element) const
+{
+	const bool writing = m_writing_texts;
+	m_writing_texts = true;
+	QDomElement dyn_text = document.createElement(QStringLiteral("dynamic_texts"));
+	for (DynamicElementTextItem *deti : m_dynamic_text_list)
+		dyn_text.appendChild(deti->toXml(document));
+
+	QDomElement texts_group = document.createElement(QStringLiteral("texts_groups"));
+
+		//Dynamic texts owned by groups
+	for(ElementTextItemGroup *group : m_texts_group)
+	{
+		group->blockAlignmentUpdate(true);
+			//temporarily remove the texts from group to get the pos relative to element and not group.
+			//Set the alignment to top, because top is not used by groupand so,
+			//each time a text is removed from the group, the alignement is not updated
+		Qt::Alignment al = group->alignment();
+		group->setAlignment(Qt::AlignTop);
+
+			//Remove the texts from group
+		QList<DynamicElementTextItem *> deti_list = group->texts();
+		for(DynamicElementTextItem *deti : deti_list)
+			group->removeFromGroup(deti);
+
+			//Save the texts to xml
+		for (DynamicElementTextItem *deti : deti_list)
+			dyn_text.appendChild(deti->toXml(document));
+
+			//Re add texts to group
+		for(DynamicElementTextItem *deti : deti_list)
+			group->addToGroup(deti);
+
+			//Restorr the alignment
+		group->setAlignment(al);
+
+			//Save the group to xml
+		texts_group.appendChild(group->toXml(document));
+		group->blockAlignmentUpdate(false);
+	}
+
+		//Append the dynamic texts to element
+	element.appendChild(dyn_text);
+		//Append the texts group to element
+	element.appendChild(texts_group);
+	m_writing_texts = writing;
+}
+
+/**
+	@brief Element::appendDataXml
+	Append to @p element, made in @p document, what toXml() writes of this
+	symbol's own data: the override properties of a terminal and the PLC
+	master data of a PLC.
+*/
+void Element::appendDataXml(QDomDocument &document, QDomElement &element) const
+{
+		//Save override properties (For now, only used when the element is a terminal)
+	if (m_data.m_type == ElementData::Terminal)
+	{
+		QDomElement properties = document.createElement(QStringLiteral("properties"));
+		QDomElement element_type = document.createElement(QStringLiteral("element_type"));
+
+		element_type.setAttribute(QStringLiteral("terminal_type"),
+								m_data.terminalTypeToString(m_data.terminalType()));
+		element_type.setAttribute(QStringLiteral("terminal_function"),
+								m_data.terminalFunctionToString(m_data.terminalFunction()));
+		element_type.setAttribute(QStringLiteral("terminal_led"),
+								QETXML::boolToString(m_data.terminalLed()));
+
+		properties.appendChild(element_type);
+		element.appendChild(properties);
+	}
+
+		//Save PLC master data override for elements on diagram
+	if (m_data.m_type == ElementData::Master &&
+		m_data.m_master_type == ElementData::PLC)
+	{
+		auto xml_plc = m_data.plcMasterDataToXml(document);
+		if (!xml_plc.isNull())
+			element.appendChild(xml_plc);
+	}
+
+		//Written only when set, so a master without its own display saves
+		//exactly as before
+	if (m_data.m_type == ElementData::Master &&
+		m_data.m_master_type != ElementData::PLC)
+	{
+		auto xml_display = m_data.xrefDisplayToXml(document);
+		if (!xml_display.isNull())
+			element.appendChild(xml_display);
+	}
+
+		//Written only when set, so a symbol giving its terminals no text
+		//of their own saves exactly as before
+	if (!m_terminal_texts.isEmpty())
+	{
+		QDomElement texts = document.createElement(QStringLiteral("terminalTexts"));
+		for (auto it = m_terminal_texts.constBegin() ;
+			 it != m_terminal_texts.constEnd() ; ++it) {
+			QDomElement text = document.createElement(QStringLiteral("terminalText"));
+			text.setAttribute(QStringLiteral("terminal"), it.key());
+			text.setAttribute(QStringLiteral("text"), it.value());
+			texts.appendChild(text);
+		}
+		element.appendChild(texts);
+	}
+}
+
+/**
+	@brief Element::terminalText
+	@return the text this placed symbol gives @p terminal instead of its
+	name, or an empty string when it gives it none
+*/
+QString Element::terminalText(const Terminal *terminal) const
+{
+	if (!terminal || m_terminal_texts.isEmpty()) {
+		return QString();
+	}
+	return m_terminal_texts.value(terminal->stableUuid().toString());
+}
+
+/**
+	@brief Element::setTerminalTexts
+	Give the terminals of this symbol the texts @p texts, by
+	Terminal::stableUuid() as a string, instead of their names: they are
+	drawn, saved and listed with them (terminal strip plans, wiring
+	lists, the project database). An empty text gives the terminal back
+	the name the symbol gives it.
+*/
+void Element::setTerminalTexts(const QMap<QString, QString> &texts)
+{
+	QMap<QString, QString> kept;
+	for (auto it = texts.constBegin() ; it != texts.constEnd() ; ++it) {
+		if (!it.value().isEmpty()) {
+			kept.insert(it.key(), it.value());
+		}
+	}
+	if (kept == m_terminal_texts) {
+		return;
+	}
+
+	for (Terminal *terminal : std::as_const(m_terminals)) {
+		terminal->prepareNameChange();
+	}
+	m_terminal_texts = kept;
+	for (Terminal *terminal : std::as_const(m_terminals)) {
+		terminal->update();
+	}
+	if (projectDataBase *store = placedStore()) {
+		store->renameTerminals(this);
+	}
+	scheduleTextsStore();
+	emit terminalTextsChanged();
+}
+
+/**
+	@brief Element::ownValuesXml
+	@return an <element> made in @p document holding what toXml() writes
+	of this symbol that no other table of the project database holds: its
+	prefix, frozen label, whether it can be moved, and appendDataXml()
+*/
+QDomElement Element::ownValuesXml(QDomDocument &document) const
+{
+	QDomElement element = document.createElement(QStringLiteral("element"));
+	element.setAttribute(QStringLiteral("prefix"), m_prefix);
+	element.setAttribute(QStringLiteral("freezeLabel"), m_freeze_label? QStringLiteral("true") : QStringLiteral("false"));
+	element.setAttribute(QStringLiteral("is_movable"), bool(is_movable_));
+	appendDataXml(document, element);
+	return element;
+}
+
+/**
+	@brief Element::ownTextsXml
+	@return an <element> made in @p document holding this symbol's texts and
+	text groups, as toXml() writes them
+*/
+QDomElement Element::ownTextsXml(QDomDocument &document) const
+{
+	QDomElement element = document.createElement(QStringLiteral("element"));
+	appendTextsXml(document, element);
+	return element;
+}
+
+/**
+	@brief Element::scheduleTextsStore
+	A text or text group of this symbol changed, or what ownValuesXml()
+	writes: its project's store writes them when it is next read
+	(projectDataBase::flushElementTexts()).
+*/
+void Element::scheduleTextsStore()
+{
+	if (m_writing_texts) return;
+	if (projectDataBase *store = placedStore())
+		store->queueElementTexts(this);
+}
+
+/**
+	@brief Element::connectTextStore
+	Queue the texts for the store whenever @p deti changes.
+*/
+void Element::connectTextStore(DynamicElementTextItem *deti)
+{
+	if (!deti) return;
+	const auto once = Qt::UniqueConnection;
+	connect(deti, &DynamicElementTextItem::xChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::yChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::rotationChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::fontChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::colorChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::alignmentChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::textFromChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::infoNameChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::compositeTextChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::frameChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::textWidthChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::keepVisualRotationChanged, this, &Element::scheduleTextsStore, once);
+	connect(deti, &DynamicElementTextItem::rotationPointCenterChanged, this, &Element::scheduleTextsStore, once);
+		//The text shown, whichever way it is set
+	connect(deti->document(), &QTextDocument::contentsChanged, this, &Element::scheduleTextsStore, once);
+}
+
+/**
+	@brief Element::connectTextStore
+	Queue the texts for the store whenever @p group changes.
+*/
+void Element::connectTextStore(ElementTextItemGroup *group)
+{
+	if (!group) return;
+	const auto once = Qt::UniqueConnection;
+	connect(group, &ElementTextItemGroup::xChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::yChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::rotationChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::verticalAdjustmentChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::alignmentChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::nameChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::holdToBottomPageChanged, this, &Element::scheduleTextsStore, once);
+	connect(group, &ElementTextItemGroup::frameChanged, this, &Element::scheduleTextsStore, once);
+}
+
+/**
+	@brief Element::setSequenceStruct
+	Replace this symbol's sequential numbers; the project's store follows.
+*/
+void Element::setSequenceStruct(const autonum::sequentialNumbers &numbers)
+{
+	m_autoNum_seq = numbers;
+	storeSequence();
+}
+
+/**
+	@brief Element::storeSequence
+	Write this symbol's sequential numbers to its project's store, once it
+	is placed and alone with its uuid (F100).
+*/
+void Element::storeSequence()
+{
+	Diagram *d = diagram();
+	QETProject *project = d ? d->project() : nullptr;
+	projectDataBase *store = project ? project->dataBase() : nullptr;
+	if (store && store->hasElementInformation(m_uuid) && store->placedElementCount(m_uuid) == 1)
+		store->storeSequence(m_uuid, m_autoNum_seq);
+}
+
+/**
+	@brief Element::placedStore
+	@return the project database holding this symbol's information, or
+	nullptr if it is not placed in a project
+*/
+projectDataBase *Element::placedStore() const
+{
+	Diagram *d = diagram();
+	QETProject *project = d ? d->project() : nullptr;
+	projectDataBase *store = project ? project->dataBase() : nullptr;
+		//A uuid other placed symbols share (F100) names no single symbol's
+		//information: this one answers from its own copy.
+	return store && store->hasElementInformation(m_uuid)
+			&& store->placedElementCount(m_uuid) == 1 ? store : nullptr;
+}
+
+/**
+ * @brief Element::setElementData
+ * Set new data for this element.
+ * If m_information of \p data is changed, emit elementInfoChange
+ * @param data
+ */
+void Element::setElementData(ElementData data)
+{
+	dropOrphanFormulaId(data.m_informations);
+	auto old_info = m_data.m_informations;
+	const auto old_display = m_data.m_xref_display;
+	auto old_plc = m_data.m_type == ElementData::Master && m_data.m_master_type == ElementData::PLC
+		? m_data.plcMasterData() : ElementData::PlcMasterData();
+	m_data = data;
+	scheduleTextsStore();
+
+		//Every cross reference is laid out again from the project's
+		//setting and its masters' own
+	if (old_display != m_data.m_xref_display && diagram() && diagram()->project())
+		emit diagram()->project()->XRefPropertiesChanged();
+
+	if (old_info != m_data.m_informations) {
+		m_data.m_informations.addValue(QStringLiteral("label"), actualLabel()); //Update the label if there is a formula
+		storeInformation();
+		if (diagram()) {
+			diagram()->project()->dataBase()->elementInfoChanged(this);
+		}
+		emit elementInfoChange(old_info, m_data.m_informations);
+	}
+		//Type, function, led... of a terminal are not informations
+	notifyTerminalStrip(this);
+
+	// Propagate PLC master data changes to linked slaves
+	if (m_data.m_type == ElementData::Master && m_data.m_master_type == ElementData::PLC)
+	{
+		const auto &new_plc = m_data.plcMasterData();
+		bool plc_changed = (old_plc.ios != new_plc.ios);
+		bool label_changed = (old_info.value(QStringLiteral("label")) !=
+			m_data.m_informations.value(QStringLiteral("label")));
+		if (!m_group_index_map.isEmpty() && (plc_changed || label_changed))
+		{
+			for (auto it = m_group_index_map.constBegin(); it != m_group_index_map.constEnd(); ++it)
+			{
+				Element *slave = it.key();
+				int io_idx = it.value();
+				if (!slave || io_idx < 0 || io_idx >= new_plc.ios.size())
+					continue;
+				const auto &io = new_plc.ios.at(io_idx);
+
+				if (plc_changed)
+				{
+					DiagramContext ctx = slave->elementInformations();
+					ctx.addValue(QETInformation::ELMT_PLC_TYPE,
+						ElementData::translatedPlcIOType(io.type));
+					ctx.addValue(QETInformation::ELMT_PLC_ADDRESS, io.address);
+					ctx.addValue(QETInformation::ELMT_PLC_FUNCTION, io.functionText);
+					ctx.addValue(QETInformation::ELMT_PLC_COMMENT, io.comment);
+					ctx.addValue(QETInformation::ELMT_PLC_CROSSREF,
+						[&]() -> QString {
+							if (!diagram() || !diagram()->project())
+								return QString();
+							XRefProperties xrp = diagram()->project()
+								->defaultXRefProperties("plc");
+							autonum::sequentialNumbers seq;
+							return autonum::AssignVariables::formulaToLabel(
+								xrp.slaveLabel(), seq, diagram(), this);
+						}());
+					ctx.addValue(QETInformation::ELMT_LABEL, actualLabel());
+					ctx.addValue(QETInformation::ELMT_PLC_TC,
+						QString::number(io.terminalCount));
+					for (int t = 0; t < io.terminalCount && t < 4; ++t)
+					{
+						QString val = (t < io.terminals.size())
+							? io.terminals.at(t) : QString();
+						ctx.addValue(plcTerminalKeys[t], val);
+					}
+					slave->setElementInformations(ctx);
+
+					// Update master labels on slave terminals
+					QList<Terminal *> slave_terms = slave->terminals();
+					for (int t = 0; t < slave_terms.size(); ++t)
+					{
+						if (t < io.terminals.size())
+						{
+							slave_terms.at(t)->setUseMasterLabel(true);
+							slave_terms.at(t)->setMasterLabelIndex(t);
+						}
+						else
+						{
+							slave_terms.at(t)->setUseMasterLabel(false);
+						}
+					}
+				}
+				if (label_changed)
+				{
+					// Only label changed, update the label on the slave
+					DiagramContext ctx = slave->elementInformations();
+					ctx.addValue(QETInformation::ELMT_LABEL, actualLabel());
+					slave->setElementInformations(ctx);
+				}
+			}
+		}
+	}
+}
+
+/**
+	@brief comparPos
+	Compare position of the two elements. Compare 3 points:
+	1 folio - 2 row - 3 line
+	returns a response when a comparison is found.
+	@return true if elmt1 is at lower position than elmt 2, else false
+*/
+bool comparPos(const Element *elmt1, const Element *elmt2)
+{
+	//Compare folio first
+	if (elmt1->diagram()->folioIndex() != elmt2->diagram()->folioIndex())
+		return elmt1->diagram()->folioIndex()
+				<
+				elmt2->diagram()->folioIndex();
+	//Compare the row(in letter pos) in second
+	QString a = elmt1
+			->diagram()
+			->convertPosition(elmt1->scenePos()).letter();
+	QString b = elmt2
+			->diagram()
+			->convertPosition(elmt2->scenePos()).letter();
+	if (a != b)
+		return a<b;
+	//In last compare the line, if line is egal, return sorted by row in real pos
+	return PositionOrder::xThenY(elmt1->pos(), elmt2->pos());
+}
+
+/**
+	@brief Element::mouseMoveEvent
+	@param event
+*/
+void Element::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+	QetGraphicsItem::mouseMoveEvent(event);
+	foreach (Terminal *t, terminals())
+	{
+		t -> drawHelpLine(true);
+	}
+}
+
+/**
+	@brief Element::mouseReleaseEvent
+	@param event
+*/
+void Element::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+	QetGraphicsItem::mouseReleaseEvent(event);
+	foreach (Terminal *t, terminals())
+	{
+		t -> drawHelpLine(false);
+	}
+}
+
+/**
+	@brief Element::mouseDoubleClickEvent
+	A double click on a linked folio report goes to its other end, as a
+	double click on its text does; on any other element it opens the
+	properties. A report's properties stay reachable from the context menu
+	and the properties panel.
+	@param event
+*/
+void Element::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (Element *target = jumpTarget())
+	{
+		event->accept();
+			//Unselect and ungrab mouse to prevent unwanted
+			//move when the target is in the same scene as this.
+		setSelected(false);
+		ungrabMouse();
+		jumpTo(target);
+		return;
+	}
+	QetGraphicsItem::mouseDoubleClickEvent(event);
+}
+
+/**
+	When mouse over element
+	change m_mouse_over to true   (used in paint() function )
+	Also highlight linked elements
+	@param e QGraphicsSceneHoverEvent
+*/
+void Element::hoverEnterEvent(QGraphicsSceneHoverEvent *e)
+{
+	Q_UNUSED(e)
+
+	foreach (Element *elmt, linkedElements())
+		elmt -> setHighlighted(true);
+
+		//A linked folio report jumps to its other end on a double
+		//click: the pointing hand says so
+	if (jumpTarget()) {
+		setCursor(Qt::PointingHandCursor);
+		m_jump_cursor = true;
+	}
+
+	m_mouse_over = true;
+	setToolTip( name() );
+	update();
+}
+
+/**
+	When mouse over element leave the position
+	change m_mouse_over to false(used in paint() function )
+	Also un-highlight linked elements
+	@param e QGraphicsSceneHoverEvent
+*/
+void Element::hoverLeaveEvent(QGraphicsSceneHoverEvent *e)
+{
+	Q_UNUSED(e)
+
+	foreach (Element *elmt, linkedElements())
+		elmt -> setHighlighted(false);
+
+	if (m_jump_cursor) {
+		unsetCursor();
+		m_jump_cursor = false;
+	}
+
+	m_mouse_over = false;
+	update();
+}
+
+/**
+	@brief Element::itemChange
+	On ItemSelectedHasChanged, tell each of this element's own dynamic texts
+	to re-check whether its resize handles should be showing --
+	DynamicElementTextItem::refreshResizeHandlesVisibility() shows them when
+	either the text itself or its parent (this) is selected. An ordinary
+	click with no Shift selects the parent, not the text
+	(DynamicElementTextItem::mousePressEvent() forwards it), so without this
+	a plain click on a symbol never showed the resize handles this PR adds
+	to its texts (qelectrotech#591, reported by @arummler) -- only
+	Shift+click or a right-click's context menu did, since those are the
+	paths that leave the text itself selected.
+*/
+QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value)
+{
+	if (change == QGraphicsItem::ItemSelectedHasChanged)
+	{
+		const QList<DynamicElementTextItem *> texts = dynamicTextItems();
+		for (DynamicElementTextItem *deti : texts) {
+			deti->refreshResizeHandlesVisibility();
+		}
+	}
+		//Whether the texts of a turned symbol stay horizontal is the
+		//project's setting, known once the element is on one of its folios
+	else if (change == QGraphicsItem::ItemSceneHasChanged)
+		updateSymbolPictures();
+	return QetGraphicsItem::itemChange(change, value);
+}
+
+/**
+	@brief Element::setUpFormula
+	Set up the formula used to create the label of this element
+	@param code_letter : Q_UNUSED(code_letter)
+	if true set tagged text to code letter
+	(ex K for coil) with condition :
+	formula is empty, text tagged "label" is emptty or "_";
+*/
+void Element::setUpFormula(bool code_letter, QUndoCommand *parent_undo)
+{
+	Q_UNUSED(code_letter)
+
+	if (!takesSchemeNumber())
+		return;
+
+	if (diagram())
+	{
+		QETProject *autonum_project = diagram()->project();
+		QString element_currentAutoNum = autonum_project->elementCurrentAutoNum();
+			//One query for the scheme's rows, read once and reused below --
+			//elementAutoNumCurrentFormula()+elementAutoNum() each re-fetched
+			//the same rows separately (2b-3: every numbering read is now a
+			//database query, so a second fetch is a second round trip).
+		NumerotationContext nc = autonum_project->elementAutoNum(element_currentAutoNum);
+		QString formula = autonum::numerotationContextToFormula(nc);
+
+		m_data.m_informations.addValue(QStringLiteral("formula"), formula);
+		storeInformation();
+
+		const QUuid scheme_id = autonum_project->elementAutoNumId(element_currentAutoNum);
+		setFormulaSchemeId(formula.isEmpty() ? QUuid() : scheme_id);
+
+			//A rule which counts per folio counts for the folio the element
+			//is placed on: its own counter, not wherever the project's counter
+			//was left by numbering some other folio.
+		NumerotationContext given = autonum::folioCounters(
+					nc, diagram(), element_currentAutoNum);
+
+			//The number given is the first whose label no other element of
+			//the project carries: a counter set back, or an element which
+			//was given a number by hand, must not make a second element
+			//with the same label. The counter then goes on from there.
+		if (!formula.isEmpty())
+		{
+			const QSet<QString> held = ElementAutoNumSchemeCommand::labelsHeldBesides(
+						diagram()->project(), this);
+			for (int attempt = 0 ; !held.isEmpty() && attempt < 100000 ; ++attempt)
+			{
+				autonum::sequentialNumbers probe;
+				autonum::setSequential(formula, probe, given, diagram(), element_currentAutoNum);
+				const QString candidate = autonum::AssignVariables::formulaToLabel(
+							formula, probe, diagram(), this, nullptr);
+				if (candidate.isEmpty() || !held.contains(candidate)) {
+					break;
+				}
+				NumerotationContextCommands step (given);
+				const NumerotationContext advanced = step.next();
+				bool moved = advanced.size() != given.size();
+				for (int i = 0 ; !moved && i < given.size() ; ++i) {
+					moved = advanced.itemAt(i) != given.itemAt(i);
+				}
+				if (!moved) {
+					break;   //a numbering which cannot go on: nothing to skip to
+				}
+				given = advanced;
+			}
+		}
+		NumerotationContextCommands ncc (given);
+
+		autonum::sequentialNumbers numbers;
+		autonum::setSequential(formula,
+					   numbers,
+					   given,
+					   diagram(),
+					   element_currentAutoNum);
+		setSequenceStruct(numbers);
+			//Where this folio's own counter has got to: the numbers it has
+			//handed out, not only the highest it ever handed out, so that a
+			//counter put back by hand stays where the user put it.
+		autonum::storeFolioSequential(diagram(), element_currentAutoNum, numbers);
+
+		NumerotationContext new_context = ncc.next();
+		QETProject *project = diagram()->project();
+		auto setter = [project](const QString &k, const NumerotationContext &c) {project->addElementAutoNum(k, c);};
+
+		if (parent_undo)
+		{
+			new SetAutoNumContextCommand(setter, element_currentAutoNum, nc, new_context, parent_undo);
+		}
+		else
+		{
+			auto *undo = new SetAutoNumContextCommand(setter, element_currentAutoNum, nc, new_context);
+			undo->setText(tr("Automatically number an element", "undo caption"));
+			diagram()->undoStack().push(undo);
+		}
+
+		if(!m_freeze_label && !formula.isEmpty())
+		{
+			DiagramContext dc = m_data.m_informations;
+			m_data.m_informations.addValue(QStringLiteral("label"), actualLabel());
+			storeInformation();
+			emit elementInfoChange(dc, m_data.m_informations);
+		}
+	}
+}
+
+/**
+	@brief Element::getPrefix
+	get Element Prefix
+*/
+QString Element::getPrefix() const
+{
+	return m_prefix;
+}
+
+/**
+	@brief Element::setPrefix
+	set Element Prefix
+*/
+void Element::setPrefix(QString prefix)
+{
+	m_prefix = std::move(prefix);
+	scheduleTextsStore();
+}
+
+/**
+	@brief Element::freezeLabel
+	Freeze this element label
+*/
+void Element::freezeLabel(bool freeze)
+{
+	m_freeze_label = freeze;
+	scheduleTextsStore();
+}
+
+/**
+	@brief Element::setMovable
+	As QetGraphicsItem, and queue the change for the project database
+*/
+void Element::setMovable(bool movable)
+{
+	QetGraphicsItem::setMovable(movable);
+	scheduleTextsStore();
+}
+
+/**
+	@brief Element::freezeNewAddedElement
+	Freeze this label if needed
+*/
+void Element::freezeNewAddedElement()
+{
+	if (this->diagram()->freezeNewElements()
+			|| this->diagram()->project()->isFreezeNewElements()) {
+		freezeLabel(true);
+	}
+	else return;
+}
+
+/**
+	@brief Element::actualLabel
+	Always return the current label to be displayed.
+	This function is useful when label is based on formula, because label can change at any time.
+	@return
+*/
+QString Element::actualLabel() const
+{
+		//The symbol's own copy, not the store: this runs while the
+		//information is being changed, before the store has the change.
+	if (m_data.m_informations.value(QStringLiteral("formula")).toString().isEmpty()) {
+		return m_data.m_informations.value(QStringLiteral("label")).toString();
+	} else {
+	autonum::sequentialNumbers numbers = m_autoNum_seq;
+	return autonum::AssignVariables::formulaToLabel(
+				m_data.m_informations.value(
+					QStringLiteral("formula")).toString(),
+				numbers,
+				diagram(),
+				this);
+	}
+}
+
+/**
+	@brief Element::labelForDisplay
+	@return the label as the drawing must show it, the terminal labelling
+	of the project being read (@sa QETProject::terminalLabelSplit): the
+	whole label ("X1:1") while the labelling is shown in one field; the
+	label alone ("X1") when it is shown split and this symbol has a text
+	field of its own for the terminal number; and the two one under the
+	other when it is split without such a field -- so a symbol drawn
+	before the setting existed still shows all of its label, only
+	shorter. Only an element of the terminal type is ever drawn split:
+	the colon in any other label is part of the label ("-K1:13").
+*/
+QString Element::labelForDisplay()
+{
+	const QString label = actualLabel();
+	const Diagram *d = diagram();
+	const bool split = m_data.m_type == ElementData::Terminal
+			&& d && d->project() && d->project()->terminalLabelSplit();
+
+		//The "Show name" box of the selection properties hides the name
+		//of this element on the sheet only: the element keeps all of its
+		//data, and a terminal keeps its number, drawn on its own while
+		//the labelling is split.
+	if (!labelShown())
+	{
+		if (!split) {
+			return QString();
+		}
+			//The number alone in the label field, but only while the
+			//symbol has no field of its own for it: the number is
+			//drawn once, wherever it is drawn at all.
+		const int hidden_colon = label.lastIndexOf(QLatin1Char(':'));
+		if (hidden_colon < 0 || hasTerminalNumberText()) {
+			return QString();
+		}
+		return label.mid(hidden_colon + 1);
+	}
+
+		//A terminal after one of the same strip shows its number only:
+		//the strip is named once, at the first of the row. Split, with a
+		//field of its own for the number, the number is there and the
+		//label field says nothing: drawn twice, it read "24 o 24".
+	if (showsTerminalNumberOnly()) {
+		const int number_colon = label.lastIndexOf(QLatin1Char(':'));
+		if (number_colon >= 0) {
+			if (split && hasTerminalNumberText()) {
+				return QString();
+			}
+			return label.mid(number_colon + 1);
+		}
+	}
+
+	if (!split) {
+		return label;
+	}
+
+	const int colon = label.lastIndexOf(QLatin1Char(':'));
+	if (colon < 0) {
+		return label;
+	}
+
+	if (hasTerminalNumberText()) {
+		return label.left(colon);
+	}
+
+	return label.left(colon) + QLatin1Char('\n') + label.mid(colon + 1);
+}
+
+/**
+	@brief Element::terminalNumberForDisplay
+	@return the part of the label behind its last colon ("1" in "X1:1"),
+	or an empty string while the labelling is shown in one field -- and
+	for every element which is no terminal, whose colon is part of its
+	label: the number is already there with the label, showing it twice
+	would only be noise. @sa labelForDisplay
+*/
+QString Element::terminalNumberForDisplay()
+{
+	const Diagram *d = diagram();
+	if (m_data.m_type != ElementData::Terminal
+		|| !d || !d->project() || !d->project()->terminalLabelSplit()) {
+		return QString();
+	}
+
+	const QString label = actualLabel();
+	const int colon = label.lastIndexOf(QLatin1Char(':'));
+	if (colon < 0) {
+		return QString();
+	}
+
+	return label.mid(colon + 1);
+}
+
+/**
+	@brief Element::hasTerminalNumberText
+	@return whether this symbol has a text field bound to the terminal
+	number, the field labelForDisplay() leaves the number to.
+*/
+bool Element::hasTerminalNumberText() const
+{
+	auto is_number_field = [](const DynamicElementTextItem *text) {
+		return text
+			&& text->textFrom() == DynamicElementTextItem::ElementInfo
+			&& text->infoName() == QETInformation::ELMT_TERMINAL_NUMBER;
+	};
+
+	for (const DynamicElementTextItem *text : dynamicTextItems()) {
+		if (is_number_field(text)) {
+			return true;
+		}
+	}
+		//The field may just as well live in a text group of the symbol
+	for (const ElementTextItemGroup *group : m_texts_group) {
+		for (const DynamicElementTextItem *text : group->texts()) {
+			if (is_number_field(text)) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+/**
+	@brief Element::labelShown
+	@return whether the label of this element must be drawn on the sheet.
+	The choice belongs to the element itself, set with the "Show name"
+	box of the selection properties: an element whose name is not shown
+	keeps all of its data, nothing is only not drawn. An element which
+	never got the box unticked keeps drawing its name, which is why a
+	missing information means true.
+*/
+bool Element::labelShown() const
+{
+		//Only a terminal may have its name undrawn: an information
+		//which says otherwise, from whatever source, is not obeyed.
+	if (m_data.m_type != ElementData::Terminal) {
+		return true;
+	}
+	if (!m_data.m_informations.contains(QStringLiteral("label_shown"))) {
+		return true;
+	}
+	return QET::infoFlagIsTrue(
+				m_data.m_informations.value(QStringLiteral("label_shown")).toString());
+}
+
+/**
+	@brief Element::infoForDisplay
+	@return what a text field bound to @p info_name must show: the label
+	and the terminal number follow how the labelling is drawn, every
+	other information is the stored one. @sa labelForDisplay
+*/
+QString Element::infoForDisplay(const QString &info_name)
+{
+	if (info_name == QETInformation::ELMT_LABEL) {
+		return labelForDisplay();
+	}
+	if (info_name == QETInformation::ELMT_TERMINAL_NUMBER) {
+		return terminalNumberForDisplay();
+	}
+	if (info_name == QETInformation::ELMT_CONDUCTOR_TEXT) {
+		return conductorTextForDisplay();
+	}
+	if (m_data.m_type == ElementData::Terminal
+		&& QETInformation::isTerminalConductorInfo(info_name)) {
+		return conductorInfoForDisplay(info_name);
+	}
+
+	return m_data.m_informations.value(info_name).toString();
+}
+
+/**
+	@brief Element::conductorTextForDisplay
+	@return the distinct texts of the wires on the terminals of this
+	terminal symbol, in the order of its terminals and joined with a
+	space; empty for any other symbol. Display only, nothing is stored.
+*/
+QString Element::conductorTextForDisplay()
+{
+	return conductorInfoForDisplay(QETInformation::ELMT_CONDUCTOR_TEXT);
+}
+
+/**
+	@brief Element::conductorInfoForDisplay
+	@param info_name : one of QETInformation::terminalConductorInfoKeys()
+	@return the distinct values of the wire property @p info_name reads,
+	on every terminal of this terminal symbol or only on the connection
+	point it names, in the order of its terminals and joined with a
+	space; empty for any other symbol. Display only, nothing is stored.
+*/
+QString Element::conductorInfoForDisplay(const QString &info_name)
+{
+	QString property;
+	int connection = 0;
+	if (m_data.m_type != ElementData::Terminal
+		|| !QETInformation::isTerminalConductorInfo(info_name, &property, &connection)
+		|| connection > m_terminals.size()) {
+		return QString();
+	}
+
+	const QList<Terminal *> terminals = connection
+			? QList<Terminal *>{m_terminals.at(connection - 1)}
+			: m_terminals;
+
+	QStringList values;
+	for (Terminal *terminal : terminals) {
+		for (Conductor *conductor : terminal->conductors()) {
+			const ConductorProperties p = conductor->properties();
+			const QString value = property == QETInformation::COND_COLOR   ? p.m_wire_color
+								: property == QETInformation::COND_SECTION ? p.m_wire_section
+																			: p.text;
+			if (!value.isEmpty() && !values.contains(value)) {
+				values << value;
+			}
+		}
+	}
+	return values.join(QLatin1Char(' '));
+}
+
+/**
+	@brief Element::addDisplayValues
+	Add to @p dc the values a text shows differently from how they are stored.
+*/
+void Element::addDisplayValues(DiagramContext &dc)
+{
+	dc.addValue(QETInformation::ELMT_LABEL,            labelForDisplay());
+	dc.addValue(QETInformation::ELMT_TERMINAL_NUMBER, terminalNumberForDisplay());
+	dc.addValue(QETInformation::ELMT_CONDUCTOR_TEXT,  conductorTextForDisplay());
+
+	if (m_data.m_type == ElementData::Terminal) {
+		for (const QString &key
+			 : QETInformation::terminalConductorInfoKeys(m_terminals.size())) {
+			dc.addValue(key, conductorInfoForDisplay(key));
+		}
+	}
+}
+
+/**
+	@brief Element::name
+	@return the human name of this element
+*/
+QString Element::name() const {
+	return m_data.m_names_list.name(m_location.baseName());
+}
+
+	/// The name saved in a file: English, the same from any language
+QString Element::englishName() const {
+	return m_data.m_names_list.englishName(m_location.baseName());
+}
+
+ElementsLocation Element::location() const
+{
+	return m_location;
+}
+
+/**
+	@brief Element::reloadPicture
+	Re-fetch this element's drawing from its location and repaint.
+
+	A placed element is drawn once from its definition, at construction
+	(buildFromXml()), and nothing afterwards ever makes it look again --
+	editing and saving the definition leaves every already-placed instance
+	showing the old drawing until the project is closed and reopened
+	(bugtracker #802). This is the per-instance half of the fix.
+
+	Deliberately limited to the drawing. Terminals are what conductors are
+	attached to: if the new definition adds, removes or moves a terminal,
+	or changes the element size or hotspot, the new drawing would no longer
+	match the live terminals and bounding rect. Such an element is left
+	untouched and GeometryChanged is returned; it has to be removed and
+	re-inserted, which deletes the conductors already connected to it.
+
+	If the definition cannot be found or read, the current drawing is kept
+	and Unavailable is returned, so the element never goes blank.
+
+	With @p adopt_frame, only the terminals have to match: a new size or
+	hotspot is taken over with the drawing. The terminals and the element
+	position stay where they are, only the frame -- the hover outline and
+	the area that catches clicks -- follows the definition.
+
+	Purely visual: nothing is pushed on the undo stack and the project is
+	not marked as modified.
+	@param adopt_frame : take over a changed size and hotspot
+	@return what happened to this element
+*/
+Element::ReloadPictureResult Element::reloadPicture(bool adopt_frame)
+{
+	if (!m_location.exist()) {
+		return ReloadPictureResult::Unavailable;
+	}
+
+	const QDomElement definition = m_location.xml();
+	if (definition.isNull()) {
+		return ReloadPictureResult::Unavailable;
+	}
+
+	if (!definitionGeometryMatches(definition, !adopt_frame)) {
+		return ReloadPictureResult::GeometryChanged;
+	}
+
+	QPicture picture;
+	QPicture low_zoom_picture;
+	ElementPictureFactory::instance()->getPictures(m_location,
+												   picture,
+												   low_zoom_picture);
+	if (picture.isNull()) {
+		return ReloadPictureResult::Unavailable;
+	}
+
+	if (adopt_frame) {
+		setSize(definition.attribute(QStringLiteral("width")).toInt(),
+				definition.attribute(QStringLiteral("height")).toInt());
+		setHotspot(QPoint(definition.attribute(QStringLiteral("hotspot_x")).toInt(),
+						  definition.attribute(QStringLiteral("hotspot_y")).toInt()));
+	}
+
+	m_picture = picture;
+	m_low_zoom_picture = low_zoom_picture;
+	updateDrawnRect();
+	updateSymbolPictures(true);
+	update();
+	return ReloadPictureResult::Reloaded;
+}
+
+/**
+	@brief Element::definitionGeometryMatches
+	Compare the geometry described by @p definition with this live element:
+	size and hotspot (normalized the same way setSize()/setHotspot() do it)
+	and the set of terminal positions (same parsing rules as
+	TerminalData::fromXml()).
+	@param definition : the <definition> root of the element
+	@param check_frame : false to compare the terminals only
+	@return true if the new drawing can be applied without desynchronizing
+	the bounding rect or the terminals
+*/
+bool Element::definitionGeometryMatches(const QDomElement &definition,
+										bool check_frame) const
+{
+	int w = 0, h = 0, hot_x = 0, hot_y = 0;
+	if (!QET::attributeIsAnInteger(definition, QStringLiteral("width"), &w)         ||
+		!QET::attributeIsAnInteger(definition, QStringLiteral("height"), &h)        ||
+		!QET::attributeIsAnInteger(definition, QStringLiteral("hotspot_x"), &hot_x) ||
+		!QET::attributeIsAnInteger(definition, QStringLiteral("hotspot_y"), &hot_y)) {
+		return false;
+	}
+
+		//Same rounding as setSize()
+	while (w % 10) ++w;
+	while (h % 10) ++h;
+	if (check_frame && QSize(w, h) != dimensions) {
+		return false;
+	}
+
+		//Same clamping as setHotspot()
+	const QPoint new_hotspot = dimensions.isNull()
+			? QPoint(0, 0)
+			: QPoint(qMin(hot_x, w), qMin(hot_y, h));
+	if (check_frame && new_hotspot != hotspot_coord) {
+		return false;
+	}
+
+		//Terminal positions described by the new definition
+	QList<QPointF> new_terminals;
+	for (QDomElement description = definition.firstChildElement(QStringLiteral("description")) ;
+		 !description.isNull() ;
+		 description = description.nextSiblingElement(QStringLiteral("description")))
+	{
+		for (QDomElement terminal = description.firstChildElement(QStringLiteral("terminal")) ;
+			 !terminal.isNull() ;
+			 terminal = terminal.nextSiblingElement(QStringLiteral("terminal")))
+		{
+			qreal x = 0.0, y = 0.0;
+			if (QET::attributeIsAReal(terminal, QStringLiteral("x"), &x) &&
+				QET::attributeIsAReal(terminal, QStringLiteral("y"), &y)) {
+				new_terminals << QPointF(x, y);
+			}
+		}
+	}
+
+	if (new_terminals.size() != m_terminals.size()) {
+		return false;
+	}
+
+		//Every live terminal must still exist at the same place
+	for (const Terminal *terminal : m_terminals)
+	{
+		const QPointF live_pos = mapFromScene(terminal->dockConductor());
+		bool found = false;
+		for (int i = 0 ; i < new_terminals.size() ; ++i)
+		{
+			const QPointF delta = new_terminals.at(i) - live_pos;
+			if (qAbs(delta.x()) < 0.01 && qAbs(delta.y()) < 0.01) {
+				new_terminals.removeAt(i);
+				found = true;
+				break;
+			}
+		}
+		if (!found) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/**
+ * @brief Element::watchConductorText
+ * Slot triggered when a wire is connected to a terminal of this symbol:
+ * the texts which show its number follow it when it changes.
+ */
+void Element::watchConductorText(Conductor *conductor)
+{
+	if (conductor) {
+		connect(conductor, &Conductor::propertiesChange, this, &Element::updateConductorTexts, Qt::UniqueConnection);
+	}
+	updateConductorTexts();
+}
+
+/**
+ * @brief Element::updateConductorTexts
+ * Refresh the texts of this symbol that show the properties of the wire
+ * it is on: a wire label's own, and a folio report's (its function,
+ * section...). Slot triggered when a wire is connected to or
+ * disconnected from a terminal of this symbol.
+ */
+void Element::updateConductorTexts()
+{
+	if (m_data.m_type == ElementData::Terminal)
+	{
+			//Only the texts which read the wires: the others have
+			//nothing to refresh
+		for (DynamicElementTextItem *deti : m_dynamic_text_list) {
+			if (deti && (QETInformation::isTerminalConductorInfo(deti->infoName())
+						 || QETInformation::usesTerminalConductorInfo(deti->compositeText()))) {
+				deti->refreshConductorText();
+			}
+		}
+	}
+
+	if (m_link_type == Element::ConductorDefinition)
+	{
+		for (DynamicElementTextItem *deti : m_dynamic_text_list) {
+			if (deti) {
+				deti->setPotentialConductor();
+				deti->updateLabel();
+			}
+		}
+	}
+	else if (m_link_type & Element::AllReport)
+	{
+		//setPotentialConductor() ends on conductorPropertiesChanged(),
+		//which fills those texts. No updateLabel() here: a report's
+		//"label" text is not its own information but the linked
+		//folio's, refreshed by updateReportText().
+		for (DynamicElementTextItem *deti : m_dynamic_text_list) {
+			if (deti) {
+				deti->setPotentialConductor();
+			}
+		}
+	}
+}
+
+/**
+	@brief Element::drawPlcTable
+	Draw the PLC table directly from in-memory ElementData.
+	This overlays the stale picture from the .elmt file with current data.
+*/
+void Element::drawPlcTable(QPainter *painter)
+{
+	if (!painter || !painter->isActive() || !scene())
+		return;
+
+	if (m_data.m_type != ElementData::Master ||
+		m_data.m_master_type != ElementData::PLC)
+		return;
+
+	const auto &plc_data = m_data.plcMasterData();
+	if (plc_data.ios.isEmpty())
+		return;
+
+	// Use plc_table positions from the .elmt file, or default to (0,0)
+	QList<QPointF> positions = m_plc_table_positions;
+	if (positions.isEmpty())
+		positions.append(QPointF(0, 0));
+
+	const int COL_COUNT = 5;
+	const int COL_TYPE      = 0;
+	const int COL_ADDRESS   = 1;
+	const int COL_FUNCTION  = 2;
+	const int COL_COMMENT   = 3;
+	const int COL_CROSSREF  = 4;
+
+	// Build header labels
+	QMap<int, QString> headers;
+	headers[COL_TYPE]     = QObject::tr("Type");
+	headers[COL_ADDRESS]  = QObject::tr("Address");
+	headers[COL_FUNCTION] = QObject::tr("Function");
+	headers[COL_COMMENT]  = QObject::tr("Annotation");
+	headers[COL_CROSSREF] = QObject::tr("Cross-reference");
+
+	// Override with custom column names
+	if (!plc_data.columnNames.isEmpty()) {
+		QList<int> all_cols;
+		all_cols << COL_TYPE << COL_ADDRESS << COL_FUNCTION << COL_COMMENT << COL_CROSSREF;
+		for (int i = 0; i < qMin(plc_data.columnNames.size(), all_cols.size()); ++i) {
+			if (!plc_data.columnNames.at(i).isEmpty())
+				headers[all_cols.at(i)] = plc_data.columnNames.at(i);
+		}
+	}
+
+	// Build visible columns
+	QList<int> visible_cols;
+	if (!plc_data.columnOrder.isEmpty()) {
+		for (int logical : plc_data.columnOrder) {
+			if (logical >= 0 && logical < COL_COUNT
+				&& plc_data.colVisible.value(logical, true)
+				&& !visible_cols.contains(logical))
+				visible_cols.append(logical);
+		}
+		for (int i = 0; i < COL_COUNT; ++i) {
+			if (plc_data.colVisible.value(i, true) && !visible_cols.contains(i))
+				visible_cols.append(i);
+		}
+	} else {
+		for (int i = 0; i < COL_COUNT; ++i) {
+			if (plc_data.colVisible.value(i, true))
+				visible_cols.append(i);
+		}
+	}
+	if (visible_cols.isEmpty())
+		return;
+
+	// Column widths
+	QMap<int, qreal> col_widths;
+	for (int col : visible_cols) {
+		if (plc_data.colWidths.contains(col) && plc_data.colWidths[col] > 0)
+			col_widths[col] = plc_data.colWidths[col];
+		else {
+			switch (col) {
+				case COL_TYPE:     col_widths[col] = 35; break;
+				case COL_ADDRESS:  col_widths[col] = 25; break;
+				case COL_FUNCTION: col_widths[col] = 50; break;
+				case COL_COMMENT:  col_widths[col] = 40; break;
+				case COL_CROSSREF: col_widths[col] = 30; break;
+				default:           col_widths[col] = 30; break;
+			}
+		}
+	}
+
+	qreal row_h = plc_data.rowHeight > 0 ? plc_data.rowHeight : 8.0;
+	qreal header_h = plc_data.showHeaders ? (row_h + 2.0) : 0;
+	int total_ios = plc_data.ios.size();
+
+	// Parse break positions
+	QList<int> breaks;
+	for (int bp : plc_data.breakPositions) {
+		if (bp > 0 && bp < total_ios && !breaks.contains(bp))
+			breaks.append(bp);
+	}
+	std::sort(breaks.begin(), breaks.end());
+
+	QList<int> block_starts;
+	block_starts.append(0);
+	for (int bp : breaks)
+		block_starts.append(bp);
+	int block_count = block_starts.size();
+
+	qreal total_width = 0;
+	for (int col : visible_cols)
+		total_width += col_widths[col];
+
+	QPen border_pen(Qt::black, 0.5);
+
+	// Fonts
+	QFont header_font = plc_data.headerFont;
+	if (header_font.family().isEmpty()) {
+		header_font = QETApp::diagramTextsFont();
+		header_font.setBold(true);
+	}
+	QFont cell_font = plc_data.cellFont;
+	if (cell_font.family().isEmpty()) {
+		cell_font = QETApp::diagramTextsFont();
+	}
+
+	for (const QPointF &pos : positions) {
+		for (int block = 0; block < block_count; ++block) {
+			qreal bx = pos.x() + block * (total_width + 3);
+			qreal cx = bx;
+
+			// Draw header background
+			if (plc_data.showHeaders) {
+				painter->save();
+				painter->setPen(Qt::NoPen);
+				painter->setBrush(QColor(220, 220, 220));
+				painter->drawRect(QRectF(cx, pos.y(), total_width, header_h));
+				painter->restore();
+
+				painter->setFont(header_font);
+				painter->setPen(border_pen);
+				painter->setBrush(Qt::NoBrush);
+
+				for (int col : visible_cols) {
+					QRectF hr(cx, pos.y(), col_widths[col], header_h);
+					painter->drawRect(hr);
+					QRectF text_rect = hr.adjusted(1, 0, -1, 0);
+					painter->drawText(text_rect, Qt::AlignCenter, headers.value(col, QString()));
+					cx += col_widths[col];
+				}
+			}
+
+			// Draw IO rows
+			painter->setFont(cell_font);
+			int start_idx = block_starts.at(block);
+			int end_idx = (block + 1 < block_starts.size())
+				? block_starts.at(block + 1) : total_ios;
+
+			for (int row = 0; row < (end_idx - start_idx); ++row) {
+				int io_idx = start_idx + row;
+				if (io_idx >= plc_data.ios.size()) break;
+				const auto &io = plc_data.ios.at(io_idx);
+				qreal ry = pos.y() + header_h + row * row_h;
+				cx = bx;
+
+				for (int col : visible_cols) {
+					QRectF cr(cx, ry, col_widths[col], row_h);
+					painter->setPen(border_pen);
+					painter->setBrush(Qt::NoBrush);
+					painter->drawRect(cr);
+
+					QString cell_text;
+					switch (col) {
+						case COL_TYPE:     cell_text = ElementData::translatedPlcIOType(io.type); break;
+						case COL_ADDRESS:  cell_text = io.address; break;
+						case COL_FUNCTION: cell_text = io.functionText; break;
+						case COL_COMMENT:  cell_text = io.comment; break;
+						case COL_CROSSREF:
+						{
+							cell_text = io.crossRef;
+							for (auto it = m_group_index_map.constBegin();
+								 it != m_group_index_map.constEnd(); ++it) {
+								if (it.value() == io_idx) {
+									Element *slave = it.key();
+									if (slave && slave->diagram() && diagram()
+										&& diagram()->project())
+									{
+										XRefProperties xrp = diagram()->project()
+											->defaultXRefProperties("plc");
+										autonum::sequentialNumbers seq;
+										cell_text = autonum::AssignVariables
+											::formulaToLabel(
+												xrp.masterLabel(),
+												seq,
+												slave->diagram(),
+												slave);
+									}
+									break;
+								}
+							}
+							break;
+						}
+					}
+
+					QRectF text_rect = cr.adjusted(1, 0, -1, 0);
+					painter->save();
+					painter->setClipRect(text_rect, Qt::IntersectClip);
+					painter->drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap, cell_text);
+					painter->restore();
+
+					cx += col_widths[col];
+				}
+			}
+		}
+	}
+}

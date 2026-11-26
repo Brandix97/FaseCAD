@@ -1,0 +1,73 @@
+<definition version="0.100.0" type="element" link_type="simple" width="230" height="80" hotspot_x="65" hotspot_y="50">
+    <uuid uuid="{49c74dde-b2b2-d1dd-e48b-c46e7242310d}"/>
+    <names>
+        <name lang="ar">عدّاد نبضات بملامسات متعددة</name>
+        <name lang="ca">Mesurador de polsos amb múltiples contactes</name>
+        <name lang="cs">Počítač impulzů s vícenásobnými kontakty</name>
+        <name lang="da">Pulsmåler med flere kontakter</name>
+        <name lang="de">Impulszähler mit Vielfach-Kontaktgeber</name>
+        <name lang="el">Μετρητής παλμών με πολλαπλές επαφές</name>
+        <name lang="en">Pulse meter with multiple contacts</name>
+        <name lang="es">Contador de impulsos con contactos múltiples</name>
+        <name lang="fi">Pulssimittari, jossa useita koskettimia</name>
+        <name lang="fr">Compteur d'impulsions électriques à plusieurs
+contacts</name>
+        <name lang="hr">Brojilo impulsa s više kontakata</name>
+        <name lang="hu">Impulzusszámláló több érintkezővel</name>
+        <name lang="it">Contatore di impulsi con contatti multipli</name>
+        <name lang="ja">複数接点付きパルス計</name>
+        <name lang="ko">다중 접점이 있는 펄스 계수기</name>
+        <name lang="mn">Олон контакттай импульс хэмжигч</name>
+        <name lang="nb">Pulsmåler med flere kontakter</name>
+        <name lang="nl">Pulsmeter met meerdere contacten</name>
+        <name lang="nl_BE">Pulsmeter met meerdere contacten</name>
+        <name lang="pl">Licznik impulsów z wieloma zestykami</name>
+        <name lang="pt">Contador de impulsos com múltiplos contactos</name>
+        <name lang="pt_BR">Medidor de pulsos com múltiplos contatos</name>
+        <name lang="ro">Contor de impulsuri cu contacte multiple</name>
+        <name lang="ru">Счётчик импульсов с несколькими контактами</name>
+        <name lang="sk">Impulzové počítadlo s viacerými kontaktmi</name>
+        <name lang="sl">Impulzni števec z več kontakti</name>
+        <name lang="sr">Бројач импулса са више контаката</name>
+        <name lang="sv">Pulsmätare med flera kontakter</name>
+        <name lang="tr">Çok kontaklı darbe ölçer</name>
+        <name lang="uk">Імпульсний лічильник з кількома контактами</name>
+        <name lang="zh">接线端子05</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{12465289-e1b3-49e9-9423-82e41da8f7dd}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-20" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-15" y="-15" width="10" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-60" y="-20" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-40" x2="-40" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="0" x2="-40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="0" x2="40" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="0" x2="80" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="120" y1="0" x2="120" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="160" y1="0" x2="160" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-20" x2="40" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-20" x2="80" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="120" y1="-20" x2="120" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="160" y1="-20" x2="160" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-20" x2="80" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="110" y1="-20" x2="120" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="150" y1="-20" x2="160" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="155" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="10" x="15" y="-30" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="10" x="55" y="-30" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="10" x="95" y="-30" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="10" x="135" y="-30" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3" x="30" y="-35" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="2" x="70" y="-35" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="110" y="-35" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="0" x="150" y="-35" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{4459014e-2cf7-4d1d-8442-c93e90e8bce2}" name="" x="-40" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{9d0e8418-bfc2-4cb0-bc2f-61044ef08079}" name="" x="-40" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="40" hotspot_x="10" hotspot_y="21">
+    <uuid uuid="{e568e8ed-48a5-d311-52fa-abed8877f1c9}"/>
+    <names>
+        <name lang="ar">فلوكسور</name>
+        <name lang="ca">Fluxor</name>
+        <name lang="cs">Fluxor</name>
+        <name lang="da">Fluxor</name>
+        <name lang="de">Fluxor</name>
+        <name lang="el">Fluxor</name>
+        <name lang="en">Fluxor</name>
+        <name lang="es">Fluxor</name>
+        <name lang="fi">Fluxor</name>
+        <name lang="hr">Fluxor</name>
+        <name lang="hu">Fluxor</name>
+        <name lang="it">Fluxor</name>
+        <name lang="ja">フラックス管</name>
+        <name lang="ko">플럭소르</name>
+        <name lang="mn">Флюксор</name>
+        <name lang="nb">Fluxor</name>
+        <name lang="nl">Fluxor</name>
+        <name lang="nl_BE">Fluxor</name>
+        <name lang="pl">Przepływomierz</name>
+        <name lang="pt">Fluxor</name>
+        <name lang="pt_BR">Fluxou</name>
+        <name lang="ro">Fluxor</name>
+        <name lang="ru">Флюксор</name>
+        <name lang="sk">Fluxor</name>
+        <name lang="sl">Fluxor</name>
+        <name lang="sr">Флуксор</name>
+        <name lang="sv">Fluxor</name>
+        <name lang="tr">Fluxor</name>
+        <name lang="uk">Флюксор</name>
+        <name lang="zh">冲洗阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <ellipse x="-7" y="-1.76" width="14.08" height="13.52" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-2.39" x2="0" y2="-8.77" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.24" y1="0.5" x2="5.32" y2="9.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.32" y1="0.5" x2="-5.24" y2="9.51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="8.5" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{308d1e7d-260b-4c17-a5e9-82a55d9f88e8}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ea25b673-9b57-4a98-bee4-018b3ac11bd5}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

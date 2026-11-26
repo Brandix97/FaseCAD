@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="14" hotspot_y="19">
+    <uuid uuid="{e94b09b6-0ef9-bfcc-af64-b13e35661224}"/>
+    <names>
+        <name lang="ar">مفتاح حراري بيئي</name>
+        <name lang="ca">Termostat d'ambient</name>
+        <name lang="cs">Prostorový termostat</name>
+        <name lang="da">Miljøtermostat</name>
+        <name lang="de">Raumthermostat</name>
+        <name lang="el">Θερμικός διακόπτης περιβάλλοντος</name>
+        <name lang="en">Enviroment thermical switch</name>
+        <name lang="es">Termostato de ambiente</name>
+        <name lang="fi">Ympäristön lämpökytkin</name>
+        <name lang="fr">Thermostat d'ambiance</name>
+        <name lang="hr">Sobni termostat</name>
+        <name lang="hu">Környezeti hőkapcsoló</name>
+        <name lang="it">Termostato ambiente</name>
+        <name lang="ja">環境サーモスタット</name>
+        <name lang="ko">환경 온도 스위치</name>
+        <name lang="mn">Орчны дулааны унтраалга</name>
+        <name lang="nb">Omgivelses termisk bryter</name>
+        <name lang="nl">Omgevingsthermostaat</name>
+        <name lang="nl_BE">Omgevingsthermostaat</name>
+        <name lang="pl">Termostat środowiskowy</name>
+        <name lang="pt">Termostato ambiente</name>
+        <name lang="pt_BR">Enviroment thermical Interruptor</name>
+        <name lang="ro">Întrerupător termic de ambient</name>
+        <name lang="ru">Термостат помещения</name>
+        <name lang="sk">Okolitý tepelný spínač</name>
+        <name lang="sl">Okoljsko toplotno stikalo</name>
+        <name lang="sr">Собни термостат</name>
+        <name lang="sv">Omgivningstermostat</name>
+        <name lang="tr">Ortam termik şalteri</name>
+        <name lang="uk">Термостат навколишнього середовища</name>
+        <name lang="zh">空气恒温器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="9" y1="-6" x2="13" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-8" x2="13" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-10" x2="13" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="-14" width="24" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7" y="-10" width="14" height="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-4" y1="-6" x2="1" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8" y="2" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-9" y="-5" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-7" y="-10" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="4" y="-11" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-2" y="-12" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="2" y="6" width="7" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="7" x2="8" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-12" x2="13" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-8" y="-26" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{906add16-1190-468a-b7ee-66f9da4d6dab}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{cd01722b-c69e-4689-a26e-6a8377dc1880}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

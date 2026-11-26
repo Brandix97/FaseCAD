@@ -1,0 +1,25 @@
+<definition version="0.80" type="element" link_type="simple" width="40" height="30" hotspot_x="25" hotspot_y="9">
+    <uuid uuid="{bbf8088a-cdc8-e351-4419-658918aeffea}"/>
+    <names>
+        <name lang="ar">تفريع يمين</name>
+        <name lang="ca">Bypass dret</name>
+        <name lang="cs">Odbočka vpravo</name>
+        <name lang="da">Afgrening højre</name>
+        <name lang="de">Abzweig rechts</name>
+        <name lang="el">Παράκαμψη δεξιά</name>
+        <name lang="en">Right derivation</name>
+        <name lang="es">Deriv Derecha</name>
+        <name lang="fr">Derivation Droite</name>
+        <name lang="pt_BR">Deriv Derecha</name>
+        <name lang="zh">分支-右</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <polygon x1="0" y1="-4" x2="0" y2="4" x3="10" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="0" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="4" x2="-8" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-15" y="0" width="7" height="8" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-12" y1="9" x2="-4" y2="9" x3="-8" y3="16" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+    </description>
+</definition>

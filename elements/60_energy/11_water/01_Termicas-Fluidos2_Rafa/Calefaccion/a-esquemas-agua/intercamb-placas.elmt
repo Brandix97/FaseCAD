@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{ab9a5e75-cb73-6c93-8d81-c3eed74468aa}"/>
+    <names>
+        <name lang="ar">مبادل حراري صفيحي</name>
+        <name lang="ca">Bescanviador de plaques</name>
+        <name lang="cs">Deskový výměník</name>
+        <name lang="da">Echangeur à plaques</name>
+        <name lang="de">Plattenaustauscher</name>
+        <name lang="el">Εναλλάκτης πλακών</name>
+        <name lang="en">Plate heat exchanger</name>
+        <name lang="es">Intercambiador Placas</name>
+        <name lang="fi">Levylämmönvaihdin</name>
+        <name lang="fr">Echangeur à plaques</name>
+        <name lang="hr">Pločasti izmjenjivač topline</name>
+        <name lang="hu">Lemezes hőcserélő</name>
+        <name lang="it">Scambiatore a piastre</name>
+        <name lang="ja">プレート熱交換器</name>
+        <name lang="ko">판형 열교환기</name>
+        <name lang="mn">Хавтан дулаан солилцуур</name>
+        <name lang="nb">Platevarmeveksler</name>
+        <name lang="nl">plaat warmtewisselaar</name>
+        <name lang="nl_BE">Plaatwarmtewisselaar</name>
+        <name lang="pl">Płytowy wymiennik ciepła</name>
+        <name lang="pt">Trocador de calor de placas</name>
+        <name lang="pt_BR">Intercambiadou Placas</name>
+        <name lang="ro">Schimbător de căldură cu plăci</name>
+        <name lang="ru">Пластинчатый теплообменник</name>
+        <name lang="sk">Doskový výmenník tepla</name>
+        <name lang="sl">Ploščni toplotni izmenjevalnik</name>
+        <name lang="sr">Плочасти измењивач топлоте</name>
+        <name lang="sv">Plattvärmeväxlare</name>
+        <name lang="tr">Plakalı ısı eşanjörü</name>
+        <name lang="uk">Пластинчастий теплообмінник</name>
+        <name lang="zh">板式换热器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-6.3" y="-17.56" width="13.1" height="35.56" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9.5" y1="-9.77" x2="-1.17" y2="-9.77" x3="3" y3="0.12" x4="-0.47" y4="10" x5="-9.5" y5="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="10.28" y1="-9.77" x2="2" y2="-9.77" x3="-1.6" y3="0.12" x4="1.37" y4="10" x5="10.28" y5="10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-5" y="-34" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6d9c4a15-c108-4a9e-adb0-f6f6a00b1e8c}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{fea69969-7bb4-4ea2-be3b-21cc67afdd53}" name="" x="-10" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{9e8a96be-9fb0-4cd5-b0b7-e7a33ef2b453}" name="" x="10" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{7c5741da-db04-4433-88cc-3e82176f6814}" name="" x="10" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{467d8bca-367b-4c9c-aa36-77f280add617}" name="" x="-10" y="10" orientation="w" type="Generic"/>
+    </description>
+</definition>

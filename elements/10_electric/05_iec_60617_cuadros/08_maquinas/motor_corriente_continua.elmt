@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="18" hotspot_y="32">
+    <uuid uuid="{8be37d64-98fa-4de2-8257-8c26e7993e5a}"/>
+    <names>
+        <name lang="de">Gleichstrommotor</name>
+        <name lang="en">DC motor</name>
+        <name lang="es">Motor de corriente continua</name>
+        <name lang="fr">Moteur à courant continu</name>
+        <name lang="it">Motore in corrente continua</name>
+        <name lang="pt">Motor de corrente contínua</name>
+        <name lang="tr">Doğru akım motoru</name>
+        <name lang="zh">直流电动机</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-30" x2="10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="2.83" text="M" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{684c1217-9e1e-5274-8713-f9313f899ac2}"/>
+        <line x1="-5" y1="8" x2="5" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-24" y="-10.49" z="5" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d6f0141f-6b59-56a0-af25-992de07a6123}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{33fc098e-2711-55d4-969f-ffd14bfceb9e}" name="A1" x="-10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{68436f7e-990a-50de-bd0a-ee60f9f1824c}" name="A2" x="10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{49c5db89-ad5d-5782-bc0e-ac71ebbe1312}" name="PE" x="30" y="0" orientation="e" type="Generic" show_name="true" label_x="-5" label_y="-7" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

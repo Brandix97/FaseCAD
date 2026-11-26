@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="90" hotspot_x="35" hotspot_y="17">
+    <uuid uuid="{ad16bd4f-3625-e606-705d-4a8e2b09c9fe}"/>
+    <names>
+        <name lang="ar">مرشّح بخرطوشة</name>
+        <name lang="ca">Filtre de cartutx</name>
+        <name lang="cs">Filtr s vložkou</name>
+        <name lang="da">Patronfilter</name>
+        <name lang="de">Kartuschenfilter</name>
+        <name lang="el">Φίλτρο με φυσίγγιο</name>
+        <name lang="en">Cartridge filter</name>
+        <name lang="es">Filtro de cartucho</name>
+        <name lang="fi">Patruunasuodatin</name>
+        <name lang="fr">Filtre à cartouche</name>
+        <name lang="hr">Filtar s uloškom</name>
+        <name lang="hu">Betétes szűrő</name>
+        <name lang="it">Filtro a cartuccia</name>
+        <name lang="ja">カートリッジフィルター</name>
+        <name lang="ko">카트리지 필터</name>
+        <name lang="mn">Картриж шүүлтүүр</name>
+        <name lang="nb">Patronfilter</name>
+        <name lang="nl">Blokken filter</name>
+        <name lang="nl_BE">Patroonfilter</name>
+        <name lang="pl">Filtr kasetowy</name>
+        <name lang="pt">Filtro de cartucho</name>
+        <name lang="pt_BR">Filtro à cartouche</name>
+        <name lang="ro">Filtru cu cartuș</name>
+        <name lang="ru">Патронный фильтр</name>
+        <name lang="sk">Vložkový filter</name>
+        <name lang="sl">Vložni filter</name>
+        <name lang="sr">Филтер са улошком</name>
+        <name lang="sv">Patronfilter</name>
+        <name lang="tr">Kartuş filtre</name>
+        <name lang="uk">Картриджний фільтр</name>
+        <name lang="zh">滤芯过滤器</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-15" y="-13" width="31" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <ellipse x="-21" y="-12" width="42" height="12" style="line-style:normal;line-weight:none;filling:blue;color:black" antialias="false"/>
+        <rect x="-21" y="-6" width="42" height="14" rx="0" ry="0" style="line-style:normal;line-weight:none;filling:blue;color:black" antialias="false"/>
+        <dynamic_text x="-29.5" y="-35" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8594877a-0e39-4af3-9112-944c78ac375b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-25" y="-6" width="4" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <rect x="21" y="-6" width="4" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <arc x="-21" y="-12" width="42" height="12" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-21" y1="2" x2="-21" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21" y1="8" x2="21" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="8" x2="21" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="8" x2="-15" y2="68" x3="15" y3="68" x4="19" y4="8" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-11" y="8" width="22" height="60" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:bdiag;color:black" antialias="false"/>
+        <rect x="-20" y="8" width="40" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:black" antialias="false"/>
+        <line x1="0" y1="8" x2="0" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="8" x2="-12" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="8" x2="12" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b34c6599-dfc4-40d3-a6fc-c90acf0ad44b}" name="" x="-25" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{cccf828a-f28b-44f2-9a49-cf7e5633510b}" name="" x="24" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

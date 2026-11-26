@@ -1,0 +1,120 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef XREFPROPERTIES_H
+#define XREFPROPERTIES_H
+
+#include <QStringList>
+#include <QHash>
+
+#include "propertiesinterface.h"
+
+/**
+	@brief The XRefProperties class
+	this class store properties used by XrefItem
+*/
+class XRefProperties : public PropertiesInterface
+{
+	public:
+	XRefProperties();
+
+	enum DisplayHas {
+		Cross,
+		Contacts
+	};
+
+	enum SnapTo {
+		Bottom,
+		Label
+	};
+
+	void toSettings	  (QSettings &settings,
+			   const QString = QString()) const override;
+	void fromSettings (const QSettings &settings,
+			   const QString = QString()) override;
+	QDomElement toXml (QDomDocument &xml_document) const override;
+	bool fromXml(const QDomElement &xml_element) override;
+
+	static QHash<QString, XRefProperties> defaultProperties();
+
+	bool operator == (const XRefProperties &xrp) const;
+	bool operator != (const XRefProperties &xrp) const;
+
+	void setShowPowerContac (const bool a) {m_show_power_ctc = a;}
+	bool showPowerContact	() const	   {return m_show_power_ctc;}
+
+	void setShowTerminalName (const bool a) {m_show_terminal_name = a;}
+	bool showTerminalName	 () const		{return m_show_terminal_name;}
+
+	void setShowAllConfiguredSlaves (const bool a) {m_show_all_configured_slaves = a;}
+	bool showAllConfiguredSlaves	 () const	   {return m_show_all_configured_slaves;}
+
+	void setStackOverlapping (const bool a) {m_stack_overlapping = a;}
+	bool stackOverlapping	 () const		{return m_stack_overlapping;}
+
+	void setDisplayHas	  (const DisplayHas dh) {m_display = dh;}
+	DisplayHas displayHas () const				{return m_display;}
+
+	void setSnapTo (const SnapTo st) {m_snap_to = st;}
+	SnapTo snapTo  () const			 {return m_snap_to;}
+
+	void setXrefPos(const Qt::AlignmentFlag xref) {m_xref_pos = xref;}
+	Qt::AlignmentFlag getXrefPos() const {return m_xref_pos;}
+	void setPrefix (const QString &key, const QString &value) {m_prefix.insert(key, value);}
+	QString prefix (const QString &key) const {return m_prefix.value(key);}
+
+	void setMasterLabel (const QString master) {m_master_label = master;}
+	QString masterLabel () const			   {return m_master_label;}
+
+		/**
+			The font the reference of a cable is written with, as the
+			settings describe it -- empty when he has not set one, which
+			leaves the reference with the font of the cable texts.
+		*/
+	void setFont (const QString &font) {m_font = font;}
+	QString font () const				{return m_font;}
+
+	void setSlaveLabel(const QString slave) {m_slave_label = slave;}
+	QString slaveLabel () const				{return m_slave_label;}
+
+	void setOffset(const int offset) {m_offset = offset;}
+	int offset() const				 {return m_offset;}
+
+	void setSlaveOffset(const int offset) {m_slave_offset = offset;}
+	int slaveOffset() const				 {return m_slave_offset;}
+
+	void setKey(QString& key) {m_key = key;}
+
+	private:
+	bool m_show_power_ctc;
+	bool m_show_terminal_name;
+	bool m_show_all_configured_slaves;
+	bool m_stack_overlapping;
+	DisplayHas m_display;
+	SnapTo m_snap_to;
+	Qt::AlignmentFlag m_xref_pos;
+	QHash <QString, QString> m_prefix;
+	QStringList m_prefix_keys;
+	QString m_master_label;
+	QString m_slave_label;
+	QString m_font;
+	int     m_offset;
+	int     m_slave_offset;
+	QString m_key;
+};
+
+#endif // XREFPROPERTIES_H

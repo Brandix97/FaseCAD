@@ -1,0 +1,33 @@
+<definition height="80" hotspot_x="16" hotspot_y="58" link_type="simple" type="element" version="0.100.1" width="50">
+    <uuid uuid="{e12596a4-28c6-4676-a5fe-d234fb08a622}"/>
+    <names>
+        <name lang="ca">Vàlvula de comporta brides</name>
+        <name lang="de">Flanschschieber</name>
+        <name lang="es">Valv compuerta bridas</name>
+        <name lang="pt_BR">Valv compuerta bridas</name>
+        <name lang="zh">闸阀法兰</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect antialias="false" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="30" x="-6.5" y="-7.5"/>
+        <rect antialias="false" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="5" x="6" y="-41.48"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" x1="-13" x2="-4" y1="10" y2="10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" x1="30" x2="21" y1="10" y2="10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" x1="30" x2="21" y1="-10" y2="-10"/>
+        <rect antialias="false" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="3.5" x="23.5" y="-12"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" x1="-13" x2="-4" y1="-10" y2="-10"/>
+        <rect antialias="false" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="3.5" x="-10" y="-12"/>
+        <rect antialias="false" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="9" x="4" y="-41.48"/>
+        <rect antialias="false" height="2.5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="32" x="-7.5" y="-52"/>
+        <rect antialias="false" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="2.6" x="7.2" y="-49.5"/>
+        <dynamic_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{8cab9436-7fa1-4712-9d26-b80755298cd4}" x="-12" y="12.5" z="13">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect antialias="false" height="45" rx="9.5" ry="7" style="line-style:normal;line-weight:normal;filling:white;color:black" width="19" x="-1" y="-29.5"/>
+        <rect antialias="false" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" width="9" x="4" y="-37.5"/>
+        <rect antialias="false" height="2.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" width="25" x="-4" y="-22"/>
+        <terminal name="1" orientation="w" type="Generic" uuid="{f818a6fa-ee94-4306-8183-8de358f02c36}" x="-10" y="0"/>
+        <terminal name="2" orientation="e" type="Generic" uuid="{b4643c08-0b59-433c-ba72-7f2b8afa127a}" x="27" y="0"/>
+    </description>
+</definition>

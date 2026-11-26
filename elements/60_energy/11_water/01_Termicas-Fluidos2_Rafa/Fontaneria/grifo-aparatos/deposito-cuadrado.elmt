@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="60" hotspot_x="32" hotspot_y="35">
+    <uuid uuid="{f3d17211-9b4a-ab9d-a733-fb08ac563dd7}"/>
+    <names>
+        <name lang="ar">خزان مربع 1000L</name>
+        <name lang="ca">Dipòsit quadrat de 1000 litres</name>
+        <name lang="cs">Čtvercová nádrž 1000L</name>
+        <name lang="da">Firkantet 1000L tank</name>
+        <name lang="de">Quadratischer 1000L Tank</name>
+        <name lang="el">Τετράγωνη δεξαμενή 1000L</name>
+        <name lang="en">Square 1000L tank</name>
+        <name lang="es">Depósito cuadro de 1000L</name>
+        <name lang="fi">Nelikulmainen 1000L säiliö</name>
+        <name lang="hr">Kvadratni spremnik 1000L</name>
+        <name lang="hu">Négyzetes 1000L tartály</name>
+        <name lang="it">Serbatoio quadrato 1000L</name>
+        <name lang="ja">角形 1000L タンク</name>
+        <name lang="ko">정사각형 1000L 탱크</name>
+        <name lang="mn">Дөрвөлжин 1000L сав</name>
+        <name lang="nb">Kvadratisk 1000L tank</name>
+        <name lang="nl">Vierkante tank 1000L</name>
+        <name lang="nl_BE">Vierkante tank 1000L</name>
+        <name lang="pl">Zbiornik kwadratowy 1000L</name>
+        <name lang="pt">Depósito quadrado 1000L</name>
+        <name lang="pt_BR">Tanque quadrado 1000L</name>
+        <name lang="ro">Rezervor pătrat 1000L</name>
+        <name lang="ru">Квадратный резервуар 1000л</name>
+        <name lang="sk">Štvorcová nádrž 1000L</name>
+        <name lang="sl">Kvadratni rezervoar 1000L</name>
+        <name lang="sr">Квадратни резервоар 1000L</name>
+        <name lang="sv">Fyrkantig 1000L tank</name>
+        <name lang="tr">Kare 1000L tank</name>
+        <name lang="uk">Квадратний бак 1000л</name>
+        <name lang="zh">方形储罐</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-9" y="-18" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2a239e32-3697-44dd-8421-7b1ef25e3596}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="17" y="9" width="2" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5.9" y1="-24.9" x2="5.9" y2="-26.9" x3="7" y3="-26.9" x4="7" y4="-24.9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-27" y="-23" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-27" y1="-23" x2="-7" y2="-33" x3="33" y3="-33" x4="33" y4="7" x5="13" y5="17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="13" y1="-23" x2="33" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-23" x2="-7" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="12" x2="23" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="-28" x2="-17" y2="-28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-23" x2="13" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-29" y="17" width="43" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12" y="17" width="0" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="13" y1="17" x2="34" y2="7" x3="34" y3="11" x4="14" y4="21" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-17" y1="17" x2="-17" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="17" x2="0" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="16" y="8" width="2" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="4" y="-26" width="5" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-27" y1="-3" x2="13" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="-3" x2="32" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{99156d79-bd60-4055-8cf6-dfb7db0c7f70}" name="" x="6" y="-28" orientation="n" type="Generic"/>
+        <terminal uuid="{0f1044e8-45ad-4239-ae48-4fc42686f3cc}" name="" x="19" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

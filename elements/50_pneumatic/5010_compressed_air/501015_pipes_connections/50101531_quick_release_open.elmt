@@ -1,0 +1,54 @@
+<definition version="0.90" type="element" link_type="simple" width="90" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{ec46fa7c-429f-fe3f-53ce-f64d61705ab2}"/>
+    <names>
+        <name lang="ar">رابط سريع</name>
+        <name lang="ca">Connexió ràpida</name>
+        <name lang="cs">Rychlé spojení</name>
+        <name lang="da">Hurtigkobling</name>
+        <name lang="de">Schnellanschluss offen</name>
+        <name lang="el">Ταχυσύνδεσμος</name>
+        <name lang="en">Quick Connect</name>
+        <name lang="es">Conexión rápida</name>
+        <name lang="fi">Pikaliitäntä</name>
+        <name lang="fr">Raccord rapide</name>
+        <name lang="hr">Brza spojka</name>
+        <name lang="hu">Gyorscsatlakozó</name>
+        <name lang="it">Raccordo rapido</name>
+        <name lang="ja">クイックコネクト</name>
+        <name lang="ko">퀵 커넥트</name>
+        <name lang="mn">Хурдан холболт</name>
+        <name lang="nb">Hurtigkobling</name>
+        <name lang="nl">Snelkoppeling</name>
+        <name lang="nl_BE">Quick Connect</name>
+        <name lang="pl">Szybkozłączka bez mechanicznie otwieranych zaworów zwrotnych - rozłączona</name>
+        <name lang="pt">Ligação rápida</name>
+        <name lang="pt_BR">Engate rápido aberto</name>
+        <name lang="ro">Conectare rapidă</name>
+        <name lang="ru">Быстроразъёмное соединение</name>
+        <name lang="sk">Rýchlospojka</name>
+        <name lang="sl">Hitri priključek</name>
+        <name lang="sr">Брзи спој</name>
+        <name lang="sv">Snabbkoppling</name>
+        <name lang="tr">Hızlı bağlantı</name>
+        <name lang="uk">Швидке з'єднання</name>
+        <name lang="zh">快排阀（常开）</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="27" y1="-2" x2="27" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1" y="-32" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5720afb8-e8e1-4180-9fd8-0397ec32fd93}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-5" y1="0" x2="22" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="0" x2="55" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="30" y="-10" width="20" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="-5" x2="13" y2="0" x3="8" y3="5" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="42" y1="5" x2="37" y2="0" x3="42" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="23" y1="-2" x2="23" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{6d0fccf2-0c49-4205-929a-f1cadc617b60}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{12ff485c-3c43-48cb-8c77-89314b2c779c}" name="" x="60" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

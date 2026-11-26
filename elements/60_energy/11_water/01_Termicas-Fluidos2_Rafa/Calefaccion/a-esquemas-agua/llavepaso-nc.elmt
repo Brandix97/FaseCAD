@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="24" hotspot_y="12">
+    <uuid uuid="{72020474-d7c9-12cf-809a-84c90e24c5ab}"/>
+    <names>
+        <name lang="ar">صمّام NC Hogger</name>
+        <name lang="ca">Vàlvula de tall ràpid normalmet tancada</name>
+        <name lang="cs">Uzavírací ventil NC</name>
+        <name lang="da">NC Hogger-ventil</name>
+        <name lang="de">Magnetventil NC</name>
+        <name lang="el">Βαλβίδα NC Hogger</name>
+        <name lang="en">NC Hogger valve</name>
+        <name lang="es">Llave corte rápido NC</name>
+        <name lang="fi">NC-painoventtiili</name>
+        <name lang="fr">Valve Lardeur NC</name>
+        <name lang="hr">NC Hogger ventil</name>
+        <name lang="hu">NC Hogger szelep</name>
+        <name lang="it">Valvola di scarico NC</name>
+        <name lang="ja">NCホガーバルブ</name>
+        <name lang="ko">NC 호거 밸브</name>
+        <name lang="mn">NC хог хавхлага</name>
+        <name lang="nb">NC Hogger-ventil</name>
+        <name lang="nl">NC Hogger-klep</name>
+        <name lang="nl_BE">NC Hogger-klep</name>
+        <name lang="pl">Zawór odcinający NC</name>
+        <name lang="pt">Válvula de descarga NC</name>
+        <name lang="pt_BR">NF Hogger valvula</name>
+        <name lang="ro">Robinet NC Hogger</name>
+        <name lang="ru">Нормально закрытый клапан Хоггера</name>
+        <name lang="sk">NC Hogger ventil</name>
+        <name lang="sl">Zaporni ventil NC</name>
+        <name lang="sr">НЗ вентил са пловком</name>
+        <name lang="sv">NC Hogger-ventil</name>
+        <name lang="tr">NC Hogger vanası</name>
+        <name lang="uk">Клапан NC Hogger</name>
+        <name lang="zh">常闭截止阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="16.05" y1="0" x2="10.78" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.62" y1="-0.2" x2="0.62" y2="-9.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.1" y1="-9.18" x2="5.35" y2="-9.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.18" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-4" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f1b70aec-903a-444f-82c8-12ce82bc3ab4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-9" y1="-5" x2="-9" y2="5" x3="1" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="10" y1="-5" x2="10" y2="5" x3="1" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <terminal uuid="{cba0dbc3-3fe1-446f-9bb2-24301f70baa1}" name="" x="16" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{2fbb34a3-e8bb-4d7b-8faa-f531948f09ec}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

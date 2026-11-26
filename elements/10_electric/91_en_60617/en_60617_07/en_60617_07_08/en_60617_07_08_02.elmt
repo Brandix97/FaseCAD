@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="80" hotspot_x="7" hotspot_y="50">
+    <uuid uuid="{b6d14991-b4ff-e669-6c13-4bc590437e3c}"/>
+    <names>
+        <name lang="ar">مفتاح موضع، ملامس فصل</name>
+        <name lang="ca">Interruptor de posició, trencament de contacte</name>
+        <name lang="cs">Polohový spínač, vypínací kontakt</name>
+        <name lang="da">Positionsafbryder, brydekontakt</name>
+        <name lang="de">Endschalter, Öffner</name>
+        <name lang="el">Διακόπτης θέσης, επαφή ανοίγματος</name>
+        <name lang="en">Position switch, break contact</name>
+        <name lang="es">Interruptor de posición, contacto de apertura</name>
+        <name lang="fi">Raja-asentokytkin, avauskosketin</name>
+        <name lang="fr">Interrupteur de position, contact à ouverture</name>
+        <name lang="hr">Položajna sklopka, mirni kontakt</name>
+        <name lang="hu">Helyzetkapcsoló, nyitóérintkező</name>
+        <name lang="it">Interruttore di posizione, contatto di apertura</name>
+        <name lang="ja">位置スイッチ，ブレーク接点</name>
+        <name lang="ko">위치 스위치, 브레이크 접점</name>
+        <name lang="mn">Байрлалын унтраалга, салах контакт</name>
+        <name lang="nb">Stillingbryter, hvilekontakt</name>
+        <name lang="nl">Positieschakelaar, verbreekcontact</name>
+        <name lang="nl_BE">Positieschakelaar, verbreekcontact</name>
+        <name lang="pl">Łącznik położenia, zestyk rozwierny</name>
+        <name lang="pt">Interruptor de posição, contacto de abertura</name>
+        <name lang="pt_BR">Chave de posição, contato NF</name>
+        <name lang="ro">Întrerupător de poziție, contact de repaus</name>
+        <name lang="ru">Путевой выключатель, размыкающий контакт</name>
+        <name lang="sk">Polohový spínač, kľudový kontakt</name>
+        <name lang="sl">Položajno stikalo, mirovni kontakt</name>
+        <name lang="sr">Позициони прекидач, мирни контакт</name>
+        <name lang="sv">Lägesbrytare, brytande kontakt</name>
+        <name lang="tr">Konum şalteri, açma kontağı</name>
+        <name lang="uk">Кінцевий вимикач, розмикальний контакт</name>
+        <name lang="zh">端子板</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{54005cc6-8b6d-48b5-82e3-e5170e2a7c4c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="3" y1="-10" x2="3" y2="-16" x3="5" y3="-16" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{5af509b4-5d16-4179-a9a1-116fd3dea664}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{30b1d0e1-d841-4a9c-8208-d99b0dd97e8c}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

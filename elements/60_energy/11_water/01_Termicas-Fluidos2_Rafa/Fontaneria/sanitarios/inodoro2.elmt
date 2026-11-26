@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="80" hotspot_x="32" hotspot_y="42">
+    <uuid uuid="{c5869c95-3734-cda0-f89a-6e82b426ef07}"/>
+    <names>
+        <name lang="ar">مرحاض</name>
+        <name lang="ca">Inodor 1</name>
+        <name lang="cs">WC</name>
+        <name lang="da">Toilet</name>
+        <name lang="de">Toilette</name>
+        <name lang="el">Λεκάνη τουαλέτας</name>
+        <name lang="en">Toilet</name>
+        <name lang="es">Inodoro tanque</name>
+        <name lang="fi">WC</name>
+        <name lang="hr">WC školjka</name>
+        <name lang="hu">WC</name>
+        <name lang="it">Vaso</name>
+        <name lang="ja">トイレ</name>
+        <name lang="ko">변기</name>
+        <name lang="mn">Жорлон</name>
+        <name lang="nb">Toalett</name>
+        <name lang="nl">Toilet</name>
+        <name lang="nl_BE">Toilet</name>
+        <name lang="pl">Miska ustępowa</name>
+        <name lang="pt">Sanita</name>
+        <name lang="pt_BR">Toilet</name>
+        <name lang="ro">Toaletă</name>
+        <name lang="ru">Унитаз</name>
+        <name lang="sk">Toaleta</name>
+        <name lang="sl">Stranišče</name>
+        <name lang="sr">Тоалет</name>
+        <name lang="sv">Toalett</name>
+        <name lang="tr">Tuvalet</name>
+        <name lang="uk">Унітаз</name>
+        <name lang="zh">坐便器2</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-24" y="-34" width="15" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-24" y="-38" width="15" height="7" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-21" y="-3" width="45" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-6" width="28" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="2" x2="-16" y2="7" x3="-6" y3="12" x4="-6" y4="17" x5="-16" y5="22" x6="-16" y6="27" x7="18" y7="27" x8="20" y8="23" x9="16" y9="17" x10="11" y10="15" x11="11" y11="11" x12="19" y12="9" x13="23" y13="5" x14="23" y14="3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-21" y="-32" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="22" width="13" height="6" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="20" y="-29.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{57928017-4132-485c-81c4-6076494cdde5}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{14c9a1b3-caf8-433e-a482-94f485404136}" name="" x="-24" y="-31" orientation="w" type="Generic"/>
+        <terminal uuid="{f2478c8a-27f2-4cd3-a20c-0808bd006838}" name="" x="-7" y="29" orientation="s" type="Generic"/>
+    </description>
+</definition>

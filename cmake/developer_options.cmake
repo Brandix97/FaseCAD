@@ -1,0 +1,54 @@
+# Copyright 2006-2026 The QElectroTech Team
+# This file is part of QElectroTech.
+#
+# QElectroTech is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# QElectroTech is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+
+message(" - developer_options")
+
+# warn on *any* usage of deprecated APIs
+add_definitions(-DQT_DEPRECATED_WARNINGS)
+
+# You can make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+# disables all the APIs deprecated before Qt 6.0.0
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+
+# to enable function names and line numbers even for release builds
+add_definitions(-DQT_MESSAGELOGCONTEXT)
+
+# You can make your code warn on compile time for the TODO's
+# In order to do so, uncomment the following line.
+#add_definitions(-DTODO_LIST)
+
+# Build with KDE Frameworks.
+option(BUILD_WITH_KF "Build with KDE Frameworks" ON)
+
+# Precompiled headers for the Qt umbrella headers.
+#
+# Off by default and intended for local development only. Building QET is
+# dominated by re-parsing Qt's headers: a 214-line .cpp expands to ~198,000
+# preprocessed lines, and compiling one translation unit costs ~4.1 s of which
+# only ~0.35 s is optimisation (-O0 instead of -O3 saves 8%). A PCH caches the
+# parsed header state and takes that ~4.1 s down to ~1.2 s.
+#
+# It is deliberately NOT on by default: a PCH satisfies includes that a source
+# file forgot to make itself, so code written with it enabled can fail to
+# compile for everyone else. Leaving it off keeps CI and contributors on the
+# strict behaviour, and only developers who opt in trade that for the speed.
+option(QET_ENABLE_PCH "Use precompiled headers (developer build speed; may mask missing #includes)" OFF)
+
+# Discussion #599: 3Dconnexion SpaceMouse/SpacePilot pan/zoom support. Off by
+# default -- see cmake/find_spacemouse.cmake for the backends and what happens
+# when it is on but no library is found.
+option(QET_ENABLE_SPACEMOUSE "Build with 3D mouse (3Dconnexion SpaceMouse) support for pan/zoom; needs libspnav or hidapi, see QET_SPACEMOUSE_BACKEND" OFF)

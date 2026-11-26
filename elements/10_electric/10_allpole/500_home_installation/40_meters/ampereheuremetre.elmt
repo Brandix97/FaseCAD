@@ -1,0 +1,55 @@
+<definition version="0.80" type="element" link_type="simple" width="40" height="60" hotspot_x="21" hotspot_y="34">
+    <uuid uuid="{772ed2a5-e460-ac8a-0e07-07e5ffff401d}"/>
+    <names>
+        <name lang="ar">أمبيرساعة متر</name>
+        <name lang="ca">Amperes horària</name>
+        <name lang="cs">Měřič ampérhodin</name>
+        <name lang="da">Amperetimemåler</name>
+        <name lang="de">Amperestundenzähler</name>
+        <name lang="el">Μετρητής κατανάλωσης, Αμπερώρια (Ah)</name>
+        <name lang="en">Ampere Hour Meter</name>
+        <name lang="es">Contador de amperios-hora</name>
+        <name lang="fi">Ampeerituntimittari</name>
+        <name lang="fr">Ampèreheuremètre</name>
+        <name lang="hr">Amper-satni mjerač</name>
+        <name lang="hu">Amperóra mérő</name>
+        <name lang="it">Misuratore di Ah</name>
+        <name lang="ja">アンペアアワーメーター</name>
+        <name lang="ko">암페어시 계량기</name>
+        <name lang="mn">Ампер-цаг хэмжигч</name>
+        <name lang="nb">Amperetime måler</name>
+        <name lang="nl">Ampere uur meter</name>
+        <name lang="nl_BE">Ampère-uurmeter</name>
+        <name lang="pl">Licznik amperogodzin</name>
+        <name lang="pt">Contador de amperes-hora</name>
+        <name lang="pt_BR">Medidor de ampere-hora</name>
+        <name lang="ro">Contor de amper-oră</name>
+        <name lang="ru">Счетчик ампер-часов</name>
+        <name lang="sk">Ampérhodinový merač</name>
+        <name lang="sl">Amperurni števec</name>
+        <name lang="sr">Мерач ампер-часова</name>
+        <name lang="sv">Amperetimmätare</name>
+        <name lang="tr">Amper saat sayacı</name>
+        <name lang="uk">Лічильник ампер-годин</name>
+        <name lang="zh">安时计</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="18" y="-15.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{8ebf2d39-e040-418d-b06a-085a578da846}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Ah" x="-8" y="2.33" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-15" y="-11" width="30" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-19" width="30" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-23" x2="-10" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-23" x2="10" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="11" x2="10" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="11" x2="-10" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{415c29db-49be-4149-a814-485a55219ba1}" name="" x="-10" y="15" orientation="s" type="Generic"/>
+        <terminal uuid="{c2151c4c-d885-4b8b-92f1-b32afa1b5161}" name="" x="-10" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{bdbaf99e-b5f1-4ca4-b70a-61f6eac4f960}" name="" x="10" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{73e13ecf-294a-4963-855f-dbd855ce3e47}" name="" x="10" y="15" orientation="s" type="Generic"/>
+    </description>
+</definition>

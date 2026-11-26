@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="80" hotspot_x="10" hotspot_y="40">
+    <uuid uuid="{24ad788b-14fe-57a5-af12-e4b5e3b4cbb9}"/>
+    <names>
+        <name lang="ar">مفتاح-عازل بمصهر؛ عازل مصهر</name>
+        <name lang="ca">Fusible-seccionador; </name>
+        <name lang="cs">Pojistkový odpojovač</name>
+        <name lang="da">Sikringsskilleafbryder; Sikringsisolator</name>
+        <name lang="de">Sicherungstrennschalter</name>
+        <name lang="el">Ασφάλεια-αποζεύκτης; Απομονωτής ασφάλειας</name>
+        <name lang="en">Fuse-disconnector; Fuse isolator</name>
+        <name lang="es">Seccionador con fusible; seccionador fusible</name>
+        <name lang="fi">Sulake-erotuskytkin; Sulake-erotin</name>
+        <name lang="fr">Fusible sectionneur</name>
+        <name lang="hr">Osigurač-rastavljač</name>
+        <name lang="hu">Olvadóbiztosítós szakaszoló; Olvadóbiztosítós leválasztó</name>
+        <name lang="it">Sezionatore con fusibile; Sezionatore portafusibile</name>
+        <name lang="ja">ヒューズ断路器；ヒューズアイソレータ</name>
+        <name lang="ko">퓨즈 단로기; 퓨즈 아이솔레이터</name>
+        <name lang="mn">Хайлмаг-таслагч; Хайлмаг изолятор</name>
+        <name lang="nb">Sikringsskillebryter</name>
+        <name lang="nl">Zekeringscheider; Zekering-scheider</name>
+        <name lang="nl_BE">Zekering-scheidingsschakelaar; Zekering-isolator</name>
+        <name lang="pl">Odłącznik bezpiecznikowy; Izolator bezpiecznikowy</name>
+        <name lang="pt">Fusível-seccionador; Seccionador com fusível</name>
+        <name lang="pt_BR">Fusível-seccionador; fusível isolador</name>
+        <name lang="ro">Fuzibil-separator; Separator cu fuzibil</name>
+        <name lang="ru">Предохранитель-разъединитель; Разъединитель с предохранителем</name>
+        <name lang="sk">Poistkový odpojovač; Poistkový izolátor</name>
+        <name lang="sl">Varovalka-ločilnik</name>
+        <name lang="sr">Осигурач-растављач; Осигурач изолатор</name>
+        <name lang="sv">Säkringsfrånskiljare; Säkringsavskiljare</name>
+        <name lang="tr">Sigorta-ayırıcı; Sigorta izolatörü</name>
+        <name lang="uk">Запобіжник-роз'єднувач; Запобіжник-ізолятор</name>
+        <name lang="zh">接线端子08</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{75796463-898d-4450-89b4-059d2aba77e0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="30" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="6" x2="-6" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-6" x2="1" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="5" x2="-3" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-6" x2="-6" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-10" x2="2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{da06843b-9c25-4287-8f27-51ff5d808a50}" name="" x="0" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{745c8d6f-0023-4bbb-8202-373eb05990fc}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="19">
+    <uuid uuid="{998f4bf7-2cf8-75ce-b482-c58bf60da017}"/>
+    <names>
+        <name lang="ar">مجموعة ممتلئة</name>
+        <name lang="ca">Grup d'omplida</name>
+        <name lang="cs">Plněná skupina</name>
+        <name lang="da">Fyldt gruppe</name>
+        <name lang="de">Gefüllte Gruppe</name>
+        <name lang="el">Γεμάτη ομάδα</name>
+        <name lang="en">Filled group</name>
+        <name lang="es">Grupo de llenado</name>
+        <name lang="fi">Täytetty ryhmä</name>
+        <name lang="fr">Groupe de remplissage</name>
+        <name lang="hr">Napunjeni sklop</name>
+        <name lang="hu">Töltött csoport</name>
+        <name lang="it">Gruppo pieno</name>
+        <name lang="ja">満水グループ</name>
+        <name lang="ko">충전 그룹</name>
+        <name lang="mn">Дүүргэсэн бүлэг</name>
+        <name lang="nb">Fylt gruppe</name>
+        <name lang="nl">Gevulde groep</name>
+        <name lang="nl_BE">Gevulde groep</name>
+        <name lang="pl">Grupa napełniająca</name>
+        <name lang="pt">Grupo cheio</name>
+        <name lang="pt_BR">Filled group</name>
+        <name lang="ro">Grup umplut</name>
+        <name lang="ru">Заполненная группа</name>
+        <name lang="sk">Naplnená skupina</name>
+        <name lang="sl">Polnjena skupina</name>
+        <name lang="sr">Напуњена група</name>
+        <name lang="sv">Fylld grupp</name>
+        <name lang="tr">Dolu grup</name>
+        <name lang="uk">Заповнена група</name>
+        <name lang="zh">补水组</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="14" y="-3" width="5" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-4" width="12" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-6" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.41" y1="-10" x2="-1.55" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-19" y="-3" width="5" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-3" width="5" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="-4" width="11" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6" y="4" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="5" y="-15" width="8" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="P" x="7" y="-8" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="8" y1="-7" x2="8" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.52" y1="-10" x2="-7.52" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="2" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5185eb71-79af-4321-97b1-f75580bbce2a}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{8de84f51-3f56-4874-99ec-0a0a683e43d9}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{aaf4d4f3-d8fe-4adc-b98c-072d249152fc}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

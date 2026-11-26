@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="90" hotspot_x="32" hotspot_y="47">
+    <uuid uuid="{3ee18053-457e-ebc9-f1b6-baf8f3e5d527}"/>
+    <names>
+        <name lang="ar">لاقط شمسي مستوٍ-1</name>
+        <name lang="ca">Captador solar pla 1</name>
+        <name lang="cs">Plochý solární kolektor-1</name>
+        <name lang="da">Plan solfanger-1</name>
+        <name lang="de">Flachkollektor-1</name>
+        <name lang="el">Επίπεδος ηλιακός συλλέκτης-1</name>
+        <name lang="en">Planar solar capturator-1</name>
+        <name lang="es">Captador solar plano-1</name>
+        <name lang="fi">Tasomainen aurinkokeräin-1</name>
+        <name lang="fr">capteur solaire</name>
+        <name lang="hr">Ravni solarni kolektor-1</name>
+        <name lang="hu">Sík napkollektor-1</name>
+        <name lang="it">Collettore solare piano-1</name>
+        <name lang="ja">平板型太陽熱集熱器-1</name>
+        <name lang="ko">평판형 태양열 집열기-1</name>
+        <name lang="mn">Хавтгай нарны коллектор-1</name>
+        <name lang="nb">Plan solfanger-1</name>
+        <name lang="nl">Vlakke zonnecollector-1</name>
+        <name lang="nl_BE">Vlakke zonnecollector-1</name>
+        <name lang="pl">Kolektor słoneczny płaski-1</name>
+        <name lang="pt">Coletor solar plano-1</name>
+        <name lang="pt_BR">Planar solar capturatou-1</name>
+        <name lang="ro">Captator solar planar-1</name>
+        <name lang="ru">Плоский солнечный коллектор-1</name>
+        <name lang="sk">Plánárny solárny kolektor-1</name>
+        <name lang="sl">Ploski sončni kolektor-1</name>
+        <name lang="sr">Плочасти соларни колектор-1</name>
+        <name lang="sv">Planar solfångare-1</name>
+        <name lang="tr">Düzlemsel güneş kolektörü-1</name>
+        <name lang="uk">Плоский сонячний колектор-1</name>
+        <name lang="zh">平板集热器1</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <rect x="-20.5" y="-39.52" width="47.3" height="75.53" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <rect x="-23.8" y="-39.52" width="3.3" height="4.11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.9" y1="29.85" x2="5.9" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10.6" y1="29.85" x2="-10.6" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="14.15" y1="29.85" x2="14.15" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-23.8" y="32.74" width="3.3" height="3.28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="26.8" y="32.74" width="3.3" height="3.28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21.3" y1="29.85" x2="21.3" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-2.35" y1="29.85" x2="-2.35" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-18.3" y="-36.91" width="42.9" height="70.33" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-6.75" y1="29.85" x2="-6.75" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="29.85" x2="18" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1.5" y1="29.85" x2="1.5" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="9.75" y1="29.85" x2="9.75" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="29.85" x2="-15" y2="-34.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="26.8" y="-39.52" width="3.3" height="4.11" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="-55" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3e272341-07e6-4082-a04b-69e29fd309a9}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f247e2d0-7e78-4342-be7d-07c56c03ec42}" name="" x="-24" y="35" orientation="w" type="Generic"/>
+        <terminal uuid="{f9f7e613-8dcf-421b-a58b-9d5e96d6be48}" name="" x="30" y="35" orientation="e" type="Generic"/>
+        <terminal uuid="{4973fc6b-ea50-4fbe-b48d-08de4324d9f9}" name="" x="-24" y="-38" orientation="w" type="Generic"/>
+        <terminal uuid="{0d5a1a2e-9f57-49af-aa3b-d0dc16e91c38}" name="" x="30" y="-38" orientation="e" type="Generic"/>
+    </description>
+</definition>

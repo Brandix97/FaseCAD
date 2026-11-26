@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="26" hotspot_y="65">
+    <uuid uuid="{93ba46c1-c70d-0980-50a1-38558a2520b6}"/>
+    <names>
+        <name lang="ar">جهاز (اتصال في الأسفل)</name>
+        <name lang="ca">Dispositiu (connexió a la part inferior)</name>
+        <name lang="cs">Zařízení (připojení zdola)</name>
+        <name lang="da">Apparat (tilslutning i bund)</name>
+        <name lang="de">Gerät (Anschluss unten)</name>
+        <name lang="el">Συσκευή (σύνδεση κάτω)</name>
+        <name lang="en">Device (connection on bottom)</name>
+        <name lang="es">Dispositivo (conexión por debajo)</name>
+        <name lang="fi">Laite (liitäntä alhaalla)</name>
+        <name lang="fr">Appareil (connexion en bas)</name>
+        <name lang="hr">Uređaj (priključak na dnu)</name>
+        <name lang="hu">Eszköz (alsó csatlakozás)</name>
+        <name lang="it">Dispositivo (connessione in basso)</name>
+        <name lang="ja">機器 (下部接続)</name>
+        <name lang="ko">장치 (하단 연결)</name>
+        <name lang="mn">Төхөөрөмж (доод холболт)</name>
+        <name lang="nb">Enhet (tilkobling nederst)</name>
+        <name lang="nl">Toestel (aansluiting onderaan)</name>
+        <name lang="nl_BE">Toestel (aansluiting onderaan)</name>
+        <name lang="pl">Urządzenie (przyłącze na dole)</name>
+        <name lang="pt">Dispositivo (ligação em baixo)</name>
+        <name lang="pt_BR">Dispositivo com conexão inferior</name>
+        <name lang="ro">Dispozitiv (conexiune jos)</name>
+        <name lang="ru">Устройство (подключение снизу)</name>
+        <name lang="sk">Zariadenie (pripojenie dole)</name>
+        <name lang="sl">Naprava (priključek spodaj)</name>
+        <name lang="sr">Уређај (прикључак на дну)</name>
+        <name lang="sv">Apparat (anslutning nedtill)</name>
+        <name lang="tr">Cihaz (bağlantı altta)</name>
+        <name lang="uk">Пристрій (з'єднання знизу)</name>
+        <name lang="zh">90-20-0001</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-10" y="2" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{539084e4-b059-4519-a1c1-f4cc96636b0a}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-12.5" y="-20" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{59e4d9b5-8ce9-4f4c-a2d3-2a047df6bb6b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>-</text>
+        </dynamic_text>
+        <rect x="-10" y="-60" width="20" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{6323b5a3-5183-4f2c-99e4-bf9de4f3cd28}" name="" x="0" y="4" orientation="s" type="Generic"/>
+    </description>
+</definition>

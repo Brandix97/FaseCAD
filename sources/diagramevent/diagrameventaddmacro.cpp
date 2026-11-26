@@ -1,0 +1,283 @@
+/*
+ *   Copyright 2006-2026 The QElectroTech Team
+ *   This file is part of QElectroTech.
+ */
+#include "diagrameventaddmacro.h"
+
+#include "../diagram.h"
+#include "../qetapp.h"
+#include "../qetdiagrameditor.h"
+#include "../qetproject.h"
+#include "../ElementsCollection/xmlelementcollection.h"
+#include "../NameList/nameslist.h"
+#include "../diagramcommands.h"
+#include "../diagramcontent.h"
+#include <QFile>
+#include <QDebug>
+#include <QGraphicsSceneMouseEvent>
+#include <QStatusBar>
+#include <QPainter>
+#include <QSettings>
+
+DiagramEventAddMacro::DiagramEventAddMacro(const ElementsLocation &location, Diagram *diagram, QPointF pos) :
+DiagramEventInterface(diagram),
+m_location(location),
+m_preview_item(nullptr)
+{
+	if (loadMacro()) {
+		init();
+
+		QScopedPointer<QETProject> dummy_project(new QETProject());
+		QDomElement root = m_macro_doc.documentElement();
+
+		QDomElement collection_node = root.firstChildElement("collection");
+		if (!collection_node.isNull()) {
+			QDomNodeList elements = collection_node.elementsByTagName("element");
+			for (int i = 0; i < elements.count(); ++i) {
+				QDomElement elmt_node = elements.at(i).toElement();
+				QString path = elmt_node.attribute("path");
+				QDomElement definition = elmt_node.firstChildElement("definition");
+
+				if (!path.isEmpty() && !definition.isNull()) {
+					int last_slash = path.lastIndexOf('/');
+					QString dir_path = (last_slash != -1) ? path.left(last_slash) : "";
+					QString file_name = (last_slash != -1) ? path.mid(last_slash + 1) : path;
+
+					if (!dir_path.isEmpty()) {
+						QStringList parts = dir_path.split('/', Qt::SkipEmptyParts);
+						QString current_path = "";
+						for (const QString &part : parts) {
+							QString parent_path = current_path;
+							if (!current_path.isEmpty()) current_path += "/";
+							current_path += part;
+							if (current_path == "import") continue;
+							NamesList empty_names;
+							dummy_project->embeddedElementCollection()->createDir(parent_path, part, empty_names);
+						}
+					}
+					dummy_project->embeddedElementCollection()->addElementDefinition(dir_path, file_name, definition);
+				}
+			}
+		}
+
+		Diagram *dummy_diagram = dummy_project->addNewDiagram();
+		QDomElement diagram_node = root.firstChildElement("diagram_content").firstChildElement("diagram");
+
+		if (!diagram_node.isNull()) {
+			dummy_diagram->setDisplayGrid(false);
+			dummy_diagram->fromXml(diagram_node, QPointF(0, 0), false, nullptr);
+
+			// Compute bounding rect of TOP-LEVEL items only (matching fromXml's added_items logic)
+			// Child items (DynamicElementTextItem, Terminal) are NOT included - they move with parents
+			QRectF top_level_rect;
+			for (auto *item : dummy_diagram->items()) {
+				if (!item->parentItem()) {
+					top_level_rect = top_level_rect.united(
+								item->mapToScene(item->boundingRect()).boundingRect());
+				}
+			}
+			m_items_top_left = top_level_rect.topLeft();
+
+			QRectF scene_rect = dummy_diagram->itemsBoundingRect();
+
+			if (!scene_rect.isEmpty()) {
+				QPixmap pixmap(scene_rect.toAlignedRect().size());
+				pixmap.fill(Qt::transparent);
+				QPainter painter(&pixmap);
+				painter.setRenderHint(QPainter::Antialiasing);
+				dummy_diagram->render(&painter, QRectF(QPointF(0,0), scene_rect.size()), scene_rect);
+
+				m_preview_item = new QGraphicsPixmapItem(pixmap);
+					// Anchor the preview on the template's own top-left
+					// corner, where addMacro() puts it, not on the origin of
+					// the folio it was saved from: a template saved from the
+					// middle of a folio was otherwise shown, and placed, that
+					// far below and to the right of the cursor.
+				m_preview_item->setOffset(scene_rect.topLeft() - m_items_top_left);
+			}
+		}
+
+	if (m_preview_item) {
+		QPointF snapped = Diagram::snapToGrid(pos);
+		m_preview_item->setPos(snapped);
+		m_preview_item->setOpacity(0.6);
+		m_diagram->addItem(m_preview_item);
+			m_running = true;
+		}
+
+		if (!diagram->views().isEmpty()) {
+			const auto qde = QETApp::diagramEditorAncestorOf(diagram->views().at(0));
+			if (qde) {
+				m_status_bar = qde->statusBar();
+			}
+		} else {
+			m_status_bar.clear();
+		}
+	}
+}
+
+DiagramEventAddMacro::~DiagramEventAddMacro()
+{
+	if (m_preview_item) {
+		m_diagram->removeItem(m_preview_item);
+		delete m_preview_item;
+	}
+
+	if (m_status_bar) {
+		m_status_bar->clearMessage();
+	}
+
+	for (auto view : m_diagram->views())
+		view->setContextMenuPolicy(Qt::DefaultContextMenu);
+}
+
+void DiagramEventAddMacro::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (m_preview_item) {
+		const auto pos_{Diagram::snapToGrid(event->scenePos())};
+
+		m_preview_item->setPos(pos_);
+
+		if (m_status_bar) {
+			m_status_bar->showMessage(QString("x %1 : y %2").arg(QString::number(pos_.x()), QString::number(pos_.y())));
+		}
+	}
+	event->setAccepted(true);
+}
+
+void DiagramEventAddMacro::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+	event->setAccepted(true);
+}
+
+void DiagramEventAddMacro::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (m_preview_item) {
+		if (event->button() == Qt::RightButton) {
+			m_diagram->removeItem(m_preview_item);
+			delete m_preview_item;
+			m_preview_item = nullptr;
+			m_running = false;
+			emit finish();
+		}
+		else if (event->button() == Qt::LeftButton) {
+			QPointF snapped = Diagram::snapToGrid(event->scenePos());
+			addMacro(snapped);
+		}
+	}
+	event->setAccepted(true);
+}
+
+void DiagramEventAddMacro::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+	if (m_preview_item && (event->button() == Qt::LeftButton)) {
+		m_diagram->removeItem(m_preview_item);
+		delete m_preview_item;
+		m_preview_item = nullptr;
+		m_running = false;
+		emit finish();
+	}
+	event->setAccepted(true);
+}
+
+void DiagramEventAddMacro::keyPressEvent(QKeyEvent *event)
+{
+	DiagramEventInterface::keyPressEvent(event);
+}
+
+void DiagramEventAddMacro::init()
+{
+	foreach(QGraphicsView *view, m_diagram->views())
+		view->setContextMenuPolicy(Qt::NoContextMenu);
+}
+
+bool DiagramEventAddMacro::loadMacro()
+{
+	QFile file(m_location.fileSystemPath());
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+		qDebug() << "Error: Macro file could not be read:" << m_location.fileSystemPath();
+		return false;
+	}
+
+	if (!m_macro_doc.setContent(&file)) {
+		qDebug() << "Error: Invalid XML in macro.";
+		return false;
+	}
+
+	QDomElement root = m_macro_doc.documentElement();
+	if (root.tagName() != "qet_macro") return false;
+
+	QDomElement collection_node = root.firstChildElement("collection");
+	if (!collection_node.isNull()) {
+		QDomNodeList elements = collection_node.elementsByTagName("element");
+		for (int i = 0; i < elements.count(); ++i) {
+			QDomElement elmt_node = elements.at(i).toElement();
+			QString path = elmt_node.attribute("path");
+			QDomElement definition = elmt_node.firstChildElement("definition");
+
+			if (!path.isEmpty() && !definition.isNull()) {
+				int last_slash = path.lastIndexOf('/');
+				QString dir_path = (last_slash != -1) ? path.left(last_slash) : "";
+				QString file_name = (last_slash != -1) ? path.mid(last_slash + 1) : path;
+
+				if (!dir_path.isEmpty()) {
+					QStringList parts = dir_path.split('/', Qt::SkipEmptyParts);
+					QString current_path = "";
+					for (const QString &part : parts) {
+						QString parent_path = current_path;
+						if (!current_path.isEmpty()) current_path += "/";
+						current_path += part;
+						if (current_path == "import") continue;
+						NamesList empty_names;
+						m_diagram->project()->embeddedElementCollection()->createDir(parent_path, part, empty_names);
+					}
+				}
+				m_diagram->project()->embeddedElementCollection()->addElementDefinition(dir_path, file_name, definition);
+			}
+		}
+	}
+
+	QDomElement diagram_node = root.firstChildElement("diagram_content").firstChildElement("diagram");
+	if (!diagram_node.isNull()) {
+		QDomNodeList instances = diagram_node.elementsByTagName("element");
+		for (int i = 0; i < instances.count(); ++i) {
+			QDomElement inst = instances.at(i).toElement();
+			QString type = inst.attribute("type");
+			if (type.startsWith("macro://")) {
+				inst.setAttribute("type", type.replace("macro://", "embed://"));
+			}
+		}
+	}
+
+	return true;
+}
+
+void DiagramEventAddMacro::addMacro(QPointF final_pos)
+{
+	QDomElement root = m_macro_doc.documentElement();
+	QDomElement diagram_node = root.firstChildElement("diagram_content").firstChildElement("diagram");
+
+	if (!diagram_node.isNull()) {
+		QDomElement cloned_node = diagram_node.cloneNode(true).toElement();
+		DiagramContent pasted_content;
+
+			// fromXml() puts the template's top-left corner on final_pos,
+			// under the cursor. It skips that for a null position, which
+			// would leave the items where they were saved, so a click on
+			// the folio origin is nudged by less than it snaps away.
+		if (final_pos.isNull()) {
+			final_pos = QPointF(0.1, 0.1);
+		}
+		m_diagram->fromXml(cloned_node, final_pos, false, &pasted_content);
+		m_diagram->refreshContents();
+
+			// Prevent PasteDiagramCommand from erasing labels (BMK)
+		QSettings settings;
+		bool saved_erase = settings.value("diagramcommands/erase-label-on-copy", true).toBool();
+		settings.setValue("diagramcommands/erase-label-on-copy", false);
+			//and does not number them either: the labels are the ones saved
+		auto *paste = new PasteDiagramCommand(m_diagram, pasted_content);
+		paste->setAutoNumbering(false);
+		m_diagram->undoStack().push(paste);
+		settings.setValue("diagramcommands/erase-label-on-copy", saved_erase);
+	}
+}

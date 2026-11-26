@@ -1,0 +1,62 @@
+<definition version="0.80" type="element" link_type="simple" width="50" height="80" hotspot_x="30" hotspot_y="40">
+    <uuid uuid="{01537342-5f30-18d2-71e0-2fb0584bb616}"/>
+    <names>
+        <name lang="ar">محرك تيار مستمر بإثارة منفصلة</name>
+        <name lang="ca">Motor de corrent continu d'excitació independent</name>
+        <name lang="cs">Motor s cizím buzením</name>
+        <name lang="da">Jævnstrømsmotor med separat magnetisering</name>
+        <name lang="de">Gleichstrommotor Fremderregt</name>
+        <name lang="el">Κινητήρας συνεχούς με ξεχωριστή διέγερση</name>
+        <name lang="en">Separate excitation DC motor</name>
+        <name lang="es">Excitación separada del motor DC</name>
+        <name lang="fi">Erillisheräteinen tasavirtamoottori</name>
+        <name lang="fr">Moteur DC excitation séparée</name>
+        <name lang="hr">Istosmjerni motor s odvojenom uzbudom</name>
+        <name lang="hu">Külön gerjesztésű DC motor</name>
+        <name lang="it">Eccitazione separata del motore CC</name>
+        <name lang="ja">他励直流電動機</name>
+        <name lang="ko">타여자 DC 모터</name>
+        <name lang="mn">Тусдаа өдөөлттэй DC мотор</name>
+        <name lang="nb">DC-motor med separat magnetisering</name>
+        <name lang="nl">Gelijkstroommotor met aparte bekrachtiging</name>
+        <name lang="nl_BE">DC-motor met afzonderlijke bekrachtiging</name>
+        <name lang="pl">Silnik prądu stałego z niezależnym wzbudzeniem</name>
+        <name lang="pt">Excitação separada do motor DC</name>
+        <name lang="pt_BR">motor CC com excitacao independente</name>
+        <name lang="ro">Motor de curent continuu cu excitație separată</name>
+        <name lang="ru">Раздельное возбуждение двигателя постоянного тока</name>
+        <name lang="sk">DC motor s cudzím budením</name>
+        <name lang="sl">Enosmerni motor z ločenim vzbujanjem</name>
+        <name lang="sr">DC мотор са независном побудом</name>
+        <name lang="sv">Likströmsmotor med separat magnetisering</name>
+        <name lang="tr">Ayrı uyartımlı DC motor</name>
+        <name lang="uk">Двигун постійного струму з незалежним збудженням</name>
+        <name lang="zh">直流电动机2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-3" y="-17" width="6" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="M" x="-6" y="5" rotation="0" font="Liberation Sans,11,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="K" x="-18" y="26" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-23.5" y="8" width="7" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="A2" x="2" y="26" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="I" x="-18" y="-22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="A1" x="2" y="-22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-23.5" y="-12" width="7" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="17" x2="0" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-23.5" y="-2" width="7" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-23.5" y="3" width="7" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-23.5" y="-7" width="7" height="5" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-30" x2="0" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-30" x2="-20" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="30" x2="-20" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="8" x2="6" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="15" width="6" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ebcfbf4f-3065-4c64-901a-4f6c8f69a6e9}" name="A1" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{a5e81d4a-16bc-4a34-8b34-dc0fd7b44196}" name="I" x="-20" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{739f6f62-22e8-43bc-aecf-b454a2c2b90e}" name="K" x="-20" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{8152411b-db39-4479-abd1-02ca189b041f}" name="A2" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

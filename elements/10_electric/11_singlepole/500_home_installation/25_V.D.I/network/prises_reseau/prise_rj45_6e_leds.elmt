@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="22">
+    <uuid uuid="{00ea4295-0239-4770-d698-99049c269a6b}"/>
+    <names>
+        <name lang="ar">Prise RJ45 Cat 6e</name>
+        <name lang="ca">Presa RJ45 Cat 6e</name>
+        <name lang="cs">Zásuvka RJ45 Cat 6e</name>
+        <name lang="da">RJ45-stik Cat 6e</name>
+        <name lang="de">RJ45 Cat 6e Anschlussdose</name>
+        <name lang="el">Πρίζα RJ45 Cat 6e</name>
+        <name lang="en">RJ45 Cat 6e socket</name>
+        <name lang="es">Toma RJ45 Cat 6e</name>
+        <name lang="fr">Prise RJ45 Cat 6e</name>
+        <name lang="pt_BR">Tomada RJ45 Cat 6e</name>
+        <name lang="zh">带LED的6e类RJ45插座</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-14" y="-15" width="28" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="false"/>
+        <polygon x1="-5" y1="0" x2="-5" y2="-2" x3="-11" y3="-2" x4="-11" y4="-12" x5="11" y5="-12" x6="11" y6="-2" x7="5" y7="-2" x8="5" y8="0" x9="3" y9="0" x10="3" y10="2" x11="-3" y11="2" x12="-3" y12="0" x13="-4" y13="0" antialias="false" style="line-style:normal;line-weight:normal;filling:white;color:black"/>
+        <dynamic_text x="-8" y="4.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{674a9064-639b-4e55-9a3d-f1b6120c006b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-1" y1="-12" x2="-1" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-12" x2="-3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-12" x2="-5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-12" x2="-7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-12" x2="1" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-12" x2="3" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-12" x2="5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-12" x2="7" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-11" y="1" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:orange;color:orange" antialias="false"/>
+        <rect x="7" y="1" width="4" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:green;color:green" antialias="false"/>
+        <terminal uuid="{1870aaef-5404-423e-8445-93825dbedfaa}" name="" x="0" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

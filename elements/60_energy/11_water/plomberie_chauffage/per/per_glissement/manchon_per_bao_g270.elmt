@@ -1,0 +1,36 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="60" height="20" hotspot_x="31" hotspot_y="10">
+    <uuid uuid="{20850a64-e69d-c2f3-9ca1-27838104ed34}"/>
+    <names>
+        <name lang="ar">جلبة PER انزلاقية</name>
+        <name lang="ca">PER màniga antilliscant</name>
+        <name lang="cs">Objímka PER nasouvací</name>
+        <name lang="da">Muffe PER glide</name>
+        <name lang="de">Muffe PER Gleitring</name>
+        <name lang="el">Χιτώνιο PER συρόμενο</name>
+        <name lang="en">PEX compression sleeve</name>
+        <name lang="fr">Manchon PER glissement</name>
+        <name lang="pt_BR">Manchon PER glissement</name>
+        <name lang="zh">米色PER套管G270</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="9" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:gray" antialias="false"/>
+        <rect x="-22" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:gray" antialias="false"/>
+        <rect x="1" y="-6" width="8" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12" y="-6" width="8" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-5" width="1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:gray" antialias="false"/>
+        <line x1="-2" y1="-6" x2="-2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-33.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2bb7c9bc-370d-4f3d-9e35-ca507595d52c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-1" y="-5" width="1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:gray" antialias="false"/>
+        <line x1="-1" y1="-6" x2="-1" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{6f9d86d4-6b22-44d8-b481-538bab315719}" name="" x="19" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{dd80d9ca-b799-4354-a0ab-f6bba5612615}" name="" x="-22" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

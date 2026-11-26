@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="32">
+    <uuid uuid="{a0cedc4d-9015-8ff2-673e-e87578a17d22}"/>
+    <names>
+        <name lang="ar">ملف مُؤقت مع تاخير الإستجابة</name>
+        <name lang="ca">Bobina amb retard d'encesa</name>
+        <name lang="cs">Relé se zpožděným zapnutím</name>
+        <name lang="da">Relæ med tændingsforsinkelse</name>
+        <name lang="de">Relais ansprechverzögert</name>
+        <name lang="el">Πηνίο χρονικού, καθυστέρηση ενεργοποίησης</name>
+        <name lang="en">Coil with on delay</name>
+        <name lang="es">Bobina de trabajo temporizado</name>
+        <name lang="fi">Käämi, päällekytkentäviive</name>
+        <name lang="fr">Bobine tempo travail</name>
+        <name lang="hr">Zavojnica s odgodom uključivanja</name>
+        <name lang="hu">Tekercs be késleltetéssel</name>
+        <name lang="it">Bobina di relè ritardato</name>
+        <name lang="ja">オン遅延付きコイル</name>
+        <name lang="ko">온 지연 코일</name>
+        <name lang="mn">Асах сааталтай ороомог</name>
+        <name lang="nb">Spole med innkoblingsforsinkelse</name>
+        <name lang="nl">mechanisch met opkomvertraging</name>
+        <name lang="nl_BE">Spoel met inschakel vertraging</name>
+        <name lang="pl">Cewka przekaźnika działająca ze zwłoką przy wzbudzeniu</name>
+        <name lang="pt">Bobina com atraso na ativação</name>
+        <name lang="pt_BR">Bobina com on retardo</name>
+        <name lang="ro">Bobina cu întârziere la pornire</name>
+        <name lang="ru">Обмотка</name>
+        <name lang="sk">Cievka s oneskorením zapnutia</name>
+        <name lang="sl">Tuljava z zakasnitvijo vklopa</name>
+        <name lang="sr">Каlem са кашњењем укључења</name>
+        <name lang="sv">Spole med tillslagsfördröjning</name>
+        <name lang="tr">Açma gecikmeli bobin</name>
+        <name lang="uk">Котушка з затримкою вмикання</name>
+        <name lang="zh">通电延时线圈</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="10" y="-8" width="4" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-14" y="-8" width="28" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14" y1="-8" x2="10" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="-8" x2="14" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="11.33" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b6e2661c-9f4a-4a13-9cc7-c0b21b7871ca}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="2" y="-24.67" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{27c77db6-326a-4b9e-89ae-d8c62ca61395}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="25" y="-9" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7917f0a1-c387-48e0-a013-d2d5e8ef46af}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{05466ae6-19cc-4ac5-8c03-fb89d24ff460}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{d72faa3e-aebc-4304-8a95-db43acbce854}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="21" hotspot_y="9">
+    <uuid uuid="{1df0398a-17ca-896f-e1b3-44430821553b}"/>
+    <names>
+        <name lang="ar">مدخل ماء بارد</name>
+        <name lang="ca">Entrada d'aigua freda ECS</name>
+        <name lang="cs">Přívod studené užitkové vody</name>
+        <name lang="da">Koldtvandsindløb brugsvand</name>
+        <name lang="de">Kaltwassereinlass ECS</name>
+        <name lang="el">Είσοδος κρύου νερού</name>
+        <name lang="en">Cold water inlet ECS</name>
+        <name lang="es">Entrada de agua fría ECS</name>
+        <name lang="fi">Kylmän veden tulo ECS</name>
+        <name lang="fr">Entrée Eau Froide ECS</name>
+        <name lang="hr">Ulaz hladne vode ECS</name>
+        <name lang="hu">Hidegvíz bemenet HMV</name>
+        <name lang="it">Ingresso acqua fredda</name>
+        <name lang="ja">冷水入口 ECS</name>
+        <name lang="ko">냉수 입력 ECS</name>
+        <name lang="mn">Хүйтэн усны оролт ECS</name>
+        <name lang="nb">Kaldtvannsinnløp ECS</name>
+        <name lang="nl">Koud water aanvoer</name>
+        <name lang="nl_BE">Koudwaterinlaat ECS</name>
+        <name lang="pl">Przyłącze zimnej wody użytkowej</name>
+        <name lang="pt">Entrada de água fria AQS</name>
+        <name lang="pt_BR">Cold water inlet ECS</name>
+        <name lang="ro">Intrare apă rece ACM</name>
+        <name lang="ru">Вход холодной воды ГВС</name>
+        <name lang="sk">Vstup studenej vody TÚV</name>
+        <name lang="sl">Dovod hladne vode ECS</name>
+        <name lang="sr">Улаз хладне воде ECS</name>
+        <name lang="sv">Kallvattenintag VV</name>
+        <name lang="tr">Soğuk su girişi ECS</name>
+        <name lang="uk">Вхід холодної води ГВП</name>
+        <name lang="zh">冷水/生活热水入口</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-28" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e7a45d11-133f-45a4-a862-2dcdc0407b7d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="EF" x="-12" y="2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="3" y1="0" x2="11" y2="0" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3" y1="-5" x2="-3" y2="5" x3="3" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{ecf49633-2448-4e82-b033-afdcf3fd066a}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,94 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{1d4fcbbd-fd85-10bb-aa82-3fcebd5da842}"/>
+    <names>
+        <name lang="ar">ثايريستور بوابة  P</name>
+        <name lang="ca">Tiristor de tríode de bloqueig invers, porta P (controlat pel costat del càtode)</name>
+        <name lang="cs">Triodový tyristor blokující obráceně, brána P (řízeno na straně katody)</name>
+        <name lang="da">Spærrende triodethyristor,
+ P-gate
+(katodestyret)</name>
+        <name lang="de">rückwärts sperrende Thyristortriode, P-Gate
+(Kathode gesteuert)</name>
+        <name lang="el">Θυρίστορ τριοδικό ανάστροφης αποκοπής,
+ πύλη P
+(ελεγχόμενο από την κάθοδο)</name>
+        <name lang="en">Reverse blocking triode thyristor,
+ P-gate
+(cathode-side controlled)</name>
+        <name lang="es">Tiristor triodo de bloqueo inverso,
+ puerta P
+(controlado por cátodo)</name>
+        <name lang="fi">Estosuunnassa estävä triodityristori,
+ P-hila
+(katodipuolelta ohjattu)</name>
+        <name lang="fr">Thyristor triode bloqué en inverse, gâchette P
+(commandé côté cathode)</name>
+        <name lang="hr">Reverzno blokirajući triodni tiristor,
+ P-upravljački
+(upravljan s katodne strane)</name>
+        <name lang="hu">Záróirányú trióda tirisztor,
+ P-vezérlőelektróda
+(katódoldali vezérlés)</name>
+        <name lang="it">Tiristore triodo bloccato nel senso inverso di conduzione, porta P (controllato sul catodo)</name>
+        <name lang="ja">逆阻止三極サイリスタ、
+ Pゲート
+(カソード側制御)</name>
+        <name lang="ko">역방향 차단 3극 사이리스터,
+ P-게이트
+(캐소드 측 제어)</name>
+        <name lang="mn">Урвуу хаах триод тиристор,
+ P-хаалга
+(катод талаас удирдлагатай)</name>
+        <name lang="nb">Reverssperrende triodetyristor,
+ P-gate
+(katodesidestyrt)</name>
+        <name lang="nl">Thyristor P gate</name>
+        <name lang="nl_BE">Sperthyristor triode,
+ P-gate
+(kathodestuurd)</name>
+        <name lang="pl">Tyrystor triodowy blokujący wstecznie z bramką P</name>
+        <name lang="pt">Tiristor triodo de bloqueio inverso,
+ porta P
+(controlado pelo lado do cátodo)</name>
+        <name lang="pt_BR">Tiristor triodo de bloqueio reverso, porta P (controlado pelo cátodo)</name>
+        <name lang="ro">Tiristor triodă cu blocare inversă,
+ poartă P
+(comandat pe partea catodului)</name>
+        <name lang="ru">Обратно запирающий триодный тиристор,
+ P-управление
+(управление со стороны катода)</name>
+        <name lang="sk">Triódový tyristor s reverzným blokovaním,
+ P-hradlo
+(riadený na strane katódy)</name>
+        <name lang="sl">Povratno zaporni triodni tiristor,
+ P-vrata
+(krmiljen na strani katode)</name>
+        <name lang="sr">Повратно непроводни триодни тиристор,
+ P-гејт
+(контролисан са стране катоде)</name>
+        <name lang="sv">Spärrbacktriodtyristor,
+ P-gate
+(katodstyrd)</name>
+        <name lang="tr">Ters bloklama triyot tristör,
+ P-kapı
+(katot tarafı kontrollü)</name>
+        <name lang="uk">Зворотноблокуючий триодний тиристор,
+ P-керування
+(керування з боку катода)</name>
+        <name lang="zh">晶闸管_6</name>
+    </names>
+    <informations>EN 60617: 05-04-06</informations>
+    <description>
+        <dynamic_text x="18" y="-22.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1bad4de5-84a7-4189-b4af-85961b607bac}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="0" x2="4" y2="0" x3="8" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-20" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-15" x2="15" y2="-15" x3="10" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{805eeae2-3511-4259-bb5e-5d1c92b84e36}" name="" x="10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{f06f4877-d082-4fa6-a5f2-9c4451b7c0c5}" name="" x="0" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{dcf48710-6d90-4355-a905-caca9c1d5d37}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

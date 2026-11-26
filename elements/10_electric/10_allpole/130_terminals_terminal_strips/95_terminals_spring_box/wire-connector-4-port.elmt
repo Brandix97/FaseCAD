@@ -1,0 +1,56 @@
+<definition version="0.80" type="element" link_type="terminal" width="50" height="50" hotspot_x="30" hotspot_y="26">
+    <uuid uuid="{75a73f8e-1d8e-ce50-a7b6-252f9decc88c}"/>
+    <names>
+        <name lang="ar">موصل أسلاك 4-منفذ</name>
+        <name lang="ca">Connector de cable de 4 ports</name>
+        <name lang="cs">Svorka 4 vodiče</name>
+        <name lang="da">Ledningsstik 4-port</name>
+        <name lang="de">4-polig</name>
+        <name lang="el">Σύνδεσμος καλωδίων 4 θέσεων</name>
+        <name lang="en">Wire Connector 4-Port</name>
+        <name lang="es">Conector de cable 4 puertos</name>
+        <name lang="fi">Johliliitin 4-portti</name>
+        <name lang="hr">Kabelski konektor 4-portni</name>
+        <name lang="hu">Kötőelem 4 tagos</name>
+        <name lang="it">Connettore filo 4 porte</name>
+        <name lang="ja">電線コネクタ 4ポート</name>
+        <name lang="ko">전선 커넥터 4포트</name>
+        <name lang="mn">Утас холбогч 4-порт</name>
+        <name lang="nb">Ledningskobling 4-port</name>
+        <name lang="nl">Draadconnector 4-poorts</name>
+        <name lang="nl_BE">Draadconnector 4-poorts</name>
+        <name lang="pl">Złącze przewodu 4-portowe</name>
+        <name lang="pt">Conector de fios 4 portas</name>
+        <name lang="pt_BR">Conector de fios 4 portas</name>
+        <name lang="ro">Conector de fir 4 porturi</name>
+        <name lang="ru">Соединитель проводов 4-портовый</name>
+        <name lang="sk">Drôtový konektor 4-portový</name>
+        <name lang="sl">Žični konektor 4-portni</name>
+        <name lang="sr">Кабловски конектор 4-порт</name>
+        <name lang="sv">Trådanslutning 4-port</name>
+        <name lang="tr">Kablo konnektörü 4-portlu</name>
+        <name lang="uk">З'єднувач проводів 4-портовий</name>
+        <name lang="zh">4口接线连接器</name>
+    </names>
+    <informations>Author convertor: Mario Luongo</informations>
+    <description>
+        <rect x="-9" y="-17" width="8" height="3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:HTMLGrayGainsboro;color:white" antialias="false"/>
+        <rect x="-27.2" y="-22.5" width="44.2" height="42" rx="1" ry="1" style="line-style:normal;line-weight:normal;filling:lightgray;color:gray" antialias="false"/>
+        <rect x="-14" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="6" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <rect x="-24" y="-10" width="8" height="30" rx="1" ry="1" style="line-style:normal;line-weight:thin;filling:HTMLOrangeTomato;color:white" antialias="false"/>
+        <line x1="-10" y1="5" x2="-10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="-20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-5" x2="10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="-6" width="2" height="2" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="false"/>
+        <rect x="-9" y="-17" width="8" height="3" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:HTMLGrayGainsboro;color:white" antialias="false"/>
+        <terminal uuid="{eb338493-235e-4448-9ddd-9b9f761b4e59}" name="" x="-20" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{5bc3f241-865f-4fce-a096-cc053e70df2c}" name="" x="10" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{3f89f462-c81c-47dd-a912-2d2c8fc73c30}" name="" x="0" y="5" orientation="s" type="Generic"/>
+        <terminal uuid="{b6b6837c-1fb0-4d51-b82e-f75652e7bf95}" name="" x="-10" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

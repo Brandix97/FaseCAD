@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="25" hotspot_y="65">
+    <uuid uuid="{c77d0c2b-ba86-28db-bc99-4e06f8520f0f}"/>
+    <names>
+        <name lang="ar">جهاز حماية بوخهولز؛ مرحل غازي</name>
+        <name lang="ca">dispositiu de protecció Buchholz; </name>
+        <name lang="cs">Buchholtzovo relé</name>
+        <name lang="da">Buchholz-beskyttelsesanordning; Gasrelæ</name>
+        <name lang="de">Buchholzschutz</name>
+        <name lang="el">Προστατευτική διάταξη Buchholz; Ρελέ αερίου</name>
+        <name lang="en">Buchholz protective device; Gas relay</name>
+        <name lang="es">Dispositivo de protección Buchholz; relé de gas</name>
+        <name lang="fi">Buchholz-suojalaite; Kaasurele</name>
+        <name lang="fr">Relais Buchholz</name>
+        <name lang="hr">Buchholzov zaštitni uređaj; Plinski relej</name>
+        <name lang="hu">Buchholz-védőberendezés; Gázrelé</name>
+        <name lang="it">Dispositivo di protezione Buchholz; Relè a gas</name>
+        <name lang="ja">ブッフホルツ保護装置；ガス継電器</name>
+        <name lang="ko">부흐홀츠 보호 장치; 가스 릴레이</name>
+        <name lang="mn">Буххольцын хамгаалалтын төхөөрөмж; Хийн реле</name>
+        <name lang="nb">Buchholz-beskyttelse; gassrelé</name>
+        <name lang="nl">Buchholz-beveiliging; Gasrelais</name>
+        <name lang="nl_BE">Buchholz-beveiligingstoestel; Gasrelais</name>
+        <name lang="pl">Zabezpieczenie Buchholza; Przekaźnik gazowy</name>
+        <name lang="pt">Dispositivo de proteção Buchholz; Relé de gás</name>
+        <name lang="pt_BR">Dispositivo de proteção Buchholz; relé de gás</name>
+        <name lang="ro">Dispozitiv de protecție Buchholz; Releu de gaz</name>
+        <name lang="ru">Защитное устройство Бухгольца; газовое реле</name>
+        <name lang="sk">Buchholzovo ochranné zariadenie; Plynové relé</name>
+        <name lang="sl">Buchholzova zaščitna naprava; plinski rele</name>
+        <name lang="sr">Буххолц заштитни уређај; Гасни релеј</name>
+        <name lang="sv">Buchholzskydd; Gasrelä</name>
+        <name lang="tr">Buchholz koruma cihazı; Gaz rölesi</name>
+        <name lang="uk">Захисний пристрій Бухгольца; Газове реле</name>
+        <name lang="zh">接线端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5bc25c55-7b06-409a-ae83-f74e63079449}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-60" width="40" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-30" width="40" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="-20" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-55" x2="0" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="-50" width="20" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-50" width="20" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

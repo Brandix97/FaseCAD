@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{96cd6ad2-0da3-ad1a-094e-fb83f71dbdc7}"/>
+    <names>
+        <name lang="ar">موصل من نوع قابس وقاعدة مقبس، ذكري-ذكري</name>
+        <name lang="ca">Connector tipus endoll i presa, mascle-mascle</name>
+        <name lang="cs">Zásuvková spojka s U kolíkem</name>
+        <name lang="da">Stik og stikdåse-forbindelse, han-han</name>
+        <name lang="de">Steckverbindung, zwei Buchsen durch einen</name>
+        <name lang="el">Σύνδεσμος τύπου βύσματος και υποδοχής, αρσενικό-αρσενικό</name>
+        <name lang="en">Plug and socket-type connector, male-male</name>
+        <name lang="es">Conector tipo enchufe y toma, macho-macho</name>
+        <name lang="fi">Pistoke- ja pistorasiatyyppinen liitin, uros-uros</name>
+        <name lang="fr">Fiche et prise de connecteur, par exemple
+cavalier, mâle-mâle</name>
+        <name lang="hr">Spojnik tipa utikač i utičnica, muški-muški</name>
+        <name lang="hu">Dugó és aljzat típusú csatlakozó, apa-apa</name>
+        <name lang="it">Connettore a spina e presa, maschio-maschio</name>
+        <name lang="ja">プラグ及びコンセント型コネクタ、雄-雄</name>
+        <name lang="ko">플러그 및 소켓형 커넥터, 수-수</name>
+        <name lang="mn">Залгуур ба вилканы төрлийн холбогч, эр-эр</name>
+        <name lang="nb">Plugg- og stikkontaktforbindelse, hann-hann</name>
+        <name lang="nl">Steker en contactdoos-connector, mannelijk-mannelijk</name>
+        <name lang="nl_BE">Stekker- en contactdoosconnector, mannelijk-mannelijk</name>
+        <name lang="pl">Złącze wtykowe, męsko-męskie</name>
+        <name lang="pt">Conector tipo tomada e ficha, macho-macho</name>
+        <name lang="pt_BR">Conector tipo plugue e tomada, macho-macho</name>
+        <name lang="ro">Conector de tip fișă și priză, tată-tată</name>
+        <name lang="ru">Штекерный соединитель, штырь-штырь</name>
+        <name lang="sk">Konektor typu vidlica a zásuvka, kolík-kolík</name>
+        <name lang="sl">Vtični konektor, moški-moški</name>
+        <name lang="sr">Конектор типа утикач-утичница, мушки-мушки</name>
+        <name lang="sv">Kontakt- och uttagsdon, hane-hane</name>
+        <name lang="tr">Fiş ve priz tipi konnektör, erkek-erkek</name>
+        <name lang="uk">Штекерний з'єднувач, штир-штир</name>
+        <name lang="zh">20号元件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d1e83f3b-138a-4813-bf45-246209010fb4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="0" y="-3" width="20" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="25" y1="0" x2="40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5" y="-5" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="15" y="-5" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{507085a7-01d1-49af-82a4-1f9c1d6001fc}" name="" x="40" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{ac5ca4cf-47ed-4708-b64d-034649b9efda}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

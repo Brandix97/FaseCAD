@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="31">
+    <uuid uuid="{6bdeaea2-c14f-2230-51af-f9b7860988c6}"/>
+    <names>
+        <name lang="ar">مقبس</name>
+        <name lang="ca">Outlet</name>
+        <name lang="cs">Zásuvka</name>
+        <name lang="da">Udtag</name>
+        <name lang="de">Steckdose</name>
+        <name lang="el">Πρίζα</name>
+        <name lang="en">Outlet</name>
+        <name lang="es">Enchufe</name>
+        <name lang="fi">Pistorasia</name>
+        <name lang="fr">Prise</name>
+        <name lang="hr">Utičnica</name>
+        <name lang="hu">Csatlakozóaljzat</name>
+        <name lang="it">Presa</name>
+        <name lang="ja">コンセント</name>
+        <name lang="ko">콘센트</name>
+        <name lang="mn">Гаралт</name>
+        <name lang="nb">Stikkontakt</name>
+        <name lang="nl">Contactdoos</name>
+        <name lang="nl_BE">Aansluitpunt</name>
+        <name lang="pl">Gniazdo wtyczkowe</name>
+        <name lang="pt">Tomada</name>
+        <name lang="pt_BR">Tomada</name>
+        <name lang="ro">Priză</name>
+        <name lang="ru">Розетка</name>
+        <name lang="sk">Vývod</name>
+        <name lang="sl">Vtičnica</name>
+        <name lang="sr">Утичница</name>
+        <name lang="sv">Uttag</name>
+        <name lang="tr">Priz</name>
+        <name lang="uk">Розетка</name>
+        <name lang="zh">电源插座</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="0.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7219e9eb-82ba-434d-b2a5-c82652f88515}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-13" y="-13" width="26" height="26" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-9" y="-1" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="3" y="-1" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-13" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="-8.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <terminal uuid="{cf2af8a5-e0fb-4b86-965b-dead82c113bd}" name="" x="0" y="-21" orientation="n" type="Generic"/>
+    </description>
+</definition>

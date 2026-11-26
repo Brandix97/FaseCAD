@@ -1,0 +1,286 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "exportpropertieswidget.h"
+#include <QFileSystemModel>
+
+/**
+	@brief ExportPropertiesWidget::ExportPropertiesWidget
+	Constructeur
+	@param parent QWidget parent
+*/
+ExportPropertiesWidget::ExportPropertiesWidget(QWidget *parent) : QWidget(parent) {
+	setMinimumWidth(680);
+	setMinimumHeight(720);
+	build();
+	setExportProperties(ExportProperties());
+}
+
+/**
+	@brief ExportPropertiesWidget::ExportPropertiesWidget
+	Constructeur
+	@param export_properties Parametres d'export a afficher / editer
+	@param parent QWidget parent
+*/
+ExportPropertiesWidget::ExportPropertiesWidget(const ExportProperties &export_properties, QWidget *parent) : QWidget(parent) {
+	build();
+	setExportProperties(export_properties);
+}
+
+/**
+	@brief ExportPropertiesWidget::~ExportPropertiesWidget
+	Destructeur
+*/
+ExportPropertiesWidget::~ExportPropertiesWidget()
+{
+}
+
+/**
+	@brief ExportPropertiesWidget::exportProperties
+	@return les parametres d'export definis via le widget
+*/
+ExportProperties ExportPropertiesWidget::exportProperties() const
+{
+	ExportProperties export_properties;
+	
+	export_properties.destination_directory   = QDir(dirpath -> text());
+	export_properties.format                  = format -> itemData(format -> currentIndex()).toString();
+	export_properties.draw_grid               = draw_grid      -> isChecked();
+	export_properties.draw_border             = draw_border    -> isChecked();
+	export_properties.draw_titleblock         = draw_titleblock     -> isChecked();
+	export_properties.draw_terminals          = draw_terminals -> isChecked();
+	export_properties.draw_bg_transparent     = draw_bg_transparent -> isChecked();
+	export_properties.draw_colored_conductors = draw_colored_conductors -> isChecked();
+	export_properties.dxf_blocks              = dxf_blocks -> isChecked();
+	export_properties.dxf_attributes          = dxf_attributes -> isChecked();
+	export_properties.svg_small_pictures      = svg_small_pictures -> isChecked();
+	export_properties.exported_area           = export_border -> isChecked() ? QET::BorderArea : QET::ElementsArea;
+	
+	return(export_properties);
+}
+
+/**
+	@brief ExportPropertiesWidget::setExportProperties
+	@param export_properties les parametres d'export a afficher / editer via le widget
+*/
+void ExportPropertiesWidget::setExportProperties(const ExportProperties &export_properties) {
+	dirpath -> setText(QDir::toNativeSeparators(export_properties.destination_directory.absolutePath()));
+	
+	int index = format -> findData(export_properties.format);
+	if (index == -1) index = 0;
+	format -> setCurrentIndex(index);
+	
+	draw_grid               -> setChecked(export_properties.draw_grid);
+	draw_border             -> setChecked(export_properties.draw_border);
+	draw_titleblock         -> setChecked(export_properties.draw_titleblock);
+	draw_terminals          -> setChecked(export_properties.draw_terminals);
+	draw_bg_transparent     -> setChecked(export_properties.draw_bg_transparent);
+	draw_colored_conductors -> setChecked(export_properties.draw_colored_conductors);
+	dxf_blocks              -> setChecked(export_properties.dxf_blocks);
+	dxf_attributes          -> setChecked(export_properties.dxf_attributes);
+	dxf_attributes          -> setEnabled(export_properties.dxf_blocks);
+	svg_small_pictures      -> setChecked(export_properties.svg_small_pictures);
+	
+	if (export_properties.exported_area == QET::BorderArea) {
+		export_border -> setChecked(true);
+	} else {
+		export_elements -> setChecked(true);
+	}
+}
+
+/**
+	@brief ExportPropertiesWidget::setPrintingMode
+	Puts the widget in Print or Export mode. Print mode
+	does not display as many options as Export mode.
+	/
+	Passe le widget en mode Impression ou en mode Export. Le mode Impression
+	n'affiche pas autant d'options que le mode Export.
+	@param mode
+	true to use the widget in print mode,
+	false to use it in export mode
+	/
+	true pour utiliser le widget en mode impression, false pour
+	l'utiliser en mode export
+*/
+void ExportPropertiesWidget::setPrintingMode(bool mode) {
+	dirpath_label       -> setVisible(!mode);
+	dirpath             -> setVisible(!mode);
+	button_browse       -> setVisible(!mode);
+	format_label        -> setVisible(!mode);
+	format              -> setVisible(!mode);
+	export_border       -> setVisible(!mode);
+	export_elements     -> setVisible(!mode);
+	draw_bg_transparent -> setVisible(!mode);
+	svg_small_pictures  -> setVisible(!mode);
+}
+
+/**
+	@brief ExportPropertiesWidget::slot_chooseADirectory
+	Slot asking the user to choose a folder
+	/ Slot demandant a l'utilisateur de choisir un dossier
+*/
+void ExportPropertiesWidget::slot_chooseADirectory()
+{
+	QString user_dir = QFileDialog::getExistingDirectory(
+		this,
+		tr("Export in the directory", "dialog title"),
+		dirpath -> text()
+	);
+	if (!user_dir.isEmpty()) {
+		dirpath -> setText(QDir::toNativeSeparators(user_dir));
+	}
+}
+
+/**
+	@brief ExportPropertiesWidget::build
+	Generated the ExportPropertiesWidget ui
+	/ Cette methode construit le widget en lui-meme
+*/
+void ExportPropertiesWidget::build()
+{
+	// le dialogue est un empilement vertical d'elements
+	QVBoxLayout *vboxLayout = new QVBoxLayout();
+	vboxLayout -> setContentsMargins(0, 0, 0, 0);
+	
+	/* le dialogue comprend une ligne permettant d'indiquer un chemin de dossier (hboxLayout) */
+	QHBoxLayout *hboxLayout = new QHBoxLayout();
+	dirpath_label = new QLabel(tr("Target directory:"), this);
+	dirpath = new QLineEdit(this);
+	QCompleter *completer = new QCompleter(this);
+	completer -> setModel(new QFileSystemModel(completer));
+	dirpath -> setCompleter(completer);
+	button_browse = new QPushButton(tr("Browse"), this);
+	hboxLayout -> addWidget(dirpath_label);
+	hboxLayout -> addWidget(dirpath);
+	hboxLayout -> addWidget(button_browse);
+	hboxLayout -> addStretch();
+	
+	vboxLayout -> addLayout(hboxLayout);
+	
+	/* une ligne permettant de choisir le format (hboxLayout1) */
+	QHBoxLayout *hboxLayout1 = new QHBoxLayout();
+	format_label = new QLabel(tr("Format:"), this);
+	hboxLayout1 -> addWidget(format_label);
+	hboxLayout1 -> addWidget(format = new QComboBox(this));
+	format -> addItem(tr("PNG (*.png)"),    "PNG");
+	format -> addItem(tr("JPEG (*.jpg)"),   "JPG");
+	format -> addItem(tr("Bitmap (*.bmp)"), "BMP");
+	format -> addItem(tr("SVG (*.svg)"),    "SVG");
+	format -> addItem(tr("DXF (*.dxf)"),    "DXF");
+	hboxLayout1 -> addStretch();
+	
+	vboxLayout -> addLayout(hboxLayout1);
+	
+	/* un cadre permettant de specifier les options de l'image finale */
+	QGroupBox *groupbox_options = new QGroupBox(tr("Rendering options", "groupbox title"));
+	QGridLayout *optionshlayout = new QGridLayout(groupbox_options);
+	
+	// Choix de la zone du schema a exporter
+	exported_content_choices = new QButtonGroup(groupbox_options);
+	export_border = new QRadioButton(tr("Export the whole sheet"), groupbox_options);
+	optionshlayout -> addWidget(export_border, 0, 0);
+	exported_content_choices -> addButton(export_border);
+	export_elements = new QRadioButton(tr("Export elements only"), groupbox_options);
+	optionshlayout -> addWidget(export_elements, 0, 1);
+	exported_content_choices -> addButton(export_elements);
+	
+	// dessiner la grille
+	draw_grid = new QCheckBox(tr("Draw the grid"), groupbox_options);
+	optionshlayout -> addWidget(draw_grid, 1, 1);
+	
+	// dessiner le cadre
+	draw_border = new QCheckBox(tr("Draw the border"), groupbox_options);
+	optionshlayout -> addWidget(draw_border, 1, 0);
+	
+	// dessiner le cartouche
+	draw_titleblock = new QCheckBox(tr("Draw the title block"), groupbox_options);
+	optionshlayout -> addWidget(draw_titleblock, 2, 0);
+	
+	// dessiner les bornes
+	draw_terminals = new QCheckBox(tr("Draw terminals"), groupbox_options);
+	optionshlayout -> addWidget(draw_terminals, 2, 1);
+	
+	// conserver les couleurs des conducteurs
+	draw_colored_conductors = new QCheckBox(tr("Keep conductors colors"), groupbox_options);
+	optionshlayout -> addWidget(draw_colored_conductors, 3, 0);
+	
+	// use transparent background for SVG-Export
+	draw_bg_transparent = new QCheckBox(tr("SVG-background transparent"), groupbox_options);
+	optionshlayout -> addWidget(draw_bg_transparent, 3, 1);
+
+	// each symbol as a DXF block (issue #1339)
+	dxf_blocks = new QCheckBox(tr("DXF: symbols as blocks"), groupbox_options);
+	dxf_blocks -> setToolTip(tr("Each symbol becomes a DXF block, selectable with one click in CAD software"));
+	optionshlayout -> addWidget(dxf_blocks, 4, 1);
+
+	// with blocks, a symbol's texts as attributes of its block
+	dxf_attributes = new QCheckBox(tr("DXF: symbol texts as attributes"), groupbox_options);
+	dxf_attributes -> setToolTip(tr("A symbol's texts (label, function...) become attributes of its block. LibreCAD does not show attributes."));
+	optionshlayout -> addWidget(dxf_attributes, 5, 1);
+	connect(dxf_blocks, &QCheckBox::toggled, dxf_attributes, &QCheckBox::setEnabled);
+
+	// pictures not at full resolution in an SVG: a much smaller file
+	svg_small_pictures = new QCheckBox(tr("SVG: smaller pictures"), groupbox_options);
+	svg_small_pictures -> setToolTip(tr("Pictures are stored at four times the size they have on the folio instead of their full resolution: a much smaller file, still sharp when printed"));
+	optionshlayout -> addWidget(svg_small_pictures, 4, 0);
+	
+	vboxLayout -> addWidget(groupbox_options);
+	
+	setLayout(vboxLayout);
+
+	// ordre des input selectionnes avec la touche tab
+	setTabOrder(dirpath, button_browse);
+	setTabOrder(button_browse, format);
+	setTabOrder(format, export_border);
+	setTabOrder(export_border, draw_border);
+	setTabOrder(draw_border, draw_grid);
+	setTabOrder(draw_grid, draw_titleblock);
+	setTabOrder(draw_titleblock, draw_terminals);
+	setTabOrder(draw_terminals, draw_colored_conductors);
+	setTabOrder(draw_colored_conductors, draw_bg_transparent);
+	setTabOrder(draw_bg_transparent, dxf_blocks);
+	setTabOrder(dxf_blocks, dxf_attributes);
+	setTabOrder(draw_bg_transparent, svg_small_pictures);
+	
+	// connexion du bouton permettant le choix du repertoire
+	connect(button_browse, &QPushButton::released, this, &ExportPropertiesWidget::slot_chooseADirectory);	
+	
+	// emission de signaux lors du changement de format et lors du changement de zone exportee
+	connect(format, qOverload<int>(&QComboBox::currentIndexChanged), this, &ExportPropertiesWidget::formatChanged);
+	connect(exported_content_choices, qOverload<QAbstractButton*>(&QButtonGroup::buttonClicked), this, &ExportPropertiesWidget::exportedAreaChanged);
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 0) // TODO Qt 6.7: remove, checkStateChanged() always available
+	connect(draw_grid, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_border, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_titleblock, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_terminals, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_bg_transparent, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_colored_conductors, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(dxf_blocks, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(dxf_attributes, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(svg_small_pictures, &QCheckBox::stateChanged, this, &ExportPropertiesWidget::optionChanged);
+#else
+	connect(draw_grid, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_border, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_titleblock, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_terminals, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_bg_transparent, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(draw_colored_conductors, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(dxf_blocks, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(dxf_attributes, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+	connect(svg_small_pictures, &QCheckBox::checkStateChanged, this, &ExportPropertiesWidget::optionChanged);
+#endif
+}

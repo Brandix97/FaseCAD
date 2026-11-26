@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="10" hotspot_y="40">
+    <uuid uuid="{ee457fae-0317-de3a-bec5-c9d5fef5cf93}"/>
+    <names>
+        <name lang="ar">مفتاح بوضعين</name>
+        <name lang="ca">Interruptor de 2 posicions</name>
+        <name lang="cs">Dvoupolohový spínač</name>
+        <name lang="da">Afbryder 2 positioner</name>
+        <name lang="de">Wahlschalter 2 Positionen</name>
+        <name lang="el">Διακόπτης 2 θέσεων</name>
+        <name lang="en">Switch 2 positions</name>
+        <name lang="es">Interruptor 2 posiciones</name>
+        <name lang="fi">Kytkin 2 asentoa</name>
+        <name lang="fr">Interrupteur 2 positions</name>
+        <name lang="hr">Sklopka 2 položaja</name>
+        <name lang="hu">Kapcsoló 2 állás</name>
+        <name lang="it">Interruttore a 2 posizioni</name>
+        <name lang="ja">スイッチ 2位置</name>
+        <name lang="ko">스위치 2 위치</name>
+        <name lang="mn">Унтраалга 2 байрлал</name>
+        <name lang="nb">Bryter 2 posisjoner</name>
+        <name lang="nl">WisselContact (NC/NO)</name>
+        <name lang="nl_BE">Schakelaar 2 standen</name>
+        <name lang="pl">Zestyk przełączny przerwowy</name>
+        <name lang="pt">Interruptor 2 posições</name>
+        <name lang="pt_BR">Interruptor 2 posições</name>
+        <name lang="ro">Comutator 2 poziții</name>
+        <name lang="ru">Переключатель 2-х позиционный</name>
+        <name lang="sk">Prepínač 2 polôh</name>
+        <name lang="sl">Stikalo 2 položajev</name>
+        <name lang="sr">Прекидач 2 положаја</name>
+        <name lang="sv">Brytare 2 lägen</name>
+        <name lang="tr">Şalter 2 konum</name>
+        <name lang="uk">Перемикач 2 положень</name>
+        <name lang="zh">015_双位开关</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="22" y="-19.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f6870395-f3a0-4938-99c4-10e1e68fa31a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="9" y1="-13" x2="2" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="18.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="8.5" y="-16.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="2" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="2" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-17" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{7a16ec22-7f54-4cfc-8a80-08e9bf6f0b8a}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{24aae04c-5ee1-4df1-b32e-35384b975313}" name="" x="20" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{e4b7b548-6064-4e34-8a26-4b7af873b22d}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

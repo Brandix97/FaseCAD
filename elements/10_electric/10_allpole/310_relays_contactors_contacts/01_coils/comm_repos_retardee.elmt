@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="master" width="50" height="60" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{28798785-e94a-eaf6-47e1-0c10ba1516cc}"/>
+    <names>
+        <name lang="ar">مرحل تأخير الإعتاق</name>
+        <name lang="ca">Relleu de retard en repòs</name>
+        <name lang="cs">Relé se zpožděným vypnutím</name>
+        <name lang="da">Relæ forsinkelse hvile</name>
+        <name lang="de">Relais rückfallverzögert</name>
+        <name lang="el">Πηνίο Χρονικού, καθυστέρηση απενεργοποίησης</name>
+        <name lang="en">Relay delay rest</name>
+        <name lang="es">Relé con retardo de apertura</name>
+        <name lang="fi">Rele, viive lepotilassa</name>
+        <name lang="fr">Relais à mise au repos retardée</name>
+        <name lang="hr">Relej s odgodom mirovanja</name>
+        <name lang="hu">Nyugvó (elejtés) késleltetésű relé</name>
+        <name lang="it">Relè ritardato all'apertura</name>
+        <name lang="ja">復帰遅延リレー</name>
+        <name lang="ko">복귀 지연 릴레이</name>
+        <name lang="mn">Реле саатал амралт</name>
+        <name lang="nb">Relé forsinkelse hvile</name>
+        <name lang="nl">spoel afvalvertraagd</name>
+        <name lang="nl_BE">Relais vertraagd afval</name>
+        <name lang="pl">Przekaźnik działający ze zwłoką przy odwzbudzeniu</name>
+        <name lang="pt">Relé com atraso na desativação</name>
+        <name lang="pt_BR">Relé com retardo no retorno</name>
+        <name lang="ro">Releu cu întârziere la repaus</name>
+        <name lang="ru">Реле с задержкой при отпускании</name>
+        <name lang="sk">Relé s oneskorením v pokoji</name>
+        <name lang="sl">Rele z zakasnitvijo v mirovanju</name>
+        <name lang="sr">Релеј са кашњењем мировања</name>
+        <name lang="sv">Relä fördröjning vid frånslag</name>
+        <name lang="tr">Dinlenme gecikmeli röle</name>
+        <name lang="uk">Реле з затримкою при відпусканні</name>
+        <name lang="zh">延时断开触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-15" y="-10" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-22" y="-10" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-14" y="10" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{22f0e413-e824-4716-95fd-8edba0923144}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-25" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{4136bf6c-0616-460c-aaea-b03fe283c0d2}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <dynamic_text x="16" y="-12" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{29332025-f7d2-4857-8c34-6e3c8ef493e8}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2e2e4a38-0067-473f-a8c8-e4f1cd0e4507}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{22b800e9-91c4-42a6-be0f-ce18a5e4afd7}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

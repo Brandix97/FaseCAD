@@ -1,0 +1,55 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{8dedc012-5ef8-b50d-e59b-0cb769f77186}"/>
+    <names>
+        <name lang="ar">مقياس سرعة الدوران</name>
+        <name lang="ca">Tacòmetre</name>
+        <name lang="cs">Tachometr</name>
+        <name lang="da">Omdrejningstæller</name>
+        <name lang="de">Geschwindigkeitsmesser</name>
+        <name lang="el">Ταχύμετρο</name>
+        <name lang="en">Tachometer</name>
+        <name lang="es">Tacómetro</name>
+        <name lang="fi">Kierroslukumittari</name>
+        <name lang="fr">Tachymètre</name>
+        <name lang="hr">Tahometar</name>
+        <name lang="hu">Fordulatszámmérő</name>
+        <name lang="it">Tachimetro</name>
+        <name lang="ja">タコメータ</name>
+        <name lang="ko">회전 속도계</name>
+        <name lang="mn">Тахометр</name>
+        <name lang="nb">Turteller</name>
+        <name lang="nl">toerenteller</name>
+        <name lang="nl_BE">Toerenteller</name>
+        <name lang="pl">Tachometr</name>
+        <name lang="pt">Tacômetro</name>
+        <name lang="pt_BR">Tacômetro</name>
+        <name lang="ro">Tahometru</name>
+        <name lang="ru">Тахометр</name>
+        <name lang="sk">Tachometer</name>
+        <name lang="sl">Tahometer</name>
+        <name lang="sr">Тахометар</name>
+        <name lang="sv">Varvtalsmätare</name>
+        <name lang="tr">Takometre</name>
+        <name lang="uk">Тахометр</name>
+        <name lang="zh">50101760_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="9" y1="-10" x2="16.14" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-27" y="-36" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{963d4e84-403a-498a-8e3d-ad8063f88fc8}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="9" y1="0" x2="16.14" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7" y="-12" width="14" height="14" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2.47" y1="-13.69" x2="-2.47" y2="-9.69" x3="2.53" y3="-11.69" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <ellipse x="-10" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-16" y1="0" x2="-8.86" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-10" x2="-9" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{cd924d8e-fe71-4061-b731-841f87db1f25}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{616998a0-1780-4bf1-b45c-cf9ebcc34061}" name="" x="20" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{1bb18efd-04d7-4d03-a31d-95d3b7f78350}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{2f8fa494-cba8-47d0-8c1b-d2f11fd3cb2c}" name="" x="-20" y="-10" orientation="w" type="Generic"/>
+    </description>
+</definition>

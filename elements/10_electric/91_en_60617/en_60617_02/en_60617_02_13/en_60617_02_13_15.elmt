@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="31" hotspot_y="15">
+    <uuid uuid="{170f31cb-788a-2c24-9b1e-ae23331d2da8}"/>
+    <names>
+        <name lang="ar">مشغل (يُشغل بأسطوانة)</name>
+        <name lang="ca">Actuador (accionat per corró)</name>
+        <name lang="cs">Ovládání kladkou</name>
+        <name lang="da">Aktuator (betjent ved rulle)</name>
+        <name lang="de">Betätigung durch Rolle</name>
+        <name lang="el">Ενεργοποιητής (λειτουργία με κύλινδρο)</name>
+        <name lang="en">Actuator (operated by roller)</name>
+        <name lang="es">Accionado por rodillo</name>
+        <name lang="fi">Toimilaite (rullalla käytettävä)</name>
+        <name lang="fr">Commande par galet</name>
+        <name lang="hr">Aktuator (aktiviran valjkom)</name>
+        <name lang="hu">Működtető (görgővel működtetett)</name>
+        <name lang="it">Attuatore (azionato da rullo)</name>
+        <name lang="ja">操作機構（ローラによる操作）</name>
+        <name lang="ko">액추에이터 (롤러로 작동)</name>
+        <name lang="mn">Идэвхжүүлэгч (булны тусламжтайгаар ажилладаг)</name>
+        <name lang="nb">Aktuator (betjent med rulle)</name>
+        <name lang="nl">Bediener (bediend door rol)</name>
+        <name lang="nl_BE">Bekrachtiger (bediend door rol)</name>
+        <name lang="pl">Napęd (sterowany przez rolkę)</name>
+        <name lang="pt">Atuador (acionado por rolete)</name>
+        <name lang="pt_BR">Atuador (operado pou rolete)</name>
+        <name lang="ro">Acționare (acționată prin rolă)</name>
+        <name lang="ru">Привод (управляемый роликом)</name>
+        <name lang="sk">Ovládač (ovládaný valčekom)</name>
+        <name lang="sl">Aktuator (upravljan z valjčkom)</name>
+        <name lang="sr">Актуатор (покретан ваљком)</name>
+        <name lang="sv">Ställdon (manövrerat med rulle)</name>
+        <name lang="tr">Aktüatör (makara ile çalıştırılan)</name>
+        <name lang="uk">Привод (керований роликом)</name>
+        <name lang="zh">15 端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{73663e8f-5c81-4cde-83b2-03003bfb08ea}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-29" y="-9" width="18" height="18" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

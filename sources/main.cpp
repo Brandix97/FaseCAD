@@ -1,0 +1,372 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "cli_export.h"
+#ifdef QET_HAS_SCRIPTING
+#include "scripting/qetscripting.h"
+#endif
+#include "logging/eventloopwatchdog.h"
+#include "logging/qetlogger.h"
+#include "machine_info.h"
+#include "diagram.h"
+#include "palettegraphicsview.h"
+#include "qet.h"
+#include "qetapp.h"
+#include "qetmessagebox.h"
+#include "qetproject.h"
+#include "singleapplication.h"
+#include "utils/qetsettings.h"
+#include "utils/brandmigration.h"
+
+#include <QApplication>
+#include <QDomImplementation>
+#include <QFont>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
+#include <QHashSeed>
+#endif
+
+#include <QSettings>
+#include <QStyleFactory>
+#include <QtConcurrentRun>
+
+#include <cstdio>
+#include <cstdlib>
+#ifdef Q_OS_WIN
+#include <fcntl.h>
+#include <io.h>
+#endif
+
+#ifdef Q_OS_MACOS
+#include <QFileOpenEvent>
+
+/**
+	@brief EarlyFileOpenCatcher
+	On macOS, a cold launch via Finder double-click can deliver the
+	QFileOpenEvent to QApplication before QETApp exists and before its
+	real eventFilter is installed (the event loop can start servicing
+	native/Cocoa events before our own code in main() reaches that
+	point). This tiny filter is installed immediately on `app` so no
+	QFileOpenEvent can slip through unseen; it just buffers the path.
+	Once QETApp is constructed, main() drains the buffer and installs
+	the real QETApp::eventFilter for any subsequent event.
+*/
+class EarlyFileOpenCatcher : public QObject
+{
+	public:
+		using QObject::QObject;
+		QStringList bufferedFiles;
+
+	protected:
+		bool eventFilter(QObject *object, QEvent *e) override
+		{
+			if (e->type() == QEvent::FileOpen) {
+				bufferedFiles << static_cast<QFileOpenEvent *>(e)->file();
+				return true;
+			}
+			return QObject::eventFilter(object, e);
+		}
+};
+#endif
+
+/**
+	@brief qetLogMessageHandler
+	Installed via qInstallMessageHandler(); forwards to QetLogger, which
+	holds all the actual formatting/ring/rotation state. See
+	logging/qetlogger.h for the rationale (discussion #644).
+*/
+void qetLogMessageHandler(QtMsgType type,
+			 const QMessageLogContext &context,
+			 const QString &msg)
+{
+	QetLogger::instance().handleMessage(type, context, msg);
+}
+
+/**
+	@brief main
+	Main function of QElectroTech
+	@param argc : number of parameters
+	\~French number of paramètres
+	\~ @param argv : parameters
+	\~French paramètres
+	\~ @return exit code
+*/
+/**
+	@brief headlessArguments
+	For the headless export and --run, which return before QETApp parses
+	the command line: apply the folder options (--common-elements-dir= and
+	the others QETArguments knows) and return the arguments without them,
+	so they are not read as the project or output path (issue #1178).
+*/
+static QStringList headlessArguments(const QStringList &args)
+{
+	QETApp::applyDirectoryArguments(QETArguments(args.mid(1)));
+	static const QStringList folder_options {
+		QStringLiteral("--common-elements-dir="), QStringLiteral("--common-tbt-dir="),
+		QStringLiteral("--config-dir="), QStringLiteral("--data-dir="),
+		QStringLiteral("--lang-dir=")};
+	QStringList kept;
+	for (const QString &arg : args) {
+		bool folder = false;
+		for (const QString &option : folder_options)
+			folder = folder || arg.startsWith(option);
+		if (!folder) kept << arg;
+	}
+	return kept;
+}
+
+/**
+	The headless runs below (the exports, --info, --resave and --run) return
+	before the log-file handler is installed further down, so they keep
+	Qt's default handler. On Linux and macOS that one writes to stderr. On
+	Windows it writes to the debugger when the program has no console, and
+	a GUI program started by another program never has one: what the run
+	reports -- a wire that could not be reconnected, which way the project
+	database was filled -- never reached the caller. Write it to stderr
+	ourselves, in the form the default handler uses on the other systems,
+	so a caller reads the same lines on every system.
+*/
+static void headlessMessageHandler(QtMsgType type,
+								   const QMessageLogContext &context,
+								   const QString &msg)
+{
+	const QByteArray line = qFormatLogMessage(type, context, msg).toUtf8();
+	fprintf(stderr, "%s\n", line.constData());
+	fflush(stderr);
+	if (type == QtFatalMsg) {
+		abort();
+	}
+}
+
+static void installHeadlessMessageHandler()
+{
+#ifdef Q_OS_WIN
+	// stdout and stderr are in text mode on Windows and turn "\n" into
+	// "\r\n": a caller would read lines ending in '\r' where the other
+	// systems give none. Binary mode gives both streams the same line
+	// ending on every system, for the JSON of --info, the messages of the
+	// exports and what a script logs.
+	_setmode(_fileno(stdout), _O_BINARY);
+	_setmode(_fileno(stderr), _O_BINARY);
+#endif
+	qInstallMessageHandler(headlessMessageHandler);
+}
+
+int main(int argc, char **argv)
+{
+	// before creating Application:
+	// disable randomisation for hashes in order to obtain "clean" XML-diffs,
+	// and the same PDF for the same project (the PDF engine writes its fonts
+	// in QHash order). Setting QT_HASH_SEED alone came too late: Qt reads it
+	// once, when the first hash is made, and that happens before main().
+	// The variable is still set for the processes QElectroTech starts.
+#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
+	QHashSeed::setDeterministicGlobalSeed();
+#else
+	qSetGlobalQHashSeed(0);
+#endif
+	qputenv("QT_HASH_SEED", "0");
+	//Some setup, notably to use with QSetting.
+	QCoreApplication::setOrganizationName(BrandMigration::name());
+	QCoreApplication::setOrganizationDomain(BrandMigration::domain());
+	QCoreApplication::setApplicationName(BrandMigration::name());
+
+	// QET_SETTINGS_DIR keeps the settings in an INI file in that folder,
+	// <folder>/QElectroTech/QElectroTech.ini, instead of the registry on
+	// Windows, the system preferences on macOS or ~/.config on Linux. A tool
+	// running QElectroTech headlessly (misc/qet-mcp) can then give each run
+	// its own settings, and point it at an element collection, on every
+	// system (issue #1178). Set before anything reads a setting.
+	const QString settings_dir = qEnvironmentVariable("QET_SETTINGS_DIR");
+	if (!settings_dir.isEmpty()) {
+#ifdef Q_OS_DARWIN
+		// On macOS, Qt names that subfolder after the organization domain
+		// when there is one (<folder>/qelectrotech.org/) (issue #1246).
+		// Nothing in QElectroTech reads the domain.
+		QCoreApplication::setOrganizationDomain(QString());
+#endif
+		QSettings::setDefaultFormat(QSettings::IniFormat);
+		QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, settings_dir);
+		QSettings::setPath(QSettings::IniFormat, QSettings::SystemScope, settings_dir);
+	}
+
+	// The settings and folders kept under the former name are copied to
+	// those of FaseCAD the first time it starts (never moved)
+	BrandMigration::run();
+
+	// Refuse invalid data when building QDom documents instead of
+	// serializing malformed XML (CVE-2026-15037). This is the default
+	// from Qt 6.12 on; opt in explicitly for older Qt 5/6.
+	QDomImplementation::setInvalidDataPolicy(
+		QDomImplementation::ReturnNullNode);
+
+#ifdef Q_OS_WIN
+	// "MS Shell Dlg 2" is not a font but a Windows alias, and many projects
+	// and settings saved on Windows carry it. Qt 5's GDI font backend let
+	// Windows resolve it to Tahoma; Qt 6's DirectWrite backend does not know
+	// the alias and falls back to Arial, so those texts come out heavier on
+	// screen and in exported PDFs (bugtracker #340). Resolve both aliases
+	// the way Windows does. Done before any application object exists so
+	// that the headless export and scripting runs below get it too.
+	QFont::insertSubstitution("MS Shell Dlg 2", "Tahoma");
+	QFont::insertSubstitution("MS Shell Dlg", "Microsoft Sans Serif");
+#endif
+
+	//Creation and execution of the application
+	//HighDPI
+	qputenv("QT_ENABLE_HIGHDPI_SCALING", "1");
+	QGuiApplication::setHighDpiScaleFactorRoundingPolicy(QetSettings::hdpiScaleFactorRoundingPolicy());
+
+
+	// Headless command-line export: render a project to PDF/PNG/SVG without
+	// opening the GUI, then exit.  Must be handled before SingleApplication
+	// (which would forward the args to an already-running instance).
+	{
+		QStringList raw_args;
+		for (int i = 0; i < argc; ++i)
+			raw_args << QString::fromLocal8Bit(argv[i]);
+		if (CLIExport::isExportRequest(raw_args)) {
+			installHeadlessMessageHandler();
+			QApplication export_app(argc, argv);
+			// No crash-recovery backups in one-shot CLI mode: the backup write
+			// runs on a background thread referencing the project and races the
+			// process exit (intermittent segfault in QET::writeToFile).
+			QETProject::setBackupEnabled(false);
+			// Headless runs read locks, to refuse writing a project someone
+			// has open, but never take one
+			ProjectLock::setHeadless(true);
+			// Answer message boxes instead of showing them: opening a project
+			// saved by an older QElectroTech raises a warning from
+			// QETProject::readProjectXml(), and with nobody able to dismiss it
+			// QDialog::exec() would spin its event loop forever.
+			QET::QetMessageBox::setNonInteractive(true);
+			return CLIExport::run(headlessArguments(export_app.arguments()));
+		}
+#ifdef QET_HAS_SCRIPTING
+		// Headless scripting: --run <script.js> <project.qet> (bugtracker
+		// #162). Same reasoning as the export branch above for running
+		// before SingleApplication and answering message boxes headlessly.
+		if (QetScripting::isRunRequest(raw_args)) {
+			installHeadlessMessageHandler();
+			QApplication script_app(argc, argv);
+			QETProject::setBackupEnabled(false);
+			ProjectLock::setHeadless(true);
+			QET::QetMessageBox::setNonInteractive(true);
+			return QetScripting::run(headlessArguments(script_app.arguments()));
+		}
+#endif
+	}
+
+	// Re-apply the sheet background last picked in the diagram editor, so
+	// every project opened from here on -- existing or new, whichever one
+	// it is -- draws that background instead of the built-in default that
+	// would otherwise force the user to pick it again after each start.
+	//
+	// Done here rather than in main()'s first lines on purpose: the
+	// headless export and scripting runs above return before reaching
+	// this point and must keep rendering on plain white. It also has to
+	// happen before QETApp is constructed below, since that constructor
+	// already loads the projects given on the command line.
+	{
+		const QetSettings::SheetBackground sheet_background = QetSettings::sheetBackground();
+		PaletteGraphicsView::setCustomBackgroundColor(sheet_background.custom);
+		PaletteGraphicsView::setColoredInk(sheet_background.colored_ink);
+		Diagram::background_color = sheet_background.color;
+	}
+
+	// Resolve the logger's state (log directory, session filename, open
+	// file handle) explicitly here, immediately before installing the
+	// handler -- not implicitly on whichever thread happens to log
+	// first. See QetLogger::init().
+	//
+	// Install the log-file message handler BEFORE the application starts:
+	// QETApp's constructor does the whole startup (collections, editor,
+	// opening the projects given on the command line), so installing the
+	// handler afterwards - as was done in the startup worker below - meant
+	// exactly the interesting lines (collection and project load timers)
+	// went to stderr, which is invisible in a Windows GUI session.
+	QetLogger::instance().init();
+	qInstallMessageHandler(qetLogMessageHandler);
+	// Step 4 (discussion #644): flush the ring to a crash-dump file if
+	// the process dies from here on. Installed right after the ring
+	// exists (init() just constructed it) and as early as reasonably
+	// possible, so it also covers whatever runs between here and
+	// QETApp's own construction below.
+	QetLogger::instance().installCrashHandler();
+
+	SingleApplication app(argc, argv, true);
+#ifdef Q_OS_MACOS
+	app.setStyle(QStyleFactory::create("Fusion"));
+	// Installed as early as possible, before anything else can run an
+	// event loop, to catch a QFileOpenEvent that might be delivered
+	// during a cold launch before QETApp exists.
+	EarlyFileOpenCatcher early_catcher;
+	app.installEventFilter(&early_catcher);
+#endif
+
+	if (app.isSecondary())
+	{
+		QStringList arg_list = app.arguments();
+		//Remove the first argument, it's the binary file
+		arg_list.takeFirst();
+		QETArguments qetarg(arg_list);
+		QString message = "launched-with-args: " + QET::joinWithSpaces(
+					QStringList(qetarg.arguments()));
+		app.sendMessage(message.toUtf8());
+		return 0;
+	}
+
+	// A first start on this computer opens on FaseCAD's own design
+	BrandMigration::applyFirstStartDefaults();
+
+	QETApp qetapp;
+	QETApp::instance()->installEventFilter(&qetapp);
+#ifdef Q_OS_MACOS
+	//Handle the opening of QET when user double click on a .qet .elmt .tbt file
+	//or drop these same files to the QET icon of the dock.
+	//Swap the early catcher (installed right after `app` was constructed,
+	//see above) for the real filter, then drain anything it buffered
+	//during the cold-launch window before QETApp existed.
+	app.removeEventFilter(&early_catcher);
+	app.installEventFilter(&qetapp);
+	if (!early_catcher.bufferedFiles.isEmpty())
+		qetapp.openFiles(QETArguments(early_catcher.bufferedFiles));
+#endif
+	QObject::connect(&app, &SingleApplication::receivedMessage,
+			 &qetapp, &QETApp::receiveMessage);
+
+	// Pre-initialise on the main (GUI) thread: the constructor calls
+	// qApp->screens() which is not thread-safe in Qt5 — calling instance()
+	// here guarantees the singleton is fully built before the worker runs.
+	MachineInfo::instance();
+
+	[[maybe_unused]] auto startup_future = QtConcurrent::run([=]()
+	{
+		qInfo("Start-up");
+		// delete old log files of max 7 days old.
+		QetLogger::instance().pruneOldLogFiles(7);
+		MachineInfo::instance()->send_info_to_debug();
+	});
+
+	// Constructed here rather than earlier: start() measures ticks against
+	// the event loop app.exec() is about to run, so there is no point
+	// (and no accurate baseline) before this line.
+	EventLoopWatchdog watchdog;
+	watchdog.start();
+
+	return app.exec();
+}
+

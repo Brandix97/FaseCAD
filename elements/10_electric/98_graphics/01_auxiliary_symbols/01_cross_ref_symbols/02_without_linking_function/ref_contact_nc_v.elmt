@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="10" hotspot_x="3" hotspot_y="2">
+    <uuid uuid="{77c1a36c-b818-7a2e-e8e4-41dcee1ec3aa}"/>
+    <names>
+        <name lang="ar">مرجع مُلامس NC (أفقي)</name>
+        <name lang="ca">Contacte de referència NC h</name>
+        <name lang="cs">Odkaz kontakt NC (svisle)</name>
+        <name lang="da">Arkhenvisning kontakt NC h</name>
+        <name lang="de">Öffner-Kontakt (NC) vertikal</name>
+        <name lang="el">Επαφή αναφοράς NC ο</name>
+        <name lang="en">Reference contact NC h</name>
+        <name lang="es">Referencia contacto NC h</name>
+        <name lang="fi">Viittauskosketin NC h</name>
+        <name lang="fr">Reference contact NC h</name>
+        <name lang="hr">Referentni kontakt NC h</name>
+        <name lang="hu">Érintkező hivatkozás NC h</name>
+        <name lang="it">Rif. contatto NC _ (verticale)</name>
+        <name lang="ja">接点 NC 参照 h</name>
+        <name lang="ko">접점 NC 참조 h</name>
+        <name lang="mn">NC контактын лавлагаа h</name>
+        <name lang="nb">Referansekontakt NC h</name>
+        <name lang="nl">Referentie contact (NC)</name>
+        <name lang="nl_BE">Verwijzing contact NC h</name>
+        <name lang="pl">Odsyłacz 2 (pionowo)</name>
+        <name lang="pt">Referência contacto NF h</name>
+        <name lang="pt_BR">Reference contato NF h</name>
+        <name lang="ro">Referință contact NC h</name>
+        <name lang="ru">Ссылка на контакт НЗ ч</name>
+        <name lang="sk">Odkaz na kontakt NC h</name>
+        <name lang="sl">Sklic na kontakt NC h</name>
+        <name lang="sr">Референца контакта NC h</name>
+        <name lang="sv">Hänvisning kontakt NC h</name>
+        <name lang="tr">NC kontak referansı h</name>
+        <name lang="uk">Посилання на контакт NC h</name>
+        <name lang="zh">常闭触点_垂直</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="2" y1="3" x2="10" y2="5" x3="13" y3="5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="2" y1="3" x2="2" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="2" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="3" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{671f2914-1679-431a-a931-d6d7574f9874}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

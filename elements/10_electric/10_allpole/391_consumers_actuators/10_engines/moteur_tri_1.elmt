@@ -1,0 +1,60 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="70" hotspot_x="30" hotspot_y="31">
+    <uuid uuid="{b47698cb-7496-0bb1-5a9e-c906c0a881f5}"/>
+    <names>
+        <name lang="ar">محرّك ثلاثي الأوجه</name>
+        <name lang="ca">Motor trifàsic</name>
+        <name lang="cs">Trojfázový motor</name>
+        <name lang="da">Trefaset motor</name>
+        <name lang="de">Drehstrom Motor</name>
+        <name lang="el">Τριφασικός κινητήρας</name>
+        <name lang="en">Three-phase engine</name>
+        <name lang="es">Motor trifásico</name>
+        <name lang="fi">Kolmivaihemoottori</name>
+        <name lang="fr">Moteur triphasé</name>
+        <name lang="hr">Trofazni motor</name>
+        <name lang="hu">Háromfázisú motor</name>
+        <name lang="it">Motore trifase</name>
+        <name lang="ja">三相エンジン</name>
+        <name lang="ko">삼상 모터</name>
+        <name lang="mn">Гурван фазын хөдөлгүүр</name>
+        <name lang="nb">Trefasemotor</name>
+        <name lang="nl">Draaistroommotor</name>
+        <name lang="nl_BE">Driefasige motor</name>
+        <name lang="pl">Silnik trójfazowy</name>
+        <name lang="pt">Motor trifásico</name>
+        <name lang="pt_BR">motor trifásico</name>
+        <name lang="ro">Motor trifazat</name>
+        <name lang="ru">Трёхфазный эл. мотор</name>
+        <name lang="sk">Trojfázový motor</name>
+        <name lang="sl">Trifazni motor</name>
+        <name lang="sr">Трофазни мотор</name>
+        <name lang="sv">Trefasmotor</name>
+        <name lang="tr">Üç fazlı motor</name>
+        <name lang="uk">Трифазний двигун</name>
+        <name lang="zh">三相电动机1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="PE" x="22" y="28" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-15" y="-7" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-14.5" y="-7.5" width="32" height="32" start="300" angle="80" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="W1" x="23" y="-15" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="V1" x="3" y="-15" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="M" x="-5" y="9" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-44" y="-1.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{747fa94c-57f8-4e06-8d78-e288b57d5cae}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-20" x2="-20" y2="-12" x3="-11" y3="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="20" y1="-20" x2="20" y2="-12" x3="11" y3="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="U1" x="-17" y="-15" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="3 ~" x="-6" y="17" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="16" y1="16" x2="20" y2="20" x3="30" y3="20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{9e2e1cd9-6747-4fa3-b38a-763e33fa6e02}" name="U1" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{cadfb1ad-c4a0-49b2-94e7-29a805149e94}" name="W1" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{cba84234-5c5e-4c46-84cb-3c0699486f55}" name="V1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a832a3b3-79c6-4756-8ad6-64b0845d3674}" name="PE" x="30" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

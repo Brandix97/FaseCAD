@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="35" hotspot_y="30">
+    <uuid uuid="{0ae4d2ec-9640-5081-8df5-b0626f86ea76}"/>
+    <names>
+        <name lang="ar">ملف مرحل لمرحل بطيء التشغيل</name>
+        <name lang="ca">Bobina de relé d'un relé de funcionament lent</name>
+        <name lang="cs">Cívka přístroje se zpožděním při přítahu</name>
+        <name lang="da">Relæspole for et langsomt arbejdende relæ</name>
+        <name lang="de">elektromechanischer Antrieb mit
+Ansprechverzögerung</name>
+        <name lang="el">Πηνίο ρελέ βραδείας λειτουργίας</name>
+        <name lang="en">Relay coil of a slow-operating relay</name>
+        <name lang="es">Bobina de relé de un relé de accionamiento lento</name>
+        <name lang="fi">Hitaasti toimivan releen käämi</name>
+        <name lang="fr">Organe de commande d'un relais à mise au
+travail retardée</name>
+        <name lang="hr">Zavojnica releja sporodjelujućeg releja</name>
+        <name lang="hu">Lassan meghúzó relé tekercse</name>
+        <name lang="it">Bobina di relè a eccitazione ritardata</name>
+        <name lang="ja">緩動継電器の継電器コイル</name>
+        <name lang="ko">완동 릴레이의 릴레이 코일</name>
+        <name lang="mn">Удаан ажилладаг релений ороомог</name>
+        <name lang="nb">Reléspole for et langsomt arbeidende relé</name>
+        <name lang="nl">Relaisspoel van een langzaam opkomend relais</name>
+        <name lang="nl_BE">Relaisspoel van een langzaam aantrekkend relais</name>
+        <name lang="pl">Cewka przekaźnika wolno działającego</name>
+        <name lang="pt">Bobina de relé de um relé de funcionamento lento</name>
+        <name lang="pt_BR">Bobina de relé de operação lenta</name>
+        <name lang="ro">Bobină de releu a unui releu cu operare lentă</name>
+        <name lang="ru">Катушка реле медленно срабатывающего реле</name>
+        <name lang="sk">Cievka relé pomaly priťahujúceho relé</name>
+        <name lang="sl">Tuljava releja počasi delujočega releja</name>
+        <name lang="sr">Калем релеја спорог дејства</name>
+        <name lang="sv">Reläspole hos ett långsamt arbetande relä</name>
+        <name lang="tr">Yavaş çalışan rölenin röle bobini</name>
+        <name lang="uk">Котушка реле з уповільненням при спрацюванні</name>
+        <name lang="zh">接线端子08</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cfccecd1-dc29-4c42-91fa-e4422e404051}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-10" width="10" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-10" x2="-20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{08a75dfb-e7c0-41cd-86f8-155855a8cb9a}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{c1f4971d-ebc1-4217-9ac0-3bb8da6c8df6}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="90" hotspot_x="26" hotspot_y="15">
+    <uuid uuid="{2fa8c71b-e4e3-65b2-8623-359e4b636fd0}"/>
+    <names>
+        <name lang="ar">جهاز (اتصال في الأعلى) - وسط</name>
+        <name lang="ca">Dispositiu (connexió a la part superior) mig</name>
+        <name lang="cs">Zařízení (připojení shora) – střed</name>
+        <name lang="da">Enhed (tilslutning øverst) - midte</name>
+        <name lang="de">Gerät (Anschluss oben) - Mitte</name>
+        <name lang="el">Συσκευή (σύνδεση πάνω) - μέση</name>
+        <name lang="en">Device (connection on top) - middle</name>
+        <name lang="es">Dispositivo (conexión por encima) en medio</name>
+        <name lang="fi">Laite (liitäntä ylhäällä) - keskikohta</name>
+        <name lang="fr">Appareil (connexion en haut) - milieu</name>
+        <name lang="hr">Uređaj (priključak na vrhu) - sredina</name>
+        <name lang="hu">Eszköz (felső csatlakozás) közbülső tag</name>
+        <name lang="it">Dispositivo (connessione in alto) medio</name>
+        <name lang="ja">機器 (上部接続) - 中間</name>
+        <name lang="ko">장치 (상단 연결) - 중간</name>
+        <name lang="mn">Төхөөрөмж (дээд холболт) - дунд</name>
+        <name lang="nb">Enhet (tilkobling øverst) - midten</name>
+        <name lang="nl">Toestel (aansluiting bovenaan) - midden</name>
+        <name lang="nl_BE">Toestel (aansluiting bovenaan) - midden</name>
+        <name lang="pl">Urządzenie (przyłącze na górze) - środek</name>
+        <name lang="pt">Dispositivo (ligação em cima) - meio</name>
+        <name lang="pt_BR">Dispositivo com conexão superior - meio</name>
+        <name lang="ro">Dispozitiv (conexiune sus) - mijloc</name>
+        <name lang="ru">Устройство (подключение сверху) - середина</name>
+        <name lang="sk">Zariadenie (pripojenie hore) - stred</name>
+        <name lang="sl">Naprava (priključek zgoraj) - sredina</name>
+        <name lang="sr">Уређај (прикључак на врху) - средина</name>
+        <name lang="sv">Apparat (anslutning upptill) - mitten</name>
+        <name lang="tr">Cihaz (bağlantı üstte) - orta</name>
+        <name lang="uk">Пристрій (з'єднання зверху) - середина</name>
+        <name lang="zh">90-21-0012</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <dynamic_text x="-10" y="15" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{843516bf-5be2-4521-a3be-c5705b35103d}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <dynamic_text x="-12.5" y="60" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="UserText" uuid="{fcdd805b-28f4-4de3-b641-2027ecc4dfed}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text>-</text>
+        </dynamic_text>
+        <line x1="0" y1="-4" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="60" x2="10" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9f231734-2206-4a26-bfa0-72484790c6ba}" name="" x="0" y="-4" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,68 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="13" hotspot_y="14">
+    <uuid uuid="{c7f7ea19-e096-d7ec-79e4-7b8bfe842685}"/>
+    <names>
+        <name lang="ar">مُرشّح مسبح</name>
+        <name lang="ca">Filtre de piscina</name>
+        <name lang="cs">Filtr bazénu</name>
+        <name lang="da">Poolfilter</name>
+        <name lang="de">Schwimmbadfilter</name>
+        <name lang="el">Φίλτρο πισίνας</name>
+        <name lang="en">Pool filter</name>
+        <name lang="es">Filtro piscina</name>
+        <name lang="fi">Uima-altaan suodatin</name>
+        <name lang="fr">Filtre à piscine</name>
+        <name lang="hr">Filter bazena</name>
+        <name lang="hu">Medenceszűrő</name>
+        <name lang="it">Filtro piscina</name>
+        <name lang="ja">プールフィルター</name>
+        <name lang="ko">수영장 필터</name>
+        <name lang="mn">Усан сангийн шүүлтүүр</name>
+        <name lang="nb">Bassengfilter</name>
+        <name lang="nl">Zwembadfilter</name>
+        <name lang="nl_BE">Zwembadfilter</name>
+        <name lang="pl">Filtr basenowy</name>
+        <name lang="pt">Filtro de piscina</name>
+        <name lang="pt_BR">Filtro de piscina</name>
+        <name lang="ro">Filtru de piscină</name>
+        <name lang="ru">Фильтр бассейна</name>
+        <name lang="sk">Filter bazéna</name>
+        <name lang="sl">Filter bazena</name>
+        <name lang="sr">Филтер базена</name>
+        <name lang="sv">Poolfilter</name>
+        <name lang="tr">Havuz filtresi</name>
+        <name lang="uk">Фільтр басейну</name>
+        <name lang="zh">游泳池过滤器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-10" y="8" width="20" height="6" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="28.06" y1="12" x2="25" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-4" width="20" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10" y="-8" width="20" height="6" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-2" x2="9" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="13" x2="-8" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="17" x2="8" y2="17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="17" x2="5" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="16" y="-2" width="7" height="13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="18" y="-4" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="-4" x2="23" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="1" x2="16" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="4" x2="15" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23.18" y1="0" x2="27.8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="9" x2="28" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="28.76" y1="-3" x2="24.3" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="24" y1="-3" x2="27" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="24" y1="-3" x2="27" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="28" y1="12" x2="27" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="28" y1="12" x2="27" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="12" x2="18" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-19.5" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2b6fc182-c13b-46a5-b76a-050409375517}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{bb7f900f-f77f-4463-ac3d-5de085a52ae4}" name="" x="29" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{614a5349-43ee-4de5-b2d0-62969c629331}" name="" x="29" y="9" orientation="e" type="Generic"/>
+        <terminal uuid="{1a2f7a82-212c-461c-a926-f3c591104b3f}" name="" x="18" y="15" orientation="s" type="Generic"/>
+    </description>
+</definition>

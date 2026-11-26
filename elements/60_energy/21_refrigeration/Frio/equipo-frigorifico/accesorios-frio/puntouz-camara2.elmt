@@ -1,0 +1,21 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="20" hotspot_x="33" hotspot_y="9">
+    <uuid uuid="{5ce1a204-fb3a-ecb8-17cf-f9aee0bffc7d}"/>
+    <names>
+        <name lang="ca">Llum càmbra 2</name>
+        <name lang="es">Luz cámara 2</name>
+        <name lang="pt_BR">Luz cámara 2</name>
+        <name lang="zh">冷藏室灯点2</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-29" y="-2" width="59" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-25" y="0" width="52" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="0.52" x2="39" y2="0.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="-7.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2c715bcb-ae05-41f6-8559-0c2956b225a4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-31" y="-4" width="65" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b202a975-7a7f-48d1-aace-16eabc657e51}" name="" x="40" y="1" orientation="e" type="Generic"/>
+    </description>
+</definition>

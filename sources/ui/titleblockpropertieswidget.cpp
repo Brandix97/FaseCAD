@@ -1,0 +1,611 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "titleblockpropertieswidget.h"
+
+#include "../qetapp.h"
+#include "../qeticons.h"
+#include "../titleblock/templatescollection.h"
+#include "../titleblocktemplate.h"
+#include "ui_titleblockpropertieswidget.h"
+
+#include <QMenu>
+#include <QSet>
+#include <utility>
+
+/**
+	@brief TitleBlockPropertiesWidget::TitleBlockPropertiesWidget
+	default constructor
+	@param titleblock properties to edit
+	@param current_date if true, display the radio button "current date"
+	@param project : QETProject
+	@param parent parent widget
+*/
+TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
+		const TitleBlockProperties &titleblock,
+		bool current_date,
+		QETProject *project,
+		QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::TitleBlockPropertiesWidget)
+{
+	ui->setupUi(this);
+	initDialog(current_date, project);
+	setProperties(titleblock);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::TitleBlockPropertiesWidget
+	default constructor with template list
+	@param tbt_collection template list
+	@param titleblock properties to edit
+	@param current_date if true, display the radio button "current date"
+	@param project : QETProject
+	@param parent parent widget
+*/
+TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
+		TitleBlockTemplatesCollection *tbt_collection,
+		const TitleBlockProperties &titleblock,
+		bool current_date,
+		QETProject *project,
+		QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::TitleBlockPropertiesWidget)
+{
+	ui->setupUi(this);
+	initDialog(current_date,project);
+	addCollection(tbt_collection);
+	updateTemplateList();
+	setProperties(titleblock);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::TitleBlockPropertiesWidget
+	Default constructor with several template collection
+	@param tbt_collection template list
+	@param titleblock properties to edit
+	@param current_date if true, display the radio button "current date"
+	@param project : QETProject
+	@param parent parent widget
+*/
+TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
+		QList<TitleBlockTemplatesCollection *> tbt_collection,
+		const TitleBlockProperties &titleblock,
+		bool current_date,
+		QETProject *project,
+		QWidget *parent) :
+	QWidget(parent),
+	ui(new Ui::TitleBlockPropertiesWidget)
+{
+	ui->setupUi(this);
+	initDialog(current_date,project);
+	foreach (TitleBlockTemplatesCollection *c, tbt_collection)
+		addCollection(c);
+	updateTemplateList();
+	setProperties(titleblock);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::~TitleBlockPropertiesWidget
+	destructor
+*/
+TitleBlockPropertiesWidget::~TitleBlockPropertiesWidget()
+{
+	delete ui;
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::setProperties
+	@param properties
+*/
+void TitleBlockPropertiesWidget::setProperties(
+		const TitleBlockProperties &properties) {
+	ui -> m_title_le      -> setText (properties.title);
+	ui -> m_author_le     -> setText (properties.author);
+	ui -> m_file_le       -> setText (properties.filename);
+	ui -> m_plant         -> setText (properties.plant);
+	ui -> m_loc           -> setText (properties.locmach);
+	ui -> m_indice        -> setText (properties.indexrev);
+	ui -> m_folio_le      -> setText (properties.folio);
+	ui -> m_display_at_cb -> setCurrentIndex(properties.display_at == Qt::BottomEdge ? 0 : 1);
+	ui->auto_page_cb->setCurrentText(properties.auto_page_num);
+	m_auto_page_num = properties.auto_page_num;
+	m_auto_page_num_picked = false;
+
+	//About date
+	ui -> m_date_now_pb -> setDisabled(true);
+	ui -> m_date_edit   -> setDisabled(true);
+	ui -> m_date_edit   -> setDate(QDate::currentDate());
+
+	if (!ui -> m_current_date_rb -> isHidden()) {
+		if(properties.useDate == TitleBlockProperties::CurrentDate)
+			ui -> m_current_date_rb -> setChecked(true);
+		else {
+			if (properties.date.isNull())
+				ui -> m_no_date_rb -> setChecked(true);
+			else {
+				ui -> m_fixed_date_rb -> setChecked(true);
+				ui -> m_date_edit -> setDate(properties.date);
+			}
+		}
+	}
+	else {
+		if (properties.useDate == TitleBlockProperties::CurrentDate)
+			ui -> m_fixed_date_rb ->setChecked(true);
+		else {
+			if (properties.date.isNull())
+				ui -> m_no_date_rb -> setChecked(true);
+			else {
+				ui -> m_fixed_date_rb -> setChecked(true);
+				ui -> m_date_edit -> setDate(properties.date);
+			}
+		}
+	} //About date
+
+		//Set the current titleblock if any
+	int index = 0;
+	if (!properties.template_name.isEmpty())
+	{
+		index = getIndexFor(properties.template_name, properties.collection);
+		if (index == -1) index = 0;
+	}
+	ui -> m_tbt_cb -> setCurrentIndex(index);
+
+	// Show the saved custom values, plus any of the template's custom variables
+	// that aren't defined yet, so the user only fills in the missing ones (#271).
+	DiagramContext context = properties.context;
+	m_context_keys = context.keys();
+	addTemplateVariables(context, index);
+	m_dcw -> setContext(context);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::properties
+	@return the edited properties
+*/
+TitleBlockProperties TitleBlockPropertiesWidget::properties() const
+{
+	TitleBlockProperties prop;
+	prop.title      = ui -> m_title_le      -> text();
+	prop.author     = ui -> m_author_le     -> text();
+	prop.filename   = ui -> m_file_le       -> text();
+	prop.plant      = ui -> m_plant         -> text();
+	prop.locmach    = ui -> m_loc           -> text();
+	prop.indexrev   = ui -> m_indice        -> text();
+	prop.folio      = ui -> m_folio_le      -> text();
+	prop.display_at = ui -> m_display_at_cb -> currentIndex() == 0 ? Qt::BottomEdge : Qt::RightEdge;
+
+	if (ui->m_no_date_rb->isChecked()) {
+		prop.useDate = TitleBlockProperties::UseDateValue;
+		prop.date = QDate();
+	}
+	else if (ui -> m_fixed_date_rb -> isChecked()) {
+		prop.useDate = TitleBlockProperties::UseDateValue;
+		prop.date = ui->m_date_edit->date();
+	}
+	else if (!ui->m_current_date_rb->isHidden() && ui->m_current_date_rb->isChecked()) {
+			/* isVisible() (unlike isHidden()) also depends on the whole
+			 * ancestor chain being visible, not just this widget's own
+			 * state -- inside a QTabWidget page (both the New Project and
+			 * Project Properties dialogs embed this widget in one), it's
+			 * false whenever this isn't the active tab, silently dropping
+			 * "current date" back to the useDate/date default (no date)
+			 * even though the radio button is still checked underneath.
+			 * isHidden() mirrors the read side's own check in initDialog(),
+			 * and isn't affected by an ancestor tab switch. */
+		prop.useDate = TitleBlockProperties::CurrentDate;
+		prop.date = QDate::currentDate();
+	}
+
+	if (!currentTitleBlockTemplateName().isEmpty())
+	{
+		prop.template_name = currentTitleBlockTemplateName();
+		prop.collection = m_map_index_to_collection_type.at(ui->m_tbt_cb->currentIndex());
+	}
+
+	prop.context = m_dcw -> context();
+		//The template's custom variables are only offered for filling in
+		//(#271): one left empty is not part of the properties.
+	const QList<QString> keys = prop.context.keys();
+	for (const QString &key : keys) {
+		if (!m_context_keys.contains(key)
+				&& prop.context.value(key).toString().isEmpty())
+			prop.context.remove(key);
+	}
+
+		//The combo box cannot show "no folio numbering": it shows its
+		//placeholder entry, or the project's first numbering. Return what
+		//was set unless the user picked something else.
+	if (!m_auto_page_num_picked)
+		prop.auto_page_num = m_auto_page_num;
+	else if (ui->auto_page_cb->currentText() != tr("Create an auto sheet numbering"))
+		prop.auto_page_num = ui->auto_page_cb->currentText();
+
+	return prop;
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::properties
+	@return return properties to enable folio autonum
+*/
+TitleBlockProperties TitleBlockPropertiesWidget::propertiesAutoNum(
+		QString autoNum) const
+{
+	TitleBlockProperties prop;
+	prop.title    = ui -> m_title_le  -> text();
+	prop.author   = ui -> m_author_le -> text();
+	prop.filename = ui -> m_file_le   -> text();
+	prop.plant    = ui -> m_plant     -> text();
+	prop.locmach  = ui -> m_loc       -> text();
+	prop.indexrev = ui -> m_indice    -> text();
+	prop.folio    = "%autonum";
+	prop.display_at = ui -> m_display_at_cb -> currentIndex() == 0 ? Qt::BottomEdge : Qt::RightEdge;
+
+	if (ui->m_no_date_rb->isChecked()) {
+		prop.useDate = TitleBlockProperties::UseDateValue;
+		prop.date = QDate();
+	}
+	else if (ui -> m_fixed_date_rb -> isChecked()) {
+		prop.useDate = TitleBlockProperties::UseDateValue;
+		prop.date = ui->m_date_edit->date();
+	}
+	else if (!ui->m_current_date_rb->isHidden() && ui->m_current_date_rb->isChecked()) {
+			/* isVisible() (unlike isHidden()) also depends on the whole
+			 * ancestor chain being visible, not just this widget's own
+			 * state -- inside a QTabWidget page (both the New Project and
+			 * Project Properties dialogs embed this widget in one), it's
+			 * false whenever this isn't the active tab, silently dropping
+			 * "current date" back to the useDate/date default (no date)
+			 * even though the radio button is still checked underneath.
+			 * isHidden() mirrors the read side's own check in initDialog(),
+			 * and isn't affected by an ancestor tab switch. */
+		prop.useDate = TitleBlockProperties::CurrentDate;
+		prop.date = QDate::currentDate();
+	}
+
+	if (!currentTitleBlockTemplateName().isEmpty())
+	{
+		prop.template_name = currentTitleBlockTemplateName();
+		prop.collection = m_map_index_to_collection_type.at(ui->m_tbt_cb->currentIndex());
+	}
+
+	prop.context = m_dcw -> context();
+
+	prop.auto_page_num = std::move(autoNum);
+
+	return prop;
+}
+
+TitleBlockTemplateLocation TitleBlockPropertiesWidget::currentTitleBlockLocation() const
+{
+	QET::QetCollection qc = m_map_index_to_collection_type.at(ui->m_tbt_cb->currentIndex());
+	TitleBlockTemplatesCollection *collection = nullptr;
+	foreach (TitleBlockTemplatesCollection *c, m_tbt_collection_list)
+		if (c -> collection() == qc)
+			collection = c;
+
+	if (!collection)
+		return TitleBlockTemplateLocation();
+
+	return collection->location(currentTitleBlockTemplateName());
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::setTitleBlockTemplatesVisible
+	if true, title block template combo box and menu button is visible
+*/
+void TitleBlockPropertiesWidget::setTitleBlockTemplatesVisible(
+		const bool &visible)
+{
+	ui -> m_tbt_label -> setVisible(visible);
+	ui -> m_tbt_cb    -> setVisible(visible);
+	ui -> m_tbt_pb    -> setVisible(visible);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::setReadOnly
+	if true, this widget is disable
+*/
+void TitleBlockPropertiesWidget::setReadOnly(const bool &ro) {
+	ui->m_tbt_gb->setDisabled(ro);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::currentTitleBlockTemplateName
+	@return the current title block name
+*/
+QString TitleBlockPropertiesWidget::currentTitleBlockTemplateName() const
+{
+	int index = ui -> m_tbt_cb -> currentIndex();
+	if(index != -1)
+		return (ui -> m_tbt_cb -> itemData(index).toString());
+	return QString();
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::currentTitleBlockHeight
+	@return the height of the current title block template
+*/
+int TitleBlockPropertiesWidget::currentTitleBlockHeight() const
+{
+	const TitleBlockTemplate *tbt = nullptr;
+	if (!currentTitleBlockTemplateName().isEmpty())
+		tbt = templateForIndex(ui -> m_tbt_cb -> currentIndex());
+	if (!tbt)
+		tbt = QETApp::defaultTitleBlockTemplate();
+	return tbt ? tbt -> height() : 0;
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::currentTitleBlockEdge
+	@return the edge of the folio the title block is displayed at
+*/
+Qt::Edge TitleBlockPropertiesWidget::currentTitleBlockEdge() const
+{
+	return ui -> m_display_at_cb -> currentIndex() == 0 ? Qt::BottomEdge
+														: Qt::RightEdge;
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::addCollection
+	add a collection of title block available in the combo box
+	@param tbt_collection
+*/
+void TitleBlockPropertiesWidget::addCollection(
+		TitleBlockTemplatesCollection *tbt_collection)
+{
+	if (!tbt_collection || m_tbt_collection_list.contains(tbt_collection))
+		return;
+	m_tbt_collection_list << tbt_collection;
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::initDialog
+	Init this dialog
+	@param current_date : true for display current date radio button
+	@param project
+*/
+void TitleBlockPropertiesWidget::initDialog(
+		const bool &current_date,QETProject *project)
+{
+	m_dcw = new DiagramContextWidget();
+	ui -> m_tab2_vlayout -> addWidget(m_dcw);
+
+	setTitleBlockTemplatesVisible(false);
+	ui -> m_current_date_rb -> setVisible(current_date);
+
+	m_tbt_edit = new QAction(tr("Edit this template", "menu entry"), this);
+	m_tbt_duplicate = new QAction(tr("Duplicate and edit this template",
+					 "menu entry"),
+				      this);
+
+	connect(m_tbt_edit,
+		&QAction::triggered,
+		this,
+		&TitleBlockPropertiesWidget::editCurrentTitleBlockTemplate);
+	connect(m_tbt_duplicate,
+		&QAction::triggered,
+		this,
+		&TitleBlockPropertiesWidget::duplicateCurrentTitleBlockTemplate);
+
+	m_tbt_menu = new QMenu(tr("Title block templates actions"), ui->m_tbt_pb);
+	m_tbt_menu -> addAction(m_tbt_edit);
+	m_tbt_menu -> addAction(m_tbt_duplicate);
+	ui -> m_tbt_pb -> setMenu(m_tbt_menu);
+
+	connect(ui->m_tbt_cb, 
+		qOverload<int>(&QComboBox::currentIndexChanged), 
+		this, 
+		&TitleBlockPropertiesWidget::changeCurrentTitleBlockTemplate);
+
+	auto size_changed = [this]() {
+		emit titleBlockSizeChanged(currentTitleBlockHeight(),
+								   currentTitleBlockEdge());
+	};
+	connect(ui->m_tbt_cb, qOverload<int>(&QComboBox::currentIndexChanged),
+			this, size_changed);
+	connect(ui->m_display_at_cb, qOverload<int>(&QComboBox::currentIndexChanged),
+			this, size_changed);
+
+	if (project!= nullptr){
+		keys_2 = project -> folioAutoNum().keys();
+		foreach (QString str, keys_2) { ui -> auto_page_cb -> addItem(str); }
+		if (ui->auto_page_cb->currentText()==nullptr)
+			ui->auto_page_cb->addItem(tr("Create an auto sheet numbering"));
+			//activated() is only emitted for a choice the user makes
+		connect(ui->auto_page_cb, qOverload<int>(&QComboBox::activated),
+				this, [this]() { m_auto_page_num_picked = true; });
+	}
+		//No folio numbering formulas in FaseCAD: the choice is never
+		//shown, an old project keeps the one it has
+	ui->auto_page_cb->hide();
+	ui->m_edit_autofolionum_pb->hide();
+	ui->label_9->hide();
+
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::getIndexFor
+	Find the index of the combo box for
+	the title block tbt_name available on the collection collection
+	@param tbt_name : title block name
+	@param collection : title block collection
+	@return the index of the title block or -1 if no match
+*/
+int TitleBlockPropertiesWidget::getIndexFor(
+		const QString &tbt_name,
+		const QET::QetCollection collection) const
+{
+	for (int i = 0; i<ui->m_tbt_cb->count(); i++) {
+		if (ui->m_tbt_cb->itemData(i).toString() == tbt_name)
+			if (m_map_index_to_collection_type.at(i) == collection)
+				return i;
+	}
+	return -1;
+}
+
+void TitleBlockPropertiesWidget::editCurrentTitleBlockTemplate()
+{
+	QETApp::instance()->openTitleBlockTemplate(currentTitleBlockLocation(), false);
+}
+
+void TitleBlockPropertiesWidget::duplicateCurrentTitleBlockTemplate()
+{
+	QETApp::instance()->openTitleBlockTemplate(currentTitleBlockLocation(), true);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::updateTemplateList
+	Update the title block template list available in the combo box
+*/
+void TitleBlockPropertiesWidget::updateTemplateList()
+{
+	ui -> m_tbt_cb ->clear();
+
+	if (m_tbt_collection_list.isEmpty())
+	{
+		setTitleBlockTemplatesVisible(false);
+		return;
+	}
+	setTitleBlockTemplatesVisible(true);
+
+		//Add the default title block
+	m_map_index_to_collection_type.clear();
+	m_map_index_to_collection_type.append(QET::QetCollection::Common);
+	ui -> m_tbt_cb -> addItem(QET::Icons::QETLogo, tr("Default template"));
+
+		//Add every title block stored in m_tbt_collection_list
+	foreach (TitleBlockTemplatesCollection *tbt_c, m_tbt_collection_list)
+	{
+		QIcon icon;
+		QET::QetCollection qc = tbt_c -> collection();
+		if (qc == QET::QetCollection::Common)
+			icon = QET::Icons::QETLogo;
+		else if (qc == QET::QetCollection::Company)
+			icon = QET::Icons::Company;
+		else if (qc == QET::QetCollection::Custom)
+			icon = QET::Icons::Home;
+		else if (qc == QET::QetCollection::Embedded)
+			icon = QET::Icons::TitleBlock;
+
+		foreach(QString tbt_name, tbt_c -> templates())
+		{
+			m_map_index_to_collection_type.append(qc);
+			ui -> m_tbt_cb -> addItem(icon, tbt_name, tbt_name);
+		}
+	}
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::templateForIndex
+	@param index : index in the collection-type map (= the template combo index)
+	@return the TitleBlockTemplate currently selected for that collection, or
+	nullptr.
+*/
+TitleBlockTemplate *TitleBlockPropertiesWidget::templateForIndex(int index) const
+{
+	if (index < 0 || index >= m_map_index_to_collection_type.count())
+		return nullptr;
+
+	QET::QetCollection qc = m_map_index_to_collection_type.at(index);
+	TitleBlockTemplatesCollection *collection = nullptr;
+	foreach (TitleBlockTemplatesCollection *c, m_tbt_collection_list)
+		if (c -> collection() == qc)
+			collection = c;
+
+	if (!collection) return nullptr;
+	return collection -> getTemplate(ui -> m_tbt_cb -> currentText());
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::addTemplateVariables
+	Add to @p context every CUSTOM variable used by the currently selected
+	template that is not already present, with an empty value — so the user
+	only has to fill in the values instead of declaring the variables (#271).
+*/
+void TitleBlockPropertiesWidget::addTemplateVariables(
+		DiagramContext &context, int index) const
+{
+	addTemplateVariables(context, templateForIndex(index));
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::addTemplateVariables
+	Add to @p context every CUSTOM variable used by @p tpl that is not already
+	present, with an empty value.
+	The standard fields (title, author, date, …) are handled by their own
+	widgets and are skipped. Existing values in @p context are preserved.
+*/
+void TitleBlockPropertiesWidget::addTemplateVariables(
+		DiagramContext &context, const TitleBlockTemplate *tpl)
+{
+	if (!tpl) return;
+
+	// Variables rendered from the dedicated standard-field widgets; they must
+	// not appear in the "Custom" tab.
+	static const QSet<QString> reserved {
+		QStringLiteral("author"), QStringLiteral("date"),
+		QStringLiteral("title"), QStringLiteral("filename"),
+		QStringLiteral("plant"), QStringLiteral("locmach"),
+		QStringLiteral("indexrev"), QStringLiteral("version"),
+		QStringLiteral("folio"), QStringLiteral("folio-id"),
+		QStringLiteral("folio-total"), QStringLiteral("auto_page_num"),
+		QStringLiteral("previous-folio-num"), QStringLiteral("next-folio-num"),
+			//Worked out for each folio (title block designer)
+		QStringLiteral("paper"), QStringLiteral("scale")
+	};
+
+	const QStringList variables = tpl -> listOfVariables();
+	for (const QString &name : variables) {
+		if (name.isEmpty() || reserved.contains(name)) continue;
+		if (!context.contains(name)) context.addValue(name, "");
+	}
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::changeCurrentTitleBlockTemplate
+	When the user picks a template, append its missing custom variables to the
+	"Custom" tab while keeping the values already entered (#271).
+*/
+void TitleBlockPropertiesWidget::changeCurrentTitleBlockTemplate(int index)
+{
+	DiagramContext context = m_dcw -> context();
+	addTemplateVariables(context, index);
+	m_dcw -> setContext(context);
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::on_m_date_now_pb_clicked
+	Set the date to current date
+*/
+void TitleBlockPropertiesWidget::on_m_date_now_pb_clicked()
+{
+	ui -> m_date_edit -> setDate(QDate::currentDate());
+}
+
+/**
+	@brief TitleBlockPropertiesWidget::on_m_edit_autofolionum_pb_clicked
+	Open Auto Folio Num dialog
+*/
+void TitleBlockPropertiesWidget::on_m_edit_autofolionum_pb_clicked()
+{
+	emit openAutoNumFolioEditor(ui->auto_page_cb->currentText());
+	if (ui->auto_page_cb->currentText()!=tr("Create an auto sheet numbering"))
+	{
+		//still to implement: load current auto folio num settings
+	}
+}

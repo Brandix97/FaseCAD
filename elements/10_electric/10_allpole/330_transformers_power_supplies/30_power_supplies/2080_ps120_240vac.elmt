@@ -1,0 +1,69 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="80" hotspot_x="50" hotspot_y="40">
+    <uuid uuid="{271ba7b0-d0e9-f0f1-69a8-2ac7fc9b42e1}"/>
+    <names>
+        <name lang="ar">تغذية AC/DC 1-ph. DC 24V</name>
+        <name lang="ca">Font d'alimentació AC/DC 2080-PS120-240VAC</name>
+        <name lang="cs">Napájecí zdroj AC/DC 2080-PS120-240VAC</name>
+        <name lang="da">Strømforsyning AC/DC 1-faset DC 24V</name>
+        <name lang="de">Netzgerät AC/DC 1-ph. DC 24V</name>
+        <name lang="el">Τροφοδοτικό AC/DC 1-φασ. DC 24V</name>
+        <name lang="en">Power Supply AC/DC 1-ph. DC 24V</name>
+        <name lang="es">Fuente de alimentación AC/DC 1 fases DC 24V</name>
+        <name lang="fi">Teholähde AC/DC 1-vaiheinen DC 24V</name>
+        <name lang="fr">Alimentation AC/DC 2080-PS120-240VAC</name>
+        <name lang="hr">Napajanje AC/DC 1-f. DC 24V</name>
+        <name lang="hu">Tápegység AC/DC 1 fázisú DC 24V</name>
+        <name lang="it">Alimentatore AC/DC 1-f. DC 24V</name>
+        <name lang="ja">電源 AC/DC 1相 DC 24V</name>
+        <name lang="ko">AC/DC 전원 공급 장치 1상 DC 24V</name>
+        <name lang="mn">Тэжээлийн хангамж AC/DC 1-фаз. DC 24V</name>
+        <name lang="nb">Strømforsyning AC/DC 1-f. DC 24V</name>
+        <name lang="nl">Voeding AC/DC 1-fase DC 24V</name>
+        <name lang="nl_BE">Voeding AC/DC 1-f. DC 24V</name>
+        <name lang="pl">Zasilacz AC/DC 1-faz. DC 24V</name>
+        <name lang="pt">Alimentação AC/DC 1-f. DC 24V</name>
+        <name lang="pt_BR">Fonte de alimentação CA/CC monofásica 24 Vcc</name>
+        <name lang="ro">Sursă de alimentare AC/DC 1-f. DC 24V</name>
+        <name lang="ru">Источник питания AC/DC 1-фаз. пост. 24В</name>
+        <name lang="sk">Napájací zdroj AC/DC 1-fáz. DC 24V</name>
+        <name lang="sl">Napajanje AC/DC 1-faz. DC 24V</name>
+        <name lang="sr">Напајање AC/DC 1-фаз. DC 24V</name>
+        <name lang="sv">Nätaggregat AC/DC 1-fas DC 24V</name>
+        <name lang="tr">Güç Kaynağı AC/DC 1-faz. DC 24V</name>
+        <name lang="uk">Блок живлення AC/DC 1-фаз. DC 24В</name>
+        <name lang="zh">2080型120/240VAC电源</name>
+    </names>
+    <informations>EN 60617: 06-14-03</informations>
+    <description>
+        <rect x="-45" y="-30" width="90" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="AC ~" x="-28" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="27.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="-" x="9" y="25" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="-" x="29" y="25" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L" x="-32" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="24 VDC" x="5" y="13" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="+" x="-12" y="25" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="N" x="-3" y="-19" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-2.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="PE" x="25" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-32.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="27.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="-12.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="7.5" y="27.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <dynamic_text x="-80" y="-33" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7d48abac-6957-465d-be4e-9e8859e8f5da}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="+" x="-32" y="25" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-30" y="-15" width="60" height="30" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-15" x2="-30" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-32.5" y="-32.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <terminal uuid="{3179bb88-65a1-4b5d-899f-ece313d20160}" name="" x="30" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{8912a59b-b4a3-4525-b5ad-615ae749b96e}" name="" x="30" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{1690e0be-87ed-4e5d-a0d5-3d773fd033ae}" name="" x="10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{5213c154-58b9-4f45-a239-ed7a84ae1168}" name="" x="-10" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{068b80e4-d1df-4b18-bfe4-ec0b47c79df0}" name="" x="-30" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{dab6c779-adc9-47df-ba3b-fbc7d8395783}" name="" x="-30" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{c27558b0-1372-4512-b06a-7e9f070ac92a}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

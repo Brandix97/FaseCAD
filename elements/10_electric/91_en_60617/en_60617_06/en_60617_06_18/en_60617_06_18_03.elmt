@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="110" hotspot_x="55" hotspot_y="105">
+    <uuid uuid="{2cb92efc-62ab-8d14-bd5e-ad5bad02d182}"/>
+    <names>
+        <name lang="ar">مولد كهروحراري مع مصدر حرارة نظيري مشع</name>
+        <name lang="ca">Generador termoelèctric amb font de calor radioisòtop</name>
+        <name lang="cs">Termoelektrický generátor
+s radioizotopovým tepelným zdrojem</name>
+        <name lang="da">Termoelektrisk generator med radioisotop-varmekilde</name>
+        <name lang="de">Thermoelektrischer Generator, betrieben durch
+Radioisotopen-Heizquelle</name>
+        <name lang="el">Θερμοηλεκτρική γεννήτρια με πηγή θερμότητας ραδιοϊσοτόπων</name>
+        <name lang="en">Thermoelectric generator with radio-isotope heat source</name>
+        <name lang="es">Generador termoeléctrico con fuente de calor de radioisótopos</name>
+        <name lang="fi">Termosähkögeneraattori, radioisotooppilämpölähde</name>
+        <name lang="fr">Générateur thermoélectrique à source de
+chaleur radioisotopique</name>
+        <name lang="hr">Termoelektrični generator s radioizotopnim izvorom topline</name>
+        <name lang="hu">Termoelektromos generátor, radioizotópos hőforrással</name>
+        <name lang="it">Generatore termoelettrico con sorgente di calore a radioisotopi</name>
+        <name lang="ja">放射性同位体熱源付き熱電発電器</name>
+        <name lang="ko">방사성 동위원소 열원을 가진 열전 발전기</name>
+        <name lang="mn">Радио-изотопын дулааны эх үүсвэртэй термоэлектрик генератор</name>
+        <name lang="nb">Termoelektrisk generator med radioisotop-varmekilde</name>
+        <name lang="nl">Thermo-elektrische generator met radio-isotoop warmtebron</name>
+        <name lang="nl_BE">Thermoelektrische generator met radio-isotoopwarmtebron</name>
+        <name lang="pl">Generator termoelektryczny z radioizotopowym źródłem ciepła</name>
+        <name lang="pt">Gerador termoelétrico com fonte de calor radioisotópica</name>
+        <name lang="pt_BR">Gerador termoelétrico com fonte de calor radioisotópica</name>
+        <name lang="ro">Generator termoelectric cu sursă de căldură radioizotopică</name>
+        <name lang="ru">Термоэлектрический генератор с радиоизотопным источником тепла</name>
+        <name lang="sk">Termoelektrický generátor s rádioizotopovým zdrojom tepla</name>
+        <name lang="sl">Termoelektrični generator z radioizotopskim virom toplote</name>
+        <name lang="sr">Термоелектрични генератор са радиоизотопским извором топлоте</name>
+        <name lang="sv">Termoelektrisk generator med radioisotopvärmekälla</name>
+        <name lang="tr">Radyoizotop ısı kaynaklı termoelektrik jeneratör</name>
+        <name lang="uk">Термоелектричний генератор з радіоізотопним джерелом тепла</name>
+        <name lang="zh">接线端子排03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="22.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c8df1117-dc2f-4a43-8121-ed1d6eac8e93}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="1.25" y1="-49.2" x2="-28.75" y2="-49.2" x3="-38.75" y3="-59.2" x4="-28.75" y4="-69.2" x5="1.25" y5="-69.2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-14" y1="-21" x2="-16" y2="-19" x3="-18" y3="-19" x4="-19" y4="-18" x5="-19" y5="-14" x6="-20" y6="-13" x7="-24" y7="-13" x8="-25" y8="-12" x9="-25" y9="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-40" y="-40" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-17" y1="-24" x2="-21" y2="-28" x3="-15" y3="-30" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="G" x="-23.75" y="-79.2" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-41.25" y="-61.7" width="5" height="5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <rect x="-45" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="-23" x2="-12" y2="-19" x3="-10" y3="-25" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-50" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-19" y1="-26" x2="-21" y2="-24" x3="-23" y3="-24" x4="-24" y4="-23" x5="-24" y5="-19" x6="-25" y6="-18" x7="-29" y7="-18" x8="-30" y8="-17" x9="-30" y9="-15" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="0" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="5" y="-40" width="5" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-100" width="60" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

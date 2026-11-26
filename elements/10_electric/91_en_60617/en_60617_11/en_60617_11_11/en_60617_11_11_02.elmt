@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="120" height="50" hotspot_x="110" hotspot_y="45">
+    <uuid uuid="{cda7b477-2860-c08f-0ef4-1e4cced9668a}"/>
+    <names>
+        <name lang="ar">موصل حماية</name>
+        <name lang="ca">Conductor de protecció</name>
+        <name lang="cs">Ochranný vodič</name>
+        <name lang="da">Beskyttelsesleder</name>
+        <name lang="de">Schutzleiter (PE)</name>
+        <name lang="el">Αγωγός προστασίας</name>
+        <name lang="en">Protective conductor</name>
+        <name lang="es">Conductor de protección</name>
+        <name lang="fi">Suojajohdin</name>
+        <name lang="fr">Conducteur de protection</name>
+        <name lang="hr">Zaštitni vodič</name>
+        <name lang="hu">Védővezető</name>
+        <name lang="it">Conduttore di protezione</name>
+        <name lang="ja">保護導体</name>
+        <name lang="ko">보호 도체</name>
+        <name lang="mn">Хамгаалалтын дамжуулагч</name>
+        <name lang="nb">Beskyttelsesleder</name>
+        <name lang="nl">Beschermingsgeleider</name>
+        <name lang="nl_BE">Beschermingsgeleider</name>
+        <name lang="pl">Przewód ochronny</name>
+        <name lang="pt">Condutor de proteção</name>
+        <name lang="pt_BR">Condutor de proteção</name>
+        <name lang="ro">Conductor de protecție</name>
+        <name lang="ru">Защитный проводник</name>
+        <name lang="sk">Ochranný vodič</name>
+        <name lang="sl">Zaščitni vodnik</name>
+        <name lang="sr">Заштитни проводник</name>
+        <name lang="sv">Skyddsledare</name>
+        <name lang="tr">Koruyucu iletken</name>
+        <name lang="uk">Захисний провідник</name>
+        <name lang="zh">端子板</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="42.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bea21bbc-623e-4e53-8231-c687faf8c3d0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-100" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-55" y1="0" x2="-45" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-48" y1="-40" x2="-42" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{2116f4ee-1f08-419c-93d0-a5caefdfc14f}" name="" x="-100" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{55bbbde9-01be-467d-8a5c-0b0bd64b4ed1}" name="" x="0" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{f64c12bd-670a-2def-e9a8-d97a65437496}"/>
+    <names>
+        <name lang="ar">موقد طبخ</name>
+        <name lang="ca">Placa</name>
+        <name lang="cs">Varná deska</name>
+        <name lang="da">Kogeplade</name>
+        <name lang="de">Kochfeld</name>
+        <name lang="el">Εστία μαγειρέματος</name>
+        <name lang="en">Hob</name>
+        <name lang="es">Placa de cocina</name>
+        <name lang="fr">Plaque de cuisson</name>
+        <name lang="pt_BR">Cooktop elétrico</name>
+        <name lang="zh">电磁炉(电磁兼容)</name>
+    </names>
+    <kindInformations>
+        <kindInformation show="1" name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{f3b611a7-54a9-47ef-84c7-b919351cb067}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>32</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{a6cb3226-d6e4-4ac4-9911-d1bea5d991ec}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>function</info_name>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-30" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="30" y="-160" width="60" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-160" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="84" y="-146" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="84" y="-136" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="84" y="-126" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="84" y="-116" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="37.5" y="-152.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="59" y="-151" width="12" height="12" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="39" y="-124" width="12" height="12" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="57.5" y="-125.5" width="15" height="15" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="28" y="-13.5" z="42" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{5c331c8a-561b-4001-a28e-928db46c8bf4}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 6.0</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="43" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{fb9da06e-d56d-4a01-9f74-026610b60640}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="44" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{8781ec70-6ae4-447e-82a8-9b5728726829}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Plaques de cuisson</text>
+        </dynamic_text>
+        <line x1="50" y1="-170" x2="50" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a2005e4f-e7d0-4db9-8d5f-4bf397a20d2c}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{ffef43a3-b413-4824-a306-74dfe1932dcc}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{04c1a1e7-707a-4703-9467-e0a2bd619ab2}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

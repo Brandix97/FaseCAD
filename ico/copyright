@@ -1,0 +1,250 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: qelectrotech
+Upstream-Contact: Laurent Trinques <scorpio@qelectrotech.org>
+Source: http://download.tuxfamily.org/qet/debianwatch/
+
+Files: *
+Copyright: Benoît Ansieau       <benoit@qelectrotech.org>
+           Laurent Trinques     <scorpio@qelectrotech.org>
+           Joshua claveau       <joshua_39@live.fr>
+           Cyril frausty        <cyril.frausti@gmail.com>
+           Xavier Guerrin       <xavier@qelectrotech.org>
+           Youssef Oualmakran   <youssefsan@qelectrotech.org>
+           Davi Fochi           <davi@qelectrotech.org>
+License: GPL-2+
+ This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+    .
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    .
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+    .
+    On Debian systems, the complete text of the GNU General Public License
+    can be found in /usr/share/common-licenses/GPL-2 file.
+
+Files: sources/richtext/*
+Copyright: 2013 Digia Plc and/or its subsidiary(-ies).
+License: LGPL-2.1 with Digia exception
+ Commercial License Usage
+ Licensees holding valid commercial Qt licenses may use this file in
+ accordance with the commercial license agreement provided with the
+ Software or, alternatively, in accordance with the terms contained in
+ a written agreement between you and Digia.  For licensing terms and
+ conditions see http://qt.digia.com/licensing.  For further information
+ use the contact form at http://qt.digia.com/contact-us.
+ .
+ GNU Lesser General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU Lesser
+ General Public License version 2.1 as published by the Free Software
+ Foundation and appearing in the file LICENSE.LGPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU Lesser General Public License version 2.1 requirements
+ will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ .
+ In addition, as a special exception, Digia gives you certain additional
+ rights.  These rights are described in the Digia Qt LGPL Exception
+ version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ .
+ GNU General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU
+ General Public License version 3.0 as published by the Free Software
+ Foundation and appearing in the file LICENSE.GPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU General Public License version 3.0 requirements will be
+ met: http://www.gnu.org/copyleft/gpl.html.
+
+
+Files: elements/*
+Copyright: The QElectroTech team
+License: CC-BY-3.0
+ The elements collection provided along with QElectroTech is provided as is and
+ without any warranty of fitness for your purpose or working.
+ The usage, the modification and the integration of the elements into electric
+ diagrams is allowed without any condition, whatever the final license of the
+ diagrams is.
+ Permission is not granted to use this software or any of the associated files
+ as sample data for the purposes of building machine learning models.
+ If you redistribute all or a part of the QElectroTech collection, with or
+ without any modification, out of an electric diagram, you must respect the
+ conditions of the CC-BY license:
+ This work is licensed under the Creative Commons Attribution 3.0 License.
+ To view a copy of this license, visit
+ http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative
+ Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+Files: ico/flags/*
+Copyright: Damien Sorel
+License: public-domain
+ 24x16 Flag icons - http://www.strangeplanet.fr
+ These icons are public domain, and as such are free for any use (attribution appreciated but not required).
+ Note that these flags are mostly named using the ISO3166-1 alpha-2 country codes where appropriate.
+ If you redistribute the pack please let the readme file into.
+ If you find these icons useful, share-them!
+ Contact: webmaster@strangeplanet.fr
+
+Files: ico/breeze/*
+Copyright: 2014, Uri Herrera <uri_herrera@nitrux.in> and others
+License: LGPL-3+
+Comment: From the KDE Breeze icon theme, https://invent.kde.org/frameworks/breeze-icons
+
+Files: ico/breeze/added/*
+Copyright: 2026, The QElectroTech Team
+License: LGPL-3+
+Comment: 16 pixel versions of the KDE Breeze icons of the same names, under
+ the Breeze license.
+
+Files: ico/qet/* ico/colors/*
+Copyright: 2006-2026, The QElectroTech Team
+License: GPL-2+
+Comment:
+  ico/qet/traced/*/east.svg by the QElectroTech team, traced from east.png by Nuri, with permission
+    changes: icon color, icon rotation
+  ico/qet/traced/*/element.svg by the QElectroTech team, traced from element.png by Nuri, with permission
+  ico/qet/traced/*/element-delete.svg by the QElectroTech team, traced from element-delete.png by Nuri, with permission
+  ico/qet/traced/*/element-edit.svg by the QElectroTech team, traced from element-edit.png by Nuri, with permission
+  ico/qet/traced/*/element-new.svg by the QElectroTech team, traced from element-new.png by Nuri, with permission
+  ico/qet/traced/*/endline-circle.svg by the QElectroTech team, traced from endline-circle.png by Nuri, with permission
+  ico/qet/traced/*/endline-diamond.svg by the QElectroTech team, traced from endline-diamond.png by Nuri, with permission
+  ico/qet/traced/*/endline-none.svg by the QElectroTech team, traced from endline-none.png by Nuri, with permission
+  ico/qet/traced/*/endline-simple.svg by the QElectroTech team, traced from endline-simple.png by Nuri, with permission
+  ico/qet/traced/*/endline-triangle.svg by the QElectroTech team, traced from endline-triangle.png by Nuri, with permission
+  ico/qet/traced/*/export-csv.svg by the QElectroTech team, traced from export-csv.png by Nuri, with permission
+  ico/qet/traced/*/folder-delete.svg by the QElectroTech team, traced from folder-delete.png by Nuri, with permission
+  ico/qet/traced/*/folder-edit.svg by the QElectroTech team, traced from folder-edit.png by Nuri, with permission
+  ico/qet/traced/*/folder-only-this.svg by the QElectroTech team, traced from folder-only-this.png by Nuri, with permission
+  ico/qet/traced/*/folder-show-all.svg by the QElectroTech team, traced from folder-show-all.png by Nuri, with permission
+  ico/qet/traced/*/ground.svg by the QElectroTech team, traced from ground.png by Nuri, with permission
+  ico/qet/traced/*/neutral.svg by the QElectroTech team, traced from neutral.png by Nuri, with permission
+  ico/qet/traced/*/north.svg by the QElectroTech team, traced from north.png by Nuri, with permission
+  ico/qet/traced/*/phase.svg by the QElectroTech team, traced from phase.png by Nuri, with permission
+  ico/qet/traced/*/project.svg by the QElectroTech team, traced from project.png by Nuri, with permission
+  ico/qet/traced/*/project-close.svg by the QElectroTech team, traced from project-close.png by Nuri, with permission
+  ico/qet/traced/*/project-new.svg by the QElectroTech team, traced from project-new.png by Nuri, with permission
+  ico/qet/traced/*/project-properties.svg by the QElectroTech team, traced from project-properties.png by Nuri, with permission
+  ico/qet/traced/*/qet.svg by the QElectroTech team, traced from qet.png by Nuri, with permission
+  ico/qet/traced/*/south.svg by the QElectroTech team, traced from south.png by Nuri, with permission
+  ico/qet/traced/*/terminalstrip.svg by the QElectroTech team, traced from terminalstrip.png by Nuri, with permission
+  ico/qet/traced/*/west.svg by the QElectroTech team, traced from west.png by Nuri, with permission
+  ico/qet/traced/*/arc.svg by the QElectroTech team, traced from arc.png by Nuri, with permission
+  ico/qet/traced/*/autoconnect.svg by the QElectroTech team, traced from autoconnect.png by Nuri, with permission
+  ico/qet/traced/*/diagram_bg.svg by the QElectroTech team, traced from diagram_bg.png by Nuri, with permission
+    changes: icon color, icon rotation
+  ico/qet/traced/*/hotspot.svg by the QElectroTech team, traced from hotspot.png by Nuri, with permission
+  ico/qet/traced/*/landscape.svg by the QElectroTech team, traced from landscape.png by Nuri, with permission
+  ico/qet/traced/*/portrait.svg by the QElectroTech team, traced from portrait.png by Nuri, with permission
+  ico/qet/traced/*/terminal.svg by the QElectroTech team, traced from terminal.png by Nuri, with permission
+  ico/qet/traced/*/titleblock-bottom.svg by the QElectroTech team, traced from titleblock-bottom.png by Nuri, with permission
+  ico/qet/traced/*/titleblock-right.svg by the QElectroTech team, traced from titleblock-right.png by Nuri, with permission
+  ico/qet/traced/*/simplifyrichtext.svg by the QElectroTech team, traced from simplifyrichtext.png by Nuri, with permission
+  ico/qet/pages/configure-shortcuts.svg by Jeff Patterson from the QElectroTech team
+  ico/qet/scalable/pdf-import.svg by Jeff Patterson from the QElectroTech team, laid out like the former insert-image.png
+  ico/qet/scalable/diagram.svg, folio-new.svg, folio-delete.svg, folio-properties.svg, label.svg by Jeff Patterson from the QElectroTech team, the folio icons redrawn in the same style
+  ico/qet/traced/*/circle.svg, ellipse.svg, view-fit-window.svg by ispyisail from the QElectroTech team, 16 pixel versions by the QElectroTech team
+  ico/qet/traced/*/ellipse-to-bezier.svg, rect-to-bezier.svg, rect-to-polyline.svg by the QElectroTech team, redrawn from Andre Rummler's drawings, with permission
+  ico/qet/traced/* other than the above by the QElectroTech team, traced from QElectroTech's PNG icons of the same names
+  ico/qet/scalable/generic-device.svg by ispyisail from the QElectroTech team, a box with terminals and a divider on each side
+  ico/qet/scalable/16/* by the QElectroTech team, 16 pixel versions of the ico/qet/scalable/ icons of the same names
+  ico/colors/* by Arnaud, contributed in 2020
+
+Files: ico/qet/traced/*/qt.svg
+Copyright: The Qt Company Ltd.
+License: Qt-trademark
+Comment: The Qt logo, traced by the QElectroTech team from
+ http://brand.qt.io/downloads/
+
+Files: ico/256x256/* ico/breeze-icons/* ico/mac_icon/* ico/windows_icon/*
+ ico/splash.png
+Copyright: Nuri
+License: CC-BY-ND-3.0
+Comment: Drawn for QElectroTech in the style of KDE Breeze.
+
+Files: ico/windows_icon/*.sh ico/windows_icon/*.rc
+Copyright: 2006-2026, The QElectroTech Team
+License: GPL-2+
+
+Files: ico/themes/*
+Copyright: 2014, Uri Herrera <uri_herrera@nitrux.in> and others
+           2006-2026, The QElectroTech Team
+License: LGPL-3+ and GPL-2+
+Comment: Built by misc/make_icon_themes.py from ico/breeze/ and ico/qet/.
+ Each file has the license of the file it is built from.
+
+License: LGPL-3+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 3 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>.
+ .
+ Clarification:
+ .
+ The GNU Lesser General Public License or LGPL is written for
+ software libraries in the first place. We expressly want the LGPL to
+ be valid for this artwork library too.
+ .
+ KDE Breeze theme icons is a special kind of software library, it is an
+ artwork library, it's elements can be used in a Graphical User Interface, or
+ GUI.
+ .
+ Source code, for this library means:
+ - where they exist, SVG;
+ - otherwise, if applicable, the multi-layered formats xcf or psd, or
+ otherwise png.
+ .
+ The LGPL in some sections obliges you to make the files carry
+ notices. With images this is in some cases impossible or hardly useful.
+ .
+ With this library a notice is placed at a prominent place in the directory
+ containing the elements. You may follow this practice.
+ .
+ The exception in section 5 of the GNU Lesser General Public License covers
+ the use of elements of this art library in a GUI.
+ .
+ https://vdesign.kde.org/
+
+License: CC-BY-ND-3.0
+ This work is licensed under the Creative Commons Attribution-NoDerivs 3.0
+ Unported License. To view a copy of this license, visit
+ http://creativecommons.org/licenses/by-nd/3.0/
+
+License: Qt-trademark
+ The Qt logo is a trademark of The Qt Company Ltd., used under its brand
+ guidelines: http://brand.qt.io/
+
+License: unknown
+ The author has not stated a license.
+
+Files: debian/*
+Copyright: 2011-2017, Laurent Trinques <scorpio@qelectrotech.org>
+           2011-2015, Denis Briand <debian@denis-briand.fr>
+License: GPL-2.0
+ This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+    .
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    .
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+    .
+    On Debian systems, the complete text of the GNU General Public License
+    can be found in /usr/share/common-licenses/GPL-2 file.

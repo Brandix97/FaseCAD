@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="120" hotspot_x="65" hotspot_y="90">
+    <uuid uuid="{d20c378d-b8bc-1910-2443-53ec609f61c3}"/>
+    <names>
+        <name lang="ar">مولد متزامن، ثلاثي الأوجه، طرفا كل ملف وجه مُخرجان</name>
+        <name lang="ca">Generador síncron, trifàsic, ambdós extrems de cada bobinatge de fase portat</name>
+        <name lang="cs">Trojfázový synchronní generátor
+s vyvedenými oběma konci vinutí a s cizím buzením</name>
+        <name lang="da">Synkrongenerator, trefaset, begge ender af hver fasevikling udført</name>
+        <name lang="de">Drehstrom-Synchrongenerator, beide Enden
+jeder Wicklung herausgeführt</name>
+        <name lang="el">Σύγχρονη γεννήτρια, τριφασική, και τα δύο άκρα κάθε τυλίγματος φάσης εξαγόμενα</name>
+        <name lang="en">Synchronous generator, three-phase, both ends of each phase winding brought</name>
+        <name lang="es">Generador síncrono, trifásico, ambos extremos de cada devanado de fase accesibles</name>
+        <name lang="fi">Tahtigeneraattori, kolmivaiheinen, kunkin vaihekäämin molemmat päät tuotu</name>
+        <name lang="fr">Alternateur synchrone triphasé, à deux
+extrémités sorties pour chaque enroulement de
+phase</name>
+        <name lang="hr">Sinkroni generator, trofazni, oba kraja svakog faznog namota izvedena</name>
+        <name lang="hu">Szinkrongenerátor, háromfázisú, minden fázistekercs mindkét vége kivezetve</name>
+        <name lang="it">Generatore sincrono, trifase, entrambe le estremità di ciascun avvolgimento di fase portate fuori</name>
+        <name lang="ja">三相同期発電機、各相巻線の両端を引き出し</name>
+        <name lang="ko">삼상 동기 발전기, 각 상 권선의 양단이 인출됨</name>
+        <name lang="mn">Синхрон генератор, гурван фазын, фазын ороомгийн хоёр үзүүр гаргасан</name>
+        <name lang="nb">Synkrongenerator, trefase, begge ender av hver fasevikling uttatt</name>
+        <name lang="nl">Synchrone generator, driefase, beide uiteinden van elke fasewikkeling uitgebracht</name>
+        <name lang="nl_BE">Synchrone generator, driefase, beide uiteinden van elke fasewikkeling uitgebracht</name>
+        <name lang="pl">Generator synchroniczny, trójfazowy, oba końce każdego uzwojenia fazowego wyprowadzone</name>
+        <name lang="pt">Gerador síncrono, trifásico, ambas as extremidades de cada enrolamento de fase acessíveis</name>
+        <name lang="pt_BR">Gerador síncrono trifásico, ambas as extremidades de cada enrolamento de fase acessíveis</name>
+        <name lang="ro">Generator sincron, trifazat, ambele capete ale fiecărei înfășurări de fază scoase</name>
+        <name lang="ru">Синхронный генератор, трёхфазный, оба конца каждой фазной обмотки выведены</name>
+        <name lang="sk">Synchronný generátor, trojfázový, vyvedené oba konce každého fázového vinutia</name>
+        <name lang="sl">Sinhronski generator, trifazni, oba konca vsakega faznega navitja izvedena</name>
+        <name lang="sr">Синхрони генератор, трофазни, оба краја сваког фазног намотаја изведена</name>
+        <name lang="sv">Synkrongenerator, trefas, båda ändarna av varje faslindning utdragna</name>
+        <name lang="tr">Senkron jeneratör, üç fazlı, her faz sargısının iki ucu çıkarılmış</name>
+        <name lang="uk">Синхронний генератор, трифазний, виведено обидва кінці кожної фазної обмотки</name>
+        <name lang="zh">接线端子04</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7924720c-468f-43c3-b3a6-04837c7edb13}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-60" y="-60" width="60" height="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="GS" x="-38" y="-32" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="9" y="-30" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="9" y="-40" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="9" y="-50" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-50" y1="-80" x2="-50" y2="-53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-80" x2="-30" y2="-60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-80" x2="-10" y2="-53" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="0" x2="-30" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-7" x2="-50" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-7" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="10" y="-20" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="15" y1="-10" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-50" x2="15" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-25" x2="-30" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-35" y1="-25" x2="-35" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-25" x2="-25" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{45dd5338-6dd0-4b60-991e-9322d4b85b32}" name="" x="-50" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{9757566d-887c-4439-b75c-0444832bb4f1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{bf02eaa2-cfee-4fdc-b4d8-2c8d05f4a88b}" name="" x="-50" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{e08af313-4e5a-4d48-9256-f853858e4e97}" name="" x="-30" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{5a3fcff6-60fa-4b9a-95d6-c8b7fc89f29b}" name="" x="-10" y="-80" orientation="n" type="Generic"/>
+        <terminal uuid="{cfceb8d0-9e8e-428c-9c13-2943d811299d}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

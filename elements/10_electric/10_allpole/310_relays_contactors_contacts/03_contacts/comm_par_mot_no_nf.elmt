@@ -1,0 +1,63 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="39" hotspot_y="41">
+    <uuid uuid="{9e421bc4-7a7d-a4df-ed45-e684a594d9cb}"/>
+    <names>
+        <name lang="ar">ملامس NC/NO بمحرك</name>
+        <name lang="ca">Contacte motoritzat NC/NO</name>
+        <name lang="cs">Kontakt NC/NO řízený motorem</name>
+        <name lang="da">Kontakt motoriseret NC/NO</name>
+        <name lang="de">Wechsler Motor betätigt</name>
+        <name lang="el">Επαφή NC/NO με κινητήρα</name>
+        <name lang="en">Contact Motorized NC/NO</name>
+        <name lang="es">Contacto motorizado NC/NA</name>
+        <name lang="fi">Moottorikäyttöinen kosketin NC/NO</name>
+        <name lang="fr">Commande par moteur électrique NO/NF</name>
+        <name lang="hr">Kontakt motorizirani NC/NO</name>
+        <name lang="hu">Motoros NC/NO érintkező</name>
+        <name lang="it">Contatto NC/NO motorizzato</name>
+        <name lang="ja">モーター駆動NC/NO接点</name>
+        <name lang="ko">전동식 접점 NC/NO</name>
+        <name lang="mn">Моторт NC/NO контакт</name>
+        <name lang="nb">Kontakt motorisert NC/NO</name>
+        <name lang="nl">Motor contact (NC/NO)</name>
+        <name lang="nl_BE">Contact gemotoriseerd NC/NO</name>
+        <name lang="pl">Zestyk przełączny sterowany silnikiem</name>
+        <name lang="pt">Contacto motorizado NC/NO</name>
+        <name lang="pt_BR">Contato motorizado NF/NA</name>
+        <name lang="ro">Contact motorizat NC/NO</name>
+        <name lang="ru">Контакт с электроприводом НЗ/НР</name>
+        <name lang="sk">Kontakt motorický NC/NO</name>
+        <name lang="sl">Kontakt motoriziran NC/NO</name>
+        <name lang="sr">Контакт моторизовани NC/NO</name>
+        <name lang="sv">Kontakt motoriserad NC/NO</name>
+        <name lang="tr">Motorlu NC/NO kontak</name>
+        <name lang="uk">Контакт з електроприводом НЗ/НР</name>
+        <name lang="zh">电机并联常开常闭触点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="M" x="-28" y="-8" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-20" y1="-10" x2="-5" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-30" y="-15" width="10" height="10" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-19" x2="-7" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="10" x2="0" y2="0" x3="-10" y3="-20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="-10" y="-2" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{fe0ecf62-f96b-4272-82e3-330f5a53a2dd}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-34" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{a8ae0f41-5002-4063-9c1c-e8d3f9dda9d1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-10" y="-34" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{ab14574c-e704-47f2-ac9d-17fd617f10f0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="1" y="-22" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{33509634-855c-43a5-91d6-73073eb9da64}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="-30" x2="-20" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{610147b1-b437-4314-a212-109626644a5c}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{9309b8b2-347b-4494-8661-9f9507132687}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{73ce8dcb-90b5-4731-bfde-5e1a22debb30}" name="" x="-20" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

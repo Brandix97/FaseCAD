@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="70" hotspot_x="55" hotspot_y="55">
+    <uuid uuid="{d35e91c4-10b4-f921-4e23-b489ccd211e2}"/>
+    <names>
+        <name lang="ar">جهاز استشعار تقارب، سعوي</name>
+        <name lang="ca">Dispositiu de detecció de proximitat, capacitiu</name>
+        <name lang="cs">1Kapacitní detektor přiblížení
+reagující na tuhý materiál</name>
+        <name lang="da">Nærhedsføler, kapacitiv</name>
+        <name lang="de">näherungsempfindliche Einrichtung, kapazitiv</name>
+        <name lang="el">Διάταξη ανίχνευσης εγγύτητας, χωρητική</name>
+        <name lang="en">Proximity sensing device, capacitive</name>
+        <name lang="es">Detector de proximidad capacitivo</name>
+        <name lang="fi">Lähestymistunnistin, kapasitiivinen</name>
+        <name lang="fr">Détecteur capacitif de proximité fonctionnant à
+l'approche d'un matériau solide</name>
+        <name lang="hr">Uređaj za osjet blizine, kapacitivni</name>
+        <name lang="hu">Közelségi érzékelő készülék, kapacitív</name>
+        <name lang="it">Dispositivo di rilevamento di prossimità, capacitivo</name>
+        <name lang="ja">近接検出装置，静電容量式</name>
+        <name lang="ko">근접 감지 장치, 용량성</name>
+        <name lang="mn">Ойролцооны мэдрэх төхөөрөмж, багтаамжийн</name>
+        <name lang="nb">Nærhetsføler, kapasitiv</name>
+        <name lang="nl">Naderingsdetectietoestel, capacitief</name>
+        <name lang="nl_BE">Naderingsdetectietoestel, capacitief</name>
+        <name lang="pl">Urządzenie wykrywające zbliżenie, pojemnościowe</name>
+        <name lang="pt">Dispositivo de deteção de proximidade, capacitivo</name>
+        <name lang="pt_BR">Dispositivo sensor de proximidade, capacitivo</name>
+        <name lang="ro">Dispozitiv de detectare a proximității, capacitiv</name>
+        <name lang="ru">Устройство обнаружения приближения, ёмкостное</name>
+        <name lang="sk">Zariadenie na snímanie priblíženia, kapacitné</name>
+        <name lang="sl">Bližinska zaznavna naprava, kapacitivna</name>
+        <name lang="sr">Уређај за детекцију близине, капацитивни</name>
+        <name lang="sv">Närhetsdetekterande anordning, kapacitiv</name>
+        <name lang="tr">Yakınlık algılama cihazı, kapasitif</name>
+        <name lang="uk">Пристрій виявлення наближення, ємнісний</name>
+        <name lang="zh">接线端子03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7108e0d6-d2e6-4d4f-8b69-ddbe1d3aa474}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="-40" x2="-10" y2="-30" x3="0" y3="-20" x4="10" y4="-30" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-4" y1="-36" x2="-4" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-36" x2="4" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-50" width="60" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-14" x2="-2" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-14" x2="2" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-10" x2="6" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-10" x2="-6" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="50" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-30" width="10" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:fdiag;color:black" antialias="false"/>
+    </description>
+</definition>

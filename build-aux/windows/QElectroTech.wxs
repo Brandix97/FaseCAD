@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FaseCAD.wxs - WiX v7 installer definition
+  Generates a self-contained x64 MSI for FaseCAD (MSYS2/UCRT64 build).
+
+  Variables passed from the wix build command line:
+    -d FilesDir=<absolute path to artifact\files>
+    -d Version=<numeric version e.g. 0.100.1.0>
+    -d ProductVersion=<display version e.g. 0.100.1-r8770-abc1234_x86_64-win64>
+    -d LicenseRtf=<absolute path to License.rtf>
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <?ifndef QtPlatformArgs ?>
+  <?define QtPlatformArgs="" ?>
+  <?endif?>
+
+  <Package
+    Name="FaseCAD"
+    Manufacturer="FaseCAD"
+    Version="$(var.Version)"
+    ProductCode="$(var.ProductCode)"
+    UpgradeCode="7D02C145-5F03-4EE2-AB9B-31E7C8399DE4"
+    Language="1033"
+    Codepage="1252"
+    InstallerVersion="500"
+    Scope="perMachine">
+
+    <!-- Embed all cabinet files inside the MSI (self-contained installer) -->
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <!-- In-place upgrade: automatically uninstalls the previous version -->
+    <MajorUpgrade
+      DowngradeErrorMessage="A newer version of FaseCAD is already installed."
+      AllowSameVersionUpgrades="yes"
+      Schedule="afterInstallInitialize" />
+
+    <!-- Installation directory -->
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLDIR" Name="FaseCAD" />
+    </StandardDirectory>
+
+    <!-- ============================================================
+         All application files harvested in one pass from files\**
+         (Lancer QET.bat has been removed from the artifact before
+          this build — see windows-msi.yml step "Remove Lancer QET.bat")
+         ============================================================ -->
+    <ComponentGroup Id="CG_AllFiles" Directory="INSTALLDIR">
+      <Files Include="$(var.FilesDir)\**" />
+    </ComponentGroup>
+
+    <!-- ============================================================
+         Desktop + Start Menu shortcuts
+         Point directly to fasecad.exe with all required arguments.
+         No .bat wrapper needed.
+         ============================================================ -->
+    <ComponentGroup Id="CG_Shortcuts" Directory="INSTALLDIR">
+
+      <Component Id="C_ShortcutDesktop" Guid="D4157940-15CA-41D4-A24B-C92FB30C0B8E">
+        <Shortcut Id="DesktopShortcut"
+                  Directory="DesktopFolder"
+                  Name="FaseCAD"
+                  Target="[INSTALLDIR]bin\fasecad.exe"
+                  Arguments="--common-elements-dir=&quot;[INSTALLDIR]elements/&quot; --common-tbt-dir=&quot;[INSTALLDIR]titleblocks/&quot; --lang-dir=&quot;[INSTALLDIR]lang/&quot; $(var.QtPlatformArgs)"
+                  Icon="qet.ico"
+                  WorkingDirectory="INSTALLDIR" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\FaseCAD"
+                       Name="DesktopShortcut"
+                       Type="integer" Value="1"
+                       KeyPath="yes" />
+      </Component>
+
+      <Component Id="C_ShortcutStartMenu" Guid="B74D0C4E-AB8A-4D0C-A302-79AA635B03EF">
+        <Shortcut Id="StartMenuShortcut"
+                  Directory="ProgramMenuFolder"
+                  Name="FaseCAD"
+                  Target="[INSTALLDIR]bin\fasecad.exe"
+                  Arguments="--common-elements-dir=&quot;[INSTALLDIR]elements/&quot; --common-tbt-dir=&quot;[INSTALLDIR]titleblocks/&quot; --lang-dir=&quot;[INSTALLDIR]lang/&quot; $(var.QtPlatformArgs)"
+                  Icon="qet.ico"
+                  WorkingDirectory="INSTALLDIR" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\FaseCAD"
+                       Name="StartMenuShortcut"
+                       Type="integer" Value="1"
+                       KeyPath="yes" />
+      </Component>
+
+    </ComponentGroup>
+
+    <!-- ============================================================
+         .qet file association
+         ============================================================ -->
+    <ComponentGroup Id="CG_FileAssoc" Directory="INSTALLDIR">
+      <Component Id="C_FileAssoc" Guid="0336C2A9-71CE-493D-85CF-C23CB3205E2F">
+        <RegistryValue Root="HKCR" Key=".qet" Type="string" Value="FaseCAD.Document" KeyPath="yes" />
+        <RegistryValue Root="HKCR" Key="FaseCAD.Document" Type="string" Value="FaseCAD Project" />
+        <RegistryValue Root="HKCR" Key="FaseCAD.Document\DefaultIcon" Type="string"
+                       Value="[INSTALLDIR]ico\fasecad.ico" />
+        <!-- Pass the same arguments as the shortcuts above: opening a .qet from
+             Explorer sets the working directory to the document's folder, so a
+             bare command line leaves QET unable to locate its data. Without the
+             lang-dir argument the UI falls back to the source language, which
+             is French. See issue #554. -->
+        <RegistryValue Root="HKCR" Key="FaseCAD.Document\shell\open\command" Type="string"
+                       Value="&quot;[INSTALLDIR]bin\fasecad.exe&quot; --common-elements-dir=&quot;[INSTALLDIR]elements/&quot; --common-tbt-dir=&quot;[INSTALLDIR]titleblocks/&quot; --lang-dir=&quot;[INSTALLDIR]lang/&quot; $(var.QtPlatformArgs) &quot;%1&quot;" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- ============================================================
+         Icon for shortcuts
+         ============================================================ -->
+    <Icon Id="qet.ico" SourceFile="$(var.FilesDir)\ico\fasecad.ico" />
+
+    <!-- ============================================================
+         CustomAction: set elements\ subtree read-only after install
+
+         Pattern used: two-step SetProperty + Exec
+         1. CA_ResolveElementsPath (immediate, SetProperty):
+              copies the runtime value of INSTALLDIR into the property
+              ELEMENTS_READONLY_CMD, building the full powershell command.
+         2. CA_SetElementsReadOnly (deferred, Execute="deferred"):
+              runs the command stored in ELEMENTS_READONLY_CMD.
+
+         This is the correct WiX v4/v7 pattern for passing a
+         directory path (resolved at runtime) to a deferred CA.
+         ============================================================ -->
+
+    <!-- Step 1: build the powershell command with the resolved INSTALLDIR -->
+    <CustomAction Id="CA_ResolveElementsPath"
+                  Property="CA_SetElementsReadOnly"
+                  Value="powershell.exe -NonInteractive -NoProfile -WindowStyle Hidden -Command &quot;Get-ChildItem -LiteralPath '[INSTALLDIR]elements' -Recurse -File | ForEach-Object { `$_.IsReadOnly = `$true }&quot;" />
+
+    <!-- Step 2: deferred execution of the powershell command -->
+    <CustomAction Id="CA_SetElementsReadOnly"
+                  BinaryRef="Wix4UtilCA_X86"
+                  DllEntry="WixQuietExec"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="ignore" />
+
+    <InstallExecuteSequence>
+      <Custom Action="CA_ResolveElementsPath" After="InstallFiles" Condition="NOT Installed AND NOT REMOVE" />
+      <Custom Action="CA_SetElementsReadOnly" After="CA_ResolveElementsPath" Condition="NOT Installed AND NOT REMOVE" />
+    </InstallExecuteSequence>
+
+    <!-- ============================================================
+         Main feature (everything included)
+         ============================================================ -->
+    <Feature Id="ProductFeature" Title="FaseCAD" Level="1">
+      <ComponentGroupRef Id="CG_AllFiles" />
+      <ComponentGroupRef Id="CG_Shortcuts" />
+      <ComponentGroupRef Id="CG_FileAssoc" />
+    </Feature>
+
+    <!-- WixUI_Minimal with FaseCAD GPL-2 license (based on FaseCAD) -->
+    <ui:WixUI Id="WixUI_Minimal" />
+
+    <!-- WixVariable without ui: namespace, at Package level -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.LicenseRtf)" />
+
+    <!-- Properties shown in Programs and Features -->
+    <Property Id="ARPPRODUCTICON" Value="qet.ico" />
+    <Property Id="ARPHELPLINK"    Value="https://fasecad.com" />
+    <Property Id="ARPURLINFOABOUT" Value="https://fasecad.com" />
+    <Property Id="ARPCOMMENTS"   Value="Free electrical schematic editor" />
+
+  </Package>
+</Wix>

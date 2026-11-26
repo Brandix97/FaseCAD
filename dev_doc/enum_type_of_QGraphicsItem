@@ -1,0 +1,35 @@
+		Type = UserType + ???
+###DIAGRAM EDITOR###
+Element             + 1000
+Conductor           + 1001
+Terminal            + 1002
+ElementTextItem     + 1003
+DiagramTextItem     + 1004
+IndependentTextItem + 1005
+ConductorTextItem   + 1006
+DiagramImageItem    + 1007
+QetShapItem         + 1008
+crossRefItem        + 1009
+DynamiqueElementTextItem  + 1010
+TerminalStripItem   +1011
+CablePart           +1012
+BridgePart          +1013
+ElementPrimitiveDecorator + 2200
+
+###ELEMENT EDITOR###
+part arc        + 1101
+part ellipse    + 1103
+part Line       + 1104
+part polygon    + 1105
+part terminal   + 1106
+part text       + 1107
+part text field + 1108
+part rectangle  + 1109
+part dynamic text field + 1110
+
+###QetGraphicsHandlerItem###
+QetGraphicsHandlerItem + 1200
+
+###VIEW ITEMS###
+QetGraphicsTableItem  + 1300
+QetGraphicsHeaderItem + 1301

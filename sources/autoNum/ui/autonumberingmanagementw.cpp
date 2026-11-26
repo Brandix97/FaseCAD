@@ -1,0 +1,308 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "autonumberingmanagementw.h"
+#include "../elementautonumschemecommand.h"
+#include "renumberpreviewdialog.h"
+
+#include "../../diagram.h"
+#include "../../qetgraphicsitem/element.h"
+#include "../../qetproject.h"
+#include "../numerotationcontextcommands.h"
+#include "formulaautonumberingw.h"
+#include "numparteditorw.h"
+#include "qdebug.h"
+#include "renumberelementsdialog.h"
+#include "ui_autonumberingmanagementw.h"
+#include "ui_formulaautonumberingw.h"
+
+#include <QMessageBox>
+
+/**
+	@brief AutoNumberingManagementW::AutoNumberingManagementW
+	Constructor
+	@param project
+	@param parent
+*/
+AutoNumberingManagementW::AutoNumberingManagementW(QETProject *project,
+						   QWidget *parent) :
+	QWidget(parent),
+	project_(project)
+{
+	ui = new Ui::AutoNumberingManagementW;
+	ui->setupUi(this);
+	ui->m_apply_locations_rb->setHidden(true);
+	ui->m_selected_locations_le->setHidden(true);
+	ui->folioWidget->setHidden(true);
+	ui->m_selected_folios_widget->setDisabled(true);
+	ui->m_selected_folios_le->setDisabled(true);
+	ui->m_selected_folios_le->setReadOnly(true);
+	ui->m_apply_project_rb->setChecked(true);
+	// Enabled only when project is in "Under Development" status and not read-only.
+	ui->m_renumber_elements_pb->setEnabled(ui->m_status_cb->currentIndex() == 0 && project_ && !project_->isReadOnly());
+	setProjectContext();
+}
+
+/**
+	@brief AutoNumberingManagementW::~AutoNumberingManagementW
+	Destructor
+*/
+AutoNumberingManagementW::~AutoNumberingManagementW()
+{
+	delete ui;
+}
+
+/**
+	@brief AutoNumberingManagementW::setProjectContext
+	Add Default Project Status
+*/
+void AutoNumberingManagementW::setProjectContext()
+{
+	ui->m_status_cb->addItem(tr("Under Development"));
+	ui->m_status_cb->addItem(tr("Installing"));
+	ui->m_status_cb->addItem(tr("Built"));
+}
+
+/**
+	@brief AutoNumberingManagementW::on_m_status_cb_currentIndexChanged
+	Load Default Status Options
+	@param index
+*/
+void AutoNumberingManagementW::on_m_status_cb_currentIndexChanged(int index)
+{
+
+	//Under Development
+	if (index == 0) {
+		ui->conductorWidget->setEnabled(true);
+		ui->elementWidget->setEnabled(true);
+		ui->folioWidget->setEnabled(true);
+		ui->m_both_conductor_rb->setChecked(true);
+		ui->m_both_element_rb->setChecked(true);
+		ui->m_both_folio_rb->setChecked(true);
+		ui->m_renumber_elements_pb->setEnabled(true);
+	}
+	//Installing
+	else if (index == 1) {
+		ui->conductorWidget->setEnabled(true);
+		ui->elementWidget->setEnabled(true);
+		ui->folioWidget->setEnabled(true);
+		ui->m_new_conductor_rb->setChecked(true);
+		ui->m_new_element_rb->setChecked(true);
+		ui->m_new_folio_rb->setChecked(true);
+		ui->m_renumber_elements_pb->setEnabled(true);
+	}
+	//Built
+	else if (index == 2) {
+		ui->m_disable_conductor_rb->setChecked(true);
+		ui->m_disable_element_rb->setChecked(true);
+		ui->m_disable_folio_rb->setChecked(true);
+        	ui->m_renumber_elements_pb->setEnabled(false);
+	}
+}
+
+void AutoNumberingManagementW::on_m_renumber_elements_pb_clicked()
+{
+	if (!project_ || project_->isReadOnly()) return;
+	// Only allowed during "Under Development"
+	// if (ui->m_status_cb->currentIndex() != 1) return;
+
+	QStringList titles = project_->elementAutoNum().keys();
+	titles.sort(Qt::CaseInsensitive);
+	RenumberElementsDialog dlg(titles, this);
+	if (dlg.exec() != QDialog::Accepted) return;
+
+	const QString title = dlg.selectedSchemeTitle();
+	QVector<Element *> frozen;
+	auto *cmd = ElementAutoNumSchemeCommand::renumber(
+				project_, title, &frozen,
+				title.isEmpty() ? tr("Renumber elements")
+								: tr("Renumber elements (%1)").arg(title));
+	if (!cmd)
+	{
+		QMessageBox::information(
+					this, tr("Renumber elements"),
+					frozen.isEmpty()
+					? tr("No element follows this numbering.")
+					: tr("The %n elements following this numbering have a frozen name: "
+						 "nothing is renumbered.", "", frozen.size()));
+		return;
+	}
+
+	const int renumbered = static_cast<int>(cmd->changes().size());
+	const int changed = RenumberPreviewDialog::changedLabelCount(cmd->changes());
+	if (!RenumberPreviewDialog::confirm(
+				this, tr("Renumber elements"),
+				tr("%n elements will be renumbered, starting from the first number, "
+				   "in sheet and position order.", "", renumbered),
+				cmd->changes(), frozen)) {
+		delete cmd;
+		return;
+	}
+	project_->undoStack()->push(cmd);
+
+	QString summary = tr("%n elements renumbered, %1 of them with a new name.", "", renumbered)
+			.arg(changed);
+	if (!frozen.isEmpty()) {
+		summary += QLatin1Char('\n') + tr("%n elements with a frozen name were not touched, "
+										 "and their numbers were not given out again.", "", frozen.size());
+	}
+	QMessageBox::information(this, tr("Renumber elements"), summary);
+}
+
+/**
+	@brief AutoNumberingManagementW::on_m_apply_folios_rb_clicked
+	Set From Folios Combobox
+*/
+void AutoNumberingManagementW::on_m_apply_folios_rb_clicked()
+{
+	if (ui->m_apply_folios_rb->isChecked()) {
+		ui->m_selected_folios_widget->setEnabled(true);
+		ui->m_selected_folios_le->setEnabled(true);
+		if (ui->m_from_folios_cb->count()<=0) {
+			ui->m_from_folios_cb->clear();
+			ui->m_from_folios_cb->addItem("");
+				//Titles and positions only: folios() builds nothing
+			foreach (Diagram *diagram, project_->folios()){
+				if (diagram->title() != "")
+					ui->m_from_folios_cb->addItem(
+							diagram->title(),
+							diagram->folioIndex());
+				else ui->m_from_folios_cb->addItem(
+						QString::number(
+							diagram->folioIndex()),
+							diagram->folioIndex());
+			}
+		}
+		if (ui->m_from_folios_cb->currentIndex() > 0)
+		applyEnable(true);
+		else applyEnable(false);
+	}
+}
+
+/**
+	@brief AutoNumberingManagementW::on_m_from_folios_cb_currentIndexChanged
+	Set To Folios Combobox
+	@param index
+*/
+void AutoNumberingManagementW::on_m_from_folios_cb_currentIndexChanged(
+		int index)
+{
+	ui->m_to_folios_cb->clear();
+	ui->m_selected_folios_le->clear();
+	ui->m_selected_folios_le->setEnabled(true);
+	if (index > 0) {
+		ui->m_to_folios_cb->setEnabled(true);
+		ui->m_to_folios_cb->addItem("");
+		const QList<Diagram *> folios = project_->folios();
+		for (int i=index;i<folios.size();i++) {
+				if (folios.at(i)->title() != "") {
+					ui->m_to_folios_cb->addItem(
+						folios.at(i)->title(),
+						folios.at(i)->folioIndex());
+				}
+				else ui->m_to_folios_cb->addItem(
+					QString::number(
+						folios.at(i)->folioIndex()),
+							folios.at(i)->folioIndex());
+		}
+		applyEnable(true);
+		ui->m_selected_folios_le->clear();
+		ui->m_selected_folios_le->insert(ui->m_from_folios_cb->currentText());
+	}
+	else applyEnable(false);
+}
+
+/**
+	@brief AutoNumberingManagementW::on_m_to_folios_cb_currentIndexChanged
+	Set selected folios Line Edit content
+	@param index
+*/
+void AutoNumberingManagementW::on_m_to_folios_cb_currentIndexChanged(int index)
+{
+	if (index > 0) {
+		QString from = ui->m_from_folios_cb->currentText();
+		QString to = ui->m_to_folios_cb->currentText();
+		ui->m_selected_folios_le->clear();
+		ui->m_selected_folios_le->insert(from % " - " % to);
+		ui->m_selected_folios_le->setDisabled(true);
+	}
+	applyEnable(true);
+}
+
+/**
+	@brief AutoNumberingManagementW::on_m_apply_project_rb_clicked
+	Disable folio widget
+*/
+void AutoNumberingManagementW::on_m_apply_project_rb_clicked()
+{
+	ui->m_selected_folios_widget->setDisabled(true);
+	ui->m_selected_folios_le->setDisabled(true);
+	applyEnable(true);
+}
+
+/**
+	@brief AutoNumberingManagementW::on_buttonBox_clicked
+	Action on buttonBox clicked
+	@param button
+*/
+void AutoNumberingManagementW::on_buttonBox_clicked(QAbstractButton *button)
+{
+	//transform button to int
+	int answer = ui -> buttonBox -> buttonRole(button);
+	switch (answer) {
+		//apply the context in the diagram displayed by diagram_chooser.
+		case QDialogButtonBox::ApplyRole:
+			applyEnable(false);
+			emit applyPressed();
+			break;
+		case QDialogButtonBox::HelpRole:
+			QMessageBox::information(
+						this,
+						tr("Auto Numbering Management", "title window"),
+						tr("In this menu you can set whether you want the auto numberings to be updated or not. For element auto "
+						   "numbering you have 4 options of update policy:\n"
+						   "-Both: both new and existent element labels will be updated. This is the default option.\n"
+						   "-Update only new: only new created elements will be updated. Existent element labels will be frozen.\n"
+						   "-Update only existent: only existent elements will be updated. New elements will be assigned their formula "
+						   "but will not update once created.\n"
+						   "-Disable: both new and existent element labels will not be updated. This is valid for new sheets as well.\n"
+						   "Note: these options DO NOT allow or block auto numberings, only their update policy."
+						   ));
+			break;
+	}
+}
+
+/**
+	@brief AutoNumberingManagementW::applyEnable
+	enable/disable the apply button
+	@param b
+*/
+void AutoNumberingManagementW::applyEnable(bool b)
+{
+	if (b){
+		bool valid= true;
+		if (ui->m_apply_project_rb->isChecked())
+			ui->buttonBox->button(QDialogButtonBox::Apply)
+					->setEnabled(valid);
+		else if (ui->m_apply_folios_rb->isChecked())
+			ui->buttonBox-> button(QDialogButtonBox::Apply)
+					->setEnabled(valid);
+		}
+	else {
+		ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(b);
+	}
+}

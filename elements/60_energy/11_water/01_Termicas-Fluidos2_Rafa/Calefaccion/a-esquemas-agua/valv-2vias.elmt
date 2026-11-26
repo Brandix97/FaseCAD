@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="19" hotspot_y="28">
+    <uuid uuid="{734c3f2d-a442-87c1-14e3-1be2c057c6da}"/>
+    <names>
+        <name lang="ar">صمّام كهربائي 3V  "صحي"</name>
+        <name lang="ca">Electrovàlvula 2 vies aigua sanitària</name>
+        <name lang="cs">Elektrický uzávěr 3V</name>
+        <name lang="da">Magnetventil 3V "health"</name>
+        <name lang="de">Magnetventil 3V "Sanitär"</name>
+        <name lang="el">Ηλεκτροβάνα 3V "health"</name>
+        <name lang="en">Solenoid 3V "health"</name>
+        <name lang="es">Válvula 2 vias</name>
+        <name lang="fi">Magneettiventtiili 3V "terveys"</name>
+        <name lang="fr">Electro-vanne 2V "sanitaire"</name>
+        <name lang="hr">Solenoid 3V "health"</name>
+        <name lang="hu">Mágnesszelep 3V "egészségügyi"</name>
+        <name lang="it">Elettrovalvola 3vie acqua sanitaria</name>
+        <name lang="ja">電磁弁 3V「衛生」</name>
+        <name lang="ko">솔레노이드 3V "위생"</name>
+        <name lang="mn">Соленоид 3V "эрүүл мэнд"</name>
+        <name lang="nb">Magnetventil 3V "helse"</name>
+        <name lang="nl">Elektrisch klep sanitair 3</name>
+        <name lang="nl_BE">Magneetklep 3V "sanitair"</name>
+        <name lang="pl">Elektrozawór trójdrożny</name>
+        <name lang="pt">Solenoide 3V "sanitário"</name>
+        <name lang="pt_BR">Solenoide 3V &quot;sanitario&quot;</name>
+        <name lang="ro">Electrovalvă 3V "sanitară"</name>
+        <name lang="ru">Электромагнитный клапан 3В "health"</name>
+        <name lang="sk">Solenoid 3V "health"</name>
+        <name lang="sl">Magnetni ventil 3V "zdravje"</name>
+        <name lang="sr">Соленоид 3V "health"</name>
+        <name lang="sv">Magnetventil 3V "health"</name>
+        <name lang="tr">Selenoid 3V "sağlık"</name>
+        <name lang="uk">Соленоїд 3V "health"</name>
+        <name lang="zh">两通阀</name>
+    </names>
+    <informations>24v et anti-bélier</informations>
+    <description>
+        <line x1="0" y1="-6.68" x2="0" y2="-0.35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5.77" y="-15" width="11" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="0" x2="-8" y2="-4" x3="-8" y3="4" x4="0" y4="0" x5="8" y5="-4" x6="8" y6="4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="8.64" y1="0" x2="10.47" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.77" y1="0" x2="-10.13" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="M" x="-2" y="-9" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-5" y="1.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c54cf0cd-15fa-476f-9d77-27c380e25d10}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{89b2faae-a682-41b3-a2fe-77a57b59d2ad}" name="" x="0" y="-17" orientation="n" type="Generic"/>
+        <terminal uuid="{6b634a1f-7ad1-4daa-9791-7851f2f72b60}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c457ed7a-1810-4005-bc37-caa2992a0b6f}" name="" x="-9" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

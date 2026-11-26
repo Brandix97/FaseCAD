@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="40" height="60" hotspot_x="15" hotspot_y="24">
+    <uuid uuid="{039e7f49-6a22-774f-dfb5-bb1a9414b3fa}"/>
+    <names>
+        <name lang="ar"></name>
+        <name lang="ca">BP Negre</name>
+        <name lang="cs">Černé tlačítko</name>
+        <name lang="da">BP Sort</name>
+        <name lang="de"></name>
+        <name lang="el"></name>
+        <name lang="en"></name>
+        <name lang="es">Pulsador negro</name>
+        <name lang="fi">Musta painike</name>
+        <name lang="fr">BP Noir</name>
+        <name lang="hr">PNG crni</name>
+        <name lang="hu">Nyomógomb fekete</name>
+        <name lang="it"></name>
+        <name lang="ja">黒ボタン</name>
+        <name lang="ko">검은색 버튼</name>
+        <name lang="mn">Хар товчлуур</name>
+        <name lang="nb">Svart trykknapp</name>
+        <name lang="nl"></name>
+        <name lang="nl_BE">BP Zwart</name>
+        <name lang="pl"></name>
+        <name lang="pt">BP Preto</name>
+        <name lang="pt_BR">BP Noir</name>
+        <name lang="ro">Buton negru</name>
+        <name lang="ru">Кнопка чёрная</name>
+        <name lang="sk">Čierne tlačidlo</name>
+        <name lang="sl">Črno tipkalo</name>
+        <name lang="sr">Црни тастер</name>
+        <name lang="sv">Svart tryckknapp</name>
+        <name lang="tr">Siyah Buton</name>
+        <name lang="uk">Кнопка чорна</name>
+        <name lang="zh">黑色按钮</name>
+    </names>
+    <informations>PFIT 589</informations>
+    <description>
+        <ellipse x="-7.5" y="-17.5" width="25" height="25" style="line-style:normal;line-weight:hight;filling:black;color:gray" antialias="false"/>
+        <ellipse x="9.5" y="12.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="15" y1="14" x2="11" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="14" x2="15" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="13" y1="13" x2="13" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="16" x2="16" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-7.5" y="12.5" width="7" height="7" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="14" x2="-6" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="14" x2="-2" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="13" x2="-4" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="16" x2="-1" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="15" y="-1" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{0a7ec1aa-56f5-4d4e-85fa-f35ad1211760}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <dynamic_text x="-22" y="-1" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{8fadd307-1947-412a-aa64-234fd56d371c}" font="Liberation Sans,9,-1,5,75,0,0,0,0,0,Bold">
+            <text>_</text>
+            <color>#ff00ff</color>
+        </dynamic_text>
+        <terminal uuid="{3b1f3711-f6c0-42f0-9d2a-f0125c1ec7ad}" name="" x="13" y="25" orientation="s" type="Generic"/>
+        <terminal uuid="{9d5d38cb-fdcd-4317-ac36-000663eec715}" name="" x="-4" y="25" orientation="s" type="Generic"/>
+    </description>
+</definition>

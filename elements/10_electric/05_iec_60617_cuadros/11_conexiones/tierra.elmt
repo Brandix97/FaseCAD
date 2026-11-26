@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="10" hotspot_y="12">
+    <uuid uuid="{f0ae240e-e153-53e8-a247-8782ca930f42}"/>
+    <names>
+        <name lang="de">Erde</name>
+        <name lang="en">Earth</name>
+        <name lang="es">Tierra</name>
+        <name lang="fr">Terre</name>
+        <name lang="it">Terra</name>
+        <name lang="pt">Terra</name>
+        <name lang="tr">Toprak</name>
+        <name lang="zh">接地</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="0" x2="8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="3" x2="5" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="6" x2="2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-17" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ff9e99da-0c31-57ea-a68f-1599588846f9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{ff89c4d8-da7b-5e07-89c8-76665c601ada}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

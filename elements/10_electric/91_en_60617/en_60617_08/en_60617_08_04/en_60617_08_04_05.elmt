@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="70" hotspot_x="25" hotspot_y="65">
+    <uuid uuid="{7aa3f6b1-436a-1322-5af1-fc3d0bd0d413}"/>
+    <names>
+        <name lang="ar">وات ساعة متر، يعد تدفق الطاقة من قضبان التوزيع</name>
+        <name lang="ca">Comptador de watt-hora, que compta el flux d'energia de les barres</name>
+        <name lang="cs">Watthodinový měřič pro energii ze sběrnice</name>
+        <name lang="da">Watttimemeter, tæller energiflowet fra samleskinnerne</name>
+        <name lang="de">Wattstundenzähler, der nur die von der
+Sammelschiene abgegebene Energie zählt</name>
+        <name lang="el">Μετρητής βαττωρών, μέτρηση της ροής ενέργειας από τις μπάριες</name>
+        <name lang="en">Watt-hour meter, counting the energy flow from the busbars</name>
+        <name lang="es">Contador de energía activa, que cuenta el flujo de energía desde las barras</name>
+        <name lang="fi">Wattituntimittari, laskee energian virtauksen kiskoilta</name>
+        <name lang="fr">Compteur d'énergie reçue du jeu de barres</name>
+        <name lang="hr">Vat-satno brojilo, broji tok energije od sabirnica</name>
+        <name lang="hu">Wattóra-mérő, a gyűjtősíntől elmenő energiaáramlás számolása</name>
+        <name lang="it">Contatore di energia attiva, conta il flusso di energia dalle sbarre</name>
+        <name lang="ja">電力量計，母線からのエネルギー流を計数するもの</name>
+        <name lang="ko">전력량계, 모선으로부터의 에너지 흐름 계량</name>
+        <name lang="mn">Ватт-цаг хэмжигч, шинэлэгцүүрээс энергийн урсгалыг тоолдог</name>
+        <name lang="nb">Watttimemåler, teller energiflyten fra samleskinnene</name>
+        <name lang="nl">Wattuurmeter, telt de energiestroom vanaf de rails</name>
+        <name lang="nl_BE">Wattuurmeter, telt de energiestroom vanaf de rails</name>
+        <name lang="pl">Licznik watogodzin, zliczający przepływ energii od szyn zbiorczych</name>
+        <name lang="pt">Contador de energia (watt-hora), contando o fluxo de energia a partir dos barramentos</name>
+        <name lang="pt_BR">Medidor de energia ativa, medindo o fluxo de energia a partir dos barramentos</name>
+        <name lang="ro">Contor de watt-ore, numără fluxul de energie de la bare</name>
+        <name lang="ru">Счётчик ватт-часов, считающий поток энергии от шин</name>
+        <name lang="sk">Watt hodinový merač, počítajúci tok energie zo zberníc</name>
+        <name lang="sl">Vaturni števec, šteje pretok energije iz zbiralk</name>
+        <name lang="sr">Ват-сатни бројач, броји ток енергије од сабирница</name>
+        <name lang="sv">Wattimmetermätare, räknar energiflödet från samlingsskenorna</name>
+        <name lang="tr">Watt-saat ölçer, bara çıkışından enerji akışını sayar</name>
+        <name lang="uk">Ват-годинний лічильник, що рахує потік енергії від шин</name>
+        <name lang="zh">端子排05</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{29e12ac8-fa84-40c3-83d4-7591cab1ea94}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-40" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Wh" x="-8" y="-16" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="-20" y="-60" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-50" x2="15" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-52" x2="-16" y2="-48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-4" y1="-48" x2="-4" y2="-52" x3="4" y3="-50" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+    </description>
+</definition>

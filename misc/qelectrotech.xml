@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/x-qet-project">
+		<sub-class-of type="text/xml"/>
+		<comment>QElectroTech project file</comment>
+		<comment xml:lang="ar">QElectrotech ملف مشروع</comment>
+		<comment xml:lang="be">QElectroTech project bestand</comment>
+		<comment xml:lang="ca">Fitxer de projecte QElectroTech</comment>
+		<comment xml:lang="cs">Soubor s projektem pro QElectroTech</comment>
+		<comment xml:lang="da">QElectroTech projekt fil</comment>
+		<comment xml:lang="de">QElectroTech Projektdatei</comment>
+		<comment xml:lang="el">Αρχείο έργου του QElectroTech</comment>
+		<comment xml:lang="es">Fichero proyecto QElectroTech</comment>
+		<comment xml:lang="fr">Fichier projet QElectroTech</comment>
+		<comment xml:lang="it">File del progetto QElectroTech</comment>
+		<comment xml:lang="ja">QElectroTech プロジェクト・ファイル</comment>
+		<comment xml:lang="ko">QElectroTech 프로젝트 파일</comment>
+		<comment xml:lang="nl">QElectroTech project bestand</comment>
+		<comment xml:lang="pl">Plik projektu QElectrotech</comment>
+		<comment xml:lang="pt">Ficheiro de projecto QElectroTech</comment>
+		<comment xml:lang="ru">Файл проекта QElectroTech</comment>
+		<comment xml:lang="hr">QElectroTech datoteka projekta</comment>
+		<comment xml:lang="hu">QElectroTech projektfájl</comment>
+		<comment xml:lang="mn">QElectroTech төслийн файл</comment>
+		<comment xml:lang="nb">QElectroTech prosjektfil</comment>
+		<comment xml:lang="pt_BR">Arquivo de projeto QElectroTech</comment>
+		<comment xml:lang="ro">Fișier proiect QElectroTech</comment>
+		<comment xml:lang="sk">Súbor projektu QElectroTech</comment>
+		<comment xml:lang="sl">Datoteka projekta QElectroTech</comment>
+		<comment xml:lang="sr">QElectroTech датотека пројекта</comment>
+		<comment xml:lang="sv">QElectroTech-projektfil</comment>
+		<comment xml:lang="tr">QElectroTech proje dosyası</comment>
+		<comment xml:lang="uk">Файл проєкту QElectroTech</comment>
+		<comment xml:lang="zh">QElectroTech 项目文件</comment>
+		<glob pattern="*.qet" />
+	</mime-type>
+	<mime-type type="application/x-qet-project+zip">
+		<alias type="application/x-qelectrotech-project+zip"/>
+		<sub-class-of type="application/zip"/>
+		<comment>QElectroTech zipped project file</comment>
+		<comment xml:lang="sv">Komprimerad QElectroTech-projektfil</comment>
+		<glob pattern="*.qetz" />
+		<magic priority="60">
+			<match type="string" offset="30" value="mimetypeapplication/x-qet-project+zip"/>
+			<match type="string" offset="30" value="mimetypeapplication/x-qelectrotech-project+zip"/>
+		</magic>
+	</mime-type>
+	<mime-type type="application/x-qet-element">
+		<sub-class-of type="text/xml"/>
+		<comment>QElectroTech element file</comment>
+		<comment xml:lang="ar">QElectrotech ملف مشروع</comment>
+		<comment xml:lang="be">QElectroTech element bestand</comment>
+		<comment xml:lang="ca">Fitxer d'element QElectroTech</comment>
+		<comment xml:lang="cs">Soubor s prvkem pro QElectroTech</comment>
+		<comment xml:lang="da">QElectroTech symbol fil</comment>
+		<comment xml:lang="de">QElectroTech Bauteildatei</comment>
+		<comment xml:lang="el">Αρχείο στοιχείου του QElectroTech</comment>
+		<comment xml:lang="es">Fichero elemento QElectroTech</comment>
+		<comment xml:lang="fr">Fichier élément QElectroTech</comment>
+		<comment xml:lang="it">File del progetto QElectroTech</comment>
+		<comment xml:lang="ja">QElectroTech 要素ファイル</comment>
+		<comment xml:lang="ko">QElectroTech 요소 파일</comment>
+		<comment xml:lang="nl">QElectroTech element bestand</comment>
+		<comment xml:lang="pl">Plik elementu QElectroTech</comment>
+		<comment xml:lang="pt">Ficheiro de projecto QElectroTech</comment>
+		<comment xml:lang="ru">Файл элемента QElectroTech</comment>
+		<comment xml:lang="hr">QElectroTech datoteka elementa</comment>
+		<comment xml:lang="hu">QElectroTech elemfájl</comment>
+		<comment xml:lang="mn">QElectroTech элементийн файл</comment>
+		<comment xml:lang="nb">QElectroTech elementfil</comment>
+		<comment xml:lang="pt_BR">Arquivo de elemento QElectroTech</comment>
+		<comment xml:lang="ro">Fișier element QElectroTech</comment>
+		<comment xml:lang="sk">Súbor prvku QElectroTech</comment>
+		<comment xml:lang="sl">Datoteka elementa QElectroTech</comment>
+		<comment xml:lang="sr">QElectroTech датотека елемента</comment>
+		<comment xml:lang="sv">QElectroTech-symbolfil</comment>
+		<comment xml:lang="tr">QElectroTech eleman dosyası</comment>
+		<comment xml:lang="uk">Файл елемента QElectroTech</comment>
+		<comment xml:lang="zh">QElectroTech 元件文件</comment>
+		<glob pattern="*.elmt" />
+	</mime-type>
+	<mime-type type="application/x-qet-titleblock">
+		<sub-class-of type="text/xml"/>
+		<comment>QElectroTech title block template file</comment>
+		<comment xml:lang="ar">QElectrotech نموذج إطار تعريف</comment>
+		<comment xml:lang="be">QElectroTech titel bloksjabloon</comment>
+		<comment xml:lang="ca">Model de caixetí QElectroTech</comment>
+		<comment xml:lang="cs">Vzor záhlaví výkresu pro QElectroTech</comment>
+		<comment xml:lang="da">QElectroTech titelblok skabelon</comment>
+		<comment xml:lang="de">QElectroTech Schriftfeld Vorlagedatei</comment>
+		<comment xml:lang="el">Πρότυπο πινακίδας του QElectroTech</comment>
+		<comment xml:lang="es">Modelo de cartucho QElectroTech</comment>
+		<comment xml:lang="fr">Modèle de cartouche QElectroTech</comment>
+		<comment xml:lang="it">Modello di cartiglio per QElectroTech</comment>
+		<comment xml:lang="ja">QElectroTech 表題欄テンプレート</comment>
+		<comment xml:lang="ko">QElectroTech 표제란 템플릿 파일</comment>
+		<comment xml:lang="nl">QElectroTech titel bloksjabloon</comment>
+		<comment xml:lang="pl">Szablon tabliczki rysunkowej QElectroTech</comment>
+		<comment xml:lang="pt">Modelo de moldura QElectroTech</comment>
+		<comment xml:lang="ru">Файл шаблона основной надписи листа QElectroTech</comment>
+		<comment xml:lang="hr">QElectroTech predložak zaglavlja datoteke</comment>
+		<comment xml:lang="hu">QElectroTech fejlécsablon fájl</comment>
+		<comment xml:lang="mn">QElectroTech гарчгийн блокын загварын файл</comment>
+		<comment xml:lang="nb">QElectroTech tittelblokk malfil</comment>
+		<comment xml:lang="pt_BR">Arquivo de modelo de cartuco QElectroTech</comment>
+		<comment xml:lang="ro">Fișier șablon cartus QElectroTech</comment>
+		<comment xml:lang="sk">Súbor šablóny titulkového bloku QElectroTech</comment>
+		<comment xml:lang="sl">Datoteka predloge naslovnega bloka QElectroTech</comment>
+		<comment xml:lang="sr">QElectroTech датотека шаблона заглавља</comment>
+		<comment xml:lang="sv">QElectroTech-ritningshuvudmall</comment>
+		<comment xml:lang="tr">QElectroTech başlık bloğu şablon dosyası</comment>
+		<comment xml:lang="uk">Файл шаблону основного напису QElectroTech</comment>
+		<comment xml:lang="zh">QElectroTech 标题栏模板文件</comment>
+		<glob pattern="*.titleblock" />
+	</mime-type>
+</mime-info>

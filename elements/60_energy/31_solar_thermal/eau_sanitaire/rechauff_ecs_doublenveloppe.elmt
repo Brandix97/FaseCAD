@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="70" hotspot_x="35" hotspot_y="37">
+    <uuid uuid="{e517a662-6c88-9bb5-a24c-57005143cfac}"/>
+    <names>
+        <name lang="ar">سخّان ECS  بغلاف مزدوج</name>
+        <name lang="ca">Jaqueta escalfadora ECS</name>
+        <name lang="cs">Ohřívač s dvojitým pláštěm ECS</name>
+        <name lang="da">Brugsvandsbeholder med kappe</name>
+        <name lang="de">Warmwasserbereiter Mantel</name>
+        <name lang="el">Θερμαντήρας ECS με μανδύα</name>
+        <name lang="en">ECS heater jacket</name>
+        <name lang="es">Calentador ECS con doble cubierta</name>
+        <name lang="fi">ECS vaippalämmitin</name>
+        <name lang="fr">Réchauffeur ECS double enveloppe</name>
+        <name lang="hr">PTV grijač s plaštem</name>
+        <name lang="hu">HMV fűtő köpenyes</name>
+        <name lang="it">Riscaldatore ACS</name>
+        <name lang="ja">ECSヒータージャケット</name>
+        <name lang="ko">ECS 재킷 히터</name>
+        <name lang="mn">ECS халаагч бүрхүүл</name>
+        <name lang="nb">ECS varmeapparat kappe</name>
+        <name lang="nl">Tank met interne tank wisselaar</name>
+        <name lang="nl_BE">SWW-boiler met mantel</name>
+        <name lang="pl">Zasobnik z płaszczem CWU</name>
+        <name lang="pt">Aquecedor AQS de camisa</name>
+        <name lang="pt_BR">ECS heater jacket</name>
+        <name lang="ro">Încălzitor ACM cu manta</name>
+        <name lang="ru">Кожух нагревателя ГВС</name>
+        <name lang="sk">Ohrievač TÚV plášťový</name>
+        <name lang="sl">Grelec ECS s plaščem</name>
+        <name lang="sr">ПТВ грејач са омотачем</name>
+        <name lang="sv">VV-beredare mantel</name>
+        <name lang="tr">KSH ısıtıcı ceket</name>
+        <name lang="uk">Нагрівач ГВП з сорочкою</name>
+        <name lang="zh">双壁生活热水换热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="23.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{216ffc57-8ad6-4ab6-86e3-4d20aa5cb210}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="EF" x="12" y="-22" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="ECS" x="-10" y="-24" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-17" y1="20" x2="-25" y2="20" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-20" x2="-16" y2="-20" end1="none" end2="triangle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-31" x2="10" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-31" x2="-10" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-18" x2="-15" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="réchauffeur ecs" x="25" y="20" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="15" y1="-18" x2="15" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-24" x2="-20" y2="27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15" y="-21.5" width="30" height="6" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="-25" x2="20" y2="26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-15" y="16.5" width="30" height="6" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="-21" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="-29.5" width="40" height="8" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="19" y="23" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21" y="19" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="22.5" width="40" height="8" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{056c38cc-2458-454a-ba91-b821cb809840}" name="" x="-24" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{d941b7b9-04be-4dd4-acde-4e035c1bb042}" name="" x="-24" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{2e246ab9-5b66-40f2-8002-49af38ce8429}" name="" x="10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{ba34067d-4473-47e3-929c-ef520f4294dd}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

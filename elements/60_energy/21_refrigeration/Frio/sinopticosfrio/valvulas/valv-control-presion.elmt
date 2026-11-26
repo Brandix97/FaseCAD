@@ -1,0 +1,25 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="30" hotspot_x="23" hotspot_y="19">
+    <uuid uuid="{42379c63-ae26-a90e-123e-0bb542dd0915}"/>
+    <names>
+        <name lang="ca">Vàlvula de control de pressió</name>
+        <name lang="de">Drucksteuerventil</name>
+        <name lang="es">Valvula control presión</name>
+        <name lang="pt_BR">Valvula Comando presión</name>
+        <name lang="zh">压力控制阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-12" y1="0" x2="-6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="6" y3="-5" x4="6" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="0.26" x2="0" y2="-4.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-4.5" y="-13.5" width="9" height="9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="P" x="-2" y="-8" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="4.5" y1="-10" x2="12" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-10" x2="12" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="-1" x2="15" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ac1744f3-f8d1-4c58-aa73-8fd03a94576b}" name="" x="15" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{7f86cc91-d065-4803-b1ab-ab4a38b03aba}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

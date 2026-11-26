@@ -1,0 +1,46 @@
+# Copyright 2006-2026 The QElectroTech Team
+# This file is part of QElectroTech.
+#
+# QElectroTech is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# QElectroTech is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+
+message(" - start_options")
+
+# Comment the line below to deactivate the --common-elements-dir option
+add_definitions(-DQET_ALLOW_OVERRIDE_CED_OPTION)
+
+# Comment the line below to disable the --common-tbt-dir option
+add_definitions(-DQET_ALLOW_OVERRIDE_CTBTD_OPTION)
+
+# Comment the line below to deactivate the --config-dir option
+add_definitions(-DQET_ALLOW_OVERRIDE_CD_OPTION)
+
+# Comment the line below to deactivate the --data-dir option
+add_definitions(-DQET_ALLOW_OVERRIDE_DD_OPTION)
+
+# Enable project database export when requested by the build system.
+option(QET_EXPORT_PROJECT_DB "Enable project database export" OFF)
+
+if(QET_EXPORT_PROJECT_DB)
+    add_compile_definitions(QET_EXPORT_PROJECT_DB)
+endif()
+
+# Windows and macOS: install the Qt libraries and plugins QElectroTech uses
+# with it, for a folder that runs on a machine without Qt (see
+# CMakeLists.txt).
+option(QET_DEPLOY_QT "Install Qt's libraries and plugins with QElectroTech (Windows and macOS, Qt 6.5 or newer)" OFF)
+
+# Linux and other Unix systems: compile the paths of the elements, title
+# blocks and translations relative to the program instead of to
+# CMAKE_INSTALL_PREFIX (see cmake/define_definitions.cmake).
+option(QET_RELATIVE_DATA_PATHS "Find the data from the program's folder, not from the install prefix (Linux and other Unix systems)" OFF)

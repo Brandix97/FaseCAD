@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="26" hotspot_y="37">
+    <uuid uuid="{08603715-6e8d-114a-32c3-7c09c803e9f2}"/>
+    <names>
+        <name lang="ar">حسّاس سعوي ب 3 أطراف</name>
+        <name lang="ca">Sensor capacitiu 3 terminals</name>
+        <name lang="cs">Kapacitní snímač 3 vodiče</name>
+        <name lang="da">Kapacitiv sensor 3 klemmer</name>
+        <name lang="de">Kapazitiver Sensor 3-Leiter</name>
+        <name lang="el">Χωρητικός αισθητήρας 3 ακρ</name>
+        <name lang="en">Capacitive sensor 3 terminals</name>
+        <name lang="es">Sensor capacitivo 3 terminales</name>
+        <name lang="fi">Kapasitiivinen anturi 3 napaa</name>
+        <name lang="fr">Capteur capacitif 3 bornes</name>
+        <name lang="hr">Kapacitivni senzor 3 priključka</name>
+        <name lang="hu">Kapacitív érzékelő 3 csatlakozó</name>
+        <name lang="it">Sensore capacitivo a 3 terminali</name>
+        <name lang="ja">静電容量式センサ 3 端子</name>
+        <name lang="ko">용량성 센서 3 터미널</name>
+        <name lang="mn">Багтаамжийн мэдрэгч 3 терминал</name>
+        <name lang="nb">Kapasitiv sensor 3 terminaler</name>
+        <name lang="nl">Capacitief 3</name>
+        <name lang="nl_BE">Capacitieve sensor 3 draden</name>
+        <name lang="pl">Czujnik pojemnościowy trójprzewodowy</name>
+        <name lang="pt">Sensor capacitivo 3 terminais</name>
+        <name lang="pt_BR">Sensor capacitivo 3 bornes</name>
+        <name lang="ro">Senzor capacitiv 3 borne</name>
+        <name lang="ru">Емкостный датчик 3 клеммы</name>
+        <name lang="sk">Kapacitný snímač 3 svorky</name>
+        <name lang="sl">Kapacitivni senzor 3 sponke</name>
+        <name lang="sr">Капацитивни сензор 3 прикључка</name>
+        <name lang="sv">Kapacitiv givare 3 anslutningar</name>
+        <name lang="tr">Kapasitif sensör 3 terminal</name>
+        <name lang="uk">Ємнісний датчик 3 клем</name>
+        <name lang="zh">电容式传感器三线</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="BU" x="-9" y="14" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="BK" x="6" y="-3" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="BN" x="-9" y="-25" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="2" y1="-8" x2="8" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="10" x2="-10" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-25" x2="-10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-21" y="-19" width="22" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="0" x2="-6" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-2" x2="-11" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="0" x2="-12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-2" x2="-9" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="-10" x2="-10" y2="-16" x3="-4" y3="-10" x4="-10" y4="-4" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-9" y1="-14" x2="-9" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-14" x2="-11" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="-41.5" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{65df2eeb-89a8-46d8-bf64-350725407994}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{146dd53e-32df-4ecf-be36-7a08f8bd1733}" name="" x="-10" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{3c7dca6f-c5cd-4f7d-8c62-a41a7eddc635}" name="" x="13" y="-8" orientation="e" type="Generic"/>
+        <terminal uuid="{2d5a39c3-1c45-41ed-a9eb-ceb0233e20c2}" name="" x="-10" y="15" orientation="s" type="Generic"/>
+    </description>
+</definition>

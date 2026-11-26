@@ -1,0 +1,1303 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "../../bordercelllabels.h"
+#include "generalconfigurationpage.h"
+
+#include "../../qetgraphicsitem/dynamicelementtextitem.h"
+#include "../../connectionsymbols.h"
+#include "../../scripting/liveserver.h"
+#include "../../scripting/assistantinfo.h"
+
+#include "../../qetapp.h"
+#include "../../diagramview.h"
+#include "../dockautohide.h"
+#include "../dockfold.h"
+#include "../dockfit.h"
+#include "../../qetdiagrameditor.h"
+#include "../../qeticons.h"
+#include "ui_generalconfigurationpage.h"
+#include "../../materiallist/materiallist.h"
+#include "../../cablelist/cabletypelist.h"
+#include "../../utils/qetsettings.h"
+#include "../../diagramtoolbarsettings.h"
+#include "../../partsdb/partsdatabase.h"
+#include "../../partsdb/partsserverdialog.h"
+#include "../../utils/qetutils.h"
+#include "../../utils/previousversions.h"
+#include "../../qetmessagebox.h"
+#include "../../foliogrid.h"
+#include "../../textgrid.h"
+#include "../../wiringrules.h"
+#include "../wiringruleswarning.h"
+#include "../../editor/terminalnamecheck.h"
+#include "../../ElementsCollection/qetlabelsfile.h"
+#include "../prefixconfigurationdialog.h"
+#include "../nokde/kcolorbutton.h"
+#include <QScopeGuard>
+#include <QCoreApplication>
+#include <QDir>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFontDialog>
+#include <QMessageBox>
+#include <QComboBox>
+#include <QLabel>
+#include <QSettings>
+
+#include "../../diagram.h"
+#include "../../qetproject.h"
+#include "../../qetgraphicsitem/terminal.h"
+
+namespace {
+	/**
+		@brief What one of those font buttons says: the family, the size
+		and the style, the way it would read on the sheet.
+		@param font the font that text is written with
+		@return e.g. "Liberation Sans 8,1 (Regular)"
+	*/
+	QString fontButtonLabel(const QFont &font)
+	{
+		QString style = font.styleName();
+		if (font.bold()) {
+			style = font.italic()
+					? QCoreApplication::translate("GeneralConfigurationPage",
+												  "Bold italic")
+					: QCoreApplication::translate("GeneralConfigurationPage", "Bold");
+		} else if (font.italic()) {
+			style = QCoreApplication::translate("GeneralConfigurationPage", "Italic");
+		} else if (style.isEmpty()) {
+			style = QCoreApplication::translate("GeneralConfigurationPage", "Normal");
+		}
+		return font.family() + QLatin1Char(' ')
+				+ QString::number(font.pointSizeF(), 'g', 3)
+				+ QLatin1String(" (") + style + QLatin1Char(')');
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::GeneralConfigurationPage
+	@param parent
+*/
+GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
+	ConfigPage(parent),
+	ui(new Ui::GeneralConfigurationPage)
+{
+	ui->setupUi(this);
+
+		//FaseCAD has no company collection, of symbols nor of title
+		//blocks: their folders are not asked for
+	for (QWidget *company : {static_cast<QWidget *>(ui->label_16),
+							 static_cast<QWidget *>(ui->m_company_elmt_path_cb),
+							 static_cast<QWidget *>(ui->label_17),
+							 static_cast<QWidget *>(ui->m_company_tbt_path_cb)}) {
+		company->hide();
+	}
+
+	QSettings settings;
+
+		//Appearance tab
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 and more"), QLatin1String("Round"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Always top rounding"), QLatin1String("Ceil"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Always rounded down"), QLatin1String("Floor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 and more"), QLatin1String("RoundPreferFloor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("No rounding"), QLatin1String("PassThrough"));
+	switch (QetSettings::hdpiScaleFactorRoundingPolicy()) {
+		case Qt::HighDpiScaleFactorRoundingPolicy::Round:
+			ui->m_hdpi_round_policy_cb->setCurrentIndex(0);
+			break;
+		case Qt::HighDpiScaleFactorRoundingPolicy::Ceil:
+			ui->m_hdpi_round_policy_cb->setCurrentIndex(1);
+			break;
+		case Qt::HighDpiScaleFactorRoundingPolicy::Floor:
+			ui->m_hdpi_round_policy_cb->setCurrentIndex(2);
+			break;
+		case Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor:
+			ui->m_hdpi_round_policy_cb->setCurrentIndex(3);
+			break;
+		default:
+			ui->m_hdpi_round_policy_cb->setCurrentIndex(4);
+			break;
+	}
+
+	ui->grid_startup_cb->setChecked(settings.value("diagrameditor/grid_display_startup", true).toBool());
+	ui->m_grid_min_spacing_sb->setRange(FolioGrid::min_dot_spacing_lowest,
+					      FolioGrid::min_dot_spacing_highest);
+	ui->m_grid_min_spacing_sb->setValue(
+				FolioGrid::minDotSpacing(settings.value(FolioGrid::min_dot_spacing_key)));
+	ui->guides_startup_cb->setChecked(settings.value("diagrameditor/guides_display_startup", false).toBool());
+		//Stored as "inserts" but presented as "edits", so the default (insert)
+		//is the unchecked state -- a preference reads better as an opt-out.
+	ui->m_collection_dblclick_edits->setChecked(!settings.value("elementscollection/double-click-inserts", true).toBool());
+	ui->m_collection_search_flat_cb->setChecked(settings.value("elementscollection/search-flat-list", true).toBool());
+	ui->m_context_toolbar_cb->setChecked(settings.value("diagrameditor/context_toolbar", true).toBool());
+	ui->m_mouse_gestures_cb->setChecked(settings.value("diagrameditor/mouse_gestures", true).toBool());
+	ui->m_pointer_aids_cb->setChecked(DiagramView::pointerAids());
+	ui->m_vertical_texts_from_bottom_cb->setChecked(DynamicElementTextItem::verticalFromBottom());
+	ui->m_drag_texts_without_shift_cb->setChecked(DynamicElementTextItem::dragMovesTextAlone());
+	ui->m_junction_replaces_cb->setChecked(ConnectionSymbols::newJunctionReplacesOld());
+	ui->m_terminal_help_lines_cb->setChecked(DiagramView::terminalHelpLinesShown());
+	ui->m_dock_fold_cb->setChecked(DockFold::enabled());
+	ui->m_narrow_docks_cb->setChecked(DockFit::enabled());
+	ui->m_warn_outside_sheet_cb->setChecked(QETDiagramEditor::warnsOutsideSheet());
+	ui->DiagramEditor_xGrid_sb->setValue(settings.value("diagrameditor/Xgrid", 10).toInt());
+	ui->DiagramEditor_yGrid_sb->setValue(settings.value("diagrameditor/Ygrid", 10).toInt());
+	for (const qreal divisor : TextGrid::divisors)
+		ui->DiagramEditor_textGrid_cb->addItem(
+					divisor > 0 ? TextGrid::ratioLabel(divisor) : tr("Disabled", "fr: Désactivée"),
+					divisor);
+	int text_grid_index = ui->DiagramEditor_textGrid_cb->findData(
+				settings.value(TextGrid::settings_key, 1).toReal());
+	if (text_grid_index < 0)
+		text_grid_index = ui->DiagramEditor_textGrid_cb->findData(qreal(1));
+	ui->DiagramEditor_textGrid_cb->setCurrentIndex(text_grid_index);
+	ui->DiagramEditor_xKeyGrid_sb->setValue(settings.value("diagrameditor/key_Xgrid", 10).toInt());
+	ui->DiagramEditor_yKeyGrid_sb->setValue(settings.value("diagrameditor/key_Ygrid", 10).toInt());
+	ui->DiagramEditor_xKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Xgrid", 1).toInt());
+	ui->DiagramEditor_yKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Ygrid", 1).toInt());
+	ui->DiagramEditor_Grid_PointSize_min_sb->setValue(settings.value("diagrameditor/grid_pointsize_min", 1).toInt());
+	ui->DiagramEditor_Grid_PointSize_max_sb->setValue(settings.value("diagrameditor/grid_pointsize_max", 1).toInt());
+	ui->m_use_system_color_cb->setChecked(settings.value("usesystemcolors", "true").toBool());
+	bool sysColors = ui->m_use_system_color_cb->isChecked();
+	ui->m_custom_app_color_kpb->setEnabled(!sysColors);
+	if (settings.contains("customapplicationcolor"))
+		ui->m_custom_app_color_kpb->setColor(QColor(settings.value("customapplicationcolor").toString()));
+	else
+		ui->m_custom_app_color_kpb->setColor(QApplication::palette().color(QPalette::Window));
+		//The colors above drive the interface only without a theme
+	ui->m_theme_cb->setCurrentIndex(static_cast<int>(QetSettings::theme()));
+	auto enable_colors = [this]() {
+		const bool as_before = ui->m_theme_cb->currentIndex() == 0;
+		ui->m_use_system_color_cb->setEnabled(as_before);
+		ui->m_custom_app_color_kpb->setEnabled(
+				as_before && !ui->m_use_system_color_cb->isChecked());
+	};
+	enable_colors();
+	connect(ui->m_theme_cb, qOverload<int>(&QComboBox::currentIndexChanged),
+			this, enable_colors);
+	ui->m_command_tabs_cb->setChecked(QetSettings::commandTabs());
+	ui->m_command_tabs_hide_menu_cb->setChecked(QetSettings::commandTabsHideMenuBar());
+	ui->m_autohide_docks_cb->setChecked(DockAutoHide::isOn());
+	ui->m_command_tabs_hide_menu_cb->setEnabled(ui->m_command_tabs_cb->isChecked());
+	connect(ui->m_command_tabs_cb, &QCheckBox::toggled,
+			ui->m_command_tabs_hide_menu_cb, &QWidget::setEnabled);
+
+		//PARTS DATABASE
+	ui->m_parts_db_cb->setChecked(PartsDatabase::isEnabled());
+	ui->m_parts_db_path_le->setText(QDir::toNativeSeparators(PartsDatabase::configuredPath()));
+	ui->m_parts_db_path_le->setPlaceholderText(
+		tr("This computer (%1)").arg(QDir::toNativeSeparators(PartsDatabase::defaultPath())));
+	connect(ui->m_parts_db_browse_pb, &QPushButton::clicked, this, [this]() {
+			//An existing file or a new one: a shared database may not
+			//exist yet, the first one to use it creates it
+		const QString path = QFileDialog::getSaveFileName(
+			this, tr("Parts database"),
+			ui->m_parts_db_path_le->text().isEmpty()
+				? PartsDatabase::defaultPath()
+				: ui->m_parts_db_path_le->text(),
+			tr("Parts databases (*.sqlite *.db)"), nullptr,
+			QFileDialog::DontConfirmOverwrite);
+		if (!path.isEmpty())
+			ui->m_parts_db_path_le->setText(QDir::toNativeSeparators(path));
+	});
+		//The file or a PostgreSQL server (Brandon, 2026-11-25)
+	{
+		m_parts_server = PartsDatabase::configuredServer();
+		m_parts_db_where_cb = new QComboBox(this);
+		m_parts_db_where_cb->setObjectName(QStringLiteral("m_parts_db_where_cb"));
+		m_parts_db_where_cb->addItem(tr("In a database file"), false);
+		m_parts_db_where_cb->addItem(tr("On a PostgreSQL server"), true);
+		m_parts_db_where_cb->setToolTip(tr("A server keeps the parts for several computers at once, "
+										   "each reading and writing them"));
+		m_parts_db_where_cb->setCurrentIndex(PartsDatabase::useServer() ? 1 : 0);
+		auto *server_pb = new QPushButton(tr("Server..."), this);
+		server_pb->setObjectName(QStringLiteral("m_parts_db_server_pb"));
+		auto *row = new QHBoxLayout();
+		row->addWidget(m_parts_db_where_cb);
+		row->addWidget(server_pb);
+		row->addStretch();
+		ui->gridLayout->addLayout(row, 12, 1);
+		auto where_changed = [this, server_pb]() {
+			const bool server = m_parts_db_where_cb->currentData().toBool();
+			server_pb->setEnabled(server);
+			ui->m_parts_db_path_le->setEnabled(!server);
+			ui->m_parts_db_browse_pb->setEnabled(!server);
+		};
+		connect(m_parts_db_where_cb, qOverload<int>(&QComboBox::currentIndexChanged), this, where_changed);
+		where_changed();
+		connect(server_pb, &QPushButton::clicked, this, [this]() {
+			PartsServerDialog dialog(this);
+			dialog.setServer(m_parts_server);
+			dialog.setSourceFile(QDir::fromNativeSeparators(ui->m_parts_db_path_le->text().trimmed()));
+			if (dialog.exec() == QDialog::Accepted) {
+				m_parts_server = dialog.server();
+			}
+		});
+	}
+	bool tabbed = settings.value("diagrameditor/viewmode", "tabbed") == "tabbed";
+	if(tabbed)
+		ui->m_use_tab_mode_rb->setChecked(true);
+	else
+		ui->m_use_windows_mode_rb->setChecked(true);
+	ui->m_selection_rectangle_cb->setCurrentIndex(static_cast<int>(DiagramView::selectionRectangle()));
+	ui->m_zoom_out_beyond_folio->setChecked(settings.value("diagrameditor/zoom-out-beyond-of-folio", false).toBool());
+	ui->m_zoom_step_sb->setValue(DiagramView::zoomStep());
+	ui->m_terminal_conductor_color->setChecked(Terminal::takesConductorColor());
+	ui->m_conductor_properties_panel->setChecked(settings.value("diagrameditor/conductor_properties_panel", false).toBool());
+	ui->m_wiring_rules_cb->setChecked(WiringRules::masterEnabled());
+	{
+			//The rules every project follows unless it sets its own (#1158)
+		const WiringRules::Settings rules = WiringRules::applicationSettings();
+		ui->m_wiring_max_wires_sb->setValue(rules.max_wires);
+		ui->m_wiring_one_wire_per_report_cb->setChecked(rules.one_wire_per_report);
+		auto enable = [this](bool on) {
+			ui->m_wiring_max_wires_label->setEnabled(on);
+			ui->m_wiring_max_wires_sb->setEnabled(on);
+			ui->m_wiring_one_wire_per_report_cb->setEnabled(on);
+		};
+		enable(ui->m_wiring_rules_cb->isChecked());
+		connect(ui->m_wiring_rules_cb, &QCheckBox::toggled, this, enable);
+	}
+	ui->m_use_gesture_trackpad->setChecked(settings.value("diagramview/gestures", false).toBool());
+	ui->m_save_label_paste->setChecked(settings.value("diagramcommands/erase-label-on-copy", true).toBool());
+	ui->m_autonumber_pasted->setChecked(settings.value("diagramcommands/autonumber-pasted-elements", true).toBool());
+	ui->m_enable_chained_reports->setChecked(settings.value("project/enable-chained-reports", false).toBool());
+	ui->m_enable_scripting->setChecked(QetSettings::scriptingEnabled());
+#ifdef QET_HAS_SCRIPTING
+	if (QetSettings::scriptingForcedByEnvironment()) {
+			//QET_ENABLE_SCRIPTING wins over the stored value, so let the box
+			//say so rather than offer a tick that changes nothing.
+		ui->m_enable_scripting->setEnabled(false);
+		ui->m_enable_scripting->setToolTip(
+					tr("Enabled by the QET_ENABLE_SCRIPTING environment "
+					   "variable; this setting has no effect while it is "
+					   "set."));
+	}
+#else
+		//Built without Qt Qml: there is no scripting to allow. Disabled as
+		//well as hidden, so applyConf() leaves the stored value alone --
+		//a hidden box still reports its state, and writing it here would
+		//quietly clear a preference set on a build that does have Qml.
+	ui->m_enable_scripting->setVisible(false);
+	ui->m_enable_scripting->setEnabled(false);
+#endif
+	ui->m_use_folio_label->setChecked(settings.value("genericpanel/folio", true).toBool());
+	ui->m_border_0->setChecked(settings.value("border-columns_0", BorderCellLabels::defaultColumnsFromZero).toBool());
+	ui->m_autosave_sb->setValue(settings.value("diagrameditor/autosave-interval", 0).toInt());
+	ui->m_project_lock->setChecked(settings.value("projectlock/enabled", true).toBool());
+	ui->m_reopen_projects->setChecked(settings.value("projects/reopen_at_start", false).toBool());
+	ui->m_offer_backups->setChecked(settings.value("projects/offer_backups", true).toBool());
+
+		//The copy made beside a project when it is opened (Brandon,
+		//2026-11-20): made without asking by default
+	{
+		auto *label = new QLabel(tr("When a project is opened:"), ui->tab_4);
+		auto *backup = new QComboBox(ui->tab_4);
+		backup->setObjectName(QStringLiteral("m_backup_on_open"));
+		backup->addItem(tr("Make a backup copy beside it"), QStringLiteral("always"));
+		backup->addItem(tr("Ask whether to make a backup copy"), QStringLiteral("ask"));
+		backup->addItem(tr("Make no backup copy"), QStringLiteral("never"));
+		backup->setToolTip(tr("The copy is the project as it was when opened, in its folder, named "
+							  "after it: project_backup.qet. Each opening writes over the copy before."));
+		backup->setCurrentIndex(qMax(0, backup->findData(
+				settings.value(QStringLiteral("projects/backup_on_open"), QStringLiteral("always")))));
+		ui->gridLayout_2->removeItem(ui->verticalSpacer_2);
+		ui->gridLayout_2->addWidget(label, 14, 0);
+		ui->gridLayout_2->addWidget(backup, 14, 2);
+		ui->gridLayout_2->addItem(ui->verticalSpacer_2, 15, 0);
+	}
+	ui->m_working_copy_recovery->setChecked(QetSettings::workingCopyRecovery());
+	ui->m_qetdb_enabled->setChecked(QetSettings::qetdbEnabled());
+	ui->m_previous_versions_sb->setValue(PreviousVersions::count());
+	
+	QString fontInfos = settings.value("diagramitemfont", "Liberation Sans").toString() + " " +
+			settings.value("diagramitemsize", "9").toString() + " (" +
+			settings.value("diagramitemstyle", "Regular").toString() + ")";
+	ui->m_font_pb->setText(fontInfos);
+
+
+		//Dynamic element text item
+	ui->m_dyn_text_rotation_sb->setValue(settings.value("diagrameditor/dynamic_text_rotation", 0).toInt());
+	ui->m_dyn_text_width_sb->setValue(settings.value("diagrameditor/dynamic_text_width", -1).toInt());
+	if (settings.contains("diagrameditor/dynamic_text_font"))
+	{
+		QFont font;
+		QETUtils::fontFromString(font, settings.value("diagrameditor/dynamic_text_font").toString());
+
+		QString fontInfos = font.family() + " " +
+				QString::number(font.pointSize()) + " (" +
+				font.styleName() + ")";
+		ui->m_dyn_text_font_pb->setText(fontInfos);
+	} else { ui->m_dyn_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+
+		//Independent text item
+	ui->m_indi_text_rotation_sb->setValue(settings.value("diagrameditor/independent_text_rotation",0).toInt());
+	if (settings.contains("diagrameditor/independent_text_font"))
+	{
+		QFont font;
+		QETUtils::fontFromString(font, settings.value("diagrameditor/independent_text_font").toString());
+
+		QString fontInfos = font.family() + " " +
+							QString::number(font.pointSize()) + " (" +
+							font.styleName() + ")";
+		ui->m_indi_text_font_pb->setText(fontInfos);
+	} else { ui->m_indi_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+
+		//Cable texts: what every cable writes along its own line when
+		//it has not been given a font of its own.
+	ui->m_cable_text_font_pb->setText(fontButtonLabel(QETApp::cableTextsFont()));
+	ui->m_cable_core_font_pb->setText(fontButtonLabel(QETApp::cableCoreFont()));
+
+		//Where those texts stop in relation to the beginning of their
+		//own line, for the cables which say nothing about it themselves
+	const int align_index = int(QETApp::cableTextAlignment()) == int(Qt::AlignLeft) ? 2
+							: (int(QETApp::cableTextAlignment()) == int(Qt::AlignHCenter) ? 1 : 0);
+	ui->m_cable_align_cb->setCurrentIndex(align_index);
+	
+	ui->m_highlight_integrated_elements->setChecked(settings.value("diagrameditor/highlight-integrated-elements", true).toBool());
+	ui->m_default_elements_info->setPlainText(settings.value("elementeditor/default-informations", "").toString());
+	/*
+	  Nombre maximum de primitives affichees par la "liste des parties"
+	  Au-dela, un petit message est affiche, indiquant que ce nombre a ete depasse
+	  et que la liste ne sera donc pas mise a jour.
+	*/
+	ui->MaxPartsElementEditorList_sb->setValue(settings.value("elementeditor/max-parts-element-editor-list", 200).toInt());
+	ui->ElementEditor_Grid_PointSize_min_sb->setValue(settings.value("elementeditor/grid_pointsize_min", 1).toInt());
+	ui->ElementEditor_Grid_PointSize_max_sb->setValue(settings.value("elementeditor/grid_pointsize_max", 1).toInt());
+	ui->m_check_terminal_names_cb->setChecked(settings.value(TerminalNameCheck::settings_key, true).toBool());
+
+	QString path = settings.value("elements-collections/common-collection-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_common_elmt_path_cb->blockSignals(true);
+		ui->m_common_elmt_path_cb->setCurrentIndex(1);
+		ui->m_common_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_common_elmt_path_cb->blockSignals(false);
+	}
+
+	path = settings.value("elements-collections/company-collection-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_company_elmt_path_cb->blockSignals(true);
+		ui->m_company_elmt_path_cb->setCurrentIndex(1);
+		ui->m_company_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_company_elmt_path_cb->blockSignals(false);
+	}
+
+	path = settings.value("elements-collections/company-tbt-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_company_tbt_path_cb->blockSignals(true);
+		ui->m_company_tbt_path_cb->setCurrentIndex(1);
+		ui->m_company_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_company_tbt_path_cb->blockSignals(false);
+	}
+
+	path = settings.value("elements-collections/custom-collection-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_custom_elmt_path_cb->blockSignals(true);
+		ui->m_custom_elmt_path_cb->setCurrentIndex(1);
+		ui->m_custom_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_custom_elmt_path_cb->blockSignals(false);
+	}
+	
+
+	path = settings.value("elements-collections/custom-tbt-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_custom_tbt_path_cb->blockSignals(true);
+		ui->m_custom_tbt_path_cb->setCurrentIndex(1);
+		ui->m_custom_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_custom_tbt_path_cb->blockSignals(false);
+	}
+	
+	path = settings.value("elements-collections/macros-path", "default").toString();
+	if (path != "default")
+	{
+		ui->m_user_macros_path_cb->blockSignals(true);
+		ui->m_user_macros_path_cb->setCurrentIndex(1);
+		ui->m_user_macros_path_cb->setItemData(1, path, Qt::DisplayRole);
+		ui->m_user_macros_path_cb->blockSignals(false);
+	}
+
+		//MATERIAL FILE
+	path = MaterialList::configuredPath();
+	ui->m_material_list_path_le->setText(path);
+	if (path.isEmpty())
+	{
+		ui->m_material_list_path_le->setPlaceholderText(
+			tr("Not set (default: %1)",
+			   "hint shown in the material file field when no file is configured yet")
+				.arg(MaterialList::defaultPath()));
+	}
+
+		//CABLE TYPE FILE
+	path = CableTypeList::configuredPath();
+	ui->m_cable_type_list_path_le->setText(path);
+	if (path.isEmpty())
+	{
+		ui->m_cable_type_list_path_le->setPlaceholderText(
+			tr("Not set (default: %1)",
+			   "hint shown in the cable type file field when no file is configured yet")
+				.arg(CableTypeList::defaultPath()));
+	}
+
+	fillLang();	
+}
+
+GeneralConfigurationPage::~GeneralConfigurationPage()
+{
+	delete ui;
+}
+
+/**
+	@brief GeneralConfigurationPage::applyConf
+	Write all configuration in settings file
+*/
+void GeneralConfigurationPage::applyConf()
+{
+	QSettings settings;
+		//The fonts are kept by QETApp: read again once written below
+	const auto forget_fonts = qScopeGuard([]() {QETApp::forgetSettingsFonts();});
+	
+		//GLOBAL
+	const QetSettings::Theme old_theme = QetSettings::theme();
+	const QetSettings::Theme new_theme =
+			static_cast<QetSettings::Theme>(ui->m_theme_cb->currentIndex());
+	QetSettings::setTheme(new_theme);
+		//The colors are always stored, but drive the interface only
+		//when no theme is or was chosen : otherwise applyTheme() does
+	const bool colors_drive = old_theme == QetSettings::Theme::AsBefore
+			&& new_theme == QetSettings::Theme::AsBefore;
+	bool was_using_system_colors = settings.value("usesystemcolors", "true").toBool();
+	bool must_use_system_colors  = ui->m_use_system_color_cb->isChecked();
+	settings.setValue("usesystemcolors", must_use_system_colors);
+	if (was_using_system_colors != must_use_system_colors) {
+		if (must_use_system_colors) {
+			if (colors_drive)
+				QETApp::instance()->useSystemPalette(true);
+		} else {
+			QColor custom_color = ui->m_custom_app_color_kpb->color();
+			settings.setValue("customapplicationcolor", custom_color.name());
+			if (colors_drive)
+				QETApp::instance()->useCustomPalette(custom_color);
+		}
+	} else if (!must_use_system_colors) {
+		QColor custom_color = ui->m_custom_app_color_kpb->color();
+		settings.setValue("customapplicationcolor", custom_color.name());
+		if (colors_drive)
+			QETApp::instance()->useCustomPalette(custom_color);
+	}
+	if (!colors_drive)
+		QETApp::instance()->applyTheme();
+	PartsDatabase::setEnabled(ui->m_parts_db_cb->isChecked());
+	PartsDatabase::setConfiguredPath(QDir::fromNativeSeparators(
+		ui->m_parts_db_path_le->text().trimmed()));
+	if (m_parts_db_where_cb) {
+		PartsDatabase::setUseServer(m_parts_db_where_cb->currentData().toBool());
+		if (m_parts_server.isValid()) {
+			PartsDatabase::setConfiguredServer(m_parts_server);
+		}
+	}
+	if (ui->m_autohide_docks_cb->isChecked() != DockAutoHide::isOn()) {
+		DockAutoHide::setOn(ui->m_autohide_docks_cb->isChecked());
+			//Every open diagram editor folds its side panels, or shows
+			//them again
+		DockAutoHide::applyToAll();
+	}
+	if (ui->m_command_tabs_cb->isChecked() != QetSettings::commandTabs()
+			|| ui->m_command_tabs_hide_menu_cb->isChecked() != QetSettings::commandTabsHideMenuBar()) {
+		QetSettings::setCommandTabs(ui->m_command_tabs_cb->isChecked());
+		QetSettings::setCommandTabsHideMenuBar(ui->m_command_tabs_hide_menu_cb->isChecked());
+			//Every open diagram editor rebuilds its toolbars, and with
+			//them shows or hides the tabs
+		DiagramToolbarSettings::applyToAll();
+	}
+	settings.setValue("border-columns_0",ui->m_border_0->isChecked());
+	settings.setValue("lang", ui->m_lang_cb->itemData(ui->m_lang_cb->currentIndex()).toString());
+
+		//hdpi
+	QetSettings::setHdpiScaleFactorRoundingPolicy(ui->m_hdpi_round_policy_cb->currentData().toString());
+	QGuiApplication::setHighDpiScaleFactorRoundingPolicy(QetSettings::hdpiScaleFactorRoundingPolicy());
+
+		//ELEMENT EDITOR
+	settings.setValue("elementeditor/default-informations", ui->m_default_elements_info->toPlainText());
+	settings.setValue("elementeditor/max-parts-element-editor-list", ui->MaxPartsElementEditorList_sb->value());
+	settings.setValue("elementeditor/grid_pointsize_min", ui->ElementEditor_Grid_PointSize_min_sb->value());
+	settings.setValue("elementeditor/grid_pointsize_max", ui->ElementEditor_Grid_PointSize_max_sb->value());
+	settings.setValue(TerminalNameCheck::settings_key, ui->m_check_terminal_names_cb->isChecked());
+
+		//DIAGRAM VIEW
+	settings.setValue("diagramview/gestures", ui->m_use_gesture_trackpad->isChecked());
+
+		//DIAGRAM COMMAND
+	settings.setValue("diagramcommands/erase-label-on-copy", ui->m_save_label_paste->isChecked());
+	settings.setValue("diagramcommands/autonumber-pasted-elements", ui->m_autonumber_pasted->isChecked());
+	settings.setValue("project/enable-chained-reports", ui->m_enable_chained_reports->isChecked());
+
+		//SCRIPTING
+		//Left alone while the environment forces it on: the box is disabled
+		//in that case and writing its state would silently clear the user's
+		//real preference the first time this dialog is accepted.
+	if (ui->m_enable_scripting->isEnabled()) {
+		QetSettings::setScriptingEnabled(ui->m_enable_scripting->isChecked());
+	}
+		//GENERIC PANEL
+	settings.setValue("genericpanel/folio",ui->m_use_folio_label->isChecked());
+
+
+		//DIAGRAM EDITOR
+	QString view_mode = ui->m_use_tab_mode_rb->isChecked() ? "tabbed" : "windowed";
+	settings.setValue("diagrameditor/viewmode", view_mode) ;
+	settings.setValue("diagrameditor/highlight-integrated-elements", ui->m_highlight_integrated_elements->isChecked());
+	DiagramView::setSelectionRectangle(static_cast<DiagramView::SelectionRectangle>(
+		ui->m_selection_rectangle_cb->currentIndex()));
+	settings.setValue("diagrameditor/zoom-out-beyond-of-folio", ui->m_zoom_out_beyond_folio->isChecked());
+	DiagramView::setZoomStep(ui->m_zoom_step_sb->value());
+	settings.setValue("diagrameditor/conductor_properties_panel", ui->m_conductor_properties_panel->isChecked());
+	if (ui->m_terminal_conductor_color->isChecked() != Terminal::takesConductorColor()) {
+		Terminal::setTakesConductorColor(ui->m_terminal_conductor_color->isChecked());
+		for (QETProject *project : QETApp::registeredProjects())
+			for (Diagram *diagram : project->diagrams())
+				diagram->update();
+	}
+	WiringRules::setMasterEnabled(ui->m_wiring_rules_cb->isChecked());
+	{
+		const WiringRules::Settings before = WiringRules::applicationSettings();
+		WiringRules::Settings rules = before;
+		rules.max_wires = ui->m_wiring_max_wires_sb->value();
+		rules.one_wire_per_report = ui->m_wiring_one_wire_per_report_cb->isChecked();
+		WiringRules::setApplicationSettings(rules);
+		if (WiringRules::masterEnabled() && WiringRules::turnsRuleOn(before, rules)) {
+			WiringRulesWarning::show(this);
+		}
+	}
+	settings.setValue("diagrameditor/autosave-interval", ui->m_autosave_sb->value());
+	settings.setValue("projectlock/enabled", ui->m_project_lock->isChecked());
+	settings.setValue("projects/reopen_at_start", ui->m_reopen_projects->isChecked());
+	settings.setValue("projects/offer_backups", ui->m_offer_backups->isChecked());
+	if (auto *backup = findChild<QComboBox *>(QStringLiteral("m_backup_on_open")))
+		settings.setValue(QStringLiteral("projects/backup_on_open"), backup->currentData());
+	QetSettings::setWorkingCopyRecovery(ui->m_working_copy_recovery->isChecked());
+	QetSettings::setQetdbEnabled(ui->m_qetdb_enabled->isChecked());
+	PreviousVersions::setCount(ui->m_previous_versions_sb->value());
+
+	settings.setValue("diagrameditor/grid_display_startup", ui->grid_startup_cb->isChecked());
+	settings.setValue(FolioGrid::min_dot_spacing_key, ui->m_grid_min_spacing_sb->value());
+	settings.setValue("diagrameditor/guides_display_startup", ui->guides_startup_cb->isChecked());
+	settings.setValue("elementscollection/double-click-inserts", !ui->m_collection_dblclick_edits->isChecked());
+	settings.setValue("elementscollection/search-flat-list", ui->m_collection_search_flat_cb->isChecked());
+	settings.setValue("diagrameditor/context_toolbar", ui->m_context_toolbar_cb->isChecked());
+	settings.setValue("diagrameditor/mouse_gestures", ui->m_mouse_gestures_cb->isChecked());
+	DiagramView::setPointerAids(ui->m_pointer_aids_cb->isChecked());
+	ConnectionSymbols::setNewJunctionReplacesOld(ui->m_junction_replaces_cb->isChecked());
+	if (ui->m_vertical_texts_from_bottom_cb->isChecked() != DynamicElementTextItem::verticalFromBottom())
+		DynamicElementTextItem::setVerticalFromBottom(ui->m_vertical_texts_from_bottom_cb->isChecked());
+	DynamicElementTextItem::setDragMovesTextAlone(ui->m_drag_texts_without_shift_cb->isChecked());
+	DiagramView::setTerminalHelpLinesShown(ui->m_terminal_help_lines_cb->isChecked());
+	DockFold::setEnabled(ui->m_dock_fold_cb->isChecked());
+	DockFit::setEnabled(ui->m_narrow_docks_cb->isChecked());
+	QETDiagramEditor::setWarnsOutsideSheet(ui->m_warn_outside_sheet_cb->isChecked());
+		//Grid step and key navigation
+	settings.setValue("diagrameditor/Xgrid", ui->DiagramEditor_xGrid_sb->value());
+	settings.setValue("diagrameditor/Ygrid", ui->DiagramEditor_yGrid_sb->value());
+	settings.setValue(TextGrid::settings_key, ui->DiagramEditor_textGrid_cb->currentData());
+	settings.setValue("diagrameditor/key_Xgrid", ui->DiagramEditor_xKeyGrid_sb->value());
+	settings.setValue("diagrameditor/key_Ygrid", ui->DiagramEditor_yKeyGrid_sb->value());
+	settings.setValue("diagrameditor/key_fine_Xgrid", ui->DiagramEditor_xKeyGridFine_sb->value());
+	settings.setValue("diagrameditor/key_fine_Ygrid", ui->DiagramEditor_yKeyGridFine_sb->value());
+	settings.setValue("diagrameditor/grid_pointsize_min", ui->DiagramEditor_Grid_PointSize_min_sb->value());
+	settings.setValue("diagrameditor/grid_pointsize_max", ui->DiagramEditor_Grid_PointSize_max_sb->value());
+		//Dynamic text item
+	settings.setValue("diagrameditor/dynamic_text_rotation", ui->m_dyn_text_rotation_sb->value());
+	settings.setValue("diagrameditor/dynamic_text_width", ui->m_dyn_text_width_sb->value());
+		//Independent text item
+	settings.setValue("diagrameditor/independent_text_rotation", ui->m_indi_text_rotation_sb->value());
+
+		//ELEMENTS COLLECTION
+	QString path = settings.value("elements-collections/common-collection-path").toString();
+	if (ui->m_common_elmt_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_common_elmt_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/common-collection-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/common-collection-path", "default");
+	}
+	if (path != settings.value("elements-collections/common-collection-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+
+	path = settings.value("elements-collections/company-collection-path").toString();
+	if (ui->m_company_elmt_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_company_elmt_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/company-collection-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/company-collection-path", "default");
+	}
+	if (path != settings.value("elements-collections/company-collection-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+
+	path = settings.value("elements-collections/custom-collection-path").toString();
+	if (ui->m_custom_elmt_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_custom_elmt_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/custom-collection-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/custom-collection-path", "default");
+	}
+	if (path != settings.value("elements-collections/custom-collection-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+	
+	path = settings.value("elements-collections/company-tbt-path").toString();
+	if (ui->m_company_tbt_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_company_tbt_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/company-tbt-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/company-tbt-path", "default");
+	}
+	if (path != settings.value("elements-collections/company-tbt-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+
+	path = settings.value("elements-collections/custom-tbt-path").toString();
+	if (ui->m_custom_tbt_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_custom_tbt_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/custom-tbt-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/custom-tbt-path", "default");
+	}
+	if (path != settings.value("elements-collections/custom-tbt-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+
+	path = settings.value("elements-collections/macros-path").toString();
+	if (ui->m_user_macros_path_cb->currentIndex() == 1)
+	{
+		QString path = ui->m_user_macros_path_cb->currentText();
+		QDir dir(path);
+		settings.setValue("elements-collections/macros-path",
+						  dir.exists() ? path : "default");
+	}
+	else {
+		settings.setValue("elements-collections/macros-path", "default");
+	}
+	if (path != settings.value("elements-collections/macros-path").toString()) {
+		QETApp::resetCollectionsPath();
+	}
+
+		//MATERIAL FILE
+		//Unlike the collections, the material file is a plain file, it is
+		//kept as chosen even when it doesn't exist yet : the user may well
+		//point QElectroTech at a file he intends to write later.
+	MaterialList::setConfiguredPath(ui->m_material_list_path_le->text().trimmed());
+
+		//CABLE TYPE FILE
+		//Same rule as the material file : it is a plain file, kept as
+		//chosen even when it doesn't exist yet.
+	CableTypeList::setConfiguredPath(ui->m_cable_type_list_path_le->text().trimmed());
+
+		//The way a cable lines up its texts at the beginning of its
+		//line, for every cable which says nothing about it itself --
+		//written now, so the sheets drawn again just below show it.
+	const int align_index = ui->m_cable_align_cb->currentIndex();
+	QETApp::setCableTextAlignment(align_index == 2 ? Qt::AlignLeft
+												   : (align_index == 1
+													  ? Qt::AlignHCenter
+													  : Qt::AlignRight));
+
+		//Every folio is drawn again: the texts of the cables are written
+		//from the settings, so that what he just picked reaches the
+		//sheets without his having to touch anything on them first.
+	for (QETProject *project : QETApp::registeredProjects())
+	{
+		for (Diagram *diagram : project->diagrams()) {
+			diagram->update();
+		}
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::title
+	@return The title of this page
+*/
+QString GeneralConfigurationPage::title() const
+{
+	return(tr("General", "configuration page title"));
+}
+
+/**
+	@brief GeneralConfigurationPage::icon
+	@return The icon of this page
+*/
+QIcon GeneralConfigurationPage::icon() const
+{
+	return(QET::Icons::Settings);
+}
+
+/**
+	@brief GeneralConfigurationPage::fillLang
+	fill all available lang
+*/
+void GeneralConfigurationPage::fillLang()
+{
+	ui->m_lang_cb->addItem(QET::Icons::translation,	tr("System"), "system");
+	ui->m_lang_cb->insertSeparator(1);
+
+		// all lang available on lang directory
+	ui->m_lang_cb->addItem(QET::Icons::sa,		tr("Arabic"), "ar");
+	ui->m_lang_cb->addItem(QET::Icons::br,		tr("Brazilian"), "pt_BR");
+	ui->m_lang_cb->addItem(QET::Icons::catalonia,	tr("Catalan"), "ca");
+	ui->m_lang_cb->addItem(QET::Icons::cs,		tr("Czech"), "cs");
+	ui->m_lang_cb->addItem(QET::Icons::de,		tr("German"), "de");
+	ui->m_lang_cb->addItem(QET::Icons::da,		tr("Danish"), "da");
+	ui->m_lang_cb->addItem(QET::Icons::gr,		tr("Greek"), "el");
+	ui->m_lang_cb->addItem(QET::Icons::en,		tr("English"), "en");
+	ui->m_lang_cb->addItem(QET::Icons::es,		tr("Spanish"), "es");
+	ui->m_lang_cb->addItem(QET::Icons::fr,		tr("French"), "fr");
+	ui->m_lang_cb->addItem(QET::Icons::hr,		tr("Croatian"), "hr");
+	ui->m_lang_cb->addItem(QET::Icons::it,		tr("Italian"), "it");
+	ui->m_lang_cb->addItem(QET::Icons::jp,		tr("Japanese"), "ja");
+	ui->m_lang_cb->addItem(QET::Icons::ko,		tr("Korean"), "ko");
+	ui->m_lang_cb->addItem(QET::Icons::lv,		tr("Latvian"), "lv");
+	ui->m_lang_cb->addItem(QET::Icons::pl,		tr("Polish"), "pl");
+	ui->m_lang_cb->addItem(QET::Icons::pt,		tr("Portuguese"), "pt");
+	ui->m_lang_cb->addItem(QET::Icons::ro,		tr("Romanian"), "ro");
+	ui->m_lang_cb->addItem(QET::Icons::ru,		tr("Russian"), "ru");
+	ui->m_lang_cb->addItem(QET::Icons::sk,		tr("Slovak"), "sk");
+	ui->m_lang_cb->addItem(QET::Icons::sl,		tr("Slovenian"), "sl");
+	ui->m_lang_cb->addItem(QET::Icons::nl,		tr("Dutch"), "nl");
+	ui->m_lang_cb->addItem(QET::Icons::no,		tr("Norwegian"), "nb");
+	ui->m_lang_cb->addItem(QET::Icons::nl_BE,	tr("Belgium-Flemish"), "nl_BE");
+	ui->m_lang_cb->addItem(QET::Icons::tr,		tr("Turkish"), "tr");
+	ui->m_lang_cb->addItem(QET::Icons::hu,		tr("Hungarian"), "hu");
+	ui->m_lang_cb->addItem(QET::Icons::mn,		tr("Mongolian"), "mn");
+	ui->m_lang_cb->addItem(QET::Icons::uk,		tr("Ukrainian"), "uk");
+	ui->m_lang_cb->addItem(QET::Icons::zh,		tr("Chinese"), "zh");
+	ui->m_lang_cb->addItem(QET::Icons::zh,		tr("Chinese (Traditional)"), "zh_TW");
+	ui->m_lang_cb->addItem(QET::Icons::se,		tr("Swedish"), "sv");
+		//set current index to the lang found in setting file
+		//if lang doesn't exist set to system
+	QSettings settings;
+	for (int i=0; i<ui->m_lang_cb->count(); i++)
+	{
+		if (ui->m_lang_cb->itemData(i).toString() == settings.value("lang").toString())
+		{
+			ui->m_lang_cb->setCurrentIndex(i);
+			return;
+		}
+	}
+	ui->m_lang_cb->setCurrentIndex(0);
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_font_pb_clicked
+	Apply font to config
+*/
+void GeneralConfigurationPage::on_m_font_pb_clicked()
+{
+	bool ok;
+	QSettings settings;
+	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Sans").toString());
+	curFont.setPointSizeF(settings.value("diagramitemsize", "9").toInt());
+	curFont.setStyleName (settings.value("diagramitemstyle", "Regular").toString());
+	QFont font = QFontDialog::getFont(&ok, curFont, this, QString(),
+									  QFontDialog::DontUseNativeDialog);
+	if (ok)
+	{
+		settings.setValue("diagramitemfont", font.family());
+		settings.setValue("diagramitemsize", font.pointSize());
+		settings.setValue("diagramitemweight", font.weight());
+		settings.setValue("diagramitemstyle", font.styleName());
+		QString fontInfos = settings.value("diagramitemfont").toString() + " " +
+				settings.value("diagramitemsize").toString() + " (" +
+				settings.value("diagramitemstyle").toString() + ")";
+		ui->m_font_pb->setText(fontInfos);
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::m_dyn_text_font_pb_clicked
+	 Apply font to config
+*/
+void GeneralConfigurationPage::on_m_dyn_text_font_pb_clicked()
+{
+	bool ok;
+	QSettings settings;
+	QFont curFont;
+	QETUtils::fontFromString(curFont, settings.value("diagrameditor/dynamic_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	QFont font = QFontDialog::getFont(&ok, curFont, this, QString(),
+									  QFontDialog::DontUseNativeDialog);
+	if (ok)
+	{
+		settings.setValue("diagrameditor/dynamic_text_font", QETUtils::fontToString(font));
+		QString fontInfos = font.family() + " " +
+							QString::number(font.pointSize()) + " (" +
+							font.styleName() + ")";
+		ui->m_dyn_text_font_pb->setText(fontInfos);
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_cable_text_font_pb_clicked
+	Let him pick the font the texts of a cable are written with by
+	default: designation, type, installation, location and length.
+
+	Every cable which has not been given a font of its own follows it,
+	from now on: one which has keeps the one it was given, which is why
+	those are set on the cable itself rather than here.
+*/
+void GeneralConfigurationPage::on_m_cable_text_font_pb_clicked()
+{
+	bool ok = false;
+	const QFont font = QFontDialog::getFont(&ok, QETApp::cableTextsFont(), this,
+			tr("Cable text font"), QFontDialog::DontUseNativeDialog);
+	if (!ok) return;
+
+	QSettings settings;
+	settings.setValue("cable-management/cable-text-font", QETUtils::fontToString(font));
+	ui->m_cable_text_font_pb->setText(fontButtonLabel(QETApp::cableTextsFont()));
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_cable_core_font_pb_clicked
+	Let him pick the font the colours of the cores are written with by
+	default -- all of them together, the way they are drawn: one row of
+	colours beside the line, never set apart from each other.
+*/
+void GeneralConfigurationPage::on_m_cable_core_font_pb_clicked()
+{
+	bool ok = false;
+	const QFont font = QFontDialog::getFont(&ok, QETApp::cableCoreFont(), this,
+			tr("Core colors font"), QFontDialog::DontUseNativeDialog);
+	if (!ok) return;
+
+	QSettings settings;
+	settings.setValue("cable-management/cable-core-font", QETUtils::fontToString(font));
+	ui->m_cable_core_font_pb->setText(fontButtonLabel(QETApp::cableCoreFont()));
+}
+
+
+
+
+void GeneralConfigurationPage::on_m_common_elmt_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("Path of the Common Collection"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_common_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_common_elmt_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+void GeneralConfigurationPage::on_m_company_elmt_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("Company collection path"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_company_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_company_elmt_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+void GeneralConfigurationPage::on_m_custom_elmt_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Collection Path"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_custom_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_custom_elmt_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+void GeneralConfigurationPage::on_m_company_tbt_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("Company title-blocks"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_company_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_company_tbt_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+void GeneralConfigurationPage::on_m_custom_tbt_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Title blocks Path"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_custom_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_custom_tbt_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+void GeneralConfigurationPage::on_m_user_macros_path_cb_currentIndexChanged(int index)
+{
+	if (index == 1)
+	{
+		QString path = QFileDialog::getExistingDirectory(this, tr("User macro path"), QETApp::documentDir());
+		if (!path.isEmpty()) {
+			ui->m_user_macros_path_cb->setItemData(1, path, Qt::DisplayRole);
+		}
+		else {
+			ui->m_user_macros_path_cb->setCurrentIndex(0);
+		}
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_prefix_pb_clicked
+	Open the dialog where the prefixes of the user collection folders are
+	configured, creating the qet_labels.xml of that collection when it
+	does not exist yet.
+	Nothing is written until that dialog is validated : cancelling it
+	leaves the collection exactly as it was.
+*/
+void GeneralConfigurationPage::on_m_prefix_pb_clicked()
+{
+		//The directory the page displays, even when the change has not
+		//been applied yet : QETApp::customElementsDir() still answers with
+		//the previously saved path, which is not what is shown when the
+		//combo has been put back on "Par defaut".
+	QString directory;
+	switch (ui->m_custom_elmt_path_cb->currentIndex()) {
+	case 1:			//"Parcourir..." : the item itself holds the chosen path
+		directory = ui->m_custom_elmt_path_cb->itemData(1, Qt::DisplayRole).toString();
+		break;
+	case 0:			//"Par defaut" : where a default custom collection lives
+		directory = QETApp::dataDir() + QStringLiteral("/elements/");
+		break;
+	default:
+		break;
+	}
+	if (directory.isEmpty()) {
+		directory = QETApp::customElementsDir();
+	}
+	directory = QDir::cleanPath(directory);
+
+	if (!QDir(directory).exists() && !QDir().mkpath(directory)) {
+		QMessageBox::warning(this,
+							 tr("Folder not found"),
+							 tr("The user collection folder:\n%1\ndoes not exist and could not be created.")
+							 .arg(directory));
+		return;
+	}
+
+	const QList<QStringList> folders = QetLabelsFile::scanFolders(directory);
+	if (folders.isEmpty()) {
+		QMessageBox::information(this,
+								 tr("No subfolder"),
+								 tr("The user collection:\n%1\nhas no subfolder, so there is no prefix to configure.")
+								 .arg(directory));
+		return;
+	}
+
+	QetLabelsFile labels;
+	if (!labels.load(directory)) {
+		QMessageBox::warning(this,
+							 tr("Prefix file cannot be read"),
+							 labels.errorString());
+		return;
+	}
+	if (labels.isBroken()) {
+			//A broken file may only be one forgotten tag away from being
+			//perfectly valid : tell what is wrong and let the user decide,
+			//rebuilding would drop every prefix the file still holds.
+		QMessageBox box(QMessageBox::Warning,
+						tr("Prefix file damaged"),
+						tr("The file %1 is not a valid XML file:\n%2")
+						.arg(labels.filePath(), labels.brokenReason()),
+						QMessageBox::NoButton,
+						this);
+		box.addButton(tr("Fix the file"), QMessageBox::AcceptRole);
+		auto *rebuild_button = box.addButton(tr("Rebuild"), QMessageBox::DestructiveRole);
+		box.setInformativeText(tr("Nothing has been changed yet.\n"
+								  "\n"
+								  "“Fix the file”: this window closes without changing anything. Open "
+								  "the file in a text editor at the place shown, fix it, then run this "
+								  "command again.\n"
+								  "\n"
+								  "“Rebuild”: the folder tree is made again, but all the current "
+								  "prefixes are lost. The current file is kept as qet_labels.xml.bak "
+								  "before it is replaced."));
+		box.setDetailedText(tr("File: %1").arg(labels.filePath()));
+		box.exec();
+		if (box.clickedButton() != rebuild_button) {
+			return;
+		}
+	}
+
+	PrefixConfigurationDialog dialog(labels, folders, this);
+	dialog.exec();
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_material_list_browse_pb_clicked
+	Let the user pick an existing material file.
+*/
+void GeneralConfigurationPage::on_m_material_list_browse_pb_clicked()
+{
+	QString start_dir = ui->m_material_list_path_le->text();
+	start_dir = start_dir.isEmpty()
+			? QETApp::documentDir()
+			: QFileInfo(start_dir).absolutePath();
+
+	const QString path = QFileDialog::getOpenFileName(
+		this,
+		tr("Select the materials list file"),
+		start_dir,
+		tr("CSV files (*.csv)"));
+
+	if (!path.isEmpty()) {
+		ui->m_material_list_path_le->setText(path);
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_material_list_create_pb_clicked
+	Create the material file with its header line, so the columns are
+	known before the user fills them from his spreadsheet.
+*/
+void GeneralConfigurationPage::on_m_material_list_create_pb_clicked()
+{
+	QString path = ui->m_material_list_path_le->text();
+	path = path.isEmpty()
+			? MaterialList::defaultPath()
+			: QFileInfo(path).absolutePath() + QLatin1Char('/') + MaterialList::defaultFileName();
+
+	path = QFileDialog::getSaveFileName(
+		this,
+		tr("Create the materials list file"),
+		path,
+		tr("CSV files (*.csv)"));
+	if (path.isEmpty()) {
+		return;
+	}
+	if (QFileInfo(path).suffix().isEmpty()) {
+		path += QStringLiteral(".csv");
+	}
+
+		//An existing file is kept as it is : this button creates the
+		//header, it never overwrites a catalogue.
+	if (MaterialList::isEmptyFile(path))
+	{
+		QString error;
+		if (!MaterialList::createFile(path, &error))
+		{
+			QET::QetMessageBox::critical(this,
+										 tr("Cannot create"),
+										 tr("Cannot create the file:\n%1\n%2")
+											.arg(path, error));
+			return;
+		}
+	}
+
+	ui->m_material_list_path_le->setText(path);
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_cable_type_list_browse_pb_clicked
+	Let the user pick an existing cable type file.
+*/
+void GeneralConfigurationPage::on_m_cable_type_list_browse_pb_clicked()
+{
+	QString start_dir = ui->m_cable_type_list_path_le->text();
+	start_dir = start_dir.isEmpty()
+			? QETApp::documentDir()
+			: QFileInfo(start_dir).absolutePath();
+
+	const QString path = QFileDialog::getOpenFileName(
+		this,
+		tr("Select the cable types file"),
+		start_dir,
+		tr("CSV files (*.csv)"));
+
+	if (!path.isEmpty()) {
+		ui->m_cable_type_list_path_le->setText(path);
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_cable_type_list_create_pb_clicked
+	Create the cable type file with its header line, so the columns are
+	known before the user fills them from his spreadsheet.
+*/
+void GeneralConfigurationPage::on_m_cable_type_list_create_pb_clicked()
+{
+	QString path = ui->m_cable_type_list_path_le->text();
+	path = path.isEmpty()
+			? CableTypeList::defaultPath()
+			: QFileInfo(path).absolutePath() + QLatin1Char('/') + CableTypeList::defaultFileName();
+
+	path = QFileDialog::getSaveFileName(
+		this,
+		tr("Create the cable types file"),
+		path,
+		tr("CSV files (*.csv)"));
+	if (path.isEmpty()) {
+		return;
+	}
+	if (QFileInfo(path).suffix().isEmpty()) {
+		path += QStringLiteral(".csv");
+	}
+
+		//An existing file is kept as it is : this button creates the
+		//header, it never overwrites a catalogue.
+	if (CableTypeList::isEmptyFile(path))
+	{
+		QString error;
+		if (!CableTypeList::createFile(path, &error))
+		{
+			QET::QetMessageBox::critical(this,
+										 tr("Cannot be created"),
+										 tr("Cannot create the file:\n%1\n%2")
+											.arg(path, error));
+			return;
+		}
+	}
+
+	ui->m_cable_type_list_path_le->setText(path);
+}
+
+void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
+{
+	bool ok;
+	QSettings settings;
+	QFont curFont;
+	QETUtils::fontFromString(curFont, settings.value("diagrameditor/independent_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	QFont font = QFontDialog::getFont(&ok, curFont, this, QString(),
+									  QFontDialog::DontUseNativeDialog);
+	if (ok)
+	{
+		settings.setValue("diagrameditor/independent_text_font", QETUtils::fontToString(font));
+		QString fontInfos = font.family() + " " +
+							QString::number(font.pointSize()) + " (" +
+							font.styleName() + ")";
+		ui->m_indi_text_font_pb->setText(fontInfos);
+	}
+}
+
+void GeneralConfigurationPage::on_MaxPartsElementEditorList_sb_valueChanged(int value)
+{
+	if (value > 500) {
+		ui->MaxPartsElementEditorList_sb->setToolTip(tr("Values that are too high might cause the application to crash"));
+		ui->MaxPartsElementEditorList_sb->setStyleSheet("background-color: orange");
+	} else {
+		ui->MaxPartsElementEditorList_sb->setToolTip("");
+		ui->MaxPartsElementEditorList_sb->setStyleSheet("");
+	}
+}
+
+/**
+	@brief GeneralConfigurationPage::on_DiagramEditor_Grid_PointSize_min_sb_valueChanged
+	the min-value of the max-SpinBox has to be limited:
+	may not be smaller than current value of min-SpinBox
+	@param value - the new value of the min-SpinBox
+ */
+void GeneralConfigurationPage::on_DiagramEditor_Grid_PointSize_min_sb_valueChanged(int value)
+{
+	ui->DiagramEditor_Grid_PointSize_max_sb->setMinimum(std::max(1, value));
+}
+
+/**
+	@brief GeneralConfigurationPage::on_ElementEditor_Grid_PointSize_min_sb_valueChanged
+	the min-value of the max-SpinBox has to be limited:
+	may not be smaller than current value of min-SpinBox
+	@param value - the new value of the min-SpinBox
+ */
+void GeneralConfigurationPage::on_ElementEditor_Grid_PointSize_min_sb_valueChanged(int value)
+{
+	ui->ElementEditor_Grid_PointSize_max_sb->setMinimum(std::max(1, value));
+}
+
+void GeneralConfigurationPage::on_m_hdpi_round_cb_clicked(bool checked)
+{
+	if (checked) {
+		if (QMessageBox::Cancel == QET::QetMessageBox::warning(
+				this,
+				tr("Experimental feature"),
+				tr("WARNING:\n"
+				   "Any setting other than “No rounding” may cause rendering errors in the project, depending on:\n"
+				   "\n"
+				   "1 - the selected setting \n"
+				   "2 - the screen's dpi \n"
+				   "3 - editing the project on another computer and/or screen that does not have the same settings as in points 1 "
+				   "and 2."),
+				QMessageBox::StandardButton::Cancel|QMessageBox::StandardButton::Ok,
+				QMessageBox::StandardButton::Cancel
+														   )) {
+			ui->m_hdpi_round_cb->blockSignals(true);
+			ui->m_hdpi_round_cb->setChecked(false);
+			ui->m_hdpi_round_cb->blockSignals(false);
+			return;
+		}
+	}
+	ui->m_hdpi_round_label->setEnabled(checked);
+	ui->m_hdpi_round_policy_cb->setEnabled(checked);
+}
+
+/**
+	@brief GeneralConfigurationPage::on_m_use_system_color_cb_toggled
+	Enable/disable the custom color picker when the system color
+	checkbox is toggled.
+	@param checked
+*/
+void GeneralConfigurationPage::on_m_use_system_color_cb_toggled(bool checked)
+{
+	ui->m_custom_app_color_kpb->setEnabled(
+			!checked && ui->m_theme_cb->currentIndex() == 0);
+}
+

@@ -1,0 +1,130 @@
+# Copyright 2006-2026 The QElectroTech Team
+# This file is part of QElectroTech.
+#
+# QElectroTech is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# QElectroTech is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+
+cmake_minimum_required(VERSION 3.5)
+
+message("..___________________________________________________________________")
+
+project(C_unittests LANGUAGES CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+SET(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+message(".. PROJECT_NAME              :" ${PROJECT_NAME})
+message(".. PROJECT_SOURCE_DIR        :" ${PROJECT_SOURCE_DIR})
+if(NOT DEFINED QET_DIR)
+  set(QET_DIR "../..")
+  message(".. QET_DIR is not set, assuming QET is ../..")
+endif()
+message(".. QET_DIR                   :" ${QET_DIR})
+if(NOT DEFINED QET_COMPONENTS)
+  message(".. QET_COMPONENTS is not set !!! I set them up !!!")
+  include(../../cmake/qet_compilation_vars.cmake)
+endif()
+
+find_package(
+ Qt6
+ COMPONENTS
+ ${QET_COMPONENTS}
+ REQUIRED)
+
+
+Include(FetchContent)
+
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v2.13.10)
+
+FetchContent_MakeAvailable(Catch2)
+
+include(../../cmake/fetch_kdeaddons.cmake)
+include(../../cmake/fetch_singleapplication.cmake)
+include(../../cmake/fetch_pugixml.cmake)
+
+enable_testing()
+
+add_executable(
+    ${PROJECT_NAME}
+    tst_My_test.cpp
+    src/borderproperties_test.cpp
+    main.cpp
+    ${QET_DIR}/sources/borderproperties.cpp
+    ${QET_DIR}/sources/borderproperties.h
+    )
+
+if(NOT BUILD_WITH_KF)
+    target_sources(
+        ${PROJECT_NAME}
+        PRIVATE
+        src/kautosavefile_test.cpp
+        ${QET_DIR}/sources/ui/nokde/kautosavefile.cpp
+        )
+    target_include_directories(
+        ${PROJECT_NAME}
+        PRIVATE
+        ${QET_DIR}/sources/ui/nokde
+        )
+    # Writes a recovery file and waits for the test to kill it, as a crash
+    # ends QElectroTech: on Windows too, which has no fork()
+    add_executable(kautosavefile_writer
+        kautosavefile_writer.cpp
+        ${QET_DIR}/sources/ui/nokde/kautosavefile.cpp
+        )
+    target_link_libraries(kautosavefile_writer PRIVATE Qt::Core)
+    add_dependencies(${PROJECT_NAME} kautosavefile_writer)
+    target_compile_definitions(
+        ${PROJECT_NAME}
+        PRIVATE
+        QET_AUTOSAVE_WRITER="$<TARGET_FILE:kautosavefile_writer>"
+        )
+endif()
+
+target_link_libraries(
+    ${PROJECT_NAME}
+    PUBLIC
+    Catch2::Catch2
+    PRIVATE
+    ${KF_PRIVATE_LIBRARIES}
+    ${QET_PRIVATE_LIBRARIES})
+
+if (DEFINED ENV{CATCH_INCLUDE_DIR})
+    set(CATCH_INCLUDE_DIR $ENV{CATCH_INCLUDE_DIR})
+else ()
+    set(CATCH_INCLUDE_DIR "") # set by Qt Creator wizard
+endif ()
+if (CATCH_INCLUDE_DIR STREQUAL "")
+    message(".. CATCH_INCLUDE_DIR is not set,"
+      "assuming Catch2 can be found automatically in your system")
+elseif (EXISTS ${CATCH_INCLUDE_DIR})
+    include_directories(${CATCH_INCLUDE_DIR})
+endif ()
+
+# Run by ctest, with no display needed. With MSVC it needs Qt's bin folder on
+# PATH, as the tests in ../qttest do (ENVIRONMENT_MODIFICATION, CMake 3.22).
+add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
+set_tests_properties(${PROJECT_NAME} PROPERTIES
+  ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+if(MSVC AND NOT CMAKE_VERSION VERSION_LESS 3.22)
+  set_property(TEST ${PROJECT_NAME} APPEND PROPERTY ENVIRONMENT_MODIFICATION
+    "PATH=path_list_prepend:$<TARGET_FILE_DIR:Qt6::Core>")
+endif()

@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="11" hotspot_y="32">
+    <uuid uuid="{97a2ce07-3208-0f99-4e55-4865feecd733}"/>
+    <names>
+        <name lang="ar">مصهر 1ق</name>
+        <name lang="ca">Fusible 1p</name>
+        <name lang="cs">Pojistka 1p</name>
+        <name lang="da">Sikring 1p</name>
+        <name lang="de">Sicherung 1p</name>
+        <name lang="el">Ασφάλεια 1p</name>
+        <name lang="en">Fuse 1p</name>
+        <name lang="es">Fusible 1p</name>
+        <name lang="fi">Varoke 1p</name>
+        <name lang="fr">Fusible 1p</name>
+        <name lang="hr">Osigurač 1p</name>
+        <name lang="hu">Olvadóbiztosító 1 pólusú</name>
+        <name lang="it">Fusibile 1p</name>
+        <name lang="ja">ヒューズ 1p</name>
+        <name lang="ko">퓨즈 1p</name>
+        <name lang="mn">Хайлмаг 1ф</name>
+        <name lang="nb">Sikring 1p</name>
+        <name lang="nl">Zekering 1p</name>
+        <name lang="nl_BE">Zekering 1p</name>
+        <name lang="pl">Bezpiecznik 1p</name>
+        <name lang="pt">Fusível 1p</name>
+        <name lang="pt_BR">Fusível 1 pinos</name>
+        <name lang="ro">Fuzibil 1p</name>
+        <name lang="ru">Предохранитель 1п</name>
+        <name lang="sk">Poistka 1p</name>
+        <name lang="sl">Varovalka 1p</name>
+        <name lang="sr">Осигурач 1п</name>
+        <name lang="sv">Säkring 1p</name>
+        <name lang="tr">Sigorta 1p</name>
+        <name lang="uk">Запобіжник 1п</name>
+        <name lang="zh">1极熔断器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-3" y="-10" width="6" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-2" y="-25" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{bfbf3256-ac23-4ce9-b4e0-729aa7338739}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="6" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{b12232a5-c73b-4559-ba54-076c7a50bef5}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-17" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{dd6f5b99-eca8-4928-89f0-eb8204fb8854}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-35" y="-1" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{77ff60fb-d245-4681-8f5e-ac827f675bab}" font="Liberation Sans,7,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>comment</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{67931c05-57c6-40dd-8607-3e2bb47feaa8}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{05fdba7b-6122-47ce-9e68-fe7ebc9c3df3}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

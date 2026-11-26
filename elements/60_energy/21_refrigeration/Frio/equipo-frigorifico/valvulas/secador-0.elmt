@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{f2b08feb-51af-fc00-7926-bfb79e142a1b}"/>
+    <names>
+        <name lang="ca">Filtre capil·lar</name>
+        <name lang="es">Filtro-capilar</name>
+        <name lang="pt_BR">Filtro-capilar</name>
+        <name lang="zh">干燥过滤器-0</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-13" y="-6" width="3" height="3" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="23" y="3" width="3" height="3" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-26" y="1" width="13" height="7" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="23" y="-6" width="3" height="3" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="26" y="2" width="7" height="4" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="26" y="-7" width="7" height="4" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-26" y="-8" width="13" height="7" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="30" y1="-2.58" x2="30" y2="1.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-0.66" x2="-20" y2="0.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-13" y="3" width="3" height="3" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12" y1="-6" x2="23.57" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.89" y1="6" x2="23.57" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13" y1="-2" x2="-13" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="26" y1="-4" x2="26" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{30b555ff-0ec0-408e-a018-22045f078be9}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{3c0d6977-3a6c-4cad-8645-7452eeb6cd06}" name="" x="30" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

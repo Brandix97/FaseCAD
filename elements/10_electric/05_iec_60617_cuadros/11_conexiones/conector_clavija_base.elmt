@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="25">
+    <uuid uuid="{ab9ee2a1-fe2a-4c56-97f1-cd17cc8fd5e1}"/>
+    <names>
+        <name lang="de">Steckverbindung</name>
+        <name lang="en">Plug and socket</name>
+        <name lang="es">Conector (clavija y base)</name>
+        <name lang="fr">Fiche et socle</name>
+        <name lang="it">Spina e presa</name>
+        <name lang="pt">Ficha e tomada</name>
+        <name lang="tr">Fiş ve priz</name>
+        <name lang="zh">插头和插座</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4" y="-6" width="8" height="8" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-4" x2="0" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="6" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-13" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{765318ba-3ac6-5575-81f2-0607d01f2089}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{405b6ff9-d191-5ea3-8502-17a9dd410673}" name="1" x="0" y="-20" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{21cea6eb-ff87-5507-a364-e6c2d844749c}" name="1" x="0" y="20" orientation="s" type="Generic" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="2">
+    <uuid uuid="{df527fc8-eb29-373b-1763-d5c682c2fd14}"/>
+    <names>
+        <name lang="ar">خط تحت أرضي</name>
+        <name lang="ca">Línia de metro</name>
+        <name lang="cs">Podzemní kabel</name>
+        <name lang="da">Underjordisk ledning</name>
+        <name lang="de">Leiter im Erdreich, Erdkabel</name>
+        <name lang="el">Υπόγεια γραμμή</name>
+        <name lang="en">Underground line</name>
+        <name lang="es">Línea subterránea</name>
+        <name lang="fi">Maanalainen johto</name>
+        <name lang="fr">Ligne souterraine</name>
+        <name lang="hr">Podzemni vod</name>
+        <name lang="hu">Földalatti vezeték</name>
+        <name lang="it">Linea sotteranea</name>
+        <name lang="ja">地中線</name>
+        <name lang="ko">지중 선로</name>
+        <name lang="mn">Газар доорх шугам</name>
+        <name lang="nb">Underjordisk linje</name>
+        <name lang="nl">Ondergronds lijn</name>
+        <name lang="nl_BE">Ondergrondse lijn</name>
+        <name lang="pl">Linia podziemna</name>
+        <name lang="pt">Linha subterrânea</name>
+        <name lang="pt_BR">Linha subterrÓ¢nea</name>
+        <name lang="ro">Linie subterană</name>
+        <name lang="ru">Подземная линия</name>
+        <name lang="sk">Podzemné vedenie</name>
+        <name lang="sl">Podzemni vod</name>
+        <name lang="sr">Подземни вод</name>
+        <name lang="sv">Markledning</name>
+        <name lang="tr">Yeraltı hattı</name>
+        <name lang="uk">Підземна лінія</name>
+        <name lang="zh">地下线路</name>
+    </names>
+    <informations>EN 60617: 11-03-01</informations>
+    <description>
+        <line x1="-2" y1="6" x2="2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-1.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{20d61235-64d7-4974-aeb0-21e300d5f223}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-1" y1="8" x2="1" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="10" x2="20" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="4" x2="4" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{4dd78faa-5712-41e3-80fc-1a4f8387201b}" name="" x="-20" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{0fa6c9ee-005d-4586-95d1-c13f76dc3a1f}" name="" x="20" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

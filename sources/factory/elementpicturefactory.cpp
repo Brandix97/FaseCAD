@@ -1,0 +1,1534 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementpicturefactory.h"
+
+#include "../ElementsCollection/elementslocation.h"
+#include "../editor/graphicspart/partline.h"
+#include "../properties/elementdata.h"
+#include "../qetapp.h"
+#include "../qetversion.h"
+#include "../utils/qetutils.h"
+
+#include <QAbstractTextDocumentLayout>
+#include <QDomElement>
+#include <QGraphicsSimpleTextItem>
+#include <QPainter>
+#include <QPicture>
+#include <QRegularExpression>
+#include <QTextDocument>
+#include <iostream>
+#include <algorithm>
+
+ElementPictureFactory* ElementPictureFactory::m_factory = nullptr;
+
+/**
+	@brief ElementPictureFactory::cacheKey
+	@param location
+	@return the key under which the drawing of the element at location is
+	cached.
+
+	An element definition normally carries its own uuid, and that is used
+	directly. Definitions saved before uuids were written do not have one --
+	a good share of the shipped example projects are still in that state --
+	and they all presented the same null uuid as a key. The drawing of such
+	an element was therefore either rebuilt for every instance placed, or
+	stored under a key it shared with every other element lacking a uuid.
+	Derive a stable key from the location for those instead:
+	ElementsLocation::toString() qualifies an embedded path with the id of
+	the project that owns it, and project ids come from an ever-increasing
+	counter and are never reused, so the derived key cannot collide with an
+	element of another project.
+*/
+QUuid ElementPictureFactory::cacheKey(const ElementsLocation &location)
+{
+	const QUuid uuid = location.uuid();
+	if (!uuid.isNull()) {
+		return uuid;
+	}
+	return QUuid::createUuidV5(QUuid(), location.toString().toUtf8());
+}
+
+/**
+	@brief ElementPictureFactory::getPictures
+	Set the picture of the element at location.
+	Note, picture can be null
+	@param location
+	@param picture
+	@param low_picture
+*/
+void ElementPictureFactory::getPictures(const ElementsLocation &location, QPicture &picture, QPicture &low_picture)
+{
+	if(!location.exist()) {
+		return;
+	}
+
+	const QUuid uuid = cacheKey(location);
+
+	if(m_pictures_H.contains(uuid))
+	{
+		picture = m_pictures_H.value(uuid);
+		low_picture = m_low_pictures_H.value(uuid);
+	}
+	else
+	{
+		if (build(location))
+		{
+			picture = m_pictures_H.value(uuid);
+			low_picture = m_low_pictures_H.value(uuid);
+		}
+	}
+}
+
+/**
+	@brief ElementPictureFactory::getReadablePictures
+	Same as getPictures(), for an element that mirrors or turns its symbol
+	on a folio (Element::symbolTextsTransform()). The drawing is the same;
+	only the texts differ: each one is drawn so that, once the element has
+	applied @p texts_transform, its box lands where the element puts it but
+	its letters read as they do in the symbol itself.
+	@param location
+	@param texts_transform : the mirrors, then the turn, of the element
+	@param picture
+	@param low_picture
+*/
+void ElementPictureFactory::getReadablePictures(const ElementsLocation &location,
+												const QTransform &texts_transform,
+												QPicture &picture,
+												QPicture &low_picture)
+{
+	if(!location.exist() || texts_transform.isIdentity()) {
+		return;
+	}
+
+	const QPair<QUuid, int> key(cacheKey(location), readableKey(texts_transform));
+
+	if(!m_readable_pictures_H.contains(key)
+	   && !build(location, nullptr, nullptr, texts_transform)) {
+		return;
+	}
+	picture = m_readable_pictures_H.value(key);
+	low_picture = m_readable_low_pictures_H.value(key);
+}
+
+/**
+	@brief ElementPictureFactory::readableKey
+	@param texts_transform : mirrors and quarter turns only
+	@return a number for @p texts_transform, the same for the same one
+*/
+int ElementPictureFactory::readableKey(const QTransform &texts_transform)
+{
+	auto digit = [](qreal value) {return qRound(value) + 1;}; // -1, 0 or 1
+	return ((digit(texts_transform.m11()) * 3 + digit(texts_transform.m12())) * 3
+			+ digit(texts_transform.m21())) * 3 + digit(texts_transform.m22());
+}
+
+/**
+	@brief ElementPictureFactory::dropCache
+	Forget the cached drawing of the element at @p location, so the next
+	getPictures()/pixmap()/getPrimitives() call rebuilds it from the
+	definition's current content instead of returning what was cached the
+	first time this location was drawn.
+
+	A placed Element keeps its own copy of the picture in m_picture /
+	m_low_zoom_picture (set once, in buildFromXml()), so dropping the shared
+	cache here does not by itself change what is on screen -- callers doing
+	a manual refresh (bugtracker #802) still need each Element to re-fetch
+	its picture afterwards.
+	@param location
+*/
+void ElementPictureFactory::dropCache(const ElementsLocation &location)
+{
+	const QUuid uuid = cacheKey(location);
+	m_pictures_H.remove(uuid);
+	m_low_pictures_H.remove(uuid);
+	const auto keys = m_readable_pictures_H.keys();
+	for (const auto &key : keys) {
+		if (key.first == uuid) {
+			m_readable_pictures_H.remove(key);
+			m_readable_low_pictures_H.remove(key);
+		}
+	}
+	m_pixmap_H.remove(uuid);
+		//The text items belong to the cache; nothing else holds them.
+	qDeleteAll(m_primitives_H.take(uuid).m_texts);
+}
+
+/**
+	@brief ElementPictureFactory::pixmap
+	@param location
+	@return the pixmap of the element at location
+	Note pixmap can be null
+*/
+QPixmap ElementPictureFactory::pixmap(const ElementsLocation &location)
+{
+	const QUuid uuid = cacheKey(location);
+
+	if (m_pixmap_H.contains(uuid)) {
+		return m_pixmap_H.value(uuid);
+	}
+
+	if(build(location))
+	{
+		auto doc = location.pugiXml();
+			//size
+			//Bounded first, so the rounding below cannot overflow on a
+			//crafted file.
+		int w = qBound(0, doc.document_element().attribute("width").as_int(), 1000000);
+		int h = qBound(0, doc.document_element().attribute("height").as_int(), 1000000);
+		while (w % 10) ++ w;
+		while (h % 10) ++ h;
+			//hotspot
+		int hsx = qMin(doc.document_element().attribute("hotspot_x").as_int(), w);
+		int hsy = qMin(doc.document_element().attribute("hotspot_y").as_int(), h);
+
+			//The size comes straight from the file. A symbol whose parts
+			//span hundreds of thousands of pixels would ask for a pixmap of
+			//hundreds of gigabytes; draw it scaled down to fit instead. The
+			//largest symbols in the shipped collection are about 3200 px,
+			//so this only changes files nobody would draw on purpose.
+		const int max_side = 4096;
+		qreal scale = 1.0;
+		if (w > max_side || h > max_side) {
+			scale = qreal(max_side) / qMax(w, h);
+			w = qMax(1, qRound(w * scale));
+			h = qMax(1, qRound(h * scale));
+		}
+
+		QPixmap pix(w, h);
+			//Element definitions almost always draw with a hardcoded black
+			//stroke color, on the assumption of the white diagram sheet they
+			//are normally placed on. The pixmap is kept as drawn, on a
+			//transparent background: the places that show it (the
+			//collection tree through ElementPreviewDelegate, the drag icon)
+			//adapt it to the palette with QET::Palette::forPalette(), so a
+			//dark palette gets light ink instead of black on black
+			//(bugtracker #335).
+		pix.fill(Qt::transparent);
+
+		QPainter painter(&pix);
+		painter.setRenderHint(QPainter::Antialiasing, true);
+		painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+		painter.scale(scale, scale);
+		painter.translate(hsx, hsy);
+		painter.drawPicture(0, 0, m_pictures_H.value(uuid));
+
+		m_pixmap_H.insert(uuid, pix);
+		return pix;
+	}
+
+	return QPixmap();
+}
+
+
+/**
+	@brief ElementPictureFactory::getPrimitives
+	@param location
+	@return The primtive used to draw the element at location
+*/
+ElementPictureFactory::primitives ElementPictureFactory::getPrimitives(
+		const ElementsLocation &location)
+{
+	const QUuid uuid = cacheKey(location);
+	if(!m_primitives_H.contains(uuid))
+		build(location);
+
+	return m_primitives_H.value(uuid);
+}
+
+ElementPictureFactory::~ElementPictureFactory()
+{
+	for (primitives p : m_primitives_H.values()) {
+		qDeleteAll(p.m_texts);
+	}
+}
+
+/**
+	@brief ElementPictureFactory::pictureFromDefinition
+	@return the drawing of an element @a definition that is in no
+	collection yet, such as one being made by a dialog, drawn by the same
+	code as a placed element. Not cached.
+*/
+QPicture ElementPictureFactory::pictureFromDefinition(const QDomElement &definition) const
+{
+	QPicture picture;
+	QPainter painter(&picture);
+	painter.setRenderHint(QPainter::Antialiasing, true);
+	painter.setRenderHint(QPainter::TextAntialiasing, true);
+	primitives primitives_;
+	const QDomElement description = definition.firstChildElement(QStringLiteral("description"));
+	for (QDomElement part = description.firstChildElement() ; !part.isNull() ;
+	     part = part.nextSiblingElement()) {
+		parseElement(part, painter, primitives_);
+	}
+	painter.end();
+	qDeleteAll(primitives_.m_texts);
+	return picture;
+}
+
+/**
+	@brief ElementPictureFactory::build
+	Build the picture from location.
+	@param location
+	@param picture
+	@param low_picture
+	if picture and/or low_picture are not null
+	this function draw on it and don't store it.
+	if null, this function create a QPicture for normal and low zoom,
+	draw on it and store it in m_pictures_H and m_low_pictures_H
+	(m_readable_pictures_H and m_readable_low_pictures_H if
+	@p texts_transform is not the identity)
+	@param texts_transform : what an element does to the texts of its
+	symbol, which the drawing undoes, see getReadablePictures()
+	@return
+*/
+bool ElementPictureFactory::build(const ElementsLocation &location,
+				  QPicture *picture,
+				  QPicture *low_picture,
+				  const QTransform &texts_transform)
+{
+	QDomElement dom = location.xml();
+
+		//Check if the current version can read the xml description
+	const auto elmt_version = QetVersion::fromXmlAttribute(dom);
+	if (!elmt_version.isNull()
+		&& QetVersion::currentVersion() < elmt_version)
+	{
+		std::cerr << qPrintable(
+						 QObject::tr("Warning: the element has been "
+									 "saved with a more recent version "
+									 "of QElectroTech.")
+						 ) << std::endl;
+	}
+
+		//This attributes must be present and valid
+	int w, h, hot_x, hot_y;
+	if (!QET::attributeIsAnInteger(dom, QString("width"), &w) ||\
+		!QET::attributeIsAnInteger(dom, QString("height"), &h) ||\
+		!QET::attributeIsAnInteger(dom, QString("hotspot_x"), &hot_x) ||\
+		!QET::attributeIsAnInteger(dom, QString("hotspot_y"), &hot_y))
+	{
+		return(false);
+	}
+
+	QPainter painter;
+	QPicture pic;
+	primitives primitives_;
+		//The low-zoom pass fills a second set of primitives that is only
+		//drawn, never kept: its text items are deleted at the end.
+	primitives low_primitives;
+	if (picture) {
+		painter.begin(picture);
+	}
+	else {
+		painter.begin(&pic);
+	}
+	painter.setRenderHint(QPainter::Antialiasing,         true);
+	painter.setRenderHint(QPainter::TextAntialiasing,     true);
+	painter.setRenderHint(QPainter::SmoothPixmapTransform,true);
+
+
+	QPainter low_painter;
+	QPicture low_pic;
+	if (low_picture) {
+		low_painter.begin(low_picture);
+	}
+	else {
+		low_painter.begin(&low_pic);
+	}
+	low_painter.setRenderHint(QPainter::Antialiasing,         true);
+	low_painter.setRenderHint(QPainter::TextAntialiasing,     true);
+	low_painter.setRenderHint(QPainter::SmoothPixmapTransform,true);
+
+	QPen tmp;
+	tmp.setWidthF(1.0); //Vaudoo line to take into account the setCosmetic - don't remove
+	tmp.setCosmetic(true);
+	low_painter.setPen(tmp);
+
+	m_build_texts_undo = texts_transform.inverted();
+
+	//scroll of the Children of the Definition: Parts of the Drawing
+	// Extract PLC master data for rendering plc_table parts
+	QDomElement plc_master_data;
+	for (QDomNode node = dom.firstChild() ; !node.isNull() ; node = node.nextSibling())
+	{
+		QDomElement elmts = node.toElement();
+		if (elmts.isNull()) continue;
+		if (elmts.tagName() == "kindInformations") {
+			for (QDomNode ki = elmts.firstChild(); !ki.isNull(); ki = ki.nextSibling()) {
+				QDomElement ki_el = ki.toElement();
+				if (!ki_el.isNull() && ki_el.tagName() == "plcMasterData") {
+					plc_master_data = ki_el;
+					break;
+				}
+			}
+			break;
+		}
+	}
+
+	for (QDomNode node = dom.firstChild() ; !node.isNull() ; node = node.nextSibling())
+	{
+		QDomElement elmts = node.toElement();
+		if (elmts.isNull()) {
+			continue;
+		}
+
+		if (elmts.tagName() == "description")
+		{
+				//Manage the graphic description = part of drawing
+			for (QDomNode n = node.firstChild() ; !n.isNull() ; n = n.nextSibling())
+			{
+				QDomElement qde = n.toElement();
+				if (qde.isNull()) {
+					continue;
+				}
+				if (qde.tagName() == "plc_table") {
+					// Skip - PLC table is rendered at runtime by
+					// Element::drawPlcTable() from live ElementData.
+					// Rendering into the cached QPicture here causes
+					// intermittent crashes when drawPicture() replays
+					// complex font/text operations.
+				} else {
+					parseElement(qde, painter, primitives_);
+					parseElement(qde, low_painter, low_primitives);
+				}
+			}
+		}
+	}
+
+		//End of the drawing
+	painter.end();
+	low_painter.end();
+	m_build_texts_undo = QTransform();
+	qDeleteAll(low_primitives.m_texts);
+
+	const auto uuid_ = cacheKey(location);
+	if (!texts_transform.isIdentity()) {
+			//The primitives are those of the plain drawing, already kept
+			//by the build of that one
+		qDeleteAll(primitives_.m_texts);
+		const QPair<QUuid, int> key(uuid_, readableKey(texts_transform));
+		if (!picture) {
+			m_readable_pictures_H.insert(key, pic);
+		}
+		if (!low_picture) {
+			m_readable_low_pictures_H.insert(key, low_pic);
+		}
+		return true;
+	}
+	if (!picture) {
+		m_pictures_H.insert(uuid_, pic);
+		m_primitives_H.insert(uuid_, primitives_);
+	}
+	if (!low_picture) {
+		m_low_pictures_H.insert(uuid_, low_pic);
+		m_primitives_H.insert(uuid_, primitives_);
+	}
+
+	return true;
+}
+
+void ElementPictureFactory::parseElement(const QDomElement &dom, QPainter &painter, primitives &prim) const
+{
+		 if (dom.tagName() == "line")    (parseLine   (dom, painter, prim));
+	else if (dom.tagName() == "rect")    (parseRect   (dom, painter, prim));
+	else if (dom.tagName() == "ellipse") (parseEllipse(dom, painter, prim));
+	else if (dom.tagName() == "circle")  (parseCircle (dom, painter, prim));
+	else if (dom.tagName() == "arc")     (parseArc    (dom, painter, prim));
+	else if (dom.tagName() == "polygon") (parsePolygon(dom, painter, prim));
+	else if (dom.tagName() == "text")    (parseText   (dom, painter, prim));
+}
+
+void ElementPictureFactory::parseLine(const QDomElement &dom, QPainter &painter, primitives &prim) const
+{
+		//This attributes must be present and valid
+	qreal x1, y1, x2, y2;
+	if (!QET::attributeIsAReal(dom, QString("x1"), &x1)) return;
+	if (!QET::attributeIsAReal(dom, QString("y1"), &y1)) return;
+	if (!QET::attributeIsAReal(dom, QString("x2"), &x2)) return;
+	if (!QET::attributeIsAReal(dom, QString("y2"), &y2)) return;
+
+	Qet::EndType first_end = Qet::endTypeFromString(dom.attribute("end1"));
+	Qet::EndType second_end = Qet::endTypeFromString(dom.attribute("end2"));
+	qreal length1, length2;
+	if (!QET::attributeIsAReal(dom, QString("length1"), &length1)) length1 = 1.5;
+	if (!QET::attributeIsAReal(dom, QString("length2"), &length2)) length2 = 1.5;
+
+	painter.save();
+	setPainterStyle(dom, painter);
+	QPen t = painter.pen();
+	t.setJoinStyle(Qt::MiterJoin);
+	painter.setPen(t);
+
+	QLineF line(x1, y1, x2, y2);
+
+	prim.m_lines << line;
+
+	QPointF point1(line.p1());
+	QPointF point2(line.p2());
+
+	qreal line_length(line.length());
+	qreal pen_width = painter.pen().widthF();
+
+		//Check if we must draw extremity
+	bool draw_1st_end, draw_2nd_end;
+	qreal reduced_line_length = line_length - (length1 * PartLine::requiredLengthForEndType(first_end));
+	draw_1st_end = first_end && reduced_line_length >= 0;
+	if (draw_1st_end) {
+		reduced_line_length -= (length2 * PartLine::requiredLengthForEndType(second_end));
+	} else {
+		reduced_line_length = line_length - (length2 * PartLine::requiredLengthForEndType(second_end));
+	}
+	draw_2nd_end = second_end && reduced_line_length >= 0;
+
+		//Draw first extremity
+	QPointF start_point, stop_point;
+	if (draw_1st_end) {
+		QList<QPointF> four_points1(PartLine::fourEndPoints(point1, point2, length1));
+		if (first_end == Qet::Circle) {
+			painter.drawEllipse(QRectF(four_points1[0] - QPointF(length1, length1), QSizeF(length1 * 2.0, length1 * 2.0)));
+			start_point = four_points1[1];
+		} else if (first_end == Qet::Diamond) {
+			painter.drawPolygon(QPolygonF() << four_points1[1] << four_points1[2] << point1 << four_points1[3]);
+			start_point = four_points1[1];
+		} else if (first_end == Qet::Simple) {
+			painter.drawPolyline(QPolygonF() << four_points1[3] << point1 << four_points1[2]);
+			start_point = point1;
+
+		} else if (first_end == Qet::Triangle) {
+			painter.drawPolygon(QPolygonF() << four_points1[0] << four_points1[2] << point1 << four_points1[3]);
+			start_point = four_points1[0];
+		}
+
+			//Adjust the beginning according to the width of the pen
+		if (pen_width && (first_end == Qet::Simple || first_end == Qet::Circle)) {
+			start_point = QLineF(start_point, point2).pointAt(pen_width / 2.0 / line_length);
+		}
+	} else {
+		start_point = point1;
+	}
+
+		//Draw second extremity
+	if (draw_2nd_end) {
+		QList<QPointF> four_points2(PartLine::fourEndPoints(point2, point1, length2));
+		if (second_end == Qet::Circle) {
+			painter.drawEllipse(QRectF(four_points2[0] - QPointF(length2, length2), QSizeF(length2 * 2.0, length2 * 2.0)));
+			stop_point = four_points2[1];
+		} else if (second_end == Qet::Diamond) {
+			painter.drawPolygon(QPolygonF() << four_points2[2] << point2 << four_points2[3] << four_points2[1]);
+			stop_point = four_points2[1];
+		} else if (second_end == Qet::Simple) {
+			painter.drawPolyline(QPolygonF() << four_points2[3] << point2 << four_points2[2]);
+			stop_point = point2;
+		} else if (second_end == Qet::Triangle) {
+			painter.drawPolygon(QPolygonF() << four_points2[0] << four_points2[2] << point2 << four_points2[3] << four_points2[0]);
+			stop_point = four_points2[0];
+		}
+
+			//Adjust the end according to the width of the pen
+		if (pen_width && (second_end == Qet::Simple || second_end == Qet::Circle)) {
+			stop_point = QLineF(point1, stop_point).pointAt((line_length - (pen_width / 2.0)) / line_length);
+		}
+	} else {
+		stop_point = point2;
+	}
+
+	painter.drawLine(start_point, stop_point);
+
+	painter.restore();
+}
+
+void ElementPictureFactory::parseRect(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+		//This attributes must be present and valid
+	qreal rect_x, rect_y, rect_w, rect_h, rect_rx, rect_ry;
+	if (!QET::attributeIsAReal(dom, QString("x"),       &rect_x))  return;
+	if (!QET::attributeIsAReal(dom, QString("y"),       &rect_y))  return;
+	if (!QET::attributeIsAReal(dom, QString("width"),   &rect_w))  return;
+	if (!QET::attributeIsAReal(dom, QString("height"),  &rect_h))  return;
+	rect_rx = dom.attribute("rx", "0").toDouble();
+	rect_ry = dom.attribute("ry", "0").toDouble();
+
+	prim.m_rectangles << QRectF(rect_x, rect_y, rect_w, rect_h);
+
+	painter.save();
+	setPainterStyle(dom, painter);
+
+	QPen p = painter.pen();
+	p.setJoinStyle(Qt::MiterJoin);
+	painter.setPen(p);
+
+	painter.drawRoundedRect(QRectF(rect_x, rect_y, rect_w, rect_h), rect_rx, rect_ry);
+	painter.restore();
+}
+
+void ElementPictureFactory::parseEllipse(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+		//This attributes must be present and valid
+	qreal ellipse_x, ellipse_y, ellipse_l, ellipse_h;
+	if (!QET::attributeIsAReal(dom, QString("x"),      &ellipse_x))  return;
+	if (!QET::attributeIsAReal(dom, QString("y"),      &ellipse_y))  return;
+	if (!QET::attributeIsAReal(dom, QString("width"),  &ellipse_l))  return;
+	if (!QET::attributeIsAReal(dom, QString("height"), &ellipse_h))  return;
+	painter.save();
+	setPainterStyle(dom, painter);
+
+	QVector<qreal> arc;
+	arc.push_back(ellipse_x);
+	arc.push_back(ellipse_y);
+	arc.push_back(ellipse_l);
+	arc.push_back(ellipse_h);
+	arc.push_back(0);
+	arc.push_back(360);
+	prim.m_arcs << arc;
+
+	painter.drawEllipse(QRectF(ellipse_x, ellipse_y, ellipse_l, ellipse_h));
+	painter.restore();
+}
+
+void ElementPictureFactory::parseCircle(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+		//This attributes must be present and valid
+	qreal cercle_x, cercle_y, cercle_r;
+	if (!QET::attributeIsAReal(dom, QString("x"),        &cercle_x)) return;
+	if (!QET::attributeIsAReal(dom, QString("y"),        &cercle_y)) return;
+	if (!QET::attributeIsAReal(dom, QString("diameter"), &cercle_r)) return;
+	painter.save();
+	setPainterStyle(dom, painter);
+	QRectF circle_bounding_rect(cercle_x, cercle_y, cercle_r, cercle_r);
+
+	prim.m_circles << circle_bounding_rect;
+
+	painter.drawEllipse(circle_bounding_rect);
+	painter.restore();
+}
+
+void ElementPictureFactory::parseArc(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+		//This attributes must be present and valid
+	qreal arc_x, arc_y, arc_l, arc_h, arc_s, arc_a;
+	if (!QET::attributeIsAReal(dom, QString("x"),       &arc_x))  return;
+	if (!QET::attributeIsAReal(dom, QString("y"),       &arc_y))  return;
+	if (!QET::attributeIsAReal(dom, QString("width"),   &arc_l))  return;
+	if (!QET::attributeIsAReal(dom, QString("height"),  &arc_h))  return;
+	if (!QET::attributeIsAReal(dom, QString("start"),   &arc_s))  return;
+	if (!QET::attributeIsAReal(dom, QString("angle"),   &arc_a))  return;
+
+	painter.save();
+	setPainterStyle(dom, painter);
+
+	QVector<qreal> arc;
+	arc.push_back(arc_x);
+	arc.push_back(arc_y);
+	arc.push_back(arc_l);
+	arc.push_back(arc_h);
+	arc.push_back(arc_s);
+	arc.push_back(arc_a);
+	prim.m_arcs << arc;
+
+	painter.drawArc(QRectF(arc_x, arc_y, arc_l, arc_h), (int)(arc_s * 16), (int)(arc_a * 16));
+	painter.restore();
+}
+
+void ElementPictureFactory::parsePolygon(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+	int i = 1;
+	while(true) {
+		if (QET::attributeIsAReal(dom, QString("x%1").arg(i)) && QET::attributeIsAReal(dom, QString("y%1").arg(i))) ++ i;
+		else break;
+	}
+	if (i < 3) {
+		return;
+	}
+
+	QVector<QPointF> points; // empty vector created instead of default initialized vector with i-1 elements.
+	for (int j = 1 ; j < i ; ++ j) {
+		points.insert(
+			j - 1,
+			QPointF(
+				dom.attribute(QString("x%1").arg(j)).toDouble(),
+				dom.attribute(QString("y%1").arg(j)).toDouble()
+			)
+		);
+	}
+
+	painter.save();
+	setPainterStyle(dom, painter);
+	if (dom.attribute("closed") == "false") painter.drawPolyline(points.data(), i-1);
+	else {
+		painter.drawPolygon(points.data(), i-1);
+
+		// insert first point at the end again for DXF export.
+		points.push_back(points[0]);
+	}
+
+	prim.m_polygons << points;
+
+	painter.restore();
+}
+
+void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
+{
+	Q_UNUSED(prim)
+
+	if (dom.tagName() != "text") {
+		return;
+	}
+
+	painter.save();
+	setPainterStyle(dom, painter);
+
+		//Get the font and metric
+	QFont font_;
+	if (dom.hasAttribute("size")) {
+		font_ = QETApp::diagramTextsFont(dom.attribute("size").toDouble());
+	}
+	else if (dom.hasAttribute("font")) {
+		QETUtils::fontFromString(font_, dom.attribute("font"));
+	}
+
+	QColor text_color(dom.attribute("color", "#000000"));
+
+		//Instantiate a QTextDocument (like the QGraphicsTextItem class)
+		//for generate the graphics rendering of the text
+	QTextDocument text_document;
+	text_document.setDefaultFont(font_);
+	text_document.setPlainText(dom.attribute("text"));
+
+	painter.setTransform(QTransform(), false);
+
+	/*
+		Moves the QPainter's coordinate system to render in the right place;
+		note: the font's ascent() is subtracted to determine the top left
+		corner of the text, whereas the position indicated corresponds
+		to the baseline.
+		Deplace le systeme de coordonnees du QPainter pour effectuer le rendu au
+		bon endroit ; note : on soustrait l'ascent() de la police pour
+		determiner le coin superieur gauche du texte alors que la position
+		indiquee correspond a la baseline.
+	*/
+	QFontMetrics qfm(font_);
+	QPointF qpainter_offset(0.0, -qfm.ascent());
+
+		//adjusts the offset by the margin of the text document
+	text_document.setDocumentMargin(0.0);
+
+		//Optional line alignment of multi-line texts. The document only
+		//honours the text option once a text width is set.
+		//x/y are the baseline-left of the text block, unless
+		//anchor="alignment": x is then the left edge, centre or right edge
+		//selected by Halignment, and y stays the baseline (#1251).
+	if (dom.hasAttribute("Halignment")) {
+		const QMetaEnum me = QMetaEnum::fromType<Qt::Alignment>();
+		const Qt::Alignment h_alignment = Qt::Alignment(
+			me.keyToValue(dom.attribute("Halignment").toStdString().data()));
+		if (h_alignment & (Qt::AlignHCenter | Qt::AlignRight)) {
+			QTextOption option = text_document.defaultTextOption();
+			option.setAlignment(h_alignment & Qt::AlignHorizontal_Mask);
+			text_document.setDefaultTextOption(option);
+			text_document.setTextWidth(text_document.idealWidth());
+			if (dom.attribute("anchor") == QLatin1String("alignment"))
+				qpainter_offset.rx() -= h_alignment & Qt::AlignRight
+						? text_document.idealWidth()
+						: text_document.idealWidth() / 2;
+		}
+	}
+
+	QTransform text_transform;
+	text_transform.translate(dom.attribute("x").toDouble(), dom.attribute("y").toDouble());
+	text_transform.rotate(dom.attribute("rotation", "0").toDouble());
+		//baseline-left of the text block, for the DXF export below
+	const QPointF baseline_left = text_transform.map(QPointF(qpainter_offset.x(), 0));
+	text_transform.translate(qpainter_offset.x(), qpainter_offset.y());
+
+	if (!m_build_texts_undo.isIdentity())
+	{
+			//The element mirrors or turns its symbol when it is drawn.
+			//Undo that on the text first, about the centre of its box: the
+			//letters read as in the symbol itself, and the box still ends
+			//up where the element puts it.
+		const QRectF box(QPointF(0, 0), text_document.size());
+		const QPointF centre = text_transform.mapRect(box).center();
+		painter.setTransform(QTransform::fromTranslate(-centre.x(), -centre.y())
+							 * m_build_texts_undo
+							 * QTransform::fromTranslate(centre.x(), centre.y()));
+	}
+	painter.setTransform(text_transform, true);
+
+		// force the palette used to render the QTextDocument
+	QAbstractTextDocumentLayout::PaintContext ctx;
+	ctx.palette.setColor(QPalette::Text, text_color);
+	text_document.documentLayout() -> draw(&painter, ctx);
+
+		//A very dirty workaround for export this text to dxf
+	QGraphicsSimpleTextItem *qgsti = new QGraphicsSimpleTextItem();
+	qgsti->setText(dom.attribute("text"));
+	qgsti->setFont(font_);
+	qgsti->setPos(baseline_left);
+	qgsti->setRotation(dom.attribute("rotation", "0").toDouble());
+	prim.m_texts << qgsti;
+
+	painter.restore();
+}
+
+/**
+	@brief ElementPictureFactory::setPainterStyle
+	apply the style store in dom to painter.
+	@param dom
+	@param painter
+*/
+void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &painter) const
+{
+	QPen pen = painter.pen();
+	QBrush brush = painter.brush();
+
+	pen.setJoinStyle(Qt::BevelJoin);
+	pen.setCapStyle(Qt::SquareCap);
+
+		//Get the couples style/value
+	const QStringList styles = dom.attribute("style").split(";", Qt::SkipEmptyParts);
+
+		//Built once : this runs for every primitive of every element
+		//instance a project places, and recompiling the pattern each time
+		//was the single largest cost of opening a project.
+	static const QRegularExpression rx(
+				QStringLiteral("^(?<name>[a-z-]+):(?<value>[a-zA-Z-]+)$"));
+	if (!rx.isValid())
+	{
+		qWarning() <<QObject::tr("this is an error in the code")
+			  << rx.errorString()
+			  << rx.patternErrorOffset();
+		return;
+	}
+	for (auto style : styles)
+	{
+		QRegularExpressionMatch match = rx.match(style);
+		if (!match.hasMatch()) {
+			qDebug() << "no Match" << style;
+		}else {
+			QString style_name = match.captured("name");
+			QString style_value = match.captured("value");
+			if (style_name == "line-style") {
+				if (style_value == "dashed") pen.setStyle(Qt::DashLine);
+				else if (style_value == "dotted") pen.setStyle(Qt::DotLine);
+				else if (style_value == "dashdotted") pen.setStyle(Qt::DashDotLine);
+				else if (style_value == "normal") pen.setStyle(Qt::SolidLine);
+			} else if (style_name == "line-weight") {
+				if (style_value == "none") pen.setColor(QColor(0, 0, 0, 0));
+				else if (style_value == "thin") pen.setWidthF(0.5);
+				else if (style_value == "normal") pen.setWidthF(1.0);
+				else if (style_value == "hight") pen.setWidthF(2.0);
+				else if (style_value == "eleve") pen.setWidthF(5.0);
+
+			} else if (style_name == "filling") {
+				static const QMap<QString, QPair<Qt::BrushStyle, QColor>>
+					filling_style_map = {
+						{"white", {Qt::SolidPattern, Qt::white}},
+						{"black", {Qt::SolidPattern, Qt::black}},
+						{"blue", {Qt::SolidPattern, Qt::blue}},
+						{"red", {Qt::SolidPattern, Qt::red}},
+						{"green", {Qt::SolidPattern, Qt::green}},
+						{"gray", {Qt::SolidPattern, Qt::gray}},
+						{"brun", {Qt::SolidPattern, QColor(97, 44, 0)}},
+						{"yellow", {Qt::SolidPattern, Qt::yellow}},
+						{"cyan", {Qt::SolidPattern, Qt::cyan}},
+						{"magenta", {Qt::SolidPattern, Qt::magenta}},
+						{"lightgray", {Qt::SolidPattern, Qt::lightGray}},
+						{"orange", {Qt::SolidPattern, QColor(255, 128, 0)}},
+						{"purple", {Qt::SolidPattern, QColor(136, 28, 168)}},
+						{"HTMLPinkPink",
+						 {Qt::SolidPattern, QColor(255, 192, 203)}},
+						{"HTMLPinkLightPink",
+						 {Qt::SolidPattern, QColor(255, 182, 193)}},
+						{"HTMLPinkHotPink",
+						 {Qt::SolidPattern, QColor(255, 105, 180)}},
+						{"HTMLPinkDeepPink",
+						 {Qt::SolidPattern, QColor(255, 20, 147)}},
+						{"HTMLPinkPaleVioletRed",
+						 {Qt::SolidPattern, QColor(219, 112, 147)}},
+						{"HTMLPinkMediumVioletRed",
+						 {Qt::SolidPattern, QColor(199, 21, 133)}},
+						{"HTMLRedLightSalmon",
+						 {Qt::SolidPattern, QColor(255, 160, 122)}},
+						{"HTMLRedSalmon",
+						 {Qt::SolidPattern, QColor(250, 128, 114)}},
+						{"HTMLRedDarkSalmon",
+						 {Qt::SolidPattern, QColor(233, 150, 122)}},
+						{"HTMLRedLightCoral",
+						 {Qt::SolidPattern, QColor(240, 128, 128)}},
+						{"HTMLRedIndianRed",
+						 {Qt::SolidPattern, QColor(205, 92, 92)}},
+						{"HTMLRedCrimson",
+						 {Qt::SolidPattern, QColor(220, 20, 60)}},
+						{"HTMLRedFirebrick",
+						 {Qt::SolidPattern, QColor(178, 34, 34)}},
+						{"HTMLRedDarkRed",
+						 {Qt::SolidPattern, QColor(139, 0, 0)}},
+						{"HTMLRedRed", {Qt::SolidPattern, QColor(255, 0, 0)}},
+						{"HTMLOrangeOrangeRed",
+						 {Qt::SolidPattern, QColor(255, 69, 0)}},
+						{"HTMLOrangeTomato",
+						 {Qt::SolidPattern, QColor(255, 99, 71)}},
+						{"HTMLOrangeCoral",
+						 {Qt::SolidPattern, QColor(255, 127, 80)}},
+						{"HTMLOrangeDarkOrange",
+						 {Qt::SolidPattern, QColor(255, 140, 0)}},
+						{"HTMLOrangeOrange",
+						 {Qt::SolidPattern, QColor(255, 165, 0)}},
+						{"HTMLYellowYellow",
+						 {Qt::SolidPattern, QColor(255, 255, 0)}},
+						{"HTMLYellowLightYellow",
+						 {Qt::SolidPattern, QColor(255, 255, 224)}},
+						{"HTMLYellowLemonChiffon",
+						 {Qt::SolidPattern, QColor(255, 250, 205)}},
+						{"HTMLYellowLightGoldenrodYellow",
+						 {Qt::SolidPattern, QColor(250, 250, 210)}},
+						{"HTMLYellowPapayaWhip",
+						 {Qt::SolidPattern, QColor(255, 239, 213)}},
+						{"HTMLYellowMoccasin",
+						 {Qt::SolidPattern, QColor(255, 228, 181)}},
+						{"HTMLYellowPeachPuff",
+						 {Qt::SolidPattern, QColor(255, 218, 185)}},
+						{"HTMLYellowPaleGoldenrod",
+						 {Qt::SolidPattern, QColor(238, 232, 170)}},
+						{"HTMLYellowKhaki",
+						 {Qt::SolidPattern, QColor(240, 230, 140)}},
+						{"HTMLYellowDarkKhaki",
+						 {Qt::SolidPattern, QColor(189, 183, 107)}},
+						{"HTMLYellowGold",
+						 {Qt::SolidPattern, QColor(255, 215, 0)}},
+						{"HTMLBrownCornsilk",
+						 {Qt::SolidPattern, QColor(255, 248, 220)}},
+						{"HTMLBrownBlanchedAlmond",
+						 {Qt::SolidPattern, QColor(255, 235, 205)}},
+						{"HTMLBrownBisque",
+						 {Qt::SolidPattern, QColor(255, 228, 196)}},
+						{"HTMLBrownNavajoWhite",
+						 {Qt::SolidPattern, QColor(255, 222, 173)}},
+						{"HTMLBrownWheat",
+						 {Qt::SolidPattern, QColor(245, 222, 179)}},
+						{"HTMLBrownBurlywood",
+						 {Qt::SolidPattern, QColor(222, 184, 135)}},
+						{"HTMLBrownTan",
+						 {Qt::SolidPattern, QColor(210, 180, 140)}},
+						{"HTMLBrownRosyBrown",
+						 {Qt::SolidPattern, QColor(188, 143, 143)}},
+						{"HTMLBrownSandyBrown",
+						 {Qt::SolidPattern, QColor(244, 164, 96)}},
+						{"HTMLBrownGoldenrod",
+						 {Qt::SolidPattern, QColor(218, 165, 32)}},
+						{"HTMLBrownDarkGoldenrod",
+						 {Qt::SolidPattern, QColor(184, 134, 11)}},
+						{"HTMLBrownPeru",
+						 {Qt::SolidPattern, QColor(205, 133, 63)}},
+						{"HTMLBrownChocolate",
+						 {Qt::SolidPattern, QColor(210, 105, 30)}},
+						{"HTMLBrownSaddleBrown",
+						 {Qt::SolidPattern, QColor(139, 69, 19)}},
+						{"HTMLBrownSienna",
+						 {Qt::SolidPattern, QColor(160, 82, 45)}},
+						{"HTMLBrownBrown",
+						 {Qt::SolidPattern, QColor(165, 42, 42)}},
+						{"HTMLBrownMaroon",
+						 {Qt::SolidPattern, QColor(128, 0, 0)}},
+						{"HTMLGreenDarkOliveGreen",
+						 {Qt::SolidPattern, QColor(85, 107, 47)}},
+						{"HTMLGreenOlive",
+						 {Qt::SolidPattern, QColor(128, 128, 0)}},
+						{"HTMLGreenOliveDrab",
+						 {Qt::SolidPattern, QColor(107, 142, 35)}},
+						{"HTMLGreenYellowGreen",
+						 {Qt::SolidPattern, QColor(154, 205, 50)}},
+						{"HTMLGreenLimeGreen",
+						 {Qt::SolidPattern, QColor(50, 205, 50)}},
+						{"HTMLGreenLime",
+						 {Qt::SolidPattern, QColor(0, 255, 0)}},
+						{"HTMLGreenLawnGreen",
+						 {Qt::SolidPattern, QColor(124, 252, 0)}},
+						{"HTMLGreenChartreuse",
+						 {Qt::SolidPattern, QColor(127, 255, 0)}},
+						{"HTMLGreenGreenYellow",
+						 {Qt::SolidPattern, QColor(173, 255, 47)}},
+						{"HTMLGreenSpringGreen",
+						 {Qt::SolidPattern, QColor(0, 255, 127)}},
+						{"HTMLGreenMediumSpringGreen",
+						 {Qt::SolidPattern, QColor(0, 250, 154)}},
+						{"HTMLGreenLightGreen",
+						 {Qt::SolidPattern, QColor(144, 238, 144)}},
+						{"HTMLGreenPaleGreen",
+						 {Qt::SolidPattern, QColor(152, 251, 152)}},
+						{"HTMLGreenDarkSeaGreen",
+						 {Qt::SolidPattern, QColor(143, 188, 143)}},
+						{"HTMLGreenMediumAquamarine",
+						 {Qt::SolidPattern, QColor(102, 205, 170)}},
+						{"HTMLGreenMediumSeaGreen",
+						 {Qt::SolidPattern, QColor(60, 179, 113)}},
+						{"HTMLGreenSeaGreen",
+						 {Qt::SolidPattern, QColor(46, 139, 87)}},
+						{"HTMLGreenForestGreen",
+						 {Qt::SolidPattern, QColor(34, 139, 34)}},
+						{"HTMLGreenGreen",
+						 {Qt::SolidPattern, QColor(0, 128, 0)}},
+						{"HTMLGreenDarkGreen",
+						 {Qt::SolidPattern, QColor(0, 100, 0)}},
+						{"HTMLCyanAqua",
+						 {Qt::SolidPattern, QColor(0, 255, 255)}},
+						{"HTMLCyanCyan",
+						 {Qt::SolidPattern, QColor(0, 255, 255)}},
+						{"HTMLCyanLightCyan",
+						 {Qt::SolidPattern, QColor(224, 255, 255)}},
+						{"HTMLCyanPaleTurquoise",
+						 {Qt::SolidPattern, QColor(175, 238, 238)}},
+						{"HTMLCyanAquamarine",
+						 {Qt::SolidPattern, QColor(127, 255, 212)}},
+						{"HTMLCyanTurquoise",
+						 {Qt::SolidPattern, QColor(64, 224, 208)}},
+						{"HTMLCyanMediumTurquoise",
+						 {Qt::SolidPattern, QColor(72, 209, 204)}},
+						{"HTMLCyanDarkTurquoise",
+						 {Qt::SolidPattern, QColor(0, 206, 209)}},
+						{"HTMLCyanLightSeaGreen",
+						 {Qt::SolidPattern, QColor(32, 178, 170)}},
+						{"HTMLCyanCadetBlue",
+						 {Qt::SolidPattern, QColor(95, 158, 160)}},
+						{"HTMLCyanDarkCyan",
+						 {Qt::SolidPattern, QColor(0, 139, 139)}},
+						{"HTMLCyanTeal",
+						 {Qt::SolidPattern, QColor(0, 128, 128)}},
+						{"HTMLBlueLightSteelBlue",
+						 {Qt::SolidPattern, QColor(176, 196, 222)}},
+						{"HTMLBluePowderBlue",
+						 {Qt::SolidPattern, QColor(176, 224, 230)}},
+						{"HTMLBlueLightBlue",
+						 {Qt::SolidPattern, QColor(173, 216, 230)}},
+						{"HTMLBlueSkyBlue",
+						 {Qt::SolidPattern, QColor(135, 206, 235)}},
+						{"HTMLBlueLightSkyBlue",
+						 {Qt::SolidPattern, QColor(135, 206, 250)}},
+						{"HTMLBlueDeepSkyBlue",
+						 {Qt::SolidPattern, QColor(0, 191, 255)}},
+						{"HTMLBlueDodgerBlue",
+						 {Qt::SolidPattern, QColor(30, 144, 255)}},
+						{"HTMLBlueCornflowerBlue",
+						 {Qt::SolidPattern, QColor(100, 149, 237)}},
+						{"HTMLBlueSteelBlue",
+						 {Qt::SolidPattern, QColor(70, 130, 180)}},
+						{"HTMLBlueRoyalBlue",
+						 {Qt::SolidPattern, QColor(65, 105, 225)}},
+						{"HTMLBlueBlue", {Qt::SolidPattern, QColor(0, 0, 255)}},
+						{"HTMLBlueMediumBlue",
+						 {Qt::SolidPattern, QColor(0, 0, 205)}},
+						{"HTMLBlueDarkBlue",
+						 {Qt::SolidPattern, QColor(0, 0, 139)}},
+						{"HTMLBlueNavy", {Qt::SolidPattern, QColor(0, 0, 128)}},
+						{"HTMLBlueMidnightBlue",
+						 {Qt::SolidPattern, QColor(25, 25, 112)}},
+						{"HTMLPurpleLavender",
+						 {Qt::SolidPattern, QColor(230, 230, 250)}},
+						{"HTMLPurpleThistle",
+						 {Qt::SolidPattern, QColor(216, 191, 216)}},
+						{"HTMLPurplePlum",
+						 {Qt::SolidPattern, QColor(221, 160, 221)}},
+						{"HTMLPurpleViolet",
+						 {Qt::SolidPattern, QColor(238, 130, 238)}},
+						{"HTMLPurpleOrchid",
+						 {Qt::SolidPattern, QColor(218, 112, 214)}},
+						{"HTMLPurpleFuchsia",
+						 {Qt::SolidPattern, QColor(255, 0, 255)}},
+						{"HTMLPurpleMagenta",
+						 {Qt::SolidPattern, QColor(255, 0, 255)}},
+						{"HTMLPurpleMediumOrchid",
+						 {Qt::SolidPattern, QColor(186, 85, 211)}},
+						{"HTMLPurpleMediumPurple",
+						 {Qt::SolidPattern, QColor(147, 112, 219)}},
+						{"HTMLPurpleBlueViolet",
+						 {Qt::SolidPattern, QColor(138, 43, 226)}},
+						{"HTMLPurpleDarkViolet",
+						 {Qt::SolidPattern, QColor(148, 0, 211)}},
+						{"HTMLPurpleDarkOrchid",
+						 {Qt::SolidPattern, QColor(153, 50, 204)}},
+						{"HTMLPurpleDarkMagenta",
+						 {Qt::SolidPattern, QColor(139, 0, 139)}},
+						{"HTMLPurplePurple",
+						 {Qt::SolidPattern, QColor(128, 0, 128)}},
+						{"HTMLPurpleIndigo",
+						 {Qt::SolidPattern, QColor(75, 0, 130)}},
+						{"HTMLPurpleDarkSlateBlue",
+						 {Qt::SolidPattern, QColor(72, 61, 139)}},
+						{"HTMLPurpleSlateBlue",
+						 {Qt::SolidPattern, QColor(106, 90, 205)}},
+						{"HTMLPurpleMediumSlateBlue",
+						 {Qt::SolidPattern, QColor(123, 104, 238)}},
+						{"HTMLWhiteWhite",
+						 {Qt::SolidPattern, QColor(255, 255, 255)}},
+						{"HTMLWhiteSnow",
+						 {Qt::SolidPattern, QColor(255, 250, 250)}},
+						{"HTMLWhiteHoneydew",
+						 {Qt::SolidPattern, QColor(240, 255, 240)}},
+						{"HTMLWhiteMintCream",
+						 {Qt::SolidPattern, QColor(245, 255, 250)}},
+						{"HTMLWhiteAzure",
+						 {Qt::SolidPattern, QColor(240, 255, 255)}},
+						{"HTMLWhiteAliceBlue",
+						 {Qt::SolidPattern, QColor(240, 248, 255)}},
+						{"HTMLWhiteGhostWhite",
+						 {Qt::SolidPattern, QColor(248, 248, 255)}},
+						{"HTMLWhiteWhiteSmoke",
+						 {Qt::SolidPattern, QColor(245, 245, 245)}},
+						{"HTMLWhiteSeashell",
+						 {Qt::SolidPattern, QColor(255, 245, 238)}},
+						{"HTMLWhiteBeige",
+						 {Qt::SolidPattern, QColor(245, 245, 220)}},
+						{"HTMLWhiteOldLace",
+						 {Qt::SolidPattern, QColor(253, 245, 230)}},
+						{"HTMLWhiteFloralWhite",
+						 {Qt::SolidPattern, QColor(255, 250, 240)}},
+						{"HTMLWhiteIvory",
+						 {Qt::SolidPattern, QColor(255, 255, 240)}},
+						{"HTMLWhiteAntiqueWhite",
+						 {Qt::SolidPattern, QColor(250, 235, 215)}},
+						{"HTMLWhiteLinen",
+						 {Qt::SolidPattern, QColor(250, 240, 230)}},
+						{"HTMLWhiteLavenderBlush",
+						 {Qt::SolidPattern, QColor(255, 240, 245)}},
+						{"HTMLWhiteMistyRose",
+						 {Qt::SolidPattern, QColor(255, 228, 225)}},
+						{"HTMLGrayGainsboro",
+						 {Qt::SolidPattern, QColor(220, 220, 220)}},
+						{"HTMLGrayLightGray",
+						 {Qt::SolidPattern, QColor(211, 211, 211)}},
+						{"HTMLGraySilver",
+						 {Qt::SolidPattern, QColor(192, 192, 192)}},
+						{"HTMLGrayDarkGray",
+						 {Qt::SolidPattern, QColor(169, 169, 169)}},
+						{"HTMLGrayGray",
+						 {Qt::SolidPattern, QColor(128, 128, 128)}},
+						{"HTMLGrayDimGray",
+						 {Qt::SolidPattern, QColor(105, 105, 105)}},
+						{"HTMLGrayLightSlateGray",
+						 {Qt::SolidPattern, QColor(119, 136, 153)}},
+						{"HTMLGraySlateGray",
+						 {Qt::SolidPattern, QColor(112, 128, 144)}},
+						{"HTMLGrayDarkSlateGray",
+						 {Qt::SolidPattern, QColor(47, 79, 79)}},
+						{"HTMLGrayBlack", {Qt::SolidPattern, QColor(0, 0, 0)}},
+						{"hor", {Qt::HorPattern, Qt::black}},
+						{"ver", {Qt::VerPattern, Qt::black}},
+						{"bdiag", {Qt::BDiagPattern, Qt::black}},
+						{"fdiag", {Qt::FDiagPattern, Qt::black}}};
+
+				if (style_value == "none") { brush.setStyle(Qt::NoBrush); }
+				else
+				{
+					auto style_ = filling_style_map.find(style_value);
+					if (style_ == filling_style_map.end()) { continue; }
+
+					brush.setStyle(style_->first);
+	 				brush.setColor(style_->second);
+				}
+			} else if (style_name == "color") {
+				static const QMap<QString, QColor> color_style_map = {
+					{"red", Qt::red},
+					{"blue", Qt::blue},
+					{"green", Qt::green},
+					{"gray", Qt::gray},
+					{"brun", QColor(97, 44, 0)},
+					{"yellow", Qt::yellow},
+					{"cyan", Qt::cyan},
+					{"magenta", Qt::magenta},
+					{"lightgray", Qt::lightGray},
+					{"orange", QColor(255, 128, 0)},
+					{"purple", QColor(136, 28, 168)},
+					{"HTMLPinkPink", QColor(255, 192, 203)},
+					{"HTMLPinkLightPink", QColor(255, 182, 193)},
+					{"HTMLPinkHotPink", QColor(255, 105, 180)},
+					{"HTMLPinkDeepPink", QColor(255, 20, 147)},
+					{"HTMLPinkPaleVioletRed", QColor(219, 112, 147)},
+					{"HTMLPinkMediumVioletRed", QColor(199, 21, 133)},
+					{"HTMLRedLightSalmon", QColor(255, 160, 122)},
+					{"HTMLRedSalmon", QColor(250, 128, 114)},
+					{"HTMLRedDarkSalmon", QColor(233, 150, 122)},
+					{"HTMLRedLightCoral", QColor(240, 128, 128)},
+					{"HTMLRedIndianRed", QColor(205, 92, 92)},
+					{"HTMLRedCrimson", QColor(220, 20, 60)},
+					{"HTMLRedFirebrick", QColor(178, 34, 34)},
+					{"HTMLRedDarkRed", QColor(139, 0, 0)},
+					{"HTMLRedRed", QColor(255, 0, 0)},
+					{"HTMLOrangeOrangeRed", QColor(255, 69, 0)},
+					{"HTMLOrangeTomato", QColor(255, 99, 71)},
+					{"HTMLOrangeCoral", QColor(255, 127, 80)},
+					{"HTMLOrangeDarkOrange", QColor(255, 140, 0)},
+					{"HTMLOrangeOrange", QColor(255, 165, 0)},
+					{"HTMLYellowYellow", QColor(255, 255, 0)},
+					{"HTMLYellowLightYellow", QColor(255, 255, 224)},
+					{"HTMLYellowLemonChiffon", QColor(255, 250, 205)},
+					{"HTMLYellowLightGoldenrodYellow", QColor(250, 250, 210)},
+					{"HTMLYellowPapayaWhip", QColor(255, 239, 213)},
+					{"HTMLYellowMoccasin", QColor(255, 228, 181)},
+					{"HTMLYellowPeachPuff", QColor(255, 218, 185)},
+					{"HTMLYellowPaleGoldenrod", QColor(238, 232, 170)},
+					{"HTMLYellowKhaki", QColor(240, 230, 140)},
+					{"HTMLYellowDarkKhaki", QColor(189, 183, 107)},
+					{"HTMLYellowGold", QColor(255, 215, 0)},
+					{"HTMLBrownCornsilk", QColor(255, 248, 220)},
+					{"HTMLBrownBlanchedAlmond", QColor(255, 235, 205)},
+					{"HTMLBrownBisque", QColor(255, 228, 196)},
+					{"HTMLBrownNavajoWhite", QColor(255, 222, 173)},
+					{"HTMLBrownWheat", QColor(245, 222, 179)},
+					{"HTMLBrownBurlywood", QColor(222, 184, 135)},
+					{"HTMLBrownTan", QColor(210, 180, 140)},
+					{"HTMLBrownRosyBrown", QColor(188, 143, 143)},
+					{"HTMLBrownSandyBrown", QColor(244, 164, 96)},
+					{"HTMLBrownGoldenrod", QColor(218, 165, 32)},
+					{"HTMLBrownDarkGoldenrod", QColor(184, 134, 11)},
+					{"HTMLBrownPeru", QColor(205, 133, 63)},
+					{"HTMLBrownChocolate", QColor(210, 105, 30)},
+					{"HTMLBrownSaddleBrown", QColor(139, 69, 19)},
+					{"HTMLBrownSienna", QColor(160, 82, 45)},
+					{"HTMLBrownBrown", QColor(165, 42, 42)},
+					{"HTMLBrownMaroon", QColor(128, 0, 0)},
+					{"HTMLGreenDarkOliveGreen", QColor(85, 107, 47)},
+					{"HTMLGreenOlive", QColor(128, 128, 0)},
+					{"HTMLGreenOliveDrab", QColor(107, 142, 35)},
+					{"HTMLGreenYellowGreen", QColor(154, 205, 50)},
+					{"HTMLGreenLimeGreen", QColor(50, 205, 50)},
+					{"HTMLGreenLime", QColor(0, 255, 0)},
+					{"HTMLGreenLawnGreen", QColor(124, 252, 0)},
+					{"HTMLGreenChartreuse", QColor(127, 255, 0)},
+					{"HTMLGreenGreenYellow", QColor(173, 255, 47)},
+					{"HTMLGreenSpringGreen", QColor(0, 255, 127)},
+					{"HTMLGreenMediumSpringGreen", QColor(0, 250, 154)},
+					{"HTMLGreenLightGreen", QColor(144, 238, 144)},
+					{"HTMLGreenPaleGreen", QColor(152, 251, 152)},
+					{"HTMLGreenDarkSeaGreen", QColor(143, 188, 143)},
+					{"HTMLGreenMediumAquamarine", QColor(102, 205, 170)},
+					{"HTMLGreenMediumSeaGreen", QColor(60, 179, 113)},
+					{"HTMLGreenSeaGreen", QColor(46, 139, 87)},
+					{"HTMLGreenForestGreen", QColor(34, 139, 34)},
+					{"HTMLGreenGreen", QColor(0, 128, 0)},
+					{"HTMLGreenDarkGreen", QColor(0, 100, 0)},
+					{"HTMLCyanAqua", QColor(0, 255, 255)},
+					{"HTMLCyanCyan", QColor(0, 255, 255)},
+					{"HTMLCyanLightCyan", QColor(224, 255, 255)},
+					{"HTMLCyanPaleTurquoise", QColor(175, 238, 238)},
+					{"HTMLCyanAquamarine", QColor(127, 255, 212)},
+					{"HTMLCyanTurquoise", QColor(64, 224, 208)},
+					{"HTMLCyanMediumTurquoise", QColor(72, 209, 204)},
+					{"HTMLCyanDarkTurquoise", QColor(0, 206, 209)},
+					{"HTMLCyanLightSeaGreen", QColor(32, 178, 170)},
+					{"HTMLCyanCadetBlue", QColor(95, 158, 160)},
+					{"HTMLCyanDarkCyan", QColor(0, 139, 139)},
+					{"HTMLCyanTeal", QColor(0, 128, 128)},
+					{"HTMLBlueLightSteelBlue", QColor(176, 196, 222)},
+					{"HTMLBluePowderBlue", QColor(176, 224, 230)},
+					{"HTMLBlueLightBlue", QColor(173, 216, 230)},
+					{"HTMLBlueSkyBlue", QColor(135, 206, 235)},
+					{"HTMLBlueLightSkyBlue", QColor(135, 206, 250)},
+					{"HTMLBlueDeepSkyBlue", QColor(0, 191, 255)},
+					{"HTMLBlueDodgerBlue", QColor(30, 144, 255)},
+					{"HTMLBlueCornflowerBlue", QColor(100, 149, 237)},
+					{"HTMLBlueSteelBlue", QColor(70, 130, 180)},
+					{"HTMLBlueRoyalBlue", QColor(65, 105, 225)},
+					{"HTMLBlueBlue", QColor(0, 0, 255)},
+					{"HTMLBlueMediumBlue", QColor(0, 0, 205)},
+					{"HTMLBlueDarkBlue", QColor(0, 0, 139)},
+					{"HTMLBlueNavy", QColor(0, 0, 128)},
+					{"HTMLBlueMidnightBlue", QColor(25, 25, 112)},
+					{"HTMLPurpleLavender", QColor(230, 230, 250)},
+					{"HTMLPurpleThistle", QColor(216, 191, 216)},
+					{"HTMLPurplePlum", QColor(221, 160, 221)},
+					{"HTMLPurpleViolet", QColor(238, 130, 238)},
+					{"HTMLPurpleOrchid", QColor(218, 112, 214)},
+					{"HTMLPurpleFuchsia", QColor(255, 0, 255)},
+					{"HTMLPurpleMagenta", QColor(255, 0, 255)},
+					{"HTMLPurpleMediumOrchid", QColor(186, 85, 211)},
+					{"HTMLPurpleMediumPurple", QColor(147, 112, 219)},
+					{"HTMLPurpleBlueViolet", QColor(138, 43, 226)},
+					{"HTMLPurpleDarkViolet", QColor(148, 0, 211)},
+					{"HTMLPurpleDarkOrchid", QColor(153, 50, 204)},
+					{"HTMLPurpleDarkMagenta", QColor(139, 0, 139)},
+					{"HTMLPurplePurple", QColor(128, 0, 128)},
+					{"HTMLPurpleIndigo", QColor(75, 0, 130)},
+					{"HTMLPurpleDarkSlateBlue", QColor(72, 61, 139)},
+					{"HTMLPurpleSlateBlue", QColor(106, 90, 205)},
+					{"HTMLPurpleMediumSlateBlue", QColor(123, 104, 238)},
+					{"HTMLWhiteWhite", QColor(255, 255, 255)},
+					{"HTMLWhiteSnow", QColor(255, 250, 250)},
+					{"HTMLWhiteHoneydew", QColor(240, 255, 240)},
+					{"HTMLWhiteMintCream", QColor(245, 255, 250)},
+					{"HTMLWhiteAzure", QColor(240, 255, 255)},
+					{"HTMLWhiteAliceBlue", QColor(240, 248, 255)},
+					{"HTMLWhiteGhostWhite", QColor(248, 248, 255)},
+					{"HTMLWhiteWhiteSmoke", QColor(245, 245, 245)},
+					{"HTMLWhiteSeashell", QColor(255, 245, 238)},
+					{"HTMLWhiteBeige", QColor(245, 245, 220)},
+					{"HTMLWhiteOldLace", QColor(253, 245, 230)},
+					{"HTMLWhiteFloralWhite", QColor(255, 250, 240)},
+					{"HTMLWhiteIvory", QColor(255, 255, 240)},
+					{"HTMLWhiteAntiqueWhite", QColor(250, 235, 215)},
+					{"HTMLWhiteLinen", QColor(250, 240, 230)},
+					{"HTMLWhiteLavenderBlush", QColor(255, 240, 245)},
+					{"HTMLWhiteMistyRose", QColor(255, 228, 225)},
+					{"HTMLGrayGainsboro", QColor(220, 220, 220)},
+					{"HTMLGrayLightGray", QColor(211, 211, 211)},
+					{"HTMLGraySilver", QColor(192, 192, 192)},
+					{"HTMLGrayDarkGray", QColor(169, 169, 169)},
+					{"HTMLGrayGray", QColor(128, 128, 128)},
+					{"HTMLGrayDimGray", QColor(105, 105, 105)},
+					{"HTMLGrayLightSlateGray", QColor(119, 136, 153)},
+					{"HTMLGraySlateGray", QColor(112, 128, 144)},
+					{"HTMLGrayDarkSlateGray", QColor(47, 79, 79)},
+					{"HTMLGrayBlack", QColor(0, 0, 0)}
+				};
+
+				if (style_value == "none") { pen.setBrush(Qt::transparent); }
+				else if (style_value == "black")
+				{
+					pen.setBrush(QColor(0, 0, 0, pen.color().alpha()));
+				}
+				else if (style_value == "white")
+				{
+					pen.setBrush(QColor(255, 255, 255, pen.color().alpha()));
+				}
+				else
+				{
+					auto style_ = color_style_map.find(style_value);
+					if (style_ == color_style_map.end()) { continue; }
+
+					pen.setColor(*style_);
+				}
+			}
+		}
+	}
+
+	painter.setPen(pen);
+	painter.setBrush(brush);
+}
+
+void ElementPictureFactory::parsePlcTable(const QDomElement &dom, const QDomElement &plc_data, QPainter &painter) const
+{
+	qreal pos_x = dom.attribute("x", "0").toDouble();
+	qreal pos_y = dom.attribute("y", "0").toDouble();
+
+	if (plc_data.isNull()) return;
+
+	const int COL_COUNT = 5;
+	const int COL_TYPE     = 0;
+	const int COL_ADDRESS  = 1;
+	const int COL_FUNCTION = 2;
+	const int COL_COMMENT  = 3;
+	const int COL_CROSSREF = 4;
+
+	qreal rowHeight = plc_data.attribute("rowHeight", "8.0").toDouble();
+
+	// Parse showHeaders
+	bool showHeaders = true;
+	auto xml_sh = plc_data.firstChildElement("showHeaders");
+	if (!xml_sh.isNull())
+		showHeaders = (xml_sh.text().trimmed() != "0");
+
+	qreal header_h = showHeaders ? (rowHeight + 2.0) : 0;
+
+	// Parse column widths
+	QMap<int, qreal> col_widths;
+	auto xml_cw = plc_data.firstChildElement("columnWidths");
+	for (auto xml_col = xml_cw.firstChildElement("column"); !xml_col.isNull();
+		 xml_col = xml_col.nextSiblingElement("column")) {
+		int idx = xml_col.attribute("index").toInt();
+		qreal w = xml_col.attribute("width").toDouble();
+		if (w > 0) col_widths[idx] = w;
+	}
+	if (col_widths.isEmpty()) {
+		col_widths[0] = 35; col_widths[1] = 25; col_widths[2] = 50;
+		col_widths[3] = 40; col_widths[4] = 30;
+	}
+
+	// Parse column visibility
+	QMap<int, bool> col_visible;
+	auto xml_cv = plc_data.firstChildElement("columnVisibility");
+	for (auto xml_c = xml_cv.firstChildElement("column"); !xml_c.isNull();
+		 xml_c = xml_c.nextSiblingElement("column")) {
+		int idx = xml_c.attribute("index").toInt();
+		QString vis = xml_c.attribute("visible", "true");
+		col_visible[idx] = (vis == "true");
+	}
+
+	// Parse column order
+	QList<int> column_order;
+	auto xml_ord = plc_data.firstChildElement("columnOrder");
+	if (!xml_ord.isNull()) {
+		QStringList parts = xml_ord.text().split(",", Qt::SkipEmptyParts);
+		for (const QString &s : parts) {
+			int idx = s.trimmed().toInt();
+			if (idx >= 0 && idx < COL_COUNT)
+				column_order.append(idx);
+		}
+	}
+
+	// Parse custom column names
+	QMap<int, QString> column_names;
+	auto xml_names = plc_data.firstChildElement("columnNames");
+	for (auto xml_n = xml_names.firstChildElement("column"); !xml_n.isNull();
+		 xml_n = xml_n.nextSiblingElement("column")) {
+		int idx = xml_n.attribute("index").toInt();
+		QString name = xml_n.text().trimmed();
+		if (!name.isEmpty())
+			column_names[idx] = name;
+	}
+
+	// Parse fonts
+	QFont header_font;
+	header_font.setPointSize(7);
+	header_font.setBold(true);
+	auto xml_hfont = plc_data.firstChildElement("headerFont");
+	if (!xml_hfont.isNull()) {
+		if (!xml_hfont.attribute("family").isEmpty())
+			header_font.setFamily(xml_hfont.attribute("family"));
+		if (xml_hfont.attribute("size").toInt() > 0)
+			header_font.setPointSize(xml_hfont.attribute("size").toInt());
+		header_font.setBold(xml_hfont.attribute("bold") == "true");
+	}
+
+	QFont cell_font;
+	cell_font.setPointSize(7);
+	auto xml_cfont = plc_data.firstChildElement("cellFont");
+	if (!xml_cfont.isNull()) {
+		if (!xml_cfont.attribute("family").isEmpty())
+			cell_font.setFamily(xml_cfont.attribute("family"));
+		if (xml_cfont.attribute("size").toInt() > 0)
+			cell_font.setPointSize(xml_cfont.attribute("size").toInt());
+		cell_font.setBold(xml_cfont.attribute("bold") == "true");
+	}
+
+	// Parse IOs
+	QVector<QMap<int, QString>> ios;
+	auto xml_ios = plc_data.firstChildElement("plcIOs");
+	for (auto xml_io = xml_ios.firstChildElement("plcIO"); !xml_io.isNull();
+		 xml_io = xml_io.nextSiblingElement("plcIO")) {
+		QMap<int, QString> io_data;
+		io_data[COL_TYPE]     = ElementData::translatedPlcIOType(
+			ElementData::plcIOTypeFromString(xml_io.attribute("type")));
+		io_data[COL_ADDRESS]  = xml_io.attribute("address");
+		io_data[COL_FUNCTION] = xml_io.attribute("functionText");
+		io_data[COL_COMMENT]  = xml_io.attribute("comment");
+		io_data[COL_CROSSREF] = xml_io.attribute("crossRef");
+		ios.append(io_data);
+	}
+
+	// Build visible columns (respect column order)
+	QList<int> visible_cols;
+	if (!column_order.isEmpty()) {
+		for (int logical : column_order) {
+			if (logical >= 0 && logical < COL_COUNT
+				&& col_visible.value(logical, true)
+				&& !visible_cols.contains(logical))
+				visible_cols.append(logical);
+		}
+		for (int i = 0; i < COL_COUNT; ++i) {
+			if (col_visible.value(i, true) && !visible_cols.contains(i))
+				visible_cols.append(i);
+		}
+	} else {
+		for (int i = 0; i < COL_COUNT; ++i) {
+			if (col_visible.value(i, true))
+				visible_cols.append(i);
+		}
+	}
+	if (visible_cols.isEmpty())
+		visible_cols << COL_TYPE << COL_ADDRESS << COL_FUNCTION;
+
+	// Build header labels
+	QMap<int, QString> headers;
+	headers[COL_TYPE]     = QObject::tr("Type");
+	headers[COL_ADDRESS]  = QObject::tr("Address");
+	headers[COL_FUNCTION] = QObject::tr("Function");
+	headers[COL_COMMENT]  = QObject::tr("Annotation");
+	headers[COL_CROSSREF] = QObject::tr("Cross-reference");
+	for (auto it = column_names.constBegin(); it != column_names.constEnd(); ++it)
+		headers[it.key()] = it.value();
+
+	// Parse break positions
+	QList<int> breaks;
+	auto xml_breaks = plc_data.firstChildElement("breakPositions");
+	for (auto xml_bp = xml_breaks.firstChildElement("break"); !xml_bp.isNull();
+		 xml_bp = xml_bp.nextSiblingElement("break")) {
+		int bp = xml_bp.text().toInt();
+		if (bp > 0 && bp < ios.size() && !breaks.contains(bp))
+			breaks.append(bp);
+	}
+	std::sort(breaks.begin(), breaks.end());
+
+	QList<int> block_starts;
+	block_starts.append(0);
+	for (int bp : breaks)
+		block_starts.append(bp);
+	int block_count = block_starts.size();
+
+	qreal total_width = 0;
+	for (int col : visible_cols)
+		total_width += col_widths.value(col, 30);
+
+	QPen border_pen(Qt::black, 0.5);
+
+	int total_ios = ios.size();
+
+	for (int block = 0; block < block_count; ++block) {
+		qreal bx = pos_x + block * (total_width + 3);
+		qreal cx = bx;
+
+		// Draw headers
+		if (showHeaders) {
+			painter.fillRect(QRectF(cx, pos_y, total_width, header_h), QColor(220, 220, 220));
+			painter.setPen(border_pen);
+			painter.setBrush(Qt::NoBrush);
+			painter.setFont(header_font);
+			for (int col : visible_cols) {
+				QRectF hr(cx, pos_y, col_widths.value(col, 30), header_h);
+				painter.drawRect(hr);
+				QRectF text_rect = hr.adjusted(1, 0, -1, 0);
+				painter.drawText(text_rect, Qt::AlignCenter, headers.value(col, QString()));
+				cx += col_widths.value(col, 30);
+			}
+		}
+
+		// Draw IO rows
+		painter.setFont(cell_font);
+		int start_idx = block_starts.at(block);
+		int end_idx = (block + 1 < block_starts.size()) ? block_starts.at(block + 1) : total_ios;
+
+		for (int row = 0; row < (end_idx - start_idx); ++row) {
+			int io_idx = start_idx + row;
+			if (io_idx >= ios.size()) break;
+			const auto &io = ios.at(io_idx);
+			qreal ry = pos_y + header_h + row * rowHeight;
+			cx = bx;
+
+			for (int col : visible_cols) {
+				QRectF cr(cx, ry, col_widths.value(col, 30), rowHeight);
+				painter.setPen(border_pen);
+				painter.setBrush(Qt::NoBrush);
+				painter.drawRect(cr);
+
+				QString cell_text = io.value(col, QString());
+				QRectF text_rect = cr.adjusted(1, 0, -1, 0);
+				painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, cell_text);
+
+				cx += col_widths.value(col, 30);
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="45" hotspot_y="35">
+    <uuid uuid="{bdfc2c80-28cf-c497-a9d6-7a696851ebe7}"/>
+    <names>
+        <name lang="ar">حثّ، متغير باستمرار</name>
+        <name lang="ca">Inductor, contínuament variable</name>
+        <name lang="cs">Indukční cívka s jádrem s měnitelnou indukčností</name>
+        <name lang="da">Induktor, kontinuerligt variabel</name>
+        <name lang="de">Induktivität, stetig veränderbar mit Magnetkern</name>
+        <name lang="el">Πηνίο, συνεχώς μεταβλητό</name>
+        <name lang="en">Inductor, continuously variable</name>
+        <name lang="es">Inductor continuamente variable</name>
+        <name lang="fi">Induktori, jatkuvasti säädettävä</name>
+        <name lang="fr">Inductance variable de façon continue à noyau
+magnétique</name>
+        <name lang="hr">Induktor, kontinuirano promjenjiv</name>
+        <name lang="hu">Induktor, folyamatosan változtatható</name>
+        <name lang="it">Induttore, a variazione continua</name>
+        <name lang="ja">インダクタ、連続可変</name>
+        <name lang="ko">인덕터, 연속 가변</name>
+        <name lang="mn">Индуктор, тасралтгүй хувьсах</name>
+        <name lang="nb">Induktor, kontinuerlig variabel</name>
+        <name lang="nl">Inductor, continu variabel</name>
+        <name lang="nl_BE">Inductor, continu regelbaar</name>
+        <name lang="pl">Cewka, płynnie regulowana</name>
+        <name lang="pt">Indutância, continuamente variável</name>
+        <name lang="pt_BR">Indutor continuamente variável</name>
+        <name lang="ro">Inductor, variabil continuu</name>
+        <name lang="ru">Индуктивность, плавно регулируемая</name>
+        <name lang="sk">Induktor, plynule nastaviteľný</name>
+        <name lang="sl">Induktor, zvezno spremenljiv</name>
+        <name lang="sr">Индуктор, континуално променљив</name>
+        <name lang="sv">Induktor, kontinuerligt variabel</name>
+        <name lang="tr">İndüktör, sürekli değişken</name>
+        <name lang="uk">Котушка індуктивності, безперервно змінна</name>
+        <name lang="zh">接线端子排5</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{eea1b762-3220-4795-80c0-6e6f0ca320ad}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-20" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-40" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-15" width="10" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-40" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-10" x2="-40" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-5" x2="-10" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-9" y1="-24" x2="-11" y2="-26" x3="-7" y3="-28" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-5" y1="-25" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

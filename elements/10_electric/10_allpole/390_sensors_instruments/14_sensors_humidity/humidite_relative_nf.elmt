@@ -1,0 +1,58 @@
+<definition version="0.90" type="element" link_type="simple" width="50" height="60" hotspot_x="39" hotspot_y="31">
+    <uuid uuid="{91dcdb0b-3d22-a905-f32c-4e875e3eb279}"/>
+    <names>
+        <name lang="ar">رطوبة نسبية محكومة NC</name>
+        <name lang="ca">Humitat relativa controlada per NC</name>
+        <name lang="cs">Spínač vlhkosti NC</name>
+        <name lang="da">NC-styret relativ luftfugtighed</name>
+        <name lang="de">Feuchteschalter Öffner</name>
+        <name lang="el">Κλειστή επαφή ελεγχόμενης σχετικής υγρασίας</name>
+        <name lang="en">NC controlled relative humidity</name>
+        <name lang="es">Accionado por humedad relativa NC</name>
+        <name lang="fi">NC-ohjattu suhteellinen kosteus</name>
+        <name lang="fr">Actionné par humidité relative NF</name>
+        <name lang="hr">NC upravljana relativnom vlagom</name>
+        <name lang="hu">NC vezérelt relatív páratartalom</name>
+        <name lang="it">Controllato dall'umidità relativa NC</name>
+        <name lang="ja">相対湿度制御 NC</name>
+        <name lang="ko">NC 제어 상대 습도</name>
+        <name lang="mn">NC удирдлагатай харьцангуй чийгшил</name>
+        <name lang="nb">NC-styrt relativ fuktighet</name>
+        <name lang="nl">Relatieve Vochtigheid (NC)</name>
+        <name lang="nl_BE">NC-gestuurde relatieve vochtigheid</name>
+        <name lang="pl">Zestyk rozwierny sterowany poziomemi wilgotności względnej</name>
+        <name lang="pt">Humidade relativa controlada NC</name>
+        <name lang="pt_BR">NF controlado por umidade relativa</name>
+        <name lang="ro">Umiditate relativă controlată NC</name>
+        <name lang="ru">Управление относительной влажностью НЗ</name>
+        <name lang="sk">NC riadená relatívna vlhkosť</name>
+        <name lang="sl">Z relativno vlažnostjo krmiljen NC</name>
+        <name lang="sr">NC контролисана релативна влажност</name>
+        <name lang="sv">NC-styrd relativ fuktighet</name>
+        <name lang="tr">NC kontrollü bağıl nem</name>
+        <name lang="uk">Керована відносна вологість NC</name>
+        <name lang="zh">相对湿度常闭</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-32" y="-7" width="22" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="8.5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{5f95b7b0-7771-4312-a802-a090371523a5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <text text="% r.H." x="-31" y="0" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-10" y="-23.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{3c03b801-c793-47b2-aabd-a0b16e40154b}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <polygon x1="0" y1="20" x2="0" y2="10" x3="6" y3="-10" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-15" y="3" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <dynamic_text x="8" y="-11" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{225e9fa1-337e-409f-aafa-098ad7655449}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-20" x2="0" y2="-9" x3="7" y3="-9" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{e535c8ec-f595-474c-81ed-b76ba1605f7c}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{02cc6bf4-c015-4ad3-9985-b5fcacaa09d9}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

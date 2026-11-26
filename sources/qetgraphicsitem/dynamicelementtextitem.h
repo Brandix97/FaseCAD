@@ -1,0 +1,279 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef DYNAMICELEMENTTEXTITEM_H
+#define DYNAMICELEMENTTEXTITEM_H
+
+#include "../properties/xrefproperties.h"
+#include "diagramtextitem.h"
+#include "element.h"
+
+#include <QByteArray>
+#include <QImage>
+#include <QPointer>
+#include <QUuid>
+
+class Element;
+class Conductor;
+class ElementTextItemGroup;
+class CrossRefItem;
+class QetGraphicsHandlerItem;
+
+/**
+	@brief The DynamicElementTextItem class
+	This class provide a simple text field of element who can be added or removed directly from the diagram editor.
+	This text is created to compensate a big lack of the ElementTextItem : ElementTextItem can't be added or removed directly in the diagram editor
+	
+*/
+class DynamicElementTextItem : public DiagramTextItem
+{
+	friend class DynamicTextItemDelegate;
+	friend class CompositeTextEditDialog;
+	friend class Element;
+
+	Q_OBJECT
+
+	Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
+	Q_PROPERTY(TextFrom textFrom READ textFrom WRITE setTextFrom NOTIFY textFromChanged)
+	Q_PROPERTY(QString infoName READ infoName WRITE setInfoName NOTIFY infoNameChanged)
+	Q_PROPERTY(QString compositeText READ compositeText WRITE setCompositeText NOTIFY compositeTextChanged)
+	Q_PROPERTY(QString partField READ partField WRITE setPartField NOTIFY partFieldChanged)
+	Q_PROPERTY(QString partValue READ partValue WRITE setPartValue NOTIFY partValueChanged)
+	Q_PROPERTY(QByteArray partImage READ partImage WRITE setPartImage NOTIFY partImageChanged)
+	Q_PROPERTY(bool frame READ frame WRITE setFrame NOTIFY frameChanged)
+	Q_PROPERTY(qreal textWidth READ textWidth WRITE setTextWidth NOTIFY textWidthChanged)
+	Q_PROPERTY(qreal textHeight READ textHeight WRITE setTextHeight NOTIFY textHeightChanged)
+	Q_PROPERTY(bool keepVisualRotation READ keepVisualRotation WRITE setKeepVisualRotation NOTIFY keepVisualRotationChanged)
+	Q_PROPERTY(bool rotationPointCenter READ rotationPointCenter WRITE setRotationPointCenter NOTIFY rotationPointCenterChanged)
+	public:
+
+		enum TextFrom {
+			UserText,
+			ElementInfo,
+			CompositeText,
+				///Data of a part of the element (PartTexts), saved as a
+				///user text QElectroTech shows as it is
+			PartInfo
+		};
+		Q_ENUM (TextFrom)
+		enum {Type = UserType + 1010};
+		int type() const override {return Type;}
+
+	signals:
+		void textChanged(QString text);
+		void textFromChanged(DynamicElementTextItem::TextFrom text_from);
+		void infoNameChanged(QString info);
+		void compositeTextChanged(QString text);
+		void partFieldChanged(QString reference);
+		void partValueChanged(QString value);
+		void partImageChanged();
+		void frameChanged(bool frame);
+		void plainTextChanged();
+		void textWidthChanged(qreal width);
+		void textHeightChanged(qreal height);
+		void keepVisualRotationChanged(bool keep);
+		void rotationPointCenterChanged(bool center);
+
+	public:
+		DynamicElementTextItem(Element *parent_element);
+
+			///Read again what hangs on the symbol of this text: a wire,
+			///or a bridge landed on it since. The texts of a sheet
+			///reference are asked when one of those comes or goes, so
+			///what the reference says follows the drawing.
+		void refreshConnection();
+		~DynamicElementTextItem() override;
+		static QMetaEnum textFromMetaEnum();
+	private:
+		DynamicElementTextItem ();
+		DynamicElementTextItem(const DynamicElementTextItem &);
+		
+	public:
+		QDomElement toXml(QDomDocument &dom_doc) const override;
+		void fromXml(const QDomElement &dom_elmt) override;
+
+		Element *parentElement() const;
+		/// PDF export: slave cross-reference text item ("(folio-pos)") and its master target.
+		QGraphicsTextItem *slaveXrefItem() const { return m_slave_Xref_item; }
+		/// DXF export: the master-side cross-reference item (the table/cross
+		/// drawn next to a report/master element), if this text item has one.
+		CrossRefItem *masterXrefItem() const { return m_Xref_item; }
+		Element *masterElement() const;
+		ElementTextItemGroup *parentGroup() const;
+		Element *elementUseForInfo() const;
+		void refreshLabelConnection();
+		/// Re-evaluate the text of a folio report (label / cross reference).
+		void refreshReportText() { updateReportText(); }
+		void refreshLabelShown();
+
+		DynamicElementTextItem::TextFrom textFrom() const;
+		void setTextFrom (DynamicElementTextItem::TextFrom text_from);
+		QString text() const;
+		void setText(const QString &text);
+		static QString xmlTagName() {return QString("dynamic_elmt_text");}
+		static bool verticalFromBottom();
+		static void setVerticalFromBottom(bool from_bottom);
+		static bool dragMovesTextAlone();
+		static void setDragMovesTextAlone(bool text_alone);
+		void updateReadingDirection();
+		QTransform readingFlip() const;
+		void setInfoName(const QString &info_name);
+		QString infoName() const;
+		Element *linkedElementShown() const;
+			/// Shaded blue for a moment: its symbol is where a jump landed
+		void setJumpHighlight(bool on);
+		bool isJumpHighlighted() const {return m_jump_highlight;}
+		void setCompositeText(const QString &text);
+		QString compositeText() const;
+			///The data of a part this text shows (PartTexts::reference())
+		void setPartField(const QString &reference);
+		QString partField() const {return m_part_field;}
+			///What that data was when last read from the parts database
+		void setPartValue(const QString &value);
+		QString partValue() const {return m_part_value;}
+			///An image of a part (PartTexts::isImage()): the copy kept,
+			///a PNG; the text then shows it instead of letters, its width
+			///textWidth() (20 by default) and its height textHeight() or
+			///as the image is, never stretched
+		void setPartImage(const QByteArray &png);
+		QByteArray partImage() const {return m_part_image;}
+		bool showsImage() const;
+		QSizeF imageSize() const;
+		void refreshConductorText() {elementInfoChanged();}
+		void setFrame(const bool frame);
+		bool frame() const;
+		QUuid uuid() const;
+		void updateXref();
+		void setPlainText(const QString &text);
+			//Hide QGraphicsTextItem::textWidth(): with the width on "auto"
+			//the document is given the text's own width so its lines can be
+			//centred or right-aligned, but the width is still "auto" (-1).
+		qreal textWidth() const {return m_text_width;}
+		void setTextWidth(qreal width);
+			//A height set by the user, -1 for "auto": lines that do not
+			//fit are cut off, as a text field of fixed size does
+		qreal textHeight() const {return m_text_height;}
+		void setTextHeight(qreal height);
+		QRectF boundingRect() const override;
+		QPainterPath shape() const override;
+		bool contains(const QPointF &point) const override;
+		void setXref_item(Qt::AlignmentFlag m_exHrefPos, int slave_offset = 0);
+
+		void setKeepVisualRotation(bool set);
+		bool keepVisualRotation() const;
+
+		void setRotationPointCenter(bool set);
+		bool rotationPointCenter() const;
+
+			//Called by Element::itemChange() when the PARENT's selection
+			//changes, so the parent can keep each of its texts' resize
+			//handles in sync with its own selection state. Public for that;
+			//see the .cpp for why it exists.
+		void refreshResizeHandlesVisibility();
+
+	protected:
+		void keyPressEvent(QKeyEvent *event) override;
+		void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+		void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+		void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+		void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
+		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+		QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+		bool sceneEventFilter(QGraphicsItem *watched, QEvent *event) override;
+
+	private:
+		void elementInfoChanged();
+		void masterChanged();
+		void reportChanged();
+		void reportFormulaChanged();
+		void setConnectionForReportFormula(const QString &formula);
+		void removeConnectionForReportFormula(const QString &formula);
+		void setupFormulaConnection();
+		void clearFormulaConnection();
+		void updateReportFormulaConnection();
+		void updateReportText();
+		void updateLabel();
+		void conductorWasAdded(Conductor *conductor);
+		void conductorWasRemoved(Conductor *conductor);
+		void setPotentialConductor();
+		void conductorPropertiesChanged();
+		QString reportReplacedCompositeText() const;
+		void zoomToLinkedElement();
+		void parentElementRotationChanged();
+		void thisRotationChanged();
+		void addResizeHandles();
+		void removeResizeHandles();
+		void updateResizeHandlesPos();
+		QPointF resizeAnchor() const;
+		qreal minimumTextWidth() const;
+		void fitAutoTextWidth();
+		void handlerMousePressEvent(QetGraphicsHandlerItem *handle, QGraphicsSceneMouseEvent *event);
+		void handlerMouseMoveEvent(QetGraphicsHandlerItem *handle, QGraphicsSceneMouseEvent *event);
+		void handlerMouseReleaseEvent(QetGraphicsHandlerItem *handle, QGraphicsSceneMouseEvent *event);
+
+	private:
+		QPointer <Element>
+		m_parent_element,
+		m_master_element,
+		m_other_report;
+		QPointer <Conductor> m_watched_conductor;
+		QString
+		m_text,
+		m_info_name,
+		m_composite_text,
+		m_part_field,
+		m_part_value,
+		m_report_formula,
+		m_F_str;
+		QByteArray m_part_image;
+		QImage m_image;
+		DynamicElementTextItem::TextFrom m_text_from = UserText;
+		QUuid m_uuid;
+		QMetaObject::Connection m_report_formula_con;
+		QList<QMetaObject::Connection>
+		m_formula_connection,
+		m_update_slave_Xref_connection;
+		QColor m_user_color;
+		bool
+		m_frame = false,
+		m_first_scene_change = true;
+		CrossRefItem *m_Xref_item = nullptr;
+		QGraphicsTextItem *m_slave_Xref_item = nullptr;
+		qreal m_text_width = -1;
+		bool m_jump_highlight = false;
+		qreal m_text_height = -1;
+			/// The text was emptied with its alignment kept (setPlainText())
+		bool m_emptied_aligned = false;
+		QPointF m_initial_position;
+		bool m_keep_visual_rotation = true;
+		bool m_rotation_point_center = false;
+		qreal m_visual_rotation_ref = 0;
+		bool m_move_parent = true;
+		QetGraphicsHandlerItem *m_left_resize_handle = nullptr;
+		QetGraphicsHandlerItem *m_right_resize_handle = nullptr;
+		qreal m_resize_original_width = -1;
+		qreal m_resize_baseline_width = -1;
+		qreal m_resize_start_local_x = 0;
+		QPointF m_resize_start_pos,
+				m_resize_fixed_parent;
+		QTransform m_resize_scene_to_local;
+		QMetaObject::Connection m_resize_handles_con;
+};
+
+#endif // DYNAMICELEMENTTEXTITEM_H

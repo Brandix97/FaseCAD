@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="20" hotspot_y="7">
+    <uuid uuid="{0eaca2f6-b56f-48b2-978c-08921e75754d}"/>
+    <names>
+        <name lang="ar">زرّ بمسارين</name>
+        <name lang="ca">Botó bidireccional</name>
+        <name lang="cs">Dvousměrové tlačítko</name>
+        <name lang="da">To-vejs knap</name>
+        <name lang="de">Zweiweg-Taster</name>
+        <name lang="el">Κουμπί δύο κατευθύνσεων</name>
+        <name lang="en">Two-way button</name>
+        <name lang="es">Pulsador 2 posiciones</name>
+        <name lang="fi">Kaksitoiminen painike</name>
+        <name lang="fr">Bouton deux voies</name>
+        <name lang="hr">Dvosmjerno tipkalo</name>
+        <name lang="hu">Kétutas nyomógomb</name>
+        <name lang="it">Pulsante due vie</name>
+        <name lang="ja">2方向ボタン</name>
+        <name lang="ko">양방향 버튼</name>
+        <name lang="mn">Хоёр чиглэлийн товч</name>
+        <name lang="nb">Toveis knapp</name>
+        <name lang="nl">Drukknop 2 standen</name>
+        <name lang="nl_BE">Tweeweg drukknop</name>
+        <name lang="pl">Przycisk o dwuch kierunkach działania</name>
+        <name lang="pt">Botão de duas vias</name>
+        <name lang="pt_BR">Botão de duas vias</name>
+        <name lang="ro">Buton cu două căi</name>
+        <name lang="ru">Двухходовая кнопка</name>
+        <name lang="sk">Obojsmerné tlačidlo</name>
+        <name lang="sl">Dvosmerni gumb</name>
+        <name lang="sr">Двосмерно дугме</name>
+        <name lang="sv">Tvåvägsknapp</name>
+        <name lang="tr">İki yollu buton</name>
+        <name lang="uk">Двопозиційна кнопка</name>
+        <name lang="zh">双位按钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-20.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6d3e5c62-a67e-4854-9370-8e1020864f0f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-16" y="-3" width="6" height="12" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13" y1="-3" x2="-13" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="18">
+    <uuid uuid="{853a10ce-64b1-e961-ceed-5ae6057fd2fa}"/>
+    <names>
+        <name lang="ar">صمّام استشعار حراري</name>
+        <name lang="ca">Vàlvula de sensor tèrmic</name>
+        <name lang="cs">Čidlo teploty uzávěru</name>
+        <name lang="da">Termisk følerventil</name>
+        <name lang="de">Thermofühlerventil</name>
+        <name lang="el">Βαλβίδα θερμικού αισθητήρα</name>
+        <name lang="en">Thermal sensor valve</name>
+        <name lang="es">Válvula de sensor térmico</name>
+        <name lang="fi">Lämpöanturiventtiili</name>
+        <name lang="fr">Capteur Soupape Thermique</name>
+        <name lang="hr">Ventil toplinskog senzora</name>
+        <name lang="hu">Hőérzékelős szelep</name>
+        <name lang="it">Sonda di temperatura</name>
+        <name lang="ja">サーモスタットバルブ</name>
+        <name lang="ko">열 센서 밸브</name>
+        <name lang="mn">Дулааны мэдрэгч хавхлага</name>
+        <name lang="nb">Termisk følerventil</name>
+        <name lang="nl">thermische Bulb</name>
+        <name lang="nl_BE">Thermische voelerklep</name>
+        <name lang="pl">Czujnik temperatury zaworu</name>
+        <name lang="pt">Válvula de sensor térmico</name>
+        <name lang="pt_BR">Válvula com sensor térmico</name>
+        <name lang="ro">Supapă cu senzor termic</name>
+        <name lang="ru">Клапан с термодатчиком</name>
+        <name lang="sk">Ventil tepelného snímača</name>
+        <name lang="sl">Ventil s toplotnim tipalom</name>
+        <name lang="sr">Вентил термичког сензора</name>
+        <name lang="sv">Termisk givare ventil</name>
+        <name lang="tr">Termal sensör vanası</name>
+        <name lang="uk">Термочутливий клапан</name>
+        <name lang="zh">传感器安全阀01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="2" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{10f509f8-00d7-45ce-9e3b-dd0b82185adc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-10" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-1" x2="0" y2="-2" x3="-1" y3="-3" x4="1" y4="-4" x5="-1" y5="-5" x6="0" y6="-6" x7="0" y7="-7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1.5" y1="0.5" x2="-1.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1.5" y="6" width="3" height="2" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="1.5" y1="0.5" x2="1.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-1.5" y="-1" width="3" height="2" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{47fc13b7-f07a-4309-b52b-cdfb6e575528}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

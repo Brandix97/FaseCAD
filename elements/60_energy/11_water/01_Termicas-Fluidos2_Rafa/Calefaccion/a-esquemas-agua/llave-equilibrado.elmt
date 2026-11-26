@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="16">
+    <uuid uuid="{9f80a4ee-0902-3349-1948-186a4da0bdc2}"/>
+    <names>
+        <name lang="ar">صنبور موازن</name>
+        <name lang="ca">Aixeta equilibrada</name>
+        <name lang="cs">Vyvažovací kohout</name>
+        <name lang="da">Balanceret armatur</name>
+        <name lang="de">Mischbatterie</name>
+        <name lang="el">Βαλβίδα εξισορρόπησης</name>
+        <name lang="en">Balanced faucet</name>
+        <name lang="es">Llave equilibrado</name>
+        <name lang="fi">Tasapainotettu hana</name>
+        <name lang="fr">Vanne d'équilibrage</name>
+        <name lang="hr">Balansna slavina</name>
+        <name lang="hu">Kiegyenlített csap</name>
+        <name lang="it">Rubinetto bilanciato</name>
+        <name lang="ja">バランス栓</name>
+        <name lang="ko">밸런싱 밸브</name>
+        <name lang="mn">Тэнцвэржүүлсэн кран</name>
+        <name lang="nb">Balansert kran</name>
+        <name lang="nl">Inregelkraan</name>
+        <name lang="nl_BE">Inregelkraan</name>
+        <name lang="pl">Zawór równoważący</name>
+        <name lang="pt">Torneira equilibrada</name>
+        <name lang="pt_BR">Balanced faucet</name>
+        <name lang="ro">Robinet echilibrat</name>
+        <name lang="ru">Балансировочный кран</name>
+        <name lang="sk">Vyvažovací kohútik</name>
+        <name lang="sl">Uravnotežena pipa</name>
+        <name lang="sr">Балансна славина</name>
+        <name lang="sv">Balanserad kran</name>
+        <name lang="tr">Dengeli musluk</name>
+        <name lang="uk">Балансувальний кран</name>
+        <name lang="zh">平衡阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="9.82" y1="0" x2="19.19" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.63" y1="5.06" x2="-9.63" y2="-4.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.93" y1="2.33" x2="-2.93" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.15" y1="2.32" x2="3.15" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.1" y1="4.47" x2="7.1" y2="8.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.6" y1="5.06" x2="9.6" y2="-4.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.63" y1="-4.57" x2="9.38" y2="5.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.63" y1="5.08" x2="9.38" y2="-4.57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.13" y1="0.14" x2="-0.13" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.88" y1="-7.33" x2="4.63" y2="-7.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-4.88" y="-10.09" width="10" height="5.52" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6.88" y1="4.41" x2="-6.88" y2="8.41" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19.28" y1="0" x2="-10.7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="7.5" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a1b8d8e2-e463-4621-a20c-ab02c213b259}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{805b3784-676c-4dde-bb5c-8f29a57eeea9}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{52d33cce-6edb-49e9-a773-eb2e5f9f96d7}" name="" x="20" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

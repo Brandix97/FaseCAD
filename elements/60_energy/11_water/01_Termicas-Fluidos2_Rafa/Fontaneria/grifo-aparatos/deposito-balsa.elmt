@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="70" hotspot_x="48" hotspot_y="31">
+    <uuid uuid="{2838d516-2c0b-a6b3-975b-22e1258dc208}"/>
+    <names>
+        <name lang="ca">Bassa de reg</name>
+        <name lang="es">Balsa de riego</name>
+        <name lang="pt_BR">Balsa de riego</name>
+        <name lang="zh">水池储罐</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-31" y="-23" width="60" height="14" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-31" y1="-17.58" x2="-31" y2="25.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-31" y="-25" width="60" height="14" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-31" y="19" width="60" height="14" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-28" y="-24" width="54" height="12" start="0" angle="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="29" y1="-17.58" x2="29" y2="25.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-34" y="18" width="3" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-31" y="-1" width="60" height="12" style="line-style:dashed;line-weight:thin;filling:none;color:red" antialias="true"/>
+        <dynamic_text x="-10" y="15" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ff322b0b-ba7d-445a-a810-5f4a3401d1b9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-38" y="16" width="4" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9f11fcc2-2263-48cb-9fc3-e2677700a63d}" name="" x="-40" y="20" orientation="w" type="Generic"/>
+    </description>
+</definition>

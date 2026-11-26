@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{b5ccad08-19f0-c4a8-3775-121d80241550}"/>
+    <names>
+        <name lang="ar">زرّ دوّار بمفتاح</name>
+        <name lang="ca">Posicions de l'interruptor de clau</name>
+        <name lang="cs">Přepínač 3 polohy s návratem zprava i zleva, uzamčení ve středu</name>
+        <name lang="da">Nøgleafbryderpositioner</name>
+        <name lang="de">Schlüsselschalterstellungen</name>
+        <name lang="el">Διακόπτης με κλειδί</name>
+        <name lang="en">Key switch positions</name>
+        <name lang="es">Posiciones del interruptor de llave</name>
+        <name lang="fi">Kytkinasennon valitsinkytkimille</name>
+        <name lang="fr">Boutons tournant à clé</name>
+        <name lang="hr">Položaji prekidača s ključem</name>
+        <name lang="hu">Kulcsos kapcsoló állások</name>
+        <name lang="it">Comando, selettore a chiave</name>
+        <name lang="ja">キースイッチ位置</name>
+        <name lang="ko">키 스위치 위치</name>
+        <name lang="mn">Түлхүүр унтраалгын байрлал</name>
+        <name lang="nb">Nøkkelbryterposisjoner</name>
+        <name lang="nl">Schakelstanden</name>
+        <name lang="nl_BE">Sleutelschakelaarstanden</name>
+        <name lang="pl">Pozycja wyjęcia kluczyka łącznika</name>
+        <name lang="pt">Posições do interruptor de chave</name>
+        <name lang="pt_BR">Posições da chave seletora com chave</name>
+        <name lang="ro">Poziții ale comutatorului cu cheie</name>
+        <name lang="ru">Позиции ключевого переключателя</name>
+        <name lang="sk">Polohy kľúčového prepínača</name>
+        <name lang="sl">Položaji ključavničnega stikala</name>
+        <name lang="sr">Положаји прекидача са кључем</name>
+        <name lang="sv">Nyckelbrytarlägen</name>
+        <name lang="tr">Anahtar şalter konumları</name>
+        <name lang="uk">Позиції ключового перемикача</name>
+        <name lang="zh">开关位置10</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="7" y="-19" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{147a85e3-f063-45d8-9a5b-fb1688ab8546}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="-12" x2="4" y2="-15" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-12" x2="-4" y2="-15" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1" y1="-17" x2="-2" y2="-14" x3="2" y3="-14" x4="1" y4="-17" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-1.41" y="-20.41" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-1" x2="0" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

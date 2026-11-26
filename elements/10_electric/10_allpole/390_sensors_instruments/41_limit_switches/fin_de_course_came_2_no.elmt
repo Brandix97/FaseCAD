@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="22" hotspot_y="30">
+    <uuid uuid="{85e8fcd8-10b0-295e-1279-04480e480bf3}"/>
+    <names>
+        <name lang="ar">مفتاح نهاية مشوار بحدبة (NO)</name>
+        <name lang="ca">Interruptor de límit (NO)</name>
+        <name lang="cs">Koncový spínač s kladkou NO</name>
+        <name lang="da">Endestopkontakt (NO)</name>
+        <name lang="de">Schliesser Einschaltnocken</name>
+        <name lang="el">Τερματικό, Ανοικτό</name>
+        <name lang="en">Limitswitch (NO)</name>
+        <name lang="es">Final de carrera</name>
+        <name lang="fi">Rajarajakytkin (NO)</name>
+        <name lang="fr">Fin de course came (no)</name>
+        <name lang="hr">Krajnja sklopka (NO)</name>
+        <name lang="hu">Végálláskapcsoló (NO)</name>
+        <name lang="it">Finecorsa (NA)</name>
+        <name lang="ja">リミットスイッチ (NO)</name>
+        <name lang="ko">리밋 스위치 (NO)</name>
+        <name lang="mn">Хязгаарын унтраалга (NO)</name>
+        <name lang="nb">Grensebryter (NO)</name>
+        <name lang="nl">eindschakelaar (NO)</name>
+        <name lang="nl_BE">Eindeschakelaar (NO)</name>
+        <name lang="pl">Zestyk zwierny łącznika krańcowego</name>
+        <name lang="pt">Fim de curso (NO)</name>
+        <name lang="pt_BR">Fim de curso (NA)</name>
+        <name lang="ro">Întrerupător de limită (NO)</name>
+        <name lang="ru">Концевой контакт (НР)</name>
+        <name lang="sk">Koncový spínač (NO)</name>
+        <name lang="sl">Končno stikalo (NO)</name>
+        <name lang="sr">Гранични прекидач (NO)</name>
+        <name lang="sv">Gränslägesbrytare (NO)</name>
+        <name lang="tr">Limit anahtarı (NO)</name>
+        <name lang="uk">Кінцевий вимикач (NO)</name>
+        <name lang="zh">限位开关_凸轮_2_常开</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-16" y1="10" x2="-16" y2="-1" x3="-17" y3="-4" x4="-17" y4="-12" x5="-19" y5="-12" x6="-19" y6="10" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <ellipse x="-16.5" y="-4.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="2.75" y="-9.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a13f8683-7714-4fcb-9c47-ca09dff99c11}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.5" y1="-3" x2="-4" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{18b94112-5b7e-4b02-b4bd-d8180fa6db5d}" name="" x="0" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{1e2d545f-f9a5-4a6b-bf89-1cf00b745177}" name="" x="0" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

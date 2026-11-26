@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="20" hotspot_y="13">
+    <uuid uuid="{b4f251f6-6792-a40d-232e-cf4b604a7b2e}"/>
+    <names>
+        <name lang="ar">ضاغط بطول قابل للتعديل</name>
+        <name lang="ca">Empenta de longitud ajustable</name>
+        <name lang="cs">Táhlo s nastavitelnou délkou</name>
+        <name lang="da">Tryk justerbar længde</name>
+        <name lang="de">Stellglied mit einstellbarer Länge</name>
+        <name lang="el">Πιεστήριο ρυθμιζόμενου μήκους</name>
+        <name lang="en">Push adjustable length</name>
+        <name lang="es">Boton de longitud ajustable</name>
+        <name lang="fi">Työnnä säädettävä pituus</name>
+        <name lang="fr">Poussoir longueur réglable</name>
+        <name lang="hr">Podesivi pritisak po dužini</name>
+        <name lang="hu">Nyomórúd állítható hosszúságú</name>
+        <name lang="it">Pulsante regolabile</name>
+        <name lang="ja">押し調整可能長さ</name>
+        <name lang="ko">푸시 길이 조절 가능</name>
+        <name lang="mn">Тохируулгатай урттай түлхэх</name>
+        <name lang="nb">Trykk justerbar lengde</name>
+        <name lang="nl">Drukknop regelbaar</name>
+        <name lang="nl_BE">Duwknop verstelbare lengte</name>
+        <name lang="pl">Popychacz z nastawną długością</name>
+        <name lang="pt">Botão de comprimento ajustável</name>
+        <name lang="pt_BR">Botão de pressão com curso ajustável</name>
+        <name lang="ro">Împingere cu lungime reglabilă</name>
+        <name lang="ru">Толкатель регулируемой длины</name>
+        <name lang="sk">Posuvné nastaviteľnej dĺžky</name>
+        <name lang="sl">Potisni nastavljive dolžine</name>
+        <name lang="sr">Притисак подесиве дужине</name>
+        <name lang="sv">Tryck ställbar längd</name>
+        <name lang="tr">Ayarlanabilir uzunlukta itme</name>
+        <name lang="uk">Натискання з регульованою довжиною</name>
+        <name lang="zh">可调推杆</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-16.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{06d30917-900a-46ef-b728-e5539f3a9e71}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-4" x2="-15" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1" y1="-5" x2="1" y2="-3" x3="4" y3="-8" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="-13" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-16" y="0" width="6" height="6" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

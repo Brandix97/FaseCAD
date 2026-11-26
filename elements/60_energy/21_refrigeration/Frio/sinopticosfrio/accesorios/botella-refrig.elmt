@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="38">
+    <uuid uuid="{228c7380-26bd-4b88-75c5-4b1ed59598a1}"/>
+    <names>
+        <name lang="ar">قارورة مبرّد</name>
+        <name lang="ca">Ampolla de refrigerant</name>
+        <name lang="cs">Chladicí láhev</name>
+        <name lang="da">Kølemiddelflaske</name>
+        <name lang="de">Kältemittelflasche</name>
+        <name lang="el">Φιάλη ψυκτικού</name>
+        <name lang="en">Refrigerant bottle</name>
+        <name lang="es">Botella de  refrig.</name>
+        <name lang="fi">Kylmäainepullo</name>
+        <name lang="fr">Bouteille de réfrigérant</name>
+        <name lang="hr">Boca rashladnog sredstva</name>
+        <name lang="hu">Hűtőközeg-palack</name>
+        <name lang="it">Bombola refrigerante</name>
+        <name lang="ja">冷媒ボンベ</name>
+        <name lang="ko">냉매 용기</name>
+        <name lang="mn">Хөргөлтийн шингэний сав</name>
+        <name lang="nb">Kjølemediumflaske</name>
+        <name lang="nl">Koudemiddelfles</name>
+        <name lang="nl_BE">Koudemiddelfles</name>
+        <name lang="pl">Zbiornik czynnika chłodniczego</name>
+        <name lang="pt">Garrafa de refrigerante</name>
+        <name lang="pt_BR">Frasco de refrigerante</name>
+        <name lang="ro">Butelie de agent frigorific</name>
+        <name lang="ru">Ресивер хладагента</name>
+        <name lang="sk">Fľaša s chladivom</name>
+        <name lang="sl">Hladilna jeklenka</name>
+        <name lang="sr">Боца расхладног средства</name>
+        <name lang="sv">Kylmediumflaska</name>
+        <name lang="tr">Soğutucu tüpü</name>
+        <name lang="uk">Балон холодоагенту</name>
+        <name lang="zh">制冷瓶</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="2.5" y1="-27" x2="2.5" y2="-22.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-8" y="-22.49" width="16" height="9.9" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2.5" y1="-27" x2="-2.5" y2="-22.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-2.5" y="-30.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-8" y1="-17" x2="-8" y2="18" x3="8" y3="18" x4="8" y4="-17" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{d266fb04-f05e-4cab-ae9f-b05423388a83}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

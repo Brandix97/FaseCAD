@@ -1,0 +1,171 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "conductornumexport.h"
+#include "qetproject.h"
+#include "qetapp.h"
+#include "diagram.h"
+#include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/terminal.h"
+#include "dataBase/projectdatabase.h"
+#include "properties/elementdata.h"
+
+#include <QFileDialog>
+#include <QTextStream>
+
+/**
+	@brief ConductorNumExport::ConductorNumExport
+	@param project : the project to export the conductors num
+	@param parent : parent widget
+*/
+ConductorNumExport::ConductorNumExport(QETProject *project, QWidget *parent) :
+	m_project(project),
+	m_parent_widget(parent)
+{
+	fillHash();
+}
+
+/**
+	@brief ConductorNumExport::toCsv
+	Export the num of conductors into a csv file.
+	@return true if suceesfully exported.
+*/
+bool ConductorNumExport::toCsv()
+{
+		//save in csv file in same directory as project by default
+	QString dir = m_project->currentDir();
+	if (dir.isEmpty()) dir = QETApp::documentDir();
+	QString name = dir % "/" % QObject::tr("number_of_wiring_") % m_project->title() % ".csv";
+	//    if(!name.endsWith(".csv")) {
+	//        name += ".csv";
+	//    }
+
+	QString filename = QFileDialog::getSaveFileName(m_parent_widget, QObject::tr("Save As... "), name, QObject::tr("Files csv (*.csv)"));
+	QFile file(filename);
+	if(!filename.isEmpty())
+	{
+		if(QFile::exists(filename))
+		{
+			// if file already exist -> delete it
+			if(!QFile::remove(filename))
+			{
+				QMessageBox::critical(m_parent_widget, QObject::tr("Error"),
+									  QObject::tr("Unable to replace the file!\n\n") %
+									  "Destination : " % filename % "\n");
+				return false;
+			}
+		}
+		if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+		{
+			QTextStream stream(&file);
+				//Qt6 writes UTF-8 by default; without a BOM Excel reads
+				//the file as ANSI and mangles any non-ASCII character of
+				//a wire number (e.g. "–010" shown as "â€“010").
+				//Same as the parts list export (BomExport).
+			stream.setEncoding(QStringConverter::Utf8);
+			stream.setGenerateByteOrderMark(true);
+				//wiresNum() already ends each line with "\n"
+			stream << wiresNum();
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+	@brief ConductorNumExport::wiresNum
+	@return the wire num formatted in csv
+*/
+QString ConductorNumExport::wiresNum() const
+{
+	QString csv;
+
+	QStringList list = m_hash.keys();
+	list.sort();
+	for (QString key : list)
+	{
+		for (int i=0; i<m_hash.value(key) ; ++i) {
+			csv.append(key % "\n");
+		}
+	}
+
+	return csv;
+}
+
+/**
+	@brief ConductorNumExport::fillHash
+	make/fill of m_hash
+*/
+void ConductorNumExport::fillHash()
+{
+	//We used this rx to avoid insert num composed only withe white space.
+	QRegularExpression rx("^ *$");
+	auto count = [this](const QString &num) {
+		m_hash.insert(num, m_hash.value(num, 0) + 1);
+	};
+		//The folios not built (lazy folios): their wires from the
+		//project database, by the same rules
+	QList<QUuid> unbuilt;
+	for (Diagram *d : m_project->folios())
+		if (!d->isLoaded()) unbuilt << d->uuid();
+	for (const auto &wire : m_project->dataBase()->wiresOnFolios(unbuilt))
+	{
+		if (wire.text.isEmpty() || wire.text.contains(rx)) {
+			continue;
+		}
+		const bool report1 = ElementData::typeFromString(wire.kind1) & ElementData::AllReport;
+		const bool report2 = ElementData::typeFromString(wire.kind2) & ElementData::AllReport;
+		if (!(report1 && report2)) {
+			count(wire.text);
+		}
+	}
+	for (Diagram *d : m_project->builtFolios())
+	{
+			//Its wires only: a DiagramContent would follow their
+			//potentials onto other folios, building those not built
+		for (Conductor *c : d->conductors())
+		{
+			QString num = c->textItem()->toPlainText();
+			if (num.isEmpty() || num.contains(rx)) {
+				continue;
+			}
+
+			//We must define if the connected terminals are folio reports, if
+			//both are the case we don't add the num to the hash because
+			//neither terminal represents a real terminal. Otherwise the
+			//conductor counts once, regardless of how many of its two ends
+			//are real -- counting per terminal instead of per conductor
+			//doubled every ordinary two-real-terminal conductor's tally.
+			bool terminal1_is_report = c->terminal1->parentElement()->linkType() & Element::AllReport;
+			bool terminal2_is_report = c->terminal2->parentElement()->linkType() & Element::AllReport;
+			if (!(terminal1_is_report && terminal2_is_report))
+			{
+				int value = m_hash.value(num, 0);
+				++value;
+				m_hash.insert(num, value);
+			}
+		}
+	}
+}

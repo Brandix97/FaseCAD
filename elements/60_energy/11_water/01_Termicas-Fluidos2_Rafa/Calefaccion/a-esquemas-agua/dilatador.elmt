@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{749a6004-f9b0-da8e-8846-2686638a8138}"/>
+    <names>
+        <name lang="ar">مُوسّع</name>
+        <name lang="ca">Dilatador</name>
+        <name lang="cs">Kompenzátor</name>
+        <name lang="da">Dilator</name>
+        <name lang="de">Ausdehnungsgefäß</name>
+        <name lang="el">Διαστολέας</name>
+        <name lang="en">Dilator</name>
+        <name lang="es">Dilatador</name>
+        <name lang="fi">Paisuntalaite</name>
+        <name lang="fr">Manchon de dilatation</name>
+        <name lang="hr">Ekspanzijski ventil</name>
+        <name lang="hu">Tágulási edény</name>
+        <name lang="it">Dilatatore</name>
+        <name lang="ja">伸縮継手</name>
+        <name lang="ko">팽창관</name>
+        <name lang="mn">Тэлэгч</name>
+        <name lang="nb">Ekspansjonskar</name>
+        <name lang="nl">Expansievat</name>
+        <name lang="nl_BE">Expansiestuk</name>
+        <name lang="pl">Kompresor</name>
+        <name lang="pt">Dilatador</name>
+        <name lang="pt_BR">Dilatou</name>
+        <name lang="ro">Dilatator</name>
+        <name lang="ru">Расширитель</name>
+        <name lang="sk">Dilatátor</name>
+        <name lang="sl">Ekspander</name>
+        <name lang="sr">Експанзиони вентил</name>
+        <name lang="sv">Expansionskärl</name>
+        <name lang="tr">Genleşme parçası</name>
+        <name lang="uk">Розширювач</name>
+        <name lang="zh">膨胀器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="5.75" y1="0" x2="9.19" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-5" x2="5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-5" y="-3" width="10" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-5" y1="-5" x2="-5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.78" y1="0" x2="-5.24" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="-14" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b84430bd-fd0f-4c08-9ec4-5f0e7f4227dd}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{f4aba4f0-1391-495d-87c9-fb84a881078a}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{339278a8-b804-4daa-b01b-8a0d8d072046}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

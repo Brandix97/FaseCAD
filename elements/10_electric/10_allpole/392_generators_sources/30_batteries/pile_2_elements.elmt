@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="13">
+    <uuid uuid="{5682371d-d402-0703-86a1-18547ef46c9b}"/>
+    <names>
+        <name lang="ar">بطارية بخليتين</name>
+        <name lang="ca">Bateria 2 elements</name>
+        <name lang="cs">Baterie 2 články</name>
+        <name lang="da">Batteri 2 elementer</name>
+        <name lang="de">Batterie 2 Elemente</name>
+        <name lang="el">Μπαταρία (2 στοιχεία σε σειρά)</name>
+        <name lang="en">Battery 2 elements</name>
+        <name lang="es">Bateria 2 elementos en serie</name>
+        <name lang="fi">Akku 2 kennoa</name>
+        <name lang="fr">Pile 2 éléments</name>
+        <name lang="hr">Baterija 2 elemenata</name>
+        <name lang="hu">Akkumulátor 2 cella</name>
+        <name lang="it">Batteria (2 elementi, serie)</name>
+        <name lang="ja">電池 2 素子</name>
+        <name lang="ko">배터리 2셀</name>
+        <name lang="mn">Батерей 2 элемент</name>
+        <name lang="nb">Batteri 2 elementer</name>
+        <name lang="nl">batterij 2 elementen DC</name>
+        <name lang="nl_BE">Batterij 2 elementen DC</name>
+        <name lang="pl">Bateria ogniw elektrochemicznych</name>
+        <name lang="pt">Bateria de 2 elementos</name>
+        <name lang="pt_BR">Bateria de 2 elementos</name>
+        <name lang="ro">Baterie cu 2 elemente</name>
+        <name lang="ru">Батарея 2 элементов</name>
+        <name lang="sk">Batéria 2 článkov</name>
+        <name lang="sl">Baterija 2 elementov</name>
+        <name lang="sr">Батерија 2 елемената</name>
+        <name lang="sv">Batteri 2 element</name>
+        <name lang="tr">Batarya 2 eleman</name>
+        <name lang="uk">Батарея 2 елементів</name>
+        <name lang="zh">双电池</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="7" y="-33.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{815f57f5-3286-4044-a1d3-775a516dc38a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="20" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-9" x2="-10" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-6" width="3" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="3.7" y1="-9" x2="3.7" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="-" x="14" y="5.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="+" x="-19" y="5.67" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="6.7" y="-6" width="3" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <terminal uuid="{777eed6f-b1a9-4abf-ad7f-8d0b60634226}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{41381867-3ff6-4f79-8492-efe174914b3f}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

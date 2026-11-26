@@ -1,0 +1,32 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="18" hotspot_y="32">
+    <uuid uuid="{492e14a9-250a-4820-9afd-edeecb09b912}"/>
+    <names>
+        <name lang="de">Drehstromgenerator</name>
+        <name lang="en">Three-phase generator</name>
+        <name lang="es">Generador trifásico</name>
+        <name lang="fr">Générateur triphasé</name>
+        <name lang="it">Generatore trifase</name>
+        <name lang="pt">Gerador trifásico</name>
+        <name lang="tr">Üç fazlı jeneratör</name>
+        <name lang="zh">三相发电机</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-30" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-30" x2="10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="2.83" text="G" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{222def2d-fb1a-5c3a-ad49-798d6da3d5b2}"/>
+        <text x="0" y="11.4" text="3~" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{d3c6345a-3986-57f2-88a9-881e04a57e03}"/>
+        <dynamic_text x="-24" y="-10.49" z="6" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c778b214-7bbc-5b46-aa08-7a83f32633da}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{eab29f6c-c19e-5335-b77b-991b828282f9}" name="U1" x="-10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{bb1ba8b3-7e7b-5b58-8939-d065953ee550}" name="V1" x="0" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{f17357eb-9146-5219-a8b7-3e96c58f45e7}" name="W1" x="10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{168fb93a-83d1-5dc9-8ea2-6f33b7b2a580}" name="PE" x="30" y="0" orientation="e" type="Generic" show_name="true" label_x="-5" label_y="-7" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

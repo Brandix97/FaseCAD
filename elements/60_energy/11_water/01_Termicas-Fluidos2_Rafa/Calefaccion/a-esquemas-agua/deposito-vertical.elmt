@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="80" hotspot_x="30" hotspot_y="44">
+    <uuid uuid="{08b0d525-2ce3-4f8f-9379-c696297cdb06}"/>
+    <names>
+        <name lang="ar">إناء عمودي</name>
+        <name lang="ca">Dipòsit vertical</name>
+        <name lang="cs">Svislá nádoba</name>
+        <name lang="da">Vertikal beholder</name>
+        <name lang="de">Ausdehnungsgefäß vertikal</name>
+        <name lang="el">Κατακόρυφο δοχείο</name>
+        <name lang="en">Vertical expansion vessel</name>
+        <name lang="es">Depósito Vertical</name>
+        <name lang="fr">Vase vertical</name>
+        <name lang="pt_BR">Depósito Vertical</name>
+        <name lang="zh">立式水箱</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="20" y1="-30" x2="20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-35" width="40" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="16" width="40" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-30" x2="-20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-20" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b3dfa7cc-4bf4-4f2f-aba3-100ff0d296c1}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a29d1031-7795-455a-be1b-1c70d8b0d532}" name="" x="0" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{7d10b5be-bb22-4f97-86cb-c9a46827eb2e}" name="" x="0" y="27" orientation="s" type="Generic"/>
+        <terminal uuid="{999a98f2-42da-4b75-8804-49b3d906bfa3}" name="" x="-21" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{f8c29b5f-7b60-4f4f-b849-feda1dd4d5fa}" name="" x="-21" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{a1bcef32-c802-4f8c-bc21-761288f76843}" name="" x="21" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{0e6f6430-d37d-4e05-973b-0a5742d6e859}" name="" x="21" y="10" orientation="e" type="Generic"/>
+    </description>
+</definition>

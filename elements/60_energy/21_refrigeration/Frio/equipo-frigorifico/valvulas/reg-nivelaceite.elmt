@@ -1,0 +1,19 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="15">
+    <uuid uuid="{17621635-0997-80da-9dcd-26ac39bf70a5}"/>
+    <names>
+        <name lang="ca">Regulador de nivell d'oli</name>
+        <name lang="zh">油位调节器</name>
+        <name lang="pt_BR">Regulador de nível de óleo</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="4" y1="3" x2="7" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-16" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="7" y="-6" width="2" height="13" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-4" width="9" height="9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-8" y="-2" width="5" height="5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="4" y1="-2" x2="7" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{869804b2-75cb-4608-b486-3c6a4adc04f0}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{2de9a007-2dda-4fdf-a364-71f97c88dd58}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

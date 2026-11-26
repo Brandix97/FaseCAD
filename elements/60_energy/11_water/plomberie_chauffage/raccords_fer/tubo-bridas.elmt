@@ -1,0 +1,22 @@
+<definition height="30" hotspot_x="40" hotspot_y="15" link_type="simple" type="element" version="0.100.1" width="80">
+    <uuid uuid="{e2269e20-7b0f-4d2d-a55f-b1a830c6d4e5}"/>
+    <names>
+        <name lang="ca">Tub amb brides</name>
+        <name lang="de">Rohr mit Flanschen</name>
+        <name lang="es">Tubo bridas</name>
+        <name lang="pt_BR">Tubo bridas</name>
+        <name lang="zh">管法兰</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect antialias="false" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="2" x="32" y="-11"/>
+        <rect antialias="false" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="64" x="-32" y="-4"/>
+        <rect antialias="false" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" width="2" x="-34" y="-11"/>
+        <dynamic_text Halignment="AlignLeft" Valignment="AlignTop" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{eea6275c-208f-4387-a280-d742142b7e8e}" x="-7.6" y="-26.66" z="4">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal name="2" orientation="e" type="Generic" uuid="{e01ba90b-cc4e-4fee-b51e-14c6b42eb0c4}" x="35" y="0"/>
+        <terminal name="1" orientation="w" type="Generic" uuid="{ca3ae424-83d5-4cb6-abd6-1bb738c69f7e}" x="-35" y="0"/>
+    </description>
+</definition>

@@ -1,0 +1,27 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="16" hotspot_y="12">
+    <uuid uuid="{0aaa9939-1d87-5f22-8650-9a532ed72bfe}"/>
+    <names>
+        <name lang="de">Masse</name>
+        <name lang="en">Frame, chassis</name>
+        <name lang="es">Masa</name>
+        <name lang="fr">Masse</name>
+        <name lang="it">Massa</name>
+        <name lang="pt">Massa</name>
+        <name lang="tr">Şase</name>
+        <name lang="zh">机壳</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="0" x2="8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="0" x2="-9" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="0" x2="-3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="6" y1="0" x2="3" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-18" y="-10.49" z="2" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{55ec9521-e1a9-529e-bf4a-5992f885411f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{0ec83669-6908-5f7b-a847-20e2731f51aa}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

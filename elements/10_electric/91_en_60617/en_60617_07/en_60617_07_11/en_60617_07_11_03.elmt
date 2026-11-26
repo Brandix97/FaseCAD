@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="180" hotspot_x="95" hotspot_y="175">
+    <uuid uuid="{4fabc020-551a-178d-744f-000f794234b6}"/>
+    <names>
+        <name lang="ar">مجموعة مفاتيح، تُشغل بالضغط أو التدوير</name>
+        <name lang="ca">Muntatge de l'interruptor, accionat per pressionar o girar</name>
+        <name lang="cs">Tlačítkově ovládaný spínač</name>
+        <name lang="da">Afbryderenhed, tryk- eller drejebetjent</name>
+        <name lang="de">Druck-Dreh-Schalter, durch Drücken oder
+Drehen betätigt</name>
+        <name lang="el">Συγκρότημα διακοπτών, με μπουτόν ή στροφή</name>
+        <name lang="en">Switch assembly, push or turn operated</name>
+        <name lang="es">Conmutador de levas accionado por pulsador o giro</name>
+        <name lang="fi">Kytkinkokoonpano, paino- tai kiertokäyttöinen</name>
+        <name lang="fr">Commutateur à commande par bouton,
+actionné soit par pression soit par rotation</name>
+        <name lang="hr">Sklop sklopki, upravljan pritiskom ili okretanjem</name>
+        <name lang="hu">Kapcsolóegység, nyomott vagy forgatott működtetésű</name>
+        <name lang="it">Gruppo interruttore, a comando a pulsante o a rotazione</name>
+        <name lang="ja">スイッチ組立，押し又は回転操作</name>
+        <name lang="ko">스위치 어셈블리, 푸시 또는 회전 조작</name>
+        <name lang="mn">Унтраалгын угсралт, товчлуур эсвэл эргүүлэхээр ажиллуулагч</name>
+        <name lang="nb">Bryterenhet, trykk- eller dreibetjent</name>
+        <name lang="nl">Schakelaarsamenstelling, druk- of draaibediend</name>
+        <name lang="nl_BE">Schakelaarcombinatie, druk- of draaibediend</name>
+        <name lang="pl">Zespół łączników, sterowany przyciskiem lub obrotowo</name>
+        <name lang="pt">Conjunto de interruptores, acionado por pressão ou rotação</name>
+        <name lang="pt_BR">Conjunto de interruptores acionado por pressão ou giro</name>
+        <name lang="ro">Ansamblu de întrerupătoare, acționat prin apăsare sau rotire</name>
+        <name lang="ru">Блок выключателей, кнопочный или поворотный</name>
+        <name lang="sk">Zostava spínača, tlačidlom alebo otočne ovládaná</name>
+        <name lang="sl">Sestav stikala, upravljan s pritiskom ali vrtenjem</name>
+        <name lang="sr">Склоп прекидача, управљан притиском или обртањем</name>
+        <name lang="sv">Brytarenhet, tryck- eller vridmanövrerad</name>
+        <name lang="tr">Şalter düzeneği, basmalı veya döner kumandalı</name>
+        <name lang="uk">Блок вимикачів, кнопковий або поворотний</name>
+        <name lang="zh">03 元件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-60" y1="-140" x2="-60" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-70" y1="-40" x2="0" y2="-40" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-35" x2="-40" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-50" x2="0" y2="-50" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-70" y1="-10" x2="0" y2="-10" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="0" x2="0" y2="0" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-100" x2="0" y2="-100" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-70" y1="-90" x2="0" y2="-90" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-85" x2="-40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-80" x2="0" y2="-80" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2fe11211-7b60-4cd2-be42-4116b947d8d7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-80" y1="-160" x2="-80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-140" x2="-40" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40" y1="-140" x2="-40" y2="-160" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-90" y1="-150" x2="-90" y2="-160" x3="-70" y3="-160" x4="-70" y4="-150" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-50" y1="-170" x2="-50" y2="-160" x3="-30" y3="-160" x4="-30" y4="-150" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

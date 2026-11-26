@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{e9b89d19-1730-94e7-be5b-3725238aafc6}"/>
+    <names>
+        <name lang="ar">رابط بتعديل "مستقيم "</name>
+        <name lang="ca">Conjunt de camiseta de colze</name>
+        <name lang="cs">Regulační uzávěr (prostý)</name>
+        <name lang="da">Bøjning T-sæt</name>
+        <name lang="de">Winkel-T-Stück</name>
+        <name lang="el">Σετ γωνίας ταυ</name>
+        <name lang="en">Elbow Tee Set</name>
+        <name lang="es">T de salida "derecha"</name>
+        <name lang="fi">Kulmahaarasarja</name>
+        <name lang="fr">Té de régalge "droit"</name>
+        <name lang="hr">Kutni T-set</name>
+        <name lang="hu">Könyök T-idom készlet</name>
+        <name lang="it">Raccordo</name>
+        <name lang="ja">エルボT型セット</name>
+        <name lang="ko">엘보 티 세트</name>
+        <name lang="mn">Өнцөг Т-холболт</name>
+        <name lang="nb">Kne-T-sett</name>
+        <name lang="nl">Elleboog</name>
+        <name lang="nl_BE">Bocht T-stuk set</name>
+        <name lang="pl">Zawór (prosty)</name>
+        <name lang="pt">Conjunto de tê e cotovelo</name>
+        <name lang="pt_BR">Elbow Tee Set</name>
+        <name lang="ro">Set teu cotit</name>
+        <name lang="ru">Угловой тройник</name>
+        <name lang="sk">Sada kolenného T-kusu</name>
+        <name lang="sl">Koleno T-set</name>
+        <name lang="sr">Комплет колена Т</name>
+        <name lang="sv">Böj-T-rörsats</name>
+        <name lang="tr">Dirsek T takımı</name>
+        <name lang="uk">Кутовий трійник</name>
+        <name lang="zh">直通调节三通01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-2.24" y="-2.24" width="4.47" height="4.47" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-1" x2="-8" y2="-5" x3="-8" y3="5" x4="-2" y4="1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="2" y1="-1" x2="8" y2="-5" x3="8" y3="5" x4="2" y4="1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10" y1="0" x2="-9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="8" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b3c9d712-3f7f-45ae-b22b-1c24c3b7d492}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{39308108-37ce-4ebd-a3c3-c09bcc6a7ee3}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{b745d85c-b31a-4d10-b608-adb2b5635434}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

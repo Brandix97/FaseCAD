@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="50" hotspot_x="28" hotspot_y="32">
+    <uuid uuid="{a0c2dda1-0cb3-e317-535c-050e4836397f}"/>
+    <names>
+        <name lang="ar">غسّالة أطباق</name>
+        <name lang="ca">Rentaplats</name>
+        <name lang="cs">Myčka</name>
+        <name lang="da">Opvaskemaskine</name>
+        <name lang="de">Geschirrspüler</name>
+        <name lang="el">Πλυντήριο πιάτων</name>
+        <name lang="en">Dishwasher</name>
+        <name lang="es">lavavajillas</name>
+        <name lang="fi">Astianpesukone</name>
+        <name lang="fr">Lave-Vaisselle</name>
+        <name lang="hr">Perilica posuđa</name>
+        <name lang="hu">Mosogatógép</name>
+        <name lang="it">Lavastoviglie</name>
+        <name lang="ja">食器洗い機</name>
+        <name lang="ko">식기세척기</name>
+        <name lang="mn">Аяга таваг угаагч</name>
+        <name lang="nb">Oppvaskmaskin</name>
+        <name lang="nl">Afwasmachine</name>
+        <name lang="nl_BE">Vaatwasser</name>
+        <name lang="pl">Zmywarka</name>
+        <name lang="pt">Máquina de lavar louça</name>
+        <name lang="pt_BR">lavavajillas</name>
+        <name lang="ro">Mașină de spălat vase</name>
+        <name lang="ru">Посудомоечная машина</name>
+        <name lang="sk">Umývačka riadu</name>
+        <name lang="sl">Pomivalni stroj</name>
+        <name lang="sr">Машина за прање судова</name>
+        <name lang="sv">Diskmaskin</name>
+        <name lang="tr">Bulaşık makinesi</name>
+        <name lang="uk">Посудомийна машина</name>
+        <name lang="zh">洗碗机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-22.42" y="-25.94" width="37.32" height="37.61" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-21.21" y1="-19.69" x2="14.24" y2="-19.69" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="14.9" y1="2.26" x2="18.63" y2="2.26" x3="22.36" y3="-1.5" x4="22.36" y4="-14.66" x5="24.22" y5="-16.54" x6="26.09" y6="-16.54" x7="28" y7="-14.66" x8="28" y8="-12.78" x9="31.69" y9="-12.78" x10="31.69" y10="-14.66" x11="28" y11="-18.42" x12="26.09" y12="-20.3" x13="22.36" y13="-20.3" x14="20.49" y14="-18.42" x15="18.63" y15="-16.54" x16="18.63" y16="-3.38" x17="16.76" y17="-1.5" x18="14.9" y18="-1.5" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <dynamic_text x="-20.23" y="-45.49" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8f740492-dbea-4bdd-9d2e-7bc0132538e1}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="7.6" y="-25.14" width="4.84" height="4.6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5.71" y1="-7.31" x2="-5.71" y2="-2.71" x3="-3.29" y3="-2.71" x4="-8.13" y4="-2.71" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5.71" y1="-7.31" x2="-2.08" y2="-10.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.71" y1="-7.31" x2="-9.34" y2="-10.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.49" y1="-10.76" x2="-1.92" y2="-10.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{00afb4ab-9fad-4759-965a-90958177f03b}" name="" x="31" y="-10" orientation="s" type="Generic"/>
+    </description>
+</definition>

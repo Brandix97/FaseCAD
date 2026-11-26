@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="master" width="30" height="60" hotspot_x="2" hotspot_y="39">
+    <uuid uuid="{088641eb-2764-1d41-6c3e-4362f857d16a}"/>
+    <names>
+        <name lang="ar">مفاتيح فصل توقف طوارئ 2NC</name>
+        <name lang="ca">Interruptors de parada d'emergència 2NC</name>
+        <name lang="cs">Nouzové zastavení  2NC</name>
+        <name lang="da">Nødstop afbryderkontakter 2NC</name>
+        <name lang="de">Taster 2 Öffner</name>
+        <name lang="el">Διακόπτες στάσης κινδύνου 2NC</name>
+        <name lang="en">Emergency stop trip switches 2NC</name>
+        <name lang="es">Paro de emrgencia con liston 2NC</name>
+        <name lang="fi">Hätäpysäytys laukaisukytkimet 2NC</name>
+        <name lang="fr">Arret d'urgence cable 2NC</name>
+        <name lang="hr">Prekidači nužnog zaustavljanja 2NC</name>
+        <name lang="hu">Vészleállító kapcsolók 2NC</name>
+        <name lang="it">Arresto d'emergenza a cavo 2NC</name>
+        <name lang="ja">非常停止 トリップスイッチ 2NC</name>
+        <name lang="ko">비상 정지 트립 스위치 2NC</name>
+        <name lang="mn">Яаралтай зогсоолын унтраалга 2ХТ</name>
+        <name lang="nb">Nødstopp brytere 2NC</name>
+        <name lang="nl">Noodstop schakelaars 2NC</name>
+        <name lang="nl_BE">Noodstop uitschakelaars 2NC</name>
+        <name lang="pl">Wyłącznik bezpieczeństwa</name>
+        <name lang="pt">Interruptores de disparo de paragem de emergência 2NC</name>
+        <name lang="pt_BR">Botão de emergência por cabo 2NF</name>
+        <name lang="ro">Oprire de urgență întrerupătoare de declanșare 2NC</name>
+        <name lang="ru">Аварийный стоп с размыкающими контактами 2НЗ</name>
+        <name lang="sk">Núdzové zastavenie vypínacie spínače 2NC</name>
+        <name lang="sl">Zasilni izklop izklopna stikala 2NC</name>
+        <name lang="sr">Прекидачи за нужно заустављање 2НЗ</name>
+        <name lang="sv">Nödstoppsbrytare 2NC</name>
+        <name lang="tr">Acil durdurma tetik şalterleri 2NK</name>
+        <name lang="uk">Аварійний стоп з вимикачами 2NC</name>
+        <name lang="zh">辅助触点（带电缆1）</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">commutator</kindInformation>
+    </kindInformations>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="3" y1="-12" x2="2" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-12" x2="6" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="0" y1="-15" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="25" y1="-19" x2="20" y2="1" x3="20" y3="11" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="-18" x2="26" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-29" x2="20" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-16" x2="2" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="2.4" y1="-10" x2="5.62" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="-10" x2="22" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="30" y="-20.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{60686c33-08c3-4483-8626-864a64440ef5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{21c4c8ce-aa91-47a3-b368-d33ea2a5461a}" name="" x="20" y="-29" orientation="n" type="Generic"/>
+        <terminal uuid="{36266e40-f563-4372-af00-39e8232c0b33}" name="" x="20" y="11" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,166 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef TERMINALSTRIPLAYOUTPATTERN_H
+#define TERMINALSTRIPLAYOUTPATTERN_H
+
+#include <QDomElement>
+#include <QFont>
+#include <QRect>
+#include <QSize>
+#include <QTextOption>
+#include <QUuid>
+#include <QVector>
+
+/**
+ * @brief The TerminalStripLayoutPattern class
+ * A class with all values used to define how a terminal strip must be drawn.
+ * Most of the value are public, some values are private and have getter / setter
+ * because when these values change we need to compute the change.
+ *
+ * The values with name '_y_offset' mean offset is relating to the top
+ * of the QGraphicsItem used to display the terminal strip.
+ *
+ * The terminal strip can display up to 4 terminal level,
+ * the value used for multilevel terminal are stored in  several QVector (m_terminal_y_offset, m_terminal_height, m_bridge_point_y_offset).
+ * The order of the values are from the most back terminal to the front terminal.
+ */
+class TerminalStripLayoutPattern
+{
+	public:
+		TerminalStripLayoutPattern();
+
+			/**
+			 * @brief The DrawStyle enum
+			 * How the terminals of a strip are drawn.
+			 * The style is chosen for each terminal strip item, when the item is
+			 * added to a folio (see TerminalStripItem::setDrawStyle), the layout
+			 * only hold the values used by the styles.
+			 * Schematic : the classic drawing (header, xrefs, symbols, connections, cables).
+			 * RealisticPushIn : the strip seen from above, at scale, like the mounting
+			 * drawing of a cabinet : end stops, group marker, push-in wire entries.
+			 * RealisticScrew : same as RealisticPushIn, with screw clamps.
+			 * TerminalDiagram : a table, one column per terminal, with the
+			 * outer wires going down to the devices (see Diagram::paint).
+			 * The schematic style use most of the values of this class,
+			 * the realistic styles use the values prefixed by m_realistic_.
+			 */
+		enum class DrawStyle {
+			Schematic = 0,
+			RealisticPushIn = 1,
+			RealisticScrew = 2,
+			TerminalDiagram = 3
+		};
+		static QString drawStyleToString(DrawStyle style);
+		static DrawStyle drawStyleFromString(const QString &string, DrawStyle default_style);
+
+			//Realistic style
+			//Scale of the drawing : number of pixels for one millimeter
+		qreal m_realistic_px_per_mm{4.0};
+			//Length (mm) of a terminal along the wires, from the top to the bottom
+		qreal m_realistic_length_mm{60.0};
+			//Draw an end stop at each end of the strip
+		bool m_realistic_end_stops{true};
+			//Draw a group marker carrier with the name of the strip, after the first end stop
+		bool m_realistic_group_marker{true};
+
+			//Header of terminal strip
+        QRectF m_header_rect{0,30,50,146};
+		Qt::Orientation m_header_text_orientation{Qt::Horizontal};
+		void setHeaderTextAlignment(const Qt::Alignment &alignment);
+		Qt::Alignment headerTextAlignment() const;
+		QTextOption headerTextOption() const;
+
+			//Spacer between the header and the terminals
+        QRectF m_spacer_rect{0, 50, 10, 90};
+
+            //Font
+        QFont font() const;
+        void setFont (const QFont &font);
+
+			//Terminals
+        QVector<QRectF> m_terminal_rect
+		{
+            QRectF{0, 0, 20, 206},
+            QRectF{0, 10, 20, 186},
+            QRectF{0, 20, 20, 166},
+            QRectF{0, 30, 20, 146}
+		};
+
+            //Terminal text
+        void setTerminalsTextAlignment(const Qt::Alignment &alignment);
+        Qt::Alignment terminalsTextAlignment() const;
+        QTextOption terminalsTextOption() const;
+        qreal m_terminals_text_height{50};
+        qreal m_terminals_text_y{35};
+        Qt::Orientation m_terminals_text_orientation {Qt::Vertical};
+
+			//Xref text
+		void setXrefTextAlignment(const Qt::Alignment &alignment);
+		Qt::Alignment xrefTextAlignment() const;
+		QTextOption xrefTextOption() const;
+		qreal m_xref_text_height{60};
+		qreal m_xref_text_y{95};
+		Qt::Orientation m_xref_text_orientation {Qt::Vertical};
+
+			//Symbol of the terminal type (fuse, sectional, diode, ground, led).
+			//A height of 0 disable the symbol.
+		qreal m_type_symbol_y{160};
+		qreal m_type_symbol_height{14};
+			//Length of the connection drawn above and under each terminal,
+			//in the middle of the terminal. 0 disable the connections.
+		qreal m_connection_length{10};
+			//Cable drawn under the terminals which have a cable (hose).
+			//Length of the wires between the terminals and the cable
+			//0 disable the drawing of the cables.
+		qreal m_cable_wire_length{40};
+			//Length of the cable
+		qreal m_cable_length{60};
+			//Length of the wires after the cable. It leaves the room the box
+			//naming where the cable goes needs: three lines (Installation,
+			//Location, Label) at the default font of 15 px, so the box does
+			//not have to shrink its text down.
+		qreal m_cable_end_length{80};
+        qreal m_bridge_point_d{5};
+        QVector<qreal> m_bridge_point_y_offset{50,70,90,110};
+
+		QUuid m_uuid{QUuid::createUuid()};
+		QString m_name;
+
+			//Save / load of the layout in the project xml
+		QDomElement toXml(QDomDocument &document) const;
+		void fromXml(const QDomElement &layout_element);
+		static QString xmlTagName();
+
+	private:
+		void updateHeaderTextOption();
+		void updateTerminalsTextOption();
+
+    private:
+        QFont m_font;
+		Qt::Alignment m_header_text_alignment{Qt::AlignCenter};
+		QTextOption m_header_text_option;
+
+		Qt::Alignment
+			m_terminals_text_alignment {Qt::AlignRight | Qt::AlignVCenter},
+			m_xref_text_alignment {Qt::AlignLeft | Qt::AlignVCenter};
+		QTextOption
+			m_terminals_text_option{QTextOption()},
+			m_xref_text_option{QTextOption()};
+};
+
+#endif // TERMINALSTRIPLAYOUTPATTERN_H

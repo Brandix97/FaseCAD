@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="23">
+    <uuid uuid="{614f5172-f0ba-fe88-3548-9a152864bdee}"/>
+    <names>
+        <name lang="ca">Vàlvula de control solenoide</name>
+        <name lang="es">Valvula control solenoide</name>
+        <name lang="pt_BR">Valvula Comando solenoide</name>
+        <name lang="zh">电磁控制阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0.48" y1="0" x2="0.48" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2" y="-15" width="5" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-10" x2="3" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="0" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b0891153-533e-45ba-844f-04897a7834d7}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{a1460fd3-04a5-416a-9a67-712b87e47f5c}" name="" x="0" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{4047cde1-b15a-43a9-beb5-74d070d414a9}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{5ae882fc-1581-426b-b6c7-c1204aaf6bef}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

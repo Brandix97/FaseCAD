@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="20" hotspot_x="30" hotspot_y="10">
+    <uuid uuid="{9e00ad88-544c-c329-06e6-76af9ae33732}"/>
+    <names>
+        <name lang="ar">صمّام توقيف</name>
+        <name lang="ca">Vàlvula de tancament</name>
+        <name lang="cs">Uzavírací šoupátko</name>
+        <name lang="da">Spærreventil</name>
+        <name lang="de">Stoppventil</name>
+        <name lang="el">Βαλβίδα διακοπής</name>
+        <name lang="en">Gate valve shut-off</name>
+        <name lang="es">Válvula de compuerta de cierre</name>
+        <name lang="fi">Luistiventtiilin sulku</name>
+        <name lang="fr">Vanne d'arrêt</name>
+        <name lang="hr">Zaporni ventil</name>
+        <name lang="hu">Elzáró tolózár</name>
+        <name lang="it">Valvola d'intercettazione</name>
+        <name lang="ja">ゲートバルブ遮断</name>
+        <name lang="ko">게이트 밸브 차단</name>
+        <name lang="mn">Хаалттай хавхлага</name>
+        <name lang="nb">Skyveventil avstengning</name>
+        <name lang="nl">Klep stop</name>
+        <name lang="nl_BE">Afsluitklep</name>
+        <name lang="pl">Zawór zasuwowy odcinający</name>
+        <name lang="pt">Válvula de comporta de corte</name>
+        <name lang="pt_BR">Válvula gaveta de bloqueio</name>
+        <name lang="ro">Robinet vană de închidere</name>
+        <name lang="ru">Запорная задвижка</name>
+        <name lang="sk">Uzatvárací ventil</name>
+        <name lang="sl">Zaporni ventil</name>
+        <name lang="sr">Затварање са запорним вентилом</name>
+        <name lang="sv">Slidventil avstängning</name>
+        <name lang="tr">Sürgülü vana kapatma</name>
+        <name lang="uk">Засувний клапан</name>
+        <name lang="zh">截止阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-21" y="-24" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{19b80909-554d-48d4-b27e-70d4c365860c}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="10" y1="4" x2="10" y2="-4" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="0" x2="17" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-4" x2="-10" y2="4" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{1975b362-1d1d-4930-8ddc-62c512c32ff0}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{3bd6ee30-bf80-4b1d-8abc-cd7fec42efc7}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

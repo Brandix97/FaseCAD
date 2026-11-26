@@ -1,0 +1,212 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef TERMINALSTRIPDRAWER_H
+#define TERMINALSTRIPDRAWER_H
+
+#include <QColor>
+#include <QPicture>
+#include <QPointer>
+#include <QUuid>
+
+#include "properties/terminalstriplayoutpattern.h"
+#include "../../properties/elementdata.h"
+
+class QPainter;
+class TerminalStrip;
+
+namespace TerminalStripDrawer
+{
+	/**
+	 * @brief The hoverTerminal struct
+	 * Just a little struct use to know what is the physical and real terminal
+	 * when the mouse hover the Xref string of a terminal.
+	 * If mouse don't hover a Xref the value is set to -1;
+	 */
+	struct hoverTerminal{
+		int physical{-1};
+		int real{-1};
+	};
+
+	/**
+	 * @brief The XrefRect struct
+	 * Where the xref text of a real terminal was drawn, in the coordinates
+	 * of the item, with the physical and real index of that terminal.
+	 * Filled by paint(): used to make the xref clickable in an exported PDF.
+	 */
+	struct XrefRect{
+		QRectF rect;
+		int physical{-1};
+		int real{-1};
+	};
+
+	/**
+	 * @brief The DiagramColumn struct
+	 * What the terminal diagram style draws for one real terminal: the
+	 * rows of its table and the device its outer wire goes to.
+	 * The outer side is the side whose wire is a core of a cable, else
+	 * the lower one; the inner side is the other one.
+	 */
+	struct DiagramColumn{
+		//Function text of the device on the outer side
+		QString function_text;
+		//PLC address of the device on the inner side
+		QString plc_designation;
+		//Name of the pin the inner wire lands on
+		QString inner_connection;
+		//Colour or number of the outer wire: the core of its cable,
+		//else the colour of the wire, else its number
+		QString outer_wire;
+		//Label and pin of the device the outer wire lands on, and a
+		//key telling the devices apart (terminals of one device share
+		//one box)
+		QString device_label;
+		QString device_pin;
+		QString device_key;
+		//The symbol of that device, as drawn in its own definition
+		QPicture device_symbol;
+		//Cross-section of the terminal in mm2, empty when unknown
+		QString section;
+	};
+
+    class AbstractBridgeInterface
+    {
+        public:
+            AbstractBridgeInterface() {}
+            virtual ~AbstractBridgeInterface() {}
+            virtual QUuid uuid() const = 0;
+				//Which of the four grooves its bar sits in: two bars
+				//lying across the same terminals run side by side.
+				//Not pure virtual: an implementation without grooves
+				//simply sits in the first one.
+            virtual int track() const { return 1; }
+    };
+
+    class AbstractRealTerminalInterface
+    {
+        public:
+            AbstractRealTerminalInterface() {}
+            virtual ~AbstractRealTerminalInterface() {}
+            virtual QString label() const = 0;
+            virtual bool isBridged() const = 0;
+            virtual AbstractBridgeInterface* bridge() const = 0;
+				//Every bridge this terminal sits in: several bars may lie
+				//across the same terminal, one per groove of the rail, and
+				//asking for "the" bridge of a terminal only ever gave back
+				//one of them -- the others were never drawn at all. The
+				//caller owns the answers.
+            virtual QVector<AbstractBridgeInterface *> bridges() const
+            {
+                QVector<AbstractBridgeInterface *> list;
+                if (auto *one = bridge()) {
+                    list << one;
+                }
+                return list;
+            }
+			virtual QString xref() const = 0;
+			//Type and led are only used to draw the symbol of the terminal.
+			//They are not pure virtual, so an implementation can ignore them.
+			virtual ElementData::TerminalType type() const { return ElementData::TTGeneric; }
+			virtual bool isLed() const { return false; }
+			//Cable (hose) connected to the terminal, drawn under the strip.
+			virtual QString cable() const { return QString(); }
+			virtual QString cableWire() const { return QString(); }
+			virtual bool isShield() const { return false; }
+			//Installation, Location and Label (BMK) of the piece the cable
+			//goes to at its far end -- the same three fields the cable list
+			//shows for a target -- drawn in a box under the cable. Empty
+			//when the terminal has no cable, or when the cable lands on
+			//nothing past the strip's own terminals.
+			virtual QVector<QString> cableTarget() const { return QVector<QString>(); }
+			//Color and width (mm) of the terminal, only used to draw the terminal.
+			//An invalid color means "no override" : the default color of the type is used.
+			//A width <= 0 means "unknown" : the default width of the layout is used.
+			virtual QColor color() const { return QColor(); }
+			//Second color of a two-tone color (like green/yellow), drawn as stripes over color()
+			virtual QColor stripeColor() const { return QColor(); }
+			virtual qreal widthMm() const { return 0; }
+			//Label of the terminal chosen in the catalog (TerminalCatalog), empty if unknown.
+			//The realistic styles draw its clamp (screw or push-in) instead of the one of the layout.
+			virtual QString catalogEntry() const { return QString(); }
+			//A separator plate is mounted after the terminal (drawn by the realistic styles)
+			virtual bool hasSeparatorAfter() const { return false; }
+			//What the terminal diagram style draws for this terminal
+			virtual DiagramColumn diagramColumn() const { return DiagramColumn(); }
+    };
+
+	class AbstractPhysicalTerminalInterface
+	{
+		public:
+			AbstractPhysicalTerminalInterface() {}
+			virtual ~AbstractPhysicalTerminalInterface() {}
+			virtual QVector<QSharedPointer<AbstractRealTerminalInterface>> realTerminals() const = 0;
+	};
+
+	class AbstractTerminalStripInterface
+	{
+		public:
+			AbstractTerminalStripInterface() {}
+			virtual ~AbstractTerminalStripInterface() {}
+			virtual QString installation() const = 0;
+			virtual QString location() const = 0;
+			virtual QString name() const = 0;
+			virtual QVector<QSharedPointer<AbstractPhysicalTerminalInterface>> physicalTerminal() const = 0;
+	};
+
+	class TerminalStripDrawer
+	{
+		public:
+			TerminalStripDrawer(QSharedPointer<AbstractTerminalStripInterface> strip = QSharedPointer<AbstractTerminalStripInterface> { nullptr },
+								QSharedPointer<TerminalStripLayoutPattern> layout = QSharedPointer<TerminalStripLayoutPattern>());
+
+			void setStrip(QSharedPointer<AbstractTerminalStripInterface> strip);
+			void paint(QPainter *painter);
+			QRectF boundingRect() const;
+
+			void setLayout(QSharedPointer<TerminalStripLayoutPattern> layout);
+			bool haveLayout() const;
+
+			void setPreviewDraw(bool draw = true);
+
+			void setDrawStyle(TerminalStripLayoutPattern::DrawStyle style);
+			TerminalStripLayoutPattern::DrawStyle drawStyle() const;
+
+			void setMouseHoverPos(const QPointF &pos);
+			bool mouseHoverXref() const;
+			bool needUpdate();
+			hoverTerminal hoveredXref() const;
+			hoverTerminal xrefAt(const QPointF &pos) const;
+			QVector<XrefRect> xrefRects() const;
+
+        private:
+            qreal height() const;
+            qreal width() const;
+
+        private:
+            QSharedPointer <AbstractTerminalStripInterface> m_strip;
+            QSharedPointer<TerminalStripLayoutPattern> m_pattern;
+            bool m_preview_draw { false };
+			TerminalStripLayoutPattern::DrawStyle m_draw_style { TerminalStripLayoutPattern::DrawStyle::Schematic };
+			QPointF m_mouse_hover_pos;
+			QRectF m_united_xref_text_rect;
+			bool m_last_mouse_pos_in_xrefs_rect{false};
+			hoverTerminal m_hovered_xref;
+			QVector<XrefRect> m_xref_rects;
+    };
+}
+
+#endif // TERMINALSTRIPDRAWER_H

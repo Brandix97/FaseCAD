@@ -1,0 +1,39 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="15" hotspot_y="19">
+    <uuid uuid="{0a681413-6488-1a42-0ffc-e42b80d805e0}"/>
+    <names>
+        <name lang="ar">صمّام مشعاع</name>
+        <name lang="ca">Vàlvula del radiador</name>
+        <name lang="cs">Ventil radiátoru</name>
+        <name lang="da">Vanne radiateur</name>
+        <name lang="de">Heizkörperventil</name>
+        <name lang="el">Βαλβίδα σώματος</name>
+        <name lang="en">Radiator valve</name>
+        <name lang="es">Llave radiador</name>
+        <name lang="fr">Vanne radiateur</name>
+        <name lang="pt_BR">Llave radiadou</name>
+        <name lang="zh">散热器阀门</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="0.06" y1="-10.6" x2="0.06" y2="-6.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="1.77" y1="-10.6" x2="1.77" y2="-6.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-8.38" y1="1.73" x2="-5.92" y2="1.73" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.46" y1="-10.6" x2="3.46" y2="-6.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-5.92" y="-0.73" width="3.42" height="2.52" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-2.5" y="-4.09" width="6.84" height="8.9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9" y="-3.47" width="3.07" height="6.93" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.38" y1="-1.74" x2="-5.92" y2="-1.74" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="4.21" y="-1.19" width="3.42" height="2.68" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-0.79" y="-5.76" width="3.42" height="1.68" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-3.36" y1="-5.76" x2="5.19" y2="-5.76" x3="5.19" y3="-10.77" x4="3.48" y4="-12.91" x5="-1.65" y5="-12.91" x6="-3.36" y6="-10.77" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1.65" y1="-10.6" x2="-1.65" y2="-6.26" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3.36" y1="-10.8" x2="5.19" y2="-10.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-4" y="-21" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7d54af1c-5bd8-44c1-819a-0a669e5882a2}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{87631b0f-eeaf-4f4a-b2e8-e3f2bc87c999}" name="" x="6" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{25c9e1ad-1af0-4811-b4f6-a40fc6cd388c}" name="" x="-7" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

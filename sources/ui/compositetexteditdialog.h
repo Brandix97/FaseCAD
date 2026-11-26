@@ -1,0 +1,47 @@
+#ifndef COMPOSITETEXTEDITDIALOG_H
+#define COMPOSITETEXTEDITDIALOG_H
+
+#include <QDialog>
+
+namespace Ui {
+	class CompositeTextEditDialog;
+}
+
+class DynamicElementTextItem;
+
+/**
+	@brief The CompositeTextEditDialog class
+	CompositeTextEditDialog display a dialog use to write the complex text
+	of a dynamic element text item.
+	This dialog provide a QComboBox to quickly add an information of the element
+	in the composite text.
+*/
+class CompositeTextEditDialog : public QDialog
+{
+	Q_OBJECT
+	
+	public:
+		explicit CompositeTextEditDialog(DynamicElementTextItem *text, QWidget *parent = nullptr);
+		explicit CompositeTextEditDialog(QString text, bool report,  QWidget *parent = nullptr);
+		~CompositeTextEditDialog() override;
+		
+		QString plainText() const;
+		void addTerminalConductorInfo(int connection_count);
+	
+	private slots:
+		void on_m_info_cb_activated(int index);
+		
+	protected:
+		void focusInEvent(QFocusEvent *event) override;
+	
+	private :
+		void setUpComboBox(bool is_report);
+		QString infoToVar(const QString& info) const;
+	
+	private:
+		Ui::CompositeTextEditDialog *ui;
+		QString m_default_text;
+		DynamicElementTextItem *m_text = nullptr;
+};
+
+#endif // COMPOSITETEXTEDITDIALOG_H

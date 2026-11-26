@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="400" height="110" hotspot_x="15" hotspot_y="42">
+    <uuid uuid="{e3f88e89-0b2d-d5dc-7373-a119ec2e66c0}"/>
+    <names>
+        <name lang="ar">غلاف استمارة</name>
+        <name lang="ca">Formulari de portada</name>
+        <name lang="cs">Formulář krycí list</name>
+        <name lang="da">Formularforside</name>
+        <name lang="de">Deckblatt</name>
+        <name lang="el">Φύλλο εξωφύλλου φόρμας</name>
+        <name lang="en">Form cover sheet</name>
+        <name lang="es">Hoja de portada</name>
+        <name lang="fi">Kansilehden lomake</name>
+        <name lang="fr">cartouche de garde</name>
+        <name lang="hr">Naslovnica obrasca</name>
+        <name lang="hu">Fedőlap űrlap</name>
+        <name lang="it">cartiglio della protezione</name>
+        <name lang="ja">表紙フォーム</name>
+        <name lang="ko">양식 표지 시트</name>
+        <name lang="mn">Маягтын нүүр хуудас</name>
+        <name lang="nb">Skjema forside</name>
+        <name lang="nl">Formulier voorblad</name>
+        <name lang="nl_BE">Formulier voorblad</name>
+        <name lang="pl">Tabliczka rysunkowa</name>
+        <name lang="pt">Folha de rosto do formulário</name>
+        <name lang="pt_BR">Foum cover sheet</name>
+        <name lang="ro">Formular copertă</name>
+        <name lang="ru">Титульный лист формы</name>
+        <name lang="sk">Titulný list formulára</name>
+        <name lang="sl">Obrazec naslovnega lista</name>
+        <name lang="sr">Образац насловне стране</name>
+        <name lang="sv">Formulär omslagsblad</name>
+        <name lang="tr">Form kapak sayfası</name>
+        <name lang="uk">Титульний аркуш форми</name>
+        <name lang="zh">保护标题栏</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="185" y="-31" width="195" height="21" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-61.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{00364075-4cb4-404c-a0b6-4b0e7d52990d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-10" y="-31" width="195" height="21" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="288" y="-10" width="92" height="73" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-10" width="93" height="73" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="83" y="-10" width="205" height="18" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="83" y="8" width="205" height="55" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="144" y="-9.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{16d41fa8-5f83-4a45-89af-0fffab4b9303}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>LOCALISATION</text>
+        </dynamic_text>
+        <dynamic_text x="87" y="14" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{6f566dcf-6205-46d0-a885-aec7e54d5401}" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular">
+            <text>DESIGNATION</text>
+        </dynamic_text>
+        <dynamic_text x="-3" y="16.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{730eb82c-7760-4f3e-9090-996ccd7ef6cd}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>SITE</text>
+        </dynamic_text>
+        <dynamic_text x="291" y="19" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{bbfd9049-9708-4cb5-bb3f-d14e75f10776}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>EMPLACEMENT</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-28.5" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{2b9d1b69-0e3b-4313-b854-e63656cb5041}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>DEPART D'ORIGINE</text>
+        </dynamic_text>
+        <dynamic_text x="223" y="-28.5" z="13" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{67b53de1-babe-4308-824f-67322fc5e4c3}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text>TENSION D'ALIMENTATION</text>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,20 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="20">
+    <uuid uuid="{430ff05c-826c-8fdb-99f4-69981ad1fe7f}"/>
+    <names>
+        <name lang="ca">Vàlvula de control general</name>
+        <name lang="es">Valvula de control general</name>
+        <name lang="pt_BR">Valvula de Comando general</name>
+        <name lang="zh">通用控制阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0.48" y1="0" x2="0.48" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-4" y="-16" width="9" height="8" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{0dfb9a03-9420-4549-88b2-efff2b3e2893}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{f2a76481-a16c-4999-9828-926228e9e123}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

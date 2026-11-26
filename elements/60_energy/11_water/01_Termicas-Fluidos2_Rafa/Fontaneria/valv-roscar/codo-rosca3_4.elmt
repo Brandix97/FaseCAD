@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="28" hotspot_y="28">
+    <uuid uuid="{0260f395-abea-d684-13f7-f8ad5b895977}"/>
+    <names>
+        <name lang="ar">كوع ملولب 3/4" FF</name>
+        <name lang="ca">Colze roscat de 3/4 FF</name>
+        <name lang="cs">Koleno závitové 3/4" FF</name>
+        <name lang="da">Bøjning med indvendigt gevind 3/4" FF</name>
+        <name lang="de">Winkel mit Außengewinde 3/4" FF</name>
+        <name lang="el">Γωνία με σπείρωμα 3/4" FF</name>
+        <name lang="en">Threaded elbow 3/4" FF</name>
+        <name lang="es">Codo roscar 3/4"HH</name>
+        <name lang="fr">Coude taraudé 3/4" FF</name>
+        <name lang="pt_BR">Codo roscar 3/4"HH</name>
+        <name lang="zh">3/4英寸螺纹弯头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-18.24" y1="5.18" x2="-16.35" y2="-4.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-13.23" y1="5" x2="-10.85" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-9.29" y="-13.83" width="3.65" height="2.53" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12" y="5" width="1.78" height="5.4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10.23" y="-9.2" width="3.58" height="3.92" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-13.23" y="-9.41" width="3" height="19.78" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.64" y1="-14.13" x2="-5.64" y2="-11.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-9" y="-11.16" width="3.58" height="3.92" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13.23" y1="-4" x2="-10.85" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12" y="-9.41" width="1.78" height="5.4" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-19.84" y="-7.55" width="6" height="16.24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-11.94" y="-4" width="1.68" height="9.07" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-10.23" y="6.48" width="3.58" height="3.92" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="4.6" y="-13.83" width="3.65" height="2.53" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-19.5" y="-4.63" width="6.29" height="9.8" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <rect x="-7.67" y="-20.82" width="14.34" height="6.43" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-5.64" y="-13.83" width="10.23" height="2.53" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-9.29" y="-14.46" width="17.54" height="3.16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-1.68" y="-4.22" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{d98124b9-b03d-4c9d-a4c8-b2f11c08b021}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-11.13" y="-12.48" width="5.67" height="7" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="4.6" y1="-14.13" x2="4.6" y2="-11.3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-21.58" y="-23.77" width="26.88" height="30.27" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5.3" y="-11.16" width="3.58" height="3.92" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-5.88" y="-20.46" width="10.75" height="5.18" rx="0" ry="0" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-5.88" y1="-17.82" x2="4.87" y2="-19.11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-5.88" y1="-16.76" x2="4.87" y2="-17.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-5.88" y1="-15.78" x2="4.87" y2="-16.76" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-16.71" y1="5.18" x2="-14.95" y2="-4.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-15.72" y1="5.18" x2="-13.83" y2="-4.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <line x1="-19.77" y1="5.18" x2="-18" y2="-4.63" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <terminal uuid="{8cb3ca2e-bb7a-43a4-9b57-f1bcd99220ab}" name="" x="-19" y="1" orientation="w" type="Generic"/>
+        <terminal uuid="{26e7cfee-8dff-4815-b9d6-788f369fd3a2}" name="" x="-1" y="-21" orientation="n" type="Generic"/>
+    </description>
+</definition>

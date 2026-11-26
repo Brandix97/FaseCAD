@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{76d2498b-847b-23c3-79e5-1d76eb605bfe}"/>
+    <names>
+        <name lang="ar">اتصال سلكي</name>
+        <name lang="ca">connexió de cable</name>
+        <name lang="cs">kabelové připojení</name>
+        <name lang="da">kabelforbindelse</name>
+        <name lang="de">Kabelanschluss</name>
+        <name lang="el">καλωδιακή σύνδεση</name>
+        <name lang="en">cable connection</name>
+        <name lang="es">conexión de cable</name>
+        <name lang="fi">kaapeliliitäntä</name>
+        <name lang="fr">câble de connexion</name>
+        <name lang="hr">kabelska veza</name>
+        <name lang="hu">kábelcsatlakozás</name>
+        <name lang="it">collegamento via cavo</name>
+        <name lang="ja">ケーブル接続</name>
+        <name lang="ko">케이블 연결</name>
+        <name lang="mn">кабель холболт</name>
+        <name lang="nb">kabeltilkobling</name>
+        <name lang="nl">kabelverbinding</name>
+        <name lang="nl_BE">kabelverbinding</name>
+        <name lang="pl">połączenie przewodowe</name>
+        <name lang="pt">conexão à cabo</name>
+        <name lang="pt_BR">conexão à cabo</name>
+        <name lang="ro">conexiune prin cablu</name>
+        <name lang="ru">кабельное соединение</name>
+        <name lang="sk">Káblová prípojka</name>
+        <name lang="sl">kabelska povezava</name>
+        <name lang="sr">кабловску везу</name>
+        <name lang="sv">Kabelanslutning</name>
+        <name lang="tr">kablo bağlantısı</name>
+        <name lang="uk">з'єднання кабелю</name>
+        <name lang="zh">连接件</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-1.15" y="-1.15" width="2.3" height="2.3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <dynamic_text x="-14" y="-22" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3bedcd12-b18c-416e-8f59-52fd03262f3b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b1fad7ea-99a3-49ea-b463-0059edb35cda}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{e5c9e75c-6ae2-460a-a49f-621a95d9fe52}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

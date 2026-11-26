@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="16" hotspot_y="30">
+    <uuid uuid="{8577565e-a4cd-73b9-2413-e22520e2f068}"/>
+    <names>
+        <name lang="ar">مُحرّك</name>
+        <name lang="ca">Motor</name>
+        <name lang="cs">Motor</name>
+        <name lang="da">Motor</name>
+        <name lang="de">Motor</name>
+        <name lang="el">Ηλεκτροκινητήρας</name>
+        <name lang="en">Motor</name>
+        <name lang="es">Motor</name>
+        <name lang="fi">Moottori</name>
+        <name lang="fr">Moteur</name>
+        <name lang="hr">Motor</name>
+        <name lang="hu">Motor</name>
+        <name lang="it">Motore</name>
+        <name lang="ja">電動機</name>
+        <name lang="ko">모터</name>
+        <name lang="mn">Мотор</name>
+        <name lang="nb">Motor</name>
+        <name lang="nl">Motor</name>
+        <name lang="nl_BE">Motor</name>
+        <name lang="pl">Silnik</name>
+        <name lang="pt">Motor</name>
+        <name lang="pt_BR">motor</name>
+        <name lang="ro">Motor</name>
+        <name lang="ru">Двигатель</name>
+        <name lang="sk">Motor</name>
+        <name lang="sl">Motor</name>
+        <name lang="sr">Мотор</name>
+        <name lang="sv">Motor</name>
+        <name lang="tr">Motor</name>
+        <name lang="uk">Двигун</name>
+        <name lang="zh">电机</name>
+    </names>
+    <informations>EN 60617: 06-04-01</informations>
+    <description>
+        <ellipse x="-12" y="-20" width="24" height="24" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="13" y="-16.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0436fddd-8515-465b-8448-f09fc60cb9a4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="M" x="-5" y="-4" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{2d1c1b0c-7cb9-4faf-b585-d0397a200694}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

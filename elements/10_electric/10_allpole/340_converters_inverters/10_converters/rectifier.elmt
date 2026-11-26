@@ -1,0 +1,101 @@
+<definition version="0.100.0" type="element" link_type="simple" width="150" height="140" hotspot_x="114" hotspot_y="55">
+    <uuid uuid="{ff84583f-f7f3-be15-e801-f99d9718492b}"/>
+    <names>
+        <name lang="ar">موحد</name>
+        <name lang="ca">Rectificador</name>
+        <name lang="cs">Usměrňovač</name>
+        <name lang="da">Ensretter</name>
+        <name lang="de">Gleichrichter</name>
+        <name lang="el">Ανορθωτής</name>
+        <name lang="en">Rectifier</name>
+        <name lang="es">Rectificador</name>
+        <name lang="fi">Tasasuuntaaja</name>
+        <name lang="fr">Redresseur</name>
+        <name lang="hr">Ispravljač</name>
+        <name lang="hu">Egyenirányító</name>
+        <name lang="it">Raddrizzatore</name>
+        <name lang="ja">整流器</name>
+        <name lang="ko">정류기</name>
+        <name lang="mn">Шулуутгагч</name>
+        <name lang="nb">Likretter</name>
+        <name lang="nl">Gelijkrichter</name>
+        <name lang="nl_BE">Gelijkrichter</name>
+        <name lang="pl">Prostownik</name>
+        <name lang="pt">Retificador</name>
+        <name lang="pt_BR">Retificador</name>
+        <name lang="ro">Redresor</name>
+        <name lang="ru">Выпрямитель</name>
+        <name lang="sk">Usmerňovač</name>
+        <name lang="sl">Usmernik</name>
+        <name lang="sr">Исправљач</name>
+        <name lang="sv">Likriktare</name>
+        <name lang="tr">Doğrultucu</name>
+        <name lang="uk">Випрямляч</name>
+        <name lang="zh">整流器</name>
+    </names>
+    <informations>Author: Arun Kishore Eswara
+
+License: Creative Commons By 3.0 
+Quote Author and use for free : strictly non-commercial</informations>
+    <description>
+        <polygon x1="-52.1" y1="-20.17" x2="-56.7" y2="-13.3" x3="-47.49" y3="-13.3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="3" y="-71.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6148d974-70ed-4c45-b1af-442a9538e1e4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Rectifier" x="-48" y="-41" rotation="0" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="DC Voltage" x="21" y="-35" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-39.45" y1="-20.17" x2="-44.05" y2="-13.3" x3="-34.84" y3="-13.3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-26.8" y1="-20.17" x2="-31.4" y2="-13.3" x3="-22.19" y3="-13.3" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="Control Signals" x="-106" y="75" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Actual Signals" x="-106" y="54" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-24" y1="35.87" x2="-24" y2="50.14" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.75" y1="1.54" x2="15.75" y2="23.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-51.74" y1="24.13" x2="28.36" y2="24.13" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="-29" x2="10" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0.8" y="-31" width="4.6" height="3" start="357" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-3.8" y="-31" width="4.6" height="3" start="357" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5.4" y="-31" width="4.6" height="3" start="357" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.3" y1="1.66" x2="19.2" y2="1.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14.1" y1="28.1" x2="16.9" y2="28.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.25" y1="-33" x2="10" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-56.7" y1="-19.85" x2="-47.49" y2="-19.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-52.1" y1="8.83" x2="-56.7" y2="15.7" x3="-47.49" y3="15.7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-64.75" y="-36" width="51.75" height="71" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-39.45" y1="24.13" x2="-39.45" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-39.45" y1="8.83" x2="-44.05" y2="15.7" x3="-34.84" y3="15.7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-26.8" y1="24.13" x2="-26.8" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-31.24" y1="9.06" x2="-22.37" y2="9.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-26.8" y1="8.83" x2="-31.4" y2="15.7" x3="-22.19" y3="15.7" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-43.89" y1="9.06" x2="-35" y2="9.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-44.05" y1="-19.85" x2="-34.84" y2="-19.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-31.4" y1="-19.85" x2="-22.19" y2="-19.85" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-52.1" y1="24.13" x2="-52.1" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-56.54" y1="8.81" x2="-47.67" y2="8.81" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-52.1" y1="-24" x2="-9.55" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-8.4" y="-31" width="4.6" height="3" start="357" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-8.4" y1="-29" x2="-8.4" y2="-24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="-24" x2="28.89" y2="-24" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.75" y1="-23.65" x2="15.75" y2="-2.19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12.3" y1="-1.58" x2="19.2" y2="-1.58" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.4" y1="-33" x2="-2.65" y2="-33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-52.1" y1="-10" x2="-80.85" y2="-10" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-39.45" y1="-4" x2="-80.85" y2="-4" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-26.8" y1="2" x2="-80.85" y2="2" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14.1" y1="-26.9" x2="16.9" y2="-26.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15.5" y1="-28" x2="15.5" y2="-25.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-65" y="51" width="82" height="24" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Control Electronics" x="-61" y="66" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-54" y1="35.87" x2="-54" y2="50.14" end1="none" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80.93" y1="58" x2="-65.07" y2="58" end1="simple" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-83.81" y1="68" x2="-65.21" y2="68" end1="circle" end2="simple" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-84" y1="58" x2="-80" y2="58" end1="circle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{aac23e7d-2d40-4175-b9e5-a080589cdb71}" name="" x="-80" y="2" orientation="w" type="Generic"/>
+        <terminal uuid="{a9abbeb1-b63e-4764-a43f-7805f995705f}" name="" x="-84" y="58" orientation="w" type="Generic"/>
+        <terminal uuid="{7cac7a7e-055e-42ab-8854-e473799a04ad}" name="" x="-83" y="68" orientation="w" type="Generic"/>
+        <terminal uuid="{9b55b9cb-41db-43ce-b438-743f9764ae3e}" name="" x="26" y="-24" orientation="e" type="Generic"/>
+        <terminal uuid="{f1afe3b4-768b-409d-8691-4191933dcb5b}" name="" x="25" y="24" orientation="e" type="Generic"/>
+        <terminal uuid="{e64c0550-3892-41bb-90d1-0619471996f4}" name="" x="-80" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{e9b635ef-1606-45fa-b623-0351d266d2d4}" name="" x="-80" y="-4" orientation="w" type="Generic"/>
+    </description>
+</definition>

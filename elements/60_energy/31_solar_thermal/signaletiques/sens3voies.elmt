@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="29" hotspot_y="10">
+    <uuid uuid="{652810ce-7b63-35ac-84fd-5e7a05282e06}"/>
+    <names>
+        <name lang="ar">لافتة 3 مسارات</name>
+        <name lang="ca">senyals vàlvula de 3 vies</name>
+        <name lang="cs">Označení směru</name>
+        <name lang="da">skilte 3-vejsventil</name>
+        <name lang="de">3-Wege-Ventil (Symbol)</name>
+        <name lang="el">Σήμανση βαλβίδας 3 κατευθύνσεων</name>
+        <name lang="en">signs 3-way valve</name>
+        <name lang="es">válvula de 3 vias</name>
+        <name lang="fi">merkit 3-tieventtiili</name>
+        <name lang="fr">signalétique V3voies</name>
+        <name lang="hr">Oznake 3-smjernog ventila</name>
+        <name lang="hu">jelek 3-utas szelep</name>
+        <name lang="it">Valvola 3vie</name>
+        <name lang="ja">記号 3ウェイ弁</name>
+        <name lang="ko">기호 3-방향 밸브</name>
+        <name lang="mn">тэмдэг 3-талт хавхлага</name>
+        <name lang="nb">skilt 3-veis ventil</name>
+        <name lang="nl">Pijl</name>
+        <name lang="nl_BE">tekens 3-wegklep</name>
+        <name lang="pl">Oznaczenie kierunku</name>
+        <name lang="pt">sinais de válvula de 3 vias</name>
+        <name lang="pt_BR">signs 3-way valvula</name>
+        <name lang="ro">semne supapă 3 căi</name>
+        <name lang="ru">знаки 3-ходовой клапан</name>
+        <name lang="sk">značky 3-cestný ventil</name>
+        <name lang="sl">znaki 3-potni ventil</name>
+        <name lang="sr">ознаке 3-краког вентила</name>
+        <name lang="sv">skyltar 3-vägsventil</name>
+        <name lang="tr">işaretler 3 yollu vana</name>
+        <name lang="uk">Знаки 3-ходовий клапан</name>
+        <name lang="zh">三通方向</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-10" y="-22.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3154b10d-589f-49a1-a6b6-fa4b7ac37544}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="1" y1="12" x2="-1" y2="12" x3="2" y3="15" x4="6" y4="12" x5="3.5" y5="12" x6="3.5" y6="11" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-14" y1="-1" x2="-17" y2="-5" x3="-17" y3="5" x4="-14" y4="1" x5="-10" y5="1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-20.5" y="1" width="22" height="22" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-14.5" y="0" width="18" height="22" start="0" angle="65" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-14" y1="-1" x2="11" y2="-1" x3="11" y3="-5" x4="19" y4="0" x5="11" y5="5" x6="11" y6="1" x7="-2" y7="1" x8="-1" y8="1" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

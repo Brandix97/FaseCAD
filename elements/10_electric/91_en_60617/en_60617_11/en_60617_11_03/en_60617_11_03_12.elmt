@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="160" height="40" hotspot_x="150" hotspot_y="31">
+    <uuid uuid="{31a46671-9706-3c31-b3a3-ee7772c9de23}"/>
+    <names>
+        <name lang="ar">تغذية بالتيار المستمر على خطوط الاتصالات</name>
+        <name lang="ca">Alimentació de corrent continu a les línies de telecomunicacions</name>
+        <name lang="cs">Napájení stejnosměrným proudem po sdělovacím vedení</name>
+        <name lang="da">DC-strømforsyning på telekommunikationsledninger</name>
+        <name lang="de">Fernmeldeleitung mit Gleichstrom-
+Fernspeisung</name>
+        <name lang="el">Τροφοδοσία DC σε γραμμές τηλεπικοινωνιών</name>
+        <name lang="en">DC power feeding on telecommunication lines</name>
+        <name lang="es">Alimentación de corriente continua en líneas de telecomunicación</name>
+        <name lang="fi">Tasasähkösyöttö tietoliikennelinjoilla</name>
+        <name lang="fr">Alimentation en courant continu par lignes de
+télécommunications</name>
+        <name lang="hr">Napajanje istosmjernom strujom na telekomunikacijskim vodovima</name>
+        <name lang="hu">Egyenáramú tápellátás távközlési vezetékeken</name>
+        <name lang="it">Alimentazione in corrente continua su linee di telecomunicazione</name>
+        <name lang="ja">電気通信線路への直流給電</name>
+        <name lang="ko">통신 선로의 DC 전원 공급</name>
+        <name lang="mn">Харилцаа холбооны шугам дээрх DC тэжээл</name>
+        <name lang="nb">Likestrømforsyning på telekommunikasjonslinjer</name>
+        <name lang="nl">DC-voeding op telecommunicatielijnen</name>
+        <name lang="nl_BE">DC-voeding op telecommunicatieleidingen</name>
+        <name lang="pl">Zasilanie prądem stałym linii telekomunikacyjnych</name>
+        <name lang="pt">Alimentação em corrente contínua em linhas de telecomunicações</name>
+        <name lang="pt_BR">DC Potência feeding on telecommunication lines</name>
+        <name lang="ro">Alimentare cu curent continuu pe liniile de telecomunicații</name>
+        <name lang="ru">Питание постоянным током на линиях связи</name>
+        <name lang="sk">Napájanie jednosmerným prúdom na telekomunikačných linkách</name>
+        <name lang="sl">Napajanje z enosmernim tokom na telekomunikacijskih vodih</name>
+        <name lang="sr">Напајање једносмерном струјом на телекомуникационим водовима</name>
+        <name lang="sv">Likströmsmatning på telekommunikationsledningar</name>
+        <name lang="tr">Telekomünikasyon hatlarında DC güç beslemesi</name>
+        <name lang="uk">Живлення постійним струмом на телекомунікаційних лініях</name>
+        <name lang="zh">接线端子排12</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{711ada8f-7df2-4982-9bde-eb387ca5f14f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="0" x2="-140" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-130" y1="-10" x2="-110" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-130" y1="-15" x2="-110" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-130" y1="-25" x2="-105" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-110" y1="-22" x2="-110" y2="-28" x3="-100" y3="-25" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <terminal uuid="{835c6e9c-d1da-45d9-89fe-1d086474a194}" name="" x="0" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{51cae8d7-4996-4e9f-817c-9bd6fff86919}" name="" x="-140" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.90" type="element" link_type="simple" width="110" height="40" hotspot_x="60" hotspot_y="10">
+    <uuid uuid="{5d2c8411-6c69-3f0a-6948-3d3ec34a6d48}"/>
+    <names>
+        <name lang="ar">مزدوج الفعل + قضيب مكبس على الوجهين + فرامل نهاية الشوط على كلا الجانبين</name>
+        <name lang="ca">Doble efecte + biela de pistó + fre de final de carrera a ambdós costats</name>
+        <name lang="cs">Dvoučinná + oboustranná pístnice + koncová brzda na obou stranách</name>
+        <name lang="da">Dobbeltvirkende + dobbeltsidet stempelstang + endebremse på begge sider</name>
+        <name lang="de">Doppeltwirkend + beidseitige Kolbenstange + Endlagenbremse beidseitig</name>
+        <name lang="el">Διπλής δράσης + ράβδος εμβόλου διπλής όψης + φρένο τέλους διαδρομής και στις δύο πλευρές</name>
+        <name lang="en">Double-acting + double-sided piston rod + end-of-stroke brake on both sides</name>
+        <name lang="es">Doble efecto + vástago de pistón de doble cara + freno de final de carrera en ambos lados</name>
+        <name lang="fi">Kaksitoiminen + kaksipuolinen männänvarsi + iskunpään jarru molemmilla puolilla</name>
+        <name lang="fr">Double effet + tige de piston double face + frein de fin de course des deux côtés</name>
+        <name lang="hr">Dvostrano djelovanje + dvostrana klipnjača + kočnica na kraju hoda s obje strane</name>
+        <name lang="hu">Kettős működésű + kétoldalas dugattyúrúd + löketvégi fék mindkét oldalon</name>
+        <name lang="it">Doppio effetto + stelo pistone bilaterale + freno di fine corsa su entrambi i lati</name>
+        <name lang="ja">複動式+両面ピストンロッド+両側のストロークエンドブレーキ</name>
+        <name lang="ko">복동 + 양쪽 피스톤 로드 + 양쪽 스트로크 끝 브레이크</name>
+        <name lang="mn">Хоёр талдаа давхар үйлдэлтэй + хоёр талт поршений саваа + цохилтын төгсгөлийн тоормос</name>
+        <name lang="nb">Dobbeltvirkende + dobbeltsidig stempelstang + endebrems på begge sider</name>
+        <name lang="nl">Dubbelwerkend + dubbelzijdige zuigerstang + eindeslagrem aan beide zijden</name>
+        <name lang="nl_BE">Dubbelwerkend + zuigerstang aan beide zijden + eindaanslag aan beide zijden</name>
+        <name lang="pl">Dwustronnego działania + dwustronne tłoczysko + hamulec końca suwu po obu stronach</name>
+        <name lang="pt">Dupla ação + haste de pistão de dupla face + freio de fim de curso em ambos os lados</name>
+        <name lang="pt_BR">Dupla ação + haste de pistão de dupla face + freio de fim de curso em ambos os lados</name>
+        <name lang="ro">Dublă acțiune + tijă de piston cu două fețe + frână de capăt de cursă pe ambele părți</name>
+        <name lang="ru">Двустороннего действия + двухсторонний поршневой шток + тормоз конца хода с обеих сторон</name>
+        <name lang="sk">Dvojčinný + obojstranná piestna tyč + koncová brzda na oboch stranách</name>
+        <name lang="sl">Dvostransko delovanje + dvostranska batnica + zavora na koncu hoda na obeh straneh</name>
+        <name lang="sr">Двострано дејство + двострана клипњача + кочница на крају хода са обе стране</name>
+        <name lang="sv">Dubbelverkande + dubbelsidig kolvstång + ändlägesbroms på båda sidor</name>
+        <name lang="tr">Çift etkili + çift taraflı piston kolu + her iki tarafta strok sonu freni</name>
+        <name lang="uk">Двосторонньої дії + двосторонній шток поршня + гальмо кінця ходу з обох боків</name>
+        <name lang="zh">双作用贯穿杆气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-48" y="-34" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-9" y="-5" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12" y="1" width="3" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-33" y1="7" x2="-33" y2="15" x3="-9" y3="15" x4="-9" y4="-5" x5="-33" y5="-5" x6="-33" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-2" y="1" width="3" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-2" y3="15" x4="-2" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-56" y1="3" x2="-12" y2="3" x3="-12" y3="7" x4="-56" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="46" y1="3" x2="1" y2="3" x3="1" y3="7" x4="46" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{8f3be32e-851a-427c-a68d-b241257f983c}" name="" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

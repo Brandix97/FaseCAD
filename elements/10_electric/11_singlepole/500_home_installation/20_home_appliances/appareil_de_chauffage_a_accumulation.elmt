@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="35" hotspot_y="21">
+    <uuid uuid="{f33ee66e-cef0-73ae-701b-8c7abaf3c61c}"/>
+    <names>
+        <name lang="ar">سخّان بالتراكم</name>
+        <name lang="ca">S'ha acumulat l'escalfador</name>
+        <name lang="cs">Akumulační ohřívač, topné těleso</name>
+        <name lang="da">Varmelegeme med akkumulering</name>
+        <name lang="de">Heizung mit Pufferspeicher</name>
+        <name lang="el">Θερμοσυσσωρευτής</name>
+        <name lang="en">Heater has accumulated</name>
+        <name lang="es">Calentador con acumulación</name>
+        <name lang="fi">Varaava lämmitin</name>
+        <name lang="fr">Appareil de chauffage a accumulation</name>
+        <name lang="hr">Grijač s akumulacijom</name>
+        <name lang="hu">Hőtárolós fűtőtest</name>
+        <name lang="it">Apparecchio di riscaldamento ad accumulo</name>
+        <name lang="ja">蓄熱式ヒーター</name>
+        <name lang="ko">축열식 히터</name>
+        <name lang="mn">Халаагч хуримтлагдсан</name>
+        <name lang="nb">Varmeovn med akkumulering</name>
+        <name lang="nl">Verwarming met accumulator (steenkachel)</name>
+        <name lang="nl_BE">Verwarming met accumulatie</name>
+        <name lang="pl">Grzejnik elektryczny akumulacyjny</name>
+        <name lang="pt">Aquecedor com acumulação</name>
+        <name lang="pt_BR">Aquecedor elétrico com acumulação</name>
+        <name lang="ro">Încălzitor cu acumulare</name>
+        <name lang="ru">Аккумуляционный обогреватель</name>
+        <name lang="sk">Ohrievač s akumuláciou</name>
+        <name lang="sl">Grelec z akumulacijo</name>
+        <name lang="sr">Грејач са акумулацијом</name>
+        <name lang="sv">Ackumulerande värmare</name>
+        <name lang="tr">Birikimli ısıtıcı</name>
+        <name lang="uk">Обігрівач акумуляційний</name>
+        <name lang="zh">蓄热式加热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-8" y="2" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7b729463-b1b8-4f2a-bc8c-35918e95b8e2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-33" y="-7" width="66" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-7" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-30" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="15" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-4" width="15" height="17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{937436b3-b9e9-4349-8757-46ea282898f7}" name="" x="0" y="-14" orientation="n" type="Generic"/>
+    </description>
+</definition>

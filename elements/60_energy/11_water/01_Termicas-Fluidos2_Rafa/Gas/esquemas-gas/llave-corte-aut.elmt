@@ -1,0 +1,24 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{766adca8-5009-19d2-c8cd-ed6c4f47e161}"/>
+    <names>
+        <name lang="ca">Vàlvula de tancament automàtic</name>
+        <name lang="es">Llave corte auto.</name>
+        <name lang="pt_BR">Llave coute auto.</name>
+        <name lang="zh">自动切断阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="10" y1="0" x2="19" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-5" x2="10" y2="5" x3="10" y3="-5" x4="-10" y4="5" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-4" y="-15" width="8" height="7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-8" x2="0" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-11" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="-33" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6e825834-b215-4049-a312-e592ea8f07c0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c1920d07-962c-488e-8673-949cc26e5df1}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{af58df1c-d14a-459c-8cd2-e17c9470e36d}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="45" hotspot_y="55">
+    <uuid uuid="{e6fd3964-1a35-5257-7738-cd8efb7a2852}"/>
+    <names>
+        <name lang="ar">مفتاح يُشغّل بمفتاح</name>
+        <name lang="ca">Interruptor amb clau</name>
+        <name lang="cs">Spínač ovládaný klíčem</name>
+        <name lang="da">Nøglebetjent afbryder</name>
+        <name lang="de">Schlüsselschalter,
+Wächtermelder</name>
+        <name lang="el">Διακόπτης με κλειδί</name>
+        <name lang="en">Key-operated switch</name>
+        <name lang="es">Interruptor accionado por llave</name>
+        <name lang="fi">Avainkytkin</name>
+        <name lang="fr">Dispositif de commande ou de contrôle par clé,
+Dispositif de contrôle par vigile</name>
+        <name lang="hr">Sklopka na ključ</name>
+        <name lang="hu">Kulcsos kapcsoló</name>
+        <name lang="it">Interruttore a chiave</name>
+        <name lang="ja">キー操作スイッチ</name>
+        <name lang="ko">키 작동 스위치</name>
+        <name lang="mn">Түлхүүрээр ажилладаг унтраалга</name>
+        <name lang="nb">Nøkkeloperert bryter</name>
+        <name lang="nl">Schakelaar met sleutelbediening</name>
+        <name lang="nl_BE">Sleutelschakelaar</name>
+        <name lang="pl">Łącznik sterowany kluczem</name>
+        <name lang="pt">Interruptor de chave</name>
+        <name lang="pt_BR">Interruptor acionado pou chave</name>
+        <name lang="ro">Întrerupător cu cheie</name>
+        <name lang="ru">Выключатель с ключом</name>
+        <name lang="sk">Kľúčový spínač</name>
+        <name lang="sl">Stikalo na ključ</name>
+        <name lang="sr">Прекидач са кључем</name>
+        <name lang="sv">Nyckelbrytare</name>
+        <name lang="tr">Anahtarlı anahtar</name>
+        <name lang="uk">Вимикач з ключем</name>
+        <name lang="zh">接线端子15</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ac6bf9a-1413-4b94-b6da-015de618b313}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-30" y="-45" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-40" y="-50" width="40" height="50" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-26" y1="-27" x2="-30" y2="-10" x3="-10" y3="-10" x4="-14" y4="-27" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

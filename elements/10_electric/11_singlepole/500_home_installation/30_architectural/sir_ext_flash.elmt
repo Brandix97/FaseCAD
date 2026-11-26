@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="17" hotspot_y="25">
+    <uuid uuid="{8c2e5eef-c605-ae06-1cd0-32259462099c}"/>
+    <names>
+        <name lang="ar">صفّارة إنذار خارجية بضوء وامض</name>
+        <name lang="ca">Sirena exterior amb llum de flaix</name>
+        <name lang="cs">Venkovní siréna s majákem</name>
+        <name lang="da">Udendørs sirene med blinklys</name>
+        <name lang="de">Hupe Aussenbereich mit Blitzlicht</name>
+        <name lang="el">Εξωτερική σειρήνα με φάρο</name>
+        <name lang="en">Siren outdoor with flash light</name>
+        <name lang="es">Sirena exterior con luz destellante</name>
+        <name lang="fi">Ulkosiireeni vilkkuvalolla</name>
+        <name lang="fr">Sirène extérieure avec flash</name>
+        <name lang="hr">Vanjska sirena s bljeskalicom</name>
+        <name lang="hu">Kültéri sziréna villanófénnyel</name>
+        <name lang="it">Sirena esterna con lampeggiatore</name>
+        <name lang="ja">フラッシュライト付き屋外サイレン</name>
+        <name lang="ko">섬광등 부착 실외 사이렌</name>
+        <name lang="mn">Гэрэлтэгчтэй гадаадын сирена</name>
+        <name lang="nb">Utendørs sirene med blinklys</name>
+        <name lang="nl">Buitensirene met flitslicht</name>
+        <name lang="nl_BE">Sirine buiten met flitslicht</name>
+        <name lang="pl">Syrena zewnętrzna z sygnalizatorem świetlnym</name>
+        <name lang="pt">Sirene exterior com luz intermitente</name>
+        <name lang="pt_BR">Sirene externa com luz piscante</name>
+        <name lang="ro">Sirenă exterioară cu lumină intermitentă</name>
+        <name lang="ru">Наружная сирена со вспышкой</name>
+        <name lang="sk">Siréna vonkajšia so zábleskovým svetlom</name>
+        <name lang="sl">Zunanja sirena z bliskavico</name>
+        <name lang="sr">Спољашња сирена са блицајућим светлом</name>
+        <name lang="sv">Utomhussiren med blixtljus</name>
+        <name lang="tr">Flaş ışıklı dış mekan siren</name>
+        <name lang="uk">Сирена зовнішня зі спалахом</name>
+        <name lang="zh">室外闪光警笛</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-10" y="-9.75" width="30" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-9.75" x2="30" y2="-19.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-19.75" x2="30" y2="20.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="20.25" x2="20" y2="10.25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-50" y="-12.75" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e86d7d54-ce8f-4a0f-855f-3cebb589fd5a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-9.5" y1="0" x2="-7.5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.5" y1="-2" x2="-7.5" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.5" y1="-4" x2="-5.5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.5" y1="0" x2="-3.5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="5" y="-5" width="10" height="10" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-5" width="10" height="10" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-5" width="10" height="10" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-5" width="10" height="10" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="3" x2="13" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-3" x2="13" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{941549dc-e4e1-413b-b83c-717457817321}" name="" x="-10" y="-10" orientation="n" type="Generic"/>
+    </description>
+</definition>

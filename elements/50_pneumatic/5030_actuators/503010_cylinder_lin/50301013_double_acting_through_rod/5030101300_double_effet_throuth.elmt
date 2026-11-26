@@ -1,0 +1,53 @@
+<definition version="0.90" type="element" link_type="simple" width="110" height="40" hotspot_x="60" hotspot_y="10">
+    <uuid uuid="{55c95e0f-675d-98bb-1327-a2c0e2388cd6}"/>
+    <names>
+        <name lang="ar">قضيب مكبس مزدوج الفعل على كلا الجانبين</name>
+        <name lang="ca">Doble efecte + biela a banda i banda</name>
+        <name lang="cs">Dvojčinné + pístnice na obou stranách</name>
+        <name lang="da">Dobbeltvirkende + stempelstang på begge sider</name>
+        <name lang="de">Doppeltwirkend + beidseitige Kolbenstange</name>
+        <name lang="el">Διπλής δράσης + ράβδος εμβόλου και στις δύο πλευρές</name>
+        <name lang="en">Double-acting + piston rod on both sides</name>
+        <name lang="es">Doble efecto + vástago en ambos lados</name>
+        <name lang="fi">Kaksitoiminen + männänvarsi molemmilla puolilla</name>
+        <name lang="fr">Double effet + tige de piston des deux côtés</name>
+        <name lang="hr">Dvostrano djelovanje + klipnjača s obje strane</name>
+        <name lang="hu">Kettős működésű + dugattyúrúd mindkét oldalon</name>
+        <name lang="it">Doppio effetto + stelo pistone su entrambi i lati</name>
+        <name lang="ja">両側に複動式+ピストンロッド</name>
+        <name lang="ko">복동 + 피스톤 로드</name>
+        <name lang="mn">Хоёр талдаа давхар үйлдэлтэй + поршений саваа</name>
+        <name lang="nb">Dobbeltvirkende + stempelstang på begge sider</name>
+        <name lang="nl">Dubbelwerkend + zuigerstang aan beide zijden</name>
+        <name lang="nl_BE">Dubbelwerkend + zuigerstang aan beide zijden</name>
+        <name lang="pl">Dwustronnego działania + tłoczysko po obu stronach</name>
+        <name lang="pt">Dupla ação + haste do pistão em ambos os lados</name>
+        <name lang="pt_BR">Dupla ação + haste do pistão em ambos os lados</name>
+        <name lang="ro">Dubla actiune + tija piston pe ambele parti</name>
+        <name lang="ru">Двустороннего действия + поршневой шток с обеих сторон</name>
+        <name lang="sk">Dvojčinný + piestna tyč na oboch stranách</name>
+        <name lang="sl">Dvostransko delovanje + batnica na obeh straneh</name>
+        <name lang="sr">Двострано дејство + клипњача са обе стране</name>
+        <name lang="sv">Dubbelverkande + kolvstång på båda sidor</name>
+        <name lang="tr">Her iki tarafta çift etkili + piston kolu</name>
+        <name lang="uk">Двосторонньої дії + шток поршня з обох боків</name>
+        <name lang="zh">双作用贯穿杆气缸</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-32" y="-29" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{dbd71dbe-d663-477f-9dfd-8725fc661135}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-9" y="-5" width="7" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-56" y1="3" x2="-9" y2="3" x3="-9" y3="7" x4="-56" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-33" y1="7" x2="-33" y2="15" x3="-9" y3="15" x4="-9" y4="-5" x5="-33" y5="-5" x6="-33" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="18" y1="15" x2="22" y2="15" x3="20" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="46" y1="3" x2="-2" y2="3" x3="-2" y3="7" x4="46" y4="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="23" y1="7" x2="23" y2="15" x3="-2" y3="15" x4="-2" y4="-5" x5="23" y5="-5" x6="23" y6="3" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-32" y1="15" x2="-28" y2="15" x3="-30" y3="11" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{8f3be32e-851a-427c-a68d-b241257f983c}" name="" x="20" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{23c888b0-cc9b-402b-827c-177017ce9ce1}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="25" hotspot_y="50">
+    <uuid uuid="{f245297d-40f2-a52c-e71d-25b218f3dd1a}"/>
+    <names>
+        <name lang="ar">ثايريستور ثلاثي الأطراف ثنائي الاتجاه؛ ترياك</name>
+        <name lang="ca">tiristor de triode bidireccional; </name>
+        <name lang="cs">Obousměrný triodový tyristor,
+Triak</name>
+        <name lang="da">Tovejs triode-thyristor; Triac</name>
+        <name lang="de">Thyristortriode, bidirektional
+Triac</name>
+        <name lang="el">Τριοδικό θυρίστορ αμφίδρομο, Triac</name>
+        <name lang="en">Bidirectional triode thyristor; Triac</name>
+        <name lang="es">Tiristor triodo bidireccional; Triac</name>
+        <name lang="fi">Kaksisuuntainen triodityristori; Triac</name>
+        <name lang="fr">Thyristor triode symétrique
+Triac</name>
+        <name lang="hr">Dvosmjerni triodni tiristor; Triac</name>
+        <name lang="hu">Kétirányú trióda tirisztor; Triac</name>
+        <name lang="it">Tiristore triodo bidirezionale; Triac</name>
+        <name lang="ja">双方向三極サイリスタ；トライアック</name>
+        <name lang="ko">양방향 삼극 사이리스터; 트라이액</name>
+        <name lang="mn">Хоёр чиглэлийн гурван электродтой тиристор; Триак</name>
+        <name lang="nb">Toveis triodetyristor; Triac</name>
+        <name lang="nl">Tweezijdige triodethyristor; Triac</name>
+        <name lang="nl_BE">Tweerichtingstriodethyristor; Triac</name>
+        <name lang="pl">Tyrystor triodowy dwukierunkowy; Triak</name>
+        <name lang="pt">Tiristor triodo bidirecional; Triac</name>
+        <name lang="pt_BR">Tiristor triodo bidirecional; TRIAC</name>
+        <name lang="ro">Tiristor triodă bidirecțional; Triac</name>
+        <name lang="ru">Двусторонний триодный тиристор; Симистор</name>
+        <name lang="sk">Obojsmerný triódový tyristor; Triak</name>
+        <name lang="sl">Dvosmerni triodni tiristor; Triac</name>
+        <name lang="sr">Двосмерни триодни тиристор; Триак</name>
+        <name lang="sv">Dubbelriktad triodtyristor; Triac</name>
+        <name lang="tr">Çift yönlü tristör; Triyak</name>
+        <name lang="uk">Двосторонній тріодний тиристор; симістор</name>
+        <name lang="zh">接线端子11</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{e4198cb7-7afa-48b5-a6e6-81e4f85d0101}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-40" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-30" x2="0" y2="-30" x3="-10" y3="-10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="-30" x2="-10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-10" x2="10" y2="-30" x3="20" y3="-10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="20" y1="0" x2="18" y2="0" x3="14" y3="-10" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{713cf157-53ed-4173-8ac8-4b34979c7d69}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{5ad077b4-96de-490c-b038-51daf78f4502}" name="" x="0" y="0" orientation="s" type="Generic"/>
+    </description>
+</definition>

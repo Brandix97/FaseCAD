@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="90" height="40" hotspot_x="41" hotspot_y="24">
+    <uuid uuid="{dc24c02d-b58b-ffb3-df6f-4d8022b1f77d}"/>
+    <names>
+        <name lang="ar">مبادل أنبوبي</name>
+        <name lang="ca">Bescanviador tubular</name>
+        <name lang="cs">Trubkový výměník</name>
+        <name lang="da">Rørslangeveksler</name>
+        <name lang="de">Rohraustauscher</name>
+        <name lang="el">Εναλλάκτης σωληνωτός</name>
+        <name lang="en">Tubular exchanger</name>
+        <name lang="es">Intercambiador tubular</name>
+        <name lang="fi">Putkilämmönvaihdin</name>
+        <name lang="fr">Echangeur tubulaire</name>
+        <name lang="hr">Cijevni izmjenjivač</name>
+        <name lang="hu">Csöves hőcserélő</name>
+        <name lang="it">Scambiatore tubolare</name>
+        <name lang="ja">管状熱交換器</name>
+        <name lang="ko">관형 열교환기</name>
+        <name lang="mn">Хоолойн солилцуур</name>
+        <name lang="nb">Rørformet veksler</name>
+        <name lang="nl">Buiswisselaar</name>
+        <name lang="nl_BE">Buiswarmtewisselaar</name>
+        <name lang="pl">Wymiennik rurowy</name>
+        <name lang="pt">Trocador tubular</name>
+        <name lang="pt_BR">Tubular exchanger</name>
+        <name lang="ro">Schimbător tubular</name>
+        <name lang="ru">Трубчатый теплообменник</name>
+        <name lang="sk">Rúrkový výmenník</name>
+        <name lang="sl">Cevni izmenjevalnik</name>
+        <name lang="sr">Цевни измењивач</name>
+        <name lang="sv">Rörvärmeväxlare</name>
+        <name lang="tr">Boru eşanjör</name>
+        <name lang="uk">Трубчастий теплообмінник</name>
+        <name lang="zh">管式换热器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="35" y1="3" x2="35" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="16" y1="-14" x2="21.75" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-28.4" y1="-12" x2="26.7" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-31.6" y1="-12.37" x2="-31.6" y2="10.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="32" y="-9" width="5" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="16" y="-16.17" width="5.75" height="4.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="32" y="3" width="5" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23.4" y1="-9.64" x2="23.4" y2="8.68" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="26.7" y="-12" width="4.6" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-34" y="-13" width="5.6" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-28.4" y1="11" x2="26.7" y2="11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-24" y="-16.17" width="5.5" height="4.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="-11" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="-3" width="1" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="7" width="1" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="-9" x2="35" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-14" x2="-18.5" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-11" y="-6" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a67fbaac-8d8f-4eba-a3d1-e5422ce106d9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{81e58acf-c2d0-45fb-8c76-d2715b81d909}" name="" x="-21" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{e81e95da-a0e0-49fb-af7b-03e71b085798}" name="" x="19" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{75b354d8-d335-4abb-bb3b-93d41ba5f914}" name="" x="37" y="-6" orientation="e" type="Generic"/>
+        <terminal uuid="{426d83e1-927e-446b-b881-8da4d2062ff5}" name="" x="37" y="6" orientation="e" type="Generic"/>
+    </description>
+</definition>

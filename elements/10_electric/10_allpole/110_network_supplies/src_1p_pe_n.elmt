@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="21" hotspot_y="28">
+    <uuid uuid="{0634ff24-5f6a-a914-24f7-d04c43e837c3}"/>
+    <names>
+        <name lang="ar">مصدر وحيد القطبية + أرضي PE + محايد N</name>
+        <name lang="ca">Font unipolar + PE + N</name>
+        <name lang="cs">Přípojnice 1f+N+PE</name>
+        <name lang="da">En-polet kilde + PE +N</name>
+        <name lang="de">Wechselstrom + PE +N</name>
+        <name lang="el">Μονοφασικό +N +PE</name>
+        <name lang="en">Single-pole source + PE +N</name>
+        <name lang="es">Fuente unipolo + PE +N</name>
+        <name lang="fi">Yksivaiheinen lähde + PE +N</name>
+        <name lang="fr">Source unipolaire + PE +N</name>
+        <name lang="hr">Jednopolni izvor + PE + N</name>
+        <name lang="hu">F + N + PE</name>
+        <name lang="it">Sorgente unipolare + PE +N</name>
+        <name lang="ja">単極電源 + PE +N</name>
+        <name lang="ko">단극 전원 + PE +N</name>
+        <name lang="mn">Нэг туйлын эх үүсвэр + PE +N</name>
+        <name lang="nb">Enpolet kilde + PE + N</name>
+        <name lang="nl">1 fase + aarde + nul</name>
+        <name lang="nl_BE">Eenfasige bron + PE + N</name>
+        <name lang="pl">Linia jednofazowa (trójprzewodowa)</name>
+        <name lang="pt">Fonte unipolar + PE +N</name>
+        <name lang="pt_BR">Fonte unipolar + PE + N</name>
+        <name lang="ro">Sursă unipolară + PE + N</name>
+        <name lang="ru">Однополюсный + PE +N</name>
+        <name lang="sk">Jednopólový zdroj + PE +N</name>
+        <name lang="sl">Enopolni vir + PE + N</name>
+        <name lang="sr">Једнополски извор + PE + N</name>
+        <name lang="sv">Enpolig källa + PE +N</name>
+        <name lang="tr">Tek kutuplu kaynak + PE + N</name>
+        <name lang="uk">Однополюсне джерело + PE +N</name>
+        <name lang="zh">单相PE N电源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-46.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{99cc9aed-9351-4f90-a932-d9a35bc4268e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="PE" x="-12" y="23" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="N" x="-12" y="3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L" x="-12" y="-17" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{e54d11d9-f490-45c8-93a4-e1af7f588fb5}" name="N" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{e17ad991-7b38-4e0e-98f5-3072ae836974}" name="PE" x="10" y="20" orientation="e" type="Generic"/>
+        <terminal uuid="{6a808326-9aed-4c61-92b1-799b418218bf}" name="L" x="10" y="-20" orientation="e" type="Generic"/>
+    </description>
+</definition>

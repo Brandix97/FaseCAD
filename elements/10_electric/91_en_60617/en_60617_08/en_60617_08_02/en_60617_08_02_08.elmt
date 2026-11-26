@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="25" hotspot_y="45">
+    <uuid uuid="{5b149ff1-deab-a7a9-a4d6-b475090c0fa1}"/>
+    <names>
+        <name lang="ar">منظار التزامن</name>
+        <name lang="ca">Sincronoscopi</name>
+        <name lang="cs">Synchronoskop</name>
+        <name lang="da">Synkronoskop</name>
+        <name lang="de">Synchronoskop</name>
+        <name lang="el">Συγχρονοσκόπιο</name>
+        <name lang="en">Synchronoscope</name>
+        <name lang="es">Sincronoscopio</name>
+        <name lang="fi">Synkronoskooppi</name>
+        <name lang="fr">Synchronoscope</name>
+        <name lang="hr">Sinkronoskop</name>
+        <name lang="hu">Szinkronoszkóp</name>
+        <name lang="it">Sincronoscopio</name>
+        <name lang="ja">同期検定器</name>
+        <name lang="ko">동기 검정기</name>
+        <name lang="mn">Синхроскоп</name>
+        <name lang="nb">Synkronoskop</name>
+        <name lang="nl">Synchronoscoop</name>
+        <name lang="nl_BE">Synchronoscoop</name>
+        <name lang="pl">Synchronoskop</name>
+        <name lang="pt">Sincronoscópio</name>
+        <name lang="pt_BR">Synchronoscope</name>
+        <name lang="ro">Sincronoscop</name>
+        <name lang="ru">Синхроноскоп</name>
+        <name lang="sk">Synchronoskop</name>
+        <name lang="sl">Sinhronoskop</name>
+        <name lang="sr">Синхроноскоп</name>
+        <name lang="sv">Synkronoskop</name>
+        <name lang="tr">Senkronoskop</name>
+        <name lang="uk">Синхроноскоп</name>
+        <name lang="zh">可拆卸端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{844435e7-83e3-44ba-89c2-c3b905a2b8bb}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-20" y="-40" width="40" height="40" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-5" x2="0" y2="-35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-17.5" y="-35.5" width="35" height="35" start="45" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-13" y1="-30" x2="-11" y2="-33" x3="-10" y3="-31" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="11" y1="-33" x2="13" y2="-30" x3="10" y3="-31" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

@@ -1,0 +1,53 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="70" hotspot_x="50" hotspot_y="35">
+    <uuid uuid="{1494808e-26a4-60ec-0a3c-cdefe210df45}"/>
+    <names>
+        <name lang="ar">مُبادل ماء - زيت</name>
+        <name lang="ca">Bescanviador d'aigua-oli</name>
+        <name lang="cs">Výměník voda olej</name>
+        <name lang="da">Vand-olie-veksler</name>
+        <name lang="de">Wasser-Öl-Wärmetauscher</name>
+        <name lang="el">Εναλλάκτης νερού λαδιού</name>
+        <name lang="en">Water oil exchanger</name>
+        <name lang="es">Intercambiador de calor agua-aceite</name>
+        <name lang="fi">Vesi-öljy-lämmönvaihdin</name>
+        <name lang="fr">Echangeur Eau-Huile</name>
+        <name lang="hr">Izmjenjivač voda-ulje</name>
+        <name lang="hu">Víz-olaj hőcserélő</name>
+        <name lang="it">Scambiatore acqua/olio</name>
+        <name lang="ja">水油熱交換器</name>
+        <name lang="ko">수-오일 열교환기</name>
+        <name lang="mn">Ус-тос солилцуур</name>
+        <name lang="nb">Vann-olje-veksler</name>
+        <name lang="nl">Water Olie warmtewisselaar</name>
+        <name lang="nl_BE">Water-olie warmtewisselaar</name>
+        <name lang="pl">Wodno-olejowy wymiennik ciepła</name>
+        <name lang="pt">Trocador de calor água-óleo</name>
+        <name lang="pt_BR">Trocador água-óleo</name>
+        <name lang="ro">Schimbător apă-ulei</name>
+        <name lang="ru">Водомасляный теплообменник</name>
+        <name lang="sk">Výmenník voda-olej</name>
+        <name lang="sl">Izmenjevalnik voda-olje</name>
+        <name lang="sr">Измењивач вода-уље</name>
+        <name lang="sv">Vatten-olje-värmeväxlare</name>
+        <name lang="tr">Su yağ eşanjörü</name>
+        <name lang="uk">Водомасляний теплообмінник</name>
+        <name lang="zh">水油换热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-27" y="-56.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3bc740cc-f436-4caa-958f-9231217afb2e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0.87" y1="30.07" x2="25.62" y2="30.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.52" y1="-30" x2="-25.13" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-0.42" y1="-30" x2="-6.7" y2="-30.91" x3="-6.7" y3="-29.07" x4="-0.42" y4="-29.9" x5="-1.9" y5="-29.9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0.42" y1="30.08" x2="6.59" y2="29.13" x3="6.59" y3="30.91" x4="0.47" y4="30.2" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="39.94" y1="0" x2="29.67" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-40.08" y1="0" x2="-30.66" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0.1" y1="-30" x2="-30" y2="0.05" x3="0" y3="30" x4="29.91" y4="0.05" x5="0.1" y5="-29.9" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{a8c5eb92-b559-4f1e-bff2-ba514783abf7}" name="" x="-40" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{3378d3e2-a62a-422b-a58e-00bafeaf7d4f}" name="" x="40" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

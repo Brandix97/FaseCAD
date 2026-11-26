@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="80" hotspot_x="21" hotspot_y="38">
+    <uuid uuid="{f6eb8411-eb32-6f47-1f1a-867653b1e3ae}"/>
+    <names>
+        <name lang="ar">مصدر ثلاثي القطبيّة + محايد</name>
+        <name lang="ca">Font tripolar + neutre</name>
+        <name lang="cs">Přípojnice 3f+N</name>
+        <name lang="da">Tre-polet kilde + nulleder</name>
+        <name lang="de">Dreiphasig + Neutral</name>
+        <name lang="el">Τριφασικό + Ουδέτερος</name>
+        <name lang="en">Three-pole source + neutral</name>
+        <name lang="es">Fuente tripolar + neutro</name>
+        <name lang="fi">Kolmivaiheinen lähde + nolla</name>
+        <name lang="fr">Source tripolaire + neutre</name>
+        <name lang="hr">Tropolni izvor + neutral</name>
+        <name lang="hu">3F + N</name>
+        <name lang="it">Sorgente tripolare + neutro</name>
+        <name lang="ja">三極電源 + 中性線</name>
+        <name lang="ko">삼극 전원 + 중성선</name>
+        <name lang="mn">Гурван туйлын эх үүсвэр + нейтр</name>
+        <name lang="nb">Trepolet kilde + nøytral</name>
+        <name lang="nl">Driefasen + nul</name>
+        <name lang="nl_BE">Driefasige bron + neutre</name>
+        <name lang="pl">Linia trójfazowa (czteroprzewodowa)</name>
+        <name lang="pt">Fonte tripolar + neutro</name>
+        <name lang="pt_BR">Fonte tripolar + neutro</name>
+        <name lang="ro">Sursă tripolară + neutru</name>
+        <name lang="ru">Трёхполюсный + нейтраль</name>
+        <name lang="sk">Trojpólový zdroj + neutrál</name>
+        <name lang="sl">Tripolni vir + nevtralni vodnik</name>
+        <name lang="sr">Трополски извор + неутрал</name>
+        <name lang="sv">Trepolig källa + nolledare</name>
+        <name lang="tr">Üç kutuplu kaynak + nötr</name>
+        <name lang="uk">Триполюсне джерело + нейтраль</name>
+        <name lang="zh">三相N线电源</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-7" y="-56.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3a4e94ae-dd0d-4762-b657-0a5fe8b6cb18}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="10" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="30" x2="10" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="N" x="-12" y="33" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L3" x="-12" y="13" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L2" x="-12" y="-7" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="L1" x="-12" y="-27" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-30" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{01faa4e7-482d-4045-baa4-61a2dc225632}" name="L3" x="10" y="10" orientation="e" type="Generic"/>
+        <terminal uuid="{7be3baab-0831-441e-b36f-14b8a0db9cdb}" name="N" x="10" y="30" orientation="e" type="Generic"/>
+        <terminal uuid="{1f253f63-14f6-4da1-ab17-6d48cdbcd362}" name="L1" x="10" y="-30" orientation="e" type="Generic"/>
+        <terminal uuid="{2812deae-d483-41c8-b053-354464a4305c}" name="L2" x="10" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

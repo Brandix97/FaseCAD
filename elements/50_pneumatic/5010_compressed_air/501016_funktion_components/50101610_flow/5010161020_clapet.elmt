@@ -1,0 +1,54 @@
+<definition version="0.90" type="element" link_type="simple" width="80" height="30" hotspot_x="40" hotspot_y="17">
+    <uuid uuid="{8a7c75d5-0ed9-8061-27c2-d9061a2e584b}"/>
+    <names>
+        <name lang="ar">عودة الزنبرك المتحكم فيه بالصمام</name>
+        <name lang="ca">Retorn de molla controlat per vàlvula</name>
+        <name lang="cs">Vratná pružina ovládaná ventilem</name>
+        <name lang="da">Ventilstyret fjederretur</name>
+        <name lang="de">Ventilgesteuerter Federrückzug</name>
+        <name lang="el">Επιστροφή ελατηρίου ελεγχόμενη από βαλβίδα</name>
+        <name lang="en">Valve-controlled spring return</name>
+        <name lang="es">Retorno por resorte controlado por válvula</name>
+        <name lang="fi">Venttiiliohjattu jousipalautus</name>
+        <name lang="fr">Rappel par ressort commandé par soupape</name>
+        <name lang="hr">Povrat opruge kontroliran ventilom</name>
+        <name lang="hu">Szelepvezérelt rugóvisszatérítés</name>
+        <name lang="it">Ritorno a molla controllato da valvola</name>
+        <name lang="ja">バルブ制御のスプリングリターン</name>
+        <name lang="ko">밸브 제어 스프링 복귀</name>
+        <name lang="mn">Хавхлагын удирдлагатай пүрш буцах</name>
+        <name lang="nb">Ventilstyrt fjærretur</name>
+        <name lang="nl">Klepgestuurde veerretour</name>
+        <name lang="nl_BE">Klepgestuurde veerterugkeer</name>
+        <name lang="pl">Sprężyna powrotna sterowana zaworem</name>
+        <name lang="pt">Retorno de mola controlado por válvula</name>
+        <name lang="pt_BR">Retouno de mola controlado pou valvula</name>
+        <name lang="ro">Retur cu arc controlat de supapă</name>
+        <name lang="ru">Пружинный возврат, управляемый клапаном</name>
+        <name lang="sk">Ventilom riadený návrat pružiny</name>
+        <name lang="sl">Ventilsko krmiljen povratni vzmet</name>
+        <name lang="sr">Повратак опруге контролисани вентилом</name>
+        <name lang="sv">Ventilstyrd fjäderåtergång</name>
+        <name lang="tr">Valf kontrollü yay dönüşü</name>
+        <name lang="uk">Кероване клапаном повернення пружиною</name>
+        <name lang="zh">单向阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-20" y="-10" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="-35" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{9af06fb5-5c6a-4380-b5ef-9b4364f8bd04}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="26" y1="0" x2="9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1.06" y1="0.19" x2="-2" y2="4" x3="-4" y3="-4" x4="-6" y4="4" x5="-8" y5="-4" x6="-10" y6="4" x7="-11.13" y7="0.19" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1" y1="0" x2="-26" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4" y1="5" x2="9" y2="0" x3="4" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="0" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="20" y1="-6" x2="30" y2="-6" x3="30" y3="-10" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{75413f83-0b22-495d-973b-610695678788}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{e65fcf08-d88f-4764-b30e-566c3b656f90}" name="" x="30" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{a1507e24-68c5-4f47-b67d-bee703ecf4cb}" name="" x="30" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

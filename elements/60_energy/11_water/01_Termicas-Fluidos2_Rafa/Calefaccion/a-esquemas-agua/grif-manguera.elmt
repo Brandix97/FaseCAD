@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="14" hotspot_y="20">
+    <uuid uuid="{58c4bea8-b95a-d91f-c8d9-e98c7fc3bd15}"/>
+    <names>
+        <name lang="ar">صنبور سقي</name>
+        <name lang="ca">Aixeta de reg</name>
+        <name lang="cs">Zavlažovací kohout</name>
+        <name lang="da">Vandingshane</name>
+        <name lang="de">Wasserhahn</name>
+        <name lang="el">Βρύση ποτίσματος</name>
+        <name lang="en">Watering faucet</name>
+        <name lang="es">Grifo riego</name>
+        <name lang="fi">Kasteluvesihana</name>
+        <name lang="hr">Slavina za zalijevanje</name>
+        <name lang="hu">Öntözőcsap</name>
+        <name lang="it">Rubinetto di irrigazione</name>
+        <name lang="ja">散水栓</name>
+        <name lang="ko">살수 밸브</name>
+        <name lang="mn">Услах кран</name>
+        <name lang="nb">Vannkran</name>
+        <name lang="nl">Waterkraan</name>
+        <name lang="nl_BE">Waterkraan</name>
+        <name lang="pl">Kran do podlewania</name>
+        <name lang="pt">Bica de rega</name>
+        <name lang="pt_BR">Watering faucet</name>
+        <name lang="ro">Robinet de udat</name>
+        <name lang="ru">Поливочный кран</name>
+        <name lang="sk">Zavlažovací kohútik</name>
+        <name lang="sl">Pipa za zalivanje</name>
+        <name lang="sr">Славина за заливање</name>
+        <name lang="sv">Vattenkran</name>
+        <name lang="tr">Sulama musluğu</name>
+        <name lang="uk">Поливальний кран</name>
+        <name lang="zh">软管水龙头</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="0" y1="-8" x2="0" y2="1.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="7" y1="1.46" x2="-8" y2="1.46" x3="-0.5" y3="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-8" y="14.45" width="7.35" height="9.55" start="90" angle="270" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-0.65" y1="10.49" x2="-0.65" y2="18.21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.35" y1="14.45" x2="8.05" y2="16.38" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.1" y1="15.42" x2="9.95" y2="17.35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.1" y1="17.35" x2="9.95" y2="17.35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-19" y="-13" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{61374675-0e8f-4232-b53e-3cf9d6ec8eb8}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b3aad8e9-0d41-4aa3-9830-22f8c164fb93}" name="" x="0" y="-9" orientation="n" type="Generic"/>
+    </description>
+</definition>

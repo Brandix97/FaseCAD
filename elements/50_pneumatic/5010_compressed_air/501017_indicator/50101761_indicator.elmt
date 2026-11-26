@@ -1,0 +1,58 @@
+<definition version="0.90" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="20">
+    <uuid uuid="{c632ccf3-1326-8864-210d-35626eb0cec5}"/>
+    <names>
+        <name lang="ar">متر عزم الدوران</name>
+        <name lang="ca">Mesurador de parell</name>
+        <name lang="cs">Měřič točivého momentu</name>
+        <name lang="da">Momentmåler</name>
+        <name lang="de">Drehmomentmesser</name>
+        <name lang="el">Ροπόμετρο</name>
+        <name lang="en">Torque meter</name>
+        <name lang="es">Medidor de par</name>
+        <name lang="fi">Vääntömomenttimittari</name>
+        <name lang="fr">Compteur de couple</name>
+        <name lang="hr">Mjerač momenta</name>
+        <name lang="hu">Nyomatékmérő</name>
+        <name lang="it">Misuratore di coppia</name>
+        <name lang="ja">トルクメーター</name>
+        <name lang="ko">토크 미터</name>
+        <name lang="mn">Момент хэмжигч</name>
+        <name lang="nb">Momentmåler</name>
+        <name lang="nl">Koppelmeter</name>
+        <name lang="nl_BE">Koppelmeter</name>
+        <name lang="pl">Miernik momentu obrotowego</name>
+        <name lang="pt">Torquímetro</name>
+        <name lang="pt_BR">Touquímetro</name>
+        <name lang="ro">Contor de cuplu</name>
+        <name lang="ru">измеритель крутящего момента</name>
+        <name lang="sk">Momentový merač</name>
+        <name lang="sl">Merilnik navora</name>
+        <name lang="sr">Мерач обртног момента</name>
+        <name lang="sv">Vridmomentmätare</name>
+        <name lang="tr">Tork ölçer</name>
+        <name lang="uk">Вимірювач крутного моменту</name>
+        <name lang="zh">50101761_指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-16" y1="0" x2="-9" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9" y1="-10" x2="16" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="-35" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cefa536b-0b3a-406d-b898-3bbce145fbee}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-12" x2="0" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="1" x2="-4" y2="-1" x3="-8" y3="-4" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="4" y1="-9" x2="6" y2="-11" x3="8" y3="-6" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="-7" y="-12" width="14" height="14" start="225" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-10" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-12" width="14" height="14" start="45" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9" y1="0" x2="16" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16" y1="-10" x2="-9" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{73862bae-47fd-49f7-a4c3-8e354a7147b0}" name="" x="20" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{300e3877-374f-4935-9bd7-11c798008f33}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{4e44d906-dfed-4dc9-a7cc-cb4376a4f976}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{1e8b152e-e5d6-480e-824d-04c6d71a846f}" name="" x="-20" y="-10" orientation="w" type="Generic"/>
+    </description>
+</definition>

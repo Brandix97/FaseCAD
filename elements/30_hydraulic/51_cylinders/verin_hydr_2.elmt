@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="40" hotspot_x="17" hotspot_y="23">
+    <uuid uuid="{07689772-30e8-d775-ad5a-71a392c696b6}"/>
+    <names>
+        <name lang="ar">اسطوانة هيدروليكية 2</name>
+        <name lang="ca">cilindre hidràulic 2</name>
+        <name lang="cs">Vodní válec 2</name>
+        <name lang="da">hydraulikcylinder 2</name>
+        <name lang="de">Hydraulikzylinder 2</name>
+        <name lang="el">Υδραυλικό έμβολο 2</name>
+        <name lang="en">hydraulic cylinder 2</name>
+        <name lang="es">Pistón hidráulico 2</name>
+        <name lang="fi">hydraulisylinteri 2</name>
+        <name lang="fr">Verin hydraulique 2</name>
+        <name lang="hr">hidraulički cilindar 2</name>
+        <name lang="hu">hidraulikus henger 2</name>
+        <name lang="it">Pistone idraulico 2</name>
+        <name lang="ja">油圧シリンダ 2</name>
+        <name lang="ko">유압 실린더 2</name>
+        <name lang="mn">гидравлик цилиндр 2</name>
+        <name lang="nb">hydraulisk sylinder 2</name>
+        <name lang="nl">Cylinder 2</name>
+        <name lang="nl_BE">hydraulische cilinder 2</name>
+        <name lang="pl">Siłownik hydrauliczny dwustronnego działania, nastawialny z hamowaniem jednostronnym</name>
+        <name lang="pt">Cilindro hidráulico 2</name>
+        <name lang="pt_BR">Cilindro hidráulico 2</name>
+        <name lang="ro">Cilindru hidraulic 2</name>
+        <name lang="ru">Гидравлический цилиндр 2</name>
+        <name lang="sk">hydraulický valec 2</name>
+        <name lang="sl">hidravlični cilinder 2</name>
+        <name lang="sr">хидраулични цилиндар 2</name>
+        <name lang="sv">hydraulcylinder 2</name>
+        <name lang="tr">hidrolik silindir 2</name>
+        <name lang="uk">гідравлічний циліндр 2</name>
+        <name lang="zh">液压缸2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-14" y="-43" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3ef7a68f-9256-4801-892a-adaf64f1995a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="42" y1="-8" x2="42" y2="0" x3="-12" y3="0" x4="-12" y4="-20" x5="42" y5="-20" x6="42" y6="-12" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-17" x2="-5" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="1" y1="-17" x2="-5" y2="-17" x3="-5" y3="-3" x4="1" y4="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="9" y1="-18" x2="11" y2="-16" x3="14" y3="-21" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="40" y1="0" x2="40" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="38" y1="0" x2="42" y2="0" x3="40" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-12" y1="0" x2="-8" y2="0" x3="-10" y3="-4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="5" y1="-8" x2="50" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-12" x2="50" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-20" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-20" x2="1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a8975a64-1752-416c-97c8-ae7e4d594d12}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{e35e04ce-35b0-4650-aae9-e3a385750d20}" name="" x="40" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

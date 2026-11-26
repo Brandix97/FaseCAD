@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="thumbnail" width="20" height="80" hotspot_x="6" hotspot_y="40">
+    <uuid uuid="{cecee213-81c0-196e-ad1b-1ba884cb5709}"/>
+    <names>
+        <name lang="ar">قاعدة P2RF 1</name>
+        <name lang="ca">Base P2RF 1</name>
+        <name lang="cs">Svorka P2RF 1</name>
+        <name lang="da">Base P2RF 1</name>
+        <name lang="de">Basis P2RF 1</name>
+        <name lang="el">Βάση P2RF 1</name>
+        <name lang="en">Base P2RF 1</name>
+        <name lang="es">Base P2RF 1</name>
+        <name lang="fi">Kanta P2RF 1</name>
+        <name lang="fr">borne6²</name>
+        <name lang="hr">Baza P2RF 1</name>
+        <name lang="hu">P2RF aljzat 1</name>
+        <name lang="it">Base P2RF 1</name>
+        <name lang="ja">ベース P2RF 1</name>
+        <name lang="ko">베이스 P2RF 1</name>
+        <name lang="mn">Суурь P2RF 1</name>
+        <name lang="nb">Base P2RF 1</name>
+        <name lang="nl">Basis P2RF 1</name>
+        <name lang="nl_BE">Basis P2RF 1</name>
+        <name lang="pl">Podstawa P2RF 1</name>
+        <name lang="pt">Base P2RF 1</name>
+        <name lang="pt_BR">Base P2RF 1</name>
+        <name lang="ro">Bază P2RF 1</name>
+        <name lang="ru">Основание P2RF 1</name>
+        <name lang="sk">Základňa P2RF 1</name>
+        <name lang="sl">Osnova P2RF 1</name>
+        <name lang="sr">База P2RF 1</name>
+        <name lang="sv">Bas P2RF 1</name>
+        <name lang="tr">Base P2RF 1</name>
+        <name lang="uk">Основа P2RF 1</name>
+        <name lang="zh">灰色端子6</name>
+    </names>
+    <elementInformations>
+        <elementInformation show="1" name="manufacturer">Legrand</elementInformation>
+    </elementInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="0" y="-29.93" width="8" height="59.85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-17" x2="8" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-20.45" x2="4" y2="-19.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="18.68" x2="4" y2="20.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="2" y="18" width="4" height="2.82" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="2" y="-21.16" width="4" height="2.82" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="3" y1="19.39" x2="5" y2="19.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-19.75" x2="5" y2="-19.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-23" x2="8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="22.91" x2="8" y2="22.91" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="15.48" x2="8" y2="15.48" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="30.68" z="22" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{b96ddaf4-2da5-4443-aed8-8933dd2fca18}" font="Liberation Sans,3,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-5" y="17" z="23" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="true" text_from="ElementInfo" uuid="{5a5e841d-5c98-4ef6-8f7c-1995270005ce}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>description</info_name>
+        </dynamic_text>
+        <terminal uuid="{b8afe3de-3ae2-4e73-8162-db6ae8936f3e}" name="" x="4" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{39d1915c-2f7e-4de0-b448-d2dc0a45d17f}" name="" x="4" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,93 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef NUMPARTEDITORW_H
+#define NUMPARTEDITORW_H
+
+#include "../numerotationcontext.h"
+
+#include <QValidator>
+#include <QWidget>
+
+namespace Ui {
+	class NumPartEditorW;
+}
+
+/**
+	@brief The NumPartEditorW class
+	This class represent a single part num widget.
+	By this widget, we can define and edit how the num auto must work.
+	This widget is called by selectautonumw.
+*/
+class NumPartEditorW : public QWidget
+{
+	Q_OBJECT
+	
+		//METHODS
+	public:
+		explicit NumPartEditorW(int type, QWidget *parent = nullptr);
+		NumPartEditorW (NumerotationContext &,
+				int,
+				int type,
+				QWidget *parent=nullptr);
+		~NumPartEditorW() override;
+
+		enum type {unit,unitfolio,ten,tenfolio, hundred, hundredfolio,
+				   alpha,
+				   string,idfolio,folio,plant,locmach,
+				   elementline,elementcolumn,elementprefix,
+				   wrap,
+				  };
+		NumerotationContext toNumContext();
+		bool isValid ();
+		type type_;
+
+	private:
+		void setVisibleItems();
+		void disableItem(int index);
+		void setCurrentIndex(NumPartEditorW::type);
+
+	private slots:
+		void on_type_cb_activated(int);
+		void on_value_field_textEdited();
+		void on_increase_spinBox_valueChanged(int);
+		void on_modulus_spinBox_valueChanged(int);
+		void on_format_le_textEdited(const QString &);
+		void setType (NumPartEditorW::type t, bool=false);
+
+	signals:
+		void changed ();
+	
+	private:
+		Ui::NumPartEditorW *ui;
+		QValidator *intValidator;
+		QValidator *alphaValidator;
+		int m_edited_type = -1; ///<0 == element : 1 == conductor : 2 == folio
+			/**
+				The value a counter bound to the folio counts each folio
+				from (-1 while the row carries none): value_field shows
+				the live counter, which numbering a project over leaves
+				at the last number given out, so the start has to be
+				kept apart from what is on show.
+			*/
+		int m_initial_value = -1;
+	
+
+
+};
+
+#endif // NUMPARTEDITORW_H

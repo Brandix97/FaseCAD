@@ -1,0 +1,71 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="15" hotspot_y="20">
+    <uuid uuid="{ee163ee0-da68-ba00-7fc0-212bb51cc094}"/>
+    <names>
+        <name lang="ar">صمّام ضبط توازن مع مقياس تدفق</name>
+        <name lang="ca">Vàlvula d'equilibri amb cabalímetre</name>
+        <name lang="cs">Uzávěr s průtokoměrem</name>
+        <name lang="da">Indreguleringsventil med flowmåler</name>
+        <name lang="de">Abgleichventil mit Durchflussmesser</name>
+        <name lang="el">Βαλβίδα εξισορρόπησης με μετρητή ροής</name>
+        <name lang="en">Balancing valve with flow meter</name>
+        <name lang="es">Válvula de equilibrado con medidor de flujo</name>
+        <name lang="fi">Tasapainotusventtiili virtausmittarilla</name>
+        <name lang="fr">Vanne d'équilibrage avec débimètre</name>
+        <name lang="hr">Balansni ventil s mjeračem protoka</name>
+        <name lang="hu">Kiegyenlítő szelep áramlásmérővel</name>
+        <name lang="it">Valvola di bilanciamento con flussometro</name>
+        <name lang="ja">流量計付き平衡バルブ</name>
+        <name lang="ko">유량계 포함 밸런싱 밸브</name>
+        <name lang="mn">Урсгал хэмжигчтэй тэнцвэржүүлэх хавхлага</name>
+        <name lang="nb">Balanseringsventil med strømningsmåler</name>
+        <name lang="nl">klep balans met debietmeter</name>
+        <name lang="nl_BE">Balanceerklep met debietmeter</name>
+        <name lang="pl">Zawór z przepływomierzem</name>
+        <name lang="pt">Válvula de equilíbrio com caudalímetro</name>
+        <name lang="pt_BR">Válvula de balanceamento com medidor de vazão</name>
+        <name lang="ro">Supapă de echilibrare cu debitmetru</name>
+        <name lang="ru">Балансировочный клапан с расходомером</name>
+        <name lang="sk">Vyvažovací ventil s prietokomerom</name>
+        <name lang="sl">Uravnoteževalni ventil z merilnikom pretoka</name>
+        <name lang="sr">Балансни вентил са мерачем протока</name>
+        <name lang="sv">Balansventil med flödesmätare</name>
+        <name lang="tr">Debimetreli dengeleme vanası</name>
+        <name lang="uk">Балансувальний клапан із витратоміром</name>
+        <name lang="zh">平衡阀流量计01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="8" y="-1.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ba1b435-9912-465e-9b9f-d7730050bef9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="4" y1="31" x2="4" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="30" x2="-4" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-13" x2="4" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-13" x2="-4" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="-10" width="16" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5" y="9" width="9" height="18" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="-1" y1="17" x2="1" y2="17" x3="0" y3="19" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-3" y1="22" x2="-2" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="19" x2="-2" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="16" x2="-2" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="13" x2="-2" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="11" x2="-3" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="6" x2="6" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="6" x2="-4" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="5" x2="-5" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-4" x2="3" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-4" x2="-3" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-6" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="0" x2="-5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-1" x2="1" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9" y="30" width="18" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-6" y="-6" width="12" height="12" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-9" y="-13" width="18" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0bedbda9-0463-4525-b187-bfc1b457691d}" name="" x="0" y="-13" orientation="n" type="Generic"/>
+        <terminal uuid="{2e638ecd-adbf-4f95-83ff-513a76bc54ac}" name="" x="0" y="33" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="master" width="40" height="60" hotspot_x="20" hotspot_y="32">
+    <uuid uuid="{0b47816c-44ab-68bd-063b-69d182828d18}"/>
+    <names>
+        <name lang="ar">ملف مُؤقت مع تأخير الإستجابة و تأخير الإعتاق</name>
+        <name lang="ca">Bobina amb retard d'encesa/apagada</name>
+        <name lang="cs">Relé se zpožděným zapnutím a vypnutím</name>
+        <name lang="da">Relæ med tænd/sluk-forsinkelse</name>
+        <name lang="de">Relais ansprech- und rückfallverzögert</name>
+        <name lang="el">Πηνίο χρονικού, καθυστέρηση ενεργοποίησης-απενεργοποίησης</name>
+        <name lang="en">Coil with on/off delay</name>
+        <name lang="es">Bobina de relé retardado</name>
+        <name lang="fi">Käämi, päälle/pois viive</name>
+        <name lang="fr">Bobine tempo repos-travail</name>
+        <name lang="hr">Zavojnica s odgodom uključivanja/isključivanja</name>
+        <name lang="hu">Tekercs be/ki késleltetéssel</name>
+        <name lang="it">Bobina di relè ritardato</name>
+        <name lang="ja">オン/オフ遅延付きコイル</name>
+        <name lang="ko">온/오프 지연 코일</name>
+        <name lang="mn">Асах/унтрах сааталтай ороомог</name>
+        <name lang="nb">Spole med inn/ut-forsinkelse</name>
+        <name lang="nl">mechanisch met opkom en afval vertraging</name>
+        <name lang="nl_BE">Spoel met in- en uitschakel vertraging</name>
+        <name lang="pl">Cewka przekaźnika działającego ze zwłoką przy wzbudzeniu i odwzbudzeniu</name>
+        <name lang="pt">Bobina com atraso na ativação/desativação</name>
+        <name lang="pt_BR">Bobina com on/off retardo</name>
+        <name lang="ro">Bobina cu întârziere la pornire/oprire</name>
+        <name lang="ru">Обмотка</name>
+        <name lang="sk">Cievka so zapnutým/vypnutým oneskorením</name>
+        <name lang="sl">Tuljava z zakasnitvijo vklopa/izklopa</name>
+        <name lang="sr">Каlem са кашњењем укључ/искључ</name>
+        <name lang="sv">Spole med till-/frånslagsfördröjning</name>
+        <name lang="tr">Açma/kapama gecikmeli bobin</name>
+        <name lang="uk">Котушка з затримкою вмикання/вимикання</name>
+        <name lang="zh">断电通电延时线圈</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">coil</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="-14" y="-8" width="28" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="2" y="11.33" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{e6b5d3c7-30e5-4a4d-90b5-c3e31f091aae}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A2</text>
+        </dynamic_text>
+        <dynamic_text x="2" y="-24.67" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{868a4420-ce95-449c-931e-0dfe6be5df3d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>A1</text>
+        </dynamic_text>
+        <line x1="0" y1="8" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="25" y="-10.17" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{645a68dd-2601-494f-82a3-09c6c5de0847}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="6" y="-8" width="4" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <polygon x1="10" y1="8" x2="14" y2="-8" x3="10" y3="-8" x4="14" y4="8" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{7d3e8cfb-d8c4-46bc-b309-abcb6ba3c861}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{425ad2fe-d984-4e2d-afd8-ab0361a7eee1}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

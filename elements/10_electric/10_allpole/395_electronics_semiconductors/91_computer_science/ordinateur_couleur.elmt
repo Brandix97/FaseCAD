@@ -1,0 +1,64 @@
+<definition version="0.80" type="element" link_type="simple" width="120" height="110" hotspot_x="10" hotspot_y="2">
+    <uuid uuid="{59c70beb-c699-8e1d-ef8e-6c205cb9e190}"/>
+    <names>
+        <name lang="ar">حاسوب PC</name>
+        <name lang="ca">Ordinador PC</name>
+        <name lang="cs">Počítač PC</name>
+        <name lang="da">Computer PC</name>
+        <name lang="de">Rechner</name>
+        <name lang="el">Υπολογιστής PC</name>
+        <name lang="en">Computer PC</name>
+        <name lang="es">Ordenador PC</name>
+        <name lang="fi">Tietokone PC</name>
+        <name lang="fr">Ordinateur PC couleur</name>
+        <name lang="hr">Računalo PC</name>
+        <name lang="hu">Számítógép PC</name>
+        <name lang="it">Computer PC</name>
+        <name lang="ja">コンピュータ PC</name>
+        <name lang="ko">컴퓨터 PC</name>
+        <name lang="mn">Компьютер PC</name>
+        <name lang="nb">Datamaskin PC</name>
+        <name lang="nl">Computer PC</name>
+        <name lang="nl_BE">Computer PC</name>
+        <name lang="pl">Komputer PC</name>
+        <name lang="pt">Computador PC</name>
+        <name lang="pt_BR">Computador PC</name>
+        <name lang="ro">Calculator PC</name>
+        <name lang="ru">Компьютер ПК</name>
+        <name lang="sk">Počítač PC</name>
+        <name lang="sl">Računalnik PC</name>
+        <name lang="sr">Рачунар PC</name>
+        <name lang="sv">Dator PC</name>
+        <name lang="tr">Bilgisayar PC</name>
+        <name lang="uk">Комп'ютер PC</name>
+        <name lang="zh">彩色计算机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <rect x="0" y="0" width="100" height="70" rx="2" ry="2" style="line-style:normal;line-weight:normal;filling:HTMLBlueCornflowerBlue;color:black" antialias="false"/>
+        <dynamic_text x="3" y="-20.45" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{0c9d986a-69c1-4e58-bac7-41a50693e4e4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="0" y="80" width="100" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <ellipse x="9.5" y="82.5" width="1" height="1" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <ellipse x="12.5" y="82.5" width="1" height="1" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <polygon x1="47" y1="70" x2="53" y2="70" x3="53" y3="78" x4="63" y4="78" x5="63" y5="80" x6="38" y6="80" x7="38" y7="78" x8="47" y8="78" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <rect x="67" y="84" width="25" height="5" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="5.5" y="88.5" width="3" height="3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="12" y="89" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="6.5" y="82.5" width="1" height="1" style="line-style:normal;line-weight:thin;filling:black;color:black" antialias="true"/>
+        <rect x="3" y="3" width="94" height="64" rx="2" ry="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="20" y="15" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{1b4efefa-c4ea-460f-9c90-01d7705dddfd}" font="Liberation Sans,11,-1,5,50,0,0,0,0,0,Regular">
+            <text>_</text>
+        </dynamic_text>
+        <terminal uuid="{90be23ab-7aae-4bdb-9082-7122a9af8d97}" name="" x="70" y="100" orientation="s" type="Generic"/>
+        <terminal uuid="{fa16fb1f-4534-441d-9df9-4c6582546ad6}" name="" x="50" y="100" orientation="s" type="Generic"/>
+        <terminal uuid="{73c79a1d-1091-4a06-b37d-707b1287aec1}" name="" x="60" y="100" orientation="s" type="Generic"/>
+        <terminal uuid="{4c269034-e465-4572-a4ff-0cb639a6b45b}" name="" x="40" y="100" orientation="s" type="Generic"/>
+        <terminal uuid="{a595c179-7f78-4867-8008-d94161135130}" name="" x="0" y="90" orientation="w" type="Generic"/>
+        <terminal uuid="{d79ad10e-ef34-434d-859c-d3ec3445521e}" name="" x="100" y="90" orientation="e" type="Generic"/>
+        <terminal uuid="{b77e1735-cb7e-44db-8081-a8dace166c70}" name="" x="30" y="100" orientation="s" type="Generic"/>
+    </description>
+</definition>

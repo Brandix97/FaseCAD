@@ -1,0 +1,22 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="21" hotspot_y="29">
+    <uuid uuid="{58f05ce2-404f-03de-0fa9-7eda49977498}"/>
+    <names>
+        <name lang="ca">Presostat min</name>
+        <name lang="es">Presostato mini</name>
+        <name lang="pt_BR">Presostato mini</name>
+        <name lang="zh">圆盘式压力开关</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-3" y1="19" x2="8" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="17" x2="8" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="12" width="11" height="9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-16" y="-2" width="37" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <rect x="-16" y="-10" width="37" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8" y="-24" width="24" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="17" y="-21" width="2" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="15" x2="8" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{e3b4daed-2248-4853-bff0-02c7bf3ea9a8}" name="" x="19" y="-18" orientation="e" type="Generic"/>
+        <terminal uuid="{ce002501-13ad-4d9a-a1ab-84fff0860a9e}" name="" x="2" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

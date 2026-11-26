@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="60" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{2becfcef-f6f6-6a63-ef49-65f12026c4f8}"/>
+    <names>
+        <name lang="ar">مُقاومة</name>
+        <name lang="ca">Resistència</name>
+        <name lang="cs">Odpor</name>
+        <name lang="da">Modstand</name>
+        <name lang="de">Widerstand</name>
+        <name lang="el">Αντίσταση</name>
+        <name lang="en">Resistor</name>
+        <name lang="es">Resistencia</name>
+        <name lang="fi">Vastus</name>
+        <name lang="fr">Résistance</name>
+        <name lang="hr">Otpornik</name>
+        <name lang="hu">Ellenállás</name>
+        <name lang="it">Resistore</name>
+        <name lang="ja">抵抗器</name>
+        <name lang="ko">저항</name>
+        <name lang="mn">Резистор</name>
+        <name lang="nb">Motstand</name>
+        <name lang="nl">Weerstand</name>
+        <name lang="nl_BE">Weerstand</name>
+        <name lang="pl">Rezystor</name>
+        <name lang="pt">Resistência</name>
+        <name lang="pt_BR">Resistor</name>
+        <name lang="ro">Rezistor</name>
+        <name lang="ru">Резистор</name>
+        <name lang="sk">Rezistor</name>
+        <name lang="sl">Upor</name>
+        <name lang="sr">Отпорник</name>
+        <name lang="sv">Resistor</name>
+        <name lang="tr">Direnç</name>
+        <name lang="uk">Резистор</name>
+        <name lang="zh">电阻</name>
+    </names>
+    <informations>EN 60617: 04-01-01</informations>
+    <description>
+        <line x1="0" y1="20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-4" y="-10" width="8" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <dynamic_text x="6" y="-11.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{570cd854-578d-4c4b-bd2a-3498353e46b6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{09a3060b-a0fd-41ad-b605-f5c0ae63901e}" name="A2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{4410c57c-3796-4696-b63b-d8d5a0c9b788}" name="A1" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

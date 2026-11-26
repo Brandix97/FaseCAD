@@ -1,0 +1,43 @@
+<definition height="70" hotspot_x="33" hotspot_y="30" link_type="simple" type="element" version="0.200.1" width="80">
+    <uuid uuid="{5a46b700-d77e-4e52-9a59-02a3dbe7232f}"/>
+    <names>
+        <name lang="de">Fehlerstrom-Schutzschalter (RCCB), 2-polig</name>
+        <name lang="en">Residual current device (RCCB), 2 poles</name>
+        <name lang="es">Interruptor diferencial, 2 polos</name>
+        <name lang="fr">Interrupteur différentiel, 2 pôles</name>
+        <name lang="it">Interruttore differenziale, 2 poli</name>
+        <name lang="pt">Interruptor diferencial, 2 polos</name>
+        <name lang="tr">Kaçak akım rölesi, 2 kutuplu</name>
+        <name lang="zh">剩余电流动作断路器，2极</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{1b87607e-d8c0-488d-ab9d-b96d82800bfc}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{9b2500f3-5d1c-4a10-a241-47a64b9238a2}" x1="0" x2="0" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{d029c2b3-cf12-432b-8ea2-7ddac0be253c}" x1="0" x2="-8" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{5f31c571-3140-4946-a750-b6e771cf4709}" x1="20" x2="20" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{7d8276f8-19ac-447e-b1d1-cacb0cb57c29}" x1="20" x2="20" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{f8bb6b08-0b9e-4dad-aa85-50794b843423}" x1="20" x2="12" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{92780210-94dc-4b2b-bf8e-1a463bec06e7}" x1="-4" x2="16" y1="0" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{6ebd225f-1351-42e1-afba-32c6698e54ab}" x1="-18" x2="16" y1="0" y2="0"/>
+        <ellipse antialias="true" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{06504a7a-80ea-4e88-ab7f-033fd18f4bba}" width="32" x="-6" y="13.5"/>
+        <polygon antialias="true" closed="false" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{e7b329aa-ad0e-42f8-8b51-ab75d5c71da1}" x1="-6" x2="-23" x3="-23" y1="16" y2="16" y3="6"/>
+        <rect antialias="false" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{84e4848e-01b1-45de-8187-0cab412516a4}" width="10" x="-28" y="-5"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{bcdb2174-9e63-471c-a934-f6ac0534347e}" x1="-28" x2="-18" y1="0" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{939f4f86-2394-4841-922d-439357936883}" x1="-23" x2="-23" y1="-5" y2="5"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{0434c3fa-22d0-4fb0-bc48-c573e44660ce}" x="-39" y="-21" z="14">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{01bf6b2f-1c24-481f-a6aa-ef69f40c92ba}" x="-39" y="-1" z="14">
+            <text></text>
+            <info_name>manufacturer_reference</info_name>
+        </dynamic_text>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{21ad0216-771c-5201-998d-83429d1dec59}" x="0" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="N.1" orientation="n" show_name="true" type="Generic" uuid="{9c638e6f-de6e-5333-b2fc-699cfc73e705}" x="20" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="2" orientation="s" show_name="true" type="Generic" uuid="{7c966e0e-64e4-5b74-a3bc-7190b32a812d}" x="0" y="30"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="N.2" orientation="s" show_name="true" type="Generic" uuid="{7798a7db-ba9f-5585-bd4a-99d366043563}" x="20" y="30"/>
+    </description>
+</definition>

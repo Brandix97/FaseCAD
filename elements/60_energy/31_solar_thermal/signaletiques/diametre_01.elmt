@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="6" hotspot_y="5">
+    <uuid uuid="{4f30b10c-548b-471c-5acb-c9692430afc0}"/>
+    <names>
+        <name lang="ar">قطر</name>
+        <name lang="ca">diàmetre</name>
+        <name lang="cs">Průměr</name>
+        <name lang="da">diameter</name>
+        <name lang="de">Durchmesser</name>
+        <name lang="el">Διάμετρος</name>
+        <name lang="en">diameter</name>
+        <name lang="es">diámetro</name>
+        <name lang="fi">halkaisija</name>
+        <name lang="fr">Diamètre</name>
+        <name lang="hr">Promjer</name>
+        <name lang="hu">átmérő</name>
+        <name lang="it">Diametro</name>
+        <name lang="ja">直径</name>
+        <name lang="ko">직경</name>
+        <name lang="mn">диаметр</name>
+        <name lang="nb">diameter</name>
+        <name lang="nl">Diameter</name>
+        <name lang="nl_BE">diameter</name>
+        <name lang="pl">Średnica</name>
+        <name lang="pt">diâmetro</name>
+        <name lang="pt_BR">Medidor de diâmetro</name>
+        <name lang="ro">diametru</name>
+        <name lang="ru">диаметр</name>
+        <name lang="sk">priemer</name>
+        <name lang="sl">premer</name>
+        <name lang="sr">пречник</name>
+        <name lang="sv">diameter</name>
+        <name lang="tr">çap</name>
+        <name lang="uk">діаметр</name>
+        <name lang="zh">直径01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="12" y1="-3" x2="-4" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2" y="-1" width="12" height="12" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-42" y="-9" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f1fd6f8b-dee5-4764-8f48-7fbf07d61437}" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

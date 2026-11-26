@@ -1,0 +1,53 @@
+<definition version="0.100" type="element" link_type="simple" width="50" height="20" hotspot_x="27" hotspot_y="10">
+    <uuid uuid="{1ba7f2b1-70db-eb1d-1503-b244906cebea}"/>
+    <names>
+        <name lang="ar">خرج إشارة</name>
+        <name lang="ca">sortida del senyal</name>
+        <name lang="cs">výstup signálu</name>
+        <name lang="da">signaludgang</name>
+        <name lang="de">Signalausgang</name>
+        <name lang="el">έξοδο σήματος</name>
+        <name lang="en">signal output</name>
+        <name lang="es">salida de señal</name>
+        <name lang="fi">signaali lähtö</name>
+        <name lang="fr">signal de sortie</name>
+        <name lang="hr">izlaz signala</name>
+        <name lang="hu">jelkimenet</name>
+        <name lang="it">uscita del segnale</name>
+        <name lang="ja">信号出力</name>
+        <name lang="ko">신호 출력</name>
+        <name lang="mn">дохионы гаралт</name>
+        <name lang="nb">signalutgang</name>
+        <name lang="nl">signaal uitvoer</name>
+        <name lang="nl_BE">signaal uitgang</name>
+        <name lang="pl">wyjście sygnału</name>
+        <name lang="pt">saída de sinal</name>
+        <name lang="pt_BR">Saída de sinal</name>
+        <name lang="ro">semnal de ieșire</name>
+        <name lang="ru">сигнальный выход</name>
+        <name lang="sk">signál výstup</name>
+        <name lang="sl">izhod signala</name>
+        <name lang="sr">излаз сигнала</name>
+        <name lang="sv">signal utgång</name>
+        <name lang="tr">sinyal çıkışı</name>
+        <name lang="uk">Сигнал вихід</name>
+        <name lang="zh">信号输出</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <arc x="6" y="-5" width="4" height="10" start="280" angle="160" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-19" y="5" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8b646f69-4465-ee8b-eadb-84b79fe0cb31}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-14" y="-23" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{366a531c-495a-45b4-1bec-668b0651154a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-10" y="-5" width="4" height="10" start="100" angle="160" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="0" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1ca69e32-96cd-4f05-b273-7fd8fb82b791}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

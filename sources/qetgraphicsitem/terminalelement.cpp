@@ -1,0 +1,380 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "terminalelement.h"
+#include "terminal.h"
+#include "../TerminalStrip/realterminal.h"
+#include "../TerminalStrip/terminalsides.h"
+#include "../TerminalStrip/terminalstriplabels.h"
+#include "../diagram.h"
+#include "../qetapp.h"
+#include "../shownkinds.h"
+
+#include <QGraphicsLineItem>
+#include <QGraphicsPathItem>
+#include <QPainterPath>
+#include <QGraphicsSimpleTextItem>
+#include <QPen>
+
+namespace {
+
+/**
+	@brief A text drawn in the views only: a print, a PDF or an image
+	render the folio without a view, and leave it out.
+*/
+class ViewOnlyText : public QGraphicsSimpleTextItem
+{
+	public:
+		using QGraphicsSimpleTextItem::QGraphicsSimpleTextItem;
+
+		void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+				   QWidget *widget) override
+		{
+			if (!widget) return;
+			QGraphicsSimpleTextItem::paint(painter, option, widget);
+		}
+};
+
+} // namespace
+
+/**
+	@brief TerminalElement::TerminalElement
+	Default constructor
+	@param location location of xml definition
+	@param qgi parent QGraphicItem
+	@param state int used to know if the creation of element have error
+*/
+TerminalElement::TerminalElement(const ElementsLocation &location,
+				 QGraphicsItem *qgi, int *state) :
+	Element(location, qgi, state, Element::Terminale)
+{
+	auto rt = new RealTerminal(this);
+	m_real_terminal = rt->sharedRef();
+
+		//A terminal that moves or turns may now be, or no longer be, the
+		//first of its strip on its folio (TerminalStripLabels)
+	auto moved = [this]() {
+		if (auto *d = diagram())
+			TerminalStripLabels::schedule(d);
+		placeStripLabel();
+		updateSideMarks();
+	};
+	connect(this, &Element::xChanged, this, moved);
+	connect(this, &Element::yChanged, this, moved);
+	connect(this, &Element::rotationChanged, this, moved);
+	connect(this, &Element::mirrorChanged, this, moved);
+		//A new label may name another strip: the terminals of the folio
+		//show their number alone or not (TerminalStripLabels)
+	connect(this, &Element::elementInfoChange, this, [this]() {
+		if (auto *d = diagram())
+			TerminalStripLabels::schedule(d);
+			//The sides may have been swapped
+		updateSideMarks();
+	});
+}
+
+TerminalElement::~TerminalElement()
+{}
+
+/**
+	@brief TerminalElement::initLink
+	@param project
+*/
+void TerminalElement::initLink(QETProject *project) {
+	Element::initLink(project);
+}
+
+/**
+ * @brief TerminalElement::realTerminal
+ * @return the real terminal of this terminal element.
+ */
+QSharedPointer<RealTerminal> TerminalElement::realTerminal() const {
+	return m_real_terminal;
+}
+
+/**
+ * @brief TerminalElement::parentTerminalStrip
+ * @return The parent terminal strip of this
+ * terminal element or nullptr if not.
+ */
+TerminalStrip *TerminalElement::parentTerminalStrip() const {
+	if (m_real_terminal) {
+		return m_real_terminal->parentStrip();
+	}
+	return nullptr;
+}
+
+/**
+	@brief TerminalElement::setStripLabel
+	Show @a text, the label of the terminal strip, beside this terminal;
+	an empty text takes it away.
+*/
+void TerminalElement::setStripLabel(const QString &text)
+{
+	if (text.isEmpty()) {
+		delete m_strip_label;
+		m_strip_label = nullptr;
+		return;
+	}
+	if (!m_strip_label)
+	{
+		m_strip_label = new QGraphicsSimpleTextItem(this);
+		m_strip_label->setFont(QETApp::diagramTextsFont(9));
+			//Not an item of its own: clicks go to what lies beneath
+		m_strip_label->setAcceptedMouseButtons(Qt::NoButton);
+		m_strip_label->setAcceptHoverEvents(false);
+			//Hidden with the symbol texts (View > Show)
+		ShownKinds::tag(m_strip_label, ShownKinds::SymbolTexts);
+	}
+	if (m_strip_label->text() != text)
+		m_strip_label->setText(text);
+	placeStripLabel();
+}
+
+/**
+	@brief TerminalElement::stripLabel
+	@return the label of the terminal strip shown beside this terminal, or
+	an empty string
+*/
+QString TerminalElement::stripLabel() const
+{
+	return m_strip_label ? m_strip_label->text() : QString();
+}
+
+/**
+	@brief TerminalElement::setBridgeLine
+	Draw @a line, a bridge to the next terminal of the row, behind this
+	terminal, so its connection points cover the ends; a null line takes
+	it away.
+*/
+void TerminalElement::setBridgeLine(const QLineF &line)
+{
+	if (line.isNull()) {
+		delete m_bridge_line;
+		m_bridge_line = nullptr;
+		return;
+	}
+	if (!m_bridge_line)
+	{
+		m_bridge_line = new QGraphicsLineItem(this);
+		m_bridge_line->setFlag(QGraphicsItem::ItemStacksBehindParent);
+		QPen pen(Qt::black, 1);
+		pen.setCapStyle(Qt::FlatCap);
+		m_bridge_line->setPen(pen);
+			//Not an item of its own: clicks go to what lies beneath
+		m_bridge_line->setAcceptedMouseButtons(Qt::NoButton);
+		m_bridge_line->setAcceptHoverEvents(false);
+	}
+	if (m_bridge_line->line() != line)
+		m_bridge_line->setLine(line);
+}
+
+/**
+	@brief TerminalElement::setNumberOnly
+	Show the label as the terminal number alone, or whole again: the
+	fields of the label are drawn again when that changes.
+*/
+void TerminalElement::setNumberOnly(bool number_only)
+{
+	if (m_number_only == number_only) {
+		return;
+	}
+	m_number_only = number_only;
+	refreshLabelFields();
+}
+
+/**
+	@brief TerminalElement::setLevelMark
+	Draw, at the left of the symbol, one bar by level of the terminal this
+	one is a level of: level 1 on the left and tallest, each next one
+	shorter, the bar of this terminal's own @a level (from 0) filled.
+	@a levels below 2 takes the mark away.
+*/
+void TerminalElement::setLevelMark(int levels, int level)
+{
+	if (levels < 2) {
+		delete m_level_mark;
+		m_level_mark = nullptr;
+		m_mark_levels = 0;
+		m_mark_level = -1;
+		return;
+	}
+	if (m_level_mark && m_mark_levels == levels && m_mark_level == level) {
+		return;
+	}
+	m_mark_levels = levels;
+	m_mark_level = level;
+	if (!m_level_mark)
+	{
+		m_level_mark = new QGraphicsPathItem(this);
+		m_level_mark->setPen(QPen(Qt::black, 0.5));
+		m_level_mark->setAcceptedMouseButtons(Qt::NoButton);
+		m_level_mark->setAcceptHoverEvents(false);
+		ShownKinds::tag(m_level_mark, ShownKinds::SymbolTexts);
+	}
+	const qreal bar_w = 2.5;
+	const qreal full_h = 12;
+	QPainterPath outline, own;
+	for (int k = 0 ; k < levels ; ++k)
+	{
+		const qreal h = full_h - 2.5 * k;
+		const QRectF bar(-6 - (levels - k) * bar_w, -h / 2, bar_w, h);
+		outline.addRect(bar);
+		if (k == level) {
+			own.addRect(bar);
+		}
+	}
+	m_level_mark->setPath(outline);
+	m_level_mark->setBrush(Qt::NoBrush);
+		//The own level, filled: a second path in the same item
+	auto *fill = m_level_mark->childItems().isEmpty()
+			? new QGraphicsPathItem(m_level_mark)
+			: static_cast<QGraphicsPathItem *>(m_level_mark->childItems().first());
+	fill->setPen(Qt::NoPen);
+	fill->setBrush(Qt::black);
+	fill->setPath(own);
+	fill->setAcceptedMouseButtons(Qt::NoButton);
+}
+
+/**
+	@brief TerminalElement::bridgeLine
+	@return the bridge drawn to the next terminal of the row, or a null line
+*/
+QLineF TerminalElement::bridgeLine() const
+{
+	return m_bridge_line ? m_bridge_line->line() : QLineF();
+}
+
+/**
+	@brief TerminalElement::placeStripLabel
+	Before the terminal, 3 away from its frame, upright whichever way the
+	terminal is turned: on the left of a terminal in a row, its middle on
+	the row; above a terminal turned upright, centred on it.
+*/
+void TerminalElement::placeStripLabel()
+{
+	if (!m_strip_label)
+		return;
+		//Upright on the folio: undo the terminal's turn and mirror
+	const QTransform turn = sceneTransform();
+	m_strip_label->setTransform(
+				QTransform(turn.m11(), turn.m12(), turn.m21(), turn.m22(), 0, 0).inverted());
+
+		//The point before the terminal, and which way "before" is on the folio
+	const QPointF anchor = mapToScene(QPointF(boundingRect().left() - 3, 0));
+	const QPointF way = mapToScene(QPointF(-1, 0)) - mapToScene(QPointF(0, 0));
+	const QSizeF size = m_strip_label->boundingRect().size();
+	QPointF top_left;
+	if (way.x() < -0.5)      top_left = anchor - QPointF(size.width(), size.height() / 2);
+	else if (way.x() > 0.5)  top_left = anchor - QPointF(0, size.height() / 2);
+	else if (way.y() < -0.5) top_left = anchor - QPointF(size.width() / 2, size.height());
+	else                     top_left = anchor - QPointF(size.width() / 2, 0);
+	m_strip_label->setPos(mapFromScene(top_left));
+}
+
+/**
+	@brief TerminalElement::updateSideMarks
+	Write "Inside" and "Outside" beside the connection points of this
+	terminal while it is selected, so that which side goes into the panel
+	can be seen where it is drawn (Brandon, 2026-11-16); take them away
+	otherwise. They are drawn in the views only, never printed.
+*/
+void TerminalElement::updateSideMarks()
+{
+	const Terminal *out = isSelected() ? TerminalSides::outside(this) : nullptr;
+	const Terminal *in = out ? TerminalSides::inside(this) : nullptr;
+	if (!out || !in)
+	{
+		delete m_inside_mark;
+		m_inside_mark = nullptr;
+		delete m_outside_mark;
+		m_outside_mark = nullptr;
+		return;
+	}
+	placeSideMark(m_inside_mark, in, tr("Inside", "mark beside the connection "
+										"point of a selected terminal going into the panel"));
+	placeSideMark(m_outside_mark, out, tr("Outside", "mark beside the connection "
+										  "point of a selected terminal going out of the panel"));
+}
+
+/**
+	@brief TerminalElement::placeSideMark
+	Put @p mark, made when missing, beside the end of @p terminal: right
+	of a wire coming from above or below, under one coming from a side,
+	a little further out than the end so that it stays clear of the
+	texts of the symbol.
+*/
+void TerminalElement::placeSideMark(QGraphicsSimpleTextItem *&mark,
+									const Terminal *terminal,
+									const QString &text)
+{
+	if (!mark)
+	{
+		mark = new ViewOnlyText(this);
+		mark->setFont(QETApp::diagramTextsFont(6));
+		mark->setBrush(QColor(0x1e, 0x88, 0xe5));
+		mark->setAcceptedMouseButtons(Qt::NoButton);
+		mark->setAcceptHoverEvents(false);
+	}
+	if (mark->text() != text)
+		mark->setText(text);
+
+		//Upright on the folio: undo the terminal's turn and mirror
+	const QTransform turn = sceneTransform();
+	mark->setTransform(
+				QTransform(turn.m11(), turn.m12(), turn.m21(), turn.m22(), 0, 0).inverted());
+
+	const QPointF end = terminal->dockConductor();
+	const QPointF way = end - sceneBoundingRect().center();
+	const QSizeF size = mark->boundingRect().size();
+	QPointF top_left;
+	if (qAbs(way.y()) >= qAbs(way.x())) {
+		const qreal centre = way.y() < 0 ? end.y() - size.height() / 2 - 1
+										 : end.y() + size.height() / 2 + 1;
+		top_left = QPointF(end.x() + 3, centre - size.height() / 2);
+	} else {
+		const qreal centre = way.x() < 0 ? end.x() - size.width() / 2 - 1
+										 : end.x() + size.width() / 2 + 1;
+		top_left = QPointF(centre - size.width() / 2, end.y() + 3);
+	}
+	mark->setPos(mapFromScene(top_left));
+}
+
+/**
+	@brief TerminalElement::itemChange
+	A terminal that comes onto or leaves a folio may now be, or no longer
+	be, the first of its strip there; moves and turns come by the
+	element's signals (see the constructor).
+*/
+QVariant TerminalElement::itemChange(GraphicsItemChange change, const QVariant &value)
+{
+	if (change == ItemSelectedHasChanged) {
+		updateSideMarks();
+	}
+	if (change == ItemSceneChange) {
+			//The folio it leaves works its labels out again without it
+		if (auto *old_diagram = qobject_cast<Diagram *>(scene()))
+			TerminalStripLabels::schedule(old_diagram);
+	}
+	const QVariant result = Element::itemChange(change, value);
+	if (change == ItemSceneHasChanged) {
+		if (auto *d = qobject_cast<Diagram *>(scene()))
+			TerminalStripLabels::schedule(d);
+		placeStripLabel();
+	}
+	return result;
+}

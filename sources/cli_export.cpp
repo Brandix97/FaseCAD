@@ -1,0 +1,1507 @@
+/*
+	Copyright 2006-2025 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "cli_export.h"
+#include "projectlock.h"
+#include "bomexport.h"
+
+#include "bordertitleblock.h"
+#include "conductornumexport.h"
+#include "conductorproperties.h"
+#include "dataBase/projectdatabase.h"
+#include "dataBase/qetdbfile.h"
+#include "dataBase/sqlreadonly.h"
+#include "diagram.h"
+#include "diagramcontext.h"
+#include "editor/terminalnamecheck.h"
+#include "dxfexport.h"
+#include "exportproperties.h"
+#include "pdf_links.h"
+#include "container/qetcontainer.h"
+#include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/terminal.h"
+#include "qetproject.h"
+#include "titleblockproperties.h"
+#include "wiringlistexport.h"
+
+// Private Qt PDF engine for drawHyperlink() — see pdf_links / projectprintwindow.
+#include <private/qpdf_p.h>
+
+#include <QDir>
+#include <QDirIterator>
+#include <QDomDocument>
+#include <QDate>
+#include <QDateTime>
+#include <QFile>
+#include <QSaveFile>
+#include <QFileInfo>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QMap>
+#include <QPageLayout>
+#include <QPair>
+#include <QPainter>
+#include <QPdfWriter>
+#include <QSet>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <QSvgGenerator>
+#include <QTemporaryDir>
+#include <QTextStream>
+#include <QTimeZone>
+#include <QTransform>
+#include <QUuid>
+
+namespace {
+
+QTextStream out(stdout);
+QTextStream err(stderr);
+
+/// All CLI option flags, mapped to a short format name.
+const QHash<QString, QString> &exportFlags()
+{
+	static const QHash<QString, QString> flags {
+		{"--export-pdf", "pdf"},
+		{"--export-png", "png"},
+		{"--export-svg", "svg"},
+		{"--export-dxf", "dxf"},
+		{"--export-cables", "cables"},
+		{"--export-wires", "wires"},
+		{"--export-bom", "bom"},
+		{"--export-wiring", "wiring"},
+		{"--export-nets", "nets"},
+		{"--export-links", "links"},
+		{"--info", "info"},
+		{"--check-elements", "check"},
+		{"--resave", "resave"},
+		{"--recover", "recover"},
+		{"--history", "history"},
+		{"--history-on", "historyon"},
+		{"--history-off", "historyoff"},
+		{"--history-diff", "historydiff"},
+		{"--last-change", "lastchange"},
+		{"--history-keep", "historykeep"},
+		{"--qetdb-repair", "qetdbrepair"},
+		{"--revision", "revision"},
+		{"--export-delivery", "delivery"},
+		{"--from-database", "fromdb"},
+		{"--set-titleblock", "settb"},
+		{"--query", "query"},
+	};
+	return flags;
+}
+
+/// Device tag of an element ("K1", "Q55"), falling back to its name.
+QString elementLabel(Element *element)
+{
+	const QString label = element->elementInformations()["label"].toString();
+	return label.isEmpty() ? element->name() : label;
+}
+
+/// Pixel rect of a diagram's border + title block (the printable page area).
+QRect diagramRect(Diagram *diagram)
+{
+	QRectF r = diagram->border_and_titleblock.borderAndTitleBlockRect();
+	r.adjust(0, 0, 1, 1); // include the 1px border line
+	return r.toAlignedRect();
+}
+
+/// A filesystem-safe per-diagram file stem: "01_Title".
+QString diagramStem(Diagram *diagram, int index)
+{
+	QString title = diagram->title();
+	title.replace(QRegularExpression("[^\\w \\-]"), "_");
+	title = title.simplified();
+	if (title.isEmpty())
+		title = "diagram";
+	return QStringLiteral("%1_%2")
+		.arg(index, 2, 10, QChar('0'))
+		.arg(title);
+}
+
+/// Render @p diagram into @p painter, fitting @p target to the page rect.
+/// @p showTerminals: paint terminal markers (red stroke + blue docking
+/// dot), as the interactive editor does. Off by default — Terminal::
+/// paint() draws them whenever the diagram's drawTerminals() flag is set
+/// (default true, so headless export used to ship them as editor UI);
+/// the GUI export dialog already defaults to clearing them via
+/// Diagram::applyProperties(). Pass true (--show-terminals) to keep
+/// them, e.g. to visually debug an unconnected pin. The names of the
+/// terminals are drawn either way, as printed.
+void renderDiagram(Diagram *diagram, QPainter &painter, const QRectF &target,
+					bool showTerminals = false)
+{
+	const QRect source = diagramRect(diagram);
+	// Export without the editor grid: drawBackground() only paints it when
+	// draw_grid_ is set (default true), so toggle it off around the render
+	// and restore it afterwards.
+	const bool was_drawing_grid = diagram->displayGrid();
+	const bool was_drawing_guides = diagram->displayGuides();
+	const bool was_drawing_terminals = diagram->drawTerminals();
+	diagram->setDisplayGrid(false);
+	diagram->setDisplayGuides(false);
+	diagram->setDrawTerminals(showTerminals);
+	diagram->render(&painter, target, source, Qt::KeepAspectRatio);
+	diagram->setDisplayGrid(was_drawing_grid);
+	diagram->setDisplayGuides(was_drawing_guides);
+	diagram->setDrawTerminals(was_drawing_terminals);
+}
+
+/// The time SOURCE_DATE_EPOCH names, in seconds since 1970 UTC, or an
+/// invalid QDateTime when it is unset. A value that is not a whole number of
+/// seconds is reported and ignored.
+QDateTime sourceDateEpoch()
+{
+	const QByteArray value = qgetenv("SOURCE_DATE_EPOCH");
+	if (value.isEmpty())
+		return {};
+	bool ok = false;
+	const qlonglong seconds = value.toLongLong(&ok);
+	if (!ok || seconds < 0) {
+		err << "SOURCE_DATE_EPOCH '" << value << "' is not a number of seconds; ignored.\n";
+		return {};
+	}
+	return QDateTime::fromSecsSinceEpoch(seconds, QTimeZone::utc());
+}
+
+int exportPdf(QETProject &project, const QString &output,
+			 bool showTerminals = false)
+{
+	const QList<Diagram *> diagrams = project.diagrams();
+	if (diagrams.isEmpty()) {
+		err << "No diagrams to export.\n";
+		return 1;
+	}
+
+	// Page numbers (1-based) for cross-reference hyperlink targets: each
+	// diagram is exactly one page in the CLI export (no tiling).
+	QMap<Diagram *, int> pageMap;
+	for (int i = 0; i < diagrams.size(); ++i)
+		pageMap.insert(diagrams.at(i), i + 1);
+
+	QPdfWriter writer(output);
+	writer.setCreator("FaseCAD");
+	writer.setResolution(96);
+
+	// SOURCE_DATE_EPOCH (reproducible-builds.org) asks for the same file
+	// from the same input: the time it names instead of now, and a document
+	// id from what the PDF shows instead of a random one. Qt has no setter
+	// for the dates, and the content is not known yet, so both are
+	// rewritten once the file is written; Qt writes a fixed id until then.
+	// The id does not come from the project file, whose uuids are new each
+	// time a project is generated again from the same data. Before Qt 6.8
+	// there is no document id to set: it is only written for PDF/A.
+	const QDateTime sourceDate = sourceDateEpoch();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+	if (sourceDate.isValid())
+		writer.setDocumentId(PdfLinks::placeholderDocumentId());
+#endif
+
+	QPainter painter;
+	bool first = true;
+	for (Diagram *diagram : diagrams) {
+		const QRect r = diagramRect(diagram);
+		// Match the page to the diagram (in points: 1px @ 96dpi = 0.75pt).
+		// QPageSize rounds a size within 3 pt of a standard sheet to the
+		// sheet, but knows the sheets upright only (bar Ledger), so a wide
+		// folio is matched upright and turned: otherwise an A3 landscape
+		// folio became a 1190 x 841 pt page while an A3 portrait one was
+		// 842 x 1191, the sheet.
+		QSizeF points(r.width() * 72.0 / 96.0, r.height() * 72.0 / 96.0);
+		const bool wide = points.width() > points.height();
+		if (wide) points.transpose();
+		writer.setPageLayout(QPageLayout(QPageSize(points, QPageSize::Point),
+										 wide ? QPageLayout::Landscape
+											  : QPageLayout::Portrait,
+										 QMarginsF(0, 0, 0, 0)));
+
+		if (first) {
+			if (!painter.begin(&writer)) {
+				err << "Cannot open '" << output << "' for writing.\n";
+				return 1;
+			}
+			first = false;
+		} else {
+			writer.newPage();
+		}
+		const QRectF target(0, 0,
+							writer.width(), writer.height());
+		renderDiagram(diagram, painter, target, showTerminals);
+
+		// Inject clickable cross-reference / folio-report hyperlinks for this
+		// page.  The geometry is rebuilt from the QPdfWriter (not a QPrinter):
+		// render() anchors the diagram top-left with KeepAspectRatio, and the
+		// page is sized to the diagram so the scale is ~1.
+		if (auto *engine = dynamic_cast<QPdfEngine *>(painter.paintEngine())) {
+			const QRectF source(r);
+			const qreal s = qMin(target.width()  / source.width(),
+								 target.height() / source.height());
+			QTransform fit;
+			fit.translate(target.x(), target.y());
+			fit.scale(s, s);
+			fit.translate(-source.x(), -source.y());
+
+			// Device pixels -> PDF points, replicating the engine's page matrix
+			// (72/resolution scale + Y flip; zero margins -> no paint offset).
+			const qreal pt_scale = 72.0 / writer.resolution();
+			const qreal fullH_pt = writer.pageLayout().fullRectPoints().height();
+			const bool  fullPageMode =
+				(writer.pageLayout().mode() == QPageLayout::FullPageMode);
+			const QRect paintPx =
+				writer.pageLayout().paintRectPixels(writer.resolution());
+
+			PdfLinks::PageGeometry geom;
+			geom.sceneToDevice = fit;
+			geom.target        = target;
+			geom.pageBounds    = QRectF(0, 0, target.width(), target.height());
+			geom.devToPdf = [=](const QPointF &d) -> QPointF {
+				qreal dx = d.x(), dy = d.y();
+				if (!fullPageMode) { dx += paintPx.left(); dy += paintPx.top(); }
+				return QPointF(pt_scale * dx, fullH_pt - pt_scale * dy);
+			};
+			geom.sourceRectOf = [](Diagram *dg) {
+				return QRectF(diagramRect(dg));
+			};
+			PdfLinks::injectCrossRefLinks(engine, diagram, geom, pageMap, output);
+		}
+	}
+	painter.end();
+
+	// Rewrite the URI link annotations into native internal GoTo actions, so
+	// the cross-references jump inside the document in any PDF viewer.
+	PdfLinks::convertUriToGoTo(output);
+	PdfLinks::removeUnusedPdfxNamespace(output);
+	if (sourceDate.isValid()) {
+		PdfLinks::setDocumentDate(output, sourceDate);
+		PdfLinks::setDocumentIdFromContent(output);
+	}
+
+	out << "Exported " << diagrams.size() << " page(s) -> " << output << "\n";
+	return 0;
+}
+
+int exportImages(QETProject &project, const QString &format,
+				 const QString &out_dir, bool showTerminals = false,
+				 bool svgSmallPictures = false)
+{
+	const QList<Diagram *> diagrams = project.diagrams();
+	if (diagrams.isEmpty()) {
+		err << "No diagrams to export.\n";
+		return 1;
+	}
+	QDir().mkpath(out_dir);
+
+	int index = 0;
+	for (Diagram *diagram : diagrams) {
+		++index;
+		const QRect r = diagramRect(diagram);
+		const QString path = QDir(out_dir).filePath(
+			diagramStem(diagram, index) + "." + format);
+
+		if (format == "svg") {
+			QSvgGenerator gen;
+			gen.setFileName(path);
+			gen.setSize(r.size());
+			gen.setViewBox(QRect(0, 0, r.width(), r.height()));
+			gen.setTitle(diagram->title());
+			QPainter painter(&gen);
+			diagram->setSmallPictures(svgSmallPictures);
+			renderDiagram(diagram, painter, QRectF(QPointF(0, 0), r.size()),
+						 showTerminals);
+			diagram->setSmallPictures(false);
+			painter.end();
+		} else { // png
+			QImage image(r.size(), QImage::Format_ARGB32);
+			image.fill(Qt::white);
+			QPainter painter(&image);
+			painter.setRenderHint(QPainter::Antialiasing, true);
+			renderDiagram(diagram, painter, QRectF(QPointF(0, 0), r.size()),
+						 showTerminals);
+			painter.end();
+			if (!image.save(path)) {
+				err << "Failed to write '" << path << "'.\n";
+				return 1;
+			}
+		}
+		out << "  " << path << "\n";
+	}
+	out << "Exported " << diagrams.size() << " diagram(s) -> " << out_dir << "\n";
+	return 0;
+}
+
+/// One DXF file per diagram, written by the same code as the export dialog
+/// (DxfExport) with the dialog's default options -- the export settings of
+/// the preferences -- so both give the same file.
+int exportDxf(QETProject &project, const QString &out_dir, bool showTerminals,
+			  bool dxfBlocks, bool dxfAttributes)
+{
+	const QList<Diagram *> diagrams = project.diagrams();
+	if (diagrams.isEmpty()) {
+		err << "No diagrams to export.\n";
+		return 1;
+	}
+	QDir().mkpath(out_dir);
+
+	ExportProperties properties = ExportProperties::defaultExportProperties();
+	properties.format = QStringLiteral("DXF");
+	if (showTerminals)
+		properties.draw_terminals = true;
+	if (dxfBlocks || dxfAttributes)
+		properties.dxf_blocks = true;
+	if (dxfAttributes)
+		properties.dxf_attributes = true;
+
+	int index = 0;
+	bool has_images = false;
+	for (Diagram *diagram : diagrams) {
+		++index;
+		const QString path = QDir(out_dir).filePath(
+			diagramStem(diagram, index) + ".dxf");
+
+		// Createdxf answers a file it cannot open with a message box and
+		// exit(0), which headless means no message and a success code.
+		QFile probe(path);
+		if (!probe.open(QIODevice::WriteOnly)) {
+			err << "Cannot open '" << path << "' for writing.\n";
+			return 1;
+		}
+		probe.close();
+
+		const QSize size = DxfExport::folioSize(diagram, properties);
+		DxfExport::write(diagram, size.width(), size.height(), path, properties);
+
+		for (QGraphicsItem *item : diagram->items()) {
+			if (qgraphicsitem_cast<DiagramImageItem *>(item)) {
+				has_images = true;
+				break;
+			}
+		}
+		out << "  " << path << "\n";
+	}
+	if (has_images)
+		err << "Note: DXF has no pictures in this format; "
+			   "each picture is exported as an outline box.\n";
+	out << "Exported " << diagrams.size() << " diagram(s) -> " << out_dir << "\n";
+	return 0;
+}
+
+int exportCsv(QETProject &project, const QString &format, const QString &output)
+{
+	QString csv;
+	if (format == "cables") {
+		WiringListExport wle(&project, nullptr);
+		csv = wle.toCsvString();
+	} else { // wires
+		ConductorNumExport cne(&project, nullptr);
+		csv = cne.wiresNum();
+	}
+	if (csv.isEmpty()) {
+		err << "Nothing to export (empty list).\n";
+		return 1;
+	}
+
+	QFile file(output);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+		err << "Cannot open '" << output << "' for writing.\n";
+		return 1;
+	}
+	QTextStream fout(&file);
+	fout << csv;
+	file.close();
+	out << "Exported " << format << " list -> " << output << "\n";
+	return 0;
+}
+
+/// Bill of materials from the same project database and default query as the
+/// GUI nomenclature export.
+int exportBom(QETProject &project, const QString &output,
+			  bool includeSlaves, bool includeJunctions)
+{
+	project.dataBase()->updateDB();
+	QSqlQuery query = project.dataBase()->newQuery(
+			BomExport::defaultQuery(includeSlaves, includeJunctions));
+	if (!query.exec()) {
+		err << "BOM query failed: " << query.lastError().text() << "\n";
+		return 1;
+	}
+	int rows = 0;
+	const auto csv = BomExport::toCsv(
+			query, BomExport::defaultColumns(), true, &rows);
+	QString error;
+	if (!BomExport::writeCsv(output, csv, &error)) {
+		err << "Cannot write '" << output << "': " << error << "\n";
+		return 1;
+	}
+	out << "Exported " << rows << " component(s) -> " << output << "\n";
+	return 0;
+}
+
+QString csvField(const QString &value)
+{
+	if (value.contains(QLatin1Char(';')) || value.contains(QLatin1Char('"'))
+			|| value.contains(QLatin1Char('\n')) || value.contains(QLatin1Char('\r')))
+	{
+		QString escaped = value;
+		escaped.replace(QLatin1Char('"'), QStringLiteral("\"\""));
+		return QLatin1Char('"') % escaped % QLatin1Char('"');
+	}
+	return value;
+}
+
+/// Count terminals on @p element that no conductor connects to.
+int freeTerminals(Element *element)
+{
+	int free = 0;
+	const QList<Terminal *> terminals = element->terminals();
+	for (Terminal *t : terminals)
+		if (t->conductorsCount() == 0)
+			++free;
+	return free;
+}
+
+/// Structural ground-truth dump of a project, as JSON, to stdout (or a file).
+/// Uses QET's own loaded model, so it reports what the editor actually sees:
+/// per-page element / conductor counts and unconnected terminals.
+int exportInfo(QETProject &project, const QString &output)
+{
+	const QList<Diagram *> diagrams = project.diagrams();
+
+	int total_elements = 0, total_conductors = 0, total_free = 0;
+	QJsonArray pages;
+	int index = 0;
+	for (Diagram *diagram : diagrams) {
+		++index;
+		const QList<Element *> elements = diagram->elements();
+		const int conductors = diagram->conductors().size();
+		int page_free = 0;
+		for (Element *e : elements)
+			page_free += freeTerminals(e);
+
+		const QRect r = diagramRect(diagram);
+		QJsonObject page;
+		page["index"]             = index;
+		page["title"]             = diagram->title();
+		page["folio"]             = QStringLiteral("%1 of %2")
+									 .arg(index).arg(diagrams.size());
+		page["width_px"]          = r.width();
+		page["height_px"]         = r.height();
+		page["elements"]          = elements.size();
+		page["conductors"]        = conductors;
+		page["free_terminals"]    = page_free;
+		pages.append(page);
+
+		total_elements   += elements.size();
+		total_conductors += conductors;
+		total_free       += page_free;
+	}
+
+	QJsonObject root;
+	root["project"]    = project.title();
+	root["diagrams"]   = diagrams.size();
+	root["elements"]   = total_elements;
+	root["conductors"] = total_conductors;
+	root["free_terminals"] = total_free;
+	root["pages"]      = pages;
+
+	const QByteArray json =
+		QJsonDocument(root).toJson(QJsonDocument::Indented);
+
+	if (output.isEmpty()) {
+		out << QString::fromUtf8(json);
+	} else {
+		QFile file(output);
+		if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+			err << "Cannot open '" << output << "' for writing.\n";
+			return 1;
+		}
+		file.write(json);
+		file.close();
+		out << "Wrote project info -> " << output << "\n";
+	}
+	return 0;
+}
+
+/// Validate one .elmt file against QET's element schema.
+/// @return 0 = OK, 1 = warning (loads but suspicious), 2 = failure.
+int checkOneElement(const QString &path)
+{
+	QFile file(path);
+	if (!file.open(QIODevice::ReadOnly)) {
+		out << "FAIL  " << path << "  (cannot open)\n";
+		return 2;
+	}
+	QDomDocument doc;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+	if (const auto result = doc.setContent(&file); !result) {
+		file.close();
+		out << "FAIL  " << path << "  (XML error line "
+			<< result.errorLine << ": " << result.errorMessage << ")\n";
+		return 2;
+	}
+#else
+	QString error;
+	int line = 0;
+	if (!doc.setContent(&file, &error, &line)) {
+		file.close();
+		out << "FAIL  " << path << "  (XML error line "
+			<< line << ": " << error << ")\n";
+		return 2;
+	}
+#endif
+	file.close();
+
+	const QDomElement root = doc.documentElement();
+	if (root.tagName() != "definition" || root.attribute("type") != "element") {
+		out << "FAIL  " << path << "  (root is not <definition type=\"element\">)\n";
+		return 2;
+	}
+
+	bool w_ok = false, h_ok = false;
+	const double w = root.attribute("width").toDouble(&w_ok);
+	const double h = root.attribute("height").toDouble(&h_ok);
+	if (!w_ok || !h_ok || w == 0 || h == 0) {
+		out << "FAIL  " << path << "  (missing/zero bounding box "
+			<< root.attribute("width") << "x"
+			<< root.attribute("height") << ")\n";
+		return 2;
+	}
+
+	const QDomNodeList terminal_nodes = root.elementsByTagName("terminal");
+	const int terminals = terminal_nodes.count();
+	QStringList terminal_names;
+	for (int i = 0; i < terminals; ++i)
+		terminal_names << terminal_nodes.at(i).toElement().attribute("name");
+
+	// Two terminals with one name cannot be told apart in a wiring list
+	// (IEC 61666), the same rule the element editor applies on save.
+	const auto repeated = TerminalNameCheck::repeatedNames(terminal_names);
+	if (!repeated.isEmpty()) {
+		out << "FAIL  " << path << "  (repeated terminal names: "
+			<< TerminalNameCheck::describe(repeated) << ")\n";
+		return 2;
+	}
+
+	// QET loads the element but leaves out a shape with a "nan" or "inf"
+	// coordinate, on the folio and in the element editor.
+	const QDomNodeList description = root.elementsByTagName("description");
+	for (QDomNode n = description.isEmpty() ? QDomNode()
+					  : description.at(0).firstChild() ;
+		 !n.isNull() ; n = n.nextSibling()) {
+		const QDomElement shape = n.toElement();
+		if (!shape.isNull() && QET::hasNonFiniteGeometry(shape)) {
+			out << "WARN  " << path << "  (<" << shape.tagName()
+				<< "> with a non-finite coordinate is not drawn)\n";
+			return 1;
+		}
+	}
+	// Negative dimensions are malformed but QET still loads them; surface as a
+	// warning rather than a failure so this agrees with QET's own loader.
+	if (w < 0 || h < 0) {
+		out << "WARN  " << path << "  (negative bounding box "
+			<< w << "x" << h << ", " << terminals << " terminals)\n";
+		return 1;
+	}
+
+	if (terminals == 0) {
+		out << "WARN  " << path << "  (loads, but 0 terminals)\n";
+		return 1;
+	}
+
+	const QString type = root.attribute("link_type");
+	const int unnamed = TerminalNameCheck::unnamedCount(terminal_names);
+	if (unnamed && !type.endsWith("_report")
+		&& type != "conductor_definition" && type != "thumbnail") {
+		out << "WARN  " << path << "  (" << unnamed << " of " << terminals
+			<< " terminals have no name)\n";
+		return 1;
+	}
+
+	out << "OK    " << path << "  (" << terminals << " terminals)\n";
+	return 0;
+}
+
+/// Validate a single .elmt file or every .elmt under a directory.
+int checkElements(const QString &path)
+{
+	QStringList files;
+	const QFileInfo info(path);
+	if (info.isDir()) {
+		QDirIterator it(path, {"*.elmt"}, QDir::Files,
+						QDirIterator::Subdirectories);
+		while (it.hasNext())
+			files << it.next();
+		files.sort();
+	} else if (info.isFile()) {
+		files << path;
+	} else {
+		err << "Not found: " << path << "\n";
+		return 2;
+	}
+
+	if (files.isEmpty()) {
+		err << "No .elmt files found under: " << path << "\n";
+		return 2;
+	}
+
+	int warnings = 0, failures = 0;
+	for (const QString &f : files) {
+		const int r = checkOneElement(f);
+		if (r == 1) ++warnings;
+		else if (r == 2) ++failures;
+	}
+	out << files.size() << " file(s), " << warnings
+		<< " warning(s), " << failures << " failure(s)\n";
+	return failures > 0 ? 1 : 0;
+}
+
+/// Map every element in the project to its 1-based folio (page) position.
+QHash<Element *, int> folioIndex(QETProject &project)
+{
+	QHash<Element *, int> folio;
+	int index = 0;
+	const QList<Diagram *> diagrams = project.diagrams();
+	for (Diagram *diagram : diagrams) {
+		++index;
+		const QList<Element *> elements = diagram->elements();
+		for (Element *e : elements)
+			folio.insert(e, index);
+	}
+	return folio;
+}
+
+/// From-to wiring list: one row per conductor, each endpoint resolved to its
+/// element label and terminal name.
+///
+/// Most symbols leave their terminals unnamed, so each end also carries the
+/// terminal's index -- the one the scripting API's addConductor() takes,
+/// empty for two terminals at one point -- and its uuid, the one the project
+/// file names the terminal by. These come last, after the columns the list
+/// has always had, so a reader of those is not disturbed.
+///
+/// Reads wiring_list_view out of the project database. --export-cables produces
+/// the same logical list from the document XML instead, and the two are meant
+/// to agree: running both and diffing them is a direct check that the database
+/// still describes the project, which is otherwise only observable through the
+/// GUI.
+int exportWiring(QETProject &project, const QString &output)
+{
+	// The project database is built lazily; force a (re)build before querying.
+	project.dataBase()->updateDB();
+
+	static const QStringList columns {
+		"wire_number", "from_element_label", "from_terminal",
+		"to_element_label", "to_terminal", "diagram_position", "conductor_uuid",
+		"from_terminal_index", "from_terminal_uuid", "to_terminal_index", "to_terminal_uuid"
+	};
+
+	QSqlQuery query = project.dataBase()->newQuery(
+		"SELECT " % columns.join(", ") %
+		" FROM wiring_list_view"
+		//Wire numbers are text, so a plain sort puts "10" before "9".
+		//Numeric ones first, ordered by value; anything non-numeric after,
+		//ordered as text. The trailing wire_number keeps ties stable.
+		" ORDER BY diagram_position,"
+		" CASE WHEN wire_number GLOB '[0-9]*' THEN 0 ELSE 1 END,"
+		" CAST(wire_number AS INTEGER),"
+		" wire_number");
+	if (!query.exec()) {
+		err << "Wiring list query failed: " << query.lastError().text() << "\n";
+		return 1;
+	}
+
+	QString csv = columns.join(";") % "\n";
+	int rows = 0;
+	while (query.next()) {
+		QStringList values;
+		for (int i = 0; i < columns.size(); ++i)
+			values << csvField(query.value(i).toString());
+		csv += values.join(";") % "\n";
+		++rows;
+	}
+
+		//Written through QSaveFile so a failure part-way leaves the previous
+		//file intact rather than a truncated one, and with a UTF-8 byte order
+		//mark: without it Excel opens a .csv as the local 8-bit codepage and
+		//mangles any accented element label. Qt writes UTF-8 by default, so
+		//the bytes were already right -- the mark is what tells Excel so.
+	QSaveFile file(output);
+	if (!file.open(QIODevice::WriteOnly)) {
+		err << "Cannot open '" << output << "' for writing.\n";
+		return 1;
+	}
+	static const char utf8_bom[] = "\xEF\xBB\xBF";
+	file.write(utf8_bom, 3);
+	file.write(csv.toUtf8());
+	if (!file.commit()) {
+		err << "Cannot write '" << output << "': " << file.errorString() << "\n";
+		return 1;
+	}
+	out << "Exported " << rows << " conductor(s) -> " << output << "\n";
+	return 0;
+}
+
+/// Electrical nets: groups of terminals joined into one potential.
+/// Walks QET's own potential graph, so each net is a connected component
+/// of terminals across all folios. The ground truth for connectivity.
+int exportNets(QETProject &project, const QString &output)
+{
+	const QHash<Element *, int> folio = folioIndex(project);
+
+	QList<Conductor *> all_conductors;
+	const QList<Diagram *> diagrams = project.diagrams();
+	for (Diagram *diagram : diagrams)
+		all_conductors << diagram->conductors();
+
+	QSet<Conductor *> visited;
+	QJsonArray nets;
+	int net_no = 0;
+	for (Conductor *c : all_conductors) {
+		if (visited.contains(c))
+			continue;
+
+		// The whole potential this conductor belongs to. relatedPotential-
+		// Conductors() also fills t_list with every terminal in the net
+		// (following folio reports and terminal blocks too).
+		QList<Terminal *> t_list;
+		QSet<Conductor *> group = c->relatedPotentialConductors(true, &t_list);
+		group.insert(c);
+		for (Conductor *g : group)
+			visited.insert(g);
+		if (c->terminal1) t_list << c->terminal1;
+		if (c->terminal2) t_list << c->terminal2;
+
+		// Wire number: smallest non-empty conductor text (deterministic).
+		QStringList wire_nos;
+		for (Conductor *g : group)
+			if (!g->properties().text.isEmpty())
+				wire_nos << g->properties().text;
+		wire_nos.sort();
+
+		++net_no;
+		QJsonArray terminals;
+		QSet<Terminal *> seen;
+		for (Terminal *t : t_list) {
+			if (!t || seen.contains(t))
+				continue;
+			seen.insert(t);
+			Element *pe = t->parentElement();
+			QJsonObject to;
+			to["element"]  = pe ? elementLabel(pe) : QString();
+			to["terminal"] = t->name();
+			to["folio"]    = pe ? folio.value(pe, 0) : 0;
+			terminals.append(to);
+		}
+		QJsonObject net;
+		net["net"]       = net_no;
+		net["wire_no"]   = wire_nos.value(0);
+		net["terminals"] = terminals;
+		nets.append(net);
+	}
+
+	QJsonObject root;
+	root["project"] = project.title();
+	root["nets"]    = nets.size();
+	root["list"]    = nets;
+
+	QFile file(output);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+		err << "Cannot open '" << output << "' for writing.\n";
+		return 1;
+	}
+	file.write(QJsonDocument(root).toJson(QJsonDocument::Indented));
+	file.close();
+	out << "Exported " << nets.size() << " net(s) -> " << output << "\n";
+	return 0;
+}
+
+/// Cross-references: each linkable element (coil / contact / report) and the
+/// elements it links to, flagging masters/slaves with no link as unresolved.
+int exportLinks(QETProject &project, const QString &output)
+{
+	const QHash<Element *, int> folio = folioIndex(project);
+
+	QString csv("element;link_type;linked_to;folio;status\n");
+	int linkable = 0, unresolved = 0;
+
+	const QList<Diagram *> diagrams = project.diagrams();
+	for (Diagram *diagram : diagrams) {
+		const QList<Element *> elements = diagram->elements();
+		for (Element *e : elements) {
+			if (e->linkType() == Element::Simple)
+				continue;
+			++linkable;
+
+			const QList<Element *> linked = e->linkedElements();
+			QStringList names;
+			for (Element *le : linked)
+				names << elementLabel(le) % "(f"
+					   % QString::number(folio.value(le, 0)) % ")";
+
+			QString status = "linked";
+			if ((e->linkType() == Element::Master
+				 || e->linkType() == Element::Slave)
+				&& linked.isEmpty()) {
+				status = "UNRESOLVED";
+				++unresolved;
+			}
+
+			csv += csvField(elementLabel(e)) % ";"
+				 % e->linkTypeToString() % ";"
+				 % csvField(names.join(", ")) % ";"
+				 % QString::number(folio.value(e, 0)) % ";"
+				 % status % "\n";
+		}
+	}
+
+	QFile file(output);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+		err << "Cannot open '" << output << "' for writing.\n";
+		return 1;
+	}
+	QTextStream fout(&file);
+	fout << csv;
+	file.close();
+	out << "Exported " << linkable << " linkable element(s), "
+		<< unresolved << " unresolved -> " << output << "\n";
+	return 0;
+}
+
+/// Round-trip: load the project and write its XML back out, so an external
+/// diff can reveal markup QET silently normalises (tolerated-but-invalid XML).
+/// What can be read of the damaged .qetz @p input, written to the .qet
+/// @p output, and what was left out (QetContainer::recover()).
+int recoverProject(const QString &input, const QString &output)
+{
+	QFile file(input);
+	if (!file.open(QIODevice::ReadOnly)) {
+		err << "Cannot read '" << input << "': " << file.errorString() << "\n";
+		return 2;
+	}
+	const QByteArray content = file.readAll();
+	if (!QetContainer::isZip(content)) {
+		err << "'" << input << "' is not a .qetz project; a .qet opens as it is, or can be fixed in a text editor\n";
+		return 2;
+	}
+	QDomDocument document;
+	QStringList lost;
+	QString error;
+	if (!QetContainer::recover(content, &document, &lost, &error)) {
+		err << "Nothing can be recovered from '" << input << "': " << error << "\n";
+		return 1;
+	}
+	if (!QET::writeXmlFile(document, output, &error)) {
+		err << "Cannot write '" << output << "': " << error << "\n";
+		return 1;
+	}
+	out << "Recovered " << input << " -> " << output << "\n";
+	if (lost.isEmpty()) {
+		out << "Nothing was left out.\n";
+	} else {
+		out << "Left out:\n";
+		for (const QString &item : std::as_const(lost))
+			out << "  " << item << "\n";
+	}
+	return 0;
+}
+
+int resaveProject(QETProject &project, const QString &output)
+{
+		//A .qetdb (experimental), whatever the setting: tests and conversions
+	if (QetDbFile::isDatabasePath(output)) {
+		QString error;
+		if (!QetDbFile::save(*project.dataBase(), output, &error)) {
+			err << "Cannot write '" << output << "': " << error << "\n";
+			return 1;
+		}
+		out << "Re-saved project -> " << output << "\n";
+		return 0;
+	}
+	if (QETProject::isContainerPath(output)) {
+		QString error;
+		if (!project.writeContainerFile(output, &error)) {
+			err << "Cannot write '" << output << "': " << error << "\n";
+			return 1;
+		}
+		out << "Re-saved project -> " << output << "\n";
+		return 0;
+	}
+		//Folios not built (lazy folios) written as read when that is
+		//what building them would write (QETProject::toXml())
+	QHash<int, QByteArray> kept_folios;
+	const QDomDocument doc = project.toXml(&kept_folios);
+		//Through a temporary file, as the GUI saves: a run stopped
+		//part-way leaves the previous file
+	QString error;
+	if (!QET::writeXmlText(QETProject::spliceKeptFolios(doc.toString(4), kept_folios), output, &error)) {
+		err << "Cannot write '" << output << "': " << error << "\n";
+		return 1;
+	}
+	out << "Re-saved project -> " << output << "\n";
+	return 0;
+}
+
+/// Stamp title-block fields onto every folio (and the project default), then
+/// save.  Each assignment is "key=value".  Standard keys map to the documented
+/// title-block fields; "date=today" uses the current date; any other key is
+/// stored as a custom title-block field.  Aimed at CI/revision workflows
+/// (e.g. set revision + date before exporting a new revision).
+int setTitleBlock(QETProject &project, const QString &output,
+				  const QStringList &assignments)
+{
+	if (assignments.isEmpty()) {
+		err << "No field assignments given (expected key=value).\n";
+		return 2;
+	}
+
+	// Parse "key=value" assignments up front so a bad one fails before writing.
+	QList<QPair<QString, QString>> fields;
+	for (const QString &a : assignments) {
+		const int eq = a.indexOf('=');
+		if (eq <= 0) {
+			err << "Bad assignment '" << a << "' (expected key=value).\n";
+			return 2;
+		}
+		const QString key = a.left(eq);
+		const QString val = a.mid(eq + 1);
+		if (key.compare("date", Qt::CaseInsensitive) == 0
+			&& val.compare("today", Qt::CaseInsensitive) != 0
+			&& !QDate::fromString(val, Qt::ISODate).isValid()) {
+			err << "Bad date '" << val << "' (expected YYYY-MM-DD or 'today').\n";
+			return 2;
+		}
+		fields << qMakePair(key, val);
+	}
+
+	auto apply = [&](TitleBlockProperties &p) {
+		for (const auto &f : fields) {
+			const QString k = f.first.toLower();
+			const QString &v = f.second;
+			if      (k == "title")    p.title    = v;
+			else if (k == "author")   p.author   = v;
+			else if (k == "filename") p.filename = v;
+			else if (k == "plant")    p.plant    = v;
+			else if (k == "location") p.locmach  = v;
+			else if (k == "revision") p.indexrev = v;
+			else if (k == "version")  p.version  = v;
+			else if (k == "date") {
+				p.date = (v.compare("today", Qt::CaseInsensitive) == 0)
+						 ? QDate::currentDate()
+						 : QDate::fromString(v, Qt::ISODate);
+				// An explicit date is only honoured when the folio is in
+				// "use the date value" mode (not "now"/"null").
+				p.useDate = TitleBlockProperties::UseDateValue;
+			}
+			else // unknown key -> custom title-block field
+				p.context.addValue(f.first, v);
+		}
+	};
+
+	// Project default (the template applied to new folios).
+	TitleBlockProperties def = project.defaultTitleBlockProperties();
+	apply(def);
+	project.setDefaultTitleBlockProperties(def);
+
+	// Every existing folio's own title block.
+	int folios = 0;
+	const QList<Diagram *> diagrams = project.diagrams();
+	for (Diagram *diagram : diagrams) {
+		TitleBlockProperties p =
+			diagram->border_and_titleblock.exportTitleBlock();
+		apply(p);
+		diagram->border_and_titleblock.importTitleBlock(p);
+		++folios;
+	}
+
+	if (QETProject::isContainerPath(output)) {
+		QString error;
+		if (!project.writeContainerFile(output, &error)) {
+			err << "Cannot write '" << output << "': " << error << "\n";
+			return 1;
+		}
+	} else {
+			//Folios not built (lazy folios) written as read when that
+			//is what building them would write (QETProject::toXml())
+		QHash<int, QByteArray> kept_folios;
+		const QDomDocument doc = project.toXml(&kept_folios);
+		QString error;
+		if (!QET::writeXmlText(QETProject::spliceKeptFolios(doc.toString(4), kept_folios), output, &error)) {
+			err << "Cannot write '" << output << "': " << error << "\n";
+			return 1;
+		}
+	}
+	out << "Stamped " << fields.size() << " field(s) on "
+		<< folios << " folio(s) -> " << output << "\n";
+	return 0;
+}
+
+/// One CSV field as RFC 4180 has it: quoted when it holds a comma, a quote
+/// or a line break, its quotes doubled.
+QString rfcCsvField(const QString &value)
+{
+	if (value.contains(QLatin1Char(',')) || value.contains(QLatin1Char('"'))
+			|| value.contains(QLatin1Char('\n')) || value.contains(QLatin1Char('\r')))
+	{
+		QString escaped = value;
+		escaped.replace(QLatin1Char('"'), QStringLiteral("\"\""));
+		return QLatin1Char('"') % escaped % QLatin1Char('"');
+	}
+	return value;
+}
+
+/// Run @p sql on the .qetdb @p file itself, without opening the project:
+/// on a copy, once it passes the checks of an open, read-only, with the
+/// public views made as TEMP views (a file saved before them answers the
+/// same). @p print is given the rows.
+/// @return 0, 1 with @p error saying why, or 2 when @p print failed and
+/// said why itself
+template <typename Print>
+int queryDatabaseFile(const QString &file, const QString &sql, Print print, QString *error)
+{
+	QTemporaryDir dir;
+	const QString copy = dir.filePath(QStringLiteral("query.qetdb"));
+	if (!dir.isValid() || !QFile::copy(file, copy)) {
+		*error = QStringLiteral("the file could not be read");
+		return 1;
+	}
+	if (!QetDbFile::isReadable(copy, error)) return 1;
+	const QString name = QStringLiteral("qet_query_") + QUuid::createUuid().toString();
+	int result = 1;
+	{
+		QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), name);
+		db.setDatabaseName(copy);
+		db.setConnectOptions(QStringLiteral("QSQLITE_OPEN_READONLY"));
+		if (!db.open()) {
+			*error = db.lastError().text();
+		} else {
+			{
+				QSqlQuery views(db);
+				for (QString statement : projectDataBase::publicViewStatements()) {
+					statement.replace(QStringLiteral("CREATE VIEW "), QStringLiteral("CREATE TEMP VIEW "));
+					if (!views.exec(statement)) {
+						*error = views.lastError().text();
+						break;
+					}
+				}
+			}
+				//The potential check's TEMP table and views, made on this
+				//connection when the query names one
+			static const QRegularExpression potential_objects(
+					QStringLiteral("\\b(wire_potential_view|potential_member|potential_mismatch)\\b"),
+					QRegularExpression::CaseInsensitiveOption);
+			if (error->isEmpty() && potential_objects.match(sql).hasMatch())
+				projectDataBase::potentialTypeMismatchesOf(db);
+			if (error->isEmpty() && projectDataBase::isReadOnlySelect(sql, error)) {
+				QSqlQuery query = QETSql::execReadOnly(db, sql, error);
+				if (error->isEmpty() && query.lastError().isValid())
+					*error = query.lastError().text();
+				if (error->isEmpty())
+					result = print(file, query) ? 0 : 2;
+			}
+			db.close();
+		}
+	}
+	QSqlDatabase::removeDatabase(name);
+	return result;
+}
+
+/// --query: run @p sql on the project database of each of @p files in
+/// turn, as qet.query() runs it (read-only, one SELECT), and print every
+/// row with the file it came from first: CSV, or a JSON array of objects
+/// with @p json. A .qetdb is read itself, without opening the project
+/// (QET_QUERY_OPEN_PROJECT=1 opens it as the others). A file that cannot
+/// be opened or queried is reported on stderr and the others still run;
+/// the exit code says whether any failed.
+int queryProjects(const QString &sql, const QStringList &files, bool json)
+{
+	QStringList columns;
+	QJsonArray json_rows;
+		//The rows of @p query, run on @p file; false, said on stderr, if
+		//they could not all be printed
+	const auto print = [&](const QString &file, QSqlQuery &query) {
+		const QSqlRecord record = query.record();
+		QStringList names{QStringLiteral("project")};
+		for (int i = 0 ; i < record.count() ; ++i)
+			names << record.fieldName(i);
+		if (columns.isEmpty()) {
+			columns = names;
+			if (!json) {
+				QStringList header;
+				for (const QString &name : std::as_const(columns))
+					header << rfcCsvField(name);
+				out << header.join(QLatin1Char(',')) << "\n";
+			}
+		} else if (names != columns) {
+			err << file << ": the query gives other columns than for the first file\n";
+			return false;
+		}
+		int rows = 0;
+		bool complete = true;
+		while (query.next()) {
+				//A query that never stops producing rows (a recursive CTE)
+				//stops here, as qet.query() does
+			if (++rows > projectDataBase::MaxResultRows) {
+				err << file << ": result cut at " << projectDataBase::MaxResultRows
+					<< " rows; add a LIMIT or a WHERE clause\n";
+				complete = false;
+				break;
+			}
+			if (json) {
+				QJsonObject row{{QStringLiteral("project"), file}};
+				for (int i = 0 ; i < record.count() ; ++i)
+					row.insert(record.fieldName(i), QJsonValue::fromVariant(query.value(i)));
+				json_rows.append(row);
+			} else {
+				QStringList fields{rfcCsvField(file)};
+				for (int i = 0 ; i < record.count() ; ++i)
+					fields << (query.isNull(i) ? QString() : rfcCsvField(query.value(i).toString()));
+				out << fields.join(QLatin1Char(',')) << "\n";
+			}
+		}
+		out.flush();
+		return complete;
+	};
+
+	const bool open_every_project = qEnvironmentVariableIntValue("QET_QUERY_OPEN_PROJECT") == 1;
+	bool failed = false;
+	for (const QString &file : files) {
+		if (!QFileInfo::exists(file)) {
+			err << file << ": not found\n";
+			failed = true;
+			continue;
+		}
+		QString error;
+		if (QetDbFile::isDatabasePath(file) && !open_every_project) {
+			const int result = queryDatabaseFile(file, sql, print, &error);
+			if (result == 1) err << file << ": " << error << "\n";
+			if (result != 0) failed = true;
+			continue;
+		}
+		QETProject project(file);
+		if (project.state() != QETProject::Ok) {
+			err << file << ": cannot be opened (state " << project.state() << ")\n";
+			failed = true;
+			continue;
+		}
+		QSqlQuery query = project.dataBase()->newQuery(sql, &error);
+		if (error.isEmpty() && query.lastError().isValid())
+			error = query.lastError().text();
+		if (!error.isEmpty()) {
+			err << file << ": " << error << "\n";
+			failed = true;
+			continue;
+		}
+		if (!print(file, query)) failed = true;
+	}
+	if (json)
+		out << QJsonDocument(json_rows).toJson(QJsonDocument::Indented);
+	return failed ? 1 : 0;
+}
+
+} // anonymous namespace
+
+namespace CLIExport {
+
+bool isExportRequest(const QStringList &args)
+{
+	for (const QString &a : args)
+		if (exportFlags().contains(a))
+			return true;
+	return false;
+}
+
+int run(const QStringList &args)
+{
+	// --show-terminals is a standalone switch (not tied to a position),
+	// so pull it out before the positional project/output arguments are
+	// collected below.
+	QStringList filtered = args;
+	const bool showTerminals = filtered.removeAll("--show-terminals") > 0;
+	const bool dxfBlocks = filtered.removeAll("--dxf-blocks") > 0;
+	const bool dxfAttributes = filtered.removeAll("--dxf-attributes") > 0;
+	const bool svgSmallPictures = filtered.removeAll("--svg-small-pictures") > 0;
+	// --no-slaves and --no-junctions leave rows out of --export-bom.
+	const bool includeSlaves = filtered.removeAll("--no-slaves") == 0;
+	const bool includeJunctions = filtered.removeAll("--no-junctions") == 0;
+	const bool ignoreLock = filtered.removeAll("--ignore-lock") > 0;
+	const bool json = filtered.removeAll("--json") > 0;
+
+	QString flag;
+	QStringList rest;
+	for (int i = 0; i < filtered.size(); ++i) {
+		if (exportFlags().contains(filtered.at(i))) {
+			flag = filtered.at(i);
+			for (int j = i + 1; j < filtered.size(); ++j)
+				rest << filtered.at(j);
+			break;
+		}
+	}
+	const QString format = exportFlags().value(flag);
+
+	// --check-elements operates on an element file/directory, not a project.
+	if (format == "check") {
+		if (rest.isEmpty()) {
+			err << "Usage: fasecad --check-elements "
+				   "<element.elmt | directory>\n";
+			return 2;
+		}
+		return checkElements(rest.at(0));
+	}
+
+	// --recover reads what it can of a damaged .qetz, which a project
+	// cannot be opened from.
+	if (format == "recover") {
+		if (rest.size() < 2) {
+			err << "Usage: fasecad --recover <damaged.qetz> <output.qet>\n";
+			return 2;
+		}
+		return recoverProject(rest.at(0), rest.at(1));
+	}
+
+	// --history lists the saves a .qetdb keeps; --history-on and
+	// --history-off make it keep them or drop them (QETDB-S6-SCOPE.md)
+	if (format == "history" || format == "historyon" || format == "historyoff") {
+		if (rest.isEmpty() || !QetDbFile::isDatabasePath(rest.at(0))) {
+			err << "Usage: fasecad " << flag << " <project.qetdb>\n";
+			return 2;
+		}
+		QString error;
+		if (format == "history") {
+			const QStringList lines = QetDbFile::history(rest.at(0), &error);
+			if (lines.isEmpty()) {
+				err << rest.at(0) << ": " << error << "\n";
+				return 1;
+			}
+			for (const QString &line : lines)
+				out << line << "\n";
+			out.flush();
+			return 0;
+		}
+		if (!QetDbFile::setHistory(rest.at(0), format == "historyon", &error)) {
+			err << "Cannot change the history of " << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		return 0;
+	}
+
+	// --history-diff says what changed between two of a .qetdb's revisions
+	// (QETDB-S6-SCOPE.md S6-3)
+	if (format == "historydiff") {
+		bool from_number = false, to_number = false;
+		const qint64 from = rest.value(1).toLongLong(&from_number);
+		const qint64 to = rest.value(2).toLongLong(&to_number);
+		if (rest.size() < 3 || !from_number || !to_number || !QetDbFile::isDatabasePath(rest.at(0))) {
+			err << "Usage: fasecad --history-diff <project.qetdb> <revision> <later revision>\n";
+			return 2;
+		}
+		QString error;
+		const QStringList lines = QetDbFile::historyDiff(rest.at(0), from, to, &error);
+		if (lines.isEmpty()) {
+			err << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		for (const QString &line : lines)
+			out << line << "\n";
+		out.flush();
+		return 0;
+	}
+
+	// --history-keep keeps only a .qetdb's last saves (QETDB-S6-SCOPE.md S6-6)
+	if (format == "historykeep") {
+		bool number = false;
+		const int saves = rest.value(1).toInt(&number);
+		if (rest.size() < 2 || !number || !QetDbFile::isDatabasePath(rest.at(0))) {
+			err << "Usage: fasecad --history-keep <project.qetdb> <saves, 0 for all>\n";
+			return 2;
+		}
+		QString error;
+		if (!QetDbFile::setHistoryLimit(rest.at(0), saves, &error)) {
+			err << "Cannot limit the history of " << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		return 0;
+	}
+
+	// --qetdb-repair writes a .qetdb with its damaged pages rebuilt from the
+	// repair data it keeps, never the file itself (QETDB-S4C-PLAN.md P5).
+	// Exit 0: a sound file written; 1: not repairable; 3: another program
+	// changed it, written only with --back-to-save
+	if (format == "qetdbrepair") {
+		const bool back = rest.contains(QStringLiteral("--back-to-save"));
+		rest.removeAll(QStringLiteral("--back-to-save"));
+		if (rest.size() < 2 || !QetDbFile::isDatabasePath(rest.at(0)) || !QetDbFile::isDatabasePath(rest.at(1))
+				|| QFileInfo(rest.at(0)).absoluteFilePath() == QFileInfo(rest.at(1)).absoluteFilePath()) {
+			err << "Usage: fasecad --qetdb-repair <damaged.qetdb> <repaired.qetdb> [--back-to-save]\n";
+			return 2;
+		}
+		QString error;
+		QetDbFile::Repair found;
+		const bool ok = QetDbFile::repair(rest.at(0), rest.at(1), &found, &error, back);
+		out << "repair data: " << (found.parity ? (found.scanned ? "yes, read from its pages" : "yes") : "none") << "\n";
+		if (found.edited) out << "another program changed it since its save\n";
+		out << "damaged pages: " << found.bad_pages << "\n";
+		if (found.header) out << "header rebuilt\n";
+		if (found.parity_damaged) out << "its repair data was damaged: written again\n";
+		if (found.beyond) out << "groups beyond repair: " << found.beyond << "\n";
+		if (ok)
+			out << "written: " << rest.at(1)
+				<< (found.back_to_save ? " (back to the saved state)"
+									   : found.repaired() ? " (repaired)" : " (nothing to repair)") << "\n";
+		out.flush();
+		if (ok) return 0;
+		err << "Not written: " << error << "\n";
+		return found.edited && !back ? 3 : 1;
+	}
+
+	// --last-change says which save last changed a symbol, a wire or a
+	// folio (QETDB-S6-SCOPE.md S6-5)
+	if (format == "lastchange") {
+		if (rest.size() < 2 || !QetDbFile::isDatabasePath(rest.at(0))) {
+			err << "Usage: fasecad --last-change <project.qetdb> <uuid>\n";
+			return 2;
+		}
+		QString error;
+		const QString line = QetDbFile::lastChange(rest.at(0), rest.at(1), &error);
+		if (!error.isEmpty()) {
+			err << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		out << (line.isEmpty() ? QStringLiteral("not changed by a save it keeps") : line) << "\n";
+		out.flush();
+		return 0;
+	}
+
+	// --revision writes a .qetdb as it was at one of its revisions;
+	// --export-delivery writes it without its history (QETDB-S6-SCOPE.md)
+	if (format == "revision" || format == "delivery") {
+		const int needed = format == "revision" ? 3 : 2;
+		bool number = true;
+		const qint64 ord = format == "revision" ? rest.value(1).toLongLong(&number) : 0;
+		if (rest.size() < needed || !number || !QetDbFile::isDatabasePath(rest.at(0))
+				|| !QetDbFile::isDatabasePath(rest.at(needed - 1))) {
+			err << (format == "revision"
+					? "Usage: fasecad --revision <project.qetdb> <number> <output.qetdb>\n"
+					: "Usage: fasecad --export-delivery <project.qetdb> <output.qetdb>\n");
+			return 2;
+		}
+		QString error;
+		bool same_digest = false;
+		const bool ok = format == "revision"
+				? QetDbFile::writeRevision(rest.at(0), ord, rest.at(2), &error, &same_digest)
+				: QetDbFile::exportDelivery(rest.at(0), rest.at(1), &error);
+		if (!ok) {
+			err << "Cannot write " << rest.at(needed - 1) << " from " << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		if (format == "revision")
+			out << "Revision " << ord << " written to " << rest.at(2) << "; content digest "
+				<< (same_digest ? "the one it was saved with" : "differs from the one it was saved with")
+				<< "\n";
+		out.flush();
+		return 0;
+	}
+
+	// --from-database writes a project from the working copy a QElectroTech
+	// that ended left behind, which a project cannot be opened from.
+	if (format == "fromdb") {
+		if (rest.size() < 2) {
+			err << "Usage: fasecad --from-database <working-copy.sqlite> <output.qet>\n";
+			return 2;
+		}
+		QString error;
+		if (!projectDataBase::writeWorkingCopy(rest.at(0), rest.at(1), &error)) {
+			err << "Cannot write " << rest.at(1) << " from " << rest.at(0) << ": " << error << "\n";
+			return 1;
+		}
+		return 0;
+	}
+
+	// --query runs one query on many projects, each opened in turn.
+	if (format == "query") {
+		if (rest.size() < 2) {
+			err << "Usage: fasecad --query <SQL> <project>... [--json]\n";
+			return 2;
+		}
+		return queryProjects(rest.at(0), rest.mid(1), json);
+	}
+
+	const QString input = rest.value(0);
+	if (input.isEmpty()) {
+		err << "Usage: fasecad " << flag << " <project.qet> <output>\n";
+		return 2;
+	}
+	if (!QFileInfo::exists(input)) {
+		err << "Project not found: " << input << "\n";
+		return 2;
+	}
+
+	QETProject project(input);
+	if (project.state() != QETProject::Ok) {
+		err << "Failed to open project: " << input
+			<< " (state " << project.state() << ")\n";
+		return 1;
+	}
+
+	// --info writes JSON to stdout, or to an optional output file.
+	if (format == "info")
+		return exportInfo(project, rest.value(1));
+
+	const QString output = rest.value(1);
+	if (output.isEmpty()) {
+		err << "Usage: fasecad " << flag
+			<< " <project.qet> <output>\n";
+		return 2;
+	}
+	if (format == "pdf")
+		return exportPdf(project, output, showTerminals);
+	if (format == "dxf")
+		return exportDxf(project, output, showTerminals, dxfBlocks, dxfAttributes);
+	if (format == "cables" || format == "wires")
+		return exportCsv(project, format, output);
+	if (format == "bom")
+		return exportBom(project, output, includeSlaves, includeJunctions);
+	if (format == "wiring")
+		return exportWiring(project, output);
+	if (format == "nets")
+		return exportNets(project, output);
+	if (format == "links")
+		return exportLinks(project, output);
+		//The verbs that write a project file leave alone one that someone
+		//has open (their lock beside it), unless told to: the read-only
+		//verbs above never look at locks
+	if ((format == "resave" || format == "settb") && !ignoreLock) {
+		const ProjectLock::Holder holder = ProjectLock::liveHolder(output);
+		if (holder.valid) {
+			err << "'" << output << "' is open by " << holder.user << " on "
+				<< holder.host << " (lock file " << ProjectLock::lockPathFor(output)
+				<< "). Not writing it; close it there, write to another file, "
+				   "or pass --ignore-lock.\n";
+			return 1;
+		}
+	}
+	if (format == "resave")
+		return resaveProject(project, output);
+	if (format == "settb")
+		return setTitleBlock(project, output, rest.mid(2));
+	return exportImages(project, format, output, showTerminals,
+						svgSmallPictures);
+}
+
+} // namespace CLIExport

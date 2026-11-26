@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="20" hotspot_x="2" hotspot_y="7">
+    <uuid uuid="{77361f6f-8426-6013-e604-d7eaef675ec1}"/>
+    <names>
+        <name lang="ar">إشعاع، مؤيّن</name>
+        <name lang="ca">Radiació, ionitzant</name>
+        <name lang="cs">Ionizující záření</name>
+        <name lang="da">Stråling, ioniserende</name>
+        <name lang="de">ionisierende Strahlung</name>
+        <name lang="el">Ακτινοβολία, ιονίζουσα</name>
+        <name lang="en">Radiation, ionizing</name>
+        <name lang="es">Radiación ionizante</name>
+        <name lang="fi">Säteily, ionisoiva</name>
+        <name lang="fr">Rayonnement ionisant</name>
+        <name lang="hr">Zračenje, ionizirajuće</name>
+        <name lang="hu">Sugárzás, ionizáló</name>
+        <name lang="it">Radiazione, ionizzante</name>
+        <name lang="ja">放射，電離</name>
+        <name lang="ko">방사, 이온화</name>
+        <name lang="mn">Цацраг, ионжуулагч</name>
+        <name lang="nb">Stråling, ioniserende</name>
+        <name lang="nl">Straling, ioniserend</name>
+        <name lang="nl_BE">Straling, ioniserend</name>
+        <name lang="pl">Promieniowanie, jonizujące</name>
+        <name lang="pt">Radiação, ionizante</name>
+        <name lang="pt_BR">Radiacao ionizante</name>
+        <name lang="ro">Radiație, ionizantă</name>
+        <name lang="ru">Излучение, ионизирующее</name>
+        <name lang="sk">Žiarenie, ionizujúce</name>
+        <name lang="sl">Sevanje, ionizirajoče</name>
+        <name lang="sr">Зрачење, јонизујуће</name>
+        <name lang="sv">Strålning, joniserande</name>
+        <name lang="tr">Radyasyon, iyonlaştırıcı</name>
+        <name lang="uk">Випромінювання, іонізуюче</name>
+        <name lang="zh">接线端子排3</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="25" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0149141e-1057-4021-acb7-8cd420ad0407}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="6" y1="8" x2="8" y2="6" x3="10" y3="10" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="11" y1="3" x2="13" y2="1" x3="15" y3="5" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="5" y1="-5" x2="8" y2="-4" x3="8" y3="0" x4="11" y4="1" x5="12" y5="2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="0" y1="0" x2="3" y2="1" x3="3" y3="5" x4="6" y4="6" x5="7" y5="7" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

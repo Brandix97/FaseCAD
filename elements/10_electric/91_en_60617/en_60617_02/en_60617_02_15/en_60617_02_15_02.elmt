@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="25" hotspot_y="22">
+    <uuid uuid="{d846bf0d-5793-92e8-7c78-3881d6a7fbb7}"/>
+    <names>
+        <name lang="ar">أرضي صامت؛ أرضي صامت</name>
+        <name lang="ca">terra silenciosa; </name>
+        <name lang="cs">Bezšumové uzemnění</name>
+        <name lang="da">Støjfri jord; Støjfri jordforbindelse</name>
+        <name lang="de">fremdspannungsarme Erde</name>
+        <name lang="el">Αθόρυβη γείωση; Αθόρυβη γείωση</name>
+        <name lang="en">Noiseless earth; Noiseless ground</name>
+        <name lang="es">Tierra de bajo voltaje</name>
+        <name lang="fi">Kohinaton maa; Kohinaton maadoitus</name>
+        <name lang="fr">Terre sans bruit</name>
+        <name lang="hr">Bešumno uzemljenje; Bešumna masa</name>
+        <name lang="hu">Zajmentes föld; Zajmentes test</name>
+        <name lang="it">Terra senza disturbi; Massa senza disturbi</name>
+        <name lang="ja">無雑音接地；無雑音グラウンド</name>
+        <name lang="ko">무소음 접지; 무소음 그라운드</name>
+        <name lang="mn">Чимээгүй газардуулга; Чимээгүй газардуулга</name>
+        <name lang="nb">Støyfri jord; Støyfri jordforbindelse</name>
+        <name lang="nl">Ruisvrije aarde; Ruisvrije massa</name>
+        <name lang="nl_BE">Ruisvrije aarding; Ruisvrije massa</name>
+        <name lang="pl">Uziemienie bezszumowe; Uziemienie, bezszumowe</name>
+        <name lang="pt">Terra sem ruído; Massa sem ruído</name>
+        <name lang="pt_BR">Noiseless Terra; Noiseless Terra</name>
+        <name lang="ro">Pământ fără zgomot; Masă fără zgomot</name>
+        <name lang="ru">Бесшумовая земля; Бесшумовая земля</name>
+        <name lang="sk">Bezšumové uzemnenie; Bezšumová kostra</name>
+        <name lang="sl">Brezšumna ozemljitev</name>
+        <name lang="sr">Бешумна земља; Бешумно уземљење</name>
+        <name lang="sv">Ljudlös jord; Ljudlös jord</name>
+        <name lang="tr">Gürültüsüz toprak</name>
+        <name lang="uk">Безшумова земля; Безшумове заземлення</name>
+        <name lang="zh">端子排</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="35" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{783c5a17-6ff7-45c2-99b9-51382df07c3e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="5" x2="7" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="10" x2="4" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.5" y1="15" x2="-0.5" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-5" width="40" height="40" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{1fe9f431-7448-49eb-82fa-72a8e3a1848a}" name="" x="0" y="-15" orientation="n" type="Generic"/>
+    </description>
+</definition>

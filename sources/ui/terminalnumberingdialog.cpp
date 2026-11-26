@@ -1,0 +1,279 @@
+#include "terminalnumberingdialog.h"
+#include "ui_terminalnumberingdialog.h"
+#include "../qet.h"
+#include "../qetproject.h"
+#include "../diagram.h"
+#include "../qetgraphicsitem/element.h"
+#include "../positionorder.h"
+#include "../undocommand/changeelementinformationcommand.h"
+#include "../qet.h"
+#include <QUndoCommand>
+#include <QCheckBox>
+#include <QVBoxLayout>
+#include <QSet>
+#include <algorithm>
+
+namespace {
+	//The folios holding a terminal, built: a folio not built yet
+	//(lazy folios) holding none is not built for this
+QList<Diagram *> terminalFolios(QETProject *project)
+{
+	project->buildFoliosHolding(ElementData::Terminal, false);
+	return project->builtFolios();
+}
+}
+
+/**
+ * @brief TerminalNumberingDialog::TerminalNumberingDialog
+ * Constructor
+ * @param parent
+ * @param project Pointer to the current project (used to populate terminal strips)
+ */
+TerminalNumberingDialog::TerminalNumberingDialog(QWidget *parent, QETProject *project) :
+    QDialog(parent),
+    ui(new Ui::TerminalNumberingDialog)
+{
+    ui->setupUi(this);
+
+    // Connect radio button to enable/disable the "also number letters" checkbox
+    connect(ui->rb_type_alpha, &QRadioButton::toggled, ui->cb_also_alpha, &QCheckBox::setEnabled);
+
+    // Collect all unique terminal strip prefixes from the project
+    if (project) {
+        QSet<QString> prefixes;
+        foreach (Diagram *diagram, terminalFolios(project)) {
+            foreach (QGraphicsItem *qgi, diagram->items()) {
+                if (Element *elmt = qgraphicsitem_cast<Element *>(qgi)) {
+                    if (elmt->elementData().m_type == ElementData::Terminal) {
+                        // Ignore locked terminals
+                        DiagramContext info = elmt->elementInformations();
+                        if (QET::infoFlagIsTrue(info.value(QStringLiteral("auto_num_locked")).toString())) {
+                            continue;
+                        }
+
+                        QString label = elmt->actualLabel();
+                        if (label.isEmpty()) continue;
+
+                        // Handle labels with and without colon
+                        int colonIndex = label.lastIndexOf(':');
+                        QString prefix;
+                        if (colonIndex != -1) {
+                            prefix = label.left(colonIndex);
+                        } else {
+                            prefix = label;
+                        }
+                        prefixes.insert(prefix);
+                    }
+                }
+            }
+        }
+
+        // Sort prefixes alphabetically and create checkboxes
+        QStringList sortedPrefixes = prefixes.values();
+        sortedPrefixes.sort(Qt::CaseInsensitive);
+
+        foreach (const QString &prefix, sortedPrefixes) {
+            QCheckBox *cb = new QCheckBox(prefix);
+            cb->setChecked(true);
+            ui->verticalLayout_strips_content->addWidget(cb);
+            m_stripCheckboxes.insert(prefix, cb);
+        }
+    }
+
+    QET::trackDialogGeometry(this);
+}
+
+/**
+ * @brief TerminalNumberingDialog::~TerminalNumberingDialog
+ * Destructor
+ */
+TerminalNumberingDialog::~TerminalNumberingDialog()
+{
+    delete ui;
+}
+
+/**
+ * @brief TerminalNumberingDialog::isXAxisPriority
+ * @return true if X axis has priority, false if Y axis has priority
+ */
+bool TerminalNumberingDialog::isXAxisPriority() const
+{
+    return ui->rb_priority_x->isChecked();
+}
+
+/**
+ * @brief TerminalNumberingDialog::isAlphanumeric
+ * @return true if alphanumeric sorting is enabled, false if numeric only
+ */
+bool TerminalNumberingDialog::isAlphanumeric() const
+{
+    return ui->rb_type_alpha->isChecked();
+}
+
+/**
+ * @brief TerminalNumberingDialog::alsoNumberLetters
+ * @return true if the "also number letters" checkbox is checked
+ */
+bool TerminalNumberingDialog::alsoNumberLetters() const
+{
+    return ui->cb_also_alpha->isChecked();
+}
+
+/**
+ * @brief TerminalNumberingDialog::excludedStrips
+ * @return List of terminal strip prefixes that should be excluded from numbering
+ */
+QStringList TerminalNumberingDialog::excludedStrips() const
+{
+    QStringList excluded;
+    QMapIterator<QString, QCheckBox*> it(m_stripCheckboxes);
+    while (it.hasNext()) {
+        it.next();
+        if (!it.value()->isChecked()) {
+            excluded.append(it.key());
+        }
+    }
+    return excluded;
+}
+
+/**
+ * @brief TerminalNumberingDialog::getUndoCommand
+ * Scans the given project for terminals, sorts them according to user preferences
+ * (X/Y axis, alphanumeric rules), and generates an undo command containing all label changes.
+ * @param project Pointer to the current QETProject
+ * @return QUndoCommand* containing the modifications, or nullptr if no changes are needed.
+ */
+QUndoCommand* TerminalNumberingDialog::getUndoCommand(QETProject *project) const {
+    if (!project) return nullptr;
+
+    bool axisX = isXAxisPriority();
+    bool alpha = isAlphanumeric();
+    bool alsoAlpha = alsoNumberLetters();
+    QStringList excluded = excludedStrips();
+
+    // 1. Helper structure to store and sort terminal data
+    struct TermInfo {
+        Element *elmt;
+        QString prefix;
+        QString suffix;
+        int folioIndex;
+        qreal x;
+        qreal y;
+    };
+    QList<TermInfo> termList;
+
+    // 2. Collect all terminals from all folios in the project
+    foreach (Diagram *diagram, terminalFolios(project)) {
+        int fIndex = diagram->folioIndex();
+        foreach (QGraphicsItem *qgi, diagram->items()) {
+            if (Element *elmt = qgraphicsitem_cast<Element *>(qgi)) {
+
+                // Check if the element is actually a terminal
+                if (elmt->elementData().m_type == ElementData::Terminal) {
+                    DiagramContext info = elmt->elementInformations();
+
+                    // Ignore locked terminals (if the user checked a 'lock' property)
+                    if (QET::infoFlagIsTrue(info.value(QStringLiteral("auto_num_locked")).toString())) {
+                        continue;
+                    }
+
+                    QString label = elmt->actualLabel();
+                    if (label.isEmpty()) continue;
+
+                    // Split prefix (e.g., "-X1") and suffix (e.g., "1" or "A")
+                    QString prefix = label;
+                    QString suffix = "";
+                    int colonIndex = label.lastIndexOf(':');
+                    if (colonIndex != -1) {
+                        prefix = label.left(colonIndex);
+                        suffix = label.mid(colonIndex + 1);
+                    }
+
+                    // Skip excluded terminal strips
+                    if (excluded.contains(prefix)) continue;
+
+                    // If user chose purely numeric, skip terminals with alphabetical suffixes
+                    if (!alpha && !suffix.isEmpty()) {
+                        bool isNum;
+                        suffix.toInt(&isNum);
+                        if (!isNum) continue;
+                    }
+
+                    TermInfo ti;
+                    ti.elmt = elmt;
+                    ti.prefix = prefix;
+                    ti.suffix = suffix;
+                    ti.folioIndex = fIndex;
+                    ti.x = elmt->pos().x();
+                    ti.y = elmt->pos().y();
+                    termList.append(ti);
+                }
+            }
+        }
+    }
+
+    // 3. Sort terminals based on user selection (X or Y axis priority)
+    std::sort(termList.begin(), termList.end(), [axisX](const TermInfo &a, const TermInfo &b) {
+        // First sort by BMK Prefix alphabetically (case insensitive)
+        int prefixCmp = a.prefix.compare(b.prefix, Qt::CaseInsensitive);
+        if (prefixCmp != 0) return prefixCmp < 0;
+
+        // Then sort by folio (page) index
+        if (a.folioIndex != b.folioIndex) return a.folioIndex < b.folioIndex;
+
+        // Finally sort by coordinates, rounded to whole pixels so that slight
+        // misalignments count as aligned (a tolerance test is not transitive,
+        // which std::sort requires)
+        const QPointF pa(a.x, a.y), pb(b.x, b.y);
+        return axisX ? PositionOrder::roundedXThenY(pa, pb)
+                     : PositionOrder::roundedYThenX(pa, pb);
+    });
+
+    // 4. Generate new numbering and create the undo command macro
+    QUndoCommand *macro = new QUndoCommand(QObject::tr("Automatic terminal numbering"));
+    QMap<QString, int> counters;
+
+    foreach (const TermInfo &ti, termList) {
+        // Increment the counter for this terminal block (e.g., "-X3")
+        counters[ti.prefix]++;
+        int newNum = counters[ti.prefix];
+
+        // Determine if the original suffix was a pure number
+        QString newLabel;
+        bool isNum;
+        ti.suffix.toInt(&isNum);
+
+        if (isNum || ti.suffix.isEmpty()) {
+            // If it was a number (e.g., "1") or empty, update it with the new counter
+            newLabel = ti.prefix + ":" + QString::number(newNum);
+        } else {
+            // Only append to purely alphabetic suffixes (N, PE), so re-running is a
+            // no-op and already-numbered suffixes (L1, L2, L3) keep their meaning.
+            const bool allLetters = !ti.suffix.isEmpty()
+                    && std::all_of(ti.suffix.cbegin(), ti.suffix.cend(),
+                                   [](QChar c){ return c.isLetter(); });
+            if (alsoAlpha && allLetters) {
+                newLabel = ti.prefix + ":" + ti.suffix + QString::number(newNum);
+            } else {
+                newLabel = ti.prefix + ":" + ti.suffix;
+            }
+        }
+
+        DiagramContext oldInfo = ti.elmt->elementInformations();
+        DiagramContext newInfo = oldInfo;
+        newInfo.addValue(QStringLiteral("label"), newLabel);
+
+        // Create an undo command only if the label actually changes
+        if (oldInfo != newInfo) {
+            new ChangeElementInformationCommand(ti.elmt, oldInfo, newInfo, macro);
+        }
+    }
+
+    // 5. Return the macro if it contains changes, otherwise delete and return null
+    if (macro->childCount() > 0) {
+        return macro;
+    } else {
+        delete macro;
+        return nullptr;
+    }
+}

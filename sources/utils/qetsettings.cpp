@@ -1,0 +1,447 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "qetsettings.h"
+#include <QSettings>
+#include <QVariant>
+#include <QByteArray>
+
+namespace QetSettings
+{
+	/**
+	* @brief setHdpiScaleFactorRoundingPolicy
+	* Write the value of HdpiScaleFactorRoundingPolicy in
+	* QElectroTech settings
+	* the value is in form of a string.
+	* @a policy can be : Round, Ceil, Floor, RoundPreferFloor, PassThrough
+	* In case of wrong policy, PassThrough is use as default value.
+	* The value is stored with key : hdpi_scale_factor_rounding_policy
+	* @sa Qt::HighDpiScaleFactorRoundingPolicy
+	* @param policy
+	*/
+	void setHdpiScaleFactorRoundingPolicy(const QString &policy_str)
+	{
+		auto policy = QString("PassThrough");
+		if (policy_str == QLatin1String("Round")) {
+			policy = "Round";
+		} else if (policy_str == QLatin1String("Ceil")) {
+			policy = "Ceil";
+		} else if (policy_str == QLatin1String("Floor")) {
+			policy = "Floor";
+		} else if (policy_str == QLatin1String("RoundPreferFloor")) {
+			policy = "RoundPreferFloor";
+		}
+		QSettings settings;
+		settings.setValue("hdpi_scale_factor_rounding_policy", policy);
+	}
+
+	/**
+	* @brief setHdpiScaleFactorRoundingPolicy
+	* Overload function
+	* @sa void setHdpiScaleFactorRoundingPolicy(const QString &policy_str)
+	* @param policy
+	*/
+	void setHdpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy policy)
+	{
+		QString policy_str;
+		switch (policy) {
+			case Qt::HighDpiScaleFactorRoundingPolicy::Round:
+				policy_str = "Round";
+				break;
+			case Qt::HighDpiScaleFactorRoundingPolicy::Ceil:
+				policy_str = "Ceil";
+				break;
+			case Qt::HighDpiScaleFactorRoundingPolicy::Floor:
+				policy_str = "Floor";
+				break;
+			case Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor:
+				policy_str = "RoundPreferFloor";
+				break;
+			default:
+				policy_str = "PassThrough";
+				break;
+		}
+
+		QSettings settings;
+		settings.setValue("hdpi_scale_factor_rounding_policy", policy_str);
+	}
+
+	/**
+	* @brief hdpiScaleFactorRoundingPolicy
+	* @param default_policy
+	* @return the hdpiScaleFactorRoundingPolicy value stored in current settings.
+	* @sa setHdpiScaleFactorRoundingPolicy
+	*/
+	Qt::HighDpiScaleFactorRoundingPolicy hdpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy default_policy)
+	{
+		QSettings settings;
+		auto value_ = settings.value("hdpi_scale_factor_rounding_policy");
+
+		if (value_ == QLatin1String("Round")) {
+			return Qt::HighDpiScaleFactorRoundingPolicy::Round;
+		} else if (value_ == QLatin1String("Ceil")) {
+			return Qt::HighDpiScaleFactorRoundingPolicy::Ceil;
+		} else if (value_ == QLatin1String("Floor")) {
+			return Qt::HighDpiScaleFactorRoundingPolicy::Floor;
+		} else if (value_ == QLatin1String("RoundPreferFloor")) {
+			return Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor;
+		} else if (value_ == QLatin1String("PassThrough")) {
+			return Qt::HighDpiScaleFactorRoundingPolicy::PassThrough;
+		} else {
+			return default_policy;
+		}
+	}
+
+	/**
+	* @brief scriptingForcedByEnvironment
+	* @return true if QET_ENABLE_SCRIPTING is set to 1 in the environment.
+	*
+	* The way to turn scripting on where there is nobody to tick a box:
+	* a headless run, a CI job, a build server. Those have no settings
+	* file worth writing to -- and on a machine whose HOME is created
+	* fresh for the run, writing one would not survive anyway.
+	*/
+	bool scriptingForcedByEnvironment()
+	{
+		return qgetenv("QET_ENABLE_SCRIPTING") == QByteArray("1");
+	}
+
+	/**
+	* @brief scriptingEnabled
+	* @return whether QElectroTech may run a JavaScript script.
+	*
+	* Off unless the user turned it on. A script reaches the whole project
+	* and the filesystem through the export calls, so it is capability the
+	* great majority of users never asked for; leaving it on by default
+	* would hand it to them anyway. @sa setScriptingEnabled
+	*
+	* The environment override wins over the stored value, and is checked
+	* first so that a machine with no settings at all still answers.
+	*/
+	bool scriptingEnabled()
+	{
+		if (scriptingForcedByEnvironment()) {
+			return true;
+		}
+		QSettings settings;
+		return settings.value("scripting/enabled", false).toBool();
+	}
+
+	/**
+	* @brief setScriptingEnabled
+	* Store whether scripting is allowed. @sa scriptingEnabled
+	* @param enabled
+	*/
+	void setScriptingEnabled(bool enabled)
+	{
+		QSettings settings;
+		settings.setValue("scripting/enabled", enabled);
+	}
+
+	/**
+	* @brief qetdbEnabled
+	* @return whether Save As offers a project as one SQLite file, .qetdb
+	* (QET-SQL-FORMAT S4a). Off unless the user turned it on, while the
+	* format is experimental. Opening a .qetdb does not need it.
+	* @sa setQetdbEnabled
+	*/
+	bool qetdbEnabled()
+	{
+		QSettings settings;
+		return settings.value("qetdb/enabled", false).toBool();
+	}
+
+	/**
+	* @brief setQetdbEnabled
+	* Store whether Save As offers .qetdb. @sa qetdbEnabled
+	* @param enabled
+	*/
+	void setQetdbEnabled(bool enabled)
+	{
+		QSettings settings;
+		settings.setValue("qetdb/enabled", enabled);
+	}
+
+	/**
+	* @brief workingCopyRecovery
+	* @return whether the next start offers, with the recovery files, the
+	* working copy of a project that was open when QElectroTech did not
+	* close normally: the project as it was after its last edit
+	* (QET-SQL-FORMAT S3z3). Off unless the user turned it on, while the
+	* .qetdb format is experimental. @sa setWorkingCopyRecovery
+	*/
+	bool workingCopyRecovery()
+	{
+		QSettings settings;
+		return settings.value("workingcopy/recovery", false).toBool();
+	}
+
+	/**
+	* @brief setWorkingCopyRecovery
+	* Store whether working copies are offered at the next start.
+	* @sa workingCopyRecovery
+	* @param enabled
+	*/
+	void setWorkingCopyRecovery(bool enabled)
+	{
+		QSettings settings;
+		settings.setValue("workingcopy/recovery", enabled);
+	}
+
+	/**
+	* @brief liveAssistantEnabled
+	* @return whether an AI assistant may connect to this QElectroTech and
+	* act on the open project while the user watches (live mode, see
+	* LiveServer). Off unless the user turned it on, and even then every
+	* start asks before anything can connect. No environment override:
+	* this is a choice made by the person in front of the window.
+	*/
+	bool liveAssistantEnabled()
+	{
+		QSettings settings;
+		return settings.value("scripting/live_assistant", false).toBool();
+	}
+
+	void setLiveAssistantEnabled(bool enabled)
+	{
+		QSettings settings;
+		settings.setValue("scripting/live_assistant", enabled);
+			//Turned off and on again: the start warning comes back, so
+			//"don't ask again" never outlives the choice it was made for
+		if (!enabled) settings.remove("scripting/live_skip_warning");
+	}
+
+	/**
+	* @brief liveSkipStartWarning
+	* @return true when the user ticked "don't ask again" in live mode's
+	* start warning: live mode then opens at every start without asking,
+	* until it is switched off in the settings. False unless they did.
+	*/
+	bool liveSkipStartWarning()
+	{
+		QSettings settings;
+		return settings.value("scripting/live_skip_warning", false).toBool();
+	}
+
+	void setLiveSkipStartWarning(bool skip)
+	{
+		QSettings settings;
+		settings.setValue("scripting/live_skip_warning", skip);
+	}
+
+	/**
+	* @brief liveAskFirst
+	* @return whether live mode shows each script the assistant wrote and
+	* asks before running it. On unless the user chose "always".
+	*/
+	bool liveAskFirst()
+	{
+		QSettings settings;
+		return settings.value("scripting/live_ask_first", true).toBool();
+	}
+
+	void setLiveAskFirst(bool ask)
+	{
+		QSettings settings;
+		settings.setValue("scripting/live_ask_first", ask);
+	}
+
+	/**
+	* @brief duplicateLabelsCaseSensitive
+	* @return whether K1 and k1 are different labels when looking for
+	* duplicates. Off by default: schemes rarely tell two devices apart by
+	* letter case alone.
+	* @sa setDuplicateLabelsCaseSensitive
+	*/
+	bool duplicateLabelsCaseSensitive()
+	{
+		QSettings settings;
+		return settings.value("duplicate_labels/case_sensitive", false).toBool();
+	}
+
+	void setDuplicateLabelsCaseSensitive(bool sensitive)
+	{
+		QSettings settings;
+		settings.setValue("duplicate_labels/case_sensitive", sensitive);
+	}
+
+	/**
+	* @brief houseStyle
+	* @return this installation's drawing conventions, in the user's own
+	* words -- empty when nobody has set any.
+	*/
+	QString houseStyle()
+	{
+		QSettings settings;
+		return settings.value("assistant/house_style", QString()).toString();
+	}
+
+	void setHouseStyle(const QString &text)
+	{
+		QSettings settings;
+		settings.setValue("assistant/house_style", text);
+	}
+
+	/**
+	* @brief setSheetBackground
+	* Store the sheet background last picked in the diagram editor, so the
+	* next start opens on it for every project, old or new. @sa sheetBackground
+	* @param background
+	*/
+	void setSheetBackground(const SheetBackground &background)
+	{
+		QSettings settings;
+		//HexRgb, not HexArgb, on purpose: Diagram::background_color is
+		//temporarily given an alpha of 0 by the SVG export to make the
+		//background transparent, and that transient value must never end
+		//up here as a stored transparent sheet.
+		settings.setValue(QStringLiteral("diagrameditor/sheet_background_color"),
+				  background.color.name(QColor::HexRgb));
+		settings.setValue(QStringLiteral("diagrameditor/sheet_background_custom"),
+				  background.custom);
+		settings.setValue(QStringLiteral("diagrameditor/sheet_colored_ink"),
+				  background.colored_ink);
+	}
+
+	/**
+	* @brief sheetBackground
+	* @return the sheet background stored by setSheetBackground(), or the
+	* built-in default (white, following the system) when there is none.
+	* @sa setSheetBackground
+	*/
+	SheetBackground sheetBackground()
+	{
+		QSettings settings;
+		SheetBackground background;
+		background.custom = settings.value(
+				QStringLiteral("diagrameditor/sheet_background_custom"),
+				false).toBool();
+		const QColor stored(settings.value(
+				QStringLiteral("diagrameditor/sheet_background_color"),
+				QStringLiteral("#ffffff")).toString());
+		background.color = stored.isValid() ? stored : QColor(Qt::white);
+		background.colored_ink = background.custom && settings.value(
+				QStringLiteral("diagrameditor/sheet_colored_ink"),
+				false).toBool();
+		return background;
+	}
+
+	/**
+	* @brief sheetBackgroundRecentColors
+	* @return the "recently used" sheet background colours, most recent
+	* first. Empty until the user has picked a non-preset colour.
+	* @sa setSheetBackgroundRecentColors
+	*/
+	QStringList sheetBackgroundRecentColors()
+	{
+		QSettings settings;
+		return settings.value(QStringLiteral("diagrameditor/sheet_background_recent")).toStringList();
+	}
+
+	/**
+	* @brief setSheetBackgroundRecentColors
+	* Store the "recently used" sheet background colours, most recent first.
+	* @sa sheetBackgroundRecentColors
+	* @param colors
+	*/
+	void setSheetBackgroundRecentColors(const QStringList &colors)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("diagrameditor/sheet_background_recent"), colors);
+	}
+
+	/**
+	* @brief theme
+	* @return the theme chosen in the settings; AsBefore when none was
+	* chosen, or when the stored value is not a theme this version knows.
+	* @sa setTheme
+	*/
+	Theme theme()
+	{
+		QSettings settings;
+		bool ok = false;
+		const int value = settings.value(QStringLiteral("theme"), 0).toInt(&ok);
+		if (!ok || value < 0 || value > static_cast<int>(Theme::Dark)) {
+			return Theme::AsBefore;
+		}
+		return static_cast<Theme>(value);
+	}
+
+	/**
+	* @brief setTheme
+	* Store the theme of the interface. @sa theme
+	* @param theme
+	*/
+	void setTheme(Theme theme)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("theme"), static_cast<int>(theme));
+	}
+
+	/**
+	* @brief themeIsDark
+	* @param theme : any theme but AsBefore, which the colour settings
+	* decide instead
+	* @param system_is_dark : whether the system is in dark mode now
+	* @return true when @p theme draws the interface in dark colours
+	*/
+	bool themeIsDark(Theme theme, bool system_is_dark)
+	{
+		return theme == Theme::Dark
+				|| (theme == Theme::System && system_is_dark);
+	}
+
+	/**
+	* @brief commandTabs
+	* @return true when the diagram editor shows its commands in tabs
+	* grouped by task instead of the classic toolbars. Off by default.
+	* @sa setCommandTabs
+	*/
+	bool commandTabs()
+	{
+		QSettings settings;
+		return settings.value(QStringLiteral("diagrameditor/command_tabs"), false).toBool();
+	}
+
+	/**
+	* @brief setCommandTabs
+	* @param on : see commandTabs()
+	*/
+	void setCommandTabs(bool on)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("diagrameditor/command_tabs"), on);
+	}
+
+	/**
+	* @brief commandTabsHideMenuBar
+	* @return true when the command tabs also hide the classic menu bar;
+	* every menu stays reachable from the File tab. Off by default.
+	*/
+	bool commandTabsHideMenuBar()
+	{
+		QSettings settings;
+		return settings.value(QStringLiteral("diagrameditor/command_tabs_hide_menu_bar"), false).toBool();
+	}
+
+	void setCommandTabsHideMenuBar(bool hide)
+	{
+		QSettings settings;
+		settings.setValue(QStringLiteral("diagrameditor/command_tabs_hide_menu_bar"), hide);
+	}
+}

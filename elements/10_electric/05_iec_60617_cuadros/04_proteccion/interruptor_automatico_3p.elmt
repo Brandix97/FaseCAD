@@ -1,0 +1,71 @@
+<definition height="60" hotspot_x="24" hotspot_y="30" link_type="master" type="element" version="0.200.1" width="80">
+    <uuid uuid="{f348862f-e6d1-44a3-aa50-33d4dcfc2e6a}"/>
+    <names>
+        <name lang="de">Leitungsschutzschalter (thermisch-magnetisch), 3-polig</name>
+        <name lang="en">Circuit breaker (thermal-magnetic), 3 poles</name>
+        <name lang="es">Interruptor automático magnetotérmico, 3 polos</name>
+        <name lang="fr">Disjoncteur magnétothermique, 3 pôles</name>
+        <name lang="it">Interruttore magnetotermico, 3 poli</name>
+        <name lang="pt">Disjuntor magnetotérmico, 3 polos</name>
+        <name lang="tr">Termik-manyetik devre kesici, 3 kutuplu</name>
+        <name lang="zh">热磁式断路器，3极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{019aa5a6-f296-4cb9-b329-0355cdd120db}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{d5f508c1-a58f-4c12-a6ac-8716a212638f}" x1="12" x2="8" y1="-6" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{a7a3670c-825a-4296-8a4c-28d23aa8f80c}" x1="32" x2="28" y1="-6" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{a48efcbd-f2ad-4e93-8e1b-b05bdff2a244}" x1="0" x2="0" y1="10" y2="20"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{add55620-e7b5-4116-ab11-fa06f2733cc4}" x1="-8" x2="-12" y1="-6" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{142a661d-5c18-46b3-b263-a2b778dce151}" x1="28" x2="26" y1="-4" y2="-8"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{00670c3b-720a-40e4-aa7e-d3448bd54411}" x1="26" x2="22" y1="-8" y2="-6"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{7fd0812c-e426-5e08-8fb9-a5c798317b95}" x="-35" y="-10.49" z="8">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{aeef4953-3385-4c75-98f6-8129fada4878}" x1="8" x2="6" y1="-4" y2="-8"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{5ba32366-d981-4172-aa31-5dbb7cb907f3}" x1="-12" x2="-14" y1="-4" y2="-8"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{f4361137-bc36-434b-aff0-479a96460cca}" x1="22" x2="24" y1="-6" y2="-2"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{62aadaa6-6a3e-4001-aae9-bbc4dc94ee1b}" x1="24" x2="20" y1="-2" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{26175ede-059e-41da-9aa0-2dc977b23f2d}" x1="6" x2="2" y1="-8" y2="-6"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{26835348-b56c-4f09-aa6c-90a6cece8185}" x1="36" x2="28" y1="2" y2="6"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{4c893273-25f9-4fec-9680-18adaae2bcc4}" x="-29" y="-22" z="14">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{5fe76397-aa54-4238-a6de-b7671c8984b5}" x1="-14" x2="-18" y1="-8" y2="-6"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{500026f1-7840-417a-aa3a-40ed69e3762c}" x="-29" y="-2" z="14">
+            <text></text>
+            <info_name>manufacturer_reference</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{e63c872f-3fdf-4284-a17f-fd8d2fc3eb61}" x1="2" x2="4" y1="-6" y2="-2"/>
+        <polygon antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" uuid="{cc6318c8-0945-4d44-aad4-3ea40610b3dd}" x1="26" x2="29" x3="24" y1="4" y2="9" y3="9"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{f4924196-f254-4222-a77d-d9f06465011c}" x1="40" x2="30" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{a62200c0-080d-46ce-b523-e3ced3b71585}" x1="-18" x2="-16" y1="-6" y2="-2"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{b1a6e8ae-0893-4c8c-b6bb-cb357d38b0a6}" x1="13" x2="22" y1="-4" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{16e6be24-9128-4043-a4e5-c46411da34c9}" x1="-16" x2="-20" y1="-2" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{00ce3009-2cfd-4ebb-a359-e99431898b99}" x1="4" x2="0" y1="-2" y2="0"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{e06b1aa5-45cc-4046-93b8-04fbf2e0d62f}" x1="0" x2="-10" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{10260d29-c740-4459-bb48-d10d3f54f846}" x1="20" x2="20" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{107de354-b840-4b40-8c2c-f1196743ebc3}" x1="-4" x2="-12" y1="2" y2="6"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{ce3a7908-08b1-432f-96a7-e1cc8ec12ff7}" x1="16" x2="8" y1="2" y2="6"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{558e4144-bd44-4e4b-b7af-487d1a312456}" x1="20" x2="20" y1="10" y2="20"/>
+        <polygon antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" uuid="{bf7c55ac-8a37-4684-a79f-adb4fb906931}" x1="-14" x2="-11" x3="-16" y1="4" y2="9" y3="9"/>
+        <polygon antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" uuid="{f7dbc672-f386-4757-9ce2-4e172835754f}" x1="6" x2="9" x3="4" y1="4" y2="9" y3="9"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{347943bb-4477-412f-9119-d100913e0f91}" x1="20" x2="10" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{ca43a5f9-2339-4cb6-966d-2d7c1eb9f21b}" x1="-7" x2="2" y1="-4" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{a01d67bf-75dd-4bb1-9595-e7764ef1af9c}" x1="40" x2="40" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{c701f97f-c3dd-4944-a564-06592d7a1da9}" x1="40" x2="40" y1="10" y2="20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="2" orientation="s" show_name="true" type="Generic" uuid="{acdfb563-18f5-50d6-9311-0f744e9a5fe8}" x="0" y="20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{624de5dd-3ad5-5ddd-8484-49bf8698d70b}" x="0" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="3" orientation="n" show_name="true" type="Generic" uuid="{3661f2a5-60ed-5057-b361-1aa6a1d0a0c6}" x="20" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="5" orientation="n" show_name="true" type="Generic" uuid="{b96535bd-6acc-5a2f-bf48-34307c3dc6ad}" x="40" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="4" orientation="s" show_name="true" type="Generic" uuid="{e771e39a-a4fb-5729-8119-b281753da828}" x="20" y="20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="6" orientation="s" show_name="true" type="Generic" uuid="{c682be47-2aa9-5795-af24-0abfd3eea61e}" x="40" y="20"/>
+    </description>
+</definition>

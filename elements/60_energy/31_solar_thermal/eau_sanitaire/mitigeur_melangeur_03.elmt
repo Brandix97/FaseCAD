@@ -1,0 +1,72 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="20" hotspot_y="30">
+    <uuid uuid="{c44280e8-e1ef-8c30-ceea-a1c54670eca1}"/>
+    <names>
+        <name lang="ar">خلاّط 03 ECS</name>
+        <name lang="ca">Mesclador 03 ECS</name>
+        <name lang="cs">Směšovač 03 ECS</name>
+        <name lang="da">Blander 03 VVB</name>
+        <name lang="de">Mischer 03 ECS</name>
+        <name lang="el">Μίκτης 03 ΖΝΧ</name>
+        <name lang="en">Mixer 03 ECS</name>
+        <name lang="es">Mezclador 03 ECS</name>
+        <name lang="fi">Sekoittaja 03 LKV</name>
+        <name lang="fr">Mitigeur 03 ECS</name>
+        <name lang="hr">Miješalica 03 PTV</name>
+        <name lang="hu">Keverő 03 HMV</name>
+        <name lang="it">Valvola miscelatrice ACS 3</name>
+        <name lang="ja">混合水栓 03 ECS</name>
+        <name lang="ko">믹서 03 ECS</name>
+        <name lang="mn">Холигч 03 ECS</name>
+        <name lang="nb">Blander 03 ECS</name>
+        <name lang="nl">Mengklep 3</name>
+        <name lang="nl_BE">Mengkraan 03 SWW</name>
+        <name lang="pl">Mieszacz CWU</name>
+        <name lang="pt">Misturadora 03 AQS</name>
+        <name lang="pt_BR">Mixer 03 ECS</name>
+        <name lang="ro">Baterie 03 ACM</name>
+        <name lang="ru">Смеситель 03 ГВС</name>
+        <name lang="sk">Zmiešavač 03 TÚV</name>
+        <name lang="sl">Mešalna baterija 03 ECS</name>
+        <name lang="sr">Мешалица 03 ECS</name>
+        <name lang="sv">Blandare 03 VV</name>
+        <name lang="tr">Mikser 03 ECS</name>
+        <name lang="uk">Змішувач 03 ГВП</name>
+        <name lang="zh">混合阀03</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-3" y1="10" x2="3" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7" y="-46.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7a847af1-65af-489e-b016-19d5e9107279}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="-3" x2="10" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-3" x2="-10" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="12" x2="-4" y2="12" x3="-4" y3="10" x4="-3" y4="10" x5="-3" y5="3" x6="-10" y6="3" x7="-10" y7="4" x8="-12" y8="4" x9="-12" y9="-4" x10="-10" y10="-4" x11="-10" y11="-3" x12="10" y12="-3" x13="10" y13="-4" x14="12" y14="-4" x15="12" y15="4" x16="10" y16="4" x17="10" y17="3" x18="3" y18="3" x19="3" y19="10" x20="4" y20="10" x21="4" y21="12" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="7" y1="0" x2="5" y2="-2" x3="5" y3="2" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-1" y1="6" x2="1" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-1" x2="-5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-18" x2="7" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-18" x2="-7" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-7" y="-19.5" width="14" height="3" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-7" y="-11" width="14" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5" y1="-16" x2="5" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="Mitigeur" x="-11" y="-24" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="3" y1="-16" x2="3" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1" y1="-16" x2="1" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="-16" x2="-3" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-16" x2="-5" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1" y1="-16" x2="-1" y2="-12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-8" y="-14" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{24227827-a93d-4338-b316-ea9a2d56a279}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>°C</text>
+        </dynamic_text>
+        <line x1="1" y1="8" x2="-1" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="0" x2="-7" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-1" x2="-8" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ab9ebddd-ae68-4f3d-9221-7b6c8d2dc016}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{c25768f3-5360-4895-956d-dcd33af0bd40}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{0034d1f1-df61-40e9-a4a6-d4fe1bdfbda5}" name="" x="0" y="12" orientation="s" type="Generic"/>
+    </description>
+</definition>

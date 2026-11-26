@@ -1,0 +1,73 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="40" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{67b0d145-a0bc-a0c4-09fe-8054d365939f}"/>
+    <names>
+        <name lang="ar">ثايريستور بوابة N</name>
+        <name lang="ca">Tiristor de tríode de bloqueig invers, porta N</name>
+        <name lang="cs">Triodový tyristor blokující obráceně, brána N (řízeno na straně anody)</name>
+        <name lang="da">Spærrende triodethyristor,
+ N-gate</name>
+        <name lang="de">rückwärts sperrende Thyristortriode, N-Gate
+(Anode gesteuert)</name>
+        <name lang="el">Θυρίστορ τριοδικό ανάστροφης αποκοπής,
+ πύλη N</name>
+        <name lang="en">Reverse blocking triode thyristor,
+ N-gate</name>
+        <name lang="es">Tiristor triodo de bloqueo inverso,
+ puerta N</name>
+        <name lang="fi">Estosuunnassa estävä triodityristori,
+ N-hila</name>
+        <name lang="fr">Thyristor triode bloqué en inverse, gâchette N
+(commandé côté anode)</name>
+        <name lang="hr">Reverzno blokirajući triodni tiristor,
+ N-upravljački</name>
+        <name lang="hu">Záróirányú trióda tirisztor,
+ N-vezérlőelektróda</name>
+        <name lang="it">Tiristore triodo bloccato nel senso inverso di conduzione, porta N (controllato sull’anodo)</name>
+        <name lang="ja">逆阻止三極サイリスタ、
+ Nゲート</name>
+        <name lang="ko">역방향 차단 3극 사이리스터,
+ N-게이트</name>
+        <name lang="mn">Урвуу хаах триод тиристор,
+ N-хаалга</name>
+        <name lang="nb">Reverssperrende triodetyristor,
+ N-gate</name>
+        <name lang="nl">Thyristor N gate</name>
+        <name lang="nl_BE">Sperthyristor triode,
+ N-gate</name>
+        <name lang="pl">Tyrystor triodowy blokujący wstecznie z bramką N</name>
+        <name lang="pt">Tiristor triodo de bloqueio inverso,
+ porta N</name>
+        <name lang="pt_BR">Tiristor triodo de bloqueio reverso, porta N (controlado pelo ânodo)</name>
+        <name lang="ro">Tiristor triodă cu blocare inversă,
+ poartă N</name>
+        <name lang="ru">Обратно запирающий триодный тиристор,
+ N-управление</name>
+        <name lang="sk">Triódový tyristor s reverzným blokovaním,
+ N-hradlo</name>
+        <name lang="sl">Povratno zaporni triodni tiristor,
+ N-vrata</name>
+        <name lang="sr">Повратно непроводни триодни тиристор,
+ N-гејт</name>
+        <name lang="sv">Spärrbacktriodtyristor,
+ N-gate</name>
+        <name lang="tr">Ters bloklama triyot tristör,
+ N-kapı</name>
+        <name lang="uk">Зворотноблокуючий триодний тиристор,
+ N-керування</name>
+        <name lang="zh">晶闸管_5</name>
+    </names>
+    <informations>EN 60617: 05-04-05</informations>
+    <description>
+        <dynamic_text x="18" y="-23.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4288f427-f476-440b-8eaa-5e9f47125756}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="0" y1="-20" x2="4" y2="-20" x3="8" y3="-15" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-20" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-15" x2="15" y2="-15" x3="10" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b394e9b9-f10d-4f1d-b06e-fbfbf32ea9a8}" name="" x="10" y="0" orientation="s" type="Generic"/>
+        <terminal uuid="{e6ce18e6-f10e-4f9a-bae9-697c4e0ff6dd}" name="" x="0" y="-20" orientation="w" type="Generic"/>
+        <terminal uuid="{e8d7b967-52fd-43e6-9ee4-ef5a79014828}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

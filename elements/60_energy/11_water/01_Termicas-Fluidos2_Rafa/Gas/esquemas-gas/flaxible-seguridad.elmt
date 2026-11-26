@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="40" hotspot_y="10">
+    <uuid uuid="{7f5daa6a-cd09-0045-9cf1-649e5b3af72b}"/>
+    <names>
+        <name lang="ca">lexible amb seguretat</name>
+        <name lang="es">Flexible con seguridad</name>
+        <name lang="pt_BR">Flexible con seguridad</name>
+        <name lang="zh">安全软管</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-14" y="-5" width="8" height="5" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="2" y="-5" width="8" height="5" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-14" y="-5" width="8" height="5" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-22" y="-5" width="8" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-30" y1="0" x2="-26.88" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.73" y1="0" x2="9.37" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-6" y="-5" width="8" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-30" y="-5" width="8" height="5" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="5" y="0" width="3" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <dynamic_text x="-16" y="-21" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0efdb085-94f5-4869-9f52-8e468406a326}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3ca9aa15-e86d-41db-a47e-f2305846ee98}" name="" x="10" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{ce3a4183-4aae-4b50-87bd-165be5b64e23}" name="" x="-30" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

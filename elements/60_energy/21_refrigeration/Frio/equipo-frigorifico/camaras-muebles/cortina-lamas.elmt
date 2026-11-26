@@ -1,0 +1,22 @@
+<definition version="0.100.0" type="element" link_type="simple" width="140" height="70" hotspot_x="69" hotspot_y="36">
+    <uuid uuid="{85e2ddfc-fa84-b7e2-bafc-c6be1cf06874}"/>
+    <names>
+        <name lang="ca">Cortina lames</name>
+        <name lang="es">Cortina lamas</name>
+        <name lang="pt_BR">Coutina lamas</name>
+        <name lang="zh">百叶帘</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-34" y1="-1" x2="-34" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="1" y="-32" width="67" height="61" start="90" angle="180" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-67" y="-32" width="67" height="61" start="270" angle="180" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-45" y="-3" width="11" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="35" y="-3" width="11" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="34" y1="-1" x2="34" y2="29" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="35" y="-20" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b3bc19e7-f738-4d3c-a03f-d9046d2e646d}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,95 @@
+<definition version="0.100.0" type="element" link_type="master" width="80" height="70" hotspot_x="47" hotspot_y="33">
+    <uuid uuid="{18537d5f-5eac-0f3a-e3ed-f7c389126947}"/>
+    <names>
+        <name lang="ar">Switch with LED</name>
+        <name lang="ca">Interruptor amb LED</name>
+        <name lang="cs">Switch with LED</name>
+        <name lang="da">Kontakt med LED</name>
+        <name lang="de">Switch with LED</name>
+        <name lang="el">Διακόπτης με LED</name>
+        <name lang="en">Switch with LED</name>
+        <name lang="es">Switch with LED</name>
+        <name lang="fi">Kytkin LEDillä</name>
+        <name lang="fr">Switch with LED</name>
+        <name lang="hr">Sklopka s LED</name>
+        <name lang="hu">Kapcsoló LED-del</name>
+        <name lang="it">Switch with LED</name>
+        <name lang="ja">LED付きスイッチ</name>
+        <name lang="ko">LED 스위치</name>
+        <name lang="mn">LED-тэй унтраалга</name>
+        <name lang="nb">Bryter med LED</name>
+        <name lang="nl">Switch with LED</name>
+        <name lang="nl_BE">Schakelaar met LED</name>
+        <name lang="pl">Switch with LED</name>
+        <name lang="pt">Interruptor com LED</name>
+        <name lang="pt_BR">Interruptor com LED</name>
+        <name lang="ro">Comutator cu LED</name>
+        <name lang="ru">Выключатель со светодиодом</name>
+        <name lang="sk">Spínač s LED</name>
+        <name lang="sl">Stikalo z LED</name>
+        <name lang="sr">Прекидач са ЛЕД</name>
+        <name lang="sv">Brytare med lysdiod</name>
+        <name lang="tr">LED'li şalter</name>
+        <name lang="uk">Перемикач зі світлодіодом</name>
+        <name lang="zh">带灯开关（绿色）</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">commutator</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="13" y="-2" width="14" height="14" style="line-style:normal;line-weight:normal;filling:green;color:black" antialias="true"/>
+        <polygon x1="-15" y1="-5" x2="0" y2="15" x3="0" y3="25" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-8" y1="5" x2="-27" y2="5" x3="-29" y3="10" x4="-31" y4="5" x5="-41" y5="5" closed="false" antialias="false" style="line-style:dotted;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-15" x2="0" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-20" y1="-20" x2="-20" y2="-3" x3="-12" y3="-3" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="20" y1="-15" x2="20" y2="-2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="12" x2="20" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-22.5" y="-22.5" width="5" height="5" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="15" y1="0" x2="25" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="17.5" y="27.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18" y="-24" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{6d505496-2664-83a7-bdda-72fef239d328}" font="Liberation Sans,7,-1,5,0,0,0,0,0,0,Regular">
+            <text>+</text>
+        </dynamic_text>
+        <dynamic_text x="35" y="-5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="true" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{5428e289-b66f-bf41-895e-e2191afdc3dc}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="5" y="-23" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{8d0ed719-d32f-d321-de9b-6ed05ac850e4}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text>X1</text>
+        </dynamic_text>
+        <dynamic_text x="4" y="14" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{3fda6bf4-2e31-9d0d-ae97-8c2e86b7d62c}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text>X2</text>
+        </dynamic_text>
+        <dynamic_text x="-35" y="-23" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{9eec2eca-d738-3fb5-6bee-d44425614610}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-15" y="-23" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{a555f4c3-f459-5563-8c13-40e524502152}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="-14" y="14" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{793701a8-2e80-1cbe-ccaa-d12791da2fc0}" font="Liberation Sans,6,-1,5,0,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <line x1="15" y1="10" x2="25" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="17.5" y="-22.5" width="5" height="5" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="27.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2.5" y="-22.5" width="5" height="5" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-41" y1="0" x2="-41" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-45" y="0" width="8" height="10" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-33" y1="30" x2="-33" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="30" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-33" y1="-20" x2="-23" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="-20" x2="-3" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-20" x2="17" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="-20" x2="30" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="30" x2="30" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17" y1="30" x2="3" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-33" y1="30" x2="-3" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{447eefe7-6884-42ae-0cdb-5680b9061cef}" name="" x="-20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{e4f6e190-c60a-1ad8-0538-df15506178e9}" name="" x="20" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{396d1bd6-dd3a-ab08-2678-98061e723d66}" name="" x="20" y="30" orientation="s" type="Generic"/>
+        <terminal uuid="{e8e2c88f-cc6d-b7f1-a859-c812328cf85f}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{ce1a2687-4f8d-e4ed-aac9-bd13432036f7}" name="" x="0" y="30" orientation="s" type="Generic"/>
+    </description>
+</definition>

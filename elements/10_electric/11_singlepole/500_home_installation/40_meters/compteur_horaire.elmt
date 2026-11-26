@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="20" hotspot_y="34">
+    <uuid uuid="{4fccca52-165a-d447-d478-a75aaa1d736a}"/>
+    <names>
+        <name lang="ar">عدّاد زمني</name>
+        <name lang="ca">Comptador d'hores</name>
+        <name lang="cs">Měřič provozních hodin</name>
+        <name lang="da">Timetæller</name>
+        <name lang="de">Betriebsstundenzähler</name>
+        <name lang="el">Ωρόμετρο</name>
+        <name lang="en">Hour counter</name>
+        <name lang="es">Contador horario</name>
+        <name lang="fi">Tuntilaskuri</name>
+        <name lang="fr">Compteur horaire</name>
+        <name lang="hr">Brojilo radnih sati</name>
+        <name lang="hu">Üzemóra számláló</name>
+        <name lang="it">Conta tempo</name>
+        <name lang="ja">アワーカウンター</name>
+        <name lang="ko">시간 카운터</name>
+        <name lang="mn">Цаг тоолуур</name>
+        <name lang="nb">Timeteller</name>
+        <name lang="nl">Bedrijfsurenteller</name>
+        <name lang="nl_BE">Urenteller</name>
+        <name lang="pl">Licznik godzin</name>
+        <name lang="pt">Contador horário</name>
+        <name lang="pt_BR">Contador de horas</name>
+        <name lang="ro">Contor de ore</name>
+        <name lang="ru">Счетчик моточасов</name>
+        <name lang="sk">Počítadlo hodín</name>
+        <name lang="sl">Števec obratovalnih ur</name>
+        <name lang="sr">Бројило радних сати</name>
+        <name lang="sv">Timmätare</name>
+        <name lang="tr">Saat sayacı</name>
+        <name lang="uk">Лічильник годин</name>
+        <name lang="zh">计时器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="h" x="-3" y="2.33" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="18" y="-21.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3c03b9bc-284c-419e-bfaa-92132ba93dc4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-11" width="30" height="22" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-19" width="30" height="8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b6db9876-20e3-4f5c-85df-e1dbeedc5449}" name="" x="0" y="-23" orientation="n" type="Generic"/>
+        <terminal uuid="{4ae01a6c-29d1-4e8b-8ed1-bb8e4af00cd5}" name="" x="0" y="15" orientation="s" type="Generic"/>
+    </description>
+</definition>

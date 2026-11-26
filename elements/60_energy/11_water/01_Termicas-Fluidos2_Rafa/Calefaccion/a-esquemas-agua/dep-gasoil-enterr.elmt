@@ -1,0 +1,38 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="60" hotspot_x="63" hotspot_y="31">
+    <uuid uuid="{64c47bc4-5a77-8b35-b304-02604ed5f568}"/>
+    <names>
+        <name lang="ar">خزان ديزل تحت أرضي</name>
+        <name lang="ca">Dipòsit de gasoil subterrani</name>
+        <name lang="cs">Zemní nádrž na topný olej</name>
+        <name lang="da">Cuve à gazoil enterrée</name>
+        <name lang="de">Erdöl-Tank</name>
+        <name lang="el">Υπόγεια δεξαμενή πετρελαίου</name>
+        <name lang="en">Buried oil tank</name>
+        <name lang="es">Depósito gasoil enterrado</name>
+        <name lang="fr">Cuve à gazoil enterrée</name>
+        <name lang="pt_BR">Depósito gasoil enterrado</name>
+        <name lang="zh">埋地柴油罐</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-53" y="-11" width="8" height="30" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-49" y="-11" width="70" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="-18" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3" y="-21" width="3" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="4" y1="-21" x2="3" y2="-21" x3="3" y3="-23" x4="9" y4="-26" x5="10" y5="-25" x6="5" y6="-22" x7="6" y7="-22" x8="6" y8="-21" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="6" y="-20" width="3" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4" y1="-15.84" x2="4" y2="14.82" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="17" y="-11" width="8" height="30" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-4" y="-15" width="16" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="-16" width="20" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-53" y1="3" x2="25" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-34" y="-2" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{edec62d5-9ae4-4cb1-8e28-664fafbae2bf}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-57" y="-15" width="88" height="39" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{c0fc8b64-2f11-4ed0-8027-337c5f64f394}" name="" x="10" y="-19" orientation="e" type="Generic"/>
+        <terminal uuid="{9eadefb5-2f91-4398-9287-f959cd82e395}" name="" x="-3" y="-18" orientation="n" type="Generic"/>
+    </description>
+</definition>

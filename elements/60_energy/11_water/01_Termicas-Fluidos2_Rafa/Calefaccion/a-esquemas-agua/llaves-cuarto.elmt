@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="30" hotspot_x="30" hotspot_y="22">
+    <uuid uuid="{aa0c71d1-1f2c-89c9-152d-0fb41732e5f7}"/>
+    <names>
+        <name lang="ar">صنبور ترطيب الغرفة</name>
+        <name lang="ca">Aixeta de l'habitació humida</name>
+        <name lang="cs">Kohout s termostatickou hlavicí</name>
+        <name lang="da">rumfugtarmatur</name>
+        <name lang="de">Raumfeuchtehahn</name>
+        <name lang="el">Βρύση υγρασίας χώρου</name>
+        <name lang="en">room damp faucet</name>
+        <name lang="es">Llaves cuarto húmedo</name>
+        <name lang="fi">Huoneen kosteushana</name>
+        <name lang="hr">Sobna slavina s ovlaživačem</name>
+        <name lang="hu">Helyiségi keverőcsap</name>
+        <name lang="it">Rubinetto miscelatore ambiente</name>
+        <name lang="ja">室内加湿栓</name>
+        <name lang="ko">실내 온수 밸브</name>
+        <name lang="mn">Өрөөний чийгшлийн кран</name>
+        <name lang="nb">rom damp kran</name>
+        <name lang="nl">Kamerontvochtiger</name>
+        <name lang="nl_BE">Kamerafsluiter</name>
+        <name lang="pl">Zawór termostatyczny</name>
+        <name lang="pt">Torneira de humidade ambiente</name>
+        <name lang="pt_BR">room damp faucet</name>
+        <name lang="ro">Robinet de cameră umedă</name>
+        <name lang="ru">Кран влажного помещения</name>
+        <name lang="sk">Izbový tlmiaci kohútik</name>
+        <name lang="sl">Pipa za vlaženje prostora</name>
+        <name lang="sr">Славина за влажну просторију</name>
+        <name lang="sv">Rumsfuktig kran</name>
+        <name lang="tr">Oda nemli musluğu</name>
+        <name lang="uk">Кран кімнатної вологості</name>
+        <name lang="zh">房间阀门</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-9.83" y1="-5" x2="-9.83" y2="-14.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="0" x2="-11.1" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="-10" x2="16.9" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.83" y1="5" x2="-9.83" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11" y1="0" x2="16.95" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.3" y1="-5" x2="9.3" y2="-14.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.3" y1="5" x2="9.3" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.83" y1="-14.92" x2="9.07" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.83" y1="-4.92" x2="9.07" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.83" y1="5" x2="9.07" y2="-4.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.38" y1="-0.2" x2="-0.38" y2="-9.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.38" y1="-10.2" x2="-0.38" y2="-19.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.1" y1="-19.18" x2="4.35" y2="-19.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17" y1="-10" x2="-11.1" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-15" x2="-10" y2="-5" x3="9" y3="-15" x4="9" y4="-5" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <dynamic_text x="-8" y="6.5" z="16" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{809506a1-6d02-4b53-9508-205c79fb72a6}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{0ac0093a-4d7d-44e9-9ddf-ccdad8429013}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{a2a7df1b-d023-4e69-aa3b-e8f26dfc9b82}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{9c02178e-a47f-43e9-907a-cba2836795cf}" name="" x="-20" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{eb3d29fa-352a-4612-b840-107ebe3c226b}" name="" x="20" y="-10" orientation="e" type="Generic"/>
+    </description>
+</definition>

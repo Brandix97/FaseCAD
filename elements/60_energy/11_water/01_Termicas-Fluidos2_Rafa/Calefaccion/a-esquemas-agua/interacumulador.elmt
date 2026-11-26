@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="80" hotspot_x="35" hotspot_y="44">
+    <uuid uuid="{e1284fb8-90e1-86ad-519d-d13f169e5a66}"/>
+    <names>
+        <name lang="ca">Interacumulador</name>
+        <name lang="es">Interacumulador</name>
+        <name lang="pt_BR">Interacumuladou</name>
+        <name lang="zh">中间蓄热器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="20" y1="-30" x2="20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-35" width="40" height="10" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-20" y="16" width="40" height="10" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-20" y1="-30" x2="-20" y2="21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-20" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{89c4a73f-ecdb-481a-bcca-c465f1796942}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-24" y1="-6" x2="10" y2="-6" x3="-10" y3="0" x4="10" y4="6" x5="-24" y5="6" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{549cbc31-35ca-4c8f-b06d-7cc90c0fbad6}" name="" x="0" y="27" orientation="s" type="Generic"/>
+        <terminal uuid="{0647d6ed-9f77-4a0e-90cf-e46929903b24}" name="" x="0" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{ba72621a-a592-438f-8064-870b0ba99376}" name="" x="-25" y="-6" orientation="w" type="Generic"/>
+        <terminal uuid="{b502e25e-1909-4960-8e81-90c2d65a4dde}" name="" x="-25" y="6" orientation="w" type="Generic"/>
+    </description>
+</definition>

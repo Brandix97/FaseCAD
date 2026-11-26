@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{4cf03653-3e57-8c4a-9b93-c90c8a125190}"/>
+    <names>
+        <name lang="ar">سطح ساخن</name>
+        <name lang="ca">superfície calenta</name>
+        <name lang="cs">Horký povrch</name>
+        <name lang="da">varm overflade</name>
+        <name lang="de">Hinweis heiße Oberfläche klein</name>
+        <name lang="el">Θερμή επιφάνεια</name>
+        <name lang="en">hot surface</name>
+        <name lang="es">superficie caliente</name>
+        <name lang="fi">kuuma pinta</name>
+        <name lang="fr">Surface chaude</name>
+        <name lang="hr">vruća površina</name>
+        <name lang="hu">forró felület</name>
+        <name lang="it">Superfice calda</name>
+        <name lang="ja">高温表面</name>
+        <name lang="ko">고온 표면</name>
+        <name lang="mn">халуун гадаргуу</name>
+        <name lang="nb">varm overflate</name>
+        <name lang="nl">Gevaar heet</name>
+        <name lang="nl_BE">hete oppervlakte</name>
+        <name lang="pl">Gorąca powierzchnia</name>
+        <name lang="pt">superfície quente</name>
+        <name lang="pt_BR">hot surface</name>
+        <name lang="ro">suprafață fierbinte</name>
+        <name lang="ru">горячая поверхность</name>
+        <name lang="sk">horúci povrch</name>
+        <name lang="sl">vroča površina</name>
+        <name lang="sr">врућа површина</name>
+        <name lang="sv">het yta</name>
+        <name lang="tr">Sıcak yüzey</name>
+        <name lang="uk">гаряча поверхня</name>
+        <name lang="zh">高温表面1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-4.5" y="8.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{81bfa63d-84a5-4176-8730-e0bcc9e835c6}" font="Liberation Sans,1,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-4" y1="7" x2="4" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="1" y="-1.75" width="2" height="3.5" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="1" y="1.75" width="2" height="3.5" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-1" y="-1.75" width="2" height="3.5" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-3" y="-1.75" width="2" height="3.5" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="0" y1="-10" x2="-10" y2="10" x3="10" y3="10" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-1" y="1.75" width="2" height="3.5" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-3" y="1.75" width="2" height="3.5" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

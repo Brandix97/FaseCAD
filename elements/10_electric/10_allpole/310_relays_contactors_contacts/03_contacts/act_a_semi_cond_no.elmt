@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="60" hotspot_x="32" hotspot_y="31">
+    <uuid uuid="{90c44800-72bf-9300-3689-42f7a24e3256}"/>
+    <names>
+        <name lang="ar">جهاز فصل إلكتروني بملامس NO</name>
+        <name lang="ca">Dispositiu de commutació electrònic amb contacte N/O</name>
+        <name lang="cs">Elektronicky řízený kontakt (NO)</name>
+        <name lang="da">Elektronisk koblingsenhed med NO-kontakt</name>
+        <name lang="de">Schliesser Halbleiter betätigt</name>
+        <name lang="el">Ηλεκτρονική διάταξη διακοπής με ανοικτή επαφή</name>
+        <name lang="en">Electronic switching device with N/O contact</name>
+        <name lang="es">Dispositivo de conmutado electrónico con contacto NA</name>
+        <name lang="fi">Elektroninen kytkinlaite, NO-kosketin</name>
+        <name lang="fr">Dispositif de commande à semi-conducteur NO</name>
+        <name lang="hr">Elektronički sklopni uređaj s NO kontaktom</name>
+        <name lang="hu">Elektronikus kapcsolókészülék NO érintkezővel</name>
+        <name lang="it">Contatto a comando elettronico (NO)</name>
+        <name lang="ja">NO接点付き電子開閉装置</name>
+        <name lang="ko">전자식 스위칭 소자, NO 접점</name>
+        <name lang="mn">NO контакттай цахим унтраалгын төхөөрөмж</name>
+        <name lang="nb">Elektronisk bryter med NO-kontakt</name>
+        <name lang="nl">Electronisch contact (NO)</name>
+        <name lang="nl_BE">Elektronisch schakeltoestel met NO-contact</name>
+        <name lang="pl">Zestyk zwierny sterowany elektronicznie</name>
+        <name lang="pt">Dispositivo de comutação eletrónico com contacto NO</name>
+        <name lang="pt_BR">Dispositivo de comutacao eletronica com contato NA</name>
+        <name lang="ro">Dispozitiv electronic de comutare cu contact NO</name>
+        <name lang="ru">Электронное коммутационное устройство с НР контактом</name>
+        <name lang="sk">Elektronické spínacie zariadenie s kontaktom NO</name>
+        <name lang="sl">Elektronska stikalna naprava z NO kontaktom</name>
+        <name lang="sr">Електронски прекидачки уређај са NO контактом</name>
+        <name lang="sv">Elektronisk kopplingsenhet med NO-kontakt</name>
+        <name lang="tr">NO kontaklı elektronik anahtarlama cihazı</name>
+        <name lang="uk">Електронний комутаційний пристрій з НР контактом</name>
+        <name lang="zh">半导体驱动常开触点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-10" y="8" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0509f1ce-e279-4ec9-8cc2-54bd69d28c2e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <rect x="-30" y="-5" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-24" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{93dbc9b5-5672-4930-93e2-701ca147c4f4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="-3" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="1" y="-12" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{db2e31aa-21f7-4ca4-9c2e-98ba9641ad02}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-16" y1="-3" x2="-20" y2="-1" x3="-20" y3="1" x4="-16" y4="3" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-20" y1="-3" x2="-20" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="0" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{55be2528-7120-4a4b-acb3-c9ecc8392eae}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{cf228ccb-e5e4-47ef-8d3a-f03188d0e0ef}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,45 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="15" hotspot_y="15">
+    <uuid uuid="{21d31e04-9008-d004-ce48-7f744ef02e08}"/>
+    <names>
+        <name lang="ar">مغناطيس دائم؛ مغناطيس دائم</name>
+        <name lang="ca">Imant permanent; </name>
+        <name lang="cs">Trvalý magnet</name>
+        <name lang="da">Permanentmagnet; Magnet, permanent</name>
+        <name lang="de">Dauermagnet</name>
+        <name lang="el">Μόνιμος μαγνήτης; Μαγνήτης, μόνιμος</name>
+        <name lang="en">Permanent magnet; Magnet, permanent</name>
+        <name lang="es">Imán permanente</name>
+        <name lang="fi">Kestomagneetti; Magneetti, kestomagneetti</name>
+        <name lang="fr">Aimant permanent</name>
+        <name lang="hr">Trajni magnet; Magnet, trajni</name>
+        <name lang="hu">Permanent mágnes; Mágnes, permanent</name>
+        <name lang="it">Magnete permanente; Magnete, permanente</name>
+        <name lang="ja">永久磁石；磁石，永久</name>
+        <name lang="ko">영구 자석; 자석, 영구</name>
+        <name lang="mn">Байнгын соронз; Соронз, байнгын</name>
+        <name lang="nb">Permanentmagnet; Magnet, permanent</name>
+        <name lang="nl">Permanente magneet; Magneet, permanent</name>
+        <name lang="nl_BE">Permanente magneet; Magneet, permanent</name>
+        <name lang="pl">Magnes trwały; Magnes, trwały</name>
+        <name lang="pt">Ímã permanente; Ímã, permanente</name>
+        <name lang="pt_BR">Ímã permanente</name>
+        <name lang="ro">Magnet permanent; Magnet, permanent</name>
+        <name lang="ru">Постоянный магнит; Магнит постоянный</name>
+        <name lang="sk">Permanentný magnet; Magnet, permanentný</name>
+        <name lang="sl">Trajni magnet; Magnet, trajni</name>
+        <name lang="sr">Стални магнет; Магнет, стални</name>
+        <name lang="sv">Permanentmagnet; Magnet, permanent</name>
+        <name lang="tr">Kalıcı mıknatıs; Mıknatıs, kalıcı</name>
+        <name lang="uk">Постійний магніт; Магніт постійний</name>
+        <name lang="zh">三接线端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{42b759ca-df01-4cc1-8dd0-b2be4b16184d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-10" y1="-10" x2="-10" y2="0" x3="10" y3="0" x4="10" y4="-10" x5="5" y5="-10" x6="5" y6="-5" x7="-5" y7="-5" x8="-5" y8="-10" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+    </description>
+</definition>

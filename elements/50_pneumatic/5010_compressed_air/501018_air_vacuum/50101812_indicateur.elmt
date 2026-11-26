@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="30" height="40" hotspot_x="15" hotspot_y="12">
+    <uuid uuid="{a66c8e36-beb4-1ff1-9b3d-7720e3f77855}"/>
+    <names>
+        <name lang="ar">مقياس الفراغ</name>
+        <name lang="ca">vacuòmetre</name>
+        <name lang="cs">vakuometr</name>
+        <name lang="da">vakuummåler</name>
+        <name lang="de">Vakuummeter</name>
+        <name lang="el">μετρητής κενού</name>
+        <name lang="en">vacuum gauge</name>
+        <name lang="es">indicador de vacio</name>
+        <name lang="fi">alipainemittari</name>
+        <name lang="fr">jauge à vide</name>
+        <name lang="hr">mjerač pritiska</name>
+        <name lang="hu">légritkításmérő</name>
+        <name lang="it">vacuometro</name>
+        <name lang="ja">真空計</name>
+        <name lang="ko">진공 게이지</name>
+        <name lang="mn">вакуум хэмжигч</name>
+        <name lang="nb">Vakuummåler</name>
+        <name lang="nl">vacuümmeter</name>
+        <name lang="nl_BE">vacuümmeter</name>
+        <name lang="pl">wakuometr</name>
+        <name lang="pt">Medidor de Vácuo</name>
+        <name lang="pt_BR">Medidor de vácuo</name>
+        <name lang="ro">vacuometru</name>
+        <name lang="ru">вакуумметр</name>
+        <name lang="sk">Vákuový manometer</name>
+        <name lang="sl">vakuumski merilnik</name>
+        <name lang="sr">мерач притиска</name>
+        <name lang="sv">Vakuummätare</name>
+        <name lang="tr">vakum monometresi</name>
+        <name lang="uk">вакуумметр</name>
+        <name lang="zh">指示器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-20" y="-20" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2645e2af-b363-4b19-9494-2fcd9e2fbb5b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="3" y1="3" x2="-4" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2.68" y1="0.35" x2="0.3" y2="2.71" x3="5" y3="5" x4="2.71" y4="0.38" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="0" y1="10" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{69923bbc-9b30-4cd9-97e3-0d84df98d099}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

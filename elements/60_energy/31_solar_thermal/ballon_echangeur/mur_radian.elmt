@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="100" hotspot_x="22" hotspot_y="57">
+    <uuid uuid="{3925f043-0b02-9317-a146-db41afb85d3d}"/>
+    <names>
+        <name lang="ar">جدار تدفئة</name>
+        <name lang="ca">Calefacció de paret</name>
+        <name lang="cs">Nástěnné topné těleso</name>
+        <name lang="da">Vægvarme</name>
+        <name lang="de">Wandheizung</name>
+        <name lang="el">Θέρμανση τοίχου</name>
+        <name lang="en">Wall heating</name>
+        <name lang="es">Pared de calentamiento</name>
+        <name lang="fi">Seinäkiuas</name>
+        <name lang="fr">Mur chauffant</name>
+        <name lang="hr">Zidno grijanje</name>
+        <name lang="hu">Falfűtés</name>
+        <name lang="it">Parete radiante</name>
+        <name lang="ja">壁掛け暖房</name>
+        <name lang="ko">벽면 난방</name>
+        <name lang="mn">Ханын халаалт</name>
+        <name lang="nb">Veggoppvarming</name>
+        <name lang="nl">Muur verwarming</name>
+        <name lang="nl_BE">Wandverwarming</name>
+        <name lang="pl">Grzejnik ścienny</name>
+        <name lang="pt">Aquecimento de parede</name>
+        <name lang="pt_BR">Wall aquecimento</name>
+        <name lang="ro">Încălzire de perete</name>
+        <name lang="ru">Настенное отопление</name>
+        <name lang="sk">Nástenné vykurovanie</name>
+        <name lang="sl">Stensko ogrevanje</name>
+        <name lang="sr">Зидно грејање</name>
+        <name lang="sv">Väggvärme</name>
+        <name lang="tr">Duvar ısıtma</name>
+        <name lang="uk">Настінне опалення</name>
+        <name lang="zh">辐射墙</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="23" y="-41.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{82ff7183-5d9e-4769-8374-6406cbb9e8f6}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="2" y1="-32" x2="2" y2="22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11.5" y="-12.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1" y1="39" x2="22" y2="17" x3="22" y3="-52" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-17" y1="-35" x2="11" y2="-53" x3="22" y3="-53" x4="-2" y4="-35" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-17" y="-35" width="15" height="74" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-38" x2="10" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-42" x2="14" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="18" y1="-46" x2="18" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="6" y1="-35" x2="6" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dotted;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-11.5" y="28.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.5" y="18.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.5" y="8.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.5" y="-1.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.5" y="-22.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <ellipse x="-11.5" y="-31.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{035e0720-6fd4-4c6c-9075-517d5f7bf1b2}" name="" x="-10" y="-30" orientation="e" type="Generic"/>
+        <terminal uuid="{2be05bd5-03e9-49c5-b981-8fff94855fb4}" name="" x="-10" y="30" orientation="e" type="Generic"/>
+    </description>
+</definition>

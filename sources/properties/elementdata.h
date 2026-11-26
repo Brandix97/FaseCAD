@@ -1,0 +1,360 @@
+/*
+		Copyright 2006-2026 The QElectroTech Team
+		This file is part of QElectroTech.
+
+		QElectroTech is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 2 of the License, or
+		(at your option) any later version.
+
+		QElectroTech is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef ELEMENTDATA_H
+#define ELEMENTDATA_H
+
+#include "propertiesinterface.h"
+#include "../diagramcontext.h"
+#include "../NameList/nameslist.h"
+
+#include <QStringList>
+#include <QVector>
+#include <QFont>
+
+/**
+ * @brief The ElementData class
+ * WARNING
+ * This class inherit from PropertiesInterface but
+ * only fromXml is actually reimplemented.
+ */
+class ElementData : public PropertiesInterface
+{
+		Q_GADGET
+
+	public:
+		enum Type {
+			Simple         = 1,
+			NextReport     = 2,
+			PreviousReport = 4,
+			AllReport      = 6,
+			Master         = 8,
+			Slave          = 16,
+			Terminal       = 32,
+			Thumbnail      = 64,
+			ConductorDefinition = 128};
+		Q_ENUM(Type)
+		Q_DECLARE_FLAGS(Types, Type)
+
+		enum MasterType {
+			Coil,
+			Protection,
+			Commutator,
+			PLC
+		};
+		Q_ENUM(MasterType)
+
+		enum SlaveType {
+			SSimple,
+			Power,
+			DelayOn,
+			DelayOff,
+			delayOnOff,
+			PLCSlave
+		};
+		Q_ENUM(SlaveType)
+
+		enum SlaveState {
+			NO,
+			NC,
+			SW,
+			Other
+		};
+		Q_ENUM(SlaveState)
+
+		enum PlcIOType {
+			EntreeDigitale,
+			SortieDigitale,
+			EntreeAnalogique,
+			SortieAnalogique,
+			EntreeUniverselle,
+			SortieUniverselle
+		};
+		Q_ENUM(PlcIOType)
+
+		/**
+		 * @brief The PlcIO struct
+		 * Represents a single IO entry in a PLC master element.
+		 */
+		struct PlcIO {
+			PlcIOType type = EntreeDigitale;
+			QString address;          ///< e.g. "1.0", "1.1"
+			QString functionText;     ///< e.g. "Motor K1"
+			QString comment;          ///< Optional comment
+			QString crossRef;         ///< Auto-filled: slave reference
+			int terminalCount = 1;    ///< Number of terminals for this IO (1-4)
+			QStringList terminals;    ///< Terminal values T1, T2, ... (size = terminalCount)
+
+			/**
+			 * @brief Return terminal labels, generating defaults (T1, T2...) if empty
+			 */
+			QStringList effectiveTerminals() const {
+				if (!terminals.isEmpty())
+					return terminals;
+				int count = qMax(terminalCount, 1);
+				QStringList defaults;
+				for (int i = 0; i < count && i < 4; ++i)
+					defaults << QStringLiteral("T%1").arg(i + 1);
+				return defaults;
+			}
+
+			bool operator==(const PlcIO &other) const {
+				return type == other.type
+					&& address == other.address
+					&& functionText == other.functionText
+					&& comment == other.comment
+					&& crossRef == other.crossRef
+					&& terminalCount == other.terminalCount
+					&& terminals == other.terminals;
+			}
+			bool operator!=(const PlcIO &other) const {
+				return !(*this == other);
+			}
+		};
+
+		/**
+		 * @brief The PlcMasterData struct
+		 * Stores all PLC master configuration: IO table, display settings, column visibility.
+		 * All data is stored in the .elmt file for easy sharing between users.
+		 */
+		struct PlcMasterData {
+			QVector<PlcIO> ios;                     ///< All IO entries
+			QList<int> breakPositions;              ///< Up to 4 break positions (IO index after which to break, 0 = disabled)
+			QMap<int, qreal> colWidths;             ///< Column widths (key: column index)
+			qreal rowHeight = 8.0;                  ///< Row height in mm
+			QMap<int, bool> colVisible;             ///< Column visibility (key: column index)
+			QFont headerFont;                       ///< Font for column headers
+			QFont cellFont;                         ///< Font for cell content
+			QStringList columnNames;                ///< Custom column header names
+			QList<int> columnOrder;                 ///< Column display order (logical indices)
+			bool showHeaders = true;                ///< Show column headers on sheet
+
+			PlcMasterData() {
+				headerFont.setFamily(QString());
+				cellFont.setFamily(QString());
+			}
+
+			bool operator==(const PlcMasterData &other) const {
+				return ios == other.ios
+					&& breakPositions == other.breakPositions
+					&& colWidths == other.colWidths
+					&& qFuzzyCompare(rowHeight, other.rowHeight)
+					&& colVisible == other.colVisible
+					&& headerFont == other.headerFont
+					&& cellFont == other.cellFont
+					&& columnNames == other.columnNames
+					&& columnOrder == other.columnOrder
+					&& showHeaders == other.showHeaders;
+			}
+			bool operator!=(const PlcMasterData &other) const {
+				return !(*this == other);
+			}
+		};
+
+		/**
+		 * @brief The XRefDisplay struct
+		 * How the cross reference of one master is shown, when it differs
+		 * from the project's setting for that kind of master. Nothing is
+		 * saved while enabled is false.
+		 */
+		struct XRefDisplay {
+			enum Position { UnderLabel, BelowSymbol, Footer, Manual };
+
+			bool enabled = false;
+			bool contacts = false;      ///< contact symbols instead of a cross
+			Position position = UnderLabel;
+			qreal width = 0.5;          ///< line thickness, in drawing units
+			qreal gap = 10;             ///< below the symbol, in drawing units
+			QPointF manual;             ///< top left corner, from the symbol's origin, so it follows the symbol
+			bool absolute = false;      ///< manual is a point of the folio instead: it stays put when the symbol moves
+			int angle = 0;              ///< the contact symbols turned by 0, 90, 180 or 270 degrees, their texts upright
+			bool showUnlinked = false;  ///< also the contacts nothing is linked to
+
+			bool operator==(const XRefDisplay &other) const {
+				return enabled == other.enabled
+					&& (!enabled
+						|| (contacts == other.contacts
+							&& position == other.position
+							&& qFuzzyCompare(width, other.width)
+							&& qFuzzyCompare(gap, other.gap)
+							&& manual == other.manual
+							&& absolute == other.absolute
+							&& angle == other.angle
+							&& showUnlinked == other.showUnlinked));
+			}
+			bool operator!=(const XRefDisplay &other) const {
+				return !(*this == other);
+			}
+		};
+
+		static QString plcIOTypeToString(PlcIOType type);
+		static PlcIOType plcIOTypeFromString(const QString &string);
+		static QString translatedPlcIOType(PlcIOType type);
+		static QStringList plcIOTypeList();
+
+		enum TerminalType {
+			TTGeneric,
+			TTFuse,
+			TTSectional,
+			TTDiode,
+			TTGround,
+			TTAntiParallelDiodes,
+			TTResistor,
+			TTVaristor,
+			TTTestSocket,
+			TTDiodeReversed
+		};
+		Q_ENUM(TerminalType)
+
+		enum TerminalFunction {
+			TFGeneric,
+			TFPhase,
+			TFNeutral,
+		};
+		Q_ENUM(TerminalFunction)
+
+		/**
+		 * @brief The SlaveContactGroup struct
+		 * Defines a contact group that a master element provides for slave elements.
+		 * Each group specifies the type, subtype, number of displayed contacts,
+		 * number of terminals, and the labels for each terminal (T1-T20).
+		 */
+		struct SlaveContactGroup {
+			SlaveState  type        = NO;      ///< Contact type (NO/NC/SW/Other)
+			SlaveType   subtype     = SSimple;  ///< Contact subtype (Simple/Power/Delay*)
+			int         contactCount  = 1;      ///< Number of displayed contacts
+			int         terminalCount = 1;      ///< Number of terminals (Anschlüsse)
+			QStringList labels;                 ///< Terminal labels (T1-T20), max 20 entries
+
+			bool operator==(const SlaveContactGroup &other) const {
+				return type == other.type
+					&& subtype == other.subtype
+					&& contactCount == other.contactCount
+					&& terminalCount == other.terminalCount
+					&& labels == other.labels;
+			}
+			bool operator!=(const SlaveContactGroup &other) const {
+				return !(*this == other);
+			}
+		};
+
+		ElementData() {}
+		~ElementData() override {}
+
+		void toSettings(QSettings &settings, const QString prefix = QString()) const override;
+		void fromSettings(const QSettings &settings,  const QString prefix = QString()) override;
+		QDomElement toXml(QDomDocument &xml_element) const override;
+		bool fromXml(const QDomElement &xml_element) override;
+		QDomElement kindInfoToXml(QDomDocument &document);
+	QDomElement plcMasterDataToXml(QDomDocument &document) const;
+	void plcMasterDataFromXml(const QDomElement &xml_plc);
+		QDomElement xrefDisplayToXml(QDomDocument &document) const;
+		void xrefDisplayFromXml(const QDomElement &xml_display);
+
+		void setTerminalType(ElementData::TerminalType t_type);
+		ElementData::TerminalType terminalType() const;
+
+		void setTerminalFunction(ElementData::TerminalFunction t_function);
+		ElementData::TerminalFunction terminalFunction() const;
+
+		void setTerminalLED(bool led);
+		bool terminalLed() const;
+		bool terminalPropertiesIsOverrided() const;
+
+		bool operator==(const ElementData &data) const;
+		bool operator!=(const ElementData &data) const;
+
+		QString typeToString() const;
+		static QString typeToString(ElementData::Type type);
+		static ElementData::Type typeFromString(const QString &string);
+		/**
+		 * @brief takesSchemeNumber
+		 * Whether an element of this kind is given a number by an element
+		 * numbering scheme.
+		 * A slave or a report takes its name from the element it is linked
+		 * to, and a conductor definition labels a wire rather than naming
+		 * an item of the drawing: none of them is numbered.
+		 * @return true when the element numbering schemes apply to this kind
+		 */
+		static bool takesSchemeNumber(ElementData::Type type);
+
+		QString masterTypeToString() const;
+		static QString masterTypeToString(ElementData::MasterType type);
+		static ElementData::MasterType masterTypeFromString(const QString &string);
+
+		static QString slaveTypeToString (ElementData::SlaveType type);
+		static ElementData::SlaveType slaveTypeFromString(const QString &string);
+
+		static QString slaveStateToString(ElementData::SlaveState type);
+		static ElementData::SlaveState slaveStateFromString(const QString &string);
+
+		static QString terminalTypeToString(ElementData::TerminalType type);
+		static ElementData::TerminalType terminalTypeFromString(const QString &string);
+		static QString translatedTerminalType(ElementData::TerminalType type);
+
+		static QString terminalFunctionToString(ElementData::TerminalFunction function);
+		static ElementData::TerminalFunction terminalFunctionFromString(const QString &string);
+		static QString translatedTerminalFunction(ElementData::TerminalFunction function);
+
+		static QString slaveContactGroupTypeToString(ElementData::SlaveState type);
+		static ElementData::SlaveState slaveContactGroupTypeFromString(const QString &string);
+		static QString slaveContactGroupSubtypeToString(ElementData::SlaveType type);
+		static ElementData::SlaveType slaveContactGroupSubtypeFromString(const QString &string);
+
+		PlcMasterData plcMasterData() const { return m_plc_master_data; }
+		void setPlcMasterData(const PlcMasterData &data) { m_plc_master_data = data; }
+
+		// must be public, because this class is a private member
+		// of Element/ element editor and they must access this data
+		ElementData::Type       m_type = ElementData::Simple;
+
+		ElementData::MasterType m_master_type = ElementData::Coil;
+		int m_max_slaves{-1};
+		bool m_slave_contact_groups_enabled{false};  ///< Whether slave contact groups table is active
+		QVector<SlaveContactGroup> m_slave_contact_groups;  ///< Contact groups defined by master
+		PlcMasterData m_plc_master_data;              ///< PLC master IO table and display settings
+		XRefDisplay m_xref_display;                   ///< This master's own cross reference display
+
+		ElementData::SlaveType  m_slave_type  = ElementData::SSimple;
+		ElementData::SlaveState m_slave_state = ElementData::NO;
+
+		ElementData::TerminalType     m_terminal_type     = ElementData::TTGeneric;
+		ElementData::TerminalFunction m_terminal_function = ElementData::TFGeneric;
+
+		int m_contact_count{1};
+		DiagramContext m_informations;
+		NamesList m_names_list;
+		QString m_drawing_information;
+
+	private:
+		ElementData::TerminalType m_override_terminal_type = ElementData::TTGeneric;
+		bool m_terminal_type_is_override = false;
+
+		ElementData::TerminalFunction m_override_terminal_function = ElementData::TFGeneric;
+		bool m_terminal_function_is_override = false;
+
+		bool m_terminal_led = false;
+		bool m_terminal_led_is_override = false;
+		bool m_override_terminal_led = false;
+
+	private:
+		void kindInfoFromXml(const QDomElement &xml_element);
+};
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(ElementData::Types)
+
+#endif // ELEMENTDATA_H

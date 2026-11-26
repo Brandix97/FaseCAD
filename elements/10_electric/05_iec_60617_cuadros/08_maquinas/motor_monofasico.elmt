@@ -1,0 +1,30 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="18" hotspot_y="32">
+    <uuid uuid="{1940aa94-3e89-4d4f-a503-bceca47a30b1}"/>
+    <names>
+        <name lang="de">Einphasenmotor</name>
+        <name lang="en">Single-phase motor</name>
+        <name lang="es">Motor monofásico</name>
+        <name lang="fr">Moteur monophasé</name>
+        <name lang="it">Motore monofase</name>
+        <name lang="pt">Motor monofásico</name>
+        <name lang="tr">Tek fazlı motor</name>
+        <name lang="zh">单相电动机</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <ellipse x="-15" y="-15" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-10" y1="-30" x2="-10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-30" x2="10" y2="-11.18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="0" y="2.83" text="M" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{7abe85f1-3e30-50b9-b31f-a59358b69607}"/>
+        <text x="0" y="11.4" text="1~" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{7ec3193a-8db3-596b-84e0-84b0c310497c}"/>
+        <dynamic_text x="-24" y="-10.49" z="5" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{617f8e6b-b88a-5766-9520-82c0c5f7d3e9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{c9b6a366-80cf-5f92-92a5-7ae80c6db634}" name="U1" x="-10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{60443330-48c8-5b0c-b571-ecbb6b2b2489}" name="U2" x="10" y="-30" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{1070f586-f627-5ae8-a77a-fed6d92c222f}" name="PE" x="30" y="0" orientation="e" type="Generic" show_name="true" label_x="-5" label_y="-7" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

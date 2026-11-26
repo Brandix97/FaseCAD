@@ -1,0 +1,252 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef PROJECTCONFIGPAGES_H
+#define PROJECTCONFIGPAGES_H
+#include "configpage.h"
+#include <QPointer>
+#include <QVector>
+#include "../../autoNum/autonumschemecommand.h"
+
+class QLabel;
+class QComboBox;
+class QLineEdit;
+class QCheckBox;
+class QRadioButton;
+class QPushButton;
+class QSpinBox;
+class QGroupBox;
+class QETProject;
+class BorderPropertiesWidget;
+class ConductorPropertiesWidget;
+class DiagramContextWidget;
+class ReportPropertieWidget;
+class XRefPropertiesWidget;
+class SelectAutonumW;
+class QTabWidget;
+class QGroupBox;
+class Element;
+class QTableWidget;
+class ElementAutoNumSchemeCommand;
+class FolioAutonumberingW;
+class FormulaAutonumberingW;
+class AutoNumberingManagementW;
+
+/**
+	@brief The ProjectConfigPage class
+	This class, derived from ConfigPage,
+	aims at providing the basic skeleton for a project configuration page.
+*/
+class ProjectConfigPage : public ConfigPage {
+	Q_OBJECT
+	// Constructor, destructor
+	public:
+	ProjectConfigPage(QETProject *, QWidget * = nullptr);
+	~ProjectConfigPage() override;
+	private:
+	ProjectConfigPage(const ProjectConfigPage &);
+	
+	// methods
+	public:
+	virtual QETProject *project() const;
+	virtual QETProject *setProject(QETProject *project, bool = true);
+	void applyConf() override;
+	/**
+		Apply configuration to the project after user input. This method is
+		automatically called when the ConfigDialog is validated, and only if the
+		project is both non-zero and not read-only.
+	*/
+	virtual void applyProjectConf() = 0;
+	
+	protected:
+	virtual void init();
+	/**
+		Use this pure virtual method to initialize your page widgets.
+	*/
+	virtual void initWidgets() = 0;
+	/**
+		Use this pure virtual method to initialize your page layout. This method is
+		always called after initWidgets().
+	*/
+	virtual void initLayout() = 0;
+	/**
+		Use this pure virtual method to fill widgets with project values.
+	*/
+	virtual void readValuesFromProject()  = 0;
+	/**
+		Use this pure virtual method to adjust the "read only" state of your page
+		widgets according to the currently edited project.
+	*/
+	virtual void adjustReadOnly() = 0;
+	
+	// attributes
+	protected:
+	QETProject *m_project; ///< Currently edited project
+};
+
+/**
+	This page enables users to configure the main properties of a project.
+*/
+class ProjectMainConfigPage : public ProjectConfigPage {
+	Q_OBJECT
+	// Constructor, destructor
+	public:
+	ProjectMainConfigPage(QETProject *, QWidget * = nullptr);
+	~ProjectMainConfigPage() override;
+	private:
+	ProjectMainConfigPage(const ProjectMainConfigPage &);
+	
+	// methods
+	public:
+	QString title() const override;
+	QIcon icon() const override;
+	void applyProjectConf() override;
+	QString projectTitle() const;
+	
+	protected:
+	void initWidgets() override;
+	void initLayout() override;
+	void readValuesFromProject() override;
+	void adjustReadOnly() override;
+
+	private slots:
+	void resetUsageTracker();
+	void updateWiringRulesWidgets();
+
+	// attributes
+	protected:
+	QLabel *title_label_;
+	QLineEdit *title_value_;
+	QLabel *title_information_;
+	QLabel *project_variables_label_;
+	DiagramContextWidget *project_variables_;
+	QLabel *usage_label_;
+	QLabel *usage_value_;
+	QCheckBox *usage_enabled_cb_;
+	QPushButton *usage_reset_pb_;
+	QLabel *wire_hops_label_;
+	QComboBox *wire_hops_cb_;
+	QCheckBox *wires_apart_cb_;
+	QCheckBox *upright_symbol_texts_cb_;
+	QCheckBox *chained_reports_cb_;
+	QGroupBox *terminal_label_gb_;
+	QRadioButton *terminal_label_combined_rb_;
+	QRadioButton *terminal_label_split_rb_;
+	QLabel *terminal_label_help_;
+	QGroupBox *wiring_rules_gb_;
+	QCheckBox *use_application_rules_cb_;
+	QLabel *max_wires_label_;
+	QSpinBox *max_wires_sb_;
+	QCheckBox *one_wire_per_report_cb_;
+	QLabel *wiring_rules_off_label_;
+	QLabel *origin_label_;
+	QComboBox *origin_cb_;
+};
+
+class ProjectAutoNumConfigPage : public ProjectConfigPage {
+		Q_OBJECT
+
+	//Methods
+	public:
+		ProjectAutoNumConfigPage (QETProject *project,
+					  QWidget *parent = nullptr);
+
+		QString title() const override;
+		QIcon icon() const override;
+		void applyProjectConf() override;
+		virtual void changeToTab(int);
+			///Jump straight to the cable tab (used when the cable tool
+			///asks whether a numbering rule should be defined)
+		void changeToCableTab();
+	protected:
+		void initWidgets() override;
+		void initLayout() override {}
+		void readValuesFromProject() override;
+		void adjustReadOnly() override;
+	private:
+		void buildConnections();
+	private slots:
+		void updateContextConductor(const QString&);//conductor
+		void saveContextConductor();
+		void removeContextConductor();
+		void updateContextFolio(const QString&);//folio
+		void saveContextFolio();
+		void removeContextFolio();
+		void updateContextElement(const QString&);//element
+		void saveContextElement();
+		void removeContextElement();
+		void saveContextCable();     //cable: one rule, no name to pick
+		void removeContextCable();
+		void newContextElement();
+		void renameContextElement();
+		void refreshElementSchemes(const QString &selected);
+		void refreshElementUsers();
+		void assignFreeNumber();
+		void updateAssignNumberButton();
+		void newContextConductor();
+		void renameContextConductor();
+		void newContextFolio();
+		void renameContextFolio();
+		QString askElementSchemeName(const QString &title, QString name,
+									 const QString &ignored_title);
+		bool pushElementSchemeCommand(ElementAutoNumSchemeCommand *cmd);
+		void importFromProject();
+
+		void applyAutoNum();
+		void applyManagement();
+
+	private:
+			//Conductor and folio numberings
+		using SchemeKind = AutoNumSchemeCommand::Kind;
+		SelectAutonumW *sawFor(SchemeKind kind) const;
+		void refreshSchemes(SchemeKind kind, const QString &selected);
+		void refreshSchemeUsers(SchemeKind kind);
+		QString askSchemeName(SchemeKind kind, const QString &title, QString name,
+							  const QString &ignored_title);
+		void newScheme(SchemeKind kind);
+		void renameScheme(SchemeKind kind);
+		void saveScheme(SchemeKind kind);
+		void removeScheme(SchemeKind kind);
+
+	signals:
+		void setAutoNum(QString);
+		void setAutoNum(int,int);
+		void saveCurrentTbp();
+		void loadSavedTbp();
+
+	//Attributes
+	private:
+		SelectAutonumW        *m_saw_conductor;
+		SelectAutonumW        *m_saw_folio;
+		SelectAutonumW        *m_saw_element;
+		SelectAutonumW        *m_saw_cable;
+		QTabWidget            *m_tab_widget = nullptr;
+		QGroupBox             *m_conductor_users_box = nullptr;
+		QTableWidget          *m_conductor_users = nullptr;
+		QGroupBox             *m_folio_users_box = nullptr;
+		QTableWidget          *m_folio_users = nullptr;
+		QGroupBox             *m_element_users_box = nullptr;
+		QTableWidget          *m_element_users = nullptr;
+		QPushButton           *m_assign_number_pb = nullptr;
+		QVector<QPointer<Element>> m_element_rows;   ///< the element of each row of the table, none for a gap
+		FolioAutonumberingW   *m_faw;
+		AutoNumberingManagementW *m_amw;
+		QPushButton           *m_import_pb = nullptr;
+
+};
+
+#endif

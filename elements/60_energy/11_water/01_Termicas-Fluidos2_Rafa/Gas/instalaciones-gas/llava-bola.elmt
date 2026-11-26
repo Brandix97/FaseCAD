@@ -1,0 +1,31 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="19" hotspot_y="12">
+    <uuid uuid="{a37f08d3-7c06-b11f-202a-5bba001283c6}"/>
+    <names>
+        <name lang="ca">Vàlvula de bola</name>
+        <name lang="es">Llave bola</name>
+        <name lang="pt_BR">Llave bola</name>
+        <name lang="zh">球阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="6.45" y1="-2.39" x2="8.77" y2="-2.39" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.44" y="-6.47" width="8.19" height="6.07" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="4.75" y="-3.27" width="1.43" height="6.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="6.18" y="-5.19" width="2.86" height="10.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.45" y1="2.16" x2="8.77" y2="2.16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9" y="-3.27" width="3.54" height="6.05" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11.64" y="-3.61" width="3.54" height="6.05" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-8.09" y="-5.19" width="2.86" height="10.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.09" y1="-2.17" x2="-5.59" y2="-2.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7.82" y1="2.16" x2="-5.5" y2="2.16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-3.44" y="-0.07" width="8.19" height="6.07" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-1.53" y="-8.06" width="5" height="1.6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.17" y="-10.3" width="17.52" height="1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="0.26" y="-9.34" width="1.43" height="1.28" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5.23" y="-3.27" width="1.79" height="6.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.1" y1="-8.06" x2="-0.1" y2="-6.79" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.4" y1="-8.06" x2="2.4" y2="-6.79" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9f6545b7-d588-4bc0-9839-48cee6272bcf}" name="" x="-11" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{e959397a-5a95-4a5f-b48c-c7e01e014242}" name="" x="12" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

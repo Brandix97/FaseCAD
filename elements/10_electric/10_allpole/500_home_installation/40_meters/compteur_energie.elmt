@@ -1,0 +1,53 @@
+<definition version="0.80" type="element" link_type="simple" width="50" height="70" hotspot_x="19" hotspot_y="20">
+    <uuid uuid="{1a3c3a56-e7f9-4fe9-6002-156e6b34f199}"/>
+    <names>
+        <name lang="ar">عدّاد طاقة</name>
+        <name lang="ca">Comptador d'energia</name>
+        <name lang="cs">Elektroměr</name>
+        <name lang="da">Energimåler</name>
+        <name lang="de">Energiezähler</name>
+        <name lang="el">Μετρητής ενέργειας, Κιλοβατώρες (KWh)</name>
+        <name lang="en">Energy meter</name>
+        <name lang="es">Contador de energía</name>
+        <name lang="fi">Energiamittari</name>
+        <name lang="fr">Compteur d’énergie</name>
+        <name lang="hr">Mjerač energije</name>
+        <name lang="hu">Energiamérő</name>
+        <name lang="it">Misuratore di Kwh</name>
+        <name lang="ja">電力量計</name>
+        <name lang="ko">전력량계</name>
+        <name lang="mn">Энергийн тоолуур</name>
+        <name lang="nb">Energimåler</name>
+        <name lang="nl">Energiemeter</name>
+        <name lang="nl_BE">Energiemeter</name>
+        <name lang="pl">Licznik energii</name>
+        <name lang="pt">Contador de energia</name>
+        <name lang="pt_BR">Medidor de energia</name>
+        <name lang="ro">Contor de energie</name>
+        <name lang="ru">Счетчик электроэнергии</name>
+        <name lang="sk">Merač energie</name>
+        <name lang="sl">Števec energije</name>
+        <name lang="sr">Мерач енергије</name>
+        <name lang="sv">Energimätare</name>
+        <name lang="tr">Enerji sayacı</name>
+        <name lang="uk">Лічильник енергії</name>
+        <name lang="zh">电能表</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="28" y="4.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{abf55041-7474-478c-8be2-dcee2e7588b7}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-6" y1="10" x2="26" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="0" width="32" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="kWh" x="-4" y="30" rotation="0" font="Liberation Sans,10,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="20" y1="-10" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{03d908a7-2a9f-4b60-b172-08c7c756cd01}" name="" x="0" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{7ef7e4a7-50ba-4ec8-809b-6d9e38409d0b}" name="" x="20" y="-10" orientation="n" type="Generic"/>
+        <terminal uuid="{c60858e1-7881-42f1-bdcb-bbd15b54ef53}" name="" x="20" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{2fb54887-25b8-4ff4-9211-b8bc67fe7623}" name="" x="0" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

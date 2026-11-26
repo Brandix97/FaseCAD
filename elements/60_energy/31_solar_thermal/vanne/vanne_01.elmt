@@ -1,0 +1,49 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="11">
+    <uuid uuid="{c369edb8-7e4d-0aae-fadd-5be7a102d07c}"/>
+    <names>
+        <name lang="ar">صمّام توقّف</name>
+        <name lang="ca">Vàlvula de parada</name>
+        <name lang="cs">Uzavírací ventil</name>
+        <name lang="da">Stopventil</name>
+        <name lang="de">Absperrventil</name>
+        <name lang="el">Βαλβίδα διακοπής</name>
+        <name lang="en">Stop valve</name>
+        <name lang="es">Válvula de parada</name>
+        <name lang="fi">Sulkuventtiili</name>
+        <name lang="fr">Vanne d'arret</name>
+        <name lang="hr">Zaporni ventil</name>
+        <name lang="hu">Zárószelep</name>
+        <name lang="it">Valvola d'intercettazione</name>
+        <name lang="ja">止め弁</name>
+        <name lang="ko">정지 밸브</name>
+        <name lang="mn">Хаах хавхлага</name>
+        <name lang="nb">Stengeventil</name>
+        <name lang="nl">klep hand</name>
+        <name lang="nl_BE">Stopklep</name>
+        <name lang="pl">Zawór odcinający</name>
+        <name lang="pt">Válvula de corte</name>
+        <name lang="pt_BR">parada valvula</name>
+        <name lang="ro">Supapă de închidere</name>
+        <name lang="ru">Запорный клапан</name>
+        <name lang="sk">Uzatvárací ventil</name>
+        <name lang="sl">Zaporni ventil</name>
+        <name lang="sr">Запорни вентил</name>
+        <name lang="sv">Stoppventil</name>
+        <name lang="tr">Stop vana</name>
+        <name lang="uk">Запірний клапан</name>
+        <name lang="zh">阀门01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-10" y="-22.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{5581675c-31a7-4894-b558-8534f94a4d0b}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-3" y1="-7" x2="3" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="-5" x2="-10" y2="5" x3="10" y3="-5" x4="10" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{52e6df4f-7187-47b9-b9ad-7208ba17d146}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{88ea51b9-423c-4cbb-8b98-7e9ff989fe6a}" name="" x="10" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

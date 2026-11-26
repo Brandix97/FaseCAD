@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="100" hotspot_x="15" hotspot_y="43">
+    <uuid uuid="{d7090f80-e47b-1129-9676-dfbb181c4398}"/>
+    <names>
+        <name lang="ar">مُراكم هيدروليكي</name>
+        <name lang="ca">Acumulador hidràulic</name>
+        <name lang="cs">Vodní akumulátor</name>
+        <name lang="da">Hydraulikakkumulator</name>
+        <name lang="de">Hydraulikspeicher</name>
+        <name lang="el">Υδραυλικός συσσωρευτής</name>
+        <name lang="en">Hydraulic accumulator</name>
+        <name lang="es">Acumulador hidraulico</name>
+        <name lang="fi">Hydrauliakkumulaattori</name>
+        <name lang="fr">Bâche pressurisée (accumulateur)</name>
+        <name lang="hr">Hidraulički akumulator</name>
+        <name lang="hu">Hidraulikus akkumulátor</name>
+        <name lang="it">Accumulatore idraulico</name>
+        <name lang="ja">油圧アキュムレータ</name>
+        <name lang="ko">유압 어큐뮬레이터</name>
+        <name lang="mn">Гидравлик аккумлятор</name>
+        <name lang="nb">Hydraulisk akkumulator</name>
+        <name lang="nl">Druktank</name>
+        <name lang="nl_BE">Hydraulische accumulator</name>
+        <name lang="pl">Akumulator hydrauliczny</name>
+        <name lang="pt">Acumulador hidráulico</name>
+        <name lang="pt_BR">Acumulador hidráulico</name>
+        <name lang="ro">Acumulator hidraulic</name>
+        <name lang="ru">Гидравлический аккумулятор</name>
+        <name lang="sk">Hydraulický akumulátor</name>
+        <name lang="sl">Hidravlični akumulator</name>
+        <name lang="sr">Хидраулични акумулатор</name>
+        <name lang="sv">Hydraulackumulator</name>
+        <name lang="tr">Hidrolik akümülatör</name>
+        <name lang="uk">Гідравлічний акумулятор</name>
+        <name lang="zh">加压油箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="13" y="-1.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{17b82871-33a8-4f74-9fad-045db427cee9}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-12" y1="0" x2="12" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="0" x2="-5" y2="-5" x3="5" y3="-5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="37.86" x2="0" y2="46.93" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-12.5" y="-37.5" width="25" height="25" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12.5" y="12.5" width="25" height="25" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-12.5" y1="-25" x2="-12.5" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="12.5" y1="-25" x2="12.5" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{2db6bb8b-0515-4453-916b-e5d9a7439a31}" name="" x="0" y="47" orientation="s" type="Generic"/>
+    </description>
+</definition>

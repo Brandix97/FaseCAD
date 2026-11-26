@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="21" hotspot_y="10">
+    <uuid uuid="{b40a5abf-7f07-fe1e-82f4-f20e5612a1ed}"/>
+    <names>
+        <name lang="ar">صمّام موزّع MF 1/2 NO</name>
+        <name lang="ca">Vàlvula d'alimentació MF 1/2 NO</name>
+        <name lang="cs">Ventil rozdělovače MF 1/2 NO</name>
+        <name lang="da">Fordelerventil MF 1/2 NO</name>
+        <name lang="de">Verteilerventil AG 1/2 OG</name>
+        <name lang="el">Βάννα διανομέα MF 1/2 NO</name>
+        <name lang="en">Manifold valve MF 1/2 NO</name>
+        <name lang="fr">Vanne nourrice MF 1/2 NO</name>
+        <name lang="it">Valvola collettore MF 1/2 NO</name>
+        <name lang="pt_BR">valvula nourrice MF 1/2 NA</name>
+        <name lang="zh">分集水器阀门（常开）</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-2" y="-6" width="29" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="false"/>
+        <line x1="-3" y1="-3" x2="20" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-3" y1="3" x2="20" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="20" y="-5" width="7" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-7" width="7" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <line x1="-5" y1="-4" x2="-10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-76.5" y="8" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="270" keep_visual_rotation="false" text_from="ElementInfo" uuid="{77a7ac09-f301-49a5-992b-c82890e5ea36}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-7" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="19" y="-7" width="2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="19" y="5" width="2" height="2" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-2" y1="-6" x2="19" y2="-6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="19" y1="6" x2="-2" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="1" y="-1" width="12" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:red" antialias="false"/>
+        <ellipse x="4" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:red;color:red" antialias="false"/>
+        <ellipse x="6" y="-1" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="0" x2="26" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="27" y1="5" x2="25" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="26" y1="5" x2="24" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="25" y1="5" x2="23" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="24" y1="5" x2="22" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="23" y1="5" x2="21" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="22" y1="5" x2="20" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="5" x2="20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="6.5" y="-0.5" width="1" height="1" style="line-style:normal;line-weight:normal;filling:white;color:white" antialias="false"/>
+        <terminal uuid="{723d2e96-b467-4170-b545-6c5b31328a55}" name="" x="27" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{167f72c5-a5eb-4ff6-87cf-f5edbe5d63b9}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

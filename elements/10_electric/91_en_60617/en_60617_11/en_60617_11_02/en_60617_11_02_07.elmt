@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="50" hotspot_x="45" hotspot_y="45">
+    <uuid uuid="{775d6ed2-3fcb-d81c-5dc2-e6adf71208d7}"/>
+    <names>
+        <name lang="ar">محطة توليد جيوحرارية، مخططة</name>
+        <name lang="ca">Central geotèrmica, prevista</name>
+        <name lang="cs">Geotermická elektrárna ( projektovaná)</name>
+        <name lang="da">Geotermisk kraftværk, planlagt</name>
+        <name lang="de">Kraftwerk mit Erdwärme betrieben,
+geothermisches Kraftwerk (in Planung)</name>
+        <name lang="el">Γεωθερμικός σταθμός παραγωγής, προγραμματισμένος</name>
+        <name lang="en">Geothermic generating station, planned</name>
+        <name lang="es">Central geotérmica, prevista</name>
+        <name lang="fi">Geoterminen voimalaitos, suunnitteilla</name>
+        <name lang="fr">Centrale géothermique (en projet)</name>
+        <name lang="hr">Geotermalna elektrana, planirana</name>
+        <name lang="hu">Geotermikus erőmű, tervezett</name>
+        <name lang="it">Centrale geotermica, prevista</name>
+        <name lang="ja">地熱発電所，計画</name>
+        <name lang="ko">지열 발전소, 계획</name>
+        <name lang="mn">Геотермал цахилгаан станц, төлөвлөсөн</name>
+        <name lang="nb">Geotermisk kraftstasjon, planlagt</name>
+        <name lang="nl">Geothermische centrale, gepland</name>
+        <name lang="nl_BE">Geothermische centrale, gepland</name>
+        <name lang="pl">Elektrownia geotermalna, planowana</name>
+        <name lang="pt">Central geotérmica, prevista</name>
+        <name lang="pt_BR">Central geradora geotermica, planejada</name>
+        <name lang="ro">Centrală geotermică, planificată</name>
+        <name lang="ru">Геотермальная электростанция, планируемая</name>
+        <name lang="sk">Geotermálna elektráreň, plánovaná</name>
+        <name lang="sl">Geotermalna elektrarna, načrtovana</name>
+        <name lang="sr">Геотермална електрана, планирана</name>
+        <name lang="sv">Geotermisk kraftstation, planerad</name>
+        <name lang="tr">Jeotermal santral, planlanan</name>
+        <name lang="uk">Геотермальна електростанція, запланована</name>
+        <name lang="zh">接线端子07</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{06073a20-368d-4e88-b9ce-922b9d81cafe}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-40" y="-40" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-39" y1="-20" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-35" y1="-15" x2="-5" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-10" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-25" y1="-5" x2="-15" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

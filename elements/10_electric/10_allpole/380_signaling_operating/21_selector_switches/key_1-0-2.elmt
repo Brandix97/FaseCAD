@@ -1,0 +1,59 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="60" hotspot_x="31" hotspot_y="40">
+    <uuid uuid="{0063bdae-c8f6-82e2-1f6b-3b415b8231f6}"/>
+    <names>
+        <name lang="ar">مفتاح بقفل 3 وضعيات</name>
+        <name lang="ca">Interruptor de clau 3 posicions</name>
+        <name lang="cs">Třípolohový přepínač s nulou uprostřed (1-0-2), ovládaný klíčkem</name>
+        <name lang="da">Nøglekontakt 3 position</name>
+        <name lang="de">Schlüsselschalter 3 Positionen rastend</name>
+        <name lang="el">Διακόπτης 3 θέσεων, 1-0-2 με κλειδί</name>
+        <name lang="en">Key switch 3 position</name>
+        <name lang="es">Interruptor llave de 3 posiciones</name>
+        <name lang="fi">Avainkytkin 3 asento</name>
+        <name lang="fr">Interrupteur a cle 3 positions</name>
+        <name lang="hr">Ključna sklopka 3 položaja</name>
+        <name lang="hu">Kulcsos kapcsoló 3 állás</name>
+        <name lang="it">Selettore a chiave, 3 posizioni 1-0-2</name>
+        <name lang="ja">キースイッチ 3位置</name>
+        <name lang="ko">키 스위치 3 위치</name>
+        <name lang="mn">Түлхүүр унтраалга 3 байрлал</name>
+        <name lang="nb">Nøkkelbryter 3 posisjon</name>
+        <name lang="nl">Sleutelschakelaar 3 pos (NO/NO)</name>
+        <name lang="nl_BE">Sleutelschakelaar 3 stand</name>
+        <name lang="pl">Zestyk przełączny napędzany kluczykiem</name>
+        <name lang="pt">Interruptor de chave 3 posição</name>
+        <name lang="pt_BR">Chave seletora com chave 3 posições</name>
+        <name lang="ro">Comutator cu cheie 3 poziție</name>
+        <name lang="ru">Ключевой переключатель 3 положение</name>
+        <name lang="sk">Kľúčový prepínač 3 polohy</name>
+        <name lang="sl">Ključno stikalo 3 položaj</name>
+        <name lang="sr">Прекидач са кључем 3 положаја</name>
+        <name lang="sv">Nyckelbrytare 3 läge</name>
+        <name lang="tr">Anahtarlı şalter 3 konum</name>
+        <name lang="uk">Ключовий перемикач 3 положення</name>
+        <name lang="zh">钥匙开关1-0-2</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-27" y1="-8" x2="-28" y2="-4" x3="-24" y3="-4" x4="-25" y4="-8" closed="false" antialias="true" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-16" y1="-15" x2="-16" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-28.24" y="-12.24" width="4.47" height="4.47" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1" y1="-8" x2="-5" y2="-8" x3="-6" y3="-6" x4="-7" y4="-8" x5="-10" y5="-8" x6="-11" y6="-6" x7="-12" y7="-8" x8="-15" y8="-8" x9="-16" y9="-6" x10="-17" y10="-8" x11="-21" y11="-8" x12="-25" y12="-8" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <text text="1-0-2" x="-17" y="-17.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-6" y1="-15" x2="-6" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-15" x2="-11" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="12" y="-19.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{672eff21-50b8-4755-9b11-f4f6757a1024}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-14" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1" y="-16" width="2" height="2" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="0" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-17" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{50a18991-0377-40f1-a23a-1b6e1dff51fc}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{4bc9a760-bef4-4297-b810-6dba69c46658}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{db49f49b-af41-4b5e-abb3-76c462dd871b}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

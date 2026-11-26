@@ -1,0 +1,383 @@
+#include "titleblockcell.h"
+#include "titleblocktemplate.h"
+/**
+	Constructor
+*/
+TitleBlockCell::TitleBlockCell()
+{
+	cell_type = TitleBlockCell::EmptyCell;
+	num_row = num_col = -1;
+	row_span = col_span = 0;
+	applied_row_span = applied_col_span = 0;
+	span_state = TitleBlockCell::Enabled;
+	spanner_cell = nullptr;
+	display_label = true;
+	alignment = Qt::AlignCenter | Qt::AlignVCenter;
+	font_size = 9;
+	hadjust = false;
+	logo_reference = QString("");
+	borders = allBorders();
+	stacked = false;
+}
+
+/**
+	@return the four sides of a cell
+*/
+Qt::Edges TitleBlockCell::allBorders()
+{
+	return Qt::LeftEdge | Qt::TopEdge | Qt::RightEdge | Qt::BottomEdge;
+}
+
+/**
+	@return @p borders written as in the "borders" attribute: the letters
+	l, t, r and b of the sides drawn, "none" for none
+*/
+QString TitleBlockCell::bordersToString(Qt::Edges borders)
+{
+	QString text;
+	if (borders & Qt::LeftEdge) text += QLatin1Char('l');
+	if (borders & Qt::TopEdge) text += QLatin1Char('t');
+	if (borders & Qt::RightEdge) text += QLatin1Char('r');
+	if (borders & Qt::BottomEdge) text += QLatin1Char('b');
+	return text.isEmpty() ? QStringLiteral("none") : text;
+}
+
+/**
+	@return the sides @p text names, see bordersToString(); all of them
+	for an empty text
+*/
+Qt::Edges TitleBlockCell::bordersFromString(const QString &text)
+{
+	if (text.isEmpty()) return allBorders();
+	Qt::Edges borders;
+	if (text.contains(QLatin1Char('l'))) borders |= Qt::LeftEdge;
+	if (text.contains(QLatin1Char('t'))) borders |= Qt::TopEdge;
+	if (text.contains(QLatin1Char('r'))) borders |= Qt::RightEdge;
+	if (text.contains(QLatin1Char('b'))) borders |= Qt::BottomEdge;
+	return borders;
+}
+
+/**
+	Destructor
+*/
+TitleBlockCell::~TitleBlockCell()
+{
+}
+
+/**
+	@return the type of this cell
+*/
+TitleBlockCell::TemplateCellType TitleBlockCell::type() const
+{
+	return(cell_type);
+}
+
+/**
+	@return the horizontal alignment of this cell
+*/
+int TitleBlockCell::horizontalAlign() const
+{
+	return(alignment & Qt::AlignHorizontal_Mask);
+}
+
+/**
+	@return the vertical alignment of this cell
+*/
+int TitleBlockCell::verticalAlign() const
+{
+	return(alignment & Qt::AlignVertical_Mask);
+}
+
+/**
+	Set the new value \a attr_value to the attribute named \a attribute.
+	@param attribute Name of the cell attribute which value is to be changed
+	@param attr_value New value of the changed attribute
+*/
+void TitleBlockCell::setAttribute(const QString &attribute, const QVariant &attr_value) {
+	if (attribute == "label_font") {
+		label_font = attr_value.toString();
+	} else if (attribute == "value_font") {
+		value_font = attr_value.toString();
+	} else if (attribute == "label_color") {
+		label_color = attr_value.value<QColor>();
+	} else if (attribute == "value_color") {
+		value_color = attr_value.value<QColor>();
+	} else if (attribute == "type") {
+		int new_type = attr_value.toInt();
+		if (new_type <= TitleBlockCell::LogoCell) {
+			cell_type = static_cast<TitleBlockCell::TemplateCellType>(new_type);
+		}
+	} else if (attribute == "name") {
+		value_name = attr_value.toString();
+	} else if (attribute == "logo") {
+		logo_reference = attr_value.toString();
+	} else if (attribute == "label") {
+		label = qvariant_cast<NamesList>(attr_value);
+	} else if (attribute == "displaylabel") {
+		display_label = attr_value.toBool();
+	} else if (attribute == "value") {
+		value = qvariant_cast<NamesList>(attr_value);
+	} else if (attribute == "alignment") {
+		alignment = attr_value.toInt();
+	} else if (attribute == "fontsize") {
+		font_size = attr_value.toInt();
+	} else if (attribute == "horizontal_adjust") {
+		hadjust = attr_value.toBool();
+	}
+}
+
+/**
+	@param attribute Name of the cell attribute which value is wanted
+	@return the value of the required attribute
+*/
+QVariant TitleBlockCell::attribute(const QString &attribute) {
+	if (attribute == "label_font") {
+		return(label_font);
+	} else if (attribute == "value_font") {
+		return(value_font);
+	} else if (attribute == "label_color") {
+		return(label_color);
+	} else if (attribute == "value_color") {
+		return(value_color);
+	} else if (attribute == "type") {
+		return(type());
+	} else if (attribute == "name") {
+		return(value_name);
+	} else if (attribute == "logo") {
+		return(logo_reference);
+	} else if (attribute == "label") {
+		return(QVariant::fromValue(label));
+	} else if (attribute == "displaylabel") {
+		return(display_label);
+	} else if (attribute == "value") {
+		return(QVariant::fromValue(value));
+	} else if (attribute == "alignment") {
+		return(alignment);
+	} else if (attribute == "fontsize") {
+		return(TitleBlockTemplate::fontForCell(*this).pointSizeF());
+	} else if (attribute == "horizontal_adjust") {
+		return(hadjust);
+	}
+	return(QVariant());
+}
+
+/**
+	@param attribute Name of the cell attribute which we want the human, translated name
+	@return the human, translated name for this attribute.
+*/
+QString TitleBlockCell::attributeName(const QString &attribute) {
+	if (attribute == "type") {
+		return(QObject::tr("type", "title block cell property human name"));
+	} else if (attribute == "name") {
+		return(QObject::tr("name", "title block cell property human name"));
+	} else if (attribute == "logo") {
+		return(QObject::tr("logo", "title block cell property human name"));
+	} else if (attribute == "label") {
+		return(QObject::tr("label", "title block cell property human name"));
+	} else if (attribute == "displaylabel") {
+		return(QObject::tr("label display", "title block cell property human name"));
+	} else if (attribute == "value") {
+		return(QObject::tr("displayed value", "title block cell property human name"));
+	} else if (attribute == "alignment") {
+		return(QObject::tr("text alignment", "title block cell property human name"));
+	} else if (attribute == "fontsize") {
+		return(QObject::tr("font size", "title block cell property human name"));
+	} else if (attribute == "horizontal_adjust") {
+		return(QObject::tr("horizontal adjustment", "title block cell property human name"));
+	} else if (attribute == "label_font") {
+		return(QObject::tr("label font", "title block cell property human name"));
+	} else if (attribute == "value_font") {
+		return(QObject::tr("value font", "title block cell property human name"));
+	} else if (attribute == "label_color") {
+		return(QObject::tr("label colour", "title block cell property human name"));
+	} else if (attribute == "value_color") {
+		return(QObject::tr("value colour", "title block cell property human name"));
+	}
+	return(QString());
+}
+
+/**
+	@return true if this cell spans over other cells, false otherwise.
+*/
+bool TitleBlockCell::spans() const
+{
+	return(row_span || col_span);
+}
+
+/**
+	Copy the content of another cell.
+	@param other_cell Another cell
+*/
+void TitleBlockCell::loadContentFromCell(const TitleBlockCell &other_cell) {
+	value_name = other_cell.value_name;
+	cell_type = other_cell.cell_type;
+	logo_reference = other_cell.logo_reference;
+	value = other_cell.value;
+	label = other_cell.label;
+	display_label = other_cell.display_label;
+	font_size = other_cell.font_size;
+	alignment = other_cell.alignment;
+	hadjust = other_cell.hadjust;
+	label_font = other_cell.label_font;
+	value_font = other_cell.value_font;
+	label_color = other_cell.label_color;
+	value_color = other_cell.value_color;
+	fill = other_cell.fill;
+	borders = other_cell.borders;
+	stacked = other_cell.stacked;
+}
+
+/**
+	@return true if the label or the value of this cell has its own font or
+	colour, instead of the cell font and the default colour
+*/
+bool TitleBlockCell::hasTextStyle() const
+{
+	return !label_font.isEmpty() || !value_font.isEmpty()
+		|| label_color.isValid() || value_color.isValid();
+}
+
+/**
+	@param cell_element XML element from which cell content will be read
+*/
+void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
+	// common properties
+	if (cell_element.hasAttribute("name") && !cell_element.attribute("name").isEmpty()) {
+		value_name = cell_element.attribute("name");
+	}
+		//The background and the sides drawn, for a text or a logo
+	fill = QColor(cell_element.attribute("fill"));
+	borders = bordersFromString(cell_element.attribute("borders"));
+	
+	// specific properties
+	if (cell_element.tagName() == "logo") {
+		if (cell_element.hasAttribute("resource") && !cell_element.attribute("resource").isEmpty()) {
+			cell_type = TitleBlockCell::LogoCell;
+			logo_reference = cell_element.attribute("resource");
+		}
+	} else if (cell_element.tagName() == "field") {
+		cell_type = TitleBlockCell::TextCell;
+		
+		QHash<QString, QString> names_options;
+		names_options["TagName"] = "translation";
+		
+		names_options["ParentTagName"] = "value";
+		NamesList value_nameslist;
+		value_nameslist.fromXml(cell_element, names_options);
+		if (!value_nameslist.name().isEmpty()) {
+			value = value_nameslist;
+		}
+		
+		names_options["ParentTagName"] = "label";
+		NamesList label_nameslist;
+		label_nameslist.fromXml(cell_element, names_options);
+		if (!label_nameslist.name().isEmpty()) {
+			label = label_nameslist;
+		}
+		
+		if (cell_element.hasAttribute("displaylabel")) {
+			if (cell_element.attribute("displaylabel").compare("false", Qt::CaseInsensitive) == 0) {
+				display_label = false;
+			}
+		}
+		int fontsize;
+		if (QET::attributeIsAnInteger(cell_element, "fontsize", &fontsize)) {
+			font_size = fontsize;
+		} else {
+			font_size = -1;
+		}
+		
+		// horizontal and vertical alignments
+		alignment = 0;
+		
+		QString halignment = cell_element.attribute("align", "left");
+		if (halignment == "right") alignment |= Qt::AlignRight;
+		else if (halignment == "center") alignment |= Qt::AlignHCenter;
+		else alignment |= Qt::AlignLeft;
+		
+		QString valignment = cell_element.attribute("valign", "center");
+		if (valignment == "bottom") alignment |= Qt::AlignBottom;
+		else if (valignment == "top") alignment |= Qt::AlignTop;
+		else alignment |= Qt::AlignVCenter;
+		
+		// horizontal text adjustment
+		hadjust = cell_element.attribute("hadjust", "true") == "true";
+
+		// optional text style of the label and of the value
+		label_font = cell_element.attribute("label-font");
+		value_font = cell_element.attribute("value-font");
+		label_color = QColor(cell_element.attribute("label-color"));
+		value_color = QColor(cell_element.attribute("value-color"));
+		stacked = cell_element.attribute("stacked") == QLatin1String("true");
+	}
+}
+
+/**
+	@brief TitleBlockCell::saveContentToXml
+	@param cell_elmt : XML element to which cell content will be exported
+*/
+void TitleBlockCell::saveContentToXml(QDomElement &cell_elmt) {
+	cell_elmt.setAttribute("name", value_name);
+	if (fill.isValid()) {
+		cell_elmt.setAttribute("fill", fill.name(QColor::HexArgb));
+	}
+	if (borders != allBorders()) {
+		cell_elmt.setAttribute("borders", bordersToString(borders));
+	}
+	
+	if (type() == TitleBlockCell::EmptyCell) {
+		cell_elmt.setTagName("empty");
+	} else if (type() == TitleBlockCell::LogoCell) {
+		cell_elmt.setTagName("logo");
+		cell_elmt.setAttribute("resource", logo_reference);
+	} else {
+		cell_elmt.setTagName("field");
+		
+		QDomDocument parent_document = cell_elmt.ownerDocument();
+		
+		QHash<QString, QString> names_options;
+		names_options["TagName"] = "translation";
+		names_options["ParentTagName"] = "value";
+		cell_elmt.appendChild(value.toXml(parent_document, names_options));
+		names_options["ParentTagName"] = "label";
+		cell_elmt.appendChild(label.toXml(parent_document, names_options));
+		
+		cell_elmt.setAttribute("displaylabel", display_label ? "true" : "false");
+		if (font_size != -1) {
+			cell_elmt.setAttribute("fontsize", font_size);
+		}
+		if (!label_font.isEmpty()) {
+			cell_elmt.setAttribute("label-font", label_font);
+		}
+		if (!value_font.isEmpty()) {
+			cell_elmt.setAttribute("value-font", value_font);
+		}
+		if (label_color.isValid()) {
+			cell_elmt.setAttribute("label-color", label_color.name(QColor::HexArgb));
+		}
+		if (value_color.isValid()) {
+			cell_elmt.setAttribute("value-color", value_color.name(QColor::HexArgb));
+		}
+		if (stacked) {
+			cell_elmt.setAttribute("stacked", "true");
+		}
+		
+		if (alignment & Qt::AlignRight) {
+			cell_elmt.setAttribute("align", "right");
+		} else if (alignment & Qt::AlignHCenter) {
+			cell_elmt.setAttribute("align", "center");
+		} else {
+			cell_elmt.setAttribute("align", "left");
+		}
+		
+		if (alignment & Qt::AlignBottom) {
+			cell_elmt.setAttribute("valign", "bottom");
+		} else if (alignment & Qt::AlignTop) {
+			cell_elmt.setAttribute("valign", "top");
+		} else {
+			cell_elmt.setAttribute("valign", "center");
+		}
+		
+		if (hadjust) cell_elmt.setAttribute("hadjust", "true");
+	}
+}

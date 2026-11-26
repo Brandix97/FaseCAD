@@ -1,0 +1,66 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="23" hotspot_y="16">
+    <uuid uuid="{5ba77767-bf78-dc6b-337c-31546bb9515f}"/>
+    <names>
+        <name lang="ar">متحكّم شمسي 4</name>
+        <name lang="ca">Controlador solar 4</name>
+        <name lang="cs">Solární regulátor 4</name>
+        <name lang="da">Solstyring 4</name>
+        <name lang="de">Solarregler 4</name>
+        <name lang="el">Ηλιακός ελεγκτής 4</name>
+        <name lang="en">Solar controller 4</name>
+        <name lang="es">Controlador solar 4</name>
+        <name lang="fi">Aurinkosäädin 4</name>
+        <name lang="hr">Solarni regulator 4</name>
+        <name lang="hu">Napkollektor vezérlő 4</name>
+        <name lang="it">Controllore solare 4</name>
+        <name lang="ja">ソーラーコントローラー 4</name>
+        <name lang="ko">태양열 컨트롤러 4</name>
+        <name lang="mn">Нарны хянагч 4</name>
+        <name lang="nb">Solkontroller 4</name>
+        <name lang="nl">Zonneregelaar 4</name>
+        <name lang="nl_BE">Zonneregelaar 4</name>
+        <name lang="pl">Regulator solarny 4</name>
+        <name lang="pt">Controlador solar 4</name>
+        <name lang="pt_BR">Solar controller 4</name>
+        <name lang="ro">Controller solar 4</name>
+        <name lang="ru">Солнечный контроллер 4</name>
+        <name lang="sk">Solárny regulátor 4</name>
+        <name lang="sl">Sončni krmilnik 4</name>
+        <name lang="sr">Соларни контролер 4</name>
+        <name lang="sv">Solkontroll 4</name>
+        <name lang="tr">Güneş kontrol cihazı 4</name>
+        <name lang="uk">Сонячний контролер 4</name>
+        <name lang="zh">太阳能控制器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <text text="S1" x="0" y="7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="V" x="-6" y="7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="S2" x="7" y="7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <rect x="1" y="8" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-6" y="8" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-13" y="-3.13" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <ellipse x="-13" y="0.29" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="8" y="8" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="-11" width="30" height="19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="10" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="0" y="10" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="7" y="10" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-9" width="18" height="6" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <ellipse x="-13" y="-7.13" width="1.95" height="1.71" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="-6" y="-8" width="16" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <ellipse x="-1" y="0" width="2" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <rect x="-15" y="8" width="3" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-16" y="10" width="5" height="2" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10" y="-25.5" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c7c8a939-c79f-45f6-9835-0e0e704de032}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="B" x="-16" y="7" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{c21d721e-2fc9-4ab2-a24c-952c9598e15b}" name="" x="-13" y="13" orientation="s" type="Generic"/>
+        <terminal uuid="{4df74609-014c-4aba-aa3f-a9b8cad0edf4}" name="" x="-4" y="13" orientation="s" type="Generic"/>
+        <terminal uuid="{2ce0dd10-2f09-417f-9691-dae236a86ff2}" name="" x="2" y="13" orientation="s" type="Generic"/>
+        <terminal uuid="{e3e66c82-a5c1-43dd-a4c7-2db8589cf789}" name="" x="9" y="13" orientation="s" type="Generic"/>
+    </description>
+</definition>

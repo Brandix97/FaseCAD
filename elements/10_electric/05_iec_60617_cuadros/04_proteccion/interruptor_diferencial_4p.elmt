@@ -1,0 +1,52 @@
+<definition height="70" hotspot_x="33" hotspot_y="30" link_type="simple" type="element" version="0.200.1" width="120">
+    <uuid uuid="{f0530819-8eec-4f82-a8f4-4bb9669743c1}"/>
+    <names>
+        <name lang="de">Fehlerstrom-Schutzschalter (RCCB), 4-polig</name>
+        <name lang="en">Residual current device (RCCB), 4 poles</name>
+        <name lang="es">Interruptor diferencial, 4 polos</name>
+        <name lang="fr">Interrupteur différentiel, 4 pôles</name>
+        <name lang="it">Interruttore differenziale, 4 poli</name>
+        <name lang="pt">Interruptor diferencial, 4 polos</name>
+        <name lang="tr">Kaçak akım rölesi, 4 kutuplu</name>
+        <name lang="zh">剩余电流动作断路器，4极</name>
+    </names>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{747dfe71-6688-4c12-b543-9e232e0a63c8}" x1="-18" x2="57" y1="0" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{b54a76ed-daf7-40be-8fa6-c5f920dff021}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{ce43d4fd-3475-4890-9aed-a493824af9f0}" x1="0" x2="0" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{d39d76b3-579b-48d5-a7d8-ad4d53540648}" x1="0" x2="-8" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{713e9a92-6865-42af-8e8f-545472bb700b}" x1="-28" x2="-18" y1="0" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{02531eb4-e17b-42cc-8a86-188a51992eae}" x1="-23" x2="-23" y1="-5" y2="5"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{947f4a48-6127-4700-b137-d66015d3ac9a}" x1="20" x2="20" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{670a354e-fb71-451f-bf9a-1e0165888eaa}" x1="20" x2="20" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{2f85e17f-092f-4896-a8e7-bd259ad8106e}" x1="20" x2="12" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{b09bb606-ee7b-4a2b-a7b2-817e56dc5b25}" x1="40" x2="40" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{2ef128ec-e5e8-4f3e-adbb-8cbb46a76742}" x1="40" x2="40" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{5d622d45-376f-4556-9b18-7b424de82859}" x1="40" x2="32" y1="10" y2="-10"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{d21d24ef-5c3d-4a0d-96f4-9f285dc206a5}" x="-40" y="-20" z="14">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{cb82f3e0-e302-4a4e-b705-e41bee689dc2}" x="-40" y="0" z="14">
+            <text></text>
+            <info_name>manufacturer_reference</info_name>
+        </dynamic_text>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{67c32fcc-5304-494c-af40-bf20ecbea346}" x1="60" x2="60" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{e372eb6e-788f-4299-9e1e-28ed1e57777e}" x1="60" x2="60" y1="10" y2="30"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{0fed26c2-ed45-44b7-9f87-4a767a7b2b52}" x1="60" x2="52" y1="10" y2="-10"/>
+        <ellipse antialias="true" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{8953cb21-2198-4efb-8f15-6a18f38f20bd}" width="72" x="-6" y="13.5"/>
+        <rect antialias="false" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{186dceea-149a-4af7-8466-be9430ba15ce}" width="10" x="-28" y="-5"/>
+        <polygon antialias="false" closed="false" style="line-style:dashed;line-weight:normal;filling:none;color:black" uuid="{52646904-ef89-470b-af49-0d2ccd20a3f9}" x1="-23" x2="-23" x3="-6" y1="5" y2="16" y3="16"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{54640b20-d023-5250-a9f0-e9ce1d9a71a7}" x="0" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="3" orientation="n" show_name="true" type="Generic" uuid="{c76bfc6b-5c03-5008-aead-f801074bf0a0}" x="20" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="5" orientation="n" show_name="true" type="Generic" uuid="{a5e6c977-659f-5122-afc8-e54622f4d32c}" x="40" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="4" orientation="s" show_name="true" type="Generic" uuid="{671ae7b5-eb41-5159-9b53-5865800a51f2}" x="20" y="30"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="N.1" orientation="n" show_name="true" type="Generic" uuid="{7943709e-40af-5422-b008-ed07c3c2e7bd}" x="60" y="-20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="2" orientation="s" show_name="true" type="Generic" uuid="{a266c9ba-55b9-5bf7-b9f9-df3895492e61}" x="0" y="30"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="6" orientation="s" show_name="true" type="Generic" uuid="{d13301c7-cd24-5fa9-bd2f-d4e913f1e3c2}" x="40" y="30"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="N.2" orientation="s" show_name="true" type="Generic" uuid="{b6aa7afd-57e5-55e0-95a6-4e52dc42e3b9}" x="60" y="30"/>
+    </description>
+</definition>

@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="50" hotspot_x="29" hotspot_y="30">
+    <uuid uuid="{2a884b13-871f-d3b9-dbed-1d9824071ba5}"/>
+    <names>
+        <name lang="ar">صمّام كروي مع فولاذات</name>
+        <name lang="ca">Vàlvula de bola amb brides</name>
+        <name lang="cs">Kulový uzávěr s přírubami</name>
+        <name lang="da">Kugleventil med flanger</name>
+        <name lang="de">Kugelventil mit Flanschen</name>
+        <name lang="el">Σφαιρική βαλβίδα με φλάντζες</name>
+        <name lang="en">Ball w/flanges valve</name>
+        <name lang="es">Válvula de bola c/bridas</name>
+        <name lang="fi">Laipallinen palloventtiili</name>
+        <name lang="hr">Kuglasti ventil s prirubnicama</name>
+        <name lang="hu">Golyós karimás szelep</name>
+        <name lang="it">Valvola a sfera con flange</name>
+        <name lang="ja">フランジ付きボールバルブ</name>
+        <name lang="ko">플랜지형 볼 밸브</name>
+        <name lang="mn">Фланцтай бөмбөлөг хавхлага</name>
+        <name lang="nb">Kuleventil med flenser</name>
+        <name lang="nl">Kogelklep met flenzen</name>
+        <name lang="nl_BE">Kogelklep met flenzen</name>
+        <name lang="pl">Zawór kulowy z kołnierzami</name>
+        <name lang="pt">Válvula de esfera c/flanges</name>
+        <name lang="pt_BR">Ball w/flanges valvula</name>
+        <name lang="ro">Ventil cu bilă cu flanșe</name>
+        <name lang="ru">Шаровой клапан с фланцами</name>
+        <name lang="sk">Guľový ventil s prírubami</name>
+        <name lang="sl">Krogelni ventil s prirobnicami</name>
+        <name lang="sr">Кугласти вентил са прирубницама</name>
+        <name lang="sv">Kulventil med flänsar</name>
+        <name lang="tr">Flanşlı küresel vana</name>
+        <name lang="uk">Кульовий клапан з фланцями</name>
+        <name lang="zh">法兰球阀</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <arc x="-10.09" y="-15.21" width="19.73" height="15" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-19.89" y="-12.05" width="3" height="25.33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="9.64" y="-7.3" width="6.47" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="16.11" y="-12.05" width="3" height="25.33" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10.09" y="0.62" width="19.73" height="15" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-4.54" y="-19.17" width="8.63" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.92" y="-24.71" width="30.22" height="2.37" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.46" y="-22.33" width="2.47" height="3.17" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.07" y1="-18.68" x2="-2.07" y2="-15.52" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.24" y1="-19.1" x2="2.24" y2="-15.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-10.18" y="13.71" z="11" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a4143630-7367-43a3-9464-3813e604def2}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-17" y="-7" width="7" height="15" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9dbd90b7-d382-4e78-9bc5-208faffe4b33}" name="" x="20" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{ecf2542d-066c-41c6-875d-cac9990ea4ca}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

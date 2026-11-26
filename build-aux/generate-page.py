@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""
+generate-page.py — Generates gh-pages/index.html for QElectroTech nightly builds.
+Called from windows-msi.yml deploy-pages job.
+
+Environment variables required:
+  DATE, SHORT, REPO, SHA, RUN_URL, RUN_NUMBER,
+  INSTALLER_URL, PORTABLE_URL, MSI_URL (optional)
+
+Optional:
+  NIGHTLY_TAG    tag of the rolling nightly release (default: "nightly-qt6")
+  APPIMAGE_URL   Linux AppImage (built by linux-appimage.yml); no Linux
+  APPIMAGE_NAME  section on the page when empty
+
+NOTE: Qt6 is the sole Windows track. The frozen Qt5 legacy build and the
+old "nightly" release that held it were removed in Oct. 2026, after that
+release became immutable (see windows-build.yml, publish-nightly-assets).
+"""
+import os
+
+date          = os.environ.get("DATE", "")
+short         = os.environ.get("SHORT", "")
+repo          = os.environ.get("REPO", "")
+sha           = os.environ.get("SHA", "")
+run_url       = os.environ.get("RUN_URL", "")
+run_number    = os.environ.get("RUN_NUMBER", "")
+installer_url = os.environ.get("INSTALLER_URL", "")
+portable_url  = os.environ.get("PORTABLE_URL", "")
+msi_url       = os.environ.get("MSI_URL", "")
+nightly_tag   = os.environ.get("NIGHTLY_TAG", "") or "nightly-qt6"
+appimage_url  = os.environ.get("APPIMAGE_URL", "")
+appimage_name = os.environ.get("APPIMAGE_NAME", "")
+
+msi_block = ""
+if msi_url:
+    msi_block = f"""
+<a class="btn btn-msi" href="{msi_url}">
+<span class="btn-icon">&#11015;</span>
+<span class="btn-text">Windows Installer .msi<small>.msi &mdash; for enterprise / GPO deployment</small></span>
+</a>"""
+
+# The AppImage is built in parallel with the MSI and may be missing (first
+# run, build failure): the Linux section is only shown when it exists. Its
+# file name is shown because, after a failed AppImage build, the previous
+# AppImage stays on the release and may be older than the Windows builds.
+linux_block = ""
+if appimage_url:
+    linux_block = f"""
+<div class="card">
+<h2>&#128039; Linux &mdash; x86_64</h2>
+<div class="downloads">
+<a class="btn btn-appimage" href="{appimage_url}">
+<span class="btn-icon">&#11015;</span>
+<span class="btn-text">Linux AppImage<small>{appimage_name} &mdash; make it executable and run it, no installation required</small></span>
+</a>
+</div>
+<p class="note">Needs glibc 2.39 or newer: Ubuntu 24.04+, Debian 13+, Fedora 40+, Arch, openSUSE Tumbleweed.
+<code>chmod +x QElectroTech_*.AppImage</code></p>
+</div>"""
+
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QElectroTech &ndash; Nightly Builds</title>
+<style>
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f0f4f8;color:#2d3748;min-height:100vh}}
+header{{background:linear-gradient(135deg,#1a365d 0%,#2b6cb0 100%);color:white;padding:48px 24px 40px;text-align:center}}
+header h1{{font-size:2.2em;letter-spacing:-0.5px;margin-bottom:8px}}
+header p{{opacity:.8;font-size:1.05em}}
+main{{max-width:680px;margin:40px auto;padding:0 20px 60px}}
+.card{{background:white;border-radius:12px;padding:28px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,.08)}}
+.card h2{{font-size:1em;text-transform:uppercase;letter-spacing:.06em;color:#718096;margin-bottom:16px}}
+.meta{{font-size:.875em;color:#4a5568;line-height:1.8;margin-bottom:20px}}
+.meta a{{color:#2b6cb0;text-decoration:none}}
+.meta a:hover{{text-decoration:underline}}
+.badge{{display:inline-block;background:#ebf8ff;color:#2b6cb0;border-radius:4px;font-size:.8em;font-weight:600;padding:2px 8px;margin-left:6px;vertical-align:middle}}
+.warning{{background:#fffbeb;border-left:4px solid #f6ad55;border-radius:4px;padding:12px 16px;font-size:.875em;color:#744210;margin-bottom:24px;line-height:1.5}}
+.warning a{{color:#c05621}}
+.downloads{{display:flex;flex-direction:column;gap:12px}}
+.btn{{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:8px;font-size:.95em;font-weight:600;text-decoration:none;transition:transform .1s,box-shadow .1s}}
+.btn:hover{{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}}
+.btn-primary{{background:#2b6cb0;color:white}}
+.btn-msi{{background:#6b46c1;color:white}}
+.btn-appimage{{background:#2f855a;color:white}}
+.note{{font-size:.8em;color:#718096;line-height:1.6;margin-top:14px}}
+.note code{{background:#edf2f7;border-radius:4px;padding:1px 6px}}
+.btn-secondary{{background:#edf2f7;color:#2d3748}}
+.btn-icon{{font-size:1.3em}}
+.btn-text small{{display:block;font-weight:400;font-size:.8em;opacity:.75;margin-top:1px}}
+footer{{text-align:center;font-size:.8em;color:#a0aec0;padding:32px 0 0}}
+footer a{{color:#718096;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>&#9889; QElectroTech</h1>
+<p>Nightly Builds</p>
+</header>
+<main>
+<div class="card">
+<h2>Build info</h2>
+<div class="meta">
+&#128197; &nbsp;<strong>{date}</strong><br>
+&#128256; &nbsp;Commit <a href="https://github.com/{repo}/commit/{sha}"><code>{short}</code></a><br>
+&#128295; &nbsp;<a href="{run_url}">CI Run #{run_number}</a>
+<span class="badge">nightly</span>
+</div>
+<div class="warning">
+&#9888;&#65039; This is a development version; it introduces new features you want,
+but may cause bugs that have not yet been identified yet in <code>master</code>.
+For production use, download a <a href="https://github.com/{repo}/releases">stable release</a>.
+</div>
+</div>
+<div class="card">
+<h2>&#127993; Windows &mdash; x86_64</h2>
+<div class="downloads">
+<a class="btn btn-primary" href="{installer_url}">
+<span class="btn-icon">&#11015;</span>
+<span class="btn-text">Windows Installer<small>.exe &mdash; recommended, includes all dependencies</small></span>
+</a>
+{msi_block}
+<a class="btn btn-secondary" href="{portable_url}">
+<span class="btn-icon">&#128230;</span>
+<span class="btn-text">Windows Portable<small>.zip &mdash; no installation required, extract and run &quot;Lancer QET.bat&quot;</small></span>
+</a>
+<a class="btn btn-secondary" href="https://github.com/{repo}/releases/tag/{nightly_tag}">
+<span class="btn-icon">&#128230;</span>
+<span class="btn-text">All nightly files on GitHub<small>Release page with checksums</small></span>
+</a>
+</div>
+</div>
+{linux_block}
+</main>
+<footer>
+Auto-generated by GitHub Actions &nbsp;&middot;&nbsp;
+<a href="https://github.com/{repo}">Source on GitHub</a> &nbsp;&middot;&nbsp;
+<a href="https://qelectrotech.org">qelectrotech.org</a>
+</footer>
+</body>
+</html>"""
+
+os.makedirs("gh-pages", exist_ok=True)
+with open("gh-pages/index.html", "w", encoding="utf-8") as f:
+    f.write(html)
+print("index.html written OK")

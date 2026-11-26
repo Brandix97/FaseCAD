@@ -1,0 +1,26 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="31" hotspot_y="20">
+    <uuid uuid="{c432f693-acfa-9742-f496-a723af564b6b}"/>
+    <names>
+        <name lang="ca">Dutxa</name>
+        <name lang="es">Ducha</name>
+        <name lang="pt_BR">Ducha</name>
+        <name lang="zh">淋浴器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-6.42" y1="-5.09" x2="-3.78" y2="-7.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-8.18" y="-15.29" width="12.31" height="11.9" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-0.26" y1="-7.64" x2="2.38" y2="-5.09" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-27.53" y="1.71" width="52.77" height="1.7" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-25.77" y1="3.41" x2="-23.13" y2="6.81" x3="-3.78" y3="6.81" x4="-2" y4="8.51" x5="0.62" y5="8.51" x6="2.38" y6="6.81" x7="20.84" y7="6.81" x8="23.48" y8="3.41" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-9.06" y="-16.14" width="14.07" height="13.6" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.9" y="-10.19" width="1.76" height="1.7" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-5.54" y1="-13.59" x2="-2.9" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-0.26" y1="-11" x2="2.38" y2="-13.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="-14.5" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a6b50f91-08c2-451c-a1fb-0a909a85f1e8}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7b1e99c1-0a7b-4f83-8f7a-721b0ec1da84}" name="" x="-1" y="9" orientation="s" type="Generic"/>
+    </description>
+</definition>

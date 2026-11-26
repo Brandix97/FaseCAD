@@ -1,0 +1,161 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "exportproperties.h"
+#include "qetapp.h"
+
+/**
+	Constructeur par defaut :
+	  * le repertoire de destination est l'emplacement des documents de l'utilisateur
+	  * le format d'export est PNG
+	  * la grille et les bornes ne doivent pas etre dessinees
+	  * la bordure et le cartouche doivent etre dessines
+	  * la zone exportee est le schema avec son cadre et son cartouche
+*/
+ExportProperties::ExportProperties() :
+	destination_directory(QETApp::documentDir()),
+	format("PNG"),
+	draw_grid(false),
+	draw_guides(false),
+	draw_border(true),
+	draw_titleblock(true),
+	draw_terminals(false),
+	draw_bg_transparent(false),
+	draw_colored_conductors(true),
+	dxf_blocks(false),
+	dxf_attributes(false),
+	svg_small_pictures(false),
+	exported_area(QET::BorderArea)
+{
+}
+
+/**
+	Destructeur
+*/
+ExportProperties::~ExportProperties()
+{
+}
+
+/**
+	Exporte les options dans une configuration.
+	@param settings Parametres a ecrire
+	@param prefix prefixe a ajouter devant les noms des parametres
+*/
+void ExportProperties::toSettings(QSettings &settings,
+				  const QString &prefix) const
+{
+	settings.setValue(prefix % "path",
+			  QDir::toNativeSeparators(
+				  destination_directory.absolutePath()));
+	settings.setValue(prefix % "format",
+			  format);
+	settings.setValue(prefix % "drawgrid",
+			  draw_grid);
+	settings.setValue(prefix % "drawguides",
+			  draw_guides);
+	settings.setValue(prefix % "drawborder",
+			  draw_border);
+	settings.setValue(prefix % "drawtitleblock",
+			  draw_titleblock);
+	settings.setValue(prefix % "drawterminals",
+			  draw_terminals);
+	settings.setValue(prefix % "drawbgtransparent",
+			  draw_bg_transparent);
+	settings.setValue(prefix % "drawcoloredconductors",
+			  draw_colored_conductors);
+	settings.setValue(prefix % "dxfblocks",
+			  dxf_blocks);
+	settings.setValue(prefix % "dxfattributes",
+			  dxf_attributes);
+	settings.setValue(prefix % "svgsmallpictures",
+			  svg_small_pictures);
+	settings.setValue(prefix % "area",
+			  QET::diagramAreaToString(exported_area));
+}
+
+/**
+	Lit les options depuis une configuration.
+	@param settings Parametres a lire
+	@param prefix prefixe a ajouter devant les noms des parametres
+*/
+void ExportProperties::fromSettings(QSettings &settings,
+				    const QString &prefix) {
+	QString export_path = QETApp::documentDir();
+	destination_directory.setPath(
+				settings.value(
+					prefix % "path",
+					export_path).toString());
+	if (!destination_directory.exists())
+		destination_directory.setPath(export_path);
+
+	format = settings.value(prefix % "format").toString();
+
+	draw_grid = settings.value(prefix % "drawgrid",
+				   false).toBool();
+	draw_guides = settings.value(prefix % "drawguides",
+				   false).toBool();
+	draw_border = settings.value(prefix % "drawborder",
+				     true ).toBool();
+	draw_titleblock = settings.value(prefix % "drawtitleblock",
+					 true ).toBool();
+	draw_terminals = settings.value(prefix % "drawterminals",
+					false).toBool();
+	draw_bg_transparent = settings.value(prefix % "drawbgtransparent",
+					false).toBool();
+	draw_colored_conductors = settings.value(
+				prefix % "drawcoloredconductors",
+				true ).toBool();
+	dxf_blocks = settings.value(prefix % "dxfblocks",
+				    false).toBool();
+	dxf_attributes = settings.value(prefix % "dxfattributes",
+					false).toBool();
+	svg_small_pictures = settings.value(prefix % "svgsmallpictures",
+					    false).toBool();
+
+	exported_area  = QET::diagramAreaFromString(
+				settings.value(
+					prefix % "area",
+					"border").toString());
+}
+
+/**
+	@brief ExportProperties::defaultProperties
+	@return the default properties stored in the setting file
+*/
+ExportProperties ExportProperties::defaultExportProperties()
+{
+	QSettings settings;
+
+	ExportProperties def;
+	def.fromSettings(settings, "export/default");
+
+	return(def);
+}
+
+/**
+	@brief ExportProperties::defaultPrintProperties
+	@return the default properties stored in the setting file
+*/
+ExportProperties ExportProperties::defaultPrintProperties()
+{
+	QSettings settings;
+
+	ExportProperties def;
+	def.fromSettings(settings, "print/default");
+
+	return(def);
+}

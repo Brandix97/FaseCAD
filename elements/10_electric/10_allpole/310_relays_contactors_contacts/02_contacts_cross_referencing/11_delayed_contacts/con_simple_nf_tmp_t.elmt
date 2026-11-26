@@ -1,0 +1,57 @@
+<definition version="0.100.0" type="element" link_type="slave" width="30" height="60" hotspot_x="19" hotspot_y="30">
+    <uuid uuid="{5606939b-7862-6a83-fedb-fd3448a2a9d3}"/>
+    <names>
+        <name lang="ar">مُلامس فصل يفتح متأخرا</name>
+        <name lang="ca">Contacte simple (NC / temporitzador de retard d'encesa)</name>
+        <name lang="cs">Kontakt NC zpožděný přítah</name>
+        <name lang="da">Enkel kontakt (NC / tændingsforsinkelse)</name>
+        <name lang="de">Öffner ansprechverzögert</name>
+        <name lang="el">Κλειστή επαφή, καθυστέρηση ενεργοποίησης</name>
+        <name lang="en">Simple contact (NC / switch-on delay timer)</name>
+        <name lang="es">Contactor simple (NC / tiempo retardado de encendido)</name>
+        <name lang="fi">Yksinkertainen kosketin (NC / päällekytkentäviive)</name>
+        <name lang="fr">Contact simple (NF / tempo travail)</name>
+        <name lang="hr">Jednostavni kontakt (NC / odgoda uključivanja)</name>
+        <name lang="hu">Egyszerű érintkező (NC / bekapcsolási késleltetés)</name>
+        <name lang="it">Contatto NC ritardato all'apertura</name>
+        <name lang="ja">単純接点 (NC / 動作遅延タイマー)</name>
+        <name lang="ko">단순 접점 (NC / 스위치 온 지연 타이머)</name>
+        <name lang="mn">Энгийн контакт (NC / асаах сааталтай таймер)</name>
+        <name lang="nb">Enkel kontakt (NC / tidsforsinket innkobling)</name>
+        <name lang="nl">Enkel contact (NC / inschakelvertraging timer)</name>
+        <name lang="nl_BE">Eenvoudig contact (NC / inschakelvertraging)</name>
+        <name lang="pl">Zestyk rozwierny działający z opóźnieniem</name>
+        <name lang="pt">Contacto simples (NC / tempo retardado de ligado)</name>
+        <name lang="pt_BR">Contato simples NF temporizado na energização</name>
+        <name lang="ro">Contact simplu (NC / temporizare la conectare)</name>
+        <name lang="ru">Контакт с задержкой при срабатывании (НЗ)</name>
+        <name lang="sk">Jednoduchý kontakt (NC / oneskorenie zapnutia)</name>
+        <name lang="sl">Enostavni kontakt (NC / zakasnitev vklopa časovnika)</name>
+        <name lang="sr">Прости контакт (NC / тајмер кашњења укључивања)</name>
+        <name lang="sv">Enkelkontakt (NC / tillslagsfördröjd timer)</name>
+        <name lang="tr">Basit kontak (NC / açma gecikmeli zamanlayıcı)</name>
+        <name lang="uk">Простий контакт (NC / таймер затримки ввімкнення)</name>
+        <name lang="zh">常闭延时工作触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">delayOn</kindInformation>
+        <kindInformation name="state">NC</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-14.8" y1="1.5" x2="2" y2="1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-9" x2="6" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14.8" y1="-1.5" x2="2.5" y2="-1.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <arc x="-15" y="-5" width="10" height="10" start="90" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="7.75" y="-9.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{35c1810c-0d8d-4e10-907a-77144f893316}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{9c06bbd5-6f6e-4705-b1e2-32238a5ddc19}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{fa43418f-dac1-4ef9-9482-ec0fe8657428}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,29 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="10" hotspot_x="15" hotspot_y="5">
+    <uuid uuid="{7f1c6cfb-0a8b-b012-387c-6ca87c5b3b89}"/>
+    <names>
+        <name lang="ar">مقطع 1 موصل</name>
+        <name lang="ca">Secció 1 conductor</name>
+        <name lang="cs">Označení vodiče</name>
+        <name lang="da">Sektion 1 leder</name>
+        <name lang="de">Verdrahtungsdefinition 1 Leiter</name>
+        <name lang="el">Διατομή 1 αγωγού</name>
+        <name lang="en">Section 1 conductor</name>
+        <name lang="es">Sección 1 conductor</name>
+        <name lang="fr">Section 1 conducteur</name>
+        <name lang="hu">1 ér keresztmetszet</name>
+        <name lang="it">Sezione 1 conduttore</name>
+        <name lang="pl">Oznaczenie pola przekroju przewodu jednożyłowego</name>
+        <name lang="pt_BR">Seção 1 condutor</name>
+        <name lang="zh">1导体截面</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10.85" y1="0" x2="9.92" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2" y1="-2" x2="2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-44" y="-6" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{67d27ac1-b9c7-4f4c-a88b-9a93bec694f0}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+    </description>
+</definition>

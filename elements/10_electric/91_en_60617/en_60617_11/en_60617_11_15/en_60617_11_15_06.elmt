@@ -1,0 +1,52 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="40" hotspot_x="25" hotspot_y="32">
+    <uuid uuid="{e1578cf6-f50a-8619-5c41-3ebf68ea62b8}"/>
+    <names>
+        <name lang="ar">جهاز إضاءة بعدة أنابيب فلورية</name>
+        <name lang="ca">Lluminària amb molts tubs fluorescents</name>
+        <name lang="cs">Svítidlo s pěti zářivkami</name>
+        <name lang="da">Armatur med mange lysstofrør</name>
+        <name lang="de">Leuchte mit fünf Leuchtstofflampen</name>
+        <name lang="el">Φωτιστικό με πολλές λάμπες φθορισμού</name>
+        <name lang="en">Luminaire with many fluorescent tubes</name>
+        <name lang="es">Luminaria con varios tubos fluorescentes</name>
+        <name lang="fi">Valaisin, jossa useita loisteputkia</name>
+        <name lang="fr">Luminaire à cinq tubes fluorescents</name>
+        <name lang="hr">Rasvjetno tijelo s više fluorescentnih cijevi</name>
+        <name lang="hu">Lámpatest több fénycsővel</name>
+        <name lang="it">Apparecchio di illuminazione con più tubi fluorescenti</name>
+        <name lang="ja">多数の蛍光管付き照明器具</name>
+        <name lang="ko">형광등 여러 개를 가진 조명 기구</name>
+        <name lang="mn">Олон флюресцент хоолойтой гэрэлтүүлэгч</name>
+        <name lang="nb">Armatur med mange lysrør</name>
+        <name lang="nl">Armatuur met veel TL-buizen</name>
+        <name lang="nl_BE">Armatuur met x fluorescerende buislampen</name>
+        <name lang="pl">Oprawa z wieloma świetlówkami</name>
+        <name lang="pt">Luminária com vários tubos fluorescentes</name>
+        <name lang="pt_BR">Luminaire com many fluouescent tubes</name>
+        <name lang="ro">Corp de iluminat cu multe tuburi fluorescente</name>
+        <name lang="ru">Светильник с несколькими люминесцентными лампами</name>
+        <name lang="sk">Svietidlo s mnohými žiarivkovými trubicami</name>
+        <name lang="sl">Svetilka z več fluorescentnimi cevmi</name>
+        <name lang="sr">Светиљка са више флуоресцентних цеви</name>
+        <name lang="sv">Armatur med många lysrör</name>
+        <name lang="tr">Çok sayıda floresan tüplü armatür</name>
+        <name lang="uk">Світильник з багатьма люмінесцентними лампами</name>
+        <name lang="zh">接线端子06</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="35" y="23.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{e8532e2f-063a-41a3-8293-359153617e3a}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-20" y1="0" x2="30" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-5" x2="-20" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-5" x2="30" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="5" x2="10" y2="-5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7" y="-21" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{cc042a1f-e331-49f7-942c-b9d18f7389a6}" font="Liberation Sans,9,-1,5,0,0,0,0,0,0,Regular">
+            <text>x</text>
+            <info_name>quantity</info_name>
+        </dynamic_text>
+    </description>
+</definition>

@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="37">
+    <uuid uuid="{45888dcd-81de-2a3d-028d-4c1c0cebd994}"/>
+    <names>
+        <name lang="ar">مصفّي</name>
+        <name lang="ca">Purgador</name>
+        <name lang="cs">Odvzdušňovací ventil</name>
+        <name lang="da">Udluffer</name>
+        <name lang="de">Entlüfter</name>
+        <name lang="el">Εξαεριστικό</name>
+        <name lang="en">Purger</name>
+        <name lang="es">Purgador</name>
+        <name lang="fi">Ilmanpoistaja</name>
+        <name lang="fr">Purgeur</name>
+        <name lang="hr">Odzačni ventil</name>
+        <name lang="hu">Légtelenítő</name>
+        <name lang="it">Spurgo</name>
+        <name lang="ja">エア抜き弁</name>
+        <name lang="ko">에어 퍼저</name>
+        <name lang="mn">Агаар зайлуулагч</name>
+        <name lang="nb">Lufter</name>
+        <name lang="nl">Ontluchter</name>
+        <name lang="nl_BE">Ontluchter</name>
+        <name lang="pl">Odwadniacz</name>
+        <name lang="pt">Purgador</name>
+        <name lang="pt_BR">Purger</name>
+        <name lang="ro">Purger</name>
+        <name lang="ru">Воздухоотводчик</name>
+        <name lang="sk">Odvzdušňovač</name>
+        <name lang="sl">Oddušnik</name>
+        <name lang="sr">Одзивач</name>
+        <name lang="sv">Avluftare</name>
+        <name lang="tr">Hava purjörü</name>
+        <name lang="uk">Повітровідвідник</name>
+        <name lang="zh">1/2英寸外螺纹排气阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-3.6" y1="-2" x2="3.6" y2="-3.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.4" y1="-29.76" x2="5.4" y2="-32.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.9" y1="-29.76" x2="6.9" y2="-32.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.8" y1="-29.76" x2="7.8" y2="-32.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.9" y1="-29.76" x2="3.9" y2="-32.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3.9" y="-3.78" width="7.8" height="7.72" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.6" y1="-0.62" x2="3.6" y2="-1.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.6" y1="2.54" x2="3.6" y2="1.49" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.6" y1="1.14" x2="3.6" y2="0.08" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-3.6" y1="3.95" x2="3.6" y2="2.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-5.4" y="-8.34" width="10.8" height="4.56" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9" y="-27.3" width="18" height="19" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="3.3" y="-29.06" width="3.9" height="1.76" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="2.1" y="-34" width="6.3" height="4.92" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3" y1="-29.76" x2="3" y2="-32.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9" y1="-23.79" x2="8.7" y2="-23.79" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="-28" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2b16a6ef-abf4-4c26-a927-ec506e87a200}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{97ccaa25-9c80-4bf2-a18f-3f4e532ad385}" name="" x="0" y="4" orientation="s" type="Generic"/>
+    </description>
+</definition>

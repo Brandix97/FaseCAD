@@ -1,0 +1,46 @@
+<definition version="0.80" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="25">
+    <uuid uuid="{f676f3ff-b645-6266-8793-33edc199018f}"/>
+    <names>
+        <name lang="ar">مضخة</name>
+        <name lang="ca">Bomba</name>
+        <name lang="cs">Pumpa</name>
+        <name lang="da">Pumpe</name>
+        <name lang="de">Pumpe</name>
+        <name lang="el">Αντλία</name>
+        <name lang="en">Pump</name>
+        <name lang="es">Bomba</name>
+        <name lang="fi">Pumppu</name>
+        <name lang="fr">Pompe</name>
+        <name lang="hr">Pumpa</name>
+        <name lang="hu">Szivattyú</name>
+        <name lang="it">Pompa</name>
+        <name lang="ja">ポンプ</name>
+        <name lang="ko">펌프</name>
+        <name lang="mn">Насос</name>
+        <name lang="nb">Pumpe</name>
+        <name lang="nl">Pomp</name>
+        <name lang="nl_BE">Pomp</name>
+        <name lang="pl">Pompa</name>
+        <name lang="pt">Bomba</name>
+        <name lang="pt_BR">Bomba</name>
+        <name lang="ro">Pompă</name>
+        <name lang="ru">Насос</name>
+        <name lang="sk">Čerpadlo</name>
+        <name lang="sl">Črpalka</name>
+        <name lang="sr">Пумпа</name>
+        <name lang="sv">Pump</name>
+        <name lang="tr">Pompa</name>
+        <name lang="uk">Насос</name>
+        <name lang="zh">泵</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-9.5" y="-9.5" width="19.18" height="19.33" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-0.29" y1="-9.33" x2="-9" y2="0.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.07" y1="-9.33" x2="9.65" y2="0.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="9.88" x2="0" y2="13.6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="0" y2="-14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{691cc240-200c-4031-880b-242655b6833e}" name="" x="0" y="-14" orientation="n" type="Generic"/>
+        <terminal uuid="{dae45d6e-3c81-4334-8a5c-c8ebd35b9165}" name="" x="0" y="14" orientation="s" type="Generic"/>
+    </description>
+</definition>

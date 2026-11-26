@@ -1,0 +1,55 @@
+<definition version="0.80" type="element" link_type="simple" width="50" height="90" hotspot_x="25" hotspot_y="47">
+    <uuid uuid="{e985077a-4b66-31c4-1359-b01f11338f4b}"/>
+    <names>
+        <name lang="ar">عدّاد زمني(en_60617)</name>
+        <name lang="ca">Comptador d'hores(en_60617)</name>
+        <name lang="cs">Počítadlo provozních hodin</name>
+        <name lang="da">Timetæller(en_60617)</name>
+        <name lang="de">Betriebsstundenzähler (en_60617)</name>
+        <name lang="el">Ωρόμετρο (en_60617)</name>
+        <name lang="en">Hour counter(en_60617)</name>
+        <name lang="es">Contador horario(en_60617)</name>
+        <name lang="fi">Tuntilaskuri(en_60617)</name>
+        <name lang="fr">Compteur horaire (en_60617)</name>
+        <name lang="hr">Brojilo radnih sati (en_60617)</name>
+        <name lang="hu">Üzemóra számláló(en_60617)</name>
+        <name lang="it">Conta tempo (en_60617)</name>
+        <name lang="ja">アワーカウンター(en_60617)</name>
+        <name lang="ko">시간 카운터(en_60617)</name>
+        <name lang="mn">Цаг тоолуур(en_60617)</name>
+        <name lang="nb">Timeteller(en_60617)</name>
+        <name lang="nl">Bedrijfsurenteller (en_60617)</name>
+        <name lang="nl_BE">Urenteller(en_60617)</name>
+        <name lang="pl">Licznik godzin (en_60617)</name>
+        <name lang="pt">Contador horário(en_60617)</name>
+        <name lang="pt_BR">Contador de horas (EN 60617)</name>
+        <name lang="ro">Contor de ore (en_60617)</name>
+        <name lang="ru">Счетчик моточасов(en_60617)</name>
+        <name lang="sk">Počítadlo hodín (en_60617)</name>
+        <name lang="sl">Števec obratovalnih ur (en_60617)</name>
+        <name lang="sr">Бројило радних сати (en_60617)</name>
+        <name lang="sv">Timmätare(en_60617)</name>
+        <name lang="tr">Saat sayacı(en_60617)</name>
+        <name lang="uk">Лічильник годин (en_60617)</name>
+        <name lang="zh">小时计_08-04-03_en60617</name>
+    </names>
+    <informations>https://github.com/jonasstein/qelectrotech-symbols
+EN 60617</informations>
+    <description>
+        <text text="h" x="-4" y="12" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="23" y="-10.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{0e001975-1243-48e4-95e1-3e67ce4f85f0}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-20" y="-10" width="40" height="40" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-20" y="-30" width="40" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-40" x2="-10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-40" x2="10" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="30" x2="-10" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="30" x2="10" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{65cf25d0-3199-469c-b0d2-e47bc49cfd94}" name="" x="-10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{2294aab1-77e8-419d-86bc-8531d2cfb857}" name="" x="10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{a67bfc14-d784-47b0-956d-4a443624c40e}" name="" x="-10" y="35" orientation="s" type="Generic"/>
+        <terminal uuid="{7e70f143-5f9d-43cd-acce-8bc04d9ab3b7}" name="" x="10" y="35" orientation="s" type="Generic"/>
+    </description>
+</definition>

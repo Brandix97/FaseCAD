@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="70" hotspot_x="65" hotspot_y="40">
+    <uuid uuid="{6392f23e-b97e-a839-14de-e32a62b988b9}"/>
+    <names>
+        <name lang="ar">مفتاح ساكن، أحادي الاتجاه</name>
+        <name lang="ca">Interruptor estàtic, unidireccional</name>
+        <name lang="cs">Statický spínač propuštějící proud v jednom směru</name>
+        <name lang="da">Statisk afbryder, ensrettet</name>
+        <name lang="de">elektronischer Schalter, nur in einer Richtung
+stromdurchlässig</name>
+        <name lang="el">Στατικός διακόπτης, μονόδρομος</name>
+        <name lang="en">Static switch, unidirectional</name>
+        <name lang="es">Interruptor estático unidireccional</name>
+        <name lang="fi">Staattinen kytkin, yksisuuntainen</name>
+        <name lang="fr">Interrupteur à semiconducteur, (statique)
+passage du courant dans un seul sens</name>
+        <name lang="hr">Statička sklopka, jednosmjerna</name>
+        <name lang="hu">Statikus kapcsoló, egyirányú</name>
+        <name lang="it">Interruttore statico, unidirezionale</name>
+        <name lang="ja">静止形スイッチ，単方向</name>
+        <name lang="ko">정지형 스위치, 단방향</name>
+        <name lang="mn">Статик унтраалга, нэг чиглэлт</name>
+        <name lang="nb">Statisk bryter, enveis</name>
+        <name lang="nl">Statische schakelaar, eenrichting</name>
+        <name lang="nl_BE">Statische schakelaar, unidirectioneel</name>
+        <name lang="pl">Łącznik statyczny, jednokierunkowy</name>
+        <name lang="pt">Interruptor estático, unidirecional</name>
+        <name lang="pt_BR">eEstaticoo Interruptor, unidirectional</name>
+        <name lang="ro">Întrerupător static, unidirecțional</name>
+        <name lang="ru">Статический выключатель, однонаправленный</name>
+        <name lang="sk">Statický spínač, jednosmerný</name>
+        <name lang="sl">Statično stikalo, enosmerno</name>
+        <name lang="sr">Статички прекидач, једносмерни</name>
+        <name lang="sv">Statisk brytare, enkelriktad</name>
+        <name lang="tr">Statik anahtar, tek yönlü</name>
+        <name lang="uk">Статичний вимикач, односторонній</name>
+        <name lang="zh">接线端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-50" y1="15" x2="-60" y2="0" x3="-40" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-60" y1="15" x2="-40" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f039a17e-51f6-4545-a527-1e248d6c415d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="0" x2="10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="0" x2="-50" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="-20" x2="-50" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-50" y1="0" x2="-57" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="-7" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="15" x2="-10" y2="15" x3="0" y3="0" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{80bd8e53-1ca0-4a81-8244-79d14b483fa3}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{ed11ca22-b2a9-4976-834f-2a179014603d}" name="" x="0" y="-30" orientation="n" type="Generic"/>
+        <terminal uuid="{5a5f1db5-0ae5-4ac6-81e4-bf89c90de2ca}" name="" x="-50" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{ba0c73df-afe5-4502-af1e-30816eb9f664}" name="" x="-50" y="-30" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="80" hotspot_x="11" hotspot_y="50">
+    <uuid uuid="{37bb943b-b806-f2b4-316f-6d3d3b763445}"/>
+    <names>
+        <name lang="ar">ملامس وصل، ثابت الوضع</name>
+        <name lang="ca">Poseu-vos en contacte, manteniu-vos-hi</name>
+        <name lang="cs">Zapínací kontakt bez samočinného návratu
+Zapínací kontakt se stálou polohou</name>
+        <name lang="da">Sluttekontakt, fastholdt position</name>
+        <name lang="de">Schließer mit nicht selbsttätigem Rückgang</name>
+        <name lang="el">Επαφή κλεισίματος, παραμένουσα θέση</name>
+        <name lang="en">Make contact, stay put</name>
+        <name lang="es">Contacto de cierre, posición mantenida</name>
+        <name lang="fi">Sulkukosketin, pysyvä asento</name>
+        <name lang="fr">Contact à fermeture, sans retour automatique
+Contact à fermeture, à position maintenue</name>
+        <name lang="hr">Radni kontakt, zadržavanje položaja</name>
+        <name lang="hu">Záróérintkező, tartott helyzet</name>
+        <name lang="it">Contatto di chiusura, posizioni stabili</name>
+        <name lang="ja">メーク接点，保持</name>
+        <name lang="ko">메이크 접점, 유지</name>
+        <name lang="mn">Холбох контакт, хэвээр үлдэх</name>
+        <name lang="nb">Arbeidskontakt, holdeposisjon</name>
+        <name lang="nl">Maakcontact, blijvende stand</name>
+        <name lang="nl_BE">Maakcontact, blijvende stand</name>
+        <name lang="pl">Zestyk zwierny, bez powrotu samoczynnego</name>
+        <name lang="pt">Contacto de fecho, mantido</name>
+        <name lang="pt_BR">Contato NA mantido</name>
+        <name lang="ro">Contact de lucru, menținere a poziției</name>
+        <name lang="ru">Замыкающий контакт, фиксированное положение</name>
+        <name lang="sk">Pracovný kontakt, zotrvanie v polohe</name>
+        <name lang="sl">Delovni kontakt, zadržani položaj</name>
+        <name lang="sr">Радни контакт, задржавање положаја</name>
+        <name lang="sv">Slutande kontakt, kvarstående</name>
+        <name lang="tr">Kapama kontağı, konumda kalma</name>
+        <name lang="uk">Замикальний контакт, фіксоване положення</name>
+        <name lang="zh">接线端子02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="0" x2="-8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5" y="12.5" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{bb90e421-7650-4302-927e-2f4b8e8b7c10}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-2.5" y="-25.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-26" x2="0" y2="-40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{c3cc0622-f944-4943-9e21-63c2effc9805}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{32f8f2f9-62ef-4a6d-a387-e426205d6887}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

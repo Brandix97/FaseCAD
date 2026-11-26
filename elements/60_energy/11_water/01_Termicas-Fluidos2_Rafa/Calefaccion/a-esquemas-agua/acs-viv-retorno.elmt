@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="23" hotspot_y="22">
+    <uuid uuid="{759fe2c3-c558-41bd-38f4-0d24cb9d095d}"/>
+    <names>
+        <name lang="ar">مياه ساخنة صحية + إرجاع</name>
+        <name lang="ca">ACS+retorn</name>
+        <name lang="cs">Teplá užitková voda + vratná větev</name>
+        <name lang="da">DHW+retur</name>
+        <name lang="de">Warmwasser+Rücklauf</name>
+        <name lang="el">ΖΝΧ+επιστροφή</name>
+        <name lang="en">DHW+return</name>
+        <name lang="es">ACS+retorno</name>
+        <name lang="fi">Käyttövesi+paluu</name>
+        <name lang="hr">PTV+povrat</name>
+        <name lang="hu">HMV+visszatérő</name>
+        <name lang="it">Ritorno ACS</name>
+        <name lang="ja">給湯+戻り</name>
+        <name lang="ko">DHW+리턴</name>
+        <name lang="mn">Халуун ус + буцах</name>
+        <name lang="nb">Varmtvann+retur</name>
+        <name lang="nl">Boiler+retour</name>
+        <name lang="nl_BE">Warm water + retour</name>
+        <name lang="pl">CWU + powrót</name>
+        <name lang="pt">AQS+retorno</name>
+        <name lang="pt_BR">AQS+retorno</name>
+        <name lang="ro">ACM+retur</name>
+        <name lang="ru">ГВС+обратка</name>
+        <name lang="sk">TÚV+spiatočka</name>
+        <name lang="sl">Topla sanitarna voda + povratek</name>
+        <name lang="sr">ПТВ+поврат</name>
+        <name lang="sv">VV+retur</name>
+        <name lang="tr">Kullanım sıcak suyu + dönüş</name>
+        <name lang="uk">ГВП+повернення</name>
+        <name lang="zh">生活热水回水</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-8.73" y1="-0.33" x2="10.56" y2="-0.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.7" y1="-9.55" x2="6.89" y2="-9.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8.4" y1="-9.55" x2="15.4" y2="-0.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="11.2" y1="3.45" x2="21" y2="-5.22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="4.2" y="-11" width="16.8" height="14.44" start="260" angle="110" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="23.8" y1="-2.33" x2="33.6" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="15.4" y1="6.33" x2="19.6" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="3.45" x2="28" y2="10.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="22.4" y1="0.56" x2="28" y2="4.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="18.2" y1="4.89" x2="22.4" y2="10.67" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <text text="ACS" x="-12.6" y="-13.89" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <dynamic_text x="-4" y="-6" z="12" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8e426608-9e02-4261-af25-c39597167786}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{d3c85e21-96ef-42e2-bd2d-b49baabe27c1}" name="" x="-10" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{07579e8b-f824-4cf5-a2fa-3be08ff73490}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

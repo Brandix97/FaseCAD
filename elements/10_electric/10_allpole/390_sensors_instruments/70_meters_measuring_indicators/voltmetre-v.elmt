@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="40" height="60" hotspot_x="23" hotspot_y="30">
+    <uuid uuid="{e97ea78b-e198-c7cc-a66d-95a74d73eb8c}"/>
+    <names>
+        <name lang="ar">فولتمتر عمودي</name>
+        <name lang="ca">Voltímetre vertical</name>
+        <name lang="cs">Voltmetr, svislý</name>
+        <name lang="da">Lodret voltmeter</name>
+        <name lang="de">Voltmeter senkrecht</name>
+        <name lang="el">Βολτόμετρο κατακόρυφο</name>
+        <name lang="en">Vertical voltmeter</name>
+        <name lang="es">Voltímetro vertical</name>
+        <name lang="fi">Pystysuora volttimittari</name>
+        <name lang="fr">Voltmètre vertical</name>
+        <name lang="hr">Okomiti voltmetar</name>
+        <name lang="hu">Függőleges voltmérő</name>
+        <name lang="it">Volmetro verticale</name>
+        <name lang="ja">縦型電圧計</name>
+        <name lang="ko">수직형 전압계</name>
+        <name lang="mn">Босоо вольтметр</name>
+        <name lang="nb">Vertikal voltmeter</name>
+        <name lang="nl">Voltmeter</name>
+        <name lang="nl_BE">Verticale voltmeter</name>
+        <name lang="pl">Woltomierz (pionowo)</name>
+        <name lang="pt">Voltímetro vertical</name>
+        <name lang="pt_BR">Voltímetro vertical</name>
+        <name lang="ro">Voltmetru vertical</name>
+        <name lang="ru">Вольтметр (вертикальный)</name>
+        <name lang="sk">Vertikálny voltmeter</name>
+        <name lang="sl">Navpični voltmeter</name>
+        <name lang="sr">Вертикални волтметар</name>
+        <name lang="sv">Vertikal voltmeter</name>
+        <name lang="tr">Dikey voltmetre</name>
+        <name lang="uk">Вертикальний вольтметр</name>
+        <name lang="zh">电压表-垂直</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="-25.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ab294d09-1d2d-4f7e-8ef5-ebf0b33ad106}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-10" y="-10" width="20" height="20" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <text text="V" x="-5" y="7" rotation="0" font="Liberation Sans,12,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <terminal uuid="{ee5e578a-43cd-41cb-be2a-1f19c553d556}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{f73618cd-586c-45b7-8b88-3af7b5168596}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

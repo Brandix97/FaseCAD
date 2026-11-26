@@ -1,0 +1,87 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="180" hotspot_x="14" hotspot_y="177">
+    <uuid uuid="{04e9df75-a8d9-4297-97ba-23ff54d6e733}"/>
+    <names>
+        <name lang="ar">مبنى خارجي 3P+N</name>
+        <name lang="ca">Edifici exterior 3P+N</name>
+        <name lang="cs">Externí budova 3f</name>
+        <name lang="da">Ekstern bygning 3P+N</name>
+        <name lang="de">Außengebäude 1P+N</name>
+        <name lang="el">Εξωτερικό κτίριο 3P+N</name>
+        <name lang="en">External building 3P+N</name>
+        <name lang="es">Edificio exterior 3P+N</name>
+        <name lang="fi">Ulkorakennus 3P+N</name>
+        <name lang="fr">Bât Ext tétra</name>
+        <name lang="hr">Vanjska zgrada 3P+N</name>
+        <name lang="hu">Külső épület 3F+N</name>
+        <name lang="it">Edificio esterno 3P+N</name>
+        <name lang="ja">外部建物 3P+N</name>
+        <name lang="ko">외부 건물 3P+N</name>
+        <name lang="mn">Гадаад барилга 3P+N</name>
+        <name lang="nb">Ekstern bygning 3P+N</name>
+        <name lang="nl">Extern gebouw 3P+N</name>
+        <name lang="nl_BE">Buiten gebouw 3P+N</name>
+        <name lang="pl">Budynek zewnętrzny 3P+N</name>
+        <name lang="pt">Edifício exterior 3P+N</name>
+        <name lang="pt_BR">Edificação externa trifásica + neutro</name>
+        <name lang="ro">Clădire exterioară 3P+N</name>
+        <name lang="ru">Наружная постройка 3P+N</name>
+        <name lang="sk">Vonkajšia budova 3P+N</name>
+        <name lang="sl">Zunanja zgradba 3P+N</name>
+        <name lang="sr">Спољна зграда 3P+N</name>
+        <name lang="sv">Yttre byggnad 3P+N</name>
+        <name lang="tr">Harici bina 3P+N</name>
+        <name lang="uk">Зовнішня будівля 3P+N</name>
+        <name lang="zh">室外建筑四极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="state" show="1">NO</kindInformation>
+        <kindInformation name="number" show="1">1</kindInformation>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{4b855775-4f05-41f6-964d-af3d50648616}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>10</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{ee69f19a-aa88-4d09-b8c2-251b0b9160bb}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-32" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="60" y1="-160" x2="35" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="60" y1="-160" x2="85" y2="-135" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-140" x2="40" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="40" y1="-100" x2="80" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="80" y1="-100" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-100" x2="50" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-125" x2="70" y2="-125" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-125" x2="70" y2="-100" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="58" y="-12" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{b8a96a74-0120-4a4b-9888-aad6659014e8}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text> mm²</text>
+        </dynamic_text>
+        <dynamic_text x="28" y="-13.5" z="39" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c4ccafa4-888e-4e44-9016-106e84325944}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>5 G 1.5</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="40" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{3fa6afc2-190e-4e7c-9bfa-98670672c4ba}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="43" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{ffb45cb9-e8fe-408b-888f-7dd064777805}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Bâtiment extérieur</text>
+        </dynamic_text>
+        <line x1="30" y1="-170" x2="30" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-150" x2="40" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-170" x2="90" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="90" y1="-150" x2="80" y2="-140" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-150" x2="70" y2="-170" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="50" y1="-170" x2="50" y2="-150" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{ec57a9a7-8d5e-4732-a80c-83c85021092b}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{19497264-2af0-4205-b907-99031a635c85}" name="" x="30" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{8de1c58e-eaa6-4cf4-9e39-eacc3a4576ef}" name="" x="90" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{925343e0-1d6c-4115-bf99-c0855e070aef}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+        <terminal uuid="{1316653b-2662-438c-a097-889c1abc779b}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+    </description>
+</definition>

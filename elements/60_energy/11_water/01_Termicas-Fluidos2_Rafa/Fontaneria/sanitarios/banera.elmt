@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="40" hotspot_x="37" hotspot_y="16">
+    <uuid uuid="{8fcf311b-dc65-97db-c11b-6f8073ecc897}"/>
+    <names>
+        <name lang="ar">حوض استحمام</name>
+        <name lang="ca">Banyera</name>
+        <name lang="cs">Vana</name>
+        <name lang="da">Badekar</name>
+        <name lang="de">Badewanne</name>
+        <name lang="el">Μπανιέρα</name>
+        <name lang="en">Bathtub</name>
+        <name lang="es">bañera</name>
+        <name lang="fr">Baignoire</name>
+        <name lang="pt_BR">bañera</name>
+        <name lang="zh">浴缸</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-27.22" y1="-5.8" x2="31.16" y2="-5.8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="7.34" y="-8.63" width="5.06" height="2.93" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="-2.87" x2="29.05" y2="-2.87" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-24" y1="16.64" x2="29.05" y2="16.64" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-28.53" y="-2.87" width="8.22" height="19.51" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="8.83" y1="-8.63" x2="8.83" y2="-6.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="25.34" y="-2.91" width="8.22" height="19.62" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-27.22" y1="20.54" x2="31.16" y2="20.54" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.81" y1="-8.63" x2="10.81" y2="-6.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-32.18" y="-5.78" width="9" height="26.32" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-21.23" y="4.93" width="3.65" height="3.9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="27.08" y="-5.78" width="10.14" height="26.32" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-8.6" y="-5.7" width="18.26" height="2.42" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-11.63" y="-8.63" width="5.06" height="2.93" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10.15" y1="-8.63" x2="-10.15" y2="-6.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.17" y1="-8.63" x2="-8.17" y2="-6.17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-0.41" y1="-3.24" x2="-0.41" y2="2.56" x3="0.08" y3="3.05" x4="1.07" y4="3.05" x5="1.57" y5="2.56" x6="1.57" y6="-3.24" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="0.08" y="0.15" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="18.62" y="-3.3" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cf43d4e6-4afb-402c-a28a-028a633cf6c4}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-6.68" y="9.3" z="20" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{ccf1955b-7370-4885-a2d9-345499792ed5}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{7cbb36ba-992f-4703-b983-7003535459ad}" name="" x="-9" y="-9" orientation="n" type="Generic"/>
+        <terminal uuid="{2c2387d6-7a7c-47a8-919b-743f2884b3bc}" name="" x="10" y="-9" orientation="n" type="Generic"/>
+    </description>
+</definition>

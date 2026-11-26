@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="slave" width="20" height="60" hotspot_x="9" hotspot_y="30">
+    <uuid uuid="{94d56f06-6814-5561-9148-2da3a9c4f846}"/>
+    <names>
+        <name lang="ar">مُلامس مُرحّل حراري (NC)</name>
+        <name lang="ca">Relé tèrmic de contacte (NC)</name>
+        <name lang="cs">Kontakt (NC) tepelného jističe</name>
+        <name lang="da">Kontakt termisk relæ (NC)</name>
+        <name lang="de">Relaisöffner</name>
+        <name lang="el">Επαφή θερμικού κλειστή</name>
+        <name lang="en">Contact thermal relay (NC)</name>
+        <name lang="es">Contacto relé térmico NC</name>
+        <name lang="fi">Kosketin lämpörele (NC)</name>
+        <name lang="fr">Contact relais thermique (NF)</name>
+        <name lang="hr">Kontakt termičkog releja (NC)</name>
+        <name lang="hu">Hőrelé érintkező (NC)</name>
+        <name lang="it">Contatto relé térmico (NC)</name>
+        <name lang="ja">接点 熱動継電器 (NC)</name>
+        <name lang="ko">접점 열 릴레이 (NC)</name>
+        <name lang="mn">Дулааны релений контакт (NC)</name>
+        <name lang="nb">Kontakt termisk relé (NC)</name>
+        <name lang="nl">Thermisch bediend contact (NC)</name>
+        <name lang="nl_BE">Contact thermisch relais (NC)</name>
+        <name lang="pl">Zestyk rozwierny przekaźnika cieplnego</name>
+        <name lang="pt">Contacto relé térmico (NC)</name>
+        <name lang="pt_BR">Contato de relé térmico (NF)</name>
+        <name lang="ro">Contact releu termic (NC)</name>
+        <name lang="ru">Контакт теплового реле (НЗ)</name>
+        <name lang="sk">Kontakt tepelného relé (NC)</name>
+        <name lang="sl">Kontakt termičnega releja (NC)</name>
+        <name lang="sr">Контакт термичког релеја (NC)</name>
+        <name lang="sv">Kontakt termiskt relä (NC)</name>
+        <name lang="tr">Termik röle kontağı (NC)</name>
+        <name lang="uk">Контакт теплового реле (NC)</name>
+        <name lang="zh">继电器常闭从属触点</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">simple</kindInformation>
+        <kindInformation name="state">NC</kindInformation>
+        <kindInformation name="number">1</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-9" x2="6" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="5.75" y="-9.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{4a7b5a49-c49c-452b-8755-35b048dafc8e}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <polygon x1="-4" y1="4" x2="-4" y2="0" x3="2" y3="0" closed="false" antialias="false" style="line-style:normal;line-weight:thin;filling:none;color:black"/>
+        <line x1="-2" y1="0" x2="-2" y2="3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b69eb17b-2ec8-47c4-bf92-0065d7e4cd7b}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{759c2015-c0d8-4059-8be1-cfbd8ce1bc76}" name="" x="0" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="24" hotspot_y="10">
+    <uuid uuid="{f65561d7-c9e2-5a5f-90a8-47ab993a4782}"/>
+    <names>
+        <name lang="ar">صمّام بوابي</name>
+        <name lang="ca">Vàlvula de compuerta</name>
+        <name lang="cs">Šoupátkový uzávěr</name>
+        <name lang="da">Spjældventil</name>
+        <name lang="de">Absperrventil</name>
+        <name lang="el">Βαλβίδα σφαιρική</name>
+        <name lang="en">Gate Valve</name>
+        <name lang="es">Llave de compuerta</name>
+        <name lang="fi">Luistiventtiili</name>
+        <name lang="fr">Vanne</name>
+        <name lang="hr">Zaporni ventil</name>
+        <name lang="hu">Késes elzáró</name>
+        <name lang="it">Valvola a saracinesca</name>
+        <name lang="ja">ゲートバルブ</name>
+        <name lang="ko">게이트 밸브</name>
+        <name lang="mn">Хаалт хавхлага</name>
+        <name lang="nb">Sluseventil</name>
+        <name lang="nl">Schuifklep</name>
+        <name lang="nl_BE">Schuifafsluiter</name>
+        <name lang="pl">Zawór zasuwowy</name>
+        <name lang="pt">Válvula de comporta</name>
+        <name lang="pt_BR">valvula</name>
+        <name lang="ro">Robinet cu sertar</name>
+        <name lang="ru">Задвижка</name>
+        <name lang="sk">Hradlový ventil</name>
+        <name lang="sl">Zaporni ventil</name>
+        <name lang="sr">Запорни вентил</name>
+        <name lang="sv">Slidventil</name>
+        <name lang="tr">Sürgülü vana</name>
+        <name lang="uk">Засувка</name>
+        <name lang="zh">闸阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="16.05" y1="0" x2="10.78" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="5" x2="-8.83" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10.3" y1="5" x2="10.3" y2="-4.9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="-4.92" x2="10.07" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8.83" y1="5" x2="10.07" y2="-4.92" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-9.18" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-5" y="3" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{adbe2851-2777-4dae-8b34-9064176ba734}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-2" y="-2" width="5" height="4" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0.5" y1="-6" x2="0.5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{16a40c2f-65cb-42e1-a837-211d05ee7fba}" name="" x="-15" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{44ae2aec-bb98-44e1-9248-d1ec86142207}" name="" x="16" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

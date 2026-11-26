@@ -1,0 +1,19 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{1d2c380f-7869-5623-f797-71ab6fb4c953}"/>
+    <names>
+        <name lang="ca">Vàlvula de seguretat general</name>
+        <name lang="es">Valvula seguridad general</name>
+        <name lang="pt_BR">Valvula seguridad general</name>
+        <name lang="zh">通用安全阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-11.31" y1="0" x2="-6.35" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7.3" y1="0" x2="11.93" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-6" y1="-5" x2="-6" y2="5" x3="7" y3="-5" x4="7" y4="5" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="-5" x2="5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{313db99e-2eb0-4984-8696-b9fa2e072c9a}" name="" x="12" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{53b8778d-bd4f-4431-a594-2690a386c28c}" name="" x="-12" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="21" hotspot_y="21">
+    <uuid uuid="{b88d203c-a617-d52a-adb8-2d15818327a6}"/>
+    <names>
+        <name lang="ca">Extractor de lavabo</name>
+        <name lang="es">Extractor de aseo</name>
+        <name lang="pt_BR">Extractou de aseo</name>
+        <name lang="zh">卫生间排风机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <ellipse x="-3" y="6" width="8" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-18.3" y1="3.47" x2="9" y2="3.47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="8" width="3" height="4" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="13.1" x2="8.3" y2="13.1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="12.8" y1="-0.48" x2="15.6" y2="-2.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="0.27" x2="8.3" y2="0.27" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-18.3" y="-0.48" width="27.3" height="15.1" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18.3" y1="9.33" x2="9" y2="9.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-15.5" y="1" width="22.4" height="11.32" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-18.3" y1="-0.48" x2="-13.4" y2="-2.69" x3="12.5" y3="-2.69" x4="9" y4="-0.48" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="12.15" y1="-2.49" x2="12.15" y2="11.76" x3="9" y3="14.61" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5.7" y1="-2.75" x2="0.6" y2="-7.28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-0.1" y="-9.54" width="17.1" height="8.3" start="330" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-6.4" y="5.55" width="3.5" height="2.26" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-9" y="3" z="15" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{f2f5c54c-89ca-4985-babe-f3cc9c576f2e}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-14" y="6" width="8" height="2" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="-6" y="2" width="3" height="4" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{876d20bc-e231-416f-9e40-0cf38750acf6}" name="" x="12" y="-13" orientation="n" type="Generic"/>
+    </description>
+</definition>

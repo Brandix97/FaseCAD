@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="15">
+    <uuid uuid="{3cd43453-2157-5f6b-4bac-1da2c4c01c72}"/>
+    <names>
+        <name lang="ar">توصيل</name>
+        <name lang="ca">Cablejat</name>
+        <name lang="cs">Vodič kabelu</name>
+        <name lang="da">Ledningsføring</name>
+        <name lang="de">Verdrahtung</name>
+        <name lang="el">Καλωδίωση</name>
+        <name lang="en">Wiring</name>
+        <name lang="es">Alambrado</name>
+        <name lang="fi">Johdotus</name>
+        <name lang="fr">Filerie</name>
+        <name lang="hr">Ožičenje</name>
+        <name lang="hu">Vezeték</name>
+        <name lang="it">Conduttura</name>
+        <name lang="ja">配線</name>
+        <name lang="ko">배선</name>
+        <name lang="mn">Утаснуулалт</name>
+        <name lang="nb">Kabling</name>
+        <name lang="nl">Bedrading</name>
+        <name lang="nl_BE">Bedrading</name>
+        <name lang="pl">Oznaczenie przewodu</name>
+        <name lang="pt">Cablagem</name>
+        <name lang="pt_BR">Fiação de interconexão elétrica</name>
+        <name lang="ro">Cablare</name>
+        <name lang="ru">Электропроводка</name>
+        <name lang="sk">Zapojenie</name>
+        <name lang="sl">Ožičenje</name>
+        <name lang="sr">Ожичење</name>
+        <name lang="sv">Kabeldragning</name>
+        <name lang="tr">Kablolama</name>
+        <name lang="uk">Розводка</name>
+        <name lang="zh">布线</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="5" y1="-5" x2="-5" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="0" y="-15" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fb31321d-5c96-462a-8528-fb28f2dec641}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-5" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a5185622-a372-473f-b140-043c44df2285}" name="" x="0" y="-5" orientation="n" type="Generic"/>
+        <terminal uuid="{06a258e1-ccd7-48c0-944c-c5e93611953e}" name="" x="0" y="5" orientation="s" type="Generic"/>
+    </description>
+</definition>

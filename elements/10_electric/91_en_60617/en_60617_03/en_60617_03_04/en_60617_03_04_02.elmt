@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="130" height="50" hotspot_x="85" hotspot_y="45">
+    <uuid uuid="{5f95d04b-6aa9-dd62-dc7b-e72a05794b53}"/>
+    <names>
+        <name lang="ar">نهاية إحكام كابل (كابلات أحادية النواة)</name>
+        <name lang="ca">Extrem de segellat del cable (cables d'un sol nucli)</name>
+        <name lang="cs">Kabelová těsnící koncovka se třemi jednožilovými kabely</name>
+        <name lang="da">Kabelendemuffe (enlederkabler)</name>
+        <name lang="de">Kabelendverschluß mit drei einadrigen Kabel</name>
+        <name lang="el">Ακροδέκτης στεγανοποίησης καλωδίου (μονοπολικά καλώδια)</name>
+        <name lang="en">Cable sealing end (one-core cables)</name>
+        <name lang="es">Terminación de cable (cables unipolares)</name>
+        <name lang="fi">Kaapelin pääte (yksijohdinkaapelit)</name>
+        <name lang="fr">Boîte d'extrémité avec trois câbles unipolaires</name>
+        <name lang="hr">Kabelski završetak (jednožilni kabeli)</name>
+        <name lang="hu">Kábelvég lezárás (egyeres kábelek)</name>
+        <name lang="it">Terminazione di cavo (cavi unipolari)</name>
+        <name lang="ja">ケーブル終端接続部（単心ケーブル）</name>
+        <name lang="ko">케이블 종단 (단심 케이블)</name>
+        <name lang="mn">Кабелийн битүүмжлэх төгсгөл (нэг судалтай кабель)</name>
+        <name lang="nb">Kabelendemuffe (enkeltkjernede kabler)</name>
+        <name lang="nl">Kabelafsluiting (eenaderige kabels)</name>
+        <name lang="nl_BE">Kabelafsluiting (eenaderige kabels)</name>
+        <name lang="pl">Głowica kablowa (kable jednożyłowe)</name>
+        <name lang="pt">Terminal de cabo (cabos unipolares)</name>
+        <name lang="pt_BR">Extremidade selada de cabo (cabos unipolares)</name>
+        <name lang="ro">Capăt de etanșare pentru cablu (cabluri unifilare)</name>
+        <name lang="ru">Кабельная концевая заделка (одножильные кабели)</name>
+        <name lang="sk">Káblová koncovka (jednožilové káble)</name>
+        <name lang="sl">Kabelska končna glava (enožilni kabli)</name>
+        <name lang="sr">Кабловски завршетак (једножилни каблови)</name>
+        <name lang="sv">Kabeländmuff (enledarkablar)</name>
+        <name lang="tr">Kablo uç kapatma (tek damarlı kablolar)</name>
+        <name lang="uk">Кінцева кабельна муфта (одножильні кабелі)</name>
+        <name lang="zh">端子条</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="2.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3fa1c864-01e6-4339-9dfd-f435b1d79eaf}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-80" y1="-10" x2="40" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-20" x2="40" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-30" x2="40" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="0" x2="-20" y2="-5" x3="-20" y3="-35" x4="0" y4="-40" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+    </description>
+</definition>

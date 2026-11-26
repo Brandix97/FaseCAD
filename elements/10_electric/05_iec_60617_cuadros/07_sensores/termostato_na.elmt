@@ -1,0 +1,28 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="17" hotspot_y="25">
+    <uuid uuid="{37398977-173a-4f0d-a5d2-e32a3c9a1f9c}"/>
+    <names>
+        <name lang="de">Thermostat, Schließer</name>
+        <name lang="en">Thermostat, NO</name>
+        <name lang="es">Termostato NA</name>
+        <name lang="fr">Thermostat, NO</name>
+        <name lang="it">Termostato NA</name>
+        <name lang="pt">Termóstato NA</name>
+        <name lang="tr">Termostat, NA</name>
+        <name lang="zh">温度开关，常开</name>
+    </names>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="10" x2="-8" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-14" y1="0" x2="-4" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text x="-18" y="3.89" text="θ" font="Liberation Sans,8,-1,5,50,0,0,0,0,0,Regular" rotation="0" color="#000000" Halignment="AlignHCenter" anchor="alignment" uuid="{bc0e6b78-db23-53e6-ac26-ae024892bbc4}"/>
+        <dynamic_text x="-30.31" y="-10.49" z="4" text_width="-1" Halignment="AlignRight" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8b50beff-eb9f-5c56-a2f4-f8994746a839}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{e9fa499f-3920-53da-a2b3-1b3f516bddff}" name="13" x="0" y="-20" orientation="n" type="Generic" show_name="true" label_x="1" label_y="4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+        <terminal uuid="{f7cb2bb1-be9d-5684-a6f5-66d678617b79}" name="14" x="0" y="20" orientation="s" type="Generic" show_name="true" label_x="1" label_y="-4" label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_rotation="0" label_halign="1" label_valign="128"/>
+    </description>
+</definition>

@@ -1,0 +1,50 @@
+<definition version="0.90" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="30">
+    <uuid uuid="{56a5a589-7f0b-2eb0-8d69-1ce382a4f0b9}"/>
+    <names>
+        <name lang="ar">دايود أحادي النفق</name>
+        <name lang="ca">Díode Unitunnel</name>
+        <name lang="cs">Zpětná dioda</name>
+        <name lang="da">Backward-diode (unitunneldiode)</name>
+        <name lang="de">Unitunnel-Diode</name>
+        <name lang="el">Δίοδος οπισθοπορείας (μονοσήραγγας)</name>
+        <name lang="en">Backward diode (unitunnel diode)</name>
+        <name lang="es">Diodo inverso (diodo unitúnel)</name>
+        <name lang="fi">Takadiodi (yksitunnelidiodi)</name>
+        <name lang="fr">Diode unitunnel</name>
+        <name lang="hr">Povratna dioda (unitunelska dioda)</name>
+        <name lang="hu">Hátirányú dióda (unitunnel dióda)</name>
+        <name lang="it">Diodo unitunnel</name>
+        <name lang="ja">後方ダイオード (ユニトンネルダイオード)</name>
+        <name lang="ko">역방향 다이오드 (유니터널 다이오드)</name>
+        <name lang="mn">Урвуу диод (нэг туннель диод)</name>
+        <name lang="nb">Bakoverdiode (unitunneldiode)</name>
+        <name lang="nl">Diode tunnel</name>
+        <name lang="nl_BE">Backward-diode (unitunneldiode)</name>
+        <name lang="pl">Dioda wsteczna</name>
+        <name lang="pt">Díodo inverso (díodo unitúnel)</name>
+        <name lang="pt_BR">Diodo reverso (diodo unitúnel)</name>
+        <name lang="ro">Diodă inversă (diodă unitunnel)</name>
+        <name lang="ru">Обращённый диод (однотуннельный диод)</name>
+        <name lang="sk">Spätná dióda (unitunelová dióda)</name>
+        <name lang="sl">Povratna dioda (unitunelska dioda)</name>
+        <name lang="sr">Повратна диода (унитунел диода)</name>
+        <name lang="sv">Backdiod (enhetstunneldiod)</name>
+        <name lang="tr">Geri diyot (tek tünel diyot)</name>
+        <name lang="uk">Зворотний діод (унітунельний діод)</name>
+        <name lang="zh">单隧道二极管</name>
+    </names>
+    <informations>EN 60617: 05-03-08</informations>
+    <description>
+        <dynamic_text x="6" y="-18" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{72917b42-cf44-4d6b-8f06-060864c4a4af}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="5" y1="-1" x2="5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-1" x2="-5" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-10" x2="5" y2="-10" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d7c4c814-713c-4bb8-926d-f4ca86b6f0b8}" name="A" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{0be8b873-efac-42eb-aa4e-623a938c05a5}" name="K" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

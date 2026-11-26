@@ -1,0 +1,64 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="26" hotspot_y="29">
+    <uuid uuid="{042e8d96-cbd7-03b0-596b-9d3ff4b42123}"/>
+    <names>
+        <name lang="ar">خزان ممتلئ</name>
+        <name lang="ca">Dipósit omplida</name>
+        <name lang="cs">Plněný zásobník</name>
+        <name lang="da">Fyldt beholder</name>
+        <name lang="de">Gefüllter Speicher</name>
+        <name lang="el">Γεμάτη δεξαμενή</name>
+        <name lang="en">Filled deposit</name>
+        <name lang="es">Depósito llenado</name>
+        <name lang="fi">Täytetty varaaja</name>
+        <name lang="hr">Napunjeni spremnik</name>
+        <name lang="hu">Töltött tartály</name>
+        <name lang="it">Accumulo pieno</name>
+        <name lang="ja">満水タンク</name>
+        <name lang="ko">충전식 저장조</name>
+        <name lang="mn">Дүүргэсэн сав</name>
+        <name lang="nb">Fylt akkumulatortank</name>
+        <name lang="nl">Gevulde boiler</name>
+        <name lang="nl_BE">Gevuld vat</name>
+        <name lang="pl">Zbiornik napełniony</name>
+        <name lang="pt">Depósito cheio</name>
+        <name lang="pt_BR">Filled deposit</name>
+        <name lang="ro">Depozit umplut</name>
+        <name lang="ru">Заполненный бак</name>
+        <name lang="sk">Naplnený zásobník</name>
+        <name lang="sl">Polnjeni zalogovnik</name>
+        <name lang="sr">Напуњен резервоар</name>
+        <name lang="sv">Fylld ackumulatortank</name>
+        <name lang="tr">Dolu depo</name>
+        <name lang="uk">Заповнений бак</name>
+        <name lang="zh">液体储罐</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-16.52" y="-22.95" width="35.7" height="7.89" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-16.52" y1="-19.9" x2="-16.52" y2="4.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-18.51" x2="-10" y2="-3.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <polygon x1="-5.78" y1="-20.89" x2="-6.41" y2="-19.57" x3="-5.15" y3="-19.57" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="-16.52" y="-24.08" width="35.7" height="7.89" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-16.52" y="0.71" width="35.7" height="7.89" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-16.52" y="-24.64" width="35.7" height="7.89" start="180" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <line x1="-5.81" y1="-19.57" x2="-5.81" y2="-17.88" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="19.18" y1="-19.9" x2="19.18" y2="4.4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-21.83" width="1.78" height="2.82" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-12.95" y="-3.24" width="7.14" height="6.76" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <polygon x1="-9.38" y1="-2.87" x2="-12.36" y2="1.79" x3="-6.41" y3="1.79" antialias="true" style="line-style:normal;line-weight:normal;filling:red;color:red"/>
+        <line x1="-8.19" y1="-18.51" x2="-8.19" y2="-3.78" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <polygon x1="12" y1="-19" x2="12" y2="-21.26" x3="16.2" y3="-21.26" x4="16.2" y4="-20.14" x5="13.23" y5="-20.14" x6="13.23" y6="-19" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-16.52" y="-10.56" width="35.7" height="6.76" style="line-style:dashed;line-weight:thin;filling:none;color:red" antialias="true"/>
+        <polygon x1="12.67" y1="-16.76" x2="12" y2="-17.88" x3="13.3" y3="-17.88" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="12.64" y1="-19" x2="12.64" y2="-17.32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-15.93" y1="0.14" x2="-12.95" y2="0.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <dynamic_text x="-8.89" y="0.78" z="19" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{8da4684f-d6a3-41df-94dc-753769d06e1d}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4a715d07-8ce5-4d70-8b0e-018c0fc4c171}" name="" x="-9" y="-22" orientation="n" type="Generic"/>
+        <terminal uuid="{5c4078ac-0da1-4846-9e8b-cb869fdcb9e3}" name="" x="16" y="-21" orientation="e" type="Generic"/>
+        <terminal uuid="{fd18d449-f1e2-477f-a326-c32357060007}" name="" x="-19" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

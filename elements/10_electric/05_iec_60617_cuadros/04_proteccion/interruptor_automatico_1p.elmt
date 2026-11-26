@@ -1,0 +1,41 @@
+<definition height="60" hotspot_x="24" hotspot_y="30" link_type="master" type="element" version="0.200.1" width="40">
+    <uuid uuid="{897b22d7-2131-4181-87f9-b25ecb449af7}"/>
+    <names>
+        <name lang="de">Leitungsschutzschalter (thermisch-magnetisch), 1-polig</name>
+        <name lang="en">Circuit breaker (thermal-magnetic), 1 pole</name>
+        <name lang="es">Interruptor automático magnetotérmico, 1 polo</name>
+        <name lang="fr">Disjoncteur magnétothermique, 1 pôle</name>
+        <name lang="it">Interruttore magnetotermico, 1 polo</name>
+        <name lang="pt">Disjuntor magnetotérmico, 1 polo</name>
+        <name lang="tr">Termik-manyetik devre kesici, 1 kutuplu</name>
+        <name lang="zh">热磁式断路器，1极</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <elementInformations/>
+    <informations>Author: FaseCAD. Drawn following IEC 60617 (graphical symbols) and IEC 61082-1 (document rules).
+License: see ELEMENTS.LICENSE (CC-BY 3.0).</informations>
+    <description>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{50eaf1fe-b6c6-435d-affb-b8152950620f}" x1="0" x2="0" y1="-20" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{e4ba6b00-126a-4163-8c3a-6fa7e9e00473}" x1="0" x2="0" y1="10" y2="20"/>
+        <line antialias="true" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{4d5aaaf4-8527-40a6-8cb2-8f6c90c671fa}" x1="0" x2="-10" y1="10" y2="-10"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{97e24a09-b92d-4ef3-a5c6-7ca8c2799b5a}" x1="-8" x2="-12" y1="-6" y2="-4"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{187b971a-5fb3-4da3-89f0-331d60f30d93}" x1="-12" x2="-14" y1="-4" y2="-8"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{fa20b607-0db7-4420-8629-601704242671}" x1="-14" x2="-18" y1="-8" y2="-6"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{174fb453-efe4-4bfb-b5c3-905ea8ccff77}" x1="-18" x2="-16" y1="-6" y2="-2"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{6b8da1c3-eccb-4f40-a549-3c089b26c7ca}" x1="-16" x2="-20" y1="-2" y2="0"/>
+        <line antialias="false" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" uuid="{fdbfcce9-3eea-4c89-b0e8-08a1ba81ad9a}" x1="-4" x2="-12" y1="2" y2="6"/>
+        <polygon antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black" uuid="{decc5c4c-0512-44bd-a8b6-e301d8eca312}" x1="-14" x2="-11" x3="-16" y1="4" y2="9" y3="9"/>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{2521f970-b334-4fc2-adae-d7b41f093fa2}" x="-29" y="-21" z="14">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text Halignment="AlignRight" Valignment="AlignTop" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" frame="false" keep_visual_rotation="false" rotation="0" rotation_point_center="false" text_from="ElementInfo" text_width="-1" uuid="{ebf91561-eacf-4628-b0ec-a7ad275dcd68}" x="-29" y="-1" z="14">
+            <text></text>
+            <info_name>manufacturer_reference</info_name>
+        </dynamic_text>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="-4" name="2" orientation="s" show_name="true" type="Generic" uuid="{d542883a-1bdf-5351-8491-e8289fda207f}" x="0" y="20"/>
+        <terminal label_font="Liberation Sans,8,-1,0,50,0,0,0,0,0,Regular" label_halign="1" label_rotation="0" label_valign="128" label_x="1" label_y="4" name="1" orientation="n" show_name="true" type="Generic" uuid="{051b6fb6-8241-5ee7-86b8-9d69dcf151f8}" x="0" y="-20"/>
+    </description>
+</definition>

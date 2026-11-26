@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="50" hotspot_x="21" hotspot_y="24">
+    <uuid uuid="{e4691e6c-d859-28eb-2815-09f78deb2c07}"/>
+    <names>
+        <name lang="ar">ترنزيستور ثنائي القطبيّة NPN</name>
+        <name lang="ca">Transistor bipolar npn</name>
+        <name lang="cs">Bipolární tranzistor NPN</name>
+        <name lang="da">Bipolar transistor npn</name>
+        <name lang="de">Bipolartransistor NPN</name>
+        <name lang="el">Διπολικό τρανζίστορ npn</name>
+        <name lang="en">Bipolar transistor npn</name>
+        <name lang="es">Transistor bipolar npn</name>
+        <name lang="fi">Bipolaaritransistori npn</name>
+        <name lang="fr">Transistor bipolaire npn</name>
+        <name lang="hr">Bipolarni tranzistor npn</name>
+        <name lang="hu">Bipoláris tranzisztor npn</name>
+        <name lang="it">Transistor bipolare NPN</name>
+        <name lang="ja">バイポーラトランジスタ npn</name>
+        <name lang="ko">양극 트랜지스터 npn</name>
+        <name lang="mn">Хоёр туйлт транзистор npn</name>
+        <name lang="nb">Bipolar transistor npn</name>
+        <name lang="nl">Transistor bipolare NPN</name>
+        <name lang="nl_BE">Bipolaire transistor npn</name>
+        <name lang="pl">Tranzystor biopolarny npn</name>
+        <name lang="pt">Transístor bipolar npn</name>
+        <name lang="pt_BR">Transistor bipolar NPN</name>
+        <name lang="ro">Tranzistor NPN cu radiator</name>
+        <name lang="ru">Биполярный транзистор npn</name>
+        <name lang="sk">Bipolárny tranzistor npn</name>
+        <name lang="sl">Bipolarni tranzistor npn</name>
+        <name lang="sr">Биполарни транзистор npn</name>
+        <name lang="sv">Bipolär transistor npn</name>
+        <name lang="tr">Bipolar transistör npn</name>
+        <name lang="uk">Біполярний транзистор npn</name>
+        <name lang="zh">NPN型晶体管A1</name>
+    </names>
+    <informations>Author: titus
+titus0818@yahoo.com</informations>
+    <description>
+        <polygon x1="0" y1="2" x2="8.93" y2="8" x3="8.93" y3="12.2" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="0" x2="-10" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="0" y1="-3" x2="8.82" y2="-8.15" x3="8.82" y3="-11.75" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="0" y1="-5" x2="0" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-8" y="-11" width="22" height="22" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="15" y="-14" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{3bbf9ed5-8d59-415e-b7d9-b9748fa83953}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-10" y="-13" width="26" height="26" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="3" y1="-7" x2="5" y2="-4" x3="7" y3="-7" antialias="false" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <terminal uuid="{c7ee0ae0-3903-45a3-abda-acb67f46f529}" name="" x="9" y="-16" orientation="n" type="Generic"/>
+        <terminal uuid="{e85a7f71-6baf-44da-8bb9-f49cc34f45e5}" name="" x="9" y="17" orientation="s" type="Generic"/>
+        <terminal uuid="{b2f5d4a9-dcc3-44d1-8b0a-76cbbd1ee3a1}" name="" x="-13" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

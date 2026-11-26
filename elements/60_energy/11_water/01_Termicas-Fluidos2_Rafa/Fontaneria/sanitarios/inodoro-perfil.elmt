@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="70" height="80" hotspot_x="26" hotspot_y="51">
+    <uuid uuid="{de8edb56-a5d7-0031-d62f-5ddd3ba66d52}"/>
+    <names>
+        <name lang="ar">مرحاض جانبي</name>
+        <name lang="ca">Inodor de perfil</name>
+        <name lang="cs">Závěsné WC</name>
+        <name lang="da">Profiltoilet</name>
+        <name lang="de">Profil-Toilette</name>
+        <name lang="el">Λεκάνη τουαλέτας με προφίλ</name>
+        <name lang="en">Wall-hung toilet</name>
+        <name lang="es">Inodoro perfil</name>
+        <name lang="fr">Toilette de profile</name>
+        <name lang="pt_BR">Inodouo perfil</name>
+        <name lang="zh">坐便器侧视图</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="-20" y="-42.54" width="18.75" height="36.9" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-16.25" y="-40.08" width="2.5" height="2.46" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-46.23" width="18.75" height="7.38" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="5" y="-8.1" width="32.5" height="2.46" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="37.5" y1="-4.41" x2="-20" y2="-4.41" x3="-20" y3="1.74" x4="-7.5" y4="6.66" x5="-7.5" y5="11.58" x6="-15" y6="16.5" x7="-15" y7="21.42" x8="25" y8="21.42" x9="25" y9="16.5" x10="22.5" y10="11.58" x11="20" y11="9.12" x12="20" y12="6.66" x13="27.5" y13="4.2" x14="35" y14="1.74" x15="37.5" y15="-0.72" x16="37.5" y16="-3.18" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="5" y1="19" x2="11.25" y2="19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-12.5" y="17.73" width="10" height="4.92" rx="0" ry="0" style="line-style:dashed;line-weight:thin;filling:none;color:red" antialias="false"/>
+        <ellipse x="1.25" y="-6.87" width="2.5" height="2.46" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-7.5" y="-7.49" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{097dc3c9-4de3-4cd1-8a7b-b7d3dae03207}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{4c5cf64b-b552-4371-adcf-63e80e39f0ef}" name="" x="-15" y="-43" orientation="n" type="Generic"/>
+        <terminal uuid="{4d71605f-fc74-4fc0-bdac-ba4e747aef55}" name="" x="-8" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

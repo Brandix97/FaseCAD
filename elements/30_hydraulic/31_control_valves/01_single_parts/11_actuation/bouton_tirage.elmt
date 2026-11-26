@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="20" hotspot_x="19" hotspot_y="7">
+    <uuid uuid="{96c16c11-3fc7-9ee1-549c-db5edec1281c}"/>
+    <names>
+        <name lang="ar">زرّ سحب</name>
+        <name lang="ca">Pulsar el botó</name>
+        <name lang="cs">Tahové tlačítko</name>
+        <name lang="da">Trækknap</name>
+        <name lang="de">Zugtaster</name>
+        <name lang="el">Κουμπί έλξης</name>
+        <name lang="en">Pull button</name>
+        <name lang="es">Pulsador de tiro</name>
+        <name lang="fi">Vetopainike</name>
+        <name lang="fr">Tirage bouton</name>
+        <name lang="hr">Tipkalo s povlačenjem</name>
+        <name lang="hu">Húzógomb</name>
+        <name lang="it">Pulsante a tirante</name>
+        <name lang="ja">引きボタン</name>
+        <name lang="ko">당김 버튼</name>
+        <name lang="mn">Татах товч</name>
+        <name lang="nb">Trekknapp</name>
+        <name lang="nl">Trekknop</name>
+        <name lang="nl_BE">Trekknop</name>
+        <name lang="pl">Przycisk wyciągany</name>
+        <name lang="pt">Botão de puxar</name>
+        <name lang="pt_BR">Botão de tração</name>
+        <name lang="ro">Buton cu tragere</name>
+        <name lang="ru">Кнопка с тягой</name>
+        <name lang="sk">Ťahacie tlačidlo</name>
+        <name lang="sl">Vlečni gumb</name>
+        <name lang="sr">Дугме за вучу</name>
+        <name lang="sv">Dragknapp</name>
+        <name lang="tr">Çekmeli buton</name>
+        <name lang="uk">Кнопка з витягуванням</name>
+        <name lang="zh">拉钮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-13" y="-23" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{377919a7-cd95-4f1d-81e3-33e982451e7b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-16" y="-3" width="6" height="12" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-13" y1="-3" x2="-13" y2="9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="6" x2="5" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

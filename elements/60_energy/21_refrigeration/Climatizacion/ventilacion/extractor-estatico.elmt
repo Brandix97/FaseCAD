@@ -1,0 +1,22 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="50" hotspot_x="15" hotspot_y="30">
+    <uuid uuid="{4ea17b1c-a2d5-2735-0ce0-223e87188cc3}"/>
+    <names>
+        <name lang="ca">Extractor estàtic</name>
+        <name lang="es">Extractor estático</name>
+        <name lang="pt_BR">Extractou estático</name>
+        <name lang="zh">静态排风机</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <polygon x1="-5" y1="-24.85" x2="-5" y2="3" x3="-10" y3="-1.4" x4="-10" y4="-21.91" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-5" y="3" width="10" height="2" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-24.85" x2="10" y2="-23.38" x3="10" y3="0.07" x4="5" y4="3" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-3" y="-24.85" width="6" height="27.85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="5" width="6" height="4" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-6" y="-17.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6d064ff4-0393-4c76-833b-7a9bdfe8a9c9}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{b0a3ef16-8d24-426c-a759-f84c3a7303a5}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

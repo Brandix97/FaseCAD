@@ -1,0 +1,50 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="31" hotspot_y="20">
+    <uuid uuid="{90b004b4-d37e-2b43-b272-70a68f1cadee}"/>
+    <names>
+        <name lang="ar">مصفاة</name>
+        <name lang="ca">Filtre de cartutx</name>
+        <name lang="cs">Vložkový filtr</name>
+        <name lang="da">Patronfilter</name>
+        <name lang="de">Patronenfilter</name>
+        <name lang="el">Κασέτα φίλτρου</name>
+        <name lang="en">Cartridge filter</name>
+        <name lang="es">Filtro de cartucho</name>
+        <name lang="fi">Patruunasuodatin</name>
+        <name lang="fr">Filtre à cartouche</name>
+        <name lang="hr">Filtar s uloškom</name>
+        <name lang="hu">Betétes szűrő</name>
+        <name lang="it">Filtro a cartuccia</name>
+        <name lang="ja">カートリッジフィルター</name>
+        <name lang="ko">카트리지 필터</name>
+        <name lang="mn">Картриж шүүлтүүр</name>
+        <name lang="nb">Patronfilter</name>
+        <name lang="nl">Blokken filter</name>
+        <name lang="nl_BE">Patroonfilter</name>
+        <name lang="pl">Filtr kasetowy</name>
+        <name lang="pt">Filtro de cartucho</name>
+        <name lang="pt_BR">Filtro de cartucho</name>
+        <name lang="ro">Filtru cu cartuș</name>
+        <name lang="ru">Патронный фильтр</name>
+        <name lang="sk">Vložkový filter</name>
+        <name lang="sl">Vložni filter</name>
+        <name lang="sr">Филтер са улошком</name>
+        <name lang="sv">Patronfilter</name>
+        <name lang="tr">Kartuş filtre</name>
+        <name lang="uk">Картриджний фільтр</name>
+        <name lang="zh">滤芯</name>
+    </names>
+    <informations>Rotation possible</informations>
+    <description>
+        <dynamic_text x="-22" y="-31.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b1a929c4-2504-4a2d-a369-eddfc5f9f8f5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-19" y="-8" width="25" height="16" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15" y1="-8" x2="-15" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <polygon x1="2" y1="-8" x2="2" y2="-5" x3="-10" y3="-5" x4="-10" y4="5" x5="2" y5="5" x6="2" y6="8" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{4f61c06c-63a9-4da6-9b96-539bd1613902}" name="" x="0" y="9" orientation="s" type="Generic"/>
+        <terminal uuid="{4509bea6-6de2-4adf-871f-c03176428d72}" name="" x="7" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{5e33e18f-acb9-4fca-b83d-c75e576a4608}" name="" x="0" y="-9" orientation="n" type="Generic"/>
+        <terminal uuid="{e940a495-f110-48db-93a6-26a94fef2db9}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

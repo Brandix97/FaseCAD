@@ -1,0 +1,55 @@
+<definition version="0.100.0" type="element" link_type="simple" width="210" height="140" hotspot_x="111" hotspot_y="60">
+    <uuid uuid="{97ab3fce-dc89-0408-f045-80eaaebbbc34}"/>
+    <names>
+        <name lang="ar">خزان ماء أفقي</name>
+        <name lang="ca">ACS horitzontal</name>
+        <name lang="cs">Vodorovný zásobnik ECS</name>
+        <name lang="da">DHW horisontal</name>
+        <name lang="de">Warmwasser horizontal</name>
+        <name lang="el">DHW οριζόντιο</name>
+        <name lang="en">DHW horizontal</name>
+        <name lang="es">Balón horizontal ECS</name>
+        <name lang="fi">Käyttövesi vaakasuora</name>
+        <name lang="fr">Ballon ECS horizontal</name>
+        <name lang="hr">PTV horizontalni</name>
+        <name lang="hu">HMV vízszintes</name>
+        <name lang="it">Scambiatore orizzontale ACS</name>
+        <name lang="ja">横型温水器</name>
+        <name lang="ko">DHW 수평형</name>
+        <name lang="mn">DHW хэвтээ</name>
+        <name lang="nb">DHW horisontal</name>
+        <name lang="nl">Boiler elektrisch</name>
+        <name lang="nl_BE">SWW horizontaal</name>
+        <name lang="pl">Zasobnik poziomy CWU</name>
+        <name lang="pt">AQS horizontal</name>
+        <name lang="pt_BR">DHW Horizontal</name>
+        <name lang="ro">ACM orizontal</name>
+        <name lang="ru">ГВС горизонтальный</name>
+        <name lang="sk">TÚV horizontálny</name>
+        <name lang="sl">Horizontalni bojler</name>
+        <name lang="sr">ПТВ хоризонтални</name>
+        <name lang="sv">VVB horisontell</name>
+        <name lang="tr">Yatay KSH</name>
+        <name lang="uk">ГВП горизонтальний</name>
+        <name lang="zh">卧式生活热水水箱01</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="83" y1="-22" x2="90" y2="-22" x3="90" y3="-18" x4="84" y4="-18" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="83" y1="42" x2="90" y2="42" x3="90" y3="38" x4="84" y4="38" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="58" y="60" width="4" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-92" y="-50" width="4" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-94" y="-40" width="165" height="100" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-60" y="0.5" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{287a49aa-ce97-4c93-b850-dada66584aed}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="58" y="-40" width="28" height="100" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-108" y="-40" width="28" height="100" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{22c55c95-2b50-4bf8-923d-76f4f9540e97}" name="" x="-90" y="-50" orientation="n" type="Generic"/>
+        <terminal uuid="{c1468c1f-884e-4696-9f96-2ac0682f839f}" name="" x="60" y="70" orientation="s" type="Generic"/>
+        <terminal uuid="{d69ecef9-96d7-45fe-b484-1f1ccff0eafe}" name="" x="90" y="-20" orientation="e" type="Generic"/>
+        <terminal uuid="{433b8a55-b989-4bc9-9ad1-539f77b86fe6}" name="" x="90" y="40" orientation="e" type="Generic"/>
+    </description>
+</definition>

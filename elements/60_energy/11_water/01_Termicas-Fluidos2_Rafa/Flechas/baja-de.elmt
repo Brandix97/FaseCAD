@@ -1,0 +1,18 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="30" hotspot_x="19" hotspot_y="12">
+    <uuid uuid="{288ccb70-2cce-7373-e648-dd96ce70c669}"/>
+    <names>
+        <name lang="ca">Baixa a</name>
+        <name lang="es">Baja a</name>
+        <name lang="pt_BR">Baja a</name>
+        <name lang="zh">下降-从</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <arc x="-9" y="0" width="12" height="10" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-9" y="-3" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="Baja" x="-2" y="-2" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="0" y1="5" x2="6" y2="5" x3="3" y3="11" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{078e19f0-1b0b-4df6-b418-10f0cedcadbc}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

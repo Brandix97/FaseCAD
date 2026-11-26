@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="10" hotspot_x="18" hotspot_y="3">
+    <uuid uuid="{89f693f8-405c-579a-100c-b49aeed4247f}"/>
+    <names>
+        <name lang="ar">اسطوانة لفّ</name>
+        <name lang="ca">Rotlla</name>
+        <name lang="cs">Kolečko</name>
+        <name lang="da">Rulle</name>
+        <name lang="de">Rolle</name>
+        <name lang="el">Ράουλο</name>
+        <name lang="en">Roll</name>
+        <name lang="es">Corredera</name>
+        <name lang="fi">Rulla</name>
+        <name lang="fr">Rouleau</name>
+        <name lang="hr">Valjak</name>
+        <name lang="hu">Görgő</name>
+        <name lang="it">Rullo</name>
+        <name lang="ja">ロール</name>
+        <name lang="ko">롤</name>
+        <name lang="mn">Рол</name>
+        <name lang="nb">Rulle</name>
+        <name lang="nl">Rol</name>
+        <name lang="nl_BE">Rol</name>
+        <name lang="pl">Rolka</name>
+        <name lang="pt">Rolo</name>
+        <name lang="pt_BR">Rolete</name>
+        <name lang="ro">Rolă</name>
+        <name lang="ru">Ролик</name>
+        <name lang="sk">Valec</name>
+        <name lang="sl">Valj</name>
+        <name lang="sr">Валјак</name>
+        <name lang="sv">Rulle</name>
+        <name lang="tr">Makara</name>
+        <name lang="uk">Ролик</name>
+        <name lang="zh">滚轮</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-25" y="-15.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{25c46d08-9b4c-42a8-b497-9970dc15da5b}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-9.5" y="1.5" width="1" height="1" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-6" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-6" y1="4" x2="5" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-12" y="-1" width="6" height="6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+    </description>
+</definition>

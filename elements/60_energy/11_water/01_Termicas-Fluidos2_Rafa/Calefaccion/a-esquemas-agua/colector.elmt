@@ -1,0 +1,56 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="40" hotspot_x="25" hotspot_y="19">
+    <uuid uuid="{15b69af7-41e2-1511-af58-07900093b972}"/>
+    <names>
+        <name lang="ar">مجمع</name>
+        <name lang="ca">Col.lector</name>
+        <name lang="cs">Rozdělovač</name>
+        <name lang="da">Samlestok</name>
+        <name lang="de">Verteiler</name>
+        <name lang="el">Συλλέκτης</name>
+        <name lang="en">Collector</name>
+        <name lang="es">Colector</name>
+        <name lang="fi">Jakotukki</name>
+        <name lang="fr">Collecteur</name>
+        <name lang="hr">Razdjelnik</name>
+        <name lang="hu">Elosztó</name>
+        <name lang="it">Collettore</name>
+        <name lang="ja">ヘッダー</name>
+        <name lang="ko">컬렉터</name>
+        <name lang="mn">Коллектор</name>
+        <name lang="nb">Fordeler</name>
+        <name lang="nl">Verdeelbalk</name>
+        <name lang="nl_BE">Verdeler</name>
+        <name lang="pl">Kolektor</name>
+        <name lang="pt">Coletor</name>
+        <name lang="pt_BR">coletor</name>
+        <name lang="ro">Colector</name>
+        <name lang="ru">Коллектор</name>
+        <name lang="sk">Kolektor</name>
+        <name lang="sl">Razdelilnik</name>
+        <name lang="sr">Разводник</name>
+        <name lang="sv">Fördelare</name>
+        <name lang="tr">Kollektör</name>
+        <name lang="uk">Колектор</name>
+        <name lang="zh">集水器</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="5" y1="-2" x2="5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-2" x2="-5" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="-2" x2="14" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-17" y="-2" width="33" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="-2" x2="-14" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="3" x2="0" y2="6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="3" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="6.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0486ff96-eb3c-45fe-8662-0042123df6be}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{03a20451-e9c2-4440-8654-c11071ffca34}" name="" x="0" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{9a6cc9a2-eb87-4fb6-8f9d-9f2db614ec97}" name="" x="-14" y="-8" orientation="n" type="Generic"/>
+        <terminal uuid="{84f79077-e238-40ae-9a3f-fc7c81913396}" name="" x="14" y="-8" orientation="n" type="Generic"/>
+        <terminal uuid="{b30c9fe9-c326-4731-96c2-0cc4f4a93da4}" name="" x="-5" y="-8" orientation="n" type="Generic"/>
+        <terminal uuid="{392e2cae-1dae-428f-9a03-be7b81222717}" name="" x="5" y="-8" orientation="n" type="Generic"/>
+    </description>
+</definition>

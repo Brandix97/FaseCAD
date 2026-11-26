@@ -1,0 +1,67 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="11" hotspot_y="32">
+    <uuid uuid="{3cecc9b6-22e1-cad3-c879-1a491d008986}"/>
+    <names>
+        <name lang="ar">مصهر 2ق</name>
+        <name lang="ca">Fusible 2p</name>
+        <name lang="cs">Pojistka 2p</name>
+        <name lang="da">Sikring 2p</name>
+        <name lang="de">Sicherung 2p</name>
+        <name lang="el">Ασφάλεια 2p</name>
+        <name lang="en">Fuse 2p</name>
+        <name lang="es">Fusible 2p</name>
+        <name lang="fi">Varoke 2p</name>
+        <name lang="fr">Fusible 2p</name>
+        <name lang="hr">Osigurač 2p</name>
+        <name lang="hu">Olvadóbiztosító 2 pólusú</name>
+        <name lang="it">Fusibile 2p</name>
+        <name lang="ja">ヒューズ 2p</name>
+        <name lang="ko">퓨즈 2p</name>
+        <name lang="mn">Хайлмаг 2ф</name>
+        <name lang="nb">Sikring 2p</name>
+        <name lang="nl">Zekering 2p</name>
+        <name lang="nl_BE">Zekering 2p</name>
+        <name lang="pl">Bezpiecznik 2p</name>
+        <name lang="pt">Fusível 2p</name>
+        <name lang="pt_BR">Fusível 2 pinos</name>
+        <name lang="ro">Fuzibil 2p</name>
+        <name lang="ru">Предохранитель 2п</name>
+        <name lang="sk">Poistka 2p</name>
+        <name lang="sl">Varovalka 2p</name>
+        <name lang="sr">Осигурач 2п</name>
+        <name lang="sv">Säkring 2p</name>
+        <name lang="tr">Sigorta 2p</name>
+        <name lang="uk">Запобіжник 2п</name>
+        <name lang="zh">2极熔断器</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <rect x="7" y="-10" width="6" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-3" y="-10" width="6" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="7" y="-25" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{c37aa946-efa6-4e46-b228-9c8b1d8ce193}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>3</text>
+        </dynamic_text>
+        <dynamic_text x="-3" y="-25" z="6" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{6190ce78-54fe-49ae-85b3-915fd3bcf431}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>1</text>
+        </dynamic_text>
+        <dynamic_text x="7" y="6" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{caa6bbc0-5cda-4bd6-8c5d-14a8b1a19f5d}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>4</text>
+        </dynamic_text>
+        <dynamic_text x="-3" y="6" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="UserText" uuid="{9f060a2d-d66b-4b5b-b86b-d4c0c872f605}" font="Liberation Sans,5,-1,5,25,0,0,0,0,0,Regular">
+            <text>2</text>
+        </dynamic_text>
+        <dynamic_text x="-30" y="-17" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{c8fdb551-ba1e-4910-9293-206116b3640f}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="-36" y="0" z="10" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{9a3517e6-3bbf-4a00-8ebb-198952257b50}" font="Liberation Sans,7,-1,5,0,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>comment</info_name>
+        </dynamic_text>
+        <terminal uuid="{4ed26a40-3700-4a45-b746-5668e6ba5dd0}" name="2" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{b6e160a6-4879-41f5-80cd-8fcc0dd44cf7}" name="4" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{39753af0-946f-49b5-b9d0-75eb0df3bc20}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{1a4a3cfe-e9df-4ae4-b85e-3b9f0cf3486e}" name="3" x="10" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

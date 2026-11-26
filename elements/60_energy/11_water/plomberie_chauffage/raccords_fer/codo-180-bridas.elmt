@@ -1,0 +1,31 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="60" hotspot_x="38" hotspot_y="46">
+    <uuid uuid="{ea630357-1585-6d77-4245-a378e890d66c}"/>
+    <names>
+        <name lang="ar">كوع 180 فلنجة</name>
+        <name lang="ca">Colze 180 brides</name>
+        <name lang="cs">Koleno 180 příruba</name>
+        <name lang="da">Bøjning 180 flange</name>
+        <name lang="de">Bogen 180° mit Flansch</name>
+        <name lang="el">Γωνία 180 φλάντζα</name>
+        <name lang="en">Elbow 180 flange</name>
+        <name lang="es">Codo 180 bridas</name>
+        <name lang="fr">Coude 180 bride</name>
+        <name lang="pt_BR">Codo 180 bridas</name>
+        <name lang="zh">弯头180法兰</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-7.08" y1="-36.15" x2="-7.08" y2="-23.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-9" y="-12" width="2" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-15.55" y="-23.49" width="17.47" height="14.51" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-31.44" y="-36.81" width="49.42" height="41.14" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="8" y="-1" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{aa920c77-e5c3-49d3-a67b-4e167201e770}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-9" y="-40" width="2" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{0f138560-9deb-4e86-9d37-57b8bff2c724}" name="" x="-10" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{90c0a95a-38f1-4603-82be-0455d6b42481}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

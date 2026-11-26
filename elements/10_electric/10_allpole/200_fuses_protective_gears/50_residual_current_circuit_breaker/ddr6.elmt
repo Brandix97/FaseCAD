@@ -1,0 +1,76 @@
+<definition version="0.100.0" type="element" link_type="master" width="110" height="60" hotspot_x="45" hotspot_y="30">
+    <uuid uuid="{b3343d5e-03ca-17a8-ae9e-61ca78a9750f}"/>
+    <names>
+        <name lang="ar">قاطع تفاضلي</name>
+        <name lang="ca">Interruptor residual amb sobrecàrrega</name>
+        <name lang="cs">Proudový chránič 3P+N</name>
+        <name lang="da">Fejlstrømsafbryder med overbelastning</name>
+        <name lang="de">Fehlerstromschutzschalter 4-polig</name>
+        <name lang="el">Διαφορικός διακόπτης με θερμική προστασία</name>
+        <name lang="en">Residual Circuit Breaker with Overload</name>
+        <name lang="es">Dispositivo diferencial residual</name>
+        <name lang="fi">Vikavirtakatkaisija ylikuormituksella</name>
+        <name lang="fr">Disjoncteur différentiel</name>
+        <name lang="hr">Zaštitna sklopka zaštitne struje s preopterećenjem</name>
+        <name lang="hu">Hibaáram-védőkapcsoló 4P</name>
+        <name lang="it">Interruttore differenziale</name>
+        <name lang="ja">過負荷保護付き漏電遮断器</name>
+        <name lang="ko">과부하 보호 기능이 있는 잔류 전류 차단기</name>
+        <name lang="mn">Хэт ачаалалтай үлдэгдэл гүйдлийн таслуур</name>
+        <name lang="nb">Jordfeilbryter med overlast</name>
+        <name lang="nl">Aardlekschakelaar + automaat</name>
+        <name lang="nl_BE">Aardlekschakelaar met overbelastingsbeveiliging</name>
+        <name lang="pl">Wyłącznik różnicowoprądowy</name>
+        <name lang="pt">Disjunctor diferencial</name>
+        <name lang="pt_BR">Disjuntor diferencial residual de proteção (DR/DRR)</name>
+        <name lang="ro">Întrerupător de curent rezidual cu suprasarcină</name>
+        <name lang="ru">Дифавтомат</name>
+        <name lang="sk">Prúdový chránič s nadprúdovou ochranou</name>
+        <name lang="sl">Odklopnik na diferenčni tok s preobremenitvijo</name>
+        <name lang="sr">Прекидач диференцијалне струје са преоптерећењем</name>
+        <name lang="sv">Jordfelsbrytare med överlastskydd</name>
+        <name lang="tr">Aşırı yük korumalı kaçak akım devre kesici</name>
+        <name lang="uk">Диференційний автоматичний вимикач із захистом від перевантаження</name>
+        <name lang="zh">漏电保护器6</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">protection</kindInformation>
+    </kindInformations>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-10" y1="-20" x2="-10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="-20" x2="30" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="-20" x2="-30" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-12" x2="-12" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12" y1="-12" x2="-8" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="32" y1="-12" x2="28" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="28" y1="-12" x2="32" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-10" y1="20" x2="-10" y2="10" x3="-17" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="30" y1="20" x2="30" y2="10" x3="23" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="12" y1="-12" x2="8" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="8" y1="-12" x2="12" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="10" y1="20" x2="10" y2="10" x3="3" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="50" y="-18" z="14" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{66f3b0de-1855-4692-8edc-07c6d8779637}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-28" y1="-12" x2="-32" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-32" y1="-12" x2="-28" y2="-8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-33" y="12" width="66" height="4" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="54" y="2" z="18" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{9b7dc983-3157-4279-9fe3-aa9f7a55c528}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>___mA</text>
+        </dynamic_text>
+        <polygon x1="-30" y1="20" x2="-30" y2="10" x3="-37" y3="-9" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="26" y1="0" x2="-40" y2="0" x3="-40" y3="14" x4="-33" y4="14" closed="false" antialias="false" style="line-style:dashed;line-weight:thin;filling:none;color:black"/>
+        <terminal uuid="{02a2338e-83a5-4738-8402-8defda7731ce}" name="" x="-30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b9ee95b8-1164-4fff-803b-2d4d8e7feaa5}" name="" x="-30" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{2dfb82a8-b7f7-41cc-b3c6-6408094f539f}" name="" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{66dcf64a-4041-4f02-af50-e38a3ac1899d}" name="" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{8044665f-065a-4812-905c-3daaee14702b}" name="" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{0b3d94bf-afa5-4721-bb68-40b929046869}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{475d7b19-875b-4ce6-9371-18efcebe9662}" name="" x="30" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{32af78ad-aa40-4cde-8550-bb71ff44413f}" name="" x="30" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,61 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="100" hotspot_x="50" hotspot_y="50">
+    <uuid uuid="{a82b0915-efae-5a8c-3fbd-5b1cf2fbc79d}"/>
+    <names>
+        <name lang="ar">مُقسّم تدفّق</name>
+        <name lang="ca">Divisor de flux</name>
+        <name lang="cs">Dělič průtoku</name>
+        <name lang="da">Flowdeler</name>
+        <name lang="de">Fluss-Teiler</name>
+        <name lang="el">Διαιρέτης ροής</name>
+        <name lang="en">Flow divider</name>
+        <name lang="es">Divisor de flujo</name>
+        <name lang="fi">Virtauksen jakaja</name>
+        <name lang="fr">Diviseur de débit</name>
+        <name lang="hr">Razdjelnik protoka</name>
+        <name lang="hu">Áramláselválasztó</name>
+        <name lang="it">Ripartitore di flusso</name>
+        <name lang="ja">分流器</name>
+        <name lang="ko">유량 분배기</name>
+        <name lang="mn">Урсгал хуваагч</name>
+        <name lang="nb">Strømningsdeler</name>
+        <name lang="nl">Stroomverdeler</name>
+        <name lang="nl_BE">Debietverdeler</name>
+        <name lang="pl">Dzielnik strumienia</name>
+        <name lang="pt">Divisor de fluxo</name>
+        <name lang="pt_BR">Vazao divider</name>
+        <name lang="ro">Divizor de debit</name>
+        <name lang="ru">Делитель потока</name>
+        <name lang="sk">Rozdeľovač prietoku</name>
+        <name lang="sl">Delitelj pretoka</name>
+        <name lang="sr">Делитељ протока</name>
+        <name lang="sv">Flödesdelare</name>
+        <name lang="tr">Akış ayırıcı</name>
+        <name lang="uk">Дільник потоку</name>
+        <name lang="zh">分流阀</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="10" y1="-20" x2="10" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="33" y="-26.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{733c11d0-5465-48de-9135-0e3f382b89d2}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-10" y1="-20" x2="-10" y2="25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-40" x2="0" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="10" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-1.15" y="-21.15" width="2.3" height="2.3" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="true"/>
+        <rect x="-25" y="-30" width="50" height="60" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="12" y="-15" width="30" height="30" start="135" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-8" y="-15" width="30" height="30" start="135" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="31" x2="10" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="8" y1="24.5" x2="12" y2="24.5" x3="10" y3="29.5" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="-10" y1="31" x2="-10" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-22" y="-15" width="30" height="30" start="315" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-12" y1="24.5" x2="-8" y2="24.5" x3="-10" y3="29.5" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <arc x="-42" y="-15" width="30" height="30" start="315" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{ba1ec471-9d96-49f5-b232-2c1e7aa22f7b}" name="" x="0" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{c77a581d-48e1-4aab-bf81-a1f22eae3550}" name="" x="-10" y="40" orientation="s" type="Generic"/>
+        <terminal uuid="{ab3e5e0a-4fe6-430b-80c9-fd531052047c}" name="" x="10" y="40" orientation="s" type="Generic"/>
+    </description>
+</definition>

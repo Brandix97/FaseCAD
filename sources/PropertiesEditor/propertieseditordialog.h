@@ -1,0 +1,114 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef PROPERTIESEDITORDIALOG_H
+#define PROPERTIESEDITORDIALOG_H
+
+#include "../qet.h"
+
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QAbstractButton>
+
+/**
+	@brief The PropertiesEditorDialog class
+	Create a dialog to edit some properties of a thing.
+	Only create a instance of this class and call exec,
+	all is done for you in this class.
+	The first argument (a template) must be a subclass
+	of QWidget and provide the 3 methods below :
+	QString::title()
+	void::apply()
+	void::reset()
+	You can subclass the interface PropertiesEditorWidget
+	who provide all this methods.
+	This dialog take ownership of the editor,
+	so the editor will be deleted by this dialog
+*/
+class PropertiesEditorDialog : public QDialog
+{
+		Q_OBJECT
+	public:
+		template<typename T>
+		PropertiesEditorDialog(T editor, QWidget *parent = nullptr) :
+		QDialog (parent)
+		{
+			// Without this, a QWidget-modal QDialog with a parent falls
+			// back to macOS's automatic sheet presentation, which some
+			// Qt/Cocoa versions render stuck centered on screen and
+			// non-draggable rather than as a proper attached sheet
+			// (bugtracker #275). Other dialogs in this codebase already
+			// opt in explicitly (see ElementDialog, DiagramPropertiesDialog)
+			// -- this one was missing it.
+			setWindowModality(Qt::WindowModal);
+#ifdef Q_OS_MACOS
+			setWindowFlags(Qt::Sheet);
+#endif
+
+			//Set dialog title
+			setWindowTitle(editor->title());
+			// Reparent the editor,
+			// to be deleted at the same time of this dialog
+			editor->setParent(this);
+
+			//Build the dialog
+			QVBoxLayout *vlayout = new QVBoxLayout(this);
+			vlayout->addWidget(editor);
+			QDialogButtonBox *button_box = new QDialogButtonBox (
+						QDialogButtonBox::Apply
+						| QDialogButtonBox::Cancel
+						| QDialogButtonBox::Reset,
+						this);
+			vlayout->addWidget(button_box);
+
+				// Keyed on the wrapped editor's own class, not this
+				// dialog's -- every instantiation of this constructor
+				// template is the same PropertiesEditorDialog class,
+				// so using its class name here would have every kind
+				// of wrapped editor (conductor properties, element
+				// properties, ...) fight over one saved size.
+			QET::trackDialogGeometry(this, editor->metaObject()->className());
+
+			//Setup connection between button box and the editor
+			connect(button_box,
+				&QDialogButtonBox::clicked,
+				[editor, button_box, this]
+				(QAbstractButton *button)
+			{
+				switch(button_box->buttonRole(button))
+				{
+					case QDialogButtonBox::RejectRole:
+						editor->reset();
+						this->reject();
+						break;
+					case QDialogButtonBox::ResetRole:
+						editor->reset();
+						break;
+					case QDialogButtonBox::ApplyRole:
+						editor->apply();
+						this->accept();
+						break;
+					default:
+						editor->reset();
+						this->reject();
+				}
+			});
+		}
+};
+
+#endif // PROPERTIESEDITORDIALOG_H

@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="25">
+    <uuid uuid="{1b7173dd-417f-4687-e02b-13b5bd052948}"/>
+    <names>
+        <name lang="ar">عاكس أحادي الوجه</name>
+        <name lang="ca">Directe u003e Altern monofàsic</name>
+        <name lang="cs">Střídač 1f DC/AC</name>
+        <name lang="da">Jævnstrøm &amp;gt; Enfaset vekselstrøm</name>
+        <name lang="de">Wechselrichter</name>
+        <name lang="el">Συνεχές &gt; Μονοφασικό εναλλασσόμενο</name>
+        <name lang="en">Direct &gt; One-phase alternating</name>
+        <name lang="es">Continua &gt; Alterna monofásica</name>
+        <name lang="fi">Tasavirta &amp;gt; Yksivaiheinen vaihtovirta</name>
+        <name lang="fr">Continu &gt; Alternatif monophasé</name>
+        <name lang="hr">Istosmjerna &amp;gt; Jednofazna izmjenična</name>
+        <name lang="hu">Egyenáram &amp;gt; Egyfázisú váltakozó</name>
+        <name lang="it">DC / AC monofase</name>
+        <name lang="ja">直流 &amp;gt; 単相交流</name>
+        <name lang="ko">직류 &amp;gt; 단상 교류</name>
+        <name lang="mn">Шууд &amp;gt; Нэг фазын хувьсах</name>
+        <name lang="nb">Likestrøm &amp;gt; Enfase vekselstrøm</name>
+        <name lang="nl">Gelijkspanning &gt; Wisselspanning DC &gt; AC1</name>
+        <name lang="nl_BE">Gelijkspanning &gt; Wisselspanning DC &gt; AC1</name>
+        <name lang="pl">Falownik</name>
+        <name lang="pt">Contínua &gt; Alterna monofásica</name>
+        <name lang="pt_BR">Conversor de CC para CA monofásica (inversor)</name>
+        <name lang="ro">Continuu &amp;gt; Monofazat alternativ</name>
+        <name lang="ru">Пост. ток &gt; Однофазный перем. ток</name>
+        <name lang="sk">Jednosmerné &amp;gt; Jednofázové striedavé</name>
+        <name lang="sl">Enosmerni &amp;gt; Enofazni izmenični</name>
+        <name lang="sr">Једносмерна &amp;gt; Једнофазна наизменична</name>
+        <name lang="sv">Likström &amp;gt; Enfas växelström</name>
+        <name lang="tr">Doğru &amp;gt; Tek fazlı alternatif</name>
+        <name lang="uk">Постійний &amp;gt; однофазний змінний</name>
+        <name lang="zh">直流-交流1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-12" y="-42.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{60b0d03f-9c79-41c0-a41d-500c9b8ec9ca}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-15" y1="-10" x2="-20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-15" y1="-20" x2="15" y2="-20" x3="15" y3="10" x4="-15" y4="10" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="7.5" y="2.5" width="5" height="5" start="185" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="20" y1="0" x2="15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="15" y1="-10" x2="20" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="0" x2="-15" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-11" y1="-17" x2="-12.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-8" y1="-17" x2="-9.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-17" x2="-6.5" y2="-17" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5" y1="-15" x2="-12.5" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="2.5" y="2.5" width="5" height="5" start="5" angle="175" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="14.5" y1="-19.5" x2="-14.5" y2="9.5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{5813e300-46a1-4155-a4fa-b6e853de8530}" name="" x="-21" y="-10" orientation="w" type="Generic"/>
+        <terminal uuid="{7f73e073-99e7-43e0-bc8e-c13a5e2304b4}" name="" x="21" y="-10" orientation="e" type="Generic"/>
+        <terminal uuid="{bcbf759c-7527-431e-bdf7-b97965076e6b}" name="" x="21" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{bdd45cef-c16b-4c34-aeb5-5919eacdf85f}" name="" x="-21" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

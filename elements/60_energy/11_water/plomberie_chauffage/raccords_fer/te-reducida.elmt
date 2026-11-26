@@ -1,0 +1,36 @@
+<definition version="0.80" type="element" link_type="simple" width="60" height="40" hotspot_x="30" hotspot_y="28">
+    <uuid uuid="{12eac30c-0507-2145-efa3-2279d838e0af}"/>
+    <names>
+        <name lang="ar">كوع تقليص</name>
+        <name lang="ca">T reducció</name>
+        <name lang="cs">Redukční T</name>
+        <name lang="da">Reduktions-T-stykke</name>
+        <name lang="de">T-Stück Reduzierung</name>
+        <name lang="el">Ταυ συστολής</name>
+        <name lang="en">Reducing tee</name>
+        <name lang="es">Te reducida</name>
+        <name lang="fr">Té réduction</name>
+        <name lang="pt_BR">Te reducida</name>
+        <name lang="zh">异径三通</name>
+    </names>
+    <informations>edited with "QET_ElementScaler"</informations>
+    <description>
+        <line x1="-20.79" y1="8" x2="19.92" y2="8" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-5.38" y1="-18.76" x2="-5.38" y2="-8.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20.56" y1="-8.05" x2="-6.09" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.44" y1="-8.05" x2="20.29" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.68" y1="-18.76" x2="5.68" y2="-8.66" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.1" y1="-2.69" x2="-5.82" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0.71" y1="-2.69" x2="6" y2="-8.05" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-9" y="4.5" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="ElementInfo" uuid="{a4311614-4b64-4d09-8c3d-dd6ea111badf}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-21" y1="-7.13" x2="-21" y2="7.14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="21" y1="-7.18" x2="21" y2="7.2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4.89" y1="-19" x2="5.1" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{1de0a547-4ea0-4e66-b6b1-e0a48bca8e95}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{9eb6f18c-2fa5-40e0-8bc9-33840dc1d848}" name="" x="-22" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{be5794a5-7d8d-467d-887d-26e5d497caab}" name="" x="22" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

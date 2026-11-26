@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="23" hotspot_y="22">
+    <uuid uuid="{b703b32b-a8ef-a813-d80b-c1c2dfc0196b}"/>
+    <names>
+        <name lang="ar">قاعدة توصيل  DIN بطرفي توصيل أحدهما مركزي</name>
+        <name lang="ca">Presa DIN de 2 pins amb pin central pla</name>
+        <name lang="cs">Kulatá zástrčka DIN 2 kolíky s plochým středovým kolíkem</name>
+        <name lang="da">2-pin DIN-bøsning med flad centerpin</name>
+        <name lang="de">Rundstecker 2-polig</name>
+        <name lang="el">Υποδοχή DIN 2 ακροδεκτών με κεντρικό ακροδέκτη επίπεδη</name>
+        <name lang="en">2-pin DIN socket with center pin flat</name>
+        <name lang="es">Socket DIN de 2 pines con pin plano central</name>
+        <name lang="fi">2-napainen DIN-pistorasia keskikärjellä litteä</name>
+        <name lang="fr">Embase DIN 2 broches avec borne centrale plate</name>
+        <name lang="hr">2-pinski DIN utičnica s ravnim središnjim pinom</name>
+        <name lang="hu">2 pólusú DIN csatlakozó lapos középső érintkezővel</name>
+        <name lang="it">DIN 2 pin, centrale piatto</name>
+        <name lang="ja">2ピン DIN ソケット センターピン フラット</name>
+        <name lang="ko">2-핀 DIN 소켓, 중앙 핀 평면형</name>
+        <name lang="mn">2-пин DIN залгуур төв пин хавтгай</name>
+        <name lang="nb">2-pinners DIN-kontakt med flat midtpinne</name>
+        <name lang="nl">DIN 2 pin, luidspreker</name>
+        <name lang="nl_BE">2-pin DIN-contactdoos met platte middenpen</name>
+        <name lang="pl">Złącze DIN, dwustykowe</name>
+        <name lang="pt">Tomada DIN de 2 pinos com pino central plano</name>
+        <name lang="pt_BR">2-pinos DIN tomada com pino central plano</name>
+        <name lang="ro">Priza DIN cu 2 pini cu pin central plat</name>
+        <name lang="ru">2-штырьковое гнездо DIN с плоским центральным штырём</name>
+        <name lang="sk">2-kolíková DIN zásuvka s plochým stredovým kolíkom</name>
+        <name lang="sl">2-polna vtičnica DIN z ravnim osrednjim zatičem</name>
+        <name lang="sr">2-пинска DIN утичница са равним централним пином</name>
+        <name lang="sv">2-polig DIN-hylsa med centrumstift platt</name>
+        <name lang="tr">Merkez pimi düz 2 pimli DIN priz</name>
+        <name lang="uk">2-контактне гніздо DIN з плоским центральним контактом</name>
+        <name lang="zh">DIN底座2针带扁平中心端子</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="18" y="3.05" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7ea4bc8a-7041-40da-b8d4-ba8c3f6ff21c}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="10" y1="0" x2="27" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-20" y="-20" width="40" height="40" start="96" angle="348" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-10" y="-1.5" width="20" height="3" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <text text="2" x="1" y="29.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="1" x="23" y="-1.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="30" x2="0" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-2.5" y="12.5" width="5" height="5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2" y1="-20" x2="-2" y2="-16" x3="2" y3="-16" x4="2" y4="-20" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{6310eb6d-f979-40ef-ac7f-8d4bcda165ce}" name="" x="28" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{c718a5c9-b291-43fd-a49c-d47c5be6f68d}" name="" x="0" y="31" orientation="s" type="Generic"/>
+    </description>
+</definition>

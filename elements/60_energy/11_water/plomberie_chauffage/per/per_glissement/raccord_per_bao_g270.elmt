@@ -1,0 +1,33 @@
+<definition version="0.100.0" type="element" link_type="simple" width="50" height="20" hotspot_x="20" hotspot_y="10">
+    <uuid uuid="{d0cd5775-9de9-761e-dd68-dd6329021aef}"/>
+    <names>
+        <name lang="ar">وصلة أنثى PER انزلاقية</name>
+        <name lang="ca">Connexió femella PER lliscament</name>
+        <name lang="cs">Přechodka s vnitřním závitem PER nasouvací</name>
+        <name lang="da">Hunstud PER glide</name>
+        <name lang="de">Anschluss Buchse PER Gleitring</name>
+        <name lang="el">Θηλυκός σύνδεσμος PER συρόμενος</name>
+        <name lang="en">PEX compression female connector</name>
+        <name lang="fr">Raccord Femelle PER glissement</name>
+        <name lang="pt_BR">Raccoud Femelle PER glissement</name>
+        <name lang="zh">米色PER接头G270</name>
+    </names>
+    <informations>Baboune41</informations>
+    <description>
+        <rect x="-1" y="-5" width="1" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:blue;color:gray" antialias="false"/>
+        <rect x="9" y="-5" width="10" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:gray" antialias="false"/>
+        <rect x="1" y="-6" width="8" height="12" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-7" width="9" height="14" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <line x1="-3" y1="-4" x2="-10" y2="-4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-3" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-3" y="-25.5" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{645ee4b9-4a52-4b52-a867-088e135de594}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-5" y="-4" width="4" height="8" start="270" angle="180" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-10" width="4" height="6" start="270" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="4" width="4" height="6" start="0" angle="90" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{a3c7f321-e264-4607-9906-645a4b26632b}" name="" x="19" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{0a0ff28b-ffb3-46a9-ae21-2be36ee81752}" name="" x="-10" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

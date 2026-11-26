@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="110" height="60" hotspot_x="95" hotspot_y="52">
+    <uuid uuid="{b91aeccd-e06c-fcb6-70bf-4764817fed72}"/>
+    <names>
+        <name lang="ar">خط تأخير من مادة صلبة بمحوّلات كهرضغطية</name>
+        <name lang="ca">Línia de retard, tipus de material sòlid amb transductors piezoelèctrics</name>
+        <name lang="cs">Zpožďovací linka s piezoměničem a pevným prostředím</name>
+        <name lang="da">Forsinkelseslinje, fast materiale type med piezoelektriske transducere</name>
+        <name lang="de">Festkörper-Verzögerungsleitung mit
+piezoelektrischen Wandlern</name>
+        <name lang="el">Γραμμή καθυστέρησης, τύπου στερεού υλικού με πιεζοηλεκτρικούς μετατροπείς</name>
+        <name lang="en">Delay line, solid material type with piezoelectric transducers</name>
+        <name lang="es">Línea de retardo de material sólido con transductores piezoeléctricos</name>
+        <name lang="fi">Viivelinja, kiinteän materiaalin tyyppi, pietsosähköisillä antureilla</name>
+        <name lang="fr">Ligne à retard, type à matière solide avec
+transducteurs piézoélectriques</name>
+        <name lang="hr">Vod za kašnjenje, tip s čvrstim materijalom i piezoelektričnim pretvaračima</name>
+        <name lang="hu">Késleltető vonal, szilárd anyagú típus piezoelektromos átalakítókkal</name>
+        <name lang="it">Linea di ritardo, a materiale solido con trasduttori piezoelettrici</name>
+        <name lang="ja">圧電トランスデューサ付き固体材料型遅延線</name>
+        <name lang="ko">압전 변환기가 있는 고체 재료형 지연선</name>
+        <name lang="mn">Пьезоэлектрик хувиргагчтай хатуу материалын төрлийн сааталтын шугам</name>
+        <name lang="nb">Forsinkelseslinje, fastmaterialtype med piezoelektriske transdusere</name>
+        <name lang="nl">Vertragingslijn, vast materiaaltype met piëzo-elektrische omvormers</name>
+        <name lang="nl_BE">Vertragingslijn, type vast materiaal met piëzo-elektrische omzetters</name>
+        <name lang="pl">Linia opóźniająca z materiału stałego z przetwornikami piezoelektrycznymi</name>
+        <name lang="pt">Linha de atraso, de material sólido com transdutores piezoelétricos</name>
+        <name lang="pt_BR">Linha de retardo com material sólido e transdutores piezoelétricos</name>
+        <name lang="ro">Linie de întârziere, tip material solid cu traductoare piezoelectrice</name>
+        <name lang="ru">Линия задержки, типа твёрдого материала с пьезоэлектрическими преобразователями</name>
+        <name lang="sk">Meškácia linka, typ s pevným materiálom s piezoelektrickými meničmi</name>
+        <name lang="sl">Zakasnilna linija, tipa s trdnim materialom s piezoelektričnimi pretvorniki</name>
+        <name lang="sr">Линија кашњења, тип чврстог материјала са пиезоелектричним претварачима</name>
+        <name lang="sv">Fördröjningsledning, fast materialtyp med piezoelektriska givare</name>
+        <name lang="tr">Piezoelektrik dönüştürücülü katı malzeme tipi gecikme hattı</name>
+        <name lang="uk">Лінія затримки, типу твердого матеріалу з п'єзоелектричними перетворювачами</name>
+        <name lang="zh">接线端子04</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="5" y="12.5" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c73ae2c9-e704-4122-847f-5026b7774728}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="-80" y1="-30" x2="0" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-35" x2="-80" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-35" x2="0" y2="-25" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-50" y="-50" width="20" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:bdiag;color:black" antialias="false"/>
+        <rect x="-75" y="-25" width="10" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="-25" width="10" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-20" x2="-80" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-20" x2="-60" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-20" x2="-20" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-10" x2="-30" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-60" y1="-10" x2="-50" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-80" y1="-10" x2="-90" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-10" x2="10" y2="-10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+    </description>
+</definition>

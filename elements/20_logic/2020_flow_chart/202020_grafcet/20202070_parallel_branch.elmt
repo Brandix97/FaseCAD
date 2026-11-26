@@ -1,0 +1,60 @@
+<definition version="0.100" type="element" link_type="simple" width="100" height="30" hotspot_x="48" hotspot_y="10">
+    <uuid uuid="{3642e3d7-7371-556f-e07a-b6a9d1d2bdcf}"/>
+    <names>
+        <name lang="ar">فرع مواز</name>
+        <name lang="ca">branca paral·lela</name>
+        <name lang="cs">paralelní větev</name>
+        <name lang="da">parallel gren</name>
+        <name lang="de">Parallelverzweigung</name>
+        <name lang="el">παράλληλος κλάδος</name>
+        <name lang="en">parallel branch</name>
+        <name lang="es">rama paralela</name>
+        <name lang="fi">rinnakkainen haara</name>
+        <name lang="fr">branche parallèle</name>
+        <name lang="hr">paralelna grana</name>
+        <name lang="hu">párhuzamos ág</name>
+        <name lang="it">ramo parallelo</name>
+        <name lang="ja">並列分岐</name>
+        <name lang="ko">병렬 분기</name>
+        <name lang="mn">зэрэгцээ салбар</name>
+        <name lang="nb">parallell gren</name>
+        <name lang="nl">parallelle tak</name>
+        <name lang="nl_BE">parallelle vertakking</name>
+        <name lang="pl">gałąź równoległa</name>
+        <name lang="pt">ramo paralelo</name>
+        <name lang="pt_BR">ramo paralelo</name>
+        <name lang="ro">ramură paralelă</name>
+        <name lang="ru">параллельная ветвь</name>
+        <name lang="sk">paralelná vetva</name>
+        <name lang="sl">vzporedna veja</name>
+        <name lang="sr">паралелна грана</name>
+        <name lang="sv">parallell gren</name>
+        <name lang="tr">paralel dal</name>
+        <name lang="uk">Паралельне розгалуження</name>
+        <name lang="zh">并行分支</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="-30" y="0" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{36cb9064-b8fe-69d1-90e7-b4bd4f5b1994}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="36" y="-22" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{09fe0608-269b-8b5f-fa0c-105e8513484c}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <dynamic_text x="30" y="2" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{b8ee823c-0a32-a087-f7f2-4950401928ba}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="42" y1="1" x2="-39" y2="1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="42" y1="-1" x2="-39" y2="-1" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="30" y1="1" x2="30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-30" y1="1" x2="-30" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{8e33c1eb-7d94-477d-9d2d-12b85ffd6dde}" name="" x="-30" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{adaedd18-3058-44ab-a96d-a7da6204a774}" name="" x="30" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{87615fac-d610-4f22-b474-4c67f1f70f54}" name="" x="42" y="0" orientation="e" type="Generic"/>
+        <terminal uuid="{fac5ebcb-3d3e-4434-af6e-9a329e73af89}" name="" x="-39" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

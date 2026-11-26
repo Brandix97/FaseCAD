@@ -1,0 +1,85 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="130" hotspot_x="44" hotspot_y="63">
+    <uuid uuid="{1ae74797-1cf0-6ca4-b5e4-0deb9e36d4dc}"/>
+    <names>
+        <name lang="ar">خزّان 1000ل</name>
+        <name lang="ca">Interacumulador 300L vertical</name>
+        <name lang="cs">Zásobník 1000L</name>
+        <name lang="da">Opbevaringstank 1000L</name>
+        <name lang="de">Speichertank 1000L</name>
+        <name lang="el">Δεξαμενή αποθήκευσης 1000L</name>
+        <name lang="en">Storage tank 1000L</name>
+        <name lang="es">Inter-acumulador 300L</name>
+        <name lang="fi">Säiliö 1000L</name>
+        <name lang="fr">Ballon Stockage 1000L</name>
+        <name lang="hr">Spremnik 1000L</name>
+        <name lang="hu">Tárolótartály 1000L</name>
+        <name lang="it">Serbatoio 1000L</name>
+        <name lang="ja">貯蔵タンク 1000L</name>
+        <name lang="ko">저장 탱크 1000L</name>
+        <name lang="mn">Хадгалах сав 1000Л</name>
+        <name lang="nb">Lagringstank 1000L</name>
+        <name lang="nl">Opslagtank 1000L</name>
+        <name lang="nl_BE">Boiler 1000L</name>
+        <name lang="pl">Zasobnik 1000L</name>
+        <name lang="pt">Depósito 1000L</name>
+        <name lang="pt_BR">Tanque de armazenamento 1000L</name>
+        <name lang="ro">Rezervor 1000L</name>
+        <name lang="ru">Бак-термос 1000л</name>
+        <name lang="sk">Zásobník 1000L</name>
+        <name lang="sl">Hranilnik 1000L</name>
+        <name lang="sr">Резервоар 1000Л</name>
+        <name lang="sv">Ackumulatortank 1000L</name>
+        <name lang="tr">Depolama tankı 1000L</name>
+        <name lang="uk">Бак 1000л</name>
+        <name lang="zh">立式缓冲水箱</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-17.19" y1="0.89" x2="21.5" y2="0.89" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-31.89" y1="-21.75" x2="-24.64" y2="-21.75" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <text text="de placa" x="-29" y="26.34" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <arc x="-19.2" y="0.89" width="4.9" height="4.24" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <rect x="-34.6" y="16.44" width="2.8" height="2.83" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-31" y1="17.86" x2="21.25" y2="17.86" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="-15.16" y1="-7.6" x2="20.88" y2="-7.6" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <line x1="31.2" y1="-48.27" x2="31.2" y2="47.71" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="20" y="-3.36" width="4.9" height="4.24" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-15.16" y1="9.37" x2="20.88" y2="9.37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="-18.5" y="-7.6" width="4.9" height="4.24" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-15.16" y1="-3.36" x2="20.88" y2="-3.36" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="20" y="13.61" width="4.9" height="4.24" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-17.21" y1="-11.84" x2="20.82" y2="-11.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="-18.5" y="9.37" width="4.9" height="4.24" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-15.16" y1="13.61" x2="20.88" y2="13.61" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="19.3" y="-11.84" width="5.6" height="4.24" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <arc x="-31.8" y="38.45" width="63" height="17.11" start="180" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-1.35" y1="55.79" x2="-1.35" y2="57.22" x3="0.75" y3="57.22" x4="0.75" y4="55.79" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-31.8" y="-57.3" width="63" height="17.11" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-19.2" y="-49.75" z="21" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{a396df29-5e59-4610-a510-3f15b402be34}" font="Liberation Sans,3,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="-1.35" y="-35.44" width="2.1" height="1.9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-1.74" y="-54.81" width="2.89" height="2.61" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="28.58" y1="50.57" x2="28.58" y2="57.69" x3="20.7" y3="57.69" x4="20.7" y4="52.94" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-29.18" y1="50.57" x2="-29.18" y2="57.69" x3="-21.3" y3="57.69" x4="-21.3" y4="52.94" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <ellipse x="-1.35" y="-2.18" width="2.1" height="1.9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-31.8" y1="-48.52" x2="-31.8" y2="47.47" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-34.6" y="-23.16" width="2.8" height="2.83" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-16.52" y1="5.13" x2="20.83" y2="5.13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <arc x="19.3" y="5.13" width="5.6" height="4.24" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:red" antialias="true"/>
+        <line x1="-24.1" y1="-21.75" x2="-17.8" y2="-12.55" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:dashed;line-weight:normal;filling:none;color:red" antialias="false"/>
+        <text text="a placa" x="-29.7" y="-30.23" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-28.43" y1="21.07" x2="-24.36" y2="21.07" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-24.13" y1="19.54" x2="-24.13" y2="22.81" x3="-20.06" y3="21.41" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <polygon x1="-29" y1="-26.56" x2="-25.72" y2="-28.54" x3="-25.72" y3="-24.57" antialias="false" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+        <line x1="-25.72" y1="-26.56" x2="-21.63" y2="-26.56" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{d6900236-ebe3-4352-b43b-7bb8c5b9f965}" name="" x="0" y="-54" orientation="n" type="Generic"/>
+        <terminal uuid="{b0c114c9-009c-4471-a0aa-b54553d40f9e}" name="" x="0" y="57" orientation="s" type="Generic"/>
+        <terminal uuid="{4f82068e-556d-4a0f-b108-77443e023c56}" name="" x="0" y="-34" orientation="e" type="Generic"/>
+        <terminal uuid="{f0a00a23-3658-43cf-9b9b-c124bb029788}" name="" x="0" y="-1" orientation="e" type="Generic"/>
+        <terminal uuid="{c919e782-7bfe-44c0-a5fb-156ed4a09cd2}" name="" x="-35" y="-22" orientation="w" type="Generic"/>
+        <terminal uuid="{3f766888-b39a-47a4-ad26-337a6880d437}" name="" x="-35" y="18" orientation="w" type="Generic"/>
+    </description>
+</definition>

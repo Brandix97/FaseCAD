@@ -1,0 +1,51 @@
+<definition version="0.100.0" type="element" link_type="terminal" width="30" height="50" hotspot_x="16" hotspot_y="30">
+    <uuid uuid="{bcfb7b35-f04f-e759-afc2-5b4d91370c49}"/>
+    <names>
+        <name lang="ar">هيكل معدني</name>
+        <name lang="ca">Terra</name>
+        <name lang="cs">Kostra</name>
+        <name lang="da">Jord</name>
+        <name lang="de">Masse</name>
+        <name lang="el">Γείωση</name>
+        <name lang="en">Ground</name>
+        <name lang="es">Masa</name>
+        <name lang="fi">Maa</name>
+        <name lang="fr">Masse</name>
+        <name lang="hr">Uzemljenje</name>
+        <name lang="hu">Test</name>
+        <name lang="it">Massa</name>
+        <name lang="ja">アース</name>
+        <name lang="ko">접지</name>
+        <name lang="mn">Газар</name>
+        <name lang="nb">Jord</name>
+        <name lang="nl">Massa</name>
+        <name lang="nl_BE">Aarding</name>
+        <name lang="pl">Masa</name>
+        <name lang="pt">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="pt_BR">Massa de chassis / Carcaça metálica (Aterramento)</name>
+        <name lang="ro">Masă</name>
+        <name lang="ru">Шасси</name>
+        <name lang="sk">Zem</name>
+        <name lang="sl">Ozemljitev</name>
+        <name lang="sr">Земља</name>
+        <name lang="sv">Jord</name>
+        <name lang="tr">Toprak</name>
+        <name lang="uk">Земля</name>
+        <name lang="zh">接地1</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type">generic</kindInformation>
+        <kindInformation name="function">generic</kindInformation>
+    </kindInformations>
+    <informations>titus
+titus0818@yahoo.com</informations>
+    <description>
+        <line x1="0" y1="-20" x2="0" y2="13" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <line x1="-13.65" y1="14" x2="12.62" y2="14" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:hight;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="8" y="-9" z="3" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{7f02ce13-533d-4501-980d-6cb67bd1110d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{3e15edca-c2b1-cf41-a4f5-1ccfa1e79870}" name="GND" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

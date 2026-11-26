@@ -1,0 +1,47 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="10" hotspot_y="27">
+    <uuid uuid="{d232570e-9daf-70ae-c5da-7b354f5b9e6a}"/>
+    <names>
+        <name lang="ar">طرف دخل</name>
+        <name lang="ca">Contacte masculí</name>
+        <name lang="cs">Vstupní svorka</name>
+        <name lang="da">Han kontakt</name>
+        <name lang="de">Steckverbindung Stecker</name>
+        <name lang="el">Ακροδέκτης εισόδου</name>
+        <name lang="en">Male contact</name>
+        <name lang="es">Terminal de entrada</name>
+        <name lang="fi">Uroskosketin</name>
+        <name lang="fr">Contact male</name>
+        <name lang="hr">Muški kontakt</name>
+        <name lang="hu">Hím érintkező</name>
+        <name lang="it">Terminale di ingresso</name>
+        <name lang="ja">オスコンタクト</name>
+        <name lang="ko">수 접점</name>
+        <name lang="mn">Эрэгтэй контакт</name>
+        <name lang="nb">Hannkontakt</name>
+        <name lang="nl">Steker mannelijk</name>
+        <name lang="nl_BE">Mannelijk contact</name>
+        <name lang="pl">Wtyk</name>
+        <name lang="pt">Terminal de entrada</name>
+        <name lang="pt_BR">Borne de entrada</name>
+        <name lang="ro">Contact tată</name>
+        <name lang="ru">Штырь (стар.)</name>
+        <name lang="sk">Kontakt samec</name>
+        <name lang="sl">Moški kontakt</name>
+        <name lang="sr">Мушки контакт</name>
+        <name lang="sv">Hankontakt</name>
+        <name lang="tr">Erkek kontak</name>
+        <name lang="uk">Штировий контакт</name>
+        <name lang="zh">接线端子_E</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <polygon x1="-4" y1="-5" x2="0" y2="1" x3="4" y3="-5" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <dynamic_text x="3" y="-26.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{2e984347-1a48-46f3-851b-408afc4765f5}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{871dfd92-e64b-458e-9e44-739deb3e35f3}" name="1" x="0" y="-20" orientation="n" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,62 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="130" hotspot_x="21" hotspot_y="50">
+    <uuid uuid="{c6be3b23-37b1-bf11-fe2b-86c93b23bc04}"/>
+    <names>
+        <name lang="ar">مفتاح IMC</name>
+        <name lang="ca">Interruptor IMC</name>
+        <name lang="cs">Odpínač s uzemňovačem a MTP IMB</name>
+        <name lang="da">IMC-afbryder</name>
+        <name lang="de">IMC-Schalter</name>
+        <name lang="el">Διακόπτης IMC</name>
+        <name lang="en">IMC switch</name>
+        <name lang="es">Interruptor IMC</name>
+        <name lang="fi">IMC kytkin</name>
+        <name lang="fr">Interrupteur IMC</name>
+        <name lang="hr">IMC prekidač</name>
+        <name lang="hu">IMC kapcsoló</name>
+        <name lang="it">Interruttore IMC</name>
+        <name lang="ja">IMC スイッチ</name>
+        <name lang="ko">IMC 스위치</name>
+        <name lang="mn">IMC унтраалга</name>
+        <name lang="nb">IMC bryter</name>
+        <name lang="nl">Onderbreker IMC</name>
+        <name lang="nl_BE">IMC schakelaar</name>
+        <name lang="pl">Rozłącznik IMC</name>
+        <name lang="pt">Interruptor IMC</name>
+        <name lang="pt_BR">IMC Interruptor</name>
+        <name lang="ro">Comutator IMC</name>
+        <name lang="ru">Выключатель IMC</name>
+        <name lang="sk">Spínač IMC</name>
+        <name lang="sl">Stikalo IMC</name>
+        <name lang="sr">IMC прекидач</name>
+        <name lang="sv">IMC-brytare</name>
+        <name lang="tr">IMC şalteri</name>
+        <name lang="uk">Вимикач IMC</name>
+        <name lang="zh">隔离开关IMC</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="13" y="-11.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{fffafe8a-ea4b-412f-8029-8f22cc71f411}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <ellipse x="4.34" y="15.34" width="11.31" height="11.31" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="1.7" y1="-28" x2="9.7" y2="-14" x3="9.7" y3="69" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-10.8" y1="-25" x2="-10.8" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-12.8" y1="-23" x2="-11.8" y2="-23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-13.8" y1="-27" x2="-13.8" y2="-19" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-17.8" y1="-23" x2="-17.8" y2="-22" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-15.8" y1="-25" x2="-15.8" y2="-21" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="8.7" y="-30" width="2" height="2" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7.7" y1="-30" x2="11.7" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="9.7" y1="57" x2="4.7" y2="57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="4.7" y1="52" x2="4.7" y2="62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.95" y1="52" x2="2.95" y2="62" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.3" y1="57" x2="2.7" y2="57" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="-10.3" y="52" width="10" height="10" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="9.7" y1="-40" x2="9.7" y2="-30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{85a1ee00-83f0-4aa8-917e-98fae30526c5}" name="" x="10" y="70" orientation="s" type="Generic"/>
+        <terminal uuid="{8196bfbd-d906-4e7e-a48d-584d7fe94660}" name="" x="10" y="-40" orientation="n" type="Generic"/>
+        <terminal uuid="{6f660f2e-7867-4958-9b1d-b41d88ad983c}" name="" x="10" y="-40" orientation="n" type="Generic"/>
+    </description>
+</definition>

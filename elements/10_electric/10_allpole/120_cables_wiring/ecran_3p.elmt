@@ -1,0 +1,46 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="20" hotspot_x="22" hotspot_y="10">
+    <uuid uuid="{35714328-0e4e-8c92-c829-3177e539e6b9}"/>
+    <names>
+        <name lang="ar">شاشة</name>
+        <name lang="ca">Pantalla</name>
+        <name lang="cs">Stínění</name>
+        <name lang="da">Skærm</name>
+        <name lang="de">Schirm</name>
+        <name lang="el">Πλέγμα</name>
+        <name lang="en">Screen</name>
+        <name lang="es">Pantalla</name>
+        <name lang="fi">Verkko</name>
+        <name lang="fr">Ecran</name>
+        <name lang="hr">Zaslon</name>
+        <name lang="hu">Árnyékolás</name>
+        <name lang="it">Schermo</name>
+        <name lang="ja">シールド</name>
+        <name lang="ko">스크린</name>
+        <name lang="mn">Дэлгэц</name>
+        <name lang="nb">Skjerm</name>
+        <name lang="nl">Scherm</name>
+        <name lang="nl_BE">Scherm</name>
+        <name lang="pl">Ekran 3</name>
+        <name lang="pt">Blindagem</name>
+        <name lang="pt_BR">Malha de blindagem contra interferência (EMC/RFI)</name>
+        <name lang="ro">Ecran</name>
+        <name lang="ru">Экран</name>
+        <name lang="sk">Tienenie</name>
+        <name lang="sl">Zaslon</name>
+        <name lang="sr">Екран</name>
+        <name lang="sv">Skärm</name>
+        <name lang="tr">Ekran</name>
+        <name lang="uk">Екран</name>
+        <name lang="zh">3极屏蔽</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <ellipse x="-15" y="-2.5" width="50" height="5" style="line-style:dotted;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-9" y="-24.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{6ddb1541-6ddf-4c12-84c5-d5b3df00af9d}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2ab5c069-c549-4758-b4d7-6e18f68f78c8}" name="1" x="-15" y="0" orientation="w" type="Generic"/>
+    </description>
+</definition>

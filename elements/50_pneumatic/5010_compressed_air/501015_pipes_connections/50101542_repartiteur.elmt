@@ -1,0 +1,57 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="60" hotspot_x="30" hotspot_y="30">
+    <uuid uuid="{9a73dee0-7906-21a2-d0ec-e5d8fc419ee7}"/>
+    <names>
+        <name lang="ar">مُوزّع</name>
+        <name lang="ca">Distribuïdor</name>
+        <name lang="cs">Rozvaděč</name>
+        <name lang="da">Fordeler</name>
+        <name lang="de">Verteiler</name>
+        <name lang="el">Διανομέας</name>
+        <name lang="en">Distributor</name>
+        <name lang="es">Distribuidor</name>
+        <name lang="fi">Jakaja</name>
+        <name lang="fr">Répartiteurs</name>
+        <name lang="hr">Razdjelnik</name>
+        <name lang="hu">Elosztó</name>
+        <name lang="it">Ripartitore</name>
+        <name lang="ja">ディストリビュータ</name>
+        <name lang="ko">분배기</name>
+        <name lang="mn">Түгээгүүр</name>
+        <name lang="nb">Fordeler</name>
+        <name lang="nl">Verdeler</name>
+        <name lang="nl_BE">Verdeler</name>
+        <name lang="pl">Rozdzielacz</name>
+        <name lang="pt">Distribuidor</name>
+        <name lang="pt_BR">Distribuidor</name>
+        <name lang="ro">Distribuitor</name>
+        <name lang="ru">Распределитель</name>
+        <name lang="sk">Rozdeľovač</name>
+        <name lang="sl">Razdelilnik</name>
+        <name lang="sr">Разводник</name>
+        <name lang="sv">Fördelare</name>
+        <name lang="tr">Dağıtıcı</name>
+        <name lang="uk">Розподільник</name>
+        <name lang="zh">分配器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-2" y1="-20" x2="2" y2="-20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="17.27" x2="10" y2="-1.47" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-2" y1="20" x2="2" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="1.6" x2="0" y2="-17.4" end1="circle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="0" y1="17" x2="-0.06" y2="-1.41" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:black;color:black" antialias="false"/>
+        <line x1="-16" y1="0" x2="26" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-25" y="-25" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{049ac17a-5236-44bc-8acf-05ca26c57a35}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="8" y1="20" x2="12" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-10" y="-10" width="30" height="23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{a5b96309-80d6-4c19-8373-dcaef857da95}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{dd1412a1-de96-480d-84c1-ed1346e94155}" name="" x="0" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{3c2362fb-e855-4f8f-9a8e-f9fb7323d863}" name="" x="-20" y="0" orientation="w" type="Generic"/>
+        <terminal uuid="{0f8618c3-ee35-49ef-8bbb-2ce75663db1c}" name="" x="10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{248d1a67-44d5-4962-988d-6d9c940f21dc}" name="" x="30" y="0" orientation="e" type="Generic"/>
+    </description>
+</definition>

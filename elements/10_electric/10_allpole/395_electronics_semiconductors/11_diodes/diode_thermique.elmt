@@ -1,0 +1,49 @@
+<definition version="0.90" type="element" link_type="simple" width="20" height="50" hotspot_x="7" hotspot_y="30">
+    <uuid uuid="{92eedf0f-8faf-22f3-2743-c4425458091b}"/>
+    <names>
+        <name lang="ar">دايود بارتباط حراري</name>
+        <name lang="ca">Díode sensor de temperatura</name>
+        <name lang="cs">Teplotní dioda</name>
+        <name lang="da">Temperaturfølende diode</name>
+        <name lang="de">Temperaturdiode</name>
+        <name lang="el">Δίοδος μέτρησης θερμοκρασίας</name>
+        <name lang="en">Temperature sensing diode</name>
+        <name lang="es">Diodo sensor de temperatura</name>
+        <name lang="fi">Lämpötila-anturidiodi</name>
+        <name lang="fr">Diode à dépendance thermique</name>
+        <name lang="hr">Diode za mjerenje temperature</name>
+        <name lang="hu">Hőmérséklet-érzékelő dióda</name>
+        <name lang="it">Diodo sensibile alla temperatura</name>
+        <name lang="ja">温度感知ダイオード</name>
+        <name lang="ko">온도 감지 다이오드</name>
+        <name lang="mn">Температур мэдрэх диод</name>
+        <name lang="nb">Temperatursensor diode</name>
+        <name lang="nl">Diode temperatuur</name>
+        <name lang="nl_BE">Temperatuursensor diode</name>
+        <name lang="pl">Dioda o zależności temperaturowej.</name>
+        <name lang="pt">Díodo sensor de temperatura</name>
+        <name lang="pt_BR">Diodo Sensor de temperatura</name>
+        <name lang="ro">Diodă de detectare a temperaturii</name>
+        <name lang="ru">Термодиод</name>
+        <name lang="sk">Teplotná dióda</name>
+        <name lang="sl">Tempirna dioda</name>
+        <name lang="sr">Диода за мерење температуре</name>
+        <name lang="sv">Temperaturkännande diod</name>
+        <name lang="tr">Sıcaklık algılayıcı diyot</name>
+        <name lang="uk">Термочутливий діод</name>
+        <name lang="zh">热敏二极管</name>
+    </names>
+    <informations>EN 60617: 05-03-03</informations>
+    <description>
+        <dynamic_text x="11" y="-18" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{b31e7307-7bfa-4fad-a449-610adf6546b4}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <text text="Θ" x="6" y="-3" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-20" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="-5" y1="-10" x2="5" y2="-10" x3="0" y3="0" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-5" y1="0" x2="5" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{261cdd1d-8cda-4882-868c-d1396ac2b326}" name="A" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{b3b4ed95-09b0-4121-b3cc-eea28add6101}" name="K" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

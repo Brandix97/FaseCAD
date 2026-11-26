@@ -1,0 +1,54 @@
+<definition version="0.100.0" type="element" link_type="simple" width="30" height="60" hotspot_x="17" hotspot_y="30">
+    <uuid uuid="{1ec6ed5b-d195-5740-8f86-cde6481e9299}"/>
+    <names>
+        <name lang="ar">ملامس مرحل حراري (NC)</name>
+        <name lang="ca">Relais tèrmic de contacte (NC)</name>
+        <name lang="cs">Kontakt (NC) tepelného jističe</name>
+        <name lang="da">Kontakt termisk relæ (NC)</name>
+        <name lang="de">Kontakt Thermorelais (NC)</name>
+        <name lang="el">Επαφή θερμικού ρελέ (NC)</name>
+        <name lang="en">Contact relais thermique (NC)</name>
+        <name lang="es">Contacto relé térmico (NC)</name>
+        <name lang="fi">Kosketin, lämpörele (NC)</name>
+        <name lang="fr">Contact relais thermique (NF)</name>
+        <name lang="hr">Kontakt toplinskog releja (NC)</name>
+        <name lang="hu">Hőrelé érintkező (NC)</name>
+        <name lang="it">Contatto relè termico (NC)</name>
+        <name lang="ja">サーマルリレー接点（NC）</name>
+        <name lang="ko">열동 계전기 접점 (NC)</name>
+        <name lang="mn">Дулааны реле контакт (NC)</name>
+        <name lang="nb">Kontakt termisk relé (NC)</name>
+        <name lang="nl">Contact thermisch relais (NC)</name>
+        <name lang="nl_BE">Contact thermisch relais (NC)</name>
+        <name lang="pl">Zestyk przekaźnika termicznego (NC)</name>
+        <name lang="pt">Contacto relé térmico (NC)</name>
+        <name lang="pt_BR">Contato de relé térmico (NF)</name>
+        <name lang="ro">Contact releu termic (NC)</name>
+        <name lang="ru">Контакт теплового реле (НЗ)</name>
+        <name lang="sk">Kontakt tepelného relé (NC)</name>
+        <name lang="sl">Kontakt termičnega releja (NC)</name>
+        <name lang="sr">Контакт термалног релеја (NC)</name>
+        <name lang="sv">Kontakt termiskt relä (NC)</name>
+        <name lang="tr">Termik röle kontağı (NC)</name>
+        <name lang="uk">Контакт теплового реле (НЗ)</name>
+        <name lang="zh">继电器常闭触点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="-7.68" y1="0" x2="-10.91" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="5" y1="-10" x2="0" y2="10" x3="0" y3="20" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="-7.68" y1="-5.06" x2="-7.68" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.84" y1="-5.06" x2="-7.68" y2="-5.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-2.84" y1="0" x2="-2.84" y2="-5.06" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="1.77" y1="0" x2="-2" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-9" x2="6" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-20" x2="0" y2="-9" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-15" y="0.5" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{73ced61d-cbf4-4b65-a09d-a1b01432aeb2}" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{2ad5f861-1e7f-4e33-9e78-9a0cd702b203}" name="" x="0" y="-21" orientation="n" type="Generic"/>
+        <terminal uuid="{dbabb884-3239-41e4-8135-e788c5d831d9}" name="" x="0" y="21" orientation="s" type="Generic"/>
+    </description>
+</definition>

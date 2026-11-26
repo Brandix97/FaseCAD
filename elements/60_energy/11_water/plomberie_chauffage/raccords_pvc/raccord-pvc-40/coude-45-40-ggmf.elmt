@@ -1,0 +1,34 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="40" hotspot_x="19" hotspot_y="19">
+    <uuid uuid="{293d9c52-d833-eea0-c689-95f8d72a4d78}"/>
+    <names>
+        <name lang="ar">كوع 45° PVC 40 MF</name>
+        <name lang="ca">Colze de 45° PVC 40 MF</name>
+        <name lang="cs">Koleno 45° PVC 40 MF</name>
+        <name lang="da">Bøjning 45° PVC 40 MF</name>
+        <name lang="de">Bogen 45° PVC 40 AG</name>
+        <name lang="el">Γωνία 45° PVC 40 MF</name>
+        <name lang="en">Elbow 45° PVC 40 MF</name>
+        <name lang="fr">Coude 45° PVC 40 MF</name>
+        <name lang="pt_BR">Coude 45° PVC 40 MF</name>
+        <name lang="zh">弯头-45度-40-双公口</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <dynamic_text x="5" y="9" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{1e8204bd-7fc0-481a-aaf6-23ad7e8f6d57}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-16" y="-16" width="32" height="32" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-4" y="-4" width="8" height="8" start="270" angle="45" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-0.61" y1="4" x2="-9.39" y2="4" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-0.91" y1="16" x2="-9.09" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="4" x2="-10" y2="16" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2" y1="2" x2="12" y2="12" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="12" y1="12" x2="17" y2="7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="17" y1="7" x2="7" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="-3" x2="2" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{f24145d3-99e2-445e-8c31-4def0772d88f}" name="" x="-11" y="10" orientation="w" type="Generic"/>
+        <terminal uuid="{419da6ba-ea05-4b2c-837d-b6cb30c084ba}" name="" x="13" y="1" orientation="n" type="Generic"/>
+    </description>
+</definition>

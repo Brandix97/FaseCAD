@@ -1,0 +1,41 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="50" hotspot_x="10" hotspot_y="29">
+    <uuid uuid="{1beb916e-654a-bf03-3270-7ae0a1f507b9}"/>
+    <names>
+        <name lang="ar">مصفّي 3/8 M</name>
+        <name lang="ca">Purgador 3/8 M</name>
+        <name lang="cs">Odvzdušňovací ventil 3/8 M</name>
+        <name lang="da">Udluffer 3/8 M</name>
+        <name lang="de">Entlüfter 3/8 M</name>
+        <name lang="el">Εξαεριστικό 3/8 M</name>
+        <name lang="en">Air vent 3/8 M</name>
+        <name lang="es">Purgador 3/8 M</name>
+        <name lang="fr">Purgeur 3/8 M</name>
+        <name lang="pt_BR">Purgadou 3/8 M</name>
+        <name lang="zh">3/8英寸外螺纹排气阀</name>
+    </names>
+    <informations>Rafael Ferrando.
+Mantenimiento de Instalaciones Térmicas</informations>
+    <description>
+        <line x1="-1.56" y1="5.09" x2="2.14" y2="4.33" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="4.59" y1="-18.93" x2="4.59" y2="-21.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="5.8" y1="-18.93" x2="5.8" y2="-21.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="6.52" y1="-18.93" x2="6.52" y2="-21.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="3.38" y1="-18.93" x2="3.38" y2="-21.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-1.71" y="3.83" width="4" height="5.8" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-1.56" y1="6.09" x2="2.14" y2="5.34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1.56" y1="8.58" x2="2.14" y2="7.79" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1.56" y1="7.35" x2="2.14" y2="6.59" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-1.56" y1="9.63" x2="2.14" y2="8.84" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-4.1" y="1.49" width="8.69" height="2.34" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-7" y="-16.59" width="14.49" height="18.07" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="2.9" y="-18.26" width="3.14" height="1.67" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="1.94" y="-22.94" width="5.07" height="4.69" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="2.66" y1="-18.93" x2="2.66" y2="-21.94" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="-13.24" x2="7.25" y2="-13.24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="6.11" y="-4.37" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{7a272367-e7ef-4617-99ed-b71325cc1840}" font="Liberation Sans,4,-1,5,25,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <terminal uuid="{fa9b3ca4-1d82-4855-ad91-305a5e8ad5da}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

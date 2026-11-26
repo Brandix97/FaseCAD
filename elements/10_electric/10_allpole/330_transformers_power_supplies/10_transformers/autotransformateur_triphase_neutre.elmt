@@ -1,0 +1,70 @@
+<definition version="0.100.0" type="element" link_type="simple" width="80" height="90" hotspot_x="42" hotspot_y="45">
+    <uuid uuid="{12614a71-f688-f62e-81ee-e5a019f2b6e4}"/>
+    <names>
+        <name lang="ar">مُحوّل ذاتي ثلاثي الأوجه + خط محايد</name>
+        <name lang="ca">Autotransductor trifàsic + neutre</name>
+        <name lang="cs">Třífázový autotransformátor + neutrál</name>
+        <name lang="da">Tre-faset autotransformer + nulleder</name>
+        <name lang="de">Spartransformator Drehstrom + Neutralleiter</name>
+        <name lang="el">Αυτομετασχηματιστής τριφασικός με ουδέτερο</name>
+        <name lang="en">Three-phase autotransducer + neutral</name>
+        <name lang="es">Autotransformador delta-estrella</name>
+        <name lang="fi">Kolmivaiheinen automaattimuunnin + nolla</name>
+        <name lang="fr">Autotransformateur triphasé + neutre</name>
+        <name lang="hr">Trofazni autotransduktor + neutral</name>
+        <name lang="hu">Háromfázisú autotranszformátor + nulla</name>
+        <name lang="it">Autotrasformatore trifase + neutro</name>
+        <name lang="ja">三相単巻変成器 + 中性線</name>
+        <name lang="ko">3상 오토 트랜스포머 + 중성선</name>
+        <name lang="mn">Гурван фазын автохувиргагч + саармаг</name>
+        <name lang="nb">Trefaset autotransduser + nøytral</name>
+        <name lang="nl">driefase autotransformator + Nul</name>
+        <name lang="nl_BE">Driefasige autotransductor + neutre</name>
+        <name lang="pl">Autotransformatort trójfazowy</name>
+        <name lang="pt">Autotransdutor trifásico + neutro</name>
+        <name lang="pt_BR">Autotransformador trifásico + neutro</name>
+        <name lang="ro">Autotransductor trifazat + neutru</name>
+        <name lang="ru">Трёхфазный автотрансформатор + нейтраль</name>
+        <name lang="sk">Trojfázový autotransduktor + neutrál</name>
+        <name lang="sl">Trifazni avtotransduktor + nevtralni vodnik</name>
+        <name lang="sr">Трофазни аутотрансдуктор + неутрал</name>
+        <name lang="sv">Trefasig autotransduktor + nolledare</name>
+        <name lang="tr">Üç fazlı oto dönüştürücü + nötr</name>
+        <name lang="uk">Трифазний автотрансдуктор + нейтраль</name>
+        <name lang="zh">三相自耦变压器带中性点</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="20" y="8.17" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="UserText" uuid="{0cba3e16-5ac8-42fc-8fa3-c97ded3a7438}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>___V</text>
+        </dynamic_text>
+        <polygon x1="-13" y1="13" x2="-25" y2="13" x3="-34" y3="22" x4="-34" y4="35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <arc x="-15" y="-20" width="50" height="50" start="70" angle="110" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="N" x="-33" y="34.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="-15" y="-10" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="A1" x="-16" y="-31.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="11" y1="16" x2="17" y2="30" x3="17" y3="35" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="16" x2="-17" y2="30" x3="-17" y3="35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="-11" y1="-9" x2="-17" y2="-30" x3="-17" y3="-35" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="11" y1="-20" x2="17" y2="-30" x3="17" y3="-35" closed="false" antialias="false" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <text text="B2" x="1" y="34.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="A2" x="-16" y="34.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="C1" x="18" y="-31.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="B1" x="1" y="-31.67" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="C2" x="18" y="34.33" rotation="0" font="Liberation Sans,4,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="20" x2="0" y2="35" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="17.75" y="-8.5" z="17" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{47289389-3c6d-4654-b620-11b99362bf13}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-35" x2="0" y2="-18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{fd285772-af60-4e28-9568-ee43330bc9de}" name="" x="17" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{26e62538-b6d2-462d-bd0c-efcbf3b4a097}" name="" x="0" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{0cd4c317-6c86-4678-a049-bdaae7bb2d33}" name="" x="-17" y="-36" orientation="n" type="Generic"/>
+        <terminal uuid="{f2d8174f-5ee7-4d12-aaee-c29e1baf752a}" name="" x="-17" y="36" orientation="s" type="Generic"/>
+        <terminal uuid="{a2bb23e2-3e30-4ed1-81bc-237f07c887d3}" name="" x="0" y="36" orientation="s" type="Generic"/>
+        <terminal uuid="{6385355e-5194-4d99-b303-34fedb74999c}" name="" x="17" y="36" orientation="s" type="Generic"/>
+        <terminal uuid="{12b39bd3-f3a3-4d2f-b35f-f02b3748fc2e}" name="" x="-34" y="36" orientation="s" type="Generic"/>
+    </description>
+</definition>

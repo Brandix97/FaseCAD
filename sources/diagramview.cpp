@@ -1,0 +1,3765 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "diagramview.h"
+#include "itemdescription.h"
+#include "shownkinds.h"
+#include "autoNum/ui/pastenumberingimport.h"
+#include "cellruler.h"
+#include "lastusedstyle.h"
+#include "utils/colordialogdoubleclick.h"
+#include "qetproject.h"
+#include "QPropertyUndoCommand/qpropertyundocommand.h"
+#include "diagramcommands.h"
+#include "cable/addcablecommand.h"
+#include "bridge/bridgecopy.h"
+#include "bridge/bridgepart.h"
+#include "bridge/bridgeundocommands.h"
+#include "cable/cablecopy.h"
+#include "cable/cablepart.h"
+#include "cable/editcablecommand.h"
+#include "diagramevent/diagrameventadddimension.h"
+#include "diagramevent/diagrameventaddelement.h"
+#include "diagramevent/diagrameventaddmacro.h"
+#include "dvevent/dveventinterface.h"
+#include "projectview.h"
+#include "qetdiagrameditor.h"
+#include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/independenttextitem.h"
+#include "qeticons.h"
+#include "QetGraphicsItemModeler/qetgraphicshandleritem.h"
+#include "qetpalette.h"
+#include <QScopeGuard>
+#include <QtMath>
+#include "titleblock/integrationmovetemplateshandler.h"
+#include "PropertiesEditor/propertieseditordialog.h"
+#include "ui/diagrampropertiesdialog.h"
+#include "ui/multielementinfowidget.h"
+#include "ui/multipastedialog.h"
+#include "undocommand/changetitleblockcommand.h"
+#include "utils/conductorcreator.h"
+#include "undocommand/addgraphicsobjectcommand.h"
+#include "diagram.h"
+#include <QSettings>
+#include "foliogrid.h"
+#include "diagramcontexttoolbar.h"
+#include "imagedrop.h"
+#include "partsdb/partsplacement.h"
+#include "devicenaming.h"
+#include "diagramgestureoverlay.h"
+#include "gesturesettings.h"
+#include "shortcutbarsettings.h"
+#include "shortcutmanager.h"
+#include "ElementsCollection/xmlelementcollection.h"
+#include "NameList/nameslist.h"
+#include "elementdialog.h"
+#include "genericdevice/genericdevicewizard.h"
+#include "terminals/faseterminal.h"
+#include "terminals/terminalsettingswidget.h"
+
+#include <QDialogButtonBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include "qetapp.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/terminal.h"
+#include "qetinformation.h"
+#include "qetversion.h"
+#include <QApplication>
+#include <QDropEvent>
+#include <QMessageBox>
+#include <QPainter>
+#include <QPointer>
+#include <QSet>
+#include <QUuid>
+#include <algorithm>
+
+static bool hasCabinetInfo(const DiagramContext &infos);
+
+/**
+	@brief batchWith
+	Keep two undo steps together so one Ctrl+Z takes the whole thing
+	back in one go.
+
+	The batch also keeps the name the undo history shows for what the
+	user actually did: BatchCommand's own name says "Supprimer", which
+	is what it was first written for and would be misleading for a paste
+	or a duplicate.
+	@param first the step already assembled, may be null
+	@param second the step to add; ownership goes to the result
+	@return both steps as one command, or the only one of them
+*/
+static QUndoCommand *batchWith(QUndoCommand *first, QUndoCommand *second)
+{
+	if (!first) return second;
+	if (!second) return first;
+
+	auto *batched = new BatchCommand(first, second);
+	if (!first->text().isEmpty()) batched->setText(first->text());
+	return batched;
+}
+
+/**
+	Constructeur
+	@param diagram Schema a afficher ; si diagram vaut 0, un nouveau Diagram est utilise
+	@param parent Le QWidget parent de cette vue de schema
+*/
+DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
+	PaletteGraphicsView (parent),
+	m_diagram (diagram)
+{
+	grabGesture(Qt::PinchGesture);
+	setAttribute(Qt::WA_DeleteOnClose, true);
+	setInteractive(true);
+
+	QString whatsthis = tr(
+		"In this area you conceive your diagrams by adding elements and "
+		"conductors between their terminals. You may also add independent "
+		"texts.",
+		"\"What's this?\" tip"
+	);
+	setWhatsThis(whatsthis);
+
+	// active l'antialiasing
+	setRenderHint(QPainter::Antialiasing, true);
+	setRenderHint(QPainter::TextAntialiasing, true);
+	setRenderHint(QPainter::SmoothPixmapTransform, true);
+
+	setScene(m_diagram);
+	m_diagram -> undoStack().setClean();
+	setWindowIcon(QET::Icons::QETLogo);
+	setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
+	setResizeAnchor(QGraphicsView::AnchorUnderMouse);
+	setAlignment(Qt::AlignLeft | Qt::AlignTop);
+	setSelectionMode();
+	adjustSceneRect();
+	updateWindowTitle();
+	m_diagram->loadElmtFolioSeq();
+	m_diagram->loadCndFolioSeq();
+
+	m_paste_here = new QAction(QET::Icons::EditPaste, tr("Paste Here", "context menu action"), this);
+	connect(m_paste_here, &QAction::triggered, this, &DiagramView::pasteHere);
+
+	m_multi_paste = new QAction(QET::Icons::EditPaste, tr("Multiple paste"), this);
+	connect(m_multi_paste, &QAction::triggered, [this]() {
+		MultiPasteDialog d(this->m_diagram, this);
+		d.exec();
+	});
+
+	// Setup the action to create a template
+	m_create_template = new QAction(tr("Create a template", "context menu action"), this);
+	connect(m_create_template, &QAction::triggered, this, &DiagramView::createTemplateFromSelection);
+
+		//Setup the action to generate cabinet placement thumbnails (discussion #602)
+	m_generate_cabinet_thumbnail = new QAction(tr("Make a cabinet thumbnail", "context menu action"), this);
+	connect(m_generate_cabinet_thumbnail, &QAction::triggered, this, &DiagramView::generateCabinetThumbnails);
+
+		//Filled each time the context menu opens, see updateFolioReportMenu()
+	m_folio_report_menu = new QMenu(tr("Sheet reference"), this);
+
+		//setup three separators, to be use in context menu
+	for(int i=0 ; i<3 ; ++i)
+	{
+		m_separators << new QAction(this);
+		m_separators.last()->setSeparator(true);
+	}
+
+	m_context_toolbar = new DiagramContextToolbar(viewport());
+	m_gesture_overlay = new DiagramGestureOverlay(viewport());
+	connect(m_diagram, &QGraphicsScene::selectionChanged, this, [this]() {
+		if (m_diagram->selectedItems().isEmpty()) {
+			m_context_toolbar->hide();
+		}
+	});
+
+	connect(m_diagram, &Diagram::showDiagram, this, &DiagramView::showDiagram);
+		//The diagram leaves group completion alone while a rubber band is
+		//dragged; finish it when the band is released (null rect).
+	connect(this, &QGraphicsView::rubberBandChanged, this, [this](QRect rect) {
+		if (rect.isNull()) {
+			m_diagram->completeGroupSelection();
+		}
+	});
+	connect(m_diagram, &QGraphicsScene::sceneRectChanged, this, &DiagramView::adjustSceneRect);
+	connect(&(m_diagram -> border_and_titleblock), &BorderTitleBlock::informationChanged, this, &DiagramView::updateWindowTitle);
+	connect(diagram, &Diagram::findElementRequired, this, &DiagramView::findElementRequired);
+
+	m_top_ruler = new CellRuler(Qt::Horizontal, this);
+	m_side_ruler = new CellRuler(Qt::Vertical, this);
+	m_cell_rulers_shown = QSettings().value("diagrameditor/cell_rulers", false).toBool();
+	m_cell_lines_shown = QSettings().value("diagrameditor/cell_lines", false).toBool();
+	connect(&m_diagram->border_and_titleblock, &BorderTitleBlock::borderChanged, this, &DiagramView::updateCellRulers);
+	connect(&m_diagram->border_and_titleblock, &BorderTitleBlock::displayChanged, this, &DiagramView::updateCellRulers);
+	updateCellRulers();
+
+	QShortcut *edit_conductor_color_shortcut = new QShortcut(QKeySequence(Qt::Key_F2), this);
+	connect(edit_conductor_color_shortcut, &QShortcut::activated, [this]()
+	{
+		if (m_diagram->isReadOnly()) {
+			return;
+		}
+
+		DiagramContent dc(m_diagram);
+		auto cond_list = dc.conductors(DiagramContent::AnyConductor);
+		if (cond_list.size() != 1) {
+			return;
+		}
+		auto edited_conductor = cond_list.first();
+
+			// store the initial properties of the provided conductor
+		ConductorProperties initial_properties = edited_conductor->properties();
+
+			// prepare a color dialog showing the initial conductor color
+		QPointer<QColorDialog> color_dialog = new QColorDialog(this);
+		color_dialog->setWindowTitle(tr("Choose the new color for this conductor"));
+#ifdef Q_OS_MACOS
+		color_dialog -> setWindowFlags(Qt::Sheet);
+#endif
+			// Qt's own dialog on every platform: the GTK one keeps its own
+			// recent-colours row and ignores the custom colours QET saves
+		color_dialog->setOption(QColorDialog::DontUseNativeDialog);
+		color_dialog->setCurrentColor(initial_properties.color);
+		ColorDialogDoubleClick::install(color_dialog);
+
+			// asks the user what color he wishes to apply
+		if (color_dialog->exec() == QDialog::Accepted)
+		{
+			QColor new_color = color_dialog -> selectedColor();
+			if (new_color != initial_properties.color)
+			{
+					// the user chose a different color
+				QVariant old_value, new_value;
+				old_value.setValue(initial_properties);
+				initial_properties.color = new_color;
+				new_value.setValue(initial_properties);
+
+				QPropertyUndoCommand *undo = new QPropertyUndoCommand(edited_conductor, "properties", old_value, new_value);
+				undo->setText(tr("Edit conductor properties", "undo caption"));
+				m_diagram->undoStack().push(undo);
+
+					// remember it for the next conductor drawn this session,
+					// the way LastUsedStyle already does for shapes (#879)
+				LastUsedStyle::setConductorColor(new_color);
+			}
+		}
+		if (color_dialog)
+			delete color_dialog;
+	});
+}
+
+/**
+	Destructeur
+*/
+DiagramView::~DiagramView()
+{}
+
+/**
+	Accepte ou refuse le drag'n drop en fonction du type de donnees entrant
+	@param e le QDragEnterEvent correspondant au drag'n drop tente
+*/
+void DiagramView::dragEnterEvent(QDragEnterEvent *e) {
+	// Picture files from the file manager are checked first: a file drag
+	// also carries its path as text, which would otherwise become a text.
+	// Any other file (a .qet project...) is left to the main window.
+	if (!ImageDrop::imageFiles(e -> mimeData()).isEmpty()) {
+		e -> acceptProposedAction();
+	} else if (ImageDrop::hasOnlyOtherUrls(e -> mimeData())) {
+		e -> ignore();
+	} else if (e -> mimeData() -> hasFormat("application/x-qet-element-uri")) {
+		e -> acceptProposedAction();
+	} else if (e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) {
+		e -> acceptProposedAction();
+	} else if (e -> mimeData() -> hasFormat("application/x-qet-titleblock-uri")) {
+		e -> acceptProposedAction();
+	} else if (e -> mimeData() -> hasText()) {
+		e -> acceptProposedAction();
+	} else {
+		e -> ignore();
+	}
+}
+
+/**
+	Accepte ou refuse le drag'n drop en fonction du type de donnees entrant
+	@param e le QDragMoveEvent correspondant au drag'n drop tente
+*/
+void DiagramView::dragMoveEvent(QDragMoveEvent *e) {
+	if (!ImageDrop::imageFiles(e -> mimeData()).isEmpty()) e -> acceptProposedAction();
+	else if (ImageDrop::hasOnlyOtherUrls(e -> mimeData())) e -> ignore();
+	else if (e -> mimeData() -> hasFormat("text/plain")) e -> acceptProposedAction();
+	else if (e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) e -> acceptProposedAction();
+	else e-> ignore();
+}
+
+/**
+	Handle the drops accepted on diagram (elements and title block templates).
+	@param e the QDropEvent describing the current drag'n drop
+*/
+void DiagramView::dropEvent(QDropEvent *e) {
+
+	if (!ImageDrop::imageFiles(e -> mimeData()).isEmpty()) {
+		handleImageFilesDrop(e);
+	} else if (ImageDrop::hasOnlyOtherUrls(e -> mimeData())) {
+		e -> ignore();
+	} else if (e -> mimeData() -> hasFormat("application/x-qet-element-uri")
+			   || e -> mimeData() -> hasFormat(PartsPlacement::mimeType())) {
+		handleElementDrop(e);
+	} else if (e -> mimeData() -> hasFormat("application/x-qet-titleblock-uri")) {
+		handleTitleBlockDrop(e);
+	} else if (e -> mimeData() -> hasText()) {
+		handleTextDrop(e);
+	}
+}
+
+/**
+ * @brief DiagramView::handleElementDrop
+ * Handle the drop of an element.
+ * @param event the QDropEvent describing the current drag'n drop
+ */
+void DiagramView::handleElementDrop(QDropEvent *event)
+{
+	QPointF drop_pos;
+	drop_pos = mapToScene(event->position().toPoint());
+
+		//A part of the parts collection dropped onto a symbol already
+		//placed goes into that symbol's Parts tab
+	const auto part = PartsPlacement::decode(event->mimeData());
+	if (part && diagram() && !diagram()->isReadOnly()) {
+		const QList<QGraphicsItem *> under = diagram()->items(drop_pos);
+		for (QGraphicsItem *item : under) {
+			Element *target = qgraphicsitem_cast<Element *>(item);
+			if (!target && item->parentItem()) {
+				target = qgraphicsitem_cast<Element *>(item->parentItem());
+			}
+			if (target) {
+				auto *undo = new QUndoCommand(tr("Add a part"));
+				PartsPlacement::addPart(target, *part, false, undo);
+				if (undo->childCount()) {
+					diagram()->undoStack().push(undo);
+				} else {
+					delete undo;
+				}
+				return;
+			}
+		}
+	}
+
+	//Build an element from the text of the mime data
+	ElementsLocation location(event->mimeData()->text());
+
+	if ( !(location.isElement() && location.exist()) )
+	{
+		if (!part) {
+			qDebug() << "DiagramView::handleElementDrop, location can't be use : " << location;
+		}
+		return;
+	}
+
+	if (part) {
+		startPartPlacement(location, drop_pos,
+						   event->mimeData()->data(PartsPlacement::mimeType()));
+	} else {
+		startElementPlacement(location, drop_pos);
+	}
+}
+
+/**
+	@brief DiagramView::startPartPlacement
+	Place @a location as startElementPlacement() does, each copy placed
+	getting the part @a part (PartsPlacement::encode()) in its Parts tab
+	and its article in its information.
+	@return true if the placement mode was entered
+*/
+bool DiagramView::startPartPlacement(const ElementsLocation &location,
+					 const QPointF &scene_pos,
+					 const QByteArray &part)
+{
+	QMimeData data;
+	data.setData(PartsPlacement::mimeType(), part);
+	const auto key = PartsPlacement::decode(&data);
+	if (!startElementPlacement(location, scene_pos)) {
+		return false;
+	}
+	if (key) {
+		if (auto *event = dynamic_cast<DiagramEventAddElement *>(
+					m_diagram->eventInterface())) {
+			event->setPrepare(PartsPlacement::preparer(*key));
+				//Named after the letter of the part (Brandon, 2026-11-21)
+			event->setNamingLetter(DeviceNaming::partLetter(key->manufacturer,
+															key->order_number));
+			QList<ElementsLocation> symbols;
+			for (const QString &symbol : key->symbols) {
+				symbols << ElementsLocation(symbol);
+			}
+			event->setAlternatives(symbols);
+		}
+	}
+	return true;
+}
+
+/**
+	@brief DiagramView::startElementPlacement
+	Enter the interactive placement mode for @a location, with the pending
+	element starting at @a scene_pos.
+
+	This is the mode where the element follows the cursor on the grid, a left
+	click drops a copy, Space rotates it and the element stays loaded so a run
+	of identical symbols can be placed with successive clicks.
+
+	Split out of handleElementDrop() so that placement is reachable without a
+	drag: the mode itself was always general, it simply had no caller other
+	than the end of a drop.
+	@param location : the element or macro to place
+	@param scene_pos : where the pending element first appears, in scene
+	coordinates
+	@return true if the placement mode was entered
+*/
+bool DiagramView::startElementPlacement(const ElementsLocation &location,
+					const QPointF &scene_pos)
+{
+	if (!diagram() || !(location.isElement() && location.exist())) {
+		return false;
+	}
+	if (diagram()->isReadOnly()) {
+		return false;
+	}
+
+	if (location.path().endsWith(".qetmak")) {
+		diagram()->setEventInterface(
+			new DiagramEventAddMacro(location, diagram(), scene_pos));
+	} else {
+			//DiagramEventAddElement takes a non-const reference, so it needs
+			//an lvalue it may modify. Copying keeps the caller's location
+			//untouched -- QETDiagramEditor stores the same one for
+			//"insert last element".
+		ElementsLocation loc(location);
+		diagram()->setEventInterface(
+			new DiagramEventAddElement(loc, diagram(), scene_pos));
+		emit elementPlacementStarted(location);
+	}
+
+	//Set focus to the view to get event
+	this->setFocus();
+	return true;
+}
+
+/**
+	@brief DiagramView::defaultPlacementPos
+	@return where a pending element should appear when placement was not
+	started by a drop, so there is no cursor position to use.
+
+	The cursor is used when it is over the view -- picking up a placement where
+	the user is already looking -- and the centre of the visible area
+	otherwise.
+*/
+QPointF DiagramView::defaultPlacementPos() const
+{
+	const QPoint local = mapFromGlobal(QCursor::pos());
+	if (viewport() && viewport()->rect().contains(local)) {
+		return mapToScene(local);
+	}
+	return mapToScene(viewport() ? viewport()->rect().center()
+				     : rect().center());
+}
+
+/**
+	@brief DiagramView::handleTitleBlockDrop
+	Handle the dropEvent that contain data of a titleblock
+	@param e
+*/
+void DiagramView::handleTitleBlockDrop(QDropEvent *e) {
+		// fetch the title block template location from the drop event
+	TitleBlockTemplateLocation tbt_loc;
+	tbt_loc.fromString(e->mimeData()->text());
+
+
+	if (tbt_loc.isValid())
+	{
+			// fetch the current title block properties
+		TitleBlockProperties titleblock_properties_before = m_diagram->border_and_titleblock.exportTitleBlock();
+
+			// check the provided template is not already applied
+		QETProject *tbt_parent_project = tbt_loc.parentProject();
+		if (tbt_parent_project && tbt_parent_project == m_diagram -> project())
+		{
+				// same parent project and same name = same title block template
+			if (tbt_loc.name() == titleblock_properties_before.template_name)
+				return;
+		}
+
+			// integrate the provided template into the project if needed
+		QString integrated_template_name = tbt_loc.name();
+		if (mustIntegrateTitleBlockTemplate(tbt_loc))
+		{
+			IntegrationMoveTitleBlockTemplatesHandler *handler = new IntegrationMoveTitleBlockTemplatesHandler(this);
+			//QString error_message;
+			integrated_template_name = m_diagram->project()->integrateTitleBlockTemplate(tbt_loc, handler);
+
+			if (integrated_template_name.isEmpty())
+				return;
+		}
+
+			// apply the provided title block template
+		if (titleblock_properties_before.template_name == integrated_template_name)
+			return;
+
+		TitleBlockProperties titleblock_properties_after = titleblock_properties_before;
+		titleblock_properties_after.template_name = integrated_template_name;
+		m_diagram->undoStack().push(new ChangeTitleBlockCommand(m_diagram, titleblock_properties_before, titleblock_properties_after));
+
+		adjustSceneRect();
+	}
+}
+
+/**
+	@brief DiagramView::handleTextDrop
+ *handle the drop of text
+	@param e the QDropEvent describing the current drag'n drop
+*/
+void DiagramView::handleTextDrop(QDropEvent *e) {
+	if (m_diagram -> isReadOnly() || (e -> mimeData() -> hasText() == false) ) return;
+
+	IndependentTextItem *iti = new IndependentTextItem (e -> mimeData() -> text());
+
+	if (e -> mimeData() -> hasHtml()) {
+		iti -> setHtml (e -> mimeData() -> text());
+	}
+
+	m_diagram->undoStack().push(new AddGraphicsObjectCommand(
+									iti, m_diagram, mapToScene(e->position().toPoint())));
+}
+
+/**
+	@brief DiagramView::handleImageFilesDrop
+	Add the picture files dropped from the file manager. A single one is
+	centred on the drop point and kept inside the frame; a picture too
+	large for the folio is scaled down to leave a free margin of
+	ImageDrop::frameMargin to the frame on every side. Several pictures
+	are spread side by side in a grid over that same area
+	(ImageDrop::gridLayout). One undo step removes them all. Files that cannot be used are
+	listed once, after the others have been placed.
+	@param e the QDropEvent describing the current drag'n drop
+*/
+void DiagramView::handleImageFilesDrop(QDropEvent *e)
+{
+	if (m_diagram -> isReadOnly()) return;
+	e -> acceptProposedAction();
+
+	const QStringList files = ImageDrop::imageFiles(e -> mimeData());
+	const QPointF drop_pos = mapToScene(e -> position().toPoint());
+	const QRectF frame = m_diagram -> border_and_titleblock.insideBorderRect();
+
+	QStringList refused;
+	QList<DiagramImageItem *> items;
+	for (const QString &file : files)
+	{
+		QString error;
+		const QImage image = ImageDrop::load(file, &error);
+		if (image.isNull())
+			refused << tr("%1: %2").arg(QFileInfo(file).fileName(), error);
+		else
+			items << new DiagramImageItem(QPixmap::fromImage(image));
+	}
+
+	// Where each picture goes, as it will look on the folio: one picture
+	// is centred on the drop point and fitted to the frame, several are
+	// spread over the frame in a grid.
+	QList<QRectF> targets;
+	if (items.size() == 1)
+	{
+		const QSizeF size = items.first() -> mapRectToScene(items.first() -> boundingRect()).size();
+		const qreal scale = ImageDrop::fitScale(size, frame);
+		QRectF r(QPointF(), size * scale);
+		r.moveCenter(drop_pos);
+		targets << ImageDrop::keepInside(r, scale < 1.0 ? ImageDrop::innerFrame(frame) : frame);
+	}
+	else
+	{
+		QList<QSizeF> sizes;
+		for (DiagramImageItem *item : items)
+			sizes << item -> mapRectToScene(item -> boundingRect()).size();
+		targets = ImageDrop::gridLayout(sizes, ImageDrop::innerFrame(frame));
+	}
+
+	auto *undo = new QUndoCommand();
+	const int placed = int(items.size());
+	for (int i = 0 ; i < placed ; ++i)
+	{
+		DiagramImageItem *item = items.at(i);
+		const QRectF natural = item -> mapRectToScene(item -> boundingRect());
+		const qreal scale = natural.width() > 0 ? targets.at(i).width() / natural.width() : 1.0;
+		if (scale < 1.0) {
+			item -> setScaleFactorX(scale);
+			item -> setScaleFactorY(scale);
+		}
+		const QPointF offset = item -> mapRectToScene(item -> boundingRect()).topLeft() - item -> pos();
+		new AddGraphicsObjectCommand(item, m_diagram, targets.at(i).topLeft() - offset, undo);
+	}
+
+	if (placed) {
+		undo -> setText(placed == 1 ? tr("Add an image")
+									: tr("Add %n image(s)", nullptr, placed));
+		m_diagram -> undoStack().push(undo);
+	} else {
+		delete undo;
+	}
+
+	if (!refused.isEmpty())
+		QMessageBox::warning(this, tr("Images not added"),
+							 tr("These files could not be added:") + "\n\n"
+							 + refused.join("\n"));
+}
+
+/**
+	Set the Diagram in visualisation mode
+*/
+void DiagramView::setVisualisationMode()
+{
+	m_ctrl_shift_panning = false;
+	setDragMode(ScrollHandDrag);
+	applyReadOnly();
+	setInteractive(false);
+	emit(modeChanged());
+}
+
+/**
+	Set the Diagram in Selection mode
+*/
+void DiagramView::setSelectionMode()
+{
+	m_ctrl_shift_panning = false;
+	setDragMode(RubberBandDrag);
+	setInteractive(true);
+	applyReadOnly();
+	emit(modeChanged());
+}
+
+/**
+	@brief DiagramView::zoom
+	Zomm the view.
+	A zoom_factor > 1 zoom in.
+	A zoom_factor < 1 zoom out
+	@param zoom_factor
+*/
+void DiagramView::zoom(const qreal zoom_factor)
+{
+	// clamp the resulting scale so a repeated wheel-zoom cannot drive the view
+	// transform to floating-point overflow and crash the editor (issue #798)
+	const qreal target = transform().m11() * zoom_factor;
+	if (target < m_min_zoom || target > m_max_zoom) {
+		return;
+	}
+
+	if (zoom_factor >= 1){
+		scale(zoom_factor, zoom_factor);
+	}
+	else
+	{
+		QSettings settings;
+		if (settings.value("diagrameditor/zoom-out-beyond-of-folio", false).toBool() ||
+			(horizontalScrollBar()->maximum() || verticalScrollBar()->maximum()) )
+			if (zoom_factor >= 0){
+				scale(zoom_factor, zoom_factor);
+			}
+	}
+	m_diagram->adjustSceneRect();
+	adjustGridToZoom();
+	adjustSceneRect();
+}
+
+/**
+	@brief DiagramView::zoomBy
+	Zoom in (@p steps > 0) or out (< 0) by @p steps steps of zoomStep():
+	each one zooms by that many percent of the zoom shown, so a step feels
+	the same at 50 % and at 400 %. The result is rounded to whole fives
+	(whole percents below 20 %), the zoom shown stays a round number.
+	@param steps
+*/
+void DiagramView::zoomBy(int steps)
+{
+	if (!steps)
+		return;
+	const int step = zoomStep();
+	if (!step) {
+		for (int i = 0; i < qAbs(steps); ++i)
+			zoom(steps > 0 ? 1.15 : 0.85);
+		return;
+	}
+	const qreal percent = transform().m11() * 100;
+	qreal target = percent * qPow(1 + step / 100.0, steps);
+	const qreal grid = target < 20 ? 1 : 5;
+	target = qRound(target / grid) * grid;
+		//Always a move, however small the step: a little leeway, as 100 %
+		//may be 99.9999 % after a few scalings
+	if (steps > 0 && target <= percent + 1e-6)
+		target = (qFloor(percent / grid + 1e-6) + 1) * grid;
+	else if (steps < 0 && target >= percent - 1e-6)
+		target = (qCeil(percent / grid - 1e-6) - 1) * grid;
+	if (target <= 0)
+		return;
+	zoom(target / percent);
+}
+
+/**
+	Agrandit ou rectrecit le schema de facon a ce que tous les elements du
+	schema soient visibles a l'ecran. S'il n'y a aucun element sur le schema,
+	le zoom est reinitialise
+*/
+void DiagramView::zoomFit()
+{
+	adjustSceneRect();
+	fitInView(m_diagram->sceneRect(), Qt::KeepAspectRatio);
+	adjustGridToZoom();
+}
+
+/**
+	Adjust zoom to fit all elements in the view, regardless of diagram borders.
+*/
+void DiagramView::zoomContent()
+{
+	const QRectF content = m_diagram->visibleItemsBoundingRect();
+	if (!content.isNull())
+		zoomToRect(content);
+}
+
+/**
+	Reinitialise le zoom
+*/
+void DiagramView::zoomReset()
+{
+	resetTransform();
+	adjustGridToZoom();
+}
+
+/**
+	@brief DiagramView::zoomToRect
+	Adjust zoom to fit \a rect, in scene coordinate, in the view.
+	@param rect
+*/
+void DiagramView::zoomToRect(const QRectF &rect)
+{
+	fitInView(rect, Qt::KeepAspectRatio);
+		//Zooming in makes the scroll bars appear, which resizes the viewport
+		//from a queued call; that resize is anchored under the mouse and
+		//would scroll away from rect, so center again once it has run.
+	QMetaObject::invokeMethod(this, [this, rect]() {
+		centerOn(rect.center());
+	}, Qt::QueuedConnection);
+	adjustGridToZoom();
+}
+
+/**
+	@brief DiagramView::centerOnCursor
+	Scroll the view so the point under the mouse cursor becomes the centre
+	of the view, keeping the current zoom.
+	Does nothing when the cursor is not over the view, e.g. when the action
+	is triggered from a menu.
+*/
+void DiagramView::centerOnCursor()
+{
+	const QPoint local = viewport()->mapFromGlobal(QCursor::pos());
+	if (!viewport()->rect().contains(local)) {
+		return;
+	}
+	centerOn(mapToScene(local));
+}
+
+/**
+	Copie les elements selectionnes du schema dans le presse-papier puis les supprime
+	Copies the selected elements from the diagram to the clipboard and then deletes them
+*/
+void DiagramView::cut()
+{
+	copy();
+	DiagramContent cut_content(m_diagram);
+		//A cable line is not held by DiagramContent: it leaves with a
+		//command of its own, which takes the cable itself away too when
+		//no line of it is left on the folio. A bridge line goes the same
+		//way -- and by way of the clipboard, so what is cut is pasted.
+	QList<CablePart *> cable_cut;
+	QList<BridgePart *> bridge_cut;
+	for (QGraphicsItem *item : m_diagram->selectedItems()) {
+		if (auto *part = qgraphicsitem_cast<CablePart *>(item)) {
+			cable_cut << part;
+		}
+		if (auto *part = qgraphicsitem_cast<BridgePart *>(item)) {
+			bridge_cut << part;
+		}
+	}
+
+	m_diagram -> clearSelection();
+
+	if (cable_cut.isEmpty() && bridge_cut.isEmpty()) {
+		m_diagram -> undoStack().push(new CutDiagramCommand(m_diagram, cut_content));
+		return;
+	}
+
+	QUndoCommand *command = nullptr;
+	if (cut_content.count()) {
+		command = new CutDiagramCommand(m_diagram, cut_content);
+	}
+	if (!cable_cut.isEmpty()) {
+		command = batchWith(command, new RemoveCableCommand(m_diagram, cable_cut));
+	}
+	if (!bridge_cut.isEmpty()) {
+		command = batchWith(command, new RemoveBridgeCommand(bridge_cut));
+	}
+	m_diagram -> undoStack().push(command);
+}
+
+/**
+	Copie les elements selectionnes du schema dans le presse-papier
+	Copies the selected elements from the diagram to the clipboard
+*/
+void DiagramView::copy()
+{
+	QClipboard *clipboard = QApplication::clipboard();
+	QDomDocument document = m_diagram -> toXml(false, true);
+		//A drawn cable line is not one of the folio's items -- the cable
+		//owns it -- so it travels in a block of its own, beside the XML
+		//of the folio rather than in it.
+	CableCopy::write(m_diagram, document);
+	BridgeCopy::write(m_diagram, document);
+	QString content_clipboard = document.toString(4);
+	if (clipboard -> supportsSelection()) clipboard -> setText(content_clipboard, QClipboard::Selection);
+	clipboard -> setText(content_clipboard);
+}
+
+/**
+	@brief DiagramView::paste
+	Import the element stored in the clipboard to the diagram.
+	@param pos : top left corner of the bounding rect of imported elements
+	@param clipboard_mode
+*/
+void DiagramView::paste(const QPointF &pos, QClipboard::Mode clipboard_mode) {
+	if (!isInteractive() || m_diagram -> isReadOnly()) return;
+
+	QString text_clipboard = QApplication::clipboard() -> text(clipboard_mode);
+	if ((text_clipboard).isEmpty()) return;
+
+	QDomDocument document_xml;
+	if (!document_xml.setContent(text_clipboard)) return;
+
+	DiagramContent content_pasted;
+		//A cable line is not part of a DiagramContent: it comes back
+		//through its own list, carrying the colour labels it was copied
+		//with, and each of them is given the wire it happens to stand
+		//on at the place it has just been put -- none at all, when that
+		//place holds no wire, in which case the labels go on standing
+		//on the line to be wired when it is pulled into place.
+	QList<CablePart *> cable_pasted;
+	QList<Bridge *> pasted_bridges;
+	m_diagram->fromXml(document_xml, pos, false, &content_pasted, &cable_pasted,
+					   &pasted_bridges);
+	const QList<CableCopy::Wired> wired = CableCopy::wire(
+			m_diagram, cable_pasted,
+			content_pasted.conductors(DiagramContent::AnyConductor));
+
+		//If something was really added to diagram, we create an undo object.
+	if (content_pasted.count() || !wired.isEmpty() || !pasted_bridges.isEmpty())
+	{
+		m_diagram -> clearSelection();
+
+			//One single step for the whole paste, cable lines included:
+			//undoing has to take back everything which came out of the
+			//clipboard in one go, and redoing has to put it all back.
+		QList<QUndoCommand *> cable_commands;
+		for (const CableCopy::Wired &line : std::as_const(wired)) {
+			if (!line.part) continue;
+			auto *added = new AddCableCommand(line.part->cable(), line.part.data(),
+											  m_diagram, true, line.taken);
+			added->setText(QCoreApplication::translate("CableCopy", "Paste a cable"));
+			cable_commands << added;
+		}
+			//The copies end up selected, like everything else a paste
+			//just added, so the next Ctrl+V or Ctrl+D carries on from them
+		for (const CableCopy::Wired &line : std::as_const(wired)) {
+			if (line.part) line.part->setSelected(true);
+		}
+
+			//Asks whether to import the numberings the copy brings, if the
+			//project has not got them; the paste itself and the cable lines
+			//travel inside the same step of the undo stack.
+		QList<QUndoCommand *> bridge_commands;
+		for (Bridge *bridge : std::as_const(pasted_bridges)) {
+			for (QUndoCommand *added : BridgeCopy::land(m_diagram, bridge)) {
+				added->setText(QCoreApplication::translate("BridgeCopy", "Paste a bridge"));
+				bridge_commands << added;
+			}
+		}
+			for (Bridge *bridge : std::as_const(pasted_bridges)) {
+		for (BridgePart *part : BridgePart::allParts()) {
+			if (part && part->bridge() == bridge) {
+				part->setSelected(true);
+			}
+		}
+	}
+PasteNumberingImport::push(this, m_diagram, content_pasted,
+								   PasteNumberingImport::copiedBy(document_xml),
+								   cable_commands + bridge_commands);
+			//The stack has just renewed the identity of a pasted
+			//conductor: the cores are pointed at the wires again and
+			//the cable fields written out once more, so the entries
+			//the copy was given as it was put down are on the wires it
+			//has actually landed on.
+		CableCopy::repoint(wired);
+		adjustSceneRect();
+	}
+}
+
+/**
+	Colle le contenu du presse-papier sur le schema a la position de la souris
+	Pastes the contents of the clipboard into the diagram at the mouse position.
+*/
+void DiagramView::pasteHere()
+{
+	paste(mapToScene(m_paste_here_pos));
+}
+
+/**
+	@brief DiagramView::duplicate
+	Copy the current selection and place the copy at @p stepOffset grid
+	steps from it, landing immediately rather than following the cursor
+	like Ctrl+V does (bugtracker #991). @p stepOffset comes from
+	DuplicateOffsetDialog: (1, 0) is one grid step right, (0, -1) is one
+	grid step up, and so on -- QET's own scene axes, X right and Y down.
+
+	No interactive placement step on purpose: the point of a duplicate
+	shortcut is unattended, repeatable stamping (configure the offset
+	once, then tap Ctrl+D to lay out a row), which following the cursor
+	would interrupt on every press. QET already reselects whatever a
+	paste just added (see PasteDiagramCommand::redo()), so the next
+	Ctrl+D naturally continues from the copy just placed, not the
+	original -- a press-and-hold row falls out of that for free, with no
+	special-casing needed here for "keep going from the last one".
+
+	The offset is applied by hand rather than by asking paste()/
+	Diagram::fromXml() to place the copy at a target position. Both of
+	those feed the position through Diagram::snapToGrid(), which reads
+	QApplication::keyboardModifiers() and rounds to the nearest PIXEL
+	instead of the grid whenever Ctrl is held -- and Ctrl is always held
+	here, this action's own shortcut being Ctrl+D. Measured the hard way
+	before settling on this: routing the offset through paste() first
+	produced copies off-grid on both axes, by an amount that tracked the
+	selection's own bounding-box geometry rather than being a fixed
+	error. fromXml() is instead called with no position at all, which
+	leaves every item at its source coordinates (landing the copy
+	exactly on top of the originals -- (0, 0) is not a position, this is
+	"keep the source coordinates"), and the offset is added directly
+	with setPos(). A plain addition cannot be off by a rounding rule
+	that never runs.
+
+	Conductors are not in the translated set: fromXml() itself does not
+	reposition them either -- they are loaded from XML after elements
+	are already in their final place and take their geometry from their
+	terminals, which have already moved with the elements that own
+	them. Likewise dynamic element texts are not translated separately:
+	they are children of their element and move with it under Qt's
+	normal parent-child transform.
+*/
+void DiagramView::duplicate(const QPoint &stepOffset)
+{
+	if (!isInteractive() || m_diagram->isReadOnly()) return;
+
+	const QList<QGraphicsItem *> selection = m_diagram->selectedItems();
+	if (selection.isEmpty()) return;
+
+	QSettings settings;
+	const int x_grid = FolioGrid::step(settings.value(FolioGrid::x_key), Diagram::xGrid);
+	const int y_grid = FolioGrid::step(settings.value(FolioGrid::y_key), Diagram::yGrid);
+	const QPointF offset(stepOffset.x() * x_grid, stepOffset.y() * y_grid);
+
+	// Mirrors copy(), but does not touch the system clipboard: Ctrl+D
+	// should not clobber whatever the user last copied with Ctrl+C.
+	QDomDocument document = m_diagram->toXml(false, true);
+	CableCopy::write(m_diagram, document);
+	BridgeCopy::write(m_diagram, document);
+
+	DiagramContent pasted;
+	QList<CablePart *> cable_pasted;
+	// No position argument -- see the function comment above for why
+	// the offset is not passed here.
+	QList<Bridge *> pasted_bridges;
+	m_diagram->fromXml(document, QPointF(), false, &pasted, &cable_pasted,
+					   &pasted_bridges);
+	if (!pasted.count() && cable_pasted.isEmpty() && pasted_bridges.isEmpty()) return;
+
+	const int movable = DiagramContent::Elements | DiagramContent::TextFields
+					   | DiagramContent::Images | DiagramContent::Shapes
+					   | DiagramContent::Tables | DiagramContent::TerminalStrip
+					   | DiagramContent::Dimensions | DiagramContent::CabinetItems;
+	for (QGraphicsItem *item : pasted.items(movable))
+		item->setPos(item->pos() + offset);
+		//The new line is stamped beside the original like everything
+		//else -- and only after that, because where each colour label
+		//ends up decides which wire it is going to take
+	for (CablePart *part : std::as_const(cable_pasted))
+		if (part) part->setPos(part->pos() + offset);
+		//A bridge line goes along the same way: moving the line is
+		//moving the line, however the moving is done
+	for (Bridge *bridge : std::as_const(pasted_bridges)) {
+		for (BridgePart *part : BridgePart::allParts()) {
+			if (part && part->bridge() == bridge) {
+				part->setPos(part->pos() + offset);
+			}
+		}
+	}
+
+	const QList<CableCopy::Wired> wired = CableCopy::wire(
+			m_diagram, cable_pasted,
+			pasted.conductors(DiagramContent::AnyConductor));
+
+	m_diagram->clearSelection();
+
+	QUndoCommand *command = nullptr;
+	if (pasted.count()) {
+		command = new PasteDiagramCommand(m_diagram, pasted);
+	}
+	for (const CableCopy::Wired &line : std::as_const(wired)) {
+		if (!line.part) continue;
+		auto *added = new AddCableCommand(line.part->cable(), line.part.data(),
+										  m_diagram, true, line.taken);
+		added->setText(QCoreApplication::translate("CableCopy", "Duplicate a cable"));
+		command = batchWith(command, added);
+	}
+	for (Bridge *bridge : std::as_const(pasted_bridges)) {
+		for (QUndoCommand *added : BridgeCopy::land(m_diagram, bridge)) {
+			added->setText(QCoreApplication::translate("BridgeCopy", "Duplicate a bridge"));
+			command = batchWith(command, added);
+		}
+	}
+	for (const CableCopy::Wired &line : std::as_const(wired)) {
+		if (line.part) line.part->setSelected(true);
+	}
+		for (Bridge *bridge : std::as_const(pasted_bridges)) {
+		for (BridgePart *part : BridgePart::allParts()) {
+			if (part && part->bridge() == bridge) {
+				part->setSelected(true);
+			}
+		}
+	}
+if (command) m_diagram->undoStack().push(command);
+		//Same as a paste: the stack has renewed the identity of the
+		//pasted conductors, so the cores are pointed at the wires again
+		//and the cable fields written out once more.
+	CableCopy::repoint(wired);
+	adjustSceneRect();
+}
+
+namespace {
+	/// Hands the accepted state of a moved copy of a mouse event back to
+	/// the event that came, when the handler returns
+	struct AcceptedBack
+	{
+		QMouseEvent *copy;
+		QMouseEvent *original;
+		~AcceptedBack() { if (copy != original) original->setAccepted(copy->isAccepted()); }
+	};
+}
+
+/**
+	Manage the events press click :
+	 *  click to add an independent text field
+*/
+void DiagramView::mousePressEvent(QMouseEvent *original)
+{
+	std::unique_ptr<QMouseEvent> shifted;
+	QMouseEvent *e = onCaughtHandle(original, shifted);
+	const AcceptedBack accepted_back{e, original};
+	e->ignore();
+	if (e->button() == Qt::LeftButton) {
+		m_band_origin = e->pos();
+		updateRubberBandMode(e->pos());
+	}
+
+		//Ctrl+Shift panning whose key release was missed (see
+		//focusOutEvent()): a click without them ends it
+	if (m_ctrl_shift_panning && !isCtrlShifting(e)) {
+		setSelectionMode();
+	}
+
+	if (m_fresh_focus_in)
+	{
+		switchToVisualisationModeIfNeeded(e);
+		m_fresh_focus_in = false;
+	}
+
+		//A press on a symbol drags it from here on: the crosshair goes to
+		//the terminal of it nearest the mouse. Not a press on one of its
+		//terminals, which draws a wire, nor on one of its texts, which
+		//drags the text: the symbol stays where it is then
+	if (e->button() == Qt::LeftButton && !m_press_places && itemAt(e->pos())) {
+		m_press_places = true;
+		QGraphicsItem *pressed = itemAt(e->pos());
+		m_dragged_element = pressed->type() == Element::Type ? static_cast<Element *>(pressed) : nullptr;
+		moveCrosshair(e->pos());
+	}
+
+	if (m_event_interface && m_event_interface->mousePressEvent(e)) return;
+
+	if (e->button() == Qt::LeftButton) {
+		m_press_pos = e->position().toPoint();
+	}
+
+		//A line which waits for the click putting one of its cores down
+		//owns the right button as well: that click says "no" to the core,
+		//so it neither starts the quick command ring nor reaches the
+		//sheet. It is the context menu of this very click which ends the
+		//wait (see contextMenuEvent()), which is why nothing is ended
+		//here: the menu is then cancelled instead of opened, and no menu
+		//can open out of a click meant to say "no" -- neither QET's own
+		//nor the platform's, which arrives with the press on X11 and with
+		//the release on Windows.
+	if (e->button() == Qt::RightButton && CablePart::placingPart()) {
+		e->accept();
+		return;
+	}
+
+		//Right button: a click opens the context menu on release, a drag is
+		//a gesture (DiagramGestureOverlay). Left alone while a text is edited.
+	m_swallow_native_menu = false;
+	m_gesture_over_tool = false;
+
+		//A right click on the running cable tool belongs to the tool
+		//alone: it cancels the line being drawn, and ending the tool puts
+		//the context menu policy of the views back before this very click
+		//is over. The platform then still sends its own context menu for
+		//the same click -- on X11 with the press, on Windows with the
+		//release -- and the menu would open on the click which was meant
+		//to cancel. So it is swallowed here, the way a gesture swallows
+		//it further down; the next press which no tool handles puts this
+		//flag back to false. No other tool is touched: they hand the
+		//button back and are surrounded by the ring, as they always were.
+	if (e->button() == Qt::RightButton && m_diagram
+	    && m_diagram->cableToolIsRunning()) {
+		m_swallow_native_menu = true;
+	}
+	if (e->button() == Qt::RightButton
+	    && DiagramGestureOverlay::isEnabled()
+	    && !m_diagram->focusItem()
+	    && !m_diagram->cableToolIsRunning())
+	{
+			//The right button draws the quick command ring, or opens the
+			//context menu on release. The cable tool alone does not let go
+			//of it: while it runs no gesture is tracked at all, because
+			//tracking one would both pop the ring up in the middle of the
+			//drawing and take the tool away from the click meant to
+			//cancel it (see mouseMoveEvent, which ends the tool as soon
+			//as a gesture is recognised).
+		m_gesture_tracking = true;
+		m_gesture_origin = e->position().toPoint();
+		m_context_toolbar->hide();
+
+			//Another tool is running, often one a gesture just started. A
+			//right click still goes to it -- it cancels or finishes the
+			//tool -- so the press carries on to the scene. A drag ends the
+			//tool and shows the ring (see mouseMoveEvent).
+		if (m_diagram->eventInterfaceIsRunning()) {
+			m_gesture_over_tool = true;
+		}
+		else
+		{
+			m_swallow_native_menu = true;
+
+				//Select what is under the mouse, as the context menu does, so
+				//a gesture acts on it
+			if (QGraphicsItem *item = m_diagram->itemAt(mapToScene(m_gesture_origin), transform())) {
+				if (!item->isSelected()) {
+					m_diagram->clearSelection();
+						//Clearing the selection can delete handler items, so
+						//look the item up again (see contextMenuEvent)
+					if (QGraphicsItem *again = m_diagram->itemAt(mapToScene(m_gesture_origin), transform())) {
+						again->setSelected(true);
+					}
+				}
+			}
+			e->accept();
+			return;
+		}
+	}
+
+		//Start drag view when hold the middle button
+	if (e->button() == Qt::MiddleButton)
+	{
+		m_drag_last_pos = e->pos();
+		viewport()->setCursor(Qt::ClosedHandCursor);
+		e->accept();
+		return;
+	}
+
+		//There is a good luck that user want to do a free selection
+		//In this case we temporally disable the dragmode because if the QGraphicsScene don't accept the event,
+		//and the drag mode is set to rubberbanddrag, the QGraphicsView start rubber band drag, and accept the event.
+	if (e->button() == Qt::LeftButton &&
+		e->modifiers() == Qt::CTRL)
+	{
+		QGraphicsView::DragMode dm = dragMode();
+		setDragMode(QGraphicsView::NoDrag);
+		QGraphicsView::mousePressEvent(e);
+		setDragMode(dm);
+	} else {
+		QGraphicsView::mousePressEvent(e);
+	}
+
+	if (e->isAccepted()) {
+		return;
+	}
+
+	if (e->button() == Qt::LeftButton &&
+			 e->modifiers() == Qt::CTRL)
+	{
+		m_free_rubberbanding = true;
+		m_free_rubberband = QPolygon();
+		e->accept();
+		return;
+	}
+
+	if (!e->isAccepted()) {
+		QGraphicsView::mousePressEvent(e);
+	}
+}
+
+/**
+	@brief DiagramView::leaveEvent
+	The mouse points at nothing of this view any more.
+*/
+void DiagramView::leaveEvent(QEvent *event)
+{
+	setPointedDescription(QString());
+	QGraphicsView::leaveEvent(event);
+}
+
+/**
+	@brief DiagramView::setPointedDescription
+	@param description : what the mouse points at now; told on only when
+	it changed
+*/
+void DiagramView::setPointedDescription(const QString &description)
+{
+	if (description == m_pointed_description)
+		return;
+	m_pointed_description = description;
+	emit pointedItemChanged(description);
+}
+
+/**
+	@brief DiagramView::mouseMoveEvent
+	Manage the event move mouse
+*/
+void DiagramView::mouseMoveEvent(QMouseEvent *original)
+{
+	std::unique_ptr<QMouseEvent> shifted;
+	QMouseEvent *e = onCaughtHandle(original, shifted);
+	const AcceptedBack accepted_back{e, original};
+	m_last_mouse_pos = e->pos();
+	if (e->buttons() & Qt::LeftButton)
+		updateRubberBandMode(e->pos());
+		//The topmost item that is one of the folio's: the crosshair and
+		//other aids drawn over the folio say nothing, nor what View > Show
+		//hides. Not while a button is held: a drag or a rubber band is
+		//under way, and the selection is what the status bar shows then.
+	if (e->buttons() == Qt::NoButton) {
+		QString pointed;
+		for (QGraphicsItem *item : items(e->pos())) {
+			if (!item->isVisible() || ShownKinds::isHidden(item))
+				continue;
+			pointed = ItemDescription::of(item);
+			if (!pointed.isEmpty())
+				break;
+		}
+		setPointedDescription(pointed);
+	}
+	setToolTip(tr("X: %1 Y: %2").arg(e->pos().x()).arg(e->pos().y()));
+		//A press whose release never came (it went to a menu or a
+		//dialog): a move without the button ends the drag
+	if (m_press_places && !(e->buttons() & Qt::LeftButton)) {
+		m_press_places = false;
+		m_dragged_element = nullptr;
+	}
+	moveCrosshair(e->pos());
+		//The symbol moves after the crosshair did: put the crosshair on
+		//its terminal again once it stands where it goes
+	const auto follow_symbol = qScopeGuard([this, e] {
+		if (m_dragged_element)
+			moveCrosshair(e->pos());
+	});
+	if (m_event_interface && m_event_interface->mouseMoveEvent(e)) {
+		updatePointer(e->pos(), e->buttons());
+		return;
+	}
+
+	if (m_gesture_tracking)
+	{
+		const QPoint pos = e->position().toPoint();
+		if (!m_gesture_overlay->isVisible()
+		    && (pos - m_gesture_origin).manhattanLength() > 2 * QApplication::startDragDistance()) {
+			if (m_gesture_over_tool) {
+					//The drag is a gesture: end the tool, and ignore the
+					//platform's right-click menu like any other gesture
+				m_diagram->clearEventInterface();
+				m_swallow_native_menu = true;
+			}
+			m_gesture_overlay->showAt(m_gesture_origin, gestureCommands(),
+						  GestureSettings::directions());
+		}
+		if (m_gesture_overlay->isVisible()) {
+			m_gesture_overlay->setPointer(pos);
+			e->accept();
+			return;
+		}
+			//Not a drag yet: a running tool keeps following the mouse
+		if (!m_gesture_over_tool) {
+			e->accept();
+			return;
+		}
+	}
+
+		// Drag the view
+	if (e->buttons() == Qt::MiddleButton)
+	{
+		QScrollBar *h = horizontalScrollBar();
+		QScrollBar *v = verticalScrollBar();
+		QPointF pos = m_drag_last_pos - e -> pos();
+		m_drag_last_pos = e -> pos();
+		h -> setValue(h -> value() + pos.x());
+		v -> setValue(v -> value() + pos.y());
+		adjustSceneRect();
+	}
+	else if (m_free_rubberbanding)
+	{
+			//Update old free rubberband
+		if (viewportUpdateMode() != QGraphicsView::NoViewportUpdate && !m_free_rubberband.isEmpty())
+		{
+			if (viewportUpdateMode() != QGraphicsView::FullViewportUpdate) {
+				viewport()->update(m_free_rubberband.boundingRect().toRect().adjusted(-10,-10,10,10));
+			}
+			else {
+				update();
+			}
+		}
+
+			//Stop polygon rubberbanding if user has let go of all buttons (even
+			//if we didn't get the release events)
+		if (!e->buttons()) {
+			m_free_rubberbanding = false;
+			m_free_rubberband = QPolygon();
+			return;
+		}
+		m_free_rubberband.append(mapToScene(e->pos()));
+		emit freeRubberBandChanged(m_free_rubberband);
+
+		if (viewportUpdateMode() != QGraphicsView::NoViewportUpdate)
+		{
+			if (viewportUpdateMode() != QGraphicsView::FullViewportUpdate) {
+				viewport()->update(mapFromScene(m_free_rubberband.boundingRect().adjusted(-10,-10,10,10)));
+			}
+			else {
+				update();
+			}
+		}
+
+			//Set the new selection area
+		QPainterPath selection_area;
+		selection_area.addPolygon(m_free_rubberband);
+		m_diagram->setSelectionArea(selection_area);
+	}
+
+	else QGraphicsView::mouseMoveEvent(e);
+	updatePointer(e->pos(), e->buttons());
+}
+
+/**
+	@brief DiagramView::updatePointer
+	Choose the pointer for the mouse at @a viewport_pos: a four-way arrow
+	over a symbol, a text, a shape, a picture or a table that a drag
+	moves, so the place to grab is found without searching; the arrow
+	elsewhere. An item with a cursor of its own (a resize handle, a folio
+	report's hand) keeps it.
+	With the crosshair shown, the pointer jumps with it from grid point to
+	grid point: the system's pointer cannot be moved there by a program on
+	every platform (Wayland forbids it), so it is hidden over the folio and
+	drawn at the crosshair instead.
+	A pressed button keeps the pointer of the press, as does a running
+	tool, but for the crosshair's.
+*/
+void DiagramView::updatePointer(const QPoint &viewport_pos, Qt::MouseButtons buttons)
+{
+	const bool isDimensionTool = m_diagram && m_diagram->dimensionToolIsRunning();
+
+	if (!pointerAids()) {
+			//Switched off: hand the pointer back once, then leave it to
+			//the view and the items, as before
+		if (m_pointer != Pointer::System || m_pointer_set) {
+			m_pointer = Pointer::System;
+			m_pointer_set = false;
+			viewport()->unsetCursor();
+			viewport()->update(crosshairArea(m_crosshair_pos));
+		}
+		if (isDimensionTool) {
+			viewport()->setCursor(DiagramEventAddDimension::dimensionCursor());
+		}
+		return;
+	}
+	if (buttons != Qt::NoButton)
+		return;
+	m_pointer_set = true;
+
+		//A caught handle: the arrow is drawn on it
+	if (m_caught_handle && m_crosshair_visible && crosshairShown()) {
+		viewport()->setCursor(Qt::BlankCursor);
+		m_pointer = Pointer::Arrow;
+		viewport()->update(crosshairArea(m_crosshair_pos));
+		return;
+	}
+
+	QGraphicsItem *item = m_event_interface ? nullptr : itemAt(viewport_pos);
+	if (item && item->hasCursor())
+	{
+			//QGraphicsView shows the item's own cursor
+		if (m_pointer != Pointer::System) {
+			m_pointer = Pointer::System;
+			viewport()->update(crosshairArea(m_crosshair_pos));
+		}
+		return;
+	}
+	const bool movable = item && item->isEnabled()
+			&& (item->flags() & QGraphicsItem::ItemIsMovable)
+			&& !(m_diagram && m_diagram->isReadOnly());
+
+	Pointer pointer = Pointer::System;
+	if (m_crosshair_visible && crosshairShown() && m_diagram
+			&& m_diagram->border_and_titleblock.insideBorderRect().contains(m_crosshair_pos)) {
+		if (isDimensionTool)
+			pointer = Pointer::Dimension;
+		else
+			pointer = movable ? Pointer::Move : Pointer::Arrow;
+	}
+
+	if (pointer != Pointer::System)
+		viewport()->setCursor(Qt::BlankCursor);
+	else if (isDimensionTool)
+		viewport()->setCursor(DiagramEventAddDimension::dimensionCursor());
+	else if (!m_event_interface)
+		viewport()->setCursor(movable ? Qt::SizeAllCursor : Qt::ArrowCursor);
+	else if (m_pointer != Pointer::System)
+		viewport()->setCursor(Qt::ArrowCursor);
+
+	if (pointer != m_pointer || pointer != Pointer::System) {
+		m_pointer = pointer;
+		viewport()->update(crosshairArea(m_crosshair_pos));
+	}
+}
+
+/**
+	@brief DiagramView::drawPointer
+	Draw the pointer at the crosshair's grid point, in the viewport's own
+	pixels: an arrow with its tip on the point, or a four-way arrow
+	centred on it. Black, outlined in white, as the system's.
+*/
+void DiagramView::drawPointer(QPainter *painter) const
+{
+	if (m_pointer == Pointer::System)
+		return;
+	const QPointF at = mapFromScene(m_crosshair_pos);
+	painter->save();
+	painter->resetTransform();
+	painter->translate(at);
+	painter->setRenderHint(QPainter::Antialiasing, true);
+	painter->setPen(QPen(Qt::white, 1));
+	painter->setBrush(Qt::black);
+	QPainterPath path;
+	if (m_pointer == Pointer::Arrow)
+	{
+		path.addPolygon(QPolygonF({{0, 0}, {0, 16}, {4, 12}, {7, 18}, {9.5, 17}, {6.5, 11}, {11.5, 11}, {0, 0}}));
+	}
+	else if (m_pointer == Pointer::Dimension)
+	{
+		path.addPolygon(QPolygonF({{0, 0}, {0, 16}, {4, 12}, {7, 18}, {9.5, 17}, {6.5, 11}, {11.5, 11}, {0, 0}}));
+		painter->drawPath(path);
+
+		painter->save();
+		QPen haloPen(Qt::white, 2.5, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin);
+		painter->setPen(haloPen);
+		painter->drawLine(QPointF(13, 5), QPointF(13, 15));
+		painter->drawLine(QPointF(27, 5), QPointF(27, 15));
+		painter->drawLine(QPointF(13, 10), QPointF(27, 10));
+
+		QPen darkPen(Qt::black, 1.2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin);
+		painter->setPen(darkPen);
+		painter->drawLine(QPointF(13, 5), QPointF(13, 15));
+		painter->drawLine(QPointF(27, 5), QPointF(27, 15));
+		painter->drawLine(QPointF(13, 10), QPointF(27, 10));
+		painter->drawLine(QPointF(13, 10), QPointF(16, 7.5));
+		painter->drawLine(QPointF(13, 10), QPointF(16, 12.5));
+		painter->drawLine(QPointF(27, 10), QPointF(24, 7.5));
+		painter->drawLine(QPointF(27, 10), QPointF(24, 12.5));
+		painter->restore();
+		return;
+	}
+	else
+	{
+			//Four arrows: a shaft and a head each way
+		for (int quarter = 0; quarter < 4; ++quarter) {
+			QTransform turn;
+			turn.rotate(90 * quarter);
+			path.addPolygon(turn.map(QPolygonF({{-1.5, -1.5}, {-1.5, -7}, {-4.5, -7}, {0, -12},
+												  {4.5, -7}, {1.5, -7}, {1.5, -1.5}})));
+		}
+		path = path.simplified();
+	}
+	painter->drawPath(path);
+	painter->restore();
+}
+
+/**
+	@brief DiagramView::mouseReleaseEvent
+	Manage event release click mouse
+*/
+void DiagramView::mouseReleaseEvent(QMouseEvent *original)
+{
+	std::unique_ptr<QMouseEvent> shifted;
+	QMouseEvent *e = onCaughtHandle(original, shifted);
+	const AcceptedBack accepted_back{e, original};
+		//After a drag the mouse may stand over another item: its pointer
+		//now, not at the next move
+	const auto pointer_after = qScopeGuard([this, e] { updatePointer(e->pos(), e->buttons()); });
+		//Runs before pointer_after: the drag is over, the crosshair
+		//goes back to the grid point under the mouse
+	const auto placed = qScopeGuard([this, e] {
+		if (m_press_places && !(e->buttons() & Qt::LeftButton)) {
+			m_press_places = false;
+			m_dragged_element = nullptr;
+			moveCrosshair(e->pos());
+		}
+	});
+	if (m_event_interface && m_event_interface->mouseReleaseEvent(e)) return;
+
+		//A plain right click on a running tool falls through: the tool
+		//handles it, as it always has
+	if (m_gesture_tracking && e->button() == Qt::RightButton
+	    && !(m_gesture_over_tool && !m_gesture_overlay->isVisible()))
+	{
+		m_gesture_tracking = false;
+		const QPoint pos = e->position().toPoint();
+		if (m_gesture_overlay->isVisible())
+		{
+				//A gesture: run the command it points at, if any
+			QAction *action = m_gesture_overlay->actionAt(pos);
+			m_gesture_overlay->hide();
+			if (action) {
+				action->trigger();
+			}
+		}
+		else
+		{
+				//A plain right click: the context menu, opened here on
+				//release on every platform
+			QContextMenuEvent menu_event(QContextMenuEvent::Mouse, pos,
+						     e->globalPosition().toPoint(),
+						     e->modifiers());
+			m_menu_from_gesture = true;
+			contextMenuEvent(&menu_event);
+			m_menu_from_gesture = false;
+		}
+		e->accept();
+		return;
+	}
+	if (e->button() == Qt::RightButton) {
+		m_gesture_tracking = false;
+	}
+
+		// Stop drag view
+	if (e->button() == Qt::MiddleButton)
+	{
+		viewport()->setCursor(Qt::ArrowCursor);
+	}
+	else if (m_free_rubberbanding && !e->buttons())
+	{
+		if (viewportUpdateMode() != QGraphicsView::NoViewportUpdate)
+		{
+			if (viewportUpdateMode() != QGraphicsView::FullViewportUpdate)
+			{
+				QRectF r(mapFromScene(m_free_rubberband).boundingRect());
+				r.adjust(-10, -10, 10, 10);
+				viewport()->update(r.toRect());
+			}
+			else
+			{
+				update();
+			}
+		}
+
+		if (m_free_rubberband.count() > 3)
+		{
+				//Popup a menu with an action to create conductors between
+				//all selected terminals.
+			QAction *act = new QAction(tr("Connect the selected terminals"), this);
+			QPolygonF polygon_ = m_free_rubberband;
+			connect(act, &QAction::triggered, [this, polygon_]()
+			{
+				ConductorCreator::create(m_diagram, polygon_);
+				diagram()->clearSelection();
+			});
+			QMenu *menu = new QMenu(this);
+			menu->addAction(act);
+
+			menu->popup(e->globalPosition().toPoint());
+		}
+
+		m_free_rubberbanding = false;
+		m_free_rubberband = QPolygon();
+		emit freeRubberBandChanged(m_free_rubberband);
+		e->accept();
+	}
+	else
+	{
+		QGraphicsView::mouseReleaseEvent(e);
+
+			//A click, not a drag: moving items or a rubber band selection
+			//should not be followed by a toolbar under the mouse.
+		const QPoint pos = e->position().toPoint();
+		if (e->button() == Qt::LeftButton
+		    && (pos - m_press_pos).manhattanLength() < QApplication::startDragDistance()) {
+			showContextToolbar(pos);
+		}
+	}
+}
+
+/**
+	@brief DiagramView::selectionCommands
+	@return the shortcut bar's commands for the current selection, as this
+	window's actions
+*/
+QList<QAction *> DiagramView::selectionCommands() const
+{
+	QList<QAction *> actions;
+	QETDiagramEditor *qde = diagramEditor();
+	if (!qde) {
+		return actions;
+	}
+	const auto context = ShortcutBarSettings::contextFor(m_diagram->selectedItems());
+	for (const QString &id : ShortcutBarSettings::ids(context)) {
+		if (QAction *action = ShortcutManager::instance().action(id, qde)) {
+			actions << action;
+		}
+	}
+	return actions;
+}
+
+/**
+	@brief DiagramView::gestureCommands
+	@return the gesture ring's commands for the current selection, as this
+	window's actions. A list the user picked keeps its directions: a
+	command this window lacks leaves its direction empty (nullptr).
+	Otherwise the ring shows the shortcut bar's commands, in order.
+*/
+QList<QAction *> DiagramView::gestureCommands() const
+{
+	QETDiagramEditor *qde = diagramEditor();
+	const auto context = ShortcutBarSettings::contextFor(m_diagram->selectedItems());
+	if (!qde || !GestureSettings::isCustom(context)) {
+		return selectionCommands();
+	}
+	QList<QAction *> actions;
+	for (const QString &id : GestureSettings::ids(context)) {
+		actions << (id.isEmpty() ? nullptr
+					 : ShortcutManager::instance().action(id, qde));
+	}
+	return actions;
+}
+
+/**
+	@brief DiagramView::showContextToolbar
+	After a click that leaves something selected, show the shortcut bar's
+	commands for that selection beside the cursor. Not while placing or
+	drawing, nor on a read-only folio, nor when switched off in the
+	configuration.
+	@param viewport_pos : where the click was
+*/
+void DiagramView::showContextToolbar(const QPoint &viewport_pos)
+{
+	const QList<QGraphicsItem *> selection = m_diagram->selectedItems();
+	QETDiagramEditor *qde = diagramEditor();
+	if (selection.isEmpty() || !qde
+	    || m_diagram->isReadOnly() || m_diagram->eventInterfaceIsRunning()
+	    || !DiagramContextToolbar::isEnabled()) {
+		m_context_toolbar->hide();
+		return;
+	}
+
+	m_context_toolbar->showAt(viewport_pos, selectionCommands());
+}
+
+/**
+	@brief DiagramView::gestures
+	@return
+*/
+bool DiagramView::gestures() const
+{
+	QSettings settings;
+	return(settings.value("diagramview/gestures", false).toBool());
+}
+
+/**
+	@brief DiagramView::wheelEvent
+	Manage wheel event of mouse
+	@param event QWheelEvent
+*/
+void DiagramView::wheelEvent(QWheelEvent *event)
+{
+	if (m_event_interface && m_event_interface->wheelEvent(event)) return;
+
+		//Zoom and scrolling
+	QPoint angle = event->angleDelta();
+
+	if (gestures()) //When gesture mode is enable, we suppose the wheel event are made from a trackpad.
+	{
+		if (event->modifiers() == Qt::ControlModifier) //zoom
+		{
+			qreal value = angle.y();
+			zoom(1 + value/1000);
+		}
+		else //scroll
+		{
+			horizontalScrollBar()->setValue(horizontalScrollBar()->value() - angle.x());
+			verticalScrollBar()->setValue(verticalScrollBar()->value() - angle.y());
+		}
+	}
+	else if (event->modifiers() == Qt::NoModifier
+			 || (zoomStep() && event->modifiers() == Qt::AltModifier)) //Else we suppose the wheel event are made from a mouse.
+	{
+		if (zoomStep()) {
+				//One step per notch (120); a smooth wheel adds up to one.
+				//With Alt, four steps per notch: some platforms turn the
+				//wheel sideways then
+			const bool coarse = event->modifiers() == Qt::AltModifier;
+			m_wheel_rest += coarse && !angle.y() ? angle.x() : angle.y();
+			const int notches = m_wheel_rest / 120;
+			m_wheel_rest -= notches * 120;
+			zoomBy(coarse ? notches * 4 : notches);
+			return;
+		}
+		qreal value = angle.y();
+		zoom(1 + value/1000);
+	}
+	else
+		QGraphicsView::wheelEvent(event);
+}
+
+/**
+	@brief DiagramView::gestureEvent
+	Use the pinch of the trackpad for zoom
+	@param event
+	@return
+*/
+bool DiagramView::gestureEvent(QGestureEvent *event)
+{
+	if (QGesture *gesture = event->gesture(Qt::PinchGesture))
+	{
+		QPinchGesture *pinch = static_cast<QPinchGesture *>(gesture);
+		if (pinch->changeFlags() & QPinchGesture::ScaleFactorChanged)
+		{
+			qreal value = gesture->property("scaleFactor").toReal();
+			value > 1 ? zoom(1.02) : zoom(0.98);
+		}
+	}
+	return true;
+}
+
+
+
+/**
+	Handles "Focus in" events. Reimplemented here to store the fact the focus
+	was freshly acquired again using the mouse. This information is later used
+	in DiagramView::mousePressEvent().
+*/
+void DiagramView::focusInEvent(QFocusEvent *e) {
+	if (e -> reason() == Qt::MouseFocusReason) {
+		m_fresh_focus_in = true;
+	}
+}
+
+/**
+	@brief DiagramView::focusOutEvent
+	Leave the Ctrl+Shift panning: without the focus, the view will not see
+	Ctrl or Shift being released, which is what normally ends it. A
+	Ctrl+Shift shortcut that opens a window (Ctrl+Shift+M, the command
+	search) left the view panning, ignoring clicks on the folio, on Windows,
+	where no other key release reached the view to end it.
+	@param e
+*/
+void DiagramView::focusOutEvent(QFocusEvent *e)
+{
+	if (m_ctrl_shift_panning) {
+		setSelectionMode();
+	}
+	PaletteGraphicsView::focusOutEvent(e);
+}
+
+/**
+	@brief DiagramView::focusNextPrevChild
+	By default, QWidget intercepts Tab/Shift+Tab to move keyboard focus to
+	the next/previous widget before a key press event is ever generated,
+	which would silently swallow the diagram's Tab-based item-selection
+	cycling (see Diagram::event()). Returning false here disables that
+	automatic focus-chain traversal for this view, so Tab/Shift+Tab reach
+	keyPressEvent() (and from there, the scene) as ordinary key presses
+	instead.
+	@return always false
+*/
+bool DiagramView::focusNextPrevChild(bool next)
+{
+		//Escape asked for focus to leave; allow exactly this one traversal.
+	if (m_releasing_focus) {
+		m_releasing_focus = false;
+		return QGraphicsView::focusNextPrevChild(next);
+	}
+	return false;
+}
+
+/**
+	@brief DiagramView::keyPressEvent
+	Handles "key press" events. Reimplemented here to switch to visualisation
+	mode if needed.
+	@param e
+*/
+void DiagramView::keyPressEvent(QKeyEvent *e)
+{
+	if (m_event_interface && m_event_interface->keyPressEvent(e))
+		return;
+
+		//An item in a state Escape must end -- a picture while one of its
+		//handles is dragged -- sees each key before the shortcuts below,
+		//which would otherwise clear the selection under it.
+	QGraphicsObject *keyboard_item = m_diagram ? m_diagram->keyboardItem() : nullptr;
+	if (keyboard_item && keyboard_item->scene() == m_diagram) {
+		e->ignore();
+		m_diagram->sendEvent(keyboard_item, e);
+		if (e->isAccepted())
+			return;
+	}
+
+	ProjectView *current_project = this->diagramEditor()->currentProjectView();
+	DiagramContent dc(m_diagram);
+	switch(e -> key())
+	{
+		case Qt::Key_Escape:
+				//Tab cycles the folio's items rather than moving focus (see
+				//focusNextPrevChild above), so without this there would be no
+				//way off the canvas for someone working without a mouse.
+				//Escape steps back out: first it drops the selection, then it
+				//hands focus to the next widget.
+			if (m_diagram && m_diagram->eventInterfaceIsRunning()) {
+				QGraphicsView::keyPressEvent(e);  // let the active tool see it
+				return;
+			}
+				//A line waiting for the click putting a core down has the
+				//first call on Escape: it lets that core go back to being
+				//a free one and lets the mouse go, while everything else
+				//-- the selection included -- stays as it is, so that
+				//Escape keeps doing one thing at a time.
+			if (CablePart::cancelPlacing()) {
+				e->accept();
+				return;
+			}
+			if (m_diagram && !m_diagram->selectedItems().isEmpty()) {
+				m_diagram->clearSelection();
+			} else {
+				m_releasing_focus = true;
+				focusNextChild();
+			}
+			return;
+		case Qt::Key_Return:
+		case Qt::Key_Enter:
+				//Repeat the last drawing or placing command, as SolidWorks
+				//does. Not while a tool is running or a text has the focus:
+				//both use Enter themselves.
+			if (e->modifiers() == Qt::NoModifier
+			    && !m_diagram->eventInterfaceIsRunning()
+			    && !m_diagram->focusItem()
+			    && diagramEditor()->repeatLastCommand()) {
+				return;
+			}
+			break;
+		case Qt::Key_PageUp:
+			current_project->changeTabUp();
+			return;
+		case Qt::Key_PageDown:
+			current_project->changeTabDown();
+			return;
+		case Qt::Key_Home:
+		case Qt::Key_End:
+				//A text being edited on the sheet -- free, wire or symbol
+				//text -- takes Home and End to move its cursor (#347).
+				//qgraphicsitem_cast matches one exact type only, so a
+				//symbol's text used to fall through to changing sheet.
+			if (dc.selectedTexts().isEmpty() && !textIsBeingEdited()) {
+				if (e->key() == Qt::Key_Home)
+					current_project->changeFirstTab();
+				else
+					current_project->changeLastTab();
+				return;
+			}
+			break;
+		case Qt::Key_ZoomOut:
+			zoomBy(-1);
+			return;
+		case Qt::Key_ZoomIn:
+			zoomBy(1);
+			return;
+		case Qt::Key_Minus: {
+			if (e->modifiers() & Qt::ControlModifier)
+				zoomBy(-1);
+		}
+			break;
+		case Qt::Key_Plus: {
+			if (e->modifiers() & Qt::ControlModifier)
+				zoomBy(1);
+		}
+			break;
+		case Qt::Key_Up: {
+			if(!dc.items(DiagramContent::All).isEmpty() && !dc.hasTextEditing())
+				scrollOnMovement(e);
+		}
+			break;
+		case Qt::Key_Down: {
+			if(!dc.items(DiagramContent::All).isEmpty() && !dc.hasTextEditing())
+				scrollOnMovement(e);
+		}
+			break;
+		case Qt::Key_Left: {
+			if(!dc.items(DiagramContent::All).isEmpty() && !dc.hasTextEditing())
+				scrollOnMovement(e);
+		}
+			break;
+		case Qt::Key_Right: {
+			if(!dc.items(DiagramContent::All).isEmpty() && !dc.hasTextEditing())
+				scrollOnMovement(e);
+		}
+			break;
+	}
+
+	switchToVisualisationModeIfNeeded(e);
+	QGraphicsView::keyPressEvent(e);
+	if (e->key() == Qt::Key_Left || e->key() == Qt::Key_Right
+	    || e->key() == Qt::Key_Up || e->key() == Qt::Key_Down)
+		crosshairOnMovedSelection();
+}
+
+/**
+	Handles "key release" events. Reimplemented here to switch to selection
+	mode if needed.
+*/
+void DiagramView::keyReleaseEvent(QKeyEvent *e) {
+	if (m_event_interface && m_event_interface->KeyReleaseEvent(e)) return;
+
+	switchToSelectionModeIfNeeded(e);
+	QGraphicsView::keyReleaseEvent(e);
+}
+
+/**
+	Handles element movement when editor is zoomed in and scrolls vertical
+	and horizontal bar. If element is moved to the right side of the editor
+	or below the editor SceneRect is expanded
+*/
+void DiagramView::scrollOnMovement(QKeyEvent *e)
+{
+			const QList<QGraphicsItem *> selected_elmts = DiagramContent(m_diagram).items(DiagramContent::All);
+			QRectF viewed_scene = viewedSceneRect();
+			for (QGraphicsItem *qgi : selected_elmts)
+			{
+				if (qgraphicsitem_cast<Conductor *>(qgi))
+					continue;
+				if (qgi->parentItem() && qgi->parentItem()->isSelected())
+					continue;
+
+				qreal x = qgi->pos().x();
+				qreal y = qgi->pos().y();
+				qreal bottom = viewed_scene.bottom();
+				qreal top    = viewed_scene.top();
+				qreal left   = viewed_scene.left();
+				qreal right  = viewed_scene.right();
+				qreal elmt_top    = y + qgi->boundingRect().top();
+				qreal elmt_bottom = y + qgi->boundingRect().bottom();
+				qreal elmt_right  = x + qgi->boundingRect().right();
+				qreal elmt_left   = x + qgi->boundingRect().left();
+				if (qgi->parentItem()) {
+					elmt_top    += qgi->parentItem()->y();
+					elmt_bottom += qgi->parentItem()->y();
+					elmt_right  += qgi->parentItem()->x();
+					elmt_left   += qgi->parentItem()->x();
+				}
+
+				bool elmt_right_of_left_margin = elmt_left>=left;
+				bool elmt_left_of_right_margin = elmt_right<=right;
+				bool elmt_below_top_margin     = elmt_top>=top;
+				bool elmt_above_bottom_margin  = elmt_bottom<=bottom;
+
+				if (!(elmt_right_of_left_margin && elmt_left_of_right_margin) ||
+				    !(elmt_below_top_margin     && elmt_above_bottom_margin )  )
+				{
+						QScrollBar *h = horizontalScrollBar();
+						QScrollBar *v = verticalScrollBar();
+						int h_increment=0;
+						int v_increment=0;
+						if (e->key()==Qt::Key_Up && elmt_above_bottom_margin) {
+							v_increment = 2*qgi->boundingRect().top();
+							if (v_increment == 0) v_increment = -2*qgi->boundingRect().height();
+						}
+						else if(e->key()==Qt::Key_Down && elmt_below_top_margin) {
+							v_increment = 2*qgi->boundingRect().bottom();
+							if (v_increment == 0) v_increment = -2*qgi->boundingRect().height();
+						}
+						else if (e->key()==Qt::Key_Left && elmt_left_of_right_margin) {
+							h_increment = 2*qgi->boundingRect().left();
+							if (h_increment == 0) h_increment = -2*qgi->boundingRect().width();
+						}
+						else if (e->key()==Qt::Key_Right && elmt_right_of_left_margin) {
+							h_increment = 2*qgi->boundingRect().right();
+							if (h_increment == 0) h_increment = -2*qgi->boundingRect().width();
+						}
+						if (((elmt_right  >= m_diagram->sceneRect().right() -  qgi->boundingRect().right())  ||
+							(elmt_bottom >= m_diagram->sceneRect().bottom() - qgi->boundingRect().bottom())) &&
+							(e->key()==Qt::Key_Right || e->key()==Qt::Key_Down)){
+							m_diagram->adjustSceneRect();
+						}
+						h -> setValue(h -> value() + h_increment);
+						v -> setValue(v -> value() + v_increment);
+				}
+			}
+}
+
+
+/**
+	@return le titre de cette vue ; cela correspond au titre du schema
+	visualise precede de la mention "Schema". Si le titre du schema est vide,
+	la mention "Schema sans titre" est utilisee
+	@see Diagram::title()
+*/
+QString DiagramView::title() const
+{
+	QString view_title;
+	QString diagram_title(m_diagram -> title());
+	if (diagram_title.isEmpty()) {
+		view_title = tr("Untitled", "what to display for untitled diagrams");
+	} else {
+		view_title = diagram_title;
+	}
+	return(view_title);
+}
+
+/**
+	@brief DiagramView::editDiagramProperties
+	Edit the properties of the viewed digram
+*/
+void DiagramView::editDiagramProperties()
+{
+	DiagramPropertiesDialog::diagramPropertiesDialog(m_diagram, diagramEditor());
+}
+
+/**
+	@brief DiagramView::buildFolio
+	Build the items of the folio this view shows, and those of the folios
+	its cross-references need, if the project was opened without them
+	(lazy folios); then fit the view to them.
+*/
+void DiagramView::buildFolio()
+{
+	if (QETProject *project = m_diagram->project()) {
+		if (!project->unloadedFolioCount()) {
+			return;
+		}
+		project->buildFolioToShow(m_diagram);
+	} else {
+		m_diagram->ensureLoaded();
+	}
+	adjustSceneRect();
+}
+
+/**
+	@brief DiagramView::adjustSceneRect
+	Calcul and set the area of the scene visualized by this view
+*/
+void DiagramView::adjustSceneRect()
+{
+	QRectF scene_rect = m_diagram->sceneRect();
+	scene_rect.adjust(-Diagram::margin, -Diagram::margin, Diagram::margin, Diagram::margin);
+
+	QSettings settings;
+	if (settings.value("diagrameditor/zoom-out-beyond-of-folio", false).toBool())
+	{
+			//When zoom out beyond of folio is active,
+			//we always adjust the scene rect to be 1/3 bigger than the wiewport
+		QRectF vpbr = mapToScene(viewport()->rect()).boundingRect();
+		vpbr.adjust(0, 0, vpbr.width()/3, vpbr.height()/3);
+		scene_rect = scene_rect.united(vpbr);
+	}
+	setSceneRect(scene_rect);
+}
+
+/**
+	Met a jour le titre du widget
+*/
+void DiagramView::updateWindowTitle()
+{
+	emit(titleChanged(this, title()));
+}
+
+/**
+	Enables or disables the drawing grid according to the amount of pixels display
+*/
+void DiagramView::adjustGridToZoom()
+{
+	QRectF viewed_scene = viewedSceneRect();
+	if (diagramEditor()->drawGrid())
+		m_diagram->setDisplayGrid(viewed_scene.width() < 2000 || viewed_scene.height() < 2000);
+	else
+		m_diagram->setDisplayGrid(false);
+}
+
+/**
+	@return le rectangle du schema (classe Diagram) visualise par ce DiagramView
+*/
+QRectF DiagramView::viewedSceneRect() const
+{
+	// recupere la taille du widget viewport
+	QSize viewport_size = viewport() -> size();
+
+	// recupere la transformation viewport -> scene
+	QTransform view_to_scene   = viewportTransform().inverted();
+
+	// mappe le coin superieur gauche et le coin inferieur droit de la viewport sur la scene
+	QPointF scene_left_top     = view_to_scene.map(QPointF(0.0, 0.0));
+	QPointF scene_right_bottom = view_to_scene.map(QPointF(viewport_size.width(), viewport_size.height()));
+
+	// en deduit le rectangle visualise par la scene
+	return(QRectF(scene_left_top, scene_right_bottom));
+}
+
+/**
+	@param tbt_loc A title block template location
+	@return true if the title block template needs to be integrated in the
+	parent project before being applied to the current diagram, or false if it
+	can be directly applied
+*/
+bool DiagramView::mustIntegrateTitleBlockTemplate(const TitleBlockTemplateLocation &tbt_loc) const
+{
+	// unlike elements, the integration of title block templates is mandatory, so we simply check whether the parent project of the template is also the parent project of the diagram
+	QETProject *tbt_parent_project = tbt_loc.parentProject();
+	if (!tbt_parent_project) return(true);
+
+	return(tbt_parent_project != m_diagram -> project());
+}
+
+/**
+	Fait en sorte que le schema ne soit editable que s'il n'est pas en lecture
+	seule
+*/
+void DiagramView::applyReadOnly()
+{
+	if (!m_diagram) return;
+
+	bool is_writable = !m_diagram -> isReadOnly();
+	setInteractive(is_writable);
+	setAcceptDrops(is_writable);
+}
+
+/**
+	Reinitialise le profil des conducteurs selectionnes
+*/
+void DiagramView::resetConductors()
+{
+	if (m_diagram -> isReadOnly()) return;
+	// recupere les conducteurs selectionnes
+	QSet<Conductor *> selected_conductors = m_diagram -> selectedConductors();
+
+	// repere les conducteurs modifies (= profil non nul)
+	QHash<Conductor *, ConductorProfilesGroup> conductors_and_profiles;
+	foreach(Conductor *conductor, selected_conductors) {
+		ConductorProfilesGroup profile = conductor -> profiles();
+		if (
+			!profile[Qt::TopLeftCorner].isNull() ||\
+			!profile[Qt::TopRightCorner].isNull() ||\
+			!profile[Qt::BottomLeftCorner].isNull() ||\
+			!profile[Qt::BottomRightCorner].isNull()
+		) {
+			conductors_and_profiles.insert(conductor, profile);
+		}
+	}
+
+	if (conductors_and_profiles.isEmpty()) return;
+	m_diagram -> undoStack().push(new ResetConductorCommand(conductors_and_profiles));
+}
+
+/**
+	@brief DiagramView::event
+	Manage the event on this diagram view.
+	-At first activation (QEvent::WindowActivate or QEvent::Show) we zoomFit.
+	-Convert event interpreted to mouse event to gesture event if needed.
+	-send Shortcut to view (by default send to QMenu /QAction)
+	Gere les evenements de la DiagramView
+	@param e : the event.
+	@return
+*/
+bool DiagramView::event(QEvent *e) {
+	if (Q_UNLIKELY(m_first_activation)) {
+		if (e -> type() == QEvent::Show) {
+			zoomFit();
+			m_first_activation = false;
+		}
+	}
+	// By default touch events are converted to mouse events. So
+	// after this event we will get a mouse event also but we want
+	// to handle touch events as gestures only. So we need this safeguard
+	// to block mouse events that are actually generated from touch.
+	if (e->type() == QEvent::Gesture)
+		return gestureEvent(static_cast<QGestureEvent *>(e));
+
+		// fait en sorte que les raccourcis clavier arrivent prioritairement sur la
+		// vue plutot que de remonter vers les QMenu / QAction
+	if (
+		e -> type() == QEvent::ShortcutOverride &&
+		selectedItemHasFocus()
+	) {
+		e -> accept();
+		return(true);
+	}
+		//A tool that reads the keyboard (a length typed while a part of a
+		//cabinet is drawn) gets its keys before the shortcuts do
+	if (e -> type() == QEvent::ShortcutOverride && m_diagram
+		&& m_diagram -> eventInterface()
+		&& m_diagram -> eventInterface() -> wantsKey(static_cast<QKeyEvent *>(e))) {
+		e -> accept();
+		return(true);
+	}
+	return(QGraphicsView::event(e));
+}
+
+/**
+	@brief DiagramView::paintingInverted
+	Reimplemented from PaletteGraphicsView: tell the diagram it is being
+	drawn for an inverted display, so it softens its grid.
+*/
+void DiagramView::paintingInverted(bool inverted)
+{
+	m_diagram->setInvertedLightness(inverted);
+}
+
+/**
+	@brief DiagramView::sheetInk
+	Reimplemented from PaletteGraphicsView: on a custom sheet color, the
+	ink that sheet needs (see QET::Palette::sheetInk()).
+*/
+QET::Palette::SheetInk DiagramView::sheetInk() const
+{
+	if (!customBackgroundColor())
+		return {};
+	return QET::Palette::sheetInk(Diagram::background_color, coloredInk());
+}
+
+/**
+	@brief DiagramView::inkKind
+	Reimplemented from PaletteGraphicsView: the symbols and the free texts
+	take the symbols' ink, the conductors and the cables (whose label
+	takes the symbols' ink itself) the wires' ink for their line
+	style (dashed for a neutral, dash-dotted for a protective conductor),
+	pictures keep
+	their own colors, and the rest takes the other ink. An item is drawn
+	with its whole top-level item, so its children go with it: a symbol's
+	texts are yellow, a conductor's red.
+*/
+PaletteGraphicsView::InkKind DiagramView::inkKind(const QGraphicsItem *item) const
+{
+	const QGraphicsItem *top = item->topLevelItem();
+	if (dynamic_cast<const QGraphicsTextItem *>(top)
+	    || dynamic_cast<const QGraphicsSimpleTextItem *>(top))
+		return InkKind::Symbols;
+	switch (top->type()) {
+		case Element::Type: return InkKind::Symbols;
+		case Conductor::Type:
+			switch (static_cast<const Conductor *>(top)->properties().style) {
+				case Qt::DashLine: return InkKind::DashedWires;
+				case Qt::DashDotLine: return InkKind::DashDottedWires;
+				default: return InkKind::Wires;
+			}
+		case CablePart::Type: return InkKind::Wires;
+		case DiagramImageItem::Type: return InkKind::Untouched;
+		default: return InkKind::Other;
+	}
+}
+
+/**
+	@brief DiagramView::setCellLinesShown
+	Show or hide the lines that mark the columns and the rows of the folio
+	border across the drawing, in this view only: printing and exporting
+	never draw them.
+	@param shown
+*/
+void DiagramView::setCellLinesShown(bool shown)
+{
+	m_cell_lines_shown = shown;
+	viewport()->update();
+}
+
+namespace {
+		/// The settings, read once and then kept here for every view
+	int s_crosshair = -1;
+	int s_pointer_aids = -1;
+	int s_terminal_help_lines = -1;
+	int s_zoom_step = -1;
+	int s_selection_rectangle = -1;
+}
+
+/**
+	@brief DiagramView::crosshairShown
+	@return true when the folio-wide crosshair follows the mouse: two thin
+	lines across the whole folio, through the grid point under the mouse,
+	to see at a glance whether symbols and terminals are in line. Drawn
+	on screen only, never exported nor printed.
+*/
+bool DiagramView::crosshairShown()
+{
+	if (s_crosshair < 0) {
+		QSettings settings;
+		s_crosshair = settings.value(QStringLiteral("diagrameditor/crosshair"), false).toBool();
+	}
+	return s_crosshair;
+}
+
+/**
+	@brief DiagramView::setCrosshairShown
+	@param shown : show the folio-wide crosshair in every view; kept in
+	the settings. The views repaint themselves at the next mouse move.
+*/
+void DiagramView::setCrosshairShown(bool shown)
+{
+	s_crosshair = shown;
+	QSettings settings;
+	settings.setValue(QStringLiteral("diagrameditor/crosshair"), shown);
+}
+
+/**
+	@brief DiagramView::selectionRectangle
+	@return what a selection rectangle selects, see SelectionRectangle;
+	Touched by default, as always before.
+*/
+DiagramView::SelectionRectangle DiagramView::selectionRectangle()
+{
+	if (s_selection_rectangle < 0) {
+		QSettings settings;
+		s_selection_rectangle = qBound(0, settings.value(
+			QStringLiteral("diagrameditor/selection_rectangle"), 0).toInt(), 2);
+	}
+	return static_cast<SelectionRectangle>(s_selection_rectangle);
+}
+
+/**
+	@brief DiagramView::setSelectionRectangle
+	@param mode : see selectionRectangle(); kept in the settings, for every
+	view from the next selection rectangle.
+*/
+void DiagramView::setSelectionRectangle(SelectionRectangle mode)
+{
+	s_selection_rectangle = static_cast<int>(mode);
+	QSettings settings;
+	settings.setValue(QStringLiteral("diagrameditor/selection_rectangle"), s_selection_rectangle);
+}
+
+/**
+	@brief DiagramView::updateRubberBandMode
+	Set what the rubber band selects (selectionRectangle()), before
+	QGraphicsView works the selection out.
+	@param viewport_pos : the mouse; by direction, to the right of where the
+	band began selects what lies wholly within it
+*/
+void DiagramView::updateRubberBandMode(const QPoint &viewport_pos)
+{
+	switch (selectionRectangle()) {
+		case SelectionRectangle::Touched:
+			setRubberBandSelectionMode(Qt::IntersectsItemShape);
+			break;
+		case SelectionRectangle::Enclosed:
+			setRubberBandSelectionMode(Qt::ContainsItemShape);
+			break;
+		case SelectionRectangle::ByDirection:
+			setRubberBandSelectionMode(viewport_pos.x() >= m_band_origin.x()
+									   ? Qt::ContainsItemShape
+									   : Qt::IntersectsItemShape);
+			break;
+	}
+}
+
+/**
+	@brief DiagramView::pointerAids
+	@return true when the pointer helps to grab: a four-way arrow over
+	what a drag moves, the pointer on the crosshair's grid point, and
+	handles near the mouse catching the crosshair and the press. Off, the
+	system's pointer and the handle under the mouse are used, as before.
+*/
+bool DiagramView::pointerAids()
+{
+	if (s_pointer_aids < 0) {
+		QSettings settings;
+		s_pointer_aids = settings.value(QStringLiteral("diagrameditor/pointer_aids"), false).toBool();
+	}
+	return s_pointer_aids;
+}
+
+/**
+	@brief DiagramView::setPointerAids
+	@param on : see pointerAids(); kept in the settings, for every view
+	from the next mouse move.
+*/
+void DiagramView::setPointerAids(bool on)
+{
+	s_pointer_aids = on;
+	QSettings settings;
+	settings.setValue(QStringLiteral("diagrameditor/pointer_aids"), on);
+}
+
+/**
+	@brief DiagramView::terminalHelpLinesShown
+	@return true when a symbol being placed or dragged draws a shaded line
+	from each of its terminals to the terminal in line with it; on by
+	default, as always before.
+*/
+bool DiagramView::terminalHelpLinesShown()
+{
+	if (s_terminal_help_lines < 0) {
+		QSettings settings;
+		s_terminal_help_lines = settings.value(QStringLiteral("diagrameditor/terminal_help_lines"), true).toBool();
+	}
+	return s_terminal_help_lines;
+}
+
+/**
+	@brief DiagramView::setTerminalHelpLinesShown
+	@param shown : see terminalHelpLinesShown(); kept in the settings, for
+	the next drag.
+*/
+void DiagramView::setTerminalHelpLinesShown(bool shown)
+{
+	s_terminal_help_lines = shown;
+	QSettings settings;
+	settings.setValue(QStringLiteral("diagrameditor/terminal_help_lines"), shown);
+}
+
+/**
+	@brief DiagramView::zoomStep
+	@return how far zoomBy() goes at a time, in percent of the zoom shown:
+	with 10, 100 % goes to 110 %, 120 %, 130 % and 400 % to 440 %. 0, the
+	default: by a factor of 1.15 in and 0.85 out, as always before.
+*/
+int DiagramView::zoomStep()
+{
+	if (s_zoom_step < 0) {
+		QSettings settings;
+		s_zoom_step = qBound(0, settings.value(QStringLiteral("diagrameditor/zoom_step"), 0).toInt(), 100);
+	}
+	return s_zoom_step;
+}
+
+/**
+	@brief DiagramView::setZoomStep
+	@param percent : see zoomStep(); kept in the settings, for the next zoom
+*/
+void DiagramView::setZoomStep(int percent)
+{
+	s_zoom_step = qBound(0, percent, 100);
+	QSettings settings;
+	settings.setValue(QStringLiteral("diagrameditor/zoom_step"), s_zoom_step);
+}
+
+/**
+	@brief DiagramView::crosshairArea
+	@return the part of the viewport the two lines through @a scene_pos
+	cover, a little wider than the lines
+*/
+QRect DiagramView::crosshairArea(const QPointF &scene_pos) const
+{
+	const QPoint p = mapFromScene(scene_pos);
+	const QRect all = viewport()->rect();
+	const int pw = (m_pointer == Pointer::Dimension) ? 45 : 29;
+	const int ph = (m_pointer == Pointer::Dimension) ? 40 : 35;
+	return QRect(all.left(), p.y() - 2, all.width(), 5)
+			| QRect(p.x() - 2, all.top(), 5, all.height())
+			| QRect(p.x() - 14, p.y() - 14, pw, ph);	//the pointer drawn on it
+}
+
+/**
+	@brief DiagramView::moveCrosshair
+	Follow the mouse with the crosshair, on the grid, repainting only the
+	lines it leaves and the lines it draws.
+	@param viewport_pos : the mouse, in viewport coordinates
+*/
+void DiagramView::moveCrosshair(const QPoint &viewport_pos)
+{
+	if (!crosshairShown()) {
+		hideCrosshair();
+		return;
+	}
+		//A handle near the mouse catches it before the grid does; not
+		//while a press drags something: the crosshair shows where it
+		//lands, not the handles it passes
+	QGraphicsObject *handle = m_grabbing_caught || m_press_places
+			? nullptr : handleNear(viewport_pos);
+	m_caught_handle = handle;
+	QPointF pos = handle ? handle->scenePos()
+			     : Diagram::snapToGrid(mapToScene(viewport_pos));
+		//Dragging a symbol: on its terminal nearest the mouse, where that
+		//terminal lands, not on the mouse, which holds the symbol
+		//somewhere beside it
+	if (m_dragged_element && m_press_places && !handle) {
+		const QPointF mouse = mapToScene(viewport_pos);
+		qreal nearest = -1;
+		for (const Terminal *t : m_dragged_element->terminals()) {
+			const qreal d = QLineF(mouse, t->dockConductor()).length();
+			if (nearest < 0 || d < nearest) {
+				nearest = d;
+				pos = t->dockConductor();
+			}
+		}
+	}
+	if (m_crosshair_visible && pos == m_crosshair_pos)
+		return;
+	if (m_crosshair_visible)
+		viewport()->update(crosshairArea(m_crosshair_pos));
+	m_crosshair_pos = pos;
+	m_crosshair_visible = true;
+	viewport()->update(crosshairArea(m_crosshair_pos));
+}
+
+
+/**
+	@brief DiagramView::handleNear
+	@return the handle (of a text, a shape, a conductor...) whose middle
+	is nearest to @a viewport_pos, within 12 pixels, or nullptr. Handles
+	rarely sit on the grid, so the crosshair could never reach them.
+*/
+QGraphicsObject *DiagramView::handleNear(const QPoint &viewport_pos) const
+{
+	if (!pointerAids())
+		return nullptr;
+	constexpr int reach = 12;
+	QGraphicsObject *nearest = nullptr;
+	qreal distance = reach + 1;
+	for (QGraphicsItem *item : items(QRect(viewport_pos - QPoint(reach, reach),
+					      QSize(2 * reach + 1, 2 * reach + 1))))
+	{
+		if (item->type() != QetGraphicsHandlerItem::Type || !item->isVisible())
+			continue;
+		const qreal d = QLineF(mapFromScene(item->scenePos()), viewport_pos).length();
+		if (d < distance) {
+			nearest = item->toGraphicsObject();
+			distance = d;
+		}
+	}
+	return nearest;
+}
+
+/**
+	@brief DiagramView::onCaughtHandle
+	A left press while a handle has caught the crosshair grabs that handle
+	as if the mouse were on its middle; the moves and the release of that
+	drag keep the same offset, so the handle follows without a jump.
+	@param e : the mouse event as it came
+	@param shifted : holds the moved copy, when there is one
+	@return the event to handle: @a e, or its moved copy
+*/
+QMouseEvent *DiagramView::onCaughtHandle(QMouseEvent *e, std::unique_ptr<QMouseEvent> &shifted)
+{
+		//A grab whose release never came (the press went to a menu, a
+		//dialog or a tool): any event without the left button ends it
+	if (m_grabbing_caught && e->type() != QEvent::MouseButtonRelease
+	    && !(e->buttons() & Qt::LeftButton))
+		m_grabbing_caught = false;
+	if (e->type() == QEvent::MouseButtonPress && e->button() == Qt::LeftButton
+	    && m_caught_handle && m_crosshair_visible && crosshairShown()) {
+		m_grab_offset = QPointF(mapFromScene(m_caught_handle->scenePos())) - e->position();
+		m_grabbing_caught = true;
+	}
+	if (!m_grabbing_caught)
+		return e;
+	shifted = std::make_unique<QMouseEvent>(e->type(), e->position() + m_grab_offset,
+						 e->globalPosition() + m_grab_offset,
+						 e->button(), e->buttons(), e->modifiers(),
+						 e->pointingDevice());
+	if (e->type() == QEvent::MouseButtonRelease && !(e->buttons() & Qt::LeftButton))
+		m_grabbing_caught = false;
+	return shifted.get();
+}
+
+/**
+	@brief DiagramView::crosshairOnMovedSelection
+	After the arrow keys moved the selection, the crosshair stands on the
+	point that moved: of the selected items, the one nearest where the
+	crosshair was -- a symbol's terminal, or else the item's own origin --
+	so that a symbol can be brought in line with another one by eye, with
+	the mouse left where it is. The next mouse move takes it back.
+*/
+void DiagramView::crosshairOnMovedSelection()
+{
+	if (!m_diagram || !crosshairShown())
+		return;
+	DiagramContent dc(m_diagram);
+	if (dc.hasTextEditing())
+		return;
+	QList<QPointF> points;
+	for (QGraphicsItem *item : m_diagram->selectedItems()) {
+		if (item->type() == Element::Type) {
+			const auto terminals = static_cast<Element *>(item)->terminals();
+			for (const Terminal *t : terminals)
+				points << t->dockConductor();
+			if (!terminals.isEmpty())
+				continue;
+		}
+		if (item->type() != Conductor::Type)
+			points << item->scenePos();
+	}
+	if (points.isEmpty())
+		return;
+	const QPointF from = m_crosshair_visible ? m_crosshair_pos
+			: mapToScene(viewport()->rect().center());
+	QPointF pos = points.first();
+	qreal nearest = QLineF(from, pos).length();
+	for (const QPointF &p : std::as_const(points)) {
+		const qreal d = QLineF(from, p).length();
+		if (d < nearest) {
+			nearest = d;
+			pos = p;
+		}
+	}
+	if (m_crosshair_visible)
+		viewport()->update(crosshairArea(m_crosshair_pos));
+	m_caught_handle = nullptr;
+	m_crosshair_pos = pos;
+	m_crosshair_visible = true;
+	viewport()->update(crosshairArea(m_crosshair_pos));
+}
+
+/**
+	@brief DiagramView::hideCrosshair
+	Take the crosshair away, when the mouse leaves the view or the
+	setting is switched off.
+*/
+void DiagramView::hideCrosshair()
+{
+	if (!m_crosshair_visible)
+		return;
+	m_crosshair_visible = false;
+	viewport()->update(crosshairArea(m_crosshair_pos));
+}
+
+/**
+	@brief DiagramView::drawForeground
+	Over everything else, the folio-wide crosshair, inside the folio's
+	border only.
+	@param painter
+	@param rect
+*/
+void DiagramView::drawForeground(QPainter *painter, const QRectF &rect)
+{
+	PaletteGraphicsView::drawForeground(painter, rect);
+	if (!m_crosshair_visible || !crosshairShown() || !m_diagram)
+		return;
+
+	const QRectF area = m_diagram->border_and_titleblock.insideBorderRect();
+	if (!area.contains(m_crosshair_pos))
+		return;
+
+	QPainter *p = scenePainter(painter);
+	p->save();
+	const QET::Palette::SheetInk ink = sheetInk();
+	QPen pen(!ink.isNull() ? ink.other
+			       : Diagram::background_color == Qt::darkGray ? QColor(Qt::lightGray)
+									   : QColor(0, 120, 215));
+	pen.setCosmetic(true);
+	pen.setWidthF(0);
+	p->setPen(pen);
+	p->setRenderHint(QPainter::Antialiasing, false);
+		//The crosshair stands on a terminal of the symbol being placed, so
+		//it would hide the symbol's own lines -- a corner and its turn by
+		//Space entirely. It leaves the symbol out.
+	QRectF gap;
+	if (Element *pending = m_diagram->pendingElement())
+		gap = pending->sceneBoundingRect().adjusted(-2, -2, 2, 2);
+	const qreal x = m_crosshair_pos.x(), y = m_crosshair_pos.y();
+	if (gap.isNull() || y < gap.top() || y > gap.bottom()) {
+		p->drawLine(QLineF(area.left(), y, area.right(), y));
+	} else {
+		p->drawLine(QLineF(area.left(), y, gap.left(), y));
+		p->drawLine(QLineF(gap.right(), y, area.right(), y));
+	}
+	if (gap.isNull() || x < gap.left() || x > gap.right()) {
+		p->drawLine(QLineF(x, area.top(), x, area.bottom()));
+	} else {
+		p->drawLine(QLineF(x, area.top(), x, gap.top()));
+		p->drawLine(QLineF(x, gap.bottom(), x, area.bottom()));
+	}
+	p->restore();
+	drawPointer(p);
+}
+
+/**
+	@brief DiagramView::drawBackground
+	Reimplemented from PaletteGraphicsView: over the folio background, the
+	cell lines when they are shown. Dashed and faint, so they do not read
+	as conductors, and under every item.
+	@param painter
+	@param rect
+*/
+void DiagramView::drawBackground(QPainter *painter, const QRectF &rect)
+{
+	PaletteGraphicsView::drawBackground(painter, rect);
+
+	const BorderTitleBlock &border = m_diagram->border_and_titleblock;
+	if (!m_cell_lines_shown || !border.borderIsDisplayed()) {
+		return;
+	}
+
+		//Where the border draws its cells, whether or not the other
+		//header is displayed
+	const QPointF origin(Diagram::margin + border.rowsHeaderWidth(),
+			     Diagram::margin + border.columnsHeaderHeight());
+	const qreal right = origin.x() + border.columnsCount() * border.columnsWidth();
+	const qreal bottom = origin.y() + border.rowsCount() * border.rowsHeight();
+
+	QPainter *p = scenePainter(painter);
+	p->save();
+	p->setRenderHint(QPainter::Antialiasing, false);
+	QColor color = QET::Palette::gridDotColor(Diagram::background_color,
+						  invertsLightness());
+	color.setAlpha(70);
+	QPen pen(color, 1, Qt::DashLine);
+	pen.setCosmetic(true);
+	p->setPen(pen);
+
+	if (border.columnsAreDisplayed()) {
+		for (int i = 1 ; i < border.columnsCount() ; ++i) {
+			const qreal x = origin.x() + i * border.columnsWidth();
+			if (x >= rect.left() && x <= rect.right()) {
+				p->drawLine(QPointF(x, origin.y()), QPointF(x, bottom));
+			}
+		}
+	}
+	if (border.rowsAreDisplayed()) {
+		for (int i = 1 ; i < border.rowsCount() ; ++i) {
+			const qreal y = origin.y() + i * border.rowsHeight();
+			if (y >= rect.top() && y <= rect.bottom()) {
+				p->drawLine(QPointF(origin.x(), y), QPointF(right, y));
+			}
+		}
+	}
+	p->restore();
+}
+
+/**
+	@brief DiagramView::setCellRulersShown
+	Show or hide the rulers that keep the column numbers and the row
+	letters of the folio border in sight along the edges of this view.
+	@param shown
+*/
+void DiagramView::setCellRulersShown(bool shown)
+{
+	m_cell_rulers_shown = shown;
+	updateCellRulers();
+}
+
+/**
+	@brief DiagramView::updateCellRulers
+	Show each ruler when the rulers are wanted, the folio shows the
+	matching header and that header is not already wholly in sight, and
+	give it room in the margins of the view. The drawing does not move on
+	screen when a ruler comes or goes: the ruler covers or uncovers the
+	edge of the viewport, as if it lay over it.
+*/
+void DiagramView::updateCellRulers()
+{
+	const BorderTitleBlock &border = m_diagram->border_and_titleblock;
+	const QRectF in_sight = mapToScene(viewport()->rect()).boundingRect();
+	const QRectF columns = border.columnsRect();
+	const QRectF rows = border.rowsRect();
+	const bool top = m_cell_rulers_shown
+			 && border.borderIsDisplayed() && border.columnsAreDisplayed()
+			 && (columns.top() < in_sight.top() || columns.bottom() > in_sight.bottom());
+	const bool side = m_cell_rulers_shown
+			  && border.borderIsDisplayed() && border.rowsAreDisplayed()
+			  && (rows.left() < in_sight.left() || rows.right() > in_sight.right());
+	const int thickness = m_top_ruler->thickness();
+
+	m_top_ruler->setVisible(top);
+	m_side_ruler->setVisible(side);
+	m_side_ruler->setLeadingSpace(top ? thickness : 0);
+
+	const QMargins margins(side ? thickness : 0, top ? thickness : 0, 0, 0);
+	if (margins != viewportMargins()) {
+		const QPointF origin = mapToScene(viewport()->rect().center());
+		const QPoint before = viewport()->mapToGlobal(mapFromScene(origin));
+		setViewportMargins(margins);
+		const QPoint moved = viewport()->mapToGlobal(mapFromScene(origin)) - before;
+		horizontalScrollBar()->setValue(horizontalScrollBar()->value() + moved.x());
+		verticalScrollBar()->setValue(verticalScrollBar()->value() + moved.y());
+	}
+	placeCellRulers();
+	m_top_ruler->update();
+	m_side_ruler->update();
+}
+
+/**
+	@brief DiagramView::placeCellRulers
+	Lay the rulers along the top and the left edges of the viewport, the
+	side ruler covering the corner too when both are shown.
+*/
+void DiagramView::placeCellRulers()
+{
+	if (!m_top_ruler) {
+		return;
+	}
+	const QRect viewport_rect = viewport()->geometry();
+	const int thickness = m_top_ruler->thickness();
+	const int corner = m_top_ruler->isHidden() ? 0 : thickness;
+	m_top_ruler->setGeometry(viewport_rect.left(), viewport_rect.top() - thickness,
+				 viewport_rect.width(), thickness);
+	m_side_ruler->setGeometry(viewport_rect.left() - thickness, viewport_rect.top() - corner,
+				  thickness, viewport_rect.height() + corner);
+}
+
+/**
+	@brief DiagramView::viewportEvent
+	Keep the rulers along the viewport when it resizes, which it also does
+	without the view resizing, when the scroll bars come and go.
+	@param event
+	@return what QGraphicsView::viewportEvent() returns
+*/
+bool DiagramView::viewportEvent(QEvent *event)
+{
+	if (event->type() == QEvent::Resize) {
+		placeCellRulers();
+	}
+	if (event->type() == QEvent::Leave) {
+		hideCrosshair();
+		m_pointer = Pointer::System;
+	}
+	return PaletteGraphicsView::viewportEvent(event);
+}
+
+/**
+	@brief DiagramView::paintEvent
+	Reimplemented from QGraphicsView
+	@param event
+*/
+void DiagramView::paintEvent(QPaintEvent *event)
+{
+	PaletteGraphicsView::paintEvent(event);
+
+		//Every way of zooming ends in a repaint
+	if (transform().m11() != m_shown_zoom) {
+		m_shown_zoom = transform().m11();
+		emit zoomChanged(m_shown_zoom);
+	}
+
+		//Scrolling and zooming both repaint the viewport: follow them.
+		//Showing or hiding a ruler resizes the viewport, which cannot be
+		//done while it paints.
+	if (viewportTransform() != m_rulers_transform) {
+		m_rulers_transform = viewportTransform();
+		m_top_ruler->update();
+		m_side_ruler->update();
+		if (m_cell_rulers_shown) {
+			QMetaObject::invokeMethod(this, &DiagramView::updateCellRulers,
+						  Qt::QueuedConnection);
+		}
+	}
+
+	if (m_free_rubberbanding && m_free_rubberband.count() >= 3)
+	{
+		QPainter painter(viewport());
+		painter.setRenderHint(QPainter::Antialiasing);
+		QPen pen(Qt::darkGreen);
+		pen.setWidth(1);
+		painter.setPen(pen);
+		QColor color(Qt::darkGreen);
+		color.setAlpha(50);
+		QBrush brush(color);
+		painter.setBrush(brush);
+		painter.drawPolygon(mapFromScene(m_free_rubberband));
+	}
+}
+
+/**
+	Switch to visualisation mode if the user is pressing Ctrl and Shift.
+	@return true if the view was switched to visualisation mode, false
+	otherwise.
+*/
+bool DiagramView::switchToVisualisationModeIfNeeded(QInputEvent *e) {
+	if (isCtrlShifting(e) && !selectedItemHasFocus()) {
+		if (dragMode() != QGraphicsView::ScrollHandDrag) {
+			setVisualisationMode();
+			m_ctrl_shift_panning = true;
+			return(true);
+		}
+	}
+	return(false);
+}
+
+/**
+	Switch back to selection mode if the user is not pressing Ctrl and Shift.
+	@return true if the view was switched to selection mode, false
+	otherwise.
+*/
+bool DiagramView::switchToSelectionModeIfNeeded(QInputEvent *e) {
+	if (!selectedItemHasFocus() && !isCtrlShifting(e)) {
+		setSelectionMode();
+		return(true);
+	}
+	return(false);
+}
+
+/**
+	@return true if the user is pressing Ctrl and Shift simultaneously.
+*/
+bool DiagramView::isCtrlShifting(QInputEvent *e) {
+	bool result = false;
+	// note: QInputEvent::modifiers and QKeyEvent::modifiers() do not return the
+	// same values, hence the casts
+	if (e -> type() == QEvent::KeyPress || e -> type() == QEvent::KeyRelease) {
+		if (QKeyEvent *ke = static_cast<QKeyEvent *>(e)) {
+			result = (ke -> modifiers() == (Qt::ControlModifier | Qt::ShiftModifier));
+		}
+	} else if (e -> type() >= QEvent::MouseButtonPress && e -> type() <= QEvent::MouseMove) {
+		if (QMouseEvent *me = static_cast<QMouseEvent *>(e)) {
+			result = (me -> modifiers() == (Qt::ControlModifier | Qt::ShiftModifier));
+		}
+	}
+	return(result);
+}
+
+/**
+	@return true if there is a selected item and that item has the focus.
+*/
+bool DiagramView::selectedItemHasFocus()
+{
+	return(
+		m_diagram -> hasFocus() &&
+		m_diagram -> focusItem() &&
+		m_diagram -> focusItem() -> isSelected()
+	);
+}
+
+/**
+	@return true if the item with the focus is a text being edited in
+	place, whatever kind of text it is.
+*/
+bool DiagramView::textIsBeingEdited() const
+{
+	const auto *text = dynamic_cast<QGraphicsTextItem *>(m_diagram -> focusItem());
+	return(text && (text -> textInteractionFlags() & Qt::TextEditable));
+}
+
+/**
+	@brief DiagramView::editSelection
+	Edit the selected item if he can be edited and if only  one item is selected
+*/
+void DiagramView::editSelection()
+{
+	if (m_diagram -> isReadOnly()) return;
+
+		//Several elements and nothing else: edit their information together (#1439)
+	const QList<QGraphicsItem *> selection =
+			MultiElementInfoWidget::withoutOwnTexts(m_diagram -> selectedItems());
+	if (selection.size() > 1)
+	{
+		bool only_elements = true;
+		for (QGraphicsItem *qgi : selection) {
+			if (qgi->type() != Element::Type) {
+				only_elements = false;
+				break;
+			}
+		}
+		const QList<Element *> elements = MultiElementInfoWidget::informationElements(selection);
+		if (only_elements && elements.size() > 1)
+		{
+			PropertiesEditorDialog dialog(
+						new MultiElementInfoWidget(elements, selection.size() - elements.size()),
+						this);
+			dialog.exec();
+		}
+		return;
+	}
+	if (selection.size() != 1) return;
+
+	QGraphicsItem *item = selection.first();
+
+		//We use dynamic_cast instead of qgraphicsitem_cast for QetGraphicsItem
+		//because they haven't got their own type().
+		//Use qgraphicsitem_cast will have weird behavior for this class.
+	if (IndependentTextItem *iti = qgraphicsitem_cast<IndependentTextItem *>(item))
+		iti -> edit();
+	else if (QetGraphicsItem *qgi = dynamic_cast<QetGraphicsItem *> (item))
+		qgi -> editProperty();
+	else if (Conductor *c = qgraphicsitem_cast<Conductor *>(item))
+		c -> editProperty();
+}
+
+/**
+	@brief DiagramView::setEventInterface
+	Set an event interface to diagram view.
+	If diagram view already have an event interface, he delete it before.
+	Diagram view take ownership of event interface and delete it when event interface is finish
+*/
+void DiagramView::setEventInterface(DVEventInterface *event_interface)
+{
+	if (m_event_interface) delete m_event_interface;
+	m_event_interface = event_interface;
+	connect(m_event_interface, &DVEventInterface::finish, this, [this](){delete this->m_event_interface; this->m_event_interface = nullptr;}, Qt::QueuedConnection);
+}
+
+/**
+	@brief DiagramView::contextMenuActions
+	@return a list of actions currently available for a context menu.
+
+*/
+QList<QAction *> DiagramView::contextMenuActions() const
+{
+	QList<QAction *> list;
+	if (QETDiagramEditor *qde = diagramEditor())
+	{
+		const QList<QGraphicsItem *> selected_items = m_diagram->selectedItems();
+		if (selected_items.isEmpty())
+		{
+				//Drawing comes first. The row and column actions change
+				//the folio's layout and are rarely wanted, so they sit one
+				//level down where a stray click cannot reach them.
+			list << m_paste_here;
+			list << m_separators.at(0);
+			list << qde->m_insert_last_element;
+			list << m_folio_report_menu->menuAction();
+			list << qde->m_add_item_menu->menuAction();
+			list << m_separators.at(1);
+			list << qde->m_edit_diagram_properties;
+			list << qde->m_row_column_menu->menuAction();
+		}
+		else
+		{
+			list << qde->m_cut;
+			list << qde->m_copy;
+			list << m_multi_paste;
+			list << qde->m_copy_text_format;
+			list << qde->m_apply_text_format;
+			list << qde->m_paste_element_info;
+			list << m_separators.at(0);
+			list << m_create_template; // Add the create template action
+				//Disabled, and so left out below, unless a selected element
+				//has both a manufacturer and a manufacturer reference.
+			m_generate_cabinet_thumbnail->setEnabled(std::any_of(
+				selected_items.cbegin(), selected_items.cend(),
+				[](QGraphicsItem *qgi) {
+					const Element *element = qgraphicsitem_cast<Element *>(qgi);
+					return element && hasCabinetInfo(element->elementInformations());
+				}));
+			list << m_generate_cabinet_thumbnail;
+			list << qde->m_conductor_reset;
+			list << m_separators.at(1);
+			list << qde->m_selection_actions_group.actions();
+			list << qde->m_align_menu->menuAction();
+			list << m_separators.at(2);
+			list << qde->m_depth_action_group->actions();
+		}
+
+			//Remove from the context menu the actions which are disabled,
+			//and the submenus in which every action is disabled.
+		const QList<QAction *> actions = list;
+		for(QAction *action : actions)
+		{
+			bool usable = action->isEnabled();
+			if (usable && action->menu())
+			{
+				const QList<QAction *> sub_actions = action->menu()->actions();
+				usable = std::any_of(sub_actions.cbegin(), sub_actions.cend(),
+									 [](QAction *a) { return a->isEnabled(); });
+			}
+			if (!usable) {
+				list.removeAll(action);
+			}
+		}
+	}
+
+	return list;
+}
+
+/**
+	@brief DiagramView::cableCoreMenu
+	The menu of one single core, opened where he right-clicked: taking
+	that core off its line, which is the exact opposite of the menu the
+	free cores offer in the panel, of putting one down on a line.
+
+	Only the colour labels count -- a right-click anywhere else on the
+	line is still about the line itself, and opens the folio's own menu
+	instead. Nothing is changed until he picks the entry, so opening the
+	menu and clicking it away leaves everything standing as it was.
+	@param menu_pos where he right-clicked, in view coordinates
+	@param global_pos the same place, in global coordinates
+	@return true when that menu was the one to open
+*/
+bool DiagramView::cableCoreMenu(const QPoint &menu_pos, const QPoint &global_pos)
+{
+	if (!m_diagram || m_diagram->isReadOnly()) return false;
+
+	const QPointF scene_pos = mapToScene(menu_pos);
+	auto *part = qgraphicsitem_cast<CablePart *>(
+		m_diagram->itemAt(scene_pos, transform()));
+	if (!part) return false;
+
+	const int core = part->coreAt(scene_pos);
+	if (core < 0) return false;
+
+		//The line he takes a core off is the one on the sheet, so it is
+		//also the one the panel beside it edits from now on.
+	if (!part->isSelected()) {
+		m_diagram->clearSelection();
+		part->setSelected(true);
+	}
+
+	QMenu menu(this);
+	QAction *take = menu.addAction(tr("Remove this core from the line"));
+	take->setIcon(QET::Icons::Cable);
+
+	if (menu.exec(global_pos) == take) {
+		part->takeCoreOffLine(core);
+	}
+	return true;
+}
+
+/**
+	@brief DiagramView::contextMenuEvent
+	@param e
+*/
+void DiagramView::contextMenuEvent(QContextMenuEvent *e)
+{
+		//A line which waits for the click putting one of its cores down
+		//takes this very event: the right button ends that wait and no
+		//menu opens out of a click meant to say "no". Being asked here
+		//first is what makes it work for every way a menu can come up --
+		//the gesture ring's own menu, the platform's (with the press on
+		//X11, with the release on Windows) and the one raised from the
+		//keyboard -- so the menu never has to be closed after the fact.
+	if (CablePart::cancelPlacing()) {
+		e->accept();
+		return;
+	}
+
+	QPoint menu_pos = e->pos();
+	QPoint menu_global_pos = e->globalPos();
+
+		//A context menu raised from the keyboard (the Menu key, or
+		//Shift+F10) carries no useful position: Qt does not aim it at the
+		//selection. Two things then went wrong. QGraphicsView handed the
+		//event to whichever item held focus, which answered with its own
+		//generic Undo/Cut/Copy menu and accepted it, so the folio's real
+		//menu was never built; and had it got past that, itemAt() below
+		//would have looked up an unrelated point.
+		//
+		//So a keyboard-raised menu is built here directly rather than being
+		//offered to the items first, and aimed at the selection when there
+		//is one. The keyboard then gets the folio's menu, which is what a
+		//right-click gets.
+	const bool from_keyboard = e->reason() == QContextMenuEvent::Keyboard;
+
+		//With gestures on, a right press is tracked by mousePressEvent and
+		//the menu opened on release; the platform's own event (sent on press
+		//on X11, on release on Windows) would open it a second time.
+	if (!from_keyboard && m_swallow_native_menu && !m_menu_from_gesture) {
+		e->accept();
+		return;
+	}
+
+	if (from_keyboard)
+	{
+			//Aim at the selection when there is one, so the menu appears
+			//beside what it acts on. With nothing selected there is nothing
+			//to aim at, so use the middle of the view -- the folio's own
+			//menu is still the right menu to show.
+		const auto selection = m_diagram->selectedItems();
+		if (!selection.isEmpty())
+		{
+			QRectF selection_rect;
+			for (auto *item : selection) {
+				selection_rect |= item->sceneBoundingRect();
+			}
+			menu_pos = mapFromScene(selection_rect.center());
+		}
+		else
+		{
+			menu_pos = viewport()->rect().center();
+		}
+		menu_global_pos = viewport()->mapToGlobal(menu_pos);
+	}
+	else
+	{
+			//A colour label standing on a line asks about that one core
+			//rather than about the whole sheet: the very opposite of the
+			//menu the free cores offer, of putting one down on a line.
+			//It comes first, so that a core drawn over something else
+			//still belongs to its own line.
+		if (cableCoreMenu(menu_pos, menu_global_pos)) {
+			e->accept();
+			return;
+		}
+
+		QGraphicsView::contextMenuEvent(e);
+		if(e->isAccepted())
+		return;
+
+		if (auto qgi = m_diagram->itemAt(mapToScene(menu_pos), transform()))
+		{
+			if (!qgi->isSelected()) {
+				m_diagram->clearSelection();
+			}
+
+				// At this step qgi can be deleted for example if qgi is a QetGraphicsHandlerItem.
+				// When we call clearSelection the parent item of the handler
+				// is deselected and so delete all handlers, in this case,
+				// qgi become a dangling pointer.
+				// we need to call again itemAt.
+			if (auto item_ = m_diagram->itemAt(mapToScene(menu_pos), transform())) {
+				item_->setSelected(true);
+			}
+		}
+	}
+
+	if (m_diagram->selectedItems().isEmpty())
+	{
+		m_paste_here_pos = menu_pos;
+		m_paste_here->setEnabled(Diagram::clipboardMayContainDiagram());
+		updateFolioReportMenu();
+	}
+
+	QList <QAction *> list = contextMenuActions();
+	if(!list.isEmpty())
+	{
+		QMenu *context_menu = new QMenu(this);
+		context_menu->addActions(list);
+		context_menu->popup(menu_global_pos);
+		e->accept();
+	}
+}
+
+/**
+	@brief DiagramView::updateFolioReportMenu
+	Fill the "Renvoi de folio" submenu of the context menu with the folio
+	report elements this project already uses -- the ones in its embedded
+	collection -- and the coming and going arrows of the common collection,
+	each name listed once. An entry places its element where the context
+	menu was opened. Left empty, and so hidden, on a read-only diagram.
+*/
+void DiagramView::updateFolioReportMenu()
+{
+	m_folio_report_menu->clear();
+	if (m_diagram->isReadOnly()) {
+		return;
+	}
+
+	QList<ElementsLocation> locations;
+	QETProject *project = m_diagram->project();
+	XmlElementCollection *collection =
+		project ? project->embeddedElementCollection() : nullptr;
+	QSet<QString> names;
+	if (collection)
+	{
+		const QDomNodeList definitions =
+			collection->root().elementsByTagName(QStringLiteral("definition"));
+		for (int i = 0 ; i < definitions.count() ; ++i)
+		{
+			const QDomElement definition = definitions.at(i).toElement();
+			const QString link_type = definition.attribute(QStringLiteral("link_type"));
+			if (link_type != QLatin1String("next_report")
+			    && link_type != QLatin1String("previous_report")) {
+				continue;
+			}
+			const ElementsLocation location =
+				collection->domToLocation(definition.parentNode().toElement());
+				//A project keeps dated copies of the same element
+				//(01previous_folio-20140521204742.elmt), so list each name once.
+			if (!location.exist() || names.contains(location.name())) {
+				continue;
+			}
+			names.insert(location.name());
+			locations << location;
+		}
+	}
+
+		//Always offer both standard arrows: placing one copies it into the
+		//embedded collection, and must not hide the other one.
+	for (const auto path : {
+		 "common://10_electric/10_allpole/100_folio_referencing/01coming_arrow.elmt",
+		 "common://10_electric/10_allpole/100_folio_referencing/02going_arrow.elmt"})
+	{
+		const ElementsLocation location(QString::fromLatin1(path));
+		if (location.exist() && !names.contains(location.name())) {
+			names.insert(location.name());
+			locations << location;
+		}
+	}
+
+	std::sort(locations.begin(), locations.end(),
+		  [](const ElementsLocation &a, const ElementsLocation &b) {
+		return a.name().localeAwareCompare(b.name()) < 0;
+	});
+
+	for (const ElementsLocation &location : std::as_const(locations))
+	{
+		QAction *action = m_folio_report_menu->addAction(location.icon(),
+								 location.name());
+		connect(action, &QAction::triggered, this, [this, location]() {
+			startElementPlacement(location, mapToScene(m_paste_here_pos));
+		});
+	}
+}
+
+/**
+ * @brief DiagramView::createTemplateFromSelection
+ * Triggered from the context menu to create a new template (macro) from the current selection.
+ */
+void DiagramView::createTemplateFromSelection()
+{
+	QList<QGraphicsItem *> selected_elements = m_diagram->selectedItems();
+
+	if (selected_elements.isEmpty()) {
+		return;
+	}
+
+	qDebug() << "Ready to create a template from" << selected_elements.size() << "elements!";
+
+	// Open the dialog to let the user select where to save the .qetmak file
+	ElementsLocation template_location = ElementDialog::getSaveTemplateLocation(this);
+
+	// Check if the user clicked 'Cancel' or closed the window
+	if (template_location.isNull()) {
+		qDebug() << "User canceled template creation.";
+		return;
+	}
+
+	qDebug() << "Will save template to:" << template_location.path();
+
+	QDomDocument content_xml = m_diagram->toXml(false, true);
+
+	QDomDocument macro_doc;
+	QDomElement root = macro_doc.createElement("qet_macro");
+	macro_doc.appendChild(root);
+
+	QDomElement collection_node = macro_doc.createElement("collection");
+	root.appendChild(collection_node);
+
+	QSet<QString> processed_types;
+
+	QDomNodeList element_nodes = content_xml.elementsByTagName("element");
+	for (int i = 0; i < element_nodes.count(); ++i) {
+		QDomElement elmt_node = element_nodes.at(i).toElement();
+		QString old_type = elmt_node.attribute("type");
+
+		if (old_type.isEmpty()) continue;
+
+		ElementsLocation loc(old_type, m_diagram->project());
+
+		QString clean_path = loc.collectionPath(false);
+
+		QString new_type = "macro://" + clean_path;
+		elmt_node.setAttribute("type", new_type);
+
+		if (!processed_types.contains(clean_path)) {
+			processed_types.insert(clean_path);
+
+			QDomElement definition_node = loc.xml();
+
+			if (!definition_node.isNull()) {
+				QDomElement collection_elmt = macro_doc.createElement("element");
+				collection_elmt.setAttribute("path", clean_path);
+
+				QDomNode imported_def = macro_doc.importNode(definition_node, true);
+				collection_elmt.appendChild(imported_def);
+
+				collection_node.appendChild(collection_elmt);
+			} else {
+				qDebug() << "Warning: could not load XML definition for" << old_type;
+			}
+		}
+	}
+
+	QDomElement content_container = macro_doc.createElement("diagram_content");
+	root.appendChild(content_container);
+
+	QDomNode imported_node = macro_doc.importNode(content_xml.documentElement(), true);
+	content_container.appendChild(imported_node);
+
+	QString full_path = template_location.fileSystemPath();
+
+	QDir().mkpath(QFileInfo(full_path).absolutePath());
+
+	QFile file(full_path);
+	if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+		QTextStream out(&file);
+		out << macro_doc.toString(4);
+		file.close();
+		qDebug() << "Template successfully saved to:" << full_path;
+
+			// List it right away, not only after the collections are reloaded
+		for (QETDiagramEditor *qde : QETApp::diagramEditors())
+			qde->templateSaved(template_location);
+
+		QMessageBox::information(this, tr("Registered template"),
+								 tr("The template has been successfully saved as :\n%1").arg(full_path));
+	} else {
+		qDebug() << "Error: Could not open file for writing:" << full_path;
+		QMessageBox::critical(this, tr("Error"), tr("The file could not be written."));
+	}
+}
+
+/**
+	@brief hasCabinetInfo
+	@return true if @a infos has both a manufacturer and a manufacturer
+	reference, the two values a cabinet thumbnail shows.
+*/
+static bool hasCabinetInfo(const DiagramContext &infos)
+{
+	return !infos[QETInformation::ELMT_MANUFACTURER].toString().trimmed().isEmpty()
+		&& !infos[QETInformation::ELMT_MANUFACTURER_REF].toString().trimmed().isEmpty();
+}
+
+/**
+	@brief cabinetThumbnailDefinition
+	@return the definition of a thumbnail element, a 120x30 frame showing
+	the manufacturer and the manufacturer reference in a dynamic text.
+	The two values are also stored in the definition's element
+	information, so the thumbnail shows them as soon as it is placed.
+*/
+static QDomElement cabinetThumbnailDefinition(QDomDocument &doc,
+											  const QString &display_name,
+											  const QString &manufacturer,
+											  const QString &reference)
+{
+	QDomElement definition = doc.createElement(QStringLiteral("definition"));
+	definition.setAttribute(QStringLiteral("version"), QetVersion::currentVersion().toString());
+	definition.setAttribute(QStringLiteral("type"), QStringLiteral("element"));
+	definition.setAttribute(QStringLiteral("link_type"), QStringLiteral("thumbnail"));
+	definition.setAttribute(QStringLiteral("width"), 120);
+	definition.setAttribute(QStringLiteral("height"), 30);
+	definition.setAttribute(QStringLiteral("hotspot_x"), 60);
+	definition.setAttribute(QStringLiteral("hotspot_y"), 15);
+	doc.appendChild(definition);
+
+	QDomElement uuid = doc.createElement(QStringLiteral("uuid"));
+	uuid.setAttribute(QStringLiteral("uuid"), QUuid::createUuid().toString());
+	definition.appendChild(uuid);
+
+	NamesList names;
+	names.addName(QStringLiteral("en"), display_name);
+	definition.appendChild(names.toXml(doc));
+
+	QDomElement informations = doc.createElement(QStringLiteral("elementInformations"));
+	DiagramContext infos;
+	infos.addValue(QETInformation::ELMT_MANUFACTURER, manufacturer);
+	infos.addValue(QETInformation::ELMT_MANUFACTURER_REF, reference);
+	infos.toXml(informations, QStringLiteral("elementInformation"));
+	definition.appendChild(informations);
+
+	QDomElement description = doc.createElement(QStringLiteral("description"));
+
+	QDomElement rect = doc.createElement(QStringLiteral("rect"));
+	rect.setAttribute(QStringLiteral("x"), -60);
+	rect.setAttribute(QStringLiteral("y"), -15);
+	rect.setAttribute(QStringLiteral("width"), 120);
+	rect.setAttribute(QStringLiteral("height"), 30);
+	rect.setAttribute(QStringLiteral("rx"), 0);
+	rect.setAttribute(QStringLiteral("ry"), 0);
+	rect.setAttribute(QStringLiteral("style"),
+					  QStringLiteral("line-style:normal;line-weight:normal;filling:none;color:black"));
+	rect.setAttribute(QStringLiteral("antialias"), QStringLiteral("false"));
+	description.appendChild(rect);
+
+	QDomElement text = doc.createElement(QStringLiteral("dynamic_text"));
+	text.setAttribute(QStringLiteral("x"), -57);
+	text.setAttribute(QStringLiteral("y"), -14);
+	text.setAttribute(QStringLiteral("z"), 1);
+	text.setAttribute(QStringLiteral("text_width"), 114);
+	text.setAttribute(QStringLiteral("Halignment"), QStringLiteral("AlignLeft"));
+	text.setAttribute(QStringLiteral("Valignment"), QStringLiteral("AlignTop"));
+	text.setAttribute(QStringLiteral("frame"), QStringLiteral("false"));
+	text.setAttribute(QStringLiteral("rotation"), 0);
+	text.setAttribute(QStringLiteral("keep_visual_rotation"), QStringLiteral("false"));
+	text.setAttribute(QStringLiteral("text_from"), QStringLiteral("CompositeText"));
+	text.setAttribute(QStringLiteral("uuid"), QUuid::createUuid().toString());
+	text.setAttribute(QStringLiteral("font"), QETApp::dynamicTextsItemFont(7).toString());
+
+	QDomElement text_cache = doc.createElement(QStringLiteral("text"));
+	text_cache.appendChild(doc.createTextNode(manufacturer + QLatin1Char('\n') + reference));
+	text.appendChild(text_cache);
+
+	QDomElement composite_text = doc.createElement(QStringLiteral("composite_text"));
+	composite_text.appendChild(doc.createTextNode(QStringLiteral("%{manufacturer}\n%{manufacturer_reference}")));
+	text.appendChild(composite_text);
+
+	description.appendChild(text);
+	definition.appendChild(description);
+	return definition;
+}
+
+/**
+	@brief DiagramView::generateCabinetThumbnails
+	Context menu action (discussion #602). For every selected element with
+	both a manufacturer and a manufacturer reference, add a thumbnail
+	element showing them to the folder "Cabinet thumbnails" of this
+	project's embedded collection, from where it can be placed on a
+	cabinet layout folio like any other element. A device that already
+	has a thumbnail there is skipped, so placing it several times does
+	not pile up copies.
+*/
+void DiagramView::generateCabinetThumbnails()
+{
+	QETProject *project = m_diagram->project();
+	if (!project || project->isReadOnly()) {
+		return;
+	}
+	XmlElementCollection *collection = project->embeddedElementCollection();
+	if (!collection) {
+		return;
+	}
+
+	const QString dir_name = QStringLiteral("Cabinet thumbnails");
+	const QString dir_path = QStringLiteral("import/") + dir_name;
+	if (!collection->exist(dir_path))
+	{
+		NamesList dir_names;
+		dir_names.addName(QStringLiteral("en"), dir_name);
+			//Stored per language, like an element's names: not tr(), which
+			//would store the interface's language under "fr"
+		dir_names.addName(QStringLiteral("fr"), QStringLiteral("Vignettes d'armoire"));
+		if (!collection->createDir(QStringLiteral("import"), dir_name, dir_names)) {
+			return;
+		}
+	}
+
+	QStringList existing = collection->elementsNames(collection->directory(dir_path));
+	int created = 0;
+	const QList<QGraphicsItem *> selected_items = m_diagram->selectedItems();
+	for (QGraphicsItem *qgi : selected_items)
+	{
+		const Element *element = qgraphicsitem_cast<Element *>(qgi);
+		if (!element || !hasCabinetInfo(element->elementInformations())) {
+			continue;
+		}
+		const DiagramContext infos = element->elementInformations();
+		const QString manufacturer = infos[QETInformation::ELMT_MANUFACTURER].toString().trimmed();
+		const QString reference = infos[QETInformation::ELMT_MANUFACTURER_REF].toString().trimmed();
+
+			//The display name keeps the values as typed; the file name
+			//cannot hold characters such as '/', which would be read as
+			//a folder.
+		const QString display_name = manufacturer + QLatin1Char(' ') + reference;
+		const QString file_name = QET::stringToFileName(display_name) + QStringLiteral(".elmt");
+		if (existing.contains(file_name)) {
+			continue;
+		}
+
+		QDomDocument doc;
+		const QDomElement definition = cabinetThumbnailDefinition(doc, display_name, manufacturer, reference);
+		if (collection->addElementDefinition(dir_path, file_name, definition))
+		{
+			existing << file_name;
+			++created;
+		}
+	}
+
+	if (created) {
+		project->setModified(true);
+	}
+}
+
+/**
+	@brief DiagramView::addGenericDevice
+	Edit > Add > Generic device. Open the wizard; on Finish, write the box
+	it describes as an ordinary symbol into the folder "Generic devices" of
+	this project's embedded collection and put it on the cursor, ready to
+	be placed. The file name carries a short uuid, so two devices given the
+	same name never overwrite each other.
+*/
+void DiagramView::addGenericDevice()
+{
+	QETProject *project = m_diagram ? m_diagram->project() : nullptr;
+	if (!project || project->isReadOnly() || m_diagram->isReadOnly()) {
+		return;
+	}
+	XmlElementCollection *collection = project->embeddedElementCollection();
+	if (!collection) {
+		return;
+	}
+
+		//Measured with the fonts the folio draws with, so names fit
+	const GenericDevice::Fonts fonts{QETApp::diagramTextsFont(7),
+					 QETApp::dynamicTextsItemFont(9)};
+	GenericDeviceWizard wizard(fonts, this);
+	if (wizard.exec() != QDialog::Accepted) {
+		return;
+	}
+	const GenericDevice::Spec spec = wizard.spec();
+
+	const QString dir_name = QStringLiteral("Generic devices");
+	const QString dir_path = QStringLiteral("import/") + dir_name;
+	if (!collection->exist(dir_path))
+	{
+		NamesList dir_names;
+		dir_names.addName(QStringLiteral("en"), dir_name);
+			//Stored per language, like an element's names: not tr(), which
+			//would store the interface's language under "en"
+		dir_names.addName(QStringLiteral("fr"), QStringLiteral("Appareils génériques"));
+		if (!collection->createDir(QStringLiteral("import"), dir_name, dir_names)) {
+			return;
+		}
+	}
+
+	const QString file_name = QET::stringToFileName(spec.name)
+				  + QLatin1Char('-')
+				  + QUuid::createUuid().toString(QUuid::Id128).left(8)
+				  + QStringLiteral(".elmt");
+	QDomDocument doc;
+	const QDomElement definition = GenericDevice::toDefinition(
+				spec, fonts, doc, QetVersion::currentVersion().toString());
+	if (!collection->addElementDefinition(dir_path, file_name, definition)) {
+		return;
+	}
+	project->setModified(true);
+
+	const ElementsLocation location(dir_path + QLatin1Char('/') + file_name, project);
+	startElementPlacement(location, defaultPlacementPos());
+}
+
+/**
+	@brief DiagramView::addTerminal
+	Ask the strip, the first number, the colour, the type and the
+	cross-section of the terminals to place, then place them one click
+	after the other: each one gets the next number, goes into the strip
+	(made when the project has none of that name) and is undone with its
+	placement.
+*/
+void DiagramView::addTerminal()
+{
+	QETProject *project = m_diagram ? m_diagram->project() : nullptr;
+	if (!project || project->isReadOnly() || m_diagram->isReadOnly()) {
+		return;
+	}
+	const ElementsLocation location = FaseTerminal::symbol(project);
+	if (!location.exist()) {
+		return;
+	}
+
+		//The last terminals placed give the next ones their colour,
+		//type and cross-section
+	static FaseTerminal::Settings last;
+	FaseTerminal::Settings settings = last;
+	if (settings.strip.isEmpty()) {
+		const QStringList strips = FaseTerminal::stripNames(project);
+		settings.strip = strips.isEmpty() ? QStringLiteral("X1")
+										  : strips.first();
+	}
+	settings.number = FaseTerminal::nextNumber(project, settings.strip);
+
+	QDialog dialog(this);
+	dialog.setWindowTitle(tr("Place terminals"));
+	auto *layout = new QVBoxLayout(&dialog);
+	auto *hint = new QLabel(tr("Click on the folio to place each terminal:"
+							   " the number goes up by one each time."
+							   " Right click or Escape ends."), &dialog);
+	hint->setWordWrap(true);
+	layout->addWidget(hint);
+	auto *form = new TerminalSettingsWidget(project, &dialog);
+	form->setSettings(settings);
+	form->setProposeNumbers(true);
+	layout->addWidget(form);
+	auto *buttons = new QDialogButtonBox(
+				QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+	buttons->button(QDialogButtonBox::Ok)->setText(tr("Place"));
+	connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+	layout->addWidget(buttons);
+	if (dialog.exec() != QDialog::Accepted) {
+		return;
+	}
+		//An empty strip: each terminal takes the one on its left
+	last = form->settings();
+
+	if (!startElementPlacement(location, defaultPlacementPos())) {
+		return;
+	}
+	auto *event = dynamic_cast<DiagramEventAddElement *>(
+				m_diagram->eventInterface());
+	if (!event) {
+		return;
+	}
+	auto next = QSharedPointer<FaseTerminal::Settings>::create(last);
+	event->setPrepare([next](Element *element, QUndoCommand *undo) {
+		new FaseTerminal::ChangeCommand(element, *next, undo);
+		bool ok = false;
+		const int number = next->number.toInt(&ok);
+		if (ok) {
+			next->number = QString::number(number + 1);
+		}
+		last.number = next->number;
+	});
+}
+
+/**
+	@return l'editeur de schemas parent ou 0
+*/
+QETDiagramEditor *DiagramView::diagramEditor() const
+{
+	// remonte la hierarchie des widgets
+	QWidget *w = const_cast<DiagramView *>(this);
+	while (w -> parentWidget() && !w -> isWindow()) {
+		w = w -> parentWidget();
+	}
+	// la fenetre est supposee etre un QETDiagramEditor
+	return(qobject_cast<QETDiagramEditor *>(w));
+}
+
+/**
+	@brief DiagramView::mouseDoubleClickEvent
+	@param e
+*/
+void DiagramView::mouseDoubleClickEvent(QMouseEvent *e)
+{
+	if (m_event_interface && m_event_interface -> mouseDoubleClickEvent(e)) return;
+
+		//A drawing tool on the folio has this double-click (see
+		//Diagram::mouseDoubleClickEvent): no folio properties under it.
+	if (m_diagram->eventInterfaceIsRunning() || m_diagram->toolTookLastPress()) {
+		QGraphicsView::mouseDoubleClickEvent(e);
+		return;
+	}
+
+	BorderTitleBlock &bi = m_diagram -> border_and_titleblock;
+
+	//Get the click pos on the diagram
+	QPointF click_pos = viewportTransform().inverted().map(e -> pos());
+
+	if (bi.titleBlockRect().contains(click_pos) || bi.columnsRect().contains(click_pos) || bi.rowsRect().contains(click_pos)) {
+		e->accept();
+		editDiagramProperties();
+		return;
+	}
+	QGraphicsView::mouseDoubleClickEvent(e);
+}

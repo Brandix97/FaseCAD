@@ -1,0 +1,57 @@
+<definition version="0.90" type="element" link_type="simple" width="40" height="60" hotspot_x="22" hotspot_y="30">
+    <uuid uuid="{6848bcdb-a7e6-8045-2082-734dbfac3949}"/>
+    <names>
+        <name lang="ar">عدّاد طاقة فعّالة - وات ساعة متر -</name>
+        <name lang="ca">Mesurador de watt hora</name>
+        <name lang="cs">Činný elektroměr</name>
+        <name lang="da">Watt-timemåler</name>
+        <name lang="de">Wattstundenzähler 3ph.</name>
+        <name lang="el">Μετρητής βατ/ώρα</name>
+        <name lang="en">Watt hour meter</name>
+        <name lang="es">Contador de vatios-hora</name>
+        <name lang="fi">Wattituntimittari</name>
+        <name lang="fr">Compteur d'énergie active Wattheuremètre</name>
+        <name lang="hr">Vat-satni mjerač</name>
+        <name lang="hu">Wattóra mérő</name>
+        <name lang="it">Misuratore di Wh</name>
+        <name lang="ja">電力量計</name>
+        <name lang="ko">전력량계</name>
+        <name lang="mn">Ватт-цаг тоолуур</name>
+        <name lang="nb">Watt-time måler</name>
+        <name lang="nl">Watt uur meter</name>
+        <name lang="nl_BE">Wattuurmeter</name>
+        <name lang="pl">Licznik watogodzin</name>
+        <name lang="pt">Contador de watts-hora</name>
+        <name lang="pt_BR">Medidor de energia ativa</name>
+        <name lang="ro">Contor de watt-oră</name>
+        <name lang="ru">Счетчик ватт-часов</name>
+        <name lang="sk">Watthodinový merač</name>
+        <name lang="sl">Števec vatnih ur</name>
+        <name lang="sr">Мерач ват-часова</name>
+        <name lang="sv">Wattimmätare</name>
+        <name lang="tr">Vat-saat sayacı</name>
+        <name lang="uk">Лічильник ват-годин</name>
+        <name lang="zh">三相瓦时计</name>
+    </names>
+    <description>
+        <line x1="4" y1="-20" x2="4" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="-20" x2="-10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-4" y1="-20" x2="-4" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="10" y1="-20" x2="10" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="15" y="-21.5" z="4" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{c6273b25-dae0-4113-8bf7-29bb12749b73}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-15" y="-15" width="30" height="30" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="false"/>
+        <text text="Wh" x="-10" y="8.33" rotation="0" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="-15" y1="-7" x2="15" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{33064eff-e1af-48fe-887b-ab577ad81ca0}" name="L2" x="-4" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{c5518603-6161-4a2b-be7d-9d45f8157319}" name="L2.1" x="-4" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{a5a22122-75a8-4814-b3d2-5d3247066c46}" name="L1" x="-10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{a1f83453-2a04-444f-a6f1-190c10eb5fec}" name="L1.1" x="-10" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{43ba7e78-26a4-4cb8-9c95-7fd02fa9daa2}" name="L3.1" x="4" y="20" orientation="s" type="Generic"/>
+        <terminal uuid="{afeb6676-ad4b-4f6a-936b-084dad546edd}" name="L3" x="4" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{6ce99a63-094a-4eed-a207-754ee9696a3f}" name="N" x="10" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{65e81e88-b24a-40b7-bd25-034b6e9a8232}" name="N.1" x="10" y="20" orientation="s" type="Generic"/>
+    </description>
+</definition>

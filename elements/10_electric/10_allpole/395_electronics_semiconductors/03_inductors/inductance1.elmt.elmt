@@ -1,0 +1,52 @@
+<definition version="0.100.0" type="element" link_type="simple" width="40" height="30" hotspot_x="20" hotspot_y="9">
+    <uuid uuid="{fc15d858-3cee-e34e-f5f5-8b5a46fc8034}"/>
+    <names>
+        <name lang="ar">ملف حثّي بقلب حديدي</name>
+        <name lang="ca">Inductor de nucli de ferro</name>
+        <name lang="cs">Cívka</name>
+        <name lang="da">Jernkerneinduktor</name>
+        <name lang="de">Induktivität</name>
+        <name lang="el">Επαγωγή</name>
+        <name lang="en">Iron core inductor</name>
+        <name lang="es">Inductor nucleo de áire</name>
+        <name lang="fi">Rautasydäninduktori</name>
+        <name lang="fr">Inductance</name>
+        <name lang="hr">Induktor s željeznom jezgrom</name>
+        <name lang="hu">Vasmagos induktor</name>
+        <name lang="it">Induttanza 1</name>
+        <name lang="ja">鉄心インダクタ</name>
+        <name lang="ko">철심 인덕터</name>
+        <name lang="mn">Төмөр цөмт индуктор</name>
+        <name lang="nb">Jernkjerneinduktor</name>
+        <name lang="nl">Inductor</name>
+        <name lang="nl_BE">Spoel met ijzerkern</name>
+        <name lang="pl">Cewka</name>
+        <name lang="pt">Indutância com núcleo de ferro</name>
+        <name lang="pt_BR">Indutor com núcleo de ferro</name>
+        <name lang="ro">Bobină cu miez de fier</name>
+        <name lang="ru">Катушка индуктивности с железным сердечником</name>
+        <name lang="sk">Induktor so železným jadrom</name>
+        <name lang="sl">Induktor z železnim jedrom</name>
+        <name lang="sr">Индуктор са гвозденим језгром</name>
+        <name lang="sv">Järnkärneinduktor</name>
+        <name lang="tr">Demir çekirdekli indüktör</name>
+        <name lang="uk">Котушка індуктивності з осердям</name>
+        <name lang="zh">电感器1</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="10" y="-12.95" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{87222de2-06fd-46f3-8434-8c3f40e8daaf}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="-10" y="-2.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="-2.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-2.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-2.5" width="5" height="5" start="0" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="10" y1="0" x2="10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-10" y1="0" x2="-10" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{b7f65d7d-6fd3-491f-af4e-80ca5d06bb56}" name="" x="10" y="10" orientation="s" type="Generic"/>
+        <terminal uuid="{bc378751-ae3e-4a17-a561-b6ecfa3f7478}" name="" x="-10" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

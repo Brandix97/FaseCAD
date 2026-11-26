@@ -1,0 +1,58 @@
+<definition version="0.100.0" type="element" link_type="simple" width="100" height="130" hotspot_x="50" hotspot_y="65">
+    <uuid uuid="{94837f54-ada5-7f2b-4e38-b9e26b6fbe24}"/>
+    <names>
+        <name lang="ar">مرجل وقود</name>
+        <name lang="ca">Caldera de gasoil</name>
+        <name lang="cs">Kotel na topný olej</name>
+        <name lang="da">Oliekedel</name>
+        <name lang="de">Ölkessel</name>
+        <name lang="el">Λέβητας πετρελαίου</name>
+        <name lang="en">Oil boiler</name>
+        <name lang="fr">Chaudière Fioul</name>
+        <name lang="it">Caldaia a gasolio</name>
+        <name lang="pt_BR">Chaudière Fioul</name>
+        <name lang="zh">燃油锅炉</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license.
+Baboune41-2016
+Modifications</informations>
+    <description>
+        <rect x="-35" y="-60" width="70" height="120" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <ellipse x="-1.39" y="-53.61" width="7.21" height="7.21" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <ellipse x="-23.41" y="48.59" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="true"/>
+        <ellipse x="-23.41" y="21.59" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="true"/>
+        <line x1="4.21" y1="-50" x2="3.21" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <ellipse x="20.59" y="48.59" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="true"/>
+        <ellipse x="20.59" y="21.59" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="true"/>
+        <dynamic_text x="43" y="-11.95" z="8" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cb4f85d2-6d2a-4bb1-8d76-a186bed05372}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0.21" y1="-50" x2="1.21" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="2.21" y1="-52" x2="2.21" y2="-51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="50" x2="40" y2="50" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="35" y1="-30" x2="40" y2="-30" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-23.61" y="-53.61" width="7.21" height="7.21" style="line-style:normal;line-weight:normal;filling:white;color:black" antialias="true"/>
+        <line x1="-40" y1="50" x2="-36" y2="50" end1="circle" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-35" y1="-30" x2="-40" y2="-30" end1="none" end2="circle" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-18" y1="-50" x2="-19" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-22" y1="-50" x2="-21" y2="-50" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <line x1="-20" y1="-52" x2="-20" y2="-51" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-15" y="26" width="30" height="25" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:yellow;color:black" antialias="false"/>
+        <ellipse x="8.59" y="29.59" width="2.83" height="2.83" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="true"/>
+        <ellipse x="-1.75" y="39.5" width="3" height="3" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="true"/>
+        <polygon x1="-27" y1="19" x2="-27" y2="56" x3="25" y3="56" x4="27" y4="56" x5="27" y5="54" x6="27" y6="21" x7="27" y7="19" x8="25" y8="19" x9="-26" y9="19" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="-29" y="17" width="58" height="41" rx="0" ry="0" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="-60" width="70" height="20" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="-35" y="-40" width="4" height="100" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <rect x="31" y="-40" width="4" height="100" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:red;color:black" antialias="false"/>
+        <rect x="-29" y="-35" width="58" height="45" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <rect x="15" y="-55" width="15" height="10" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:lightgray;color:black" antialias="false"/>
+        <line x1="-15" y1="34" x2="14" y2="34" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:thin;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{01a2d1ff-62cd-4b72-8854-eb92ae08a42f}" name="" x="40" y="50" orientation="e" type="Generic"/>
+        <terminal uuid="{29cebcb4-e441-449e-ad46-6a28cc3f13da}" name="" x="-40" y="-30" orientation="w" type="Generic"/>
+        <terminal uuid="{56d41181-0538-41b6-8dc4-7642faa107ac}" name="" x="40" y="-30" orientation="e" type="Generic"/>
+        <terminal uuid="{b2aefc30-0653-4ba2-9e77-7ba127b13ca0}" name="" x="-40" y="50" orientation="w" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,365 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef QET_APP_H
+#define QET_APP_H
+
+#include "ElementsCollection/elementslocation.h"
+#include "dataBase/workingcopyrecovery.h"
+#include "qetarguments.h"
+#include "titleblock/templatelocation.h"
+
+#include <QByteArray>
+#include <QPalette>
+#include <QSystemTrayIcon>
+#include <QTranslator>
+#include "branding/brandingtranslator.h"
+
+class QSplashScreen;
+class QMenu;
+class QAction;
+class QMainWindow;
+class KAutoSaveFile;
+
+#define QETAPP_COMMON_TBT_PROTOCOL "commontbt"
+#define QETAPP_COMPANY_TBT_PROTOCOL "companytbt"
+#define QETAPP_CUSTOM_TBT_PROTOCOL "customtbt"
+
+class AboutQET;
+class QETDiagramEditor;
+class QETElementEditor;
+class ElementsCollectionCache;
+class TitleBlockTemplate;
+class TitleBlockTemplatesCollection;
+class TitleBlockTemplatesFilesCollection;
+class QETProject;
+class QETTitleBlockTemplateEditor;
+class QTextOrientationSpinBoxWidget;
+class RecentFiles;
+#ifdef QET_SPACEMOUSE_SUPPORT
+class SpaceMouseListener;
+#endif
+
+/**
+	@brief The QETApp class
+	This class represents the QElectroTech application.
+*/
+class QETApp : public QObject
+{
+	Q_OBJECT
+		// constructors, destructor
+	public:
+		QETApp();
+		~QETApp() override;
+	
+	private:
+		QETApp(const QETApp &);
+	
+		// methods
+	public:
+		static QETApp *instance();
+		void setLanguage(const QString &);
+		static QString interfaceLanguage() { return m_interface_language; }
+		static QString langFromSetting ();
+		void switchLayout(Qt::LayoutDirection);
+		static void printHelp();
+		static void printVersion();
+		static void printLicense();
+		
+		static ElementsCollectionCache *collectionCache();
+		
+		static TitleBlockTemplatesFilesCollection *commonTitleBlockTemplatesCollection();
+		static TitleBlockTemplatesFilesCollection *companyTitleBlockTemplatesCollection();
+		static TitleBlockTemplatesFilesCollection *customTitleBlockTemplatesCollection();
+		static QList<TitleBlockTemplatesCollection *> availableTitleBlockTemplatesCollections();
+		static TitleBlockTemplatesCollection *titleBlockTemplatesCollection(const QString &);
+		
+		static QString commonElementsDir();
+		static QString companyElementsDir();
+		static QString customElementsDir();
+		static QString commonElementsDirN();
+		static QString companyElementsDirN();
+		static QString customElementsDirN();
+		static void resetCollectionsPath();
+		static QString commonTitleBlockTemplatesDir();
+		static QString companyTitleBlockTemplatesDir();
+		static QString customTitleBlockTemplatesDir();
+		static QString userMacrosDir();
+		static bool registerProject(QETProject *);
+		static bool unregisterProject(QETProject *);
+		static QMap<uint, QETProject *> registeredProjects();
+		static QETProject *project(const uint &);
+		static int projectId(const QETProject *);
+		static QString configDir();
+		static QString dataDir();
+		static QString documentDir();
+		static QString pictureDir();
+		static QString languagesPath();
+		static QString loadedQetTranslationFile();
+		static QString loadedQtTranslationFile();
+		static QString realPath(const QString &);
+		static QString symbolicPath(const QString &);
+		static QStringList handledFileExtensions();
+		static QStringList handledFiles(const QList<QUrl> &);
+		static RecentFiles *projectsRecentFiles();
+		static RecentFiles *elementsRecentFiles();
+		static void applyDirectoryArguments(const QETArguments &);
+		
+#ifdef QET_ALLOW_OVERRIDE_CED_OPTION
+	public:
+		static void overrideCommonElementsDir(const QString &);
+	private:
+		/**
+			@brief common_elements_dir
+			Directory containing the common elements collection
+		*/
+		static QString m_overrided_common_elements_dir;
+#endif
+		
+#ifdef QET_ALLOW_OVERRIDE_CTBTD_OPTION
+	public:
+		static void overrideCommonTitleBlockTemplatesDir(const QString &);
+	private:
+		/**
+			@brief common_tbt_dir_
+			Directory containing
+			the common title block templates collection
+		*/
+		static QString common_tbt_dir_;
+#endif
+		
+#ifdef QET_ALLOW_OVERRIDE_CD_OPTION
+	public:
+		static void overrideConfigDir(const QString &);
+	private:
+		/**
+			@brief config_dir
+			Directory containing the user configuration
+			and the custom elements collection
+		*/
+		static QString config_dir;
+#endif
+		
+#ifdef QET_ALLOW_OVERRIDE_DD_OPTION
+	public:
+		static void overrideDataDir(const QString &);
+	private:
+		/**
+			@brief data_dir
+			Directory containing the users data
+			and the custom elements collection
+		*/
+		static QString data_dir;
+#endif
+		
+	public:
+		static void overrideLangDir(const QString &);
+		/**
+			@brief lang_dir
+			Directory containing localization files.
+		*/
+		static QString lang_dir;
+		static QFont diagramTextsFont(qreal = -1.0);
+		static QFont diagramTextsItemFont(qreal = -1.0);
+		static QFont dynamicTextsItemFont(qreal = -1.0);
+		static QFont indiTextsItemFont (qreal = -1.0);
+		/**
+			@brief The font the texts of a cable (designation, type,
+			installation, location, length) are written with when the
+			cable itself asks for none.
+		*/
+		static QFont cableTextsFont();
+			/// The fonts above are kept: read the settings again
+		static void forgetSettingsFonts();
+		/**
+			@brief The font the colour labels of the cores of a cable
+			are written with when the cable itself asks for none.
+		*/
+		static QFont cableCoreFont();
+		/**
+			@brief How the texts of a cable line up at the left end of
+			their line when the cable asks for nothing itself: right,
+			centred or left of where the line begins.
+		*/
+		static Qt::Alignment cableTextAlignment();
+		static void setCableTextAlignment(Qt::Alignment alignment);
+		static QETDiagramEditor *diagramEditorForFile(const QString &);
+		static QETDiagramEditor *diagramEditorAncestorOf (const QWidget *child);
+		static QList<QETDiagramEditor *> diagramEditors();
+		static QETDiagramEditor* diagramEditor(QETProject *project);
+		static QList<QETElementEditor *> elementEditors();
+		static QList<QETElementEditor *> elementEditors(QETProject *);
+		static QList<QETTitleBlockTemplateEditor *> titleBlockTemplateEditors();
+		static QList<QETTitleBlockTemplateEditor *> titleBlockTemplateEditors(QETProject *);
+		static QTextOrientationSpinBoxWidget *createTextOrientationSpinBoxWidget();
+		static TitleBlockTemplate *defaultTitleBlockTemplate();
+	
+#ifdef Q_OS_DARWIN
+	public:
+		bool eventFilter(QObject *object, QEvent *) override;
+#endif
+	
+		// attributes
+	private:
+		static QETApp *m_qetapp;
+		QTranslator qtTranslator;
+		QTranslator qetTranslator;
+			/// FaseCAD in place of QElectroTech in what the user reads
+		BrandingTranslator m_branding_translator;
+		QSystemTrayIcon *m_qsti;
+		QSplashScreen *m_splash_screen;
+		QMenu *menu_systray;
+		QAction *quitter_qet;
+		QAction *reduce_appli;
+		QAction *restore_appli;
+		QAction *reduce_diagrams;
+		QAction *restore_diagrams;
+		QAction *reduce_elements;
+		QAction *restore_elements;
+		QAction *reduce_templates;
+		QAction *restore_templates;
+		QAction *new_diagram;
+		QAction *new_element;
+		QHash<QMainWindow *, QByteArray> window_geometries;
+		QHash<QMainWindow *, QByteArray> window_states;
+		bool every_editor_reduced;
+		bool every_diagram_reduced;
+		bool every_diagram_visible;
+		bool every_element_reduced;
+		bool every_element_visible;
+		bool every_template_reduced;
+		bool every_template_visible;
+		QSignalMapper signal_map;
+		QETArguments qet_arguments_; ///< Command-line arguments parser
+		/**
+			@brief non_interactive_execution_
+			Whether the application will end
+			without any user interaction
+		 */
+		bool non_interactive_execution_;
+		QPalette initial_palette_;   ///< System color palette
+		QString m_native_style_name; ///< The style QElectroTech started with, before any theme
+		
+		static TitleBlockTemplatesFilesCollection *m_common_tbt_collection;
+		static TitleBlockTemplatesFilesCollection *m_company_tbt_collection;
+		static TitleBlockTemplatesFilesCollection *m_custom_tbt_collection;
+		static ElementsCollectionCache *collections_cache_;
+#ifdef QET_SPACEMOUSE_SUPPORT
+			/// One per application, not per window: a physical 6-DOF device
+			/// is a single ambient input source, and motion is applied to
+			/// whichever DiagramView is currently active. See
+			/// SpaceMouseListener's class comment.
+		SpaceMouseListener *m_space_mouse_listener = nullptr;
+#endif
+		static QMap<uint, QETProject *> registered_projects_;
+		static uint next_project_id;
+		static RecentFiles *m_projects_recent_files;
+		static RecentFiles *m_elements_recent_files;
+		static TitleBlockTemplate *default_titleblock_template_;
+
+		static QString m_common_element_dir;
+		static bool m_common_element_dir_is_set;
+
+		static QString m_company_element_dir;
+		static bool m_company_element_dir_is_set;
+
+		static QString m_custom_element_dir;
+		static bool m_custom_element_dir_is_set;
+
+		static QString m_user_company_tbt_dir;
+		static QString m_user_custom_tbt_dir;
+		static QString m_user_macros_dir;
+		
+		static QString m_interface_language;
+	
+	signals:
+			/// The text grid setting changed, see TextGrid.
+		void textGridChanged();
+			/// A kind of item was shown or hidden, see ShownKinds.
+		void shownKindsChanged();
+
+	public slots:
+		void systray(QSystemTrayIcon::ActivationReason);
+		void reduceEveryEditor();
+		void restoreEveryEditor();
+		void reduceDiagramEditors();
+		void restoreDiagramEditors();
+		void reduceElementEditors();
+		void restoreElementEditors();
+		void reduceTitleBlockTemplateEditors();
+		void restoreTitleBlockTemplateEditors();
+		void newDiagramEditor();
+		void newElementEditor();
+		bool closeEveryEditor();
+		void setMainWindowVisible(QMainWindow *, bool);
+		void invertMainWindowVisibility(QWidget *);
+		void useSystemPalette(bool);
+		void useCustomPalette(const QColor &color);
+		void applyTheme();
+		void quitQET();
+		void checkRemainingWindows();
+		void openFiles(const QETArguments &);
+		void openProjectFiles(const QStringList &);
+		void openElementFiles(const QStringList &);
+		void openElementLocations(const QList<ElementsLocation> &);
+		void openTitleBlockTemplate(const TitleBlockTemplateLocation &, bool = false);
+		void openTitleBlockTemplate(const QString &);
+		void openTitleBlockTemplateFiles(const QStringList &);
+		void configureQET();
+		void customizeQET(int tab = 0);
+			/// Save the settings to a file (discussion #610)
+		void exportConfiguration();
+			/// Replace the settings with a saved file, then close QElectroTech
+		void importConfiguration();
+		void aboutQET();
+		void showDiagnosticsReport();
+		void receiveMessage(int instanceId, QByteArray message);
+	
+	private:
+		template <class T> QList<T *> detectWindows() const;
+		template <class T> void setMainWindowsVisible(bool);
+		QList<QWidget *> floatingToolbarsAndDocksForMainWindow(QMainWindow *) const;
+		void parseArguments();
+		void initSplashScreen();
+		void setSplashScreenStep(const QString & = QString());
+		void initLanguage();
+		void initFonts();
+		void initIconTheme();
+		static void applyIconTheme(const QPalette &);
+		void initStyle();
+		void setBaseStyle(const QString &name);
+		void initConfiguration();
+		void initSystemTray();
+		void buildSystemTrayMenu();
+		void checkBackupFiles();
+		void reopenLastProjects();
+			/// A file was handed over by another instance during start-up
+		bool m_files_received = false;
+		void offerBackupFiles(const QList<KAutoSaveFile *> &stale_files,
+				      const QList<WorkingCopyRecovery::LeftWorkingCopy> &working_copies);
+		void checkCrashDump();
+		void fetchWindowStats(
+			const QList<QETDiagramEditor *> &,
+			const QList<QETElementEditor *> &,
+			const QList<QETTitleBlockTemplateEditor *> &
+		);
+		template <class T> void addWindowsListToMenu(QMenu *, const QList<T *> &);
+		static int projectIdFromString(const QString &);
+		static QETProject *projectFromString(const QString &);
+};
+
+#endif

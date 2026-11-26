@@ -1,0 +1,304 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+	
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+	
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#ifndef DIAGRAMVIEW_H
+#define DIAGRAMVIEW_H
+
+#include "../ElementsCollection/elementslocation.h"
+#include "titleblock/templatelocation.h"
+
+#include <QClipboard>
+#include <QGraphicsObject>
+#include <QPointer>
+#include <memory>
+#include "palettegraphicsview.h"
+
+class CellRuler;
+class Conductor;
+class Diagram;
+class DiagramContextToolbar;
+class DiagramGestureOverlay;
+class QETDiagramEditor;
+class DVEventInterface;
+class QInputEvent;
+class QGestureEvent;
+class QMenu;
+
+/**
+	This class provides a widget to render an electric diagram in an editable,
+	interactive way.
+*/
+class Element;
+class DiagramView : public PaletteGraphicsView
+{
+	Q_OBJECT
+	
+		// constructors, destructor
+	public:
+		DiagramView(Diagram *diagram, QWidget * = nullptr);
+		~DiagramView() override;
+
+	private:
+		DiagramView(const DiagramView &);
+	
+		// attributes
+
+		Diagram          *m_diagram = nullptr;
+		DVEventInterface *m_event_interface = nullptr;
+		QAction          *m_paste_here = nullptr;
+		QAction			 *m_multi_paste = nullptr;
+		QAction          *m_create_template = nullptr;
+		QAction          *m_generate_cabinet_thumbnail = nullptr;
+		QMenu            *m_folio_report_menu = nullptr;
+		QPoint            m_paste_here_pos;
+		QPoint            m_press_pos;
+		DiagramContextToolbar *m_context_toolbar = nullptr;
+			/// Right-drag gestures: tracking since the right button went down
+		bool              m_gesture_tracking = false;
+			/// The platform's own right-click menu event is to be ignored:
+			/// the view opens the menu itself on release
+		bool              m_swallow_native_menu = false;
+		bool              m_menu_from_gesture = false;
+			/// The right press went to a running tool; a drag ends the tool
+		bool              m_gesture_over_tool = false;
+			/// What the mouse wheel turned short of one zoom step
+		int               m_wheel_rest = 0;
+		QPoint            m_gesture_origin;
+		DiagramGestureOverlay *m_gesture_overlay = nullptr;
+		QPoint            m_last_mouse_pos = QPoint(-1, -1);
+		QString           m_pointed_description;
+		QPointF           m_crosshair_pos;
+		bool              m_crosshair_visible = false;
+		void moveCrosshair(const QPoint &viewport_pos);
+			/// A handle near the mouse catches the crosshair and the
+			/// pointer, as a grid point does; a press then grabs it as if
+			/// the mouse were on it, and the drag keeps that offset
+		QPointer<QGraphicsObject> m_caught_handle;
+		QPointF           m_grab_offset;
+		bool              m_grabbing_caught = false;
+			/// A left press on an item: what follows drags it
+		bool              m_press_places = false;
+			/// The symbol a press grabbed: while it is dragged, the
+			/// crosshair stands on its terminal nearest the mouse
+		QPointer<Element> m_dragged_element;
+		QGraphicsObject *handleNear(const QPoint &viewport_pos) const;
+		QMouseEvent *onCaughtHandle(QMouseEvent *e, std::unique_ptr<QMouseEvent> &shifted);
+		void hideCrosshair();
+		void crosshairOnMovedSelection();
+		QRect crosshairArea(const QPointF &scene_pos) const;
+			/// The pointer: a four-way arrow over what can be moved; with
+			/// the crosshair, drawn on the grid point in place of the
+			/// system's, which a program may not move on every platform
+		enum class Pointer { System, Arrow, Move, Dimension };
+		Pointer           m_pointer = Pointer::System;
+			/// The view's cursor was set by updatePointer()
+		bool              m_pointer_set = false;
+		void updatePointer(const QPoint &viewport_pos, Qt::MouseButtons buttons);
+		void drawPointer(QPainter *painter) const;
+		QPointF           m_drag_last_pos;
+		QPoint            m_band_origin;
+		void updateRubberBandMode(const QPoint &viewport_pos);
+		bool              m_fresh_focus_in,
+						  m_first_activation = true;
+		/// True while the view pans because Ctrl+Shift is held, as opposed
+		/// to the visualisation mode chosen from the toolbar.
+		bool m_ctrl_shift_panning = false;
+		QList<QAction *>  m_separators;
+		QPolygonF m_free_rubberband;
+		bool m_free_rubberbanding = false;
+		CellRuler *m_top_ruler = nullptr;
+		CellRuler *m_side_ruler = nullptr;
+		bool m_cell_rulers_shown = false;
+		/// Last viewport transform the rulers were painted for
+		QTransform m_rulers_transform;
+		qreal m_shown_zoom = 0;
+		bool m_cell_lines_shown = false;
+
+		
+	public:
+		QString title() const;
+		void editDiagramProperties();
+		Diagram *diagram() { return(m_diagram); }
+		QETDiagramEditor *diagramEditor() const;
+		void editSelection();
+		void setEventInterface (DVEventInterface *event_interface);
+		QList<QAction *> contextMenuActions() const;
+		/// Last mouse position seen by mouseMoveEvent(), in viewport
+		/// coordinates -- (-1, -1) if the mouse hasn't moved over this
+		/// view yet. Filled from ordinary Qt mouse events, not a global
+		/// cursor query (QCursor::pos()/setPos() are silently ignored by
+		/// several window managers and compositors, Wayland included).
+		QPoint lastMousePos() const { return m_last_mouse_pos; }
+			/// What the mouse points at, in a few words (ItemDescription);
+			/// nothing over the bare folio or outside the view
+		QString pointedItemDescription() const { return m_pointed_description; }
+	
+		bool startElementPlacement(const ElementsLocation &location,
+					   const QPointF &scene_pos);
+		QPointF defaultPlacementPos() const;
+		bool startPartPlacement(const ElementsLocation &location,
+					const QPointF &scene_pos,
+					const QByteArray &part);
+		void setCellRulersShown(bool shown);
+		void setCellLinesShown(bool shown);
+			/// The folio-wide crosshair under the mouse (Display menu),
+			/// one setting for every view
+		static bool crosshairShown();
+		static void setCrosshairShown(bool shown);
+		static bool pointerAids();
+		static void setPointerAids(bool on);
+			/// The shaded lines from a dragged symbol's terminals to the
+			/// terminals in line with them; on by default
+		static bool terminalHelpLinesShown();
+		static void setTerminalHelpLinesShown(bool shown);
+			/// How far zooming in or out goes at a time, in percent of
+			/// the zoom shown; 0: by a factor of 1.15, as before
+		static int zoomStep();
+		static void setZoomStep(int percent);
+			/// What a selection rectangle selects: what it overlaps, as
+			/// always before; only what lies wholly within it; or by the
+			/// direction it is dragged in, wholly within to the right and
+			/// overlapped to the left
+		enum class SelectionRectangle { Touched = 0, Enclosed = 1, ByDirection = 2 };
+		static SelectionRectangle selectionRectangle();
+		static void setSelectionRectangle(SelectionRectangle mode);
+		bool crosshairVisible() const { return m_crosshair_visible; }
+			/// The pointer drawn on the crosshair's grid point, if any:
+			/// 0 none (the system's shows), 1 an arrow, 2 a four-way arrow
+		int drawnPointer() const { return int(m_pointer); }
+		QPointF crosshairPos() const { return m_crosshair_pos; }
+
+	protected:
+		void mouseDoubleClickEvent(QMouseEvent *) override;
+		void contextMenuEvent(QContextMenuEvent *) override;
+		void wheelEvent(QWheelEvent *) override;
+		void focusInEvent(QFocusEvent *) override;
+		void focusOutEvent(QFocusEvent *) override;
+		void keyPressEvent(QKeyEvent *) override;
+		void keyReleaseEvent(QKeyEvent *) override;
+		bool event(QEvent *) override;
+		bool focusNextPrevChild(bool next) override;
+		///Set for one call only, by the Escape handler, to let focus leave the view.
+		bool m_releasing_focus = false;
+		void paintEvent(QPaintEvent *event) override;
+		bool viewportEvent(QEvent *event) override;
+		void drawBackground(QPainter *painter, const QRectF &rect) override;
+		void drawForeground(QPainter *painter, const QRectF &rect) override;
+		void paintingInverted(bool inverted) override;
+		QET::Palette::SheetInk sheetInk() const override;
+		InkKind inkKind(const QGraphicsItem *item) const override;
+		void mousePressEvent(QMouseEvent *) override;
+		void mouseMoveEvent(QMouseEvent *) override;
+		void leaveEvent(QEvent *) override;
+		void mouseReleaseEvent(QMouseEvent *) override;
+		void dragEnterEvent(QDragEnterEvent *) override;
+		void dragMoveEvent(QDragMoveEvent *) override;
+		void dropEvent(QDropEvent *) override;
+		
+		virtual bool switchToVisualisationModeIfNeeded(QInputEvent *e);
+		virtual bool switchToSelectionModeIfNeeded(QInputEvent *e);
+		virtual bool isCtrlShifting(QInputEvent *);
+		virtual bool selectedItemHasFocus();
+	
+	private:
+		void setPointedDescription(const QString &description);
+		bool textIsBeingEdited() const;
+		void handleElementDrop(QDropEvent *);
+		void updateFolioReportMenu();
+			/**
+				The menu of one single core: the right button coming down
+				on a colour label which stands on a line asks about that
+				core rather than about the whole folio -- taking it off the
+				line, which is the exact opposite of the menu the free
+				cores offer, of putting one down on a line.
+
+				Nothing opens when the point carries no colour label: the
+				folio's own menu is then still the right one.
+				@param menu_pos where he right-clicked, in view coordinates
+				@param global_pos the same place, in global coordinates
+				@return true when that menu was the one to open
+			*/
+		bool cableCoreMenu(const QPoint &menu_pos, const QPoint &global_pos);
+		void handleTitleBlockDrop(QDropEvent *);
+		void handleTextDrop(QDropEvent *);
+		void handleImageFilesDrop(QDropEvent *);
+		void scrollOnMovement(QKeyEvent *);
+		bool gestureEvent(QGestureEvent *event);
+		QRectF viewedSceneRect() const;
+		bool mustIntegrateTitleBlockTemplate(const TitleBlockTemplateLocation &) const;
+		bool gestures() const;
+		void updateCellRulers();
+		void placeCellRulers();
+		void showContextToolbar(const QPoint &viewport_pos);
+		QList<QAction *> selectionCommands() const;
+		QList<QAction *> gestureCommands() const;
+
+		/// Lowest and highest allowed value of the view transform scale (m11).
+		/// Prevents wheel-zoom from driving the transform to overflow, which
+		/// crashes the editor (see GitHub issue #798, same class of bug).
+		static constexpr qreal m_min_zoom = 0.01;
+		static constexpr qreal m_max_zoom = 200.0;
+
+	signals:
+			/// Signal emitted after the selection mode changed
+		void modeChanged();
+			/// Signal emitted after the diagram title changed
+		void titleChanged(DiagramView *, const QString &);
+			/// Signal emitted when users wish to locate an element from the diagram within elements collection
+		void findElementRequired(const ElementsLocation &);
+			/// Signal emitted when diagram must be show
+		void showDiagram (Diagram *);
+			/// Signal emitted when free rubberband changed.
+			/// When free rubberband selection ends this signal will be emitted with null value.
+		void freeRubberBandChanged(QPolygonF polygon);
+			/// Signal emitted when the placement mode is entered for an
+			/// element (not a macro), whether from a drop or not.
+		void elementPlacementStarted(const ElementsLocation &);
+			/// The view's scale changed: 1 is 100 %
+		void zoomChanged(qreal factor);
+			/// The mouse came over another item, or left it
+		void pointedItemChanged(const QString &description);
+	
+	public slots:
+		void setVisualisationMode();
+		void setSelectionMode();
+		void zoom(const qreal zoom_factor);
+		void zoomBy(int steps);
+		void zoomFit();
+		void zoomContent();
+		void zoomReset();
+		void zoomToRect(const QRectF &rect);
+		void centerOnCursor();
+		void cut();
+		void copy();
+		void paste(const QPointF & = QPointF(), QClipboard::Mode = QClipboard::Clipboard);
+		void pasteHere();
+		void duplicate(const QPoint &stepOffset);
+		void buildFolio();
+		void adjustSceneRect();
+		void updateWindowTitle();
+		void resetConductors();
+		void addGenericDevice();
+		void addTerminal();
+	
+	private slots:
+		void adjustGridToZoom();
+		void applyReadOnly();
+		void createTemplateFromSelection();
+		void generateCabinetThumbnails();
+};
+#endif

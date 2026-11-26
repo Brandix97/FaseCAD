@@ -1,0 +1,60 @@
+<definition version="0.100.0" type="element" link_type="simple" width="170" height="100" hotspot_x="82" hotspot_y="50">
+    <uuid uuid="{e1b6f9ff-a569-e5c6-5c09-48e3a90de313}"/>
+    <names>
+        <name lang="ar">خزان ماء أفقي</name>
+        <name lang="ca">ACS horitzontal</name>
+        <name lang="cs">Vodorovný zásobnik ECS</name>
+        <name lang="da">DHW horisontal</name>
+        <name lang="de">Warmwasser horizontal</name>
+        <name lang="el">DHW οριζόντιο</name>
+        <name lang="en">DHW horizontal</name>
+        <name lang="es">Interacumulador horizontal</name>
+        <name lang="fi">Käyttövesi vaakasuora</name>
+        <name lang="fr">Ballon ECS horizontal</name>
+        <name lang="hr">PTV horizontalni</name>
+        <name lang="hu">HMV vízszintes</name>
+        <name lang="it">Scambiatore orizzontale ACS</name>
+        <name lang="ja">横型温水器</name>
+        <name lang="ko">DHW 수평형</name>
+        <name lang="mn">DHW хэвтээ</name>
+        <name lang="nb">DHW horisontal</name>
+        <name lang="nl">Boiler elektrisch</name>
+        <name lang="nl_BE">SWW horizontaal</name>
+        <name lang="pl">Zasobnik poziomy CWU</name>
+        <name lang="pt">AQS horizontal</name>
+        <name lang="pt_BR">DHW Horizontal</name>
+        <name lang="ro">ACM orizontal</name>
+        <name lang="ru">ГВС горизонтальный</name>
+        <name lang="sk">TÚV horizontálny</name>
+        <name lang="sl">Horizontalni bojler</name>
+        <name lang="sr">ПТВ хоризонтални</name>
+        <name lang="sv">VVB horisontell</name>
+        <name lang="tr">Yatay KSH</name>
+        <name lang="uk">ГВП горизонтальний</name>
+        <name lang="zh">卧式生活热水水箱02</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <text text="ACS" x="61" y="-18" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Placa" x="39" y="40" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text="Agua fría" x="54.62" y="18.16" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="73.76" y1="-22.09" x2="79.34" y2="-22.09" x3="79.34" y3="-19.36" x4="74.56" y4="-19.36" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <polygon x1="73.76" y1="21.57" x2="79.34" y2="21.57" x3="79.34" y3="18.84" x4="74.56" y4="18.84" closed="false" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <rect x="53.82" y="33.85" width="3.19" height="6.82" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-65.8" y="-41.2" width="3.19" height="6.82" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <rect x="-67.4" y="-34.37" width="131.59" height="68.23" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="-38" y="29" z="9" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{cb75ab31-897f-460d-ad72-6eeb2771af1c}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <arc x="53.82" y="-34.37" width="22.33" height="68.23" start="270" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-78.56" y="-34.37" width="22.33" height="68.23" start="90" angle="180" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <text text="Placa" x="-59" y="-35" rotation="0" font="Liberation Sans,3,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <polygon x1="-65" y1="-35" x2="-35" y2="30" x3="15" y3="-30" x4="55" y4="35" closed="false" antialias="false" style="line-style:dashed;line-weight:normal;filling:none;color:red"/>
+        <terminal uuid="{c68ef27d-d4f2-4d73-8d8b-426d19d9d38a}" name="" x="-64" y="-41" orientation="n" type="Generic"/>
+        <terminal uuid="{28820dc3-6857-4df3-834d-b4a920eecff0}" name="" x="55" y="41" orientation="s" type="Generic"/>
+        <terminal uuid="{b0bdcd0a-cb7a-4928-b5a2-47c2e6942d73}" name="" x="79" y="-21" orientation="e" type="Generic"/>
+        <terminal uuid="{c9252fe6-eb59-4594-b0a4-d39875067ee6}" name="" x="79" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

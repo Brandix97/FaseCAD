@@ -1,0 +1,65 @@
+<definition version="0.100.0" type="element" link_type="simple" width="60" height="60" hotspot_x="30" hotspot_y="26">
+    <uuid uuid="{11cfe80b-2b51-da75-698b-5d9f50054730}"/>
+    <names>
+        <name lang="ar">مُبادل هوائي</name>
+        <name lang="ca">Bescanviador de calor d'aire</name>
+        <name lang="cs">Výměník horkého vzduchu</name>
+        <name lang="da">Luftvarmeveksler</name>
+        <name lang="de">Luftwärmetauscher</name>
+        <name lang="el">Εναλλάκτης θερμότητας</name>
+        <name lang="en">Air heat exchanger</name>
+        <name lang="es">Intercambiador de calor de aire</name>
+        <name lang="fi">Ilmalämmönvaihdin</name>
+        <name lang="fr">Echangeur à air</name>
+        <name lang="hr">Zračni izmjenjivač topline</name>
+        <name lang="hu">Levegős hőcserélő</name>
+        <name lang="it">Scambiatore ad aria</name>
+        <name lang="ja">空気熱交換器</name>
+        <name lang="ko">공기 열교환기</name>
+        <name lang="mn">Агаарын дулаан солилцуур</name>
+        <name lang="nb">Luftvarmeveksler</name>
+        <name lang="nl">Lucht warmte wisselaar</name>
+        <name lang="nl_BE">Lucht-warmtewisselaar</name>
+        <name lang="pl">Wymiennik powietrza</name>
+        <name lang="pt">Trocador de calor de ar</name>
+        <name lang="pt_BR">Air heat exchanger</name>
+        <name lang="ro">Schimbător de căldură cu aer</name>
+        <name lang="ru">Воздушный теплообменник</name>
+        <name lang="sk">Vzduchový výmenník tepla</name>
+        <name lang="sl">Zračni toplotni izmenjevalnik</name>
+        <name lang="sr">Ваздушни измењивач топлоте</name>
+        <name lang="sv">Luftvärmeväxlare</name>
+        <name lang="tr">Hava ısı eşanjörü</name>
+        <name lang="uk">Повітряний теплообмінник</name>
+        <name lang="zh">空气换热器</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <dynamic_text x="19" y="-11.17" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{0b6144fd-dbec-4974-9e26-23799fce4d2b}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <rect x="-18" y="-20" width="36" height="48" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-14" y1="16" x2="-14" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="7" y1="16" x2="7" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="14" y1="16" x2="14" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-7" y1="16" x2="-7" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="16" x2="0" y2="24" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="-19" y1="20" x2="19" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-15" y="-17" width="30" height="30" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="7" y1="-15" x2="13" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-2" y="-2" width="2" height="2" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="-7" y1="-15" x2="-13" y2="5" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-7" width="12" height="12" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="-2" width="12" height="12" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-12" y="-7" width="12" height="12" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-7" y="3" width="2" height="2" start="180" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="-5" y="-2" width="12" height="12" start="0" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="0" y="-2" width="2" height="2" start="90" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <arc x="5" y="3" width="2" height="2" start="270" angle="90" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-2.5" y="-11.5" width="5" height="9" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{0f7616c7-5085-4e2e-a6be-9fd8c921ff2e}" name="" x="-19" y="20" orientation="w" type="Generic"/>
+        <terminal uuid="{2212ddb0-7462-4804-9363-05abb3ff5f48}" name="" x="19" y="20" orientation="e" type="Generic"/>
+    </description>
+</definition>

@@ -1,0 +1,48 @@
+<definition version="0.100.0" type="element" link_type="simple" width="20" height="30" hotspot_x="8" hotspot_y="15">
+    <uuid uuid="{33993257-207f-d774-6ccc-f55979e1c332}"/>
+    <names>
+        <name lang="ar">مفتاح بمُؤشر ضوئي</name>
+        <name lang="ca">Interruptor amb llum pilot</name>
+        <name lang="cs">Vypínač s kontrolkou</name>
+        <name lang="da">Afbryder med kontrollampe</name>
+        <name lang="de">Schalter mit Kontrolleuchte</name>
+        <name lang="el">Διακόπτης φωτιζόμενος</name>
+        <name lang="en">Switch with pilot light</name>
+        <name lang="es">Interruptor con luz piloto</name>
+        <name lang="fi">Kytkin merkkivalolla</name>
+        <name lang="fr">Interrupteur à lampe témoin</name>
+        <name lang="hr">Prekidač s kontrolnim svjetlom</name>
+        <name lang="hu">Kapcsoló jelzőfénnyel</name>
+        <name lang="it">Interruttore con lampada spia</name>
+        <name lang="ja">パイロットランプ付きスイッチ</name>
+        <name lang="ko">표시등 부착 스위치</name>
+        <name lang="mn">Хяналтын гэрэлтэй унтраалга</name>
+        <name lang="nb">Bryter med kontrollampe</name>
+        <name lang="nl">Schakelaar met lamp</name>
+        <name lang="nl_BE">Schakelaar met controlelampje</name>
+        <name lang="pl">Łącznik podświetlany</name>
+        <name lang="pt">Interruptor com luz piloto</name>
+        <name lang="pt_BR">Interruptor com piloto luminoso</name>
+        <name lang="ro">Comutator cu lampă de semnalizare</name>
+        <name lang="ru">Выключатель с контрольной лампой</name>
+        <name lang="sk">Prepínač s orientačným svetlom</name>
+        <name lang="sl">Stikalo s kontrolno lučko</name>
+        <name lang="sr">Прекидач са сигналном лампом</name>
+        <name lang="sv">Brytare med kontrollampa</name>
+        <name lang="tr">Pilot lambalı anahtar</name>
+        <name lang="uk">Перемикач з сигнальною лампою</name>
+        <name lang="zh">带指示灯开关</name>
+    </names>
+    <informations>EN 60617: 11-14-02</informations>
+    <description>
+        <line x1="-3" y1="8" x2="3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <dynamic_text x="5" y="-9.95" z="2" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="false" text_from="ElementInfo" uuid="{88696c63-80f8-4ce9-acf0-2e39e806cb76}" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="3" y1="8" x2="-3" y2="2" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <line x1="2" y1="0" x2="9" y2="-11" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="-5" y="0" width="10" height="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <terminal uuid="{c1c04d09-39c6-45e0-b57a-7071598ee72b}" name="" x="0" y="0" orientation="n" type="Generic"/>
+    </description>
+</definition>

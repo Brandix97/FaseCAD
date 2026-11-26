@@ -1,0 +1,56 @@
+<definition version="0.90" type="element" link_type="simple" width="70" height="50" hotspot_x="12" hotspot_y="30">
+    <uuid uuid="{84744b31-2fe5-12be-9141-faa7ae711f75}"/>
+    <names>
+        <name lang="ar">محرك كلا اتجاهي الدوران</name>
+        <name lang="ca">Motor en els dos sentits de gir</name>
+        <name lang="cs">Motor v obou směrech otáčení</name>
+        <name lang="da">Motor i begge omdrejningsretninger</name>
+        <name lang="de">Motor beide Drehrichtungen</name>
+        <name lang="el">Κινητήρας και στις δύο κατευθύνσεις περιστροφής</name>
+        <name lang="en">Motor both directions of rotation</name>
+        <name lang="es">Motor en ambos sentidos de giro</name>
+        <name lang="fi">Moottori molempiin pyörimissuuntiin</name>
+        <name lang="fr">Moteur dans les deux sens de rotation</name>
+        <name lang="hr">Motor u oba smjera vrtnje</name>
+        <name lang="hu">Motor mindkét forgásirányban</name>
+        <name lang="it">Motore in entrambi i sensi di rotazione</name>
+        <name lang="ja">モーター両回転方向</name>
+        <name lang="ko">모터 양방향 회전</name>
+        <name lang="mn">Хөдөлгүүрийг хоёр чиглэлд эргүүлнэ</name>
+        <name lang="nb">Motor begge rotasjonsretninger</name>
+        <name lang="nl">Motor beide draairichtingen</name>
+        <name lang="nl_BE">Motor beide draairichtingen</name>
+        <name lang="pl">Silnik w obu kierunkach obrotów</name>
+        <name lang="pt">Motor nos dois sentidos de rotação</name>
+        <name lang="pt_BR">motor nos dois sentidos de rotação</name>
+        <name lang="ro">Motorul în ambele sensuri de rotație</name>
+        <name lang="ru">Мотор оба направления вращения</name>
+        <name lang="sk">Motor oba smery otáčania</name>
+        <name lang="sl">Motor v obe smeri vrtenja</name>
+        <name lang="sr">Мотор у оба смера ротације</name>
+        <name lang="sv">Motor båda rotationsriktningarna</name>
+        <name lang="tr">Motorun her iki dönüş yönü</name>
+        <name lang="uk">Двигун обертається в обох напрямках</name>
+        <name lang="zh">电机</name>
+    </names>
+    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+    <description>
+        <line x1="0" y1="5" x2="0" y2="10" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="-20" y="-34" z="1" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" keep_visual_rotation="true" text_from="ElementInfo" uuid="{386a23c2-0051-4fac-9fee-f1d46ed7364d}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text></text>
+            <info_name>label</info_name>
+        </dynamic_text>
+        <line x1="0" y1="-20" x2="0" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <arc x="18" y="-21" width="35" height="35" start="143" angle="70" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="2.9" y1="-14.54" x2="-2.56" y2="-14.6" x3="0" y3="-8.78" x4="2.85" y4="-14.43" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <line x1="10" y1="-3" x2="22" y2="-3" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <polygon x1="24.27" y1="8.94" x2="19.65" y2="6.89" x3="21.79" y3="5.16" x4="24.27" y4="8.63" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <polygon x1="24.93" y1="-18" x2="20.58" y2="-15.07" x3="22.93" y3="-13.32" antialias="true" style="line-style:normal;line-weight:thin;filling:black;color:black"/>
+        <line x1="10" y1="-7" x2="22" y2="-7" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <ellipse x="-10" y="-15" width="20" height="20" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <polygon x1="-2.86" y1="4.51" x2="2.6" y2="4.56" x3="0" y3="-1.25" x4="-2.81" y4="4.4" antialias="true" style="line-style:normal;line-weight:normal;filling:none;color:black"/>
+        <terminal uuid="{7450114d-3dbd-433b-924b-496b74d25710}" name="" x="0" y="-20" orientation="n" type="Generic"/>
+        <terminal uuid="{8c314fc9-c749-4ab9-93f4-1c85f676afdd}" name="" x="0" y="10" orientation="s" type="Generic"/>
+    </description>
+</definition>

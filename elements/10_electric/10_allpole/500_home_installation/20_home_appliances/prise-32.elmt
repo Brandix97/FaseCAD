@@ -1,0 +1,54 @@
+<definition version="0.80" type="element" link_type="master" width="140" height="190" hotspot_x="14" hotspot_y="181">
+    <uuid uuid="{f0d5eb27-3665-e698-e3af-6cd6047af65a}"/>
+    <names>
+        <name lang="ar">مقبس 32 A</name>
+        <name lang="ca">32 A presa</name>
+        <name lang="cs">Zásuvka 32A 1f</name>
+        <name lang="da">Stikdåse 32 A</name>
+        <name lang="de">Steckdose 32 A</name>
+        <name lang="el">Πρίζα 32 A</name>
+        <name lang="en">Socket 32 A</name>
+        <name lang="es">Toma de corriente 32 A</name>
+        <name lang="fr">Prise 32 A</name>
+        <name lang="pl">Gniazdo wtyczkowe trójbiegunowe</name>
+        <name lang="pt_BR">Tomada 32 A</name>
+        <name lang="zh">32A插座</name>
+    </names>
+    <kindInformations>
+        <kindInformation name="type" show="1">protection</kindInformation>
+    </kindInformations>
+    <informations>cbh41</informations>
+    <description>
+        <rect x="0" y="-85" width="120" height="85" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-15" x2="120" y2="-15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <dynamic_text x="29" y="-44" z="5" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{772ee4af-933d-42ca-a51e-23f04595bce3}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>32</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-63" z="7" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{4c3a744e-ab4f-40e7-8d8f-661b89473bec}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Local</text>
+        </dynamic_text>
+        <text text=" kA C" x="58" y="-18" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <line x1="0" y1="-45" x2="120" y2="-45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="0" y1="-65" x2="120" y2="-65" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <text text="A" x="66" y="-31" rotation="0" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <text text=" mm²" x="58" y="-2" rotation="0" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular" color="#000000"/>
+        <ellipse x="30" y="-160" width="60" height="60" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+        <ellipse x="41" y="-139" width="8" height="8" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="true"/>
+        <ellipse x="71" y="-139" width="8" height="8" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="true"/>
+        <rect x="55" y="-118" width="10" height="5" rx="0" ry="0" style="line-style:normal;line-weight:normal;filling:gray;color:black" antialias="false"/>
+        <dynamic_text x="28" y="-13.5" z="32" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{4752b04f-eb5a-42c6-b518-cb53d38cb99e}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>3 G 6.0</text>
+        </dynamic_text>
+        <dynamic_text x="30" y="-28.5" z="35" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c251015d-9408-4d29-af48-350577c8131a}" font="Liberation Sans,5,-1,5,50,0,0,0,0,0,Regular">
+            <text>4.5</text>
+        </dynamic_text>
+        <dynamic_text x="-2" y="-81.5" z="38" text_width="-1" Halignment="AlignLeft" Valignment="AlignTop" frame="false" rotation="0" text_from="UserText" uuid="{c8267a5f-4d91-4268-8354-19e34ae83280}" font="Liberation Sans,7,-1,5,50,0,0,0,0,0,Regular">
+            <text>Prise 32 A</text>
+        </dynamic_text>
+        <line x1="50" y1="-170" x2="50" y2="-158" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <line x1="70" y1="-170" x2="70" y2="-159" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+        <terminal uuid="{01846186-8fe1-4c9c-b243-5208e4258d80}" name="" x="70" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{8bd7c977-1bc4-4a3e-9043-3f49ee9769ef}" name="" x="50" y="-170" orientation="n" type="Generic"/>
+        <terminal uuid="{b56d62da-b358-439b-ae3b-11d34fd2d733}" name="" x="60" y="-100" orientation="s" type="Generic"/>
+    </description>
+</definition>

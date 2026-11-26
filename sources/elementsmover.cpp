@@ -1,0 +1,710 @@
+/*
+	Copyright 2006-2026 The QElectroTech Team
+	This file is part of QElectroTech.
+
+	QElectroTech is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 2 of the License, or
+	(at your option) any later version.
+
+	QElectroTech is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "elementsmover.h"
+#include "qetproject.h"
+#include "autobreakconductor.h"
+#include "autoconnect.h"
+#include "conductorautonumerotation.h"
+#include "cable/cablepart.h"
+#include "cable/editcablecommand.h"
+#include "bridge/bridgecreatedialog.h"
+#include "bridge/bridgemanager.h"
+#include "bridge/bridgepart.h"
+#include "bridge/bridgeundocommands.h"
+#include "diagram.h"
+#include "itemgroups.h"
+#include "qetgraphicsitem/conductor.h"
+#include "TerminalStrip/wirebridges.h"
+#include "qetgraphicsitem/conductortextitem.h"
+#include "qetgraphicsitem/diagramimageitem.h"
+#include "qetgraphicsitem/dynamicelementtextitem.h"
+#include "qetgraphicsitem/element.h"
+#include "qetgraphicsitem/elementtextitemgroup.h"
+#include "qetgraphicsitem/independenttextitem.h"
+#include "qetgraphicsitem/terminal.h"
+#include "undocommand/addgraphicsobjectcommand.h"
+#include "qetapp.h"
+#include "qetdiagrameditor.h"
+#include "undocommand/movegraphicsitemcommand.h"
+
+/**
+	@brief ElementsMover::ElementsMover Constructor
+*/
+ElementsMover::ElementsMover(){}
+
+/**
+	@brief ElementsMover::~ElementsMover Destructor
+*/
+ElementsMover::~ElementsMover(){}
+
+/**
+	@brief ElementsMover::isReady
+	@return True if this element mover is ready to be used.
+	A element mover is ready when the previous managed movement is finish.
+*/
+bool ElementsMover::isReady() const
+{
+	return(!m_movement_running);
+}
+
+/**
+	@brief ElementsMover::beginMovement
+	Start a new movement
+	@param diagram diagram where the movement is applied
+	@param driver_item item moved by mouse and don't be moved by Element mover
+	@return the numbers of items to be moved or -1 if movement can't be init.
+*/
+int ElementsMover::beginMovement(Diagram *diagram, QGraphicsItem *driver_item)
+{
+	m_driver_held = false;
+
+		// They must be no movement in progress
+	if (m_movement_running) return(-1);
+
+		// Be sure we have diagram to work
+	if (!diagram) return(-1);
+	m_diagram = diagram;
+
+	if (!diagram->views().isEmpty()) {
+		const auto qde = QETApp::diagramEditorAncestorOf(diagram->views().at(0));
+		if (qde) {
+			m_status_bar = qde->statusBar();
+		}
+	} else {
+		m_status_bar.clear();
+	}
+
+		// Take count of driver item
+	m_movement_driver = driver_item;
+
+		// At the beginning of movement, move is NULL
+	m_current_movement -= m_current_movement;
+
+	m_moved_content = DiagramContent(diagram);
+	m_moved_content.removeNonMovableItems();
+
+		//A grouped driver left out of the move belongs to a group that one
+		//locked member holds in place: it stays with the group
+	m_driver_held = driver_item
+			&& !ItemGroups::groupOf(driver_item).isNull()
+			&& !m_moved_content.items().contains(driver_item);
+	if (m_driver_held && m_status_bar) {
+		m_status_bar->showMessage(QObject::tr(
+			"This group cannot be moved: the position of one "
+			"of its elements is locked."));
+	}
+
+		//Remove element text and text group, if the parent element is selected.
+	const auto element_text{m_moved_content.m_element_texts};
+	for(const auto &deti : element_text) {
+		if(m_moved_content.m_elements.contains(deti->parentElement())) {
+			m_moved_content.m_element_texts.remove(deti);
+		}
+	}
+	const auto element_text_group{m_moved_content.m_texts_groups};
+	for(const auto &etig : element_text_group) {
+		if (m_moved_content.m_elements.contains(etig->parentElement())) {
+			m_moved_content.m_texts_groups.remove(etig);
+		}
+	}
+
+	if (!m_moved_content.count()) return(-1);
+
+		//Live AutoConnect works the automatic wires out anew at the drop:
+		//until then they only follow, grey, so they do not pass for the
+		//wires the drop will give
+	if (AutoConnect::isOn(diagram)) {
+		for (Element *e : std::as_const(m_moved_content.m_elements))
+			for (Terminal *t : e->terminals())
+				for (Conductor *c : t->conductors())
+					if (c->isAutomatic() && !c->isPreview()) {
+						c->setPreview(true);
+						m_preview_wires << c;
+					}
+	}
+
+		//Steps left over by a gesture which never reached its end are
+		//never worth keeping: whatever starts here starts from nothing.
+	qDeleteAll(m_extra_commands);
+	m_extra_commands.clear();
+
+		//The cable lines he marked together with the elements come along
+		//too: a selection of elements and lines is one thing to move.
+		//When the finger is on a line itself, that line carries its own
+		//kind -- every line of the selection is begun by the one being
+		//dragged (see CablePart) -- so there is nothing to collect here.
+	m_moved_cables.clear();
+	if (!qgraphicsitem_cast<CablePart *>(m_movement_driver))
+	{
+		for (QGraphicsItem *item : diagram->selectedItems())
+		{
+			auto *cable = qgraphicsitem_cast<CablePart *>(item);
+			if (!cable || !cable->cable()) continue;
+
+			cable->beginLineGesture();
+			m_moved_cables.append(cable);
+		}
+	}
+
+		//Where every one of them stands at this moment: calling the
+		//movement off puts them all back here, recorded rather than
+		//worked out from the movement, since every step of that movement
+		//was snapped to the grid on its way and need not land on the
+		//same place coming back.
+	m_start_positions.clear();
+	typedef DiagramContent dc;
+	for (auto &qgi : m_moved_content.items(dc::Elements
+										   | dc::TextFields
+										   | dc::Images
+										   | dc::Shapes
+										   | dc::ElementTextFields
+										   | dc::TextGroup
+										   | dc::Dimensions
+										   | dc::CabinetItems))
+	{
+		m_start_positions.insert(qgi, qgi->pos());
+	}
+	for (auto *conductor : m_moved_content.m_conductors_to_move)
+	{
+		if (conductor && conductor->textItem()
+			&& conductor->textItem()->wasMovedByUser()) {
+			m_start_positions.insert(conductor->textItem(),
+									 conductor->textItem()->pos());
+		}
+	}
+
+	/* At this point, we've got all info to manage movement.
+	 * There is now a move in progress */
+	m_movement_running = true;
+
+	return(m_moved_content.count());
+}
+
+/**
+	@brief ElementsMover::holds
+	@return true if @a item is the item the user drags and it must not move:
+	it is in a group that a locked member keeps in place (#1146). Each item
+	that drives a movement asks before moving itself.
+*/
+bool ElementsMover::holds(const QGraphicsItem *item) const
+{
+	return m_driver_held && item && item == m_movement_driver;
+}
+
+/**
+	@brief ElementsMover::continueMovement
+	Add a move to the current movement.
+	@param movement movement to applied
+*/
+/**
+	@brief ElementsMover::applyMovement
+	@param movement the step to apply to everything being moved
+*/
+void ElementsMover::applyMovement(const QPointF &movement)
+{
+		//Move every movable item, except conductor
+	typedef DiagramContent dc;
+	for (auto &qgi : m_moved_content.items(dc::Elements
+										   | dc::TextFields
+										   | dc::Images
+										   | dc::Shapes
+										   | dc::ElementTextFields
+										   | dc::TextGroup
+										   | dc::Dimensions
+										   | dc::CabinetItems))
+	{
+		if (qgi == m_movement_driver)
+			continue;
+		qgi->setPos(qgi->pos() + movement);
+	}
+
+	QVector<Conductor *>list_conductors;
+	for(auto *con : m_moved_content.m_conductors_to_move){
+		list_conductors << con;
+	}
+
+	// update conductors 'conductors_to_move'
+	for(auto *cond : list_conductors){
+		cond->updatePath();
+		if(cond->textItem()->wasMovedByUser() == true)
+			cond->textItem()->setPos(cond->textItem()->pos()+movement);
+	}
+
+	// update conductors 'conductors_to_update'
+	for (auto &conductor : m_moved_content.m_conductors_to_update)
+	{
+		conductor->updatePath();
+	}
+
+		//The cable lines he marked together with the elements come along
+		//by the very same step: one gesture moves the whole selection
+		//instead of the lines standing still while the elements go, or
+		//the other way round. They are drawn where the gesture brings
+		//them, exactly as if the finger had been on the line itself, and
+		//settled once at the end (see endMovement).
+	for (CablePart *cable : std::as_const(m_moved_cables))
+	{
+		if (cable) cable->continueLineGesture(movement);
+	}
+
+	if (m_status_bar && m_movement_driver)
+	{
+			//A line does not stand at a point of its own -- it is drawn
+			//straight on the sheet -- so its own end is what is worth
+			//showing rather than its origin, which never moves.
+		auto *cable = qgraphicsitem_cast<CablePart *>(m_movement_driver);
+		const auto point_{cable ? cable->firstPoint()
+								: m_movement_driver->scenePos()};
+		m_status_bar->showMessage(QString("x %1 : y %2").arg(QString::number(point_.x()), QString::number(point_.y())));
+	}
+}
+
+/**
+	@brief ElementsMover::continueMovement
+	Add a move to the current movement.
+	@param movement movement to applied
+*/
+void ElementsMover::continueMovement(const QPointF &movement)
+{
+	if (!m_movement_running || movement.isNull()) return;
+
+	m_current_movement += movement;
+	applyMovement(movement);
+
+		//A terminal may not come to rest on a bridge which cannot take
+		//one more: what that would build cannot be built in the cabinet.
+		//The step is taken back right away, so the terminal stays at the
+		//mouse and is dropped somewhere else -- and the bridge which
+		//stops it is drawn in the colour of a problem, so the hand sees
+		//what is wrong rather than only finding a message about it.
+	const QList<Bridge *> overfilled =
+			(m_moved_content.m_elements.isEmpty() || !m_diagram)
+			? QList<Bridge *>()
+			: BridgeManager::bridgesOverfilledBy(m_diagram->project(), m_moved_content.m_elements);
+	for (BridgePart *part : BridgePart::allParts()) {
+		part->setRefused(part->bridge() && overfilled.contains(part->bridge()));
+	}
+
+	if (!overfilled.isEmpty())
+	{
+		m_current_movement -= movement;
+		applyMovement(-movement);
+			//The element under the finger moves with its own hand rather
+			//than with the loop above, so it is put back as well: the
+			//terminal comes off the bridge it may not be dropped on and
+			//stays at the mouse, to be dropped somewhere else.
+		if (m_movement_driver) {
+			m_movement_driver->QGraphicsItem::setPos(m_movement_driver->pos() - movement);
+		}
+		if (m_status_bar) {
+			m_status_bar->showMessage(
+				QObject::tr("A terminal may not be dropped on a bridge which cannot take one more."));
+		}
+	}
+}
+
+/**
+	@brief ElementsMover::endMovement
+	Ended the current movement by creating an undo added to the undostack of the diagram.
+	If there is only one element moved, we try to auto-connect new conductor from this element
+	and other possible element.
+*/
+void ElementsMover::endMovement()
+{
+		// A movement must be inited
+	if (!m_movement_running) return;
+	endPreview();
+
+		//The lines he marked together with the elements settle first:
+		//they may have to be asked something before they can rest, and
+		//their answer decides whether the whole gesture is written at
+		//all -- one of them calling it off calls off everything, the
+		//elements included, and there is nothing to undo because nothing
+		//at all has been written.
+	QList<QUndoCommand *> cable_steps;
+	for (CablePart *cable : std::as_const(m_moved_cables))
+	{
+		if (!cable) continue;
+		if (!cable->settleLineGesture(cable_steps))
+		{
+			qDeleteAll(cable_steps);
+			cable_steps.clear();
+			cancelMovement();
+			return;
+		}
+	}
+	for (CablePart *cable : std::as_const(m_moved_cables))
+	{
+		if (cable) cable->doneLineGesture();
+	}
+	m_moved_cables.clear();
+
+		//empty command to be used has parent of commands below
+	QUndoCommand *undo_object{new QUndoCommand()};
+
+		//Create undo move if there is a movement
+	if (!m_current_movement.isNull()) {
+		QUndoCommand *quc{new MoveGraphicsItemCommand(m_diagram, m_moved_content, m_current_movement, undo_object)};
+		undo_object->setText(quc->text());
+			//The automatic wires the move has redrawn are kept off the
+			//wires they now lie along (Brandon, 2026-11-22), one by one,
+			//in the same undo step as the move
+		for (Conductor *conductor : std::as_const(m_moved_content.m_conductors_to_update)) {
+			if (conductor) conductor->keepApart(undo_object);
+		}
+	}
+
+		//What a bridge lands on follows the terminals he moved: one
+		//moved onto one of its lines joins the bridge, one moved off it
+		//leaves it -- and the bridge keeps everything else it knows.
+		//Together with the move itself, so one undo puts both back.
+	if (!m_moved_content.m_elements.isEmpty() && m_diagram->project())
+	{
+			//Only the bridges a moved element can reach: what a bridge
+			//lands on changes on the folios the movement happens on --
+			//asking every bridge of the project would walk a folio each
+			//for nothing (review of #1651)
+		QSet<QUuid> moved_folios;
+		for (Element *element : m_moved_content.m_elements) {
+			if (element && element->diagram()) {
+				moved_folios.insert(element->diagram()->uuid());
+			}
+		}
+		for (Bridge *bridge : m_diagram->project()->bridges())
+		{
+			if (!bridge) {
+				continue;
+			}
+			bool on_these_folios = false;
+			for (const BridgePartData &part : bridge->parts()) {
+				if (moved_folios.contains(part.diagram)) {
+					on_these_folios = true;
+					break;
+				}
+			}
+			if (!on_these_folios) {
+				continue;
+			}
+			const QList<BridgeTerminal> before = bridge->terminals();
+			const QList<BridgeTerminal> after =
+					BridgeManager::terminalsOfBridge(m_diagram->project(), bridge);
+			if (after == before) {
+				continue;
+			}
+				//The limit is the one thing which is never crossed,
+				//whatever slipped through while the hand was moving: a
+				//bridge which cannot be built is not written either.
+				//A sheet reference is the way to the next sheet and
+				//fills no place of the bridge, so it is not counted.
+				//What is one bridge carried on over the sheets is one
+				//bridge: a symbol brought to the line through a sheet
+				//reference joins the bridge that reference stands for
+			Bridge *joined = BridgeManager::joinTarget(
+						m_diagram->project(), after, bridge);
+			Bridge *unit = joined ? joined : bridge;
+			int gained = 0;
+			for (const BridgeTerminal &terminal : after) {
+				if (!terminal.reference && !unit->hasTerminal(terminal)) {
+					++gained;
+				}
+			}
+			if (gained > 0 && unit->wouldExceed(gained)) {
+				continue;
+			}
+				//One bar lies across one Klemmleiste: a terminal of
+				//another one crosses the line without being connected
+				//to it
+			if (!BridgeManager::clashingStrips(
+						m_diagram->project(), after).isEmpty()) {
+				continue;
+			}
+				//What the bridge carries as information follows the
+				//terminals: when they do not agree the user is asked
+				//which the bridge takes -- its own among the candidates
+				//-- and cancelling keeps the bridge as it was: the
+				//terminal crosses its line without being connected to it.
+				//A unit joined carries its own voltage to the new half.
+			const QString unit_tension = joined
+					? (joined->tensionText().isEmpty()
+					   ? bridge->tensionText() : joined->tensionText())
+					: bridge->tensionText();
+			const BridgeInformation information_before{unit_tension};
+			QList<BridgeInformation> candidates =
+					BridgeManager::informationSets(m_diagram->project(), after);
+			candidates.prepend(information_before);
+			bool take_information = false;
+			const BridgeInformation information =
+					BridgeCreateDialog::askForInformation(candidates, &take_information);
+			if (!take_information) {
+				continue;
+			}
+
+			QList<BridgeTerminal> unit_before = before;
+			QList<BridgeTerminal> unit_after = after;
+			if (joined)
+			{
+					//One step for the two of them: the bridges become one
+					//first, then the unit which now holds the line gets
+					//the terminals it crosses
+				new MergeBridgesCommand(bridge, joined, undo_object);
+				unit_before = joined->terminals();
+				for (const BridgeTerminal &terminal : before) {
+					if (!unit_before.contains(terminal)) {
+						unit_before << terminal;
+					}
+				}
+				unit_after = joined->terminals();
+				for (const BridgeTerminal &terminal : after) {
+					if (!unit_after.contains(terminal)) {
+						unit_after << terminal;
+					}
+				}
+				bridge = joined;
+			}
+			auto *command = new ChangeBridgeTerminalsCommand(bridge, unit_before, unit_after,
+											 information_before, information, undo_object);
+				//A reference which has come to this bridge finds the one
+				//on the other sheet: they link with the move
+			BridgeManager::pairReferences(m_diagram->project(), bridge, command);
+				//Bridge and wires say the same thing: what the bridge
+				//carries goes onto the wires it sits on, in the very same
+				//undo step
+			BridgeManager::writeInformation(m_diagram->project(), unit_after, information, command);
+		}
+	}
+
+		//Auto-break conductors: for each moved element, break any conductor
+		//whose path passes through a terminal dock point, and reconnect through
+		//the element.  The element is already at its final position on screen.
+	if (m_diagram->project()->autoBreakConductor())
+	{
+		QList<Conductor *> conductors_handled;
+		QSet<Terminal *> used_terminals;
+		for (Element *e : m_moved_content.m_elements) {
+			autoBreakConductors(m_diagram, e, undo_object,
+					    conductors_handled, used_terminals);
+		}
+	}
+
+		//Live AutoConnect: automatic wires the move left out of line go,
+		//the terminals moved, freed or no longer stood between look for a
+		//partner. It takes the place of the one-shot auto conductor below.
+	typedef DiagramContent dc;
+	const bool live = AutoConnect::isOn(m_diagram);
+	if (live && !m_current_movement.isNull() && !m_moved_content.m_elements.isEmpty())
+	{
+		QList<QRectF> old_rects;
+		for (Element *e : std::as_const(m_moved_content.m_elements))
+			old_rects << e->sceneBoundingRect().translated(-m_current_movement);
+		AutoConnect::update(m_diagram, m_moved_content.m_elements, old_rects, undo_object);
+		if (undo_object->text().isEmpty() && undo_object->childCount())
+			undo_object->setText(QObject::tr("Update automatic connections"));
+	}
+
+		//There is only one element moved, and project authorize auto conductor,
+		//we try auto connection of conductor;
+	if (!live && m_moved_content.items(dc::TextFields
+								| dc::Images
+								| dc::Shapes
+								| dc::TerminalStrip).isEmpty()
+		&& m_moved_content.items(dc::Elements).size() == 1
+		&& m_diagram->project()->autoConductor())
+	{
+		const Element *elmt{m_moved_content.m_elements.first()};
+		const auto aligned_free_terminals{elmt->AlignedFreeTerminals()};
+
+		if (const int acc = aligned_free_terminals.size())
+		{
+			for (const auto &pair : aligned_free_terminals)
+			{
+				Conductor *conductor{new Conductor(pair.first, pair.second)};
+
+					//Create an undo object for each new auto conductor, with undo_object for parent
+				new AddGraphicsObjectCommand(conductor, m_diagram, QPointF(), undo_object);
+				WireBridges::bridge(conductor, undo_object);
+				if (undo_object->text().isEmpty())
+					undo_object->setText(QObject::tr("Add %n conductors", "add a numbers of conductor one or more", acc));
+
+					//Get all conductors at the same potential of conductor
+				const auto conductors_list{conductor->relatedPotentialConductors()};
+
+					//Compare the properties of every conductors stored in conductors_list,
+					//if every conductors properties is equal, we use this properties for conductor.
+				ConductorProperties others_properties;
+				bool use_properties = false;
+				if (!conductors_list.isEmpty())
+				{
+					use_properties = true;
+					others_properties = (*conductors_list.cbegin())->properties();
+					for (const auto &cond :  conductors_list)
+						if (cond->properties() != others_properties)
+							use_properties = false;
+				}
+
+				if (use_properties)
+					conductor->setProperties(others_properties);
+				else
+				{
+					conductor -> setProperties(m_diagram -> defaultConductorProperties);
+					//Autonum the new conductor, the undo command associated for this, have for parent undo_object
+					ConductorAutoNumerotation can  (conductor, m_diagram, undo_object);
+					can.numerate();
+				}
+			}
+		}
+	}
+
+		//Add undo_object if have child -- or, when the lines of this
+		//selection brought their own undo over (see addExtraCommands),
+		//one single step for the whole gesture: taking it back has to
+		//take all of it back, or half the selection would stay where
+		//the gesture left it.
+	QList<QUndoCommand *> steps = m_extra_commands;
+	m_extra_commands.clear();
+	steps.append(cable_steps);
+
+	if (steps.isEmpty())
+	{
+		if (undo_object->childCount())
+			m_diagram->undoStack().push(undo_object);
+		else
+			delete undo_object;
+	}
+	else
+	{
+		QString text = undo_object->text();
+		if (text.isEmpty())
+			text = steps.first()->text();
+
+		if (undo_object->childCount())
+			steps.prepend(undo_object);
+		else
+			delete undo_object;
+
+		if (steps.size() == 1)
+			m_diagram->undoStack().push(steps.takeFirst());
+		else
+			m_diagram->undoStack().push(new BatchCommand(steps, text));
+	}
+
+		// There is no movement in progress now
+	m_movement_running = false;
+	m_moved_content.clear();
+	m_moved_cables.clear();
+	m_start_positions.clear();
+
+		//Nothing is hovering over anything anymore: the lines drawn in
+		//the colour of a problem come back to their own colour
+	for (BridgePart *part : BridgePart::allParts()) {
+		part->setRefused(false);
+	}
+
+		//Keep saying why a held group did not move
+	if (m_status_bar && !m_driver_held) {
+		m_status_bar->clearMessage();
+	}
+}
+
+/**
+	@brief ElementsMover::addExtraCommands
+	Take over undo steps of items this mover does not move itself --
+	the cable lines the user dragged himself -- so that the end of the
+	movement pushes them together with its own: one gesture, one step
+	in the history, whatever the selection is made of.
+
+	They are thrown away by cancelMovement() if the gesture is called
+	off, and pushed by endMovement() otherwise.
+	@param steps the commands, given away with them
+*/
+void ElementsMover::addExtraCommands(const QList<QUndoCommand *> &steps)
+{
+	for (QUndoCommand *step : steps)
+	{
+		if (step) m_extra_commands.append(step);
+	}
+}
+
+/**
+	@brief ElementsMover::cancelMovement
+	Call the whole movement off without writing anything: every element
+	goes back to the place the gesture found it, every line of the
+	selection puts itself back where it stood and the undo steps which
+	were waiting for this movement are thrown away.
+
+	One gesture is written as a whole or not at all, which is what a
+	"Annuler" answer to a question asked while the lines settle means.
+*/
+void ElementsMover::cancelMovement()
+{
+	if (!m_movement_running) return;
+	endPreview();
+
+		//Back to the places the gesture found them in: the recorded
+		//ones rather than the movement taken back, since every step of
+		//that movement was snapped to the grid on its way and coming
+		//back by the same amount need not land on the same place.
+	for (auto it = m_start_positions.constBegin();
+		 it != m_start_positions.constEnd(); ++it)
+	{
+		if (it.key()) it.key()->setPos(it.value());
+	}
+	m_start_positions.clear();
+
+	for (auto *conductor : m_moved_content.m_conductors_to_move)
+	{
+		if (conductor) conductor->updatePath();
+	}
+
+		//Every line of the selection puts itself back where it stood
+	for (CablePart *cable : std::as_const(m_moved_cables))
+	{
+		if (cable) cable->abortLineGesture();
+	}
+	m_moved_cables.clear();
+
+		//Steps handed over by a line he dragged himself go with
+		//everything else: nothing has been written, so there is nothing
+		//to take back.
+	qDeleteAll(m_extra_commands);
+	m_extra_commands.clear();
+
+	m_current_movement -= m_current_movement;
+	m_movement_running = false;
+	m_moved_content.clear();
+
+		//Nothing is hovering over anything anymore: the lines drawn in
+		//the colour of a problem come back to their own colour
+	for (BridgePart *part : BridgePart::allParts()) {
+		part->setRefused(false);
+	}
+
+	if (m_status_bar && !m_driver_held) {
+		m_status_bar->clearMessage();
+	}
+}
+
+/**
+	@brief ElementsMover::endPreview
+	The automatic wires of the moved symbols are drawn as usual again.
+*/
+void ElementsMover::endPreview()
+{
+	for (const QPointer<Conductor> &c : std::as_const(m_preview_wires))
+		if (c) c->setPreview(false);
+	m_preview_wires.clear();
+}
