@@ -2903,6 +2903,7 @@ QDomDocument QETProject::toXml(QHash<int, QByteArray> *kept_folios, QStringList 
 	writeWireHopsXml(project_root);
 	writeSymbolTextsXml(project_root);
 	writeLanguagesXml(project_root);
+	writeVersionsXml(project_root);
 	writePotentialTypesXml(project_root);
 	writeTerminalLabelSplitXml(project_root);
 	writeWiringRulesXml(project_root);
@@ -4149,6 +4150,7 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 	readWireHopsXml(xml_project);
 	readSymbolTextsXml(xml_project);
 	readLanguagesXml(xml_project);
+	readVersionsXml(xml_project);
 	readPotentialTypesXml(xml_project);
 	readTerminalLabelSplitXml(xml_project);
 	readWiringRulesXml(xml_project);
@@ -5258,7 +5260,7 @@ QStringList QETProject::translatableTexts()
 			"UNION SELECT value FROM element_text_value "
 			"WHERE name = '#text' AND section LIKE 'dynamic_texts/dynamic_elmt_text%/text' "
 			"UNION SELECT value FROM element_information "
-			"WHERE name IN ('comment', 'function', 'description', 'designation')");
+			"WHERE name IN ('comment', 'function', 'description', 'designation', 'model')");
 	QSet<QString> found;
 	QSqlQuery query = m_data_base.newQuery(sql);
 	while (query.next()) {
@@ -5296,6 +5298,41 @@ void QETProject::writeLanguagesXml(QDomElement &xml_element)
 	}
 	QDomDocument document = xml_element.ownerDocument();
 	xml_element.appendChild(m_languages.toXml(document));
+}
+
+/**
+	@brief QETProject::readVersionsXml
+	Read the <project_versions> element, if any: a project never given a
+	version has none.
+*/
+void QETProject::readVersionsXml(QDomDocument &xml_project)
+{
+	m_versions = ProjectVersions::fromXml(xml_project.documentElement()
+			.firstChildElement(QStringLiteral("project_versions")));
+}
+
+/**
+	@brief QETProject::writeVersionsXml
+	Write the <project_versions> element, only once the project has a
+	version, so any other project saves exactly as before.
+*/
+void QETProject::writeVersionsXml(QDomElement &xml_element)
+{
+	if (m_versions.versions.isEmpty()) {
+		return;
+	}
+	QDomDocument document = xml_element.ownerDocument();
+	xml_element.appendChild(ProjectVersions::toXml(m_versions, document));
+}
+
+void QETProject::setVersionHistory(const ProjectVersions::History &history)
+{
+	if (history == m_versions) {
+		return;
+	}
+	m_versions = history;
+	storeSettings();
+	setModified(true);
 }
 
 /**
@@ -5548,6 +5585,7 @@ void QETProject::storeSettings()
 	writeWireHopsXml(root);
 	writeSymbolTextsXml(root);
 	writeLanguagesXml(root);
+	writeVersionsXml(root);
 	writePotentialTypesXml(root);
 	writeTerminalLabelSplitXml(root);
 	writeWiringRulesXml(root);

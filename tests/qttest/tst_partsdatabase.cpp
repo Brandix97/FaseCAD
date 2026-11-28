@@ -80,7 +80,21 @@ class tst_partsdatabase : public QObject
 		return path;
 	}
 
-	private slots:
+		/// The categories of @p db but Cables, which every database has
+	static QList<PartCategory> userCategories(const PartsDatabase &db)
+	{
+		QList<PartCategory> list;
+		int cables = 0;
+		for (const PartCategory &category : db.categoryList()) {
+			if (PartsDatabase::isDefaultCategory(category.name))
+				++cables;
+			else
+				list << category;
+		}
+		return cables == 1 ? list : QList<PartCategory>();
+	}
+
+private slots:
 	void initTestCase()
 	{
 		QVERIFY(m_dir.isValid());
@@ -676,6 +690,56 @@ class tst_partsdatabase : public QObject
 		QCOMPARE(db.fileContent(files.at(2).id), QByteArray("ISO-10303-21;"));
 	}
 
+	void maximumCurrentTranslationsAndCables()
+	{
+			//Brandon, 2026-11-27
+		const QString path = m_dir.filePath(QStringLiteral("v6.sqlite"));
+		PartsDatabase db;
+		QString error;
+		QVERIFY2(db.open(path, &error), qPrintable(error));
+		Part part;
+		part.manufacturer = QStringLiteral("Acme");
+		part.order_number = QStringLiteral("MC-1");
+		part.description = QStringLiteral("Contactor tripolar");
+		part.model = QStringLiteral("Serie D");
+		part.max_current = 25;
+		PartTranslations::setTranslation(part, QStringLiteral("description"), QStringLiteral("en"),
+										 QStringLiteral("Three-pole contactor"));
+		PartTranslations::setTranslation(part, QStringLiteral("model"), QStringLiteral("de"),
+										 QStringLiteral("Baureihe D"));
+		const qint64 id = db.addPart(part, &error);
+		QVERIFY2(id > 0, qPrintable(error));
+		const Part read = *db.part(id);
+		QVERIFY(read.max_current == std::optional<double>(25));
+		QCOMPARE(PartTranslations::text(read, QStringLiteral("description"), QStringLiteral("en")),
+				 QStringLiteral("Three-pole contactor"));
+		QCOMPARE(PartTranslations::text(read, QStringLiteral("description"), QStringLiteral("fr")),
+				 QStringLiteral("Contactor tripolar"));
+		QCOMPARE(PartTranslations::text(read, QStringLiteral("model"), QStringLiteral("de")),
+				 QStringLiteral("Baureihe D"));
+			//Taken off again: nothing left
+		Part cleared = read;
+		PartTranslations::setTranslation(cleared, QStringLiteral("description"), QStringLiteral("en"), QString());
+		PartTranslations::setTranslation(cleared, QStringLiteral("model"), QStringLiteral("de"), QString());
+		QVERIFY(cleared.translations.isEmpty());
+
+			//Cables is there, and stays
+		bool cables = false;
+		for (const PartCategory &category : db.categoryList())
+			cables = cables || category.name == PartsDatabase::cablesCategory();
+		QVERIFY(cables);
+		QVERIFY(!db.removeCategory(QStringLiteral("cables"), &error));
+		QVERIFY(!db.renameCategory(QStringLiteral("Cables"), QStringLiteral("Wires"), &error));
+		QVERIFY(db.addCategory(QStringLiteral("Cables › Power"), &error));
+		QVERIFY2(db.removeCategory(QStringLiteral("Cables › Power"), &error), qPrintable(error));
+		db.close();
+		QVERIFY(db.open(path, &error));
+		int count = 0;
+		for (const PartCategory &category : db.categoryList())
+			count += PartsDatabase::isDefaultCategory(category.name) ? 1 : 0;
+		QCOMPARE(count, 1);
+	}
+
 	void categoriesHaveIconsAndTakeTheirParts()
 	{
 			//The categories of the parts manager (Brandon, 2026-11-21): made
@@ -690,7 +754,7 @@ class tst_partsdatabase : public QObject
 		QVERIFY2(db.addCategory(QStringLiteral("Relays"), &error), qPrintable(error));
 		QVERIFY(!db.addCategory(QStringLiteral("relays"), &error));
 		QVERIFY(!db.addCategory(QStringLiteral("  "), &error));
-		QList<PartCategory> list = db.categoryList();
+		QList<PartCategory> list = userCategories(db);
 		QCOMPARE(list.size(), 2);
 		QCOMPARE(list.at(0).name, QStringLiteral("Contactors"));
 		QCOMPARE(list.at(1).name, QStringLiteral("Relays"));
@@ -698,14 +762,14 @@ class tst_partsdatabase : public QObject
 
 		const QByteArray svg("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"8\"/>");
 		QVERIFY2(db.setCategoryIcon(QStringLiteral("Contactors"), svg, &error), qPrintable(error));
-		QCOMPARE(db.categoryList().at(0).icon, svg);
+		QCOMPARE(userCategories(db).at(0).icon, svg);
 		QCOMPARE(db.partsInCategory(QStringLiteral("contactors")), 1);
 
 			//Renamed: its icon and its part go with it
 		QVERIFY2(db.renameCategory(QStringLiteral("Contactors"),
 								   QStringLiteral("Power contactors"), &error), qPrintable(error));
 		QCOMPARE(db.part(id)->category, QStringLiteral("Power contactors"));
-		list = db.categoryList();
+		list = userCategories(db);
 		QCOMPARE(list.size(), 2);
 		QCOMPARE(list.at(0).name, QStringLiteral("Power contactors"));
 		QCOMPARE(list.at(0).icon, svg);
@@ -715,7 +779,7 @@ class tst_partsdatabase : public QObject
 			//Removed: its part has no category any more
 		QVERIFY2(db.removeCategory(QStringLiteral("Power contactors"), &error), qPrintable(error));
 		QVERIFY(db.part(id)->category.isEmpty());
-		QCOMPARE(db.categoryList().size(), 1);
+		QCOMPARE(userCategories(db).size(), 1);
 		db.close();
 
 			//Still version 5: the FaseCAD before opens it too
@@ -728,7 +792,7 @@ class tst_partsdatabase : public QObject
 			QVERIFY(query.exec(QStringLiteral(
 					"SELECT value FROM meta WHERE key = 'schema_version'")));
 			QVERIFY(query.next());
-			QCOMPARE(query.value(0).toInt(), 5);
+			QCOMPARE(query.value(0).toInt(), PartsDatabase::schemaVersion());
 			query.finish();
 			raw.close();
 		}
@@ -755,7 +819,7 @@ class tst_partsdatabase : public QObject
 		QString error;
 		QVERIFY2(db.open(newPath(QStringLiteral("subcategories.sqlite")), &error), qPrintable(error));
 		QVERIFY2(db.addCategory(interface, &error), qPrintable(error));
-		QList<PartCategory> list = db.categoryList();
+		QList<PartCategory> list = userCategories(db);
 		QCOMPARE(list.size(), 2);
 		QCOMPARE(list.at(0).name, relays);
 		QCOMPARE(list.at(1).name, interface);
@@ -782,7 +846,7 @@ class tst_partsdatabase : public QObject
 		QCOMPARE(db.part(inner_id)->category, relais_interface);
 		QCOMPARE(db.part(outer_id)->category, relais);
 		QCOMPARE(moved.value(interface), relais_interface);
-		list = db.categoryList();
+		list = userCategories(db);
 		QCOMPARE(list.size(), 2);
 		QCOMPARE(list.at(1).name, relais_interface);
 		QCOMPARE(list.at(1).icon, svg);
@@ -793,7 +857,7 @@ class tst_partsdatabase : public QObject
 		QCOMPARE(db.part(inner_id)->category, QStringLiteral("Interface"));
 		QVERIFY(db.part(outer_id)->category.isEmpty());
 		QCOMPARE(moved.value(relais_interface), QStringLiteral("Interface"));
-		list = db.categoryList();
+		list = userCategories(db);
 		QCOMPARE(list.size(), 1);
 		QCOMPARE(list.at(0).name, QStringLiteral("Interface"));
 		QCOMPARE(list.at(0).icon, svg);
@@ -833,7 +897,7 @@ class tst_partsdatabase : public QObject
 			QVERIFY(query.exec(QStringLiteral("DROP TABLE part_connection")));
 			QVERIFY(query.exec(QStringLiteral("DROP TABLE part_symbol")));
 			for (const char *column : {"gtin", "code_letter",
-									   "power_loss",
+									   "power_loss", "max_current", "translations",
 									   "clearance_top", "clearance_bottom",
 									   "clearance_left", "clearance_right",
 									   "clearance_front", "clearance_rear"}) {
@@ -902,6 +966,8 @@ class tst_partsdatabase : public QObject
 			QVERIFY(raw.open());
 			QSqlQuery query(raw);
 			QVERIFY(query.exec(QStringLiteral("DROP TABLE part_symbol")));
+			QVERIFY(query.exec(QStringLiteral("ALTER TABLE part DROP COLUMN max_current")));
+			QVERIFY(query.exec(QStringLiteral("ALTER TABLE part DROP COLUMN translations")));
 			QVERIFY2(query.exec(QStringLiteral(
 					"ALTER TABLE part ADD COLUMN symbol TEXT NOT NULL DEFAULT ''")),
 					 qPrintable(query.lastError().text()));

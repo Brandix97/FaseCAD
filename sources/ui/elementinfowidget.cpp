@@ -598,9 +598,9 @@ void ElementInfoWidget::writeMaterialRecord(const MaterialRecord &record,
 	@brief ElementInfoWidget::materialFromPartsDatabase
 	Let the user browse the parts database and write the part chosen into
 	the block the button belongs to. A part chosen for the main article
-	brings its first accessory into the auxiliary block 1, with its
-	quantity (@sa QETInformation::shownAuxiliaryBlocks). The whole choice
-	is one step of undo.
+	is one of the parts of the element, and its accessories with it, each
+	with its quantity (Brandon, 2026-11-27: an accessory is one more part
+	of the symbol). The whole choice is one step of undo.
 	@param block 0 for the main article, 1 to 4 for an auxiliary article
 */
 void ElementInfoWidget::materialFromPartsDatabase(int block)
@@ -627,16 +627,27 @@ void ElementInfoWidget::materialFromPartsDatabase(int block)
 	}
 	applyMaterialRecord(PartsMaterial::record(*part), block);
 	if (block == 0) {
-		int auxiliary = 1;
-		for (const PartAccessory &accessory : part->accessories) {
-			if (auxiliary > QETInformation::shownAuxiliaryBlocks()) {
-				break;
+		QList<PartsLinks::Link> links = PartsLinks::decode(m_parts_value);
+		const auto add = [&links](const Part &each, double units) {
+			for (const PartsLinks::Link &link : std::as_const(links)) {
+				if (link.manufacturer.compare(each.manufacturer, Qt::CaseInsensitive) == 0
+					&& link.order_number.compare(each.order_number, Qt::CaseInsensitive) == 0) {
+					return;
+				}
 			}
+			PartsLinks::Link link;
+			link.manufacturer = each.manufacturer;
+			link.order_number = each.order_number;
+			link.units = units;
+			links << link;
+		};
+		add(*part, 1);
+		for (const PartAccessory &accessory : part->accessories) {
 			if (const std::optional<Part> other = database.part(accessory.accessory_id)) {
-				applyMaterialRecord(PartsMaterial::record(*other, accessory.quantity),
-									auxiliary++);
+				add(*other, accessory.quantity > 0 ? accessory.quantity : 1);
 			}
 		}
+		setPartsValue(PartsLinks::encode(links));
 	}
 	if (live_edit) {
 		enableLiveEdit();

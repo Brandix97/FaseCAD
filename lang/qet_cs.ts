@@ -329,6 +329,24 @@
         <comment>Lambda element generator</comment>
         <translation>Tvůrce lambda prvků</translation>
     </message>
+    <message>
+        <source>About FaseCAD</source>
+        <translation type="unfinished">O programu FaseCAD</translation>
+    </message>
+    <message>
+        <source>FaseCAD, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation type="unfinished">FaseCAD, aplikace pro návrh elektrických schémat.</translation>
+    </message>
+    <message>
+        <source>Based on QElectroTech, © 2006-%1 the developers of QElectroTech, under the GNU General Public License, version 2 or later.</source>
+        <comment>about tab, origin line</comment>
+        <translation type="unfinished">Založeno na QElectroTech, © 2006-%1 vývojáři QElectroTech, pod licencí GNU General Public License verze 2 nebo novější.</translation>
+    </message>
+    <message>
+        <source>based on QElectroTech %1</source>
+        <translation type="unfinished">založeno na QElectroTech %1</translation>
+    </message>
 </context>
 <context>
     <name>AddLinkDialog</name>
@@ -484,6 +502,10 @@
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="51"/>
         <source>Realistic (screw)</source>
         <translation>Realistický (šroubová)</translation>
+    </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Schéma svorek</translation>
     </message>
 </context>
 <context>
@@ -1065,7 +1087,7 @@ Poznámka: tyto volby automatické číslování ani NEPOVOLÍ ani nezakáží, 
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="14"/>
         <source>Export the bill of materials as CSV</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Exportovat kusovník do CSV</translation>
     </message>
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="20"/>
@@ -1865,6 +1887,18 @@ Pokud potvrdíte, druhý kabel tyto žíly ztratí. Chcete pokračovat?</numerus
             <numerusform>%n žil tohoto kabelu je připojeno k vodiči. Se zvoleným typem tento kabel opustí a jejich značka zmizí z výkresu. Pokračovat?</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Zdroj</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+    <message>
+        <source>This cable type comes from the parts database: change it in the parts manager.</source>
+        <translation type="unfinished">Tento typ kabelu pochází z databáze dílů: změňte ho ve správci dílů.</translation>
+    </message>
 </context>
 <context>
     <name>CableExportDialog</name>
@@ -1993,6 +2027,46 @@ Pokud potvrdíte, druhý kabel tyto žíly ztratí. Chcete pokračovat?</numerus
         <source>Used cores</source>
         <translation>Použité žíly</translation>
     </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Žíla</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Barva</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Vodič</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Odkud</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Kam</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Stav</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation type="unfinished">Použitá</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Rezervní</translation>
+    </message>
 </context>
 <context>
     <name>CableListModelPropertiesWidget</name>
@@ -2120,6 +2194,18 @@ Chcete je také přečíslovat?</numerusform>
         <location filename="../sources/ui/cablenumberingdialog.cpp" line="362"/>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>Všechny kabely již nesou číslo, které jim pravidlo dává.</translation>
+    </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">Nový kabel dostane první volné číslo v projektu: %1, %2... Přečíslování znovu pojmenuje každý kabel projektu v pořadí níže, čímž uzavře mezery po smazaných kabelech.</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">Znovu nastaví číslo každého kabelu projektu od 1: tak se doplní číslo chybějící po smazání kabelu.</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">Všechny kabely již mají číslo, které by dostaly.</translation>
     </message>
 </context>
 <context>
@@ -2427,6 +2513,14 @@ Chcete je také přečíslovat?</numerusform>
         <location filename="../sources/cablelist/cablequerywidget.cpp" line="73"/>
         <source>Table columns</source>
         <translation>Sloupce tabulky</translation>
+    </message>
+    <message>
+        <source>Cable:</source>
+        <translation type="unfinished">Kabel:</translation>
+    </message>
+    <message>
+        <source>All cables</source>
+        <translation type="unfinished">Všechny kabely</translation>
     </message>
 </context>
 <context>
@@ -3002,17 +3096,17 @@ Chcete je také přečíslovat?</numerusform>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="143"/>
         <source>This wire is a core of a cable: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tento vodič je žílou kabelu: průřez, barva a typ pocházejí z kabelu.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="144"/>
         <source>This wire is core of cable %1: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tento vodič je žílou kabelu %1: průřez, barva a typ pocházejí z kabelu.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="259"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Žádný</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="319"/>
@@ -3099,19 +3193,19 @@ Uzamčeno volbou „Zobrazit jeden text potenciálu na list“ tohoto listu ve v
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="58"/>
         <source>Potential type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typ potenciálu:</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="148"/>
         <source>Conductor type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typ vodiče:</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="158"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="168"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="178"/>
         <source>❗</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">❗</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="218"/>
@@ -3563,32 +3657,32 @@ Pokračovat?</translation>
     <message>
         <location filename="../sources/diagram.cpp" line="347"/>
         <source>a text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">text</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="348"/>
         <source>a shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">tvar</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="349"/>
         <source>a picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">obrázek</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="350"/>
         <source>a table</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">tabulka</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="351"/>
         <source>a terminal strip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">svorkovnice</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="352"/>
         <source>a cable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">kabel</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="3421"/>
@@ -3867,6 +3961,10 @@ Pokračovat?</translation>
         <location filename="../sources/diagramevent/diagrameventaddelement.cpp" line="552"/>
         <source>insert %1 × %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">Symbol %1 z %2: %3. Tab: další symbol, Shift+Tab: předchozí</translation>
     </message>
 </context>
 <context>
@@ -4275,7 +4373,8 @@ Pokračovat?</translation>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="798"/>
         <source>
 Hold Shift and drag to move the symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+Přetažením se Shiftem přesunete symbol</translation>
     </message>
     <message>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="799"/>
@@ -4430,6 +4529,22 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit conductor properties</source>
         <comment>undo caption</comment>
         <translation>Upravit vlastnosti vodiče</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">Přidat díl</translation>
+    </message>
+    <message>
+        <source>Place terminals</source>
+        <translation type="unfinished">Umístit svorky</translation>
+    </message>
+    <message>
+        <source>Click on the folio to place each terminal: the number goes up by one each time. Right click or Escape ends.</source>
+        <translation type="unfinished">Klepáním na list umístěte každou svorku: číslo se pokaždé zvýší o jedna. Pravé klepnutí nebo Escape ukončí.</translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished">Umístit</translation>
     </message>
 </context>
 <context>
@@ -5257,6 +5372,14 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit an element text</source>
         <translation>Upravit text prvku</translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Vybrat...</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Data dílu</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5440,6 +5563,26 @@ Hold Shift and drag to move this text on its own</source>
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1866"/>
         <source>Right</source>
         <translation>Vpravo</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Data dílu</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">Pro zobrazení dat dílů použijte databázi dílů (Nastavení &gt; Obecné).</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">Díly tohoto prvku nemají v databázi dílů žádná data.</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">Prvek není složen z žádného dílu: přidejte ho na kartě Díly.</translation>
     </message>
 </context>
 <context>
@@ -5767,7 +5910,7 @@ Zobrazovaný název prvku se upravuje zvlášť ve vlastnostech prvku.</translat
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="71"/>
         <source>Edit on several lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Upravit na více řádcích</translation>
     </message>
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="81"/>
@@ -5945,6 +6088,30 @@ Continue?</source>
 Změna jeho číslování jej nahradí nebo vymaže.
 
 Pokračovat?</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Prohodit vnitřek a vnějšek rozvaděče</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">Ve výchozím stavu jde ven z rozvaděče strana připojená ke kabelu, a bez kabelu nejnižší přípojný bod. Zaškrtněte pro otočení u této svorky: plány svorkovnic to následují.</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">Tato svorka má jediný přípojný bod.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">Uvnitř rozvaděče: %1. Vně rozvaděče: %2, strana kabelu.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">Uvnitř rozvaděče: %1. Vně rozvaděče: %2.</translation>
     </message>
 </context>
 <context>
@@ -6661,7 +6828,7 @@ Pokračovat?</translation>
     <message>
         <location filename="../sources/ui/elementpropertieswidget.h" line="45"/>
         <source>Element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vlastnosti prvku</translation>
     </message>
 </context>
 <context>
@@ -7315,6 +7482,38 @@ Importem tohoto souboru potvrzujete, že:
         <source>Property of the folder %1</source>
         <translation>Vlastnosti složky %1</translation>
     </message>
+    <message>
+        <source>Download the symbol...</source>
+        <translation type="unfinished">Stáhnout symbol...</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Správce dílů...</translation>
+    </message>
+    <message>
+        <source>The symbol %1 is not there.</source>
+        <translation type="unfinished">Symbol %1 neexistuje.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read.</source>
+        <translation type="unfinished">%1 nelze načíst.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written.</source>
+        <translation type="unfinished">%1 nelze zapsat.</translation>
+    </message>
+    <message>
+        <source>Download the symbol</source>
+        <translation type="unfinished">Stáhnout symbol</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Symboly (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Download the symbols</source>
+        <translation type="unfinished">Stáhnout symboly</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7501,6 +7700,18 @@ Importem tohoto souboru potvrzujete, že:
         <location filename="../sources/elementspanelwidget.cpp" line="102"/>
         <source>Filter</source>
         <translation>Filtrovat</translation>
+    </message>
+    <message>
+        <source>Insert a schematic sheet</source>
+        <translation type="unfinished">Vložit list schématu</translation>
+    </message>
+    <message>
+        <source>Insert a cabinet construction sheet</source>
+        <translation type="unfinished">Vložit list konstrukce rozvaděče</translation>
+    </message>
+    <message>
+        <source>Insert a routing sheet for this cabinet</source>
+        <translation type="unfinished">Vložit list vedení pro tento rozvaděč</translation>
     </message>
 </context>
 <context>
@@ -8346,37 +8557,37 @@ Stanovte výchozí hodnotu textového pole pro nové prvky níže:</translation>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="64"/>
         <source>Selection rectangle selects:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Výběrový obdélník vybere:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="75"/>
         <source>Everything it overlaps (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vše, čeho se dotkne (jako dříve)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="80"/>
         <source>What lies wholly within it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zcela uvnitř</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="85"/>
         <source>By direction: wholly within to the right, overlapped to the left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Podle směru: doprava zcela uvnitř, doleva dotýkající se</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="104"/>
         <source>Zoom step:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Krok zvětšení:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="120"/>
         <source>How far the mouse wheel, Ctrl++ / Ctrl+- and the zoom buttons zoom at a time, in percent of the zoom shown, rounded to whole fives: with 10 %, 100 % goes to 110 %, 120 %, 130 % and 400 % to 440 %. Alt with the mouse wheel zooms four steps at a time.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">O kolik najednou přiblíží kolečko myši, Ctrl++ / Ctrl+- a tlačítka zvětšení, jako procento zobrazeného zvětšení, zaokrouhleno na násobky pěti: při 10 % 100 % → 110 %, 120 %, 130 % a 400 % → 440 %. Alt s kolečkem přiblíží o čtyři kroky najednou.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="123"/>
         <source>Factor 1.15 (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Činitel 1,15 (jako dříve)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="126"/>
@@ -8391,12 +8602,12 @@ Stanovte výchozí hodnotu textového pole pro nové prvky níže:</translation>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="152"/>
         <source>Draw a connected terminal in the color of its conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kreslit připojenou svorku barvou jejího vodiče</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="155"/>
         <source>Unchecked, every terminal is drawn in red. Terminals are never printed or exported.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nezaškrtnuto: každá svorka se kreslí červeně. Svorky se nikdy netisknou ani neexportují.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="162"/>
@@ -8506,12 +8717,12 @@ Stanovte výchozí hodnotu textového pole pro nové prvky níže:</translation>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="358"/>
         <source>Dragging a symbol&apos;s text moves the text alone, and Shift+drag moves the symbol, as before version 0.100. Unticked by default: dragging a text moves its symbol, Shift+drag moves the text.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Přetažení textu symbolu přesune jen text a Shift+přetažení přesune symbol, jako před verzí 0.100. Ve výchozím stavu nezaškrtnuto: přetažení textu přesune jeho symbol, Shift+přetažení přesune text.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="361"/>
         <source>Drag symbol texts without holding Shift</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Přetahovat texty symbolů bez Shiftu</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="368"/>
@@ -8556,12 +8767,12 @@ Stanovte výchozí hodnotu textového pole pro nové prvky níže:</translation>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="408"/>
         <source>Printing and exporting ask first when symbols, texts, shapes, pictures or tables lie outside the sheet, as they are cut off or left out; saving says so in the status bar.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Když jsou mimo list symboly, texty, tvary, obrázky nebo tabulky, tisk a export se nejprve zeptají, protože budou oříznuty nebo vynechány; ukládání to oznámí ve stavovém řádku.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="411"/>
         <source>Warn about items outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Upozornit na prvky mimo list</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="418"/>
@@ -9146,7 +9357,7 @@ hint shown when no cable type file is configured yet</extracomment>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="674"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Slovenština</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="675"/>
@@ -9387,6 +9598,106 @@ Jakékoli jiné nastavení než „Bez zaokrouhlení“ může způsobit chyby v
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="261"/>
         <source> px</source>
         <translation> px</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation type="unfinished">Motiv:</translation>
+    </message>
+    <message>
+        <source>Light or dark colors for the whole interface. A sheet left on its system color follows them.</source>
+        <translation type="unfinished">Světlé nebo tmavé barvy pro celé rozhraní. List ponechaný v barvě systému je následuje.</translation>
+    </message>
+    <message>
+        <source>Colors below (as before)</source>
+        <translation type="unfinished">Barvy níže (jako dříve)</translation>
+    </message>
+    <message>
+        <source>Follow the system</source>
+        <translation type="unfinished">Podle systému</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">Světlý</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Tmavý</translation>
+    </message>
+    <message>
+        <source>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</source>
+        <translation type="unfinished">Zobrazovat nástroje na kartách seskupených podle úkolu (Domů, Vložit, Připojení...) místo panelů nástrojů</translation>
+    </message>
+    <message>
+        <source>The menus stay, and so do the toolbars you made yourself.</source>
+        <translation type="unfinished">Nabídky zůstávají, stejně jako panely nástrojů, které jste si vytvořili.</translation>
+    </message>
+    <message>
+        <source>Hide the menu bar too (every menu stays in the File tab)</source>
+        <translation type="unfinished">Skrýt i řádek nabídek (všechny nabídky zůstávají na kartě Soubor)</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">Boční panel se sbalí do záložky u okraje okna a vysune se, když na něm spočine myš; připínáček ho drží otevřený</translation>
+    </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">Automaticky skrývat boční panely</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+    <message>
+        <source>Use the parts database (cable types from its parts with cores)</source>
+        <translation type="unfinished">Používat databázi dílů (typy kabelů z dílů s žilami)</translation>
+    </message>
+    <message>
+        <source>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</source>
+        <translation type="unfinished">Soubor databáze dílů. Nechte prázdné pro použití databáze tohoto počítače; pro sdílení vyberte soubor ve sdílené složce.</translation>
+    </message>
+    <message>
+        <source>This computer (%1)</source>
+        <translation type="unfinished">Tento počítač (%1)</translation>
+    </message>
+    <message>
+        <source>Parts databases (*.sqlite *.db)</source>
+        <translation type="unfinished">Databáze dílů (*.sqlite *.db)</translation>
+    </message>
+    <message>
+        <source>In a database file</source>
+        <translation type="unfinished">V souboru databáze</translation>
+    </message>
+    <message>
+        <source>On a PostgreSQL server</source>
+        <translation type="unfinished">Na serveru PostgreSQL</translation>
+    </message>
+    <message>
+        <source>A server keeps the parts for several computers at once, each reading and writing them</source>
+        <translation type="unfinished">Server uchovává díly pro více počítačů najednou, každý je čte i zapisuje</translation>
+    </message>
+    <message>
+        <source>Server...</source>
+        <translation type="unfinished">Server...</translation>
+    </message>
+    <message>
+        <source>When a project is opened:</source>
+        <translation type="unfinished">Při otevření projektu:</translation>
+    </message>
+    <message>
+        <source>Make a backup copy beside it</source>
+        <translation type="unfinished">Vytvořit vedle něj záložní kopii</translation>
+    </message>
+    <message>
+        <source>Ask whether to make a backup copy</source>
+        <translation type="unfinished">Zeptat se, zda vytvořit záložní kopii</translation>
+    </message>
+    <message>
+        <source>Make no backup copy</source>
+        <translation type="unfinished">Nevytvářet záložní kopii</translation>
+    </message>
+    <message>
+        <source>The copy is the project as it was when opened, in its folder, named after it: project_backup.qet. Each opening writes over the copy before.</source>
+        <translation type="unfinished">Kopie je projekt ve stavu při otevření, v jeho složce, pojmenovaná podle něj: project_backup.qet. Každé otevření přepíše předchozí kopii.</translation>
     </message>
 </context>
 <context>
@@ -10216,7 +10527,7 @@ Jakékoli jiné nastavení než „Bez zaokrouhlení“ může způsobit chyby v
     <message>
         <location filename="../sources/ui/imagepropertieswidget.h" line="46"/>
         <source>Picture properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vlastnosti obrázku</translation>
     </message>
 </context>
 <context>
@@ -10423,6 +10734,18 @@ Na toto , prosím, použijte pokročilý editor.</translation>
         <location filename="../sources/ui/inditextpropertieswidget.cpp" line="323"/>
         <source>Modify the properties of a text</source>
         <translation>Upravit vlastnosti textu</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Auto</translation>
+    </message>
+    <message>
+        <source>Text width; the text wraps at this width. Auto: no automatic line wrap</source>
+        <translation type="unfinished">Šířka textu; text se zalamuje v této šířce. Auto: bez automatického zalamování</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Šířka:</translation>
     </message>
 </context>
 <context>
@@ -11419,6 +11742,10 @@ Chcete přesto propojit tento podřízený kontakt?</translation>
         <source>Information</source>
         <translation>Informace</translation>
     </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Prohodit vnitřek a vnějšek rozvaděče</translation>
+    </message>
 </context>
 <context>
     <name>MultiPasteDialog</name>
@@ -11586,7 +11913,7 @@ Chcete přesto propojit tento podřízený kontakt?</translation>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="231"/>
         <source>Potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typy potenciálů</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="238"/>
@@ -12214,22 +12541,22 @@ Importovat je? Prvky pak obdrží další čísla, počínaje 1. Jinak budou vlo
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="43"/>
         <source>Check potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zkontrolovat typy potenciálů</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="50"/>
         <source>Each row is a potential whose wires have different types. Click a row to select its wires. Types joined on purpose can be declared in the project properties and are not listed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Každý řádek je potenciál, jehož vodiče mají různé typy. Klepnutím na řádek vyberete jeho vodiče. Typy spojené záměrně lze uvést ve vlastnostech projektu a nevypisují se.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Types on the potential</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typy v potenciálu</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Typed wires</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vodiče s typem</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="69"/>
@@ -12239,26 +12566,26 @@ Importovat je? Prvky pak obdrží další čísla, počínaje 1. Jinak budou vlo
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="96"/>
         <source>No potential carries wires of different types.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Žádný potenciál nenese vodiče různých typů.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="97"/>
         <source>Potential types are off for this project, so there is nothing to check.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typy potenciálů jsou v tomto projektu vypnuté, takže není co kontrolovat.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="100"/>
         <source>%n potential(s) carry wires of different types.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n potenciál nese vodiče různých typů.</numerusform>
+            <numerusform>%n potenciály nesou vodiče různých typů.</numerusform>
+            <numerusform>%n potenciálů nese vodiče různých typů.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="142"/>
         <source>These wires no longer exist. Refresh the results.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tyto vodiče již neexistují. Obnovte výsledky.</translation>
     </message>
 </context>
 <context>
@@ -12370,22 +12697,22 @@ Následující proměnné jsou neslučitelné:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="51"/>
         <source>Draw conductors from their own style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kreslit vodiče jejich vlastním stylem</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="52"/>
         <source>Draw conductors from their potential type, chosen on each conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kreslit vodiče podle typů potenciálu vybraných na každém vodiči</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="54"/>
         <source>When a type is used, a conductor whose potential has a type is drawn in that type&apos;s colour, line style and width. The style stored on the conductor is kept, and used again when this is off or the conductor has no type.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Když se typ používá, vodič, jehož potenciál má typ, se kreslí barvou, stylem čáry a tloušťkou tohoto typu. Styl uložený ve vodiči se zachová a znovu použije, když je toto vypnuto nebo vodič nemá typ.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="59"/>
         <source>Choose a conductor&apos;s type in its properties. The type applies to every conductor on the same potential.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typ vodiče vyberte v jeho vlastnostech. Typ platí pro každý vodič na stejném potenciálu.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12395,12 +12722,12 @@ Následující proměnné jsou neslučitelné:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Barva</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Line style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Styl čáry</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12410,48 +12737,48 @@ Následující proměnné jsou neslučitelné:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="75"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Přidat</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="76"/>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="93"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Odebrat</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="77"/>
         <source>Restore the default types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obnovit výchozí typy</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="86"/>
         <source>Types joined on purpose, for example 0V and PE at a power supply. A potential with only these types is not reported as mixed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typy spojené záměrně, např. 0V a PE v napájecím zdroji. Potenciál jen s těmito typy se nehlásí jako smíšený.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="92"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sloučit</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="96"/>
         <source>and</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">a</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="116"/>
         <source>New type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nový typ</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="156"/>
         <source>Set where the potential starts (not available in this version)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Označit, kde potenciál začíná (v této verzi ne)</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="173"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 a %2</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="215"/>
@@ -12475,12 +12802,12 @@ Následující proměnné jsou neslučitelné:
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="218"/>
         <source>Dotted line</source>
         <comment>conductor style: dotted line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tečkovaná</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="235"/>
         <source>Choose a colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vyberte barvu</translation>
     </message>
 </context>
 <context>
@@ -13137,6 +13464,14 @@ Nejprve jim dejte jiné číslování.</numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>%n translation(s) taken from the parts database.</source>
+        <translation type="unfinished">
+            <numerusform>Z databáze dílů převzat %n překlad.</numerusform>
+            <numerusform>Z databáze dílů převzaty %n překlady.</numerusform>
+            <numerusform>Z databáze dílů převzato %n překladů.</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>ProjectMainConfigPage</name>
@@ -13329,13 +13664,13 @@ Nejprve jim dejte jiné číslování.</numerusform>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="344"/>
         <source>Cell numbering starts from:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Číslování buněk začíná od:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="354"/>
         <source>From which corner to start numbering the cells: Top - Left corner(default), Top - Right, Bottom - Left, Bottom - Right.</source>
         <comment>tooltip</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Od kterého rohu začít číslovat buňky: vlevo nahoře (výchozí), vpravo nahoře, vlevo dole, vpravo dole.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="346"/>
@@ -13367,6 +13702,16 @@ Nejprve jim dejte jiné číslování.</numerusform>
         <source>%1 h %2 min</source>
         <comment>hours and minutes of time spent on a project</comment>
         <translation>%1 h %2 min</translation>
+    </message>
+    <message>
+        <source>Keep a new conductor off the conductors it would lie on</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Odsunout nový vodič od vodičů, na které by padl</translation>
+    </message>
+    <message>
+        <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Když se kreslí vodič nebo přesouvá prvek, prostřední úsek automatického vodiče, který by vedl podél jiného, se posune o jeden krok mřížky najednou tam, kde je volno. Zachová to cestu, jako by byla přesunuta ručně. Již nakreslené vodiče se nemění.</translation>
     </message>
 </context>
 <context>
@@ -13557,7 +13902,7 @@ Nejprve jim dejte jiné číslování.</numerusform>
         <location filename="../sources/print/projectprintwindow.cpp" line="134"/>
         <source>Print preview</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Náhled tisku</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="135"/>
@@ -13568,7 +13913,7 @@ Nejprve jim dejte jiné číslování.</numerusform>
         <location filename="../sources/print/projectprintwindow.cpp" line="141"/>
         <source>Export to PDF</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Exportovat do PDF</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="142"/>
@@ -13644,16 +13989,16 @@ Chcete uložit změny?</translation>
         <location filename="../sources/projectview.cpp" line="407"/>
         <source>Save as .qetdb?</source>
         <comment>dialog title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Uložit jako .qetdb?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/projectview.cpp" line="408"/>
         <source>%n bridge(s) are drawn in this project. The .qetdb format does not store bridges yet -- they are kept in the normal .qet format only. Save it as .qetdb anyway?</source>
         <comment>also asked when the file name says .qetdb</comment>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Tento projekt má nakreslenou %n propojku. Formát .qetdb zatím propojky neukládá: zachovají se jen v běžném formátu .qet. Přesto uložit jako .qetdb?</numerusform>
+            <numerusform>Tento projekt má nakreslené %n propojky. Formát .qetdb zatím propojky neukládá: zachovají se jen v běžném formátu .qet. Přesto uložit jako .qetdb?</numerusform>
+            <numerusform>Tento projekt má nakresleno %n propojek. Formát .qetdb zatím propojky neukládá: zachovají se jen v běžném formátu .qet. Přesto uložit jako .qetdb?</numerusform>
         </translation>
     </message>
     <message>
@@ -13786,6 +14131,21 @@ Přepsáním byste jeho změny ztratili.</translation>
         <source>Project</source>
         <comment>window title for a project-less ProjectView</comment>
         <translation>Projekt</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Projekt QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <source>Zipped project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Komprimovaný projekt QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech, one database file (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Projekt QElectroTech, jeden databázový soubor (*%1)</translation>
     </message>
 </context>
 <context>
@@ -15354,7 +15714,7 @@ Pro volné umístění držte při přesouvání Ctrl.</translation>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1135"/>
         <source>Check potential types...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zkontrolovat typy potenciálů...</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1146"/>
@@ -15426,12 +15786,12 @@ Pro volné umístění držte při přesouvání Ctrl.</translation>
         <location filename="../sources/qetdiagrameditor.cpp" line="1311"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="5456"/>
         <source>Update elements from the collections</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aktualizovat prvky ze sbírek</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1314"/>
         <source>Replaces each element of the project that changed in its collection since it was placed, and redraws it (action cannot be undone)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nahradí a překreslí každý prvek projektu, který se ve své sbírce změnil od umístění (nelze vrátit)</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1320"/>
@@ -16241,38 +16601,38 @@ Kabely můžete očíslovat automaticky i později: pravidlo lze kdykoli nastavi
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5462"/>
         <source>Every element of the project matches the collection it was taken from.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Každý prvek projektu odpovídá sbírce, ze které pochází.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5471"/>
         <source>%n elements of the project differ from the collection they were taken from. Replace them with the version of the collection?</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n prvek projektu se liší od sbírky, ze které pochází. Nahradit ho verzí ze sbírky?</numerusform>
+            <numerusform>%n prvky projektu se liší od sbírky, ze které pocházejí. Nahradit je verzí ze sbírky?</numerusform>
+            <numerusform>%n prvků projektu se liší od sbírky, ze které pocházejí. Nahradit je verzí ze sbírky?</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5475"/>
         <source>Placed elements are redrawn and keep their conductors, as long as their terminals have not moved. This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Umístěné prvky se překreslí a zachovají si vodiče, pokud se jejich svorky nepřesunuly. Tuto akci nelze vrátit.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5487"/>
         <source>%n elements updated.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Aktualizován %n prvek.</numerusform>
+            <numerusform>Aktualizovány %n prvky.</numerusform>
+            <numerusform>Aktualizováno %n prvků.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5564"/>
         <source>%n elements not redrawn: their terminals have changed (a terminal was added, removed or moved).</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n prvek nebyl překreslen: změnily se jeho svorky (svorka přidána, odebrána nebo přesunuta).</numerusform>
+            <numerusform>%n prvky nebyly překresleny: změnily se jejich svorky (svorka přidána, odebrána nebo přesunuta).</numerusform>
+            <numerusform>%n prvků nebylo překresleno: změnily se jejich svorky (svorka přidána, odebrána nebo přesunuta).</numerusform>
         </translation>
     </message>
     <message>
@@ -16533,9 +16893,9 @@ Kabely můžete očíslovat automaticky i později: pravidlo lze kdykoli nastavi
         <location filename="../sources/qetdiagrameditor.cpp" line="6406"/>
         <source>%n more</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n další</numerusform>
+            <numerusform>%n další</numerusform>
+            <numerusform>%n dalších</numerusform>
         </translation>
     </message>
     <message>
@@ -16547,21 +16907,21 @@ Kabely můžete očíslovat automaticky i později: pravidlo lze kdykoli nastavi
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6413"/>
         <source>%1 - %2: %3</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 - %2: %3</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6436"/>
         <source>... and %n more folio(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>... a %n další list</numerusform>
+            <numerusform>... a %n další listy</numerusform>
+            <numerusform>... a %n dalších listů</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6439"/>
         <source>Outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mimo list</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6440"/>
@@ -16570,15 +16930,19 @@ Kabely můžete očíslovat automaticky i později: pravidlo lze kdykoli nastavi
 %1
 
 Go on anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tyto prvky jsou mimo list a budou oříznuty nebo vynechány:
+
+%1
+
+Přesto pokračovat?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6461"/>
         <source>Project saved; %n folio(s) with items outside the sheet, named when printing or exporting</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Projekt uložen; %n list s prvky mimo list, bude uveden při tisku nebo exportu</numerusform>
+            <numerusform>Projekt uložen; %n listy s prvky mimo list, budou uvedeny při tisku nebo exportu</numerusform>
+            <numerusform>Projekt uložen; %n listů s prvky mimo list, budou uvedeny při tisku nebo exportu</numerusform>
         </translation>
     </message>
     <message>
@@ -17089,6 +17453,300 @@ Chcete-li z něj vytvořit skript, požádejte svého asistenta AI: tlačítko n
         <location filename="../sources/qetdiagrameditor.cpp" line="1113"/>
         <source>Find duplicate signals and components...</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <comment>dock title</comment>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Title block designer…</source>
+        <translation type="unfinished">Návrhář rohového razítka…</translation>
+    </message>
+    <message>
+        <source>Makes the title block of the sheet of ready-made blocks: logo, project, revisions, signatures...</source>
+        <translation type="unfinished">Sestaví rohové razítko listu z hotových bloků: logo, projekt, revize, podpisy...</translation>
+    </message>
+    <message>
+        <source>Title block data…</source>
+        <translation type="unfinished">Data rohového razítka…</translation>
+    </message>
+    <message>
+        <source>The company, the client, the signatures and the revisions the title blocks of the project show</source>
+        <translation type="unfinished">Firma, zákazník, podpisy a revize zobrazené v rohových razítkách projektu</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">Automatický obsah listů</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">Přidá na začátek projektu list obsahu udržovaný aktuální s číslem a názvem každého listu</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Správce dílů...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">Spravovat databázi dílů: díly, technická data, příslušenství, obrázky a výkresy DXF</translation>
+    </message>
+    <message>
+        <source>Official parts catalog...</source>
+        <translation type="unfinished">Oficiální katalog dílů...</translation>
+    </message>
+    <message>
+        <source>Searches the official FaseCAD parts catalog and adds the parts chosen to your parts database</source>
+        <translation type="unfinished">Hledá v oficiálním katalogu dílů FaseCAD a přidá vybrané díly do vaší databáze dílů</translation>
+    </message>
+    <message>
+        <source>Cable manager...</source>
+        <translation type="unfinished">Správce kabelů...</translation>
+    </message>
+    <message>
+        <source>List every cable of the project with its cores, used or spare, and edit them</source>
+        <translation type="unfinished">Vypíše a upraví každý kabel projektu s jeho použitými nebo rezervními žilami</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Přidat kabelový plán</translation>
+    </message>
+    <message>
+        <source>Add a table listing every core of the cables, with its colour, wire and ends</source>
+        <translation type="unfinished">Přidat tabulku se všemi žilami kabelů, jejich barvou, vodičem a konci</translation>
+    </message>
+    <message>
+        <source>Export the cable plan to CSV format</source>
+        <translation type="unfinished">Exportovat kabelový plán do CSV</translation>
+    </message>
+    <message>
+        <source>Export the cable plan</source>
+        <translation type="unfinished">Exportovat kabelový plán</translation>
+    </message>
+    <message>
+        <source>cable_plan</source>
+        <translation type="unfinished">kabelovy_plan</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">Soubory CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Soubor %1 nelze zapsat.</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Přidat kusovník dílů</translation>
+    </message>
+    <message>
+        <source>Add a table listing the parts of the devices, grouped by order number, with their quantities</source>
+        <translation type="unfinished">Přidat tabulku s díly zařízení seskupenými podle objednacího čísla, s množstvím</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts to CSV format</source>
+        <translation type="unfinished">Exportovat kusovník dílů do CSV</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts</source>
+        <translation type="unfinished">Exportovat kusovník dílů</translation>
+    </message>
+    <message>
+        <source>bill_of_materials</source>
+        <translation type="unfinished">kusovnik</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">Znovu očísluje kabely projektu po pořadí</translation>
+    </message>
+    <message>
+        <source>Number the wires…</source>
+        <translation type="unfinished">Číslovat vodiče…</translation>
+    </message>
+    <message>
+        <source>Numbers the wires of the project, of the sheet or the selected ones, by an example or a formula of your own</source>
+        <translation type="unfinished">Očísluje vodiče projektu, listu nebo výběru podle vzoru nebo vašeho vzorce</translation>
+    </message>
+    <message>
+        <source>Calculate sections…</source>
+        <translation type="unfinished">Vypočítat průřezy…</translation>
+    </message>
+    <message>
+        <source>Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it</source>
+        <translation type="unfinished">Dá každému vodiči průřez požadovaný normou IEC 60204-1 podle jištění nebo nejvyššího proudu zařízení, které ho napájí</translation>
+    </message>
+    <message>
+        <source>Set version…</source>
+        <translation type="unfinished">Nastavit verzi…</translation>
+    </message>
+    <message>
+        <source>Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before</source>
+        <translation type="unfinished">Zvýší verzi projektu a přidá list se zařízeními přidanými, odebranými nebo znovu připojenými od předchozí verze</translation>
+    </message>
+    <message>
+        <source>Add terminals…</source>
+        <translation type="unfinished">Přidat svorky…</translation>
+    </message>
+    <message>
+        <source>Insert a DXF…</source>
+        <translation type="unfinished">Přidat DXF…</translation>
+    </message>
+    <message>
+        <source>Places terminals of a terminal strip, numbered one after the other</source>
+        <translation type="unfinished">Umístí svorky svorkovnice a očísluje je po pořadí</translation>
+    </message>
+    <message>
+        <source>Reads the lines of a DXF drawing in millimetres and places them on the current sheet</source>
+        <translation type="unfinished">Načte čáry výkresu DXF v milimetrech a umístí je na aktuální list</translation>
+    </message>
+    <message>
+        <source>Add a wire duct…</source>
+        <translation type="unfinished">Přidat kabelový žlab…</translation>
+    </message>
+    <message>
+        <source>Add a DIN rail</source>
+        <translation type="unfinished">Přidat lištu DIN</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate…</source>
+        <translation type="unfinished">Přidat montážní desku…</translation>
+    </message>
+    <message>
+        <source>Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse</source>
+        <translation type="unfinished">Zeptá se na šířku žlabu, pak ho nakreslí na list rozvaděče: délka se ukazuje pod myší</translation>
+    </message>
+    <message>
+        <source>Draws a DIN rail on the cabinet sheet, as long as the mouse says</source>
+        <translation type="unfinished">Nakreslí na list rozvaděče lištu DIN o délce, kterou ukazuje myš</translation>
+    </message>
+    <message>
+        <source>Asks for the size of the mounting plate, then places it on the cabinet sheet</source>
+        <translation type="unfinished">Zeptá se na velikost montážní desky, pak ji umístí na list rozvaděče</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet…</source>
+        <translation type="unfinished">Měřítko rozvaděče…</translation>
+    </message>
+    <message>
+        <source>Changes the scale the cabinet sheet is drawn at: the parts keep their measures</source>
+        <translation type="unfinished">Změní měřítko, ve kterém je list rozvaděče nakreslen: díly si zachovají rozměry</translation>
+    </message>
+    <message>
+        <source>Routing sheet of a mounting plate…</source>
+        <translation type="unfinished">List vedení montážní desky…</translation>
+    </message>
+    <message>
+        <source>Adds after this cabinet sheet a sheet routing the wires of one of its mounting plates through its ducts</source>
+        <translation type="unfinished">Přidá za tento list rozvaděče list, který vede vodiče jedné z jeho montážních desek jejími žlaby</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Vypočítat vedení</translation>
+    </message>
+    <message>
+        <source>Gives each wire of the schematic the shortest way through the ducts between the drawings of its devices</source>
+        <translation type="unfinished">Dá každému vodiči schématu nejkratší cestu žlaby mezi výkresy jeho zařízení</translation>
+    </message>
+    <message>
+        <source>Export the routing to CSV…</source>
+        <translation type="unfinished">Exportovat vedení do CSV…</translation>
+    </message>
+    <message>
+        <source>Writes every wire of this routing sheet with its length to a CSV file for a spreadsheet</source>
+        <translation type="unfinished">Zapíše každý vodič tohoto listu vedení s jeho délkou do souboru CSV pro tabulku</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D…</source>
+        <translation type="unfinished">Rozvaděč ve 3D…</translation>
+    </message>
+    <message>
+        <source>Shows the cabinet of this sheet in 3D, the devices from the STEP models of their parts, and exports it as STEP</source>
+        <translation type="unfinished">Zobrazí rozvaděč tohoto listu ve 3D, zařízení podle modelů STEP jejich dílů, a exportuje ho jako STEP</translation>
+    </message>
+    <message>
+        <source>Loading the cabinet in 3D...</source>
+        <translation type="unfinished">Načítání rozvaděče ve 3D...</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Rozvaděč ve 3D</translation>
+    </message>
+    <message>
+        <source>Thermal analysis of the cabinet…</source>
+        <translation type="unfinished">Tepelná analýza rozvaděče…</translation>
+    </message>
+    <message>
+        <source>Adds up the power loss of the devices of this cabinet, from their parts, and says how hot it gets inside and what cooling it needs</source>
+        <translation type="unfinished">Sečte ztrátový výkon zařízení tohoto rozvaděče z jejich dílů a řekne, jak moc se vnitřek zahřeje a jaké chlazení je potřeba</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Konstrukce rozvaděče 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates</source>
+        <translation type="unfinished">Konstrukce rozvaděče 2D: přidá kabelové žlaby, lišty DIN a montážní desky na list konstrukce rozvaděče</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Nabídky</translation>
+    </message>
+    <message>
+        <source>Command tabs</source>
+        <comment>toolbar title</comment>
+        <translation type="unfinished">Karty příkazů</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet (%1)…</source>
+        <translation type="unfinished">Měřítko rozvaděče (%1)…</translation>
+    </message>
+    <message>
+        <source>Snap to the corners and the middles of the sides of the parts</source>
+        <translation type="unfinished">Přichytávat k rohům a středům hran dílů</translation>
+    </message>
+    <message>
+        <source>Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is</source>
+        <translation type="unfinished">Přichytí přesouvané nebo kreslené k rohům a středům hran ostatních dílů; vypnuto jde tam, kde je myš</translation>
+    </message>
+    <message>
+        <source>Insert a DXF</source>
+        <translation type="unfinished">Přidat DXF</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? It is where the changes of the next versions start from.</source>
+        <translation type="unfinished">Nastavit verzi projektu %1? Změny dalších verzí se počítají odsud.</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? A sheet with the devices added, removed or rewired since version %2 is added at the end of the project.</source>
+        <translation type="unfinished">Nastavit verzi projektu %1? Na konec projektu se přidá list se zařízeními přidanými, odebranými nebo znovu připojenými od verze %2.</translation>
+    </message>
+    <message>
+        <source>Set version</source>
+        <translation type="unfinished">Nastavit verzi</translation>
+    </message>
+    <message>
+        <source>The project is at version %1.</source>
+        <translation type="unfinished">Projekt je ve verzi %1.</translation>
+    </message>
+    <message>
+        <source>The project is at version %1; the changes since version %2 are on its last sheet.</source>
+        <translation type="unfinished">Projekt je ve verzi %1; změny od verze %2 jsou na jeho posledním listu.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>Přidáno nebo přesunuto %n textové pole svorky.</numerusform>
+            <numerusform>Přidána nebo přesunuta %n textová pole svorek.</numerusform>
+            <numerusform>Přidáno nebo přesunuto %n textových polí svorek.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 - delivery</source>
+        <translation type="unfinished">%1 - předání</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (*%1)</source>
+        <translation type="unfinished">Projekt QElectroTech (*%1)</translation>
     </message>
 </context>
 <context>
@@ -18266,6 +18924,24 @@ Co si přejete udělat?</translation>
         <source>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Setting up cross references&lt;/p&gt;</source>
         <translation>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Otevírá se projekt ...&lt;/b&gt;&lt;br/&gt;Nastavují se křížové odkazy&lt;/p&gt;</translation>
     </message>
+    <message>
+        <source>QElectroTech project (%1)</source>
+        <translation type="unfinished">Projekt QElectroTech (%1)</translation>
+    </message>
+    <message>
+        <source>Cabinet construction</source>
+        <comment>title of a new cabinet folio</comment>
+        <translation type="unfinished">Konstrukce rozvaděče</translation>
+    </message>
+    <message>
+        <source>Cabinet routing</source>
+        <comment>title of a new routing sheet</comment>
+        <translation type="unfinished">Vedení v rozvaděči</translation>
+    </message>
+    <message>
+        <source>Not to scale</source>
+        <translation type="unfinished">Bez měřítka</translation>
+    </message>
 </context>
 <context>
     <name>QETSql</name>
@@ -19135,7 +19811,7 @@ Co si přejete udělat?</translation>
         <location filename="../sources/titleblock/templatecommands.cpp" line="1196"/>
         <source>Edit Preview</source>
         <comment>undo preview</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Náhled úprav</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="131"/>
@@ -19767,7 +20443,7 @@ Chcete je nahradit?</translation>
     <message>
         <location filename="../sources/qetinformation.cpp" line="401"/>
         <source>Conductor type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typ vodiče</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="404"/>
@@ -19982,12 +20658,12 @@ Chcete je nahradit?</translation>
     <message>
         <location filename="../sources/qetinformation.cpp" line="447"/>
         <source>Wire number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Číslo vodiče</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="452"/>
         <source>%1, connection point %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1, přípojný bod %2</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="385"/>
@@ -20487,7 +21163,7 @@ Stáhněte si jej podle tohoto odkazu a rozbalte jej do instalační složky.</t
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="95"/>
         <source>Text grid %1. Hold Ctrl to place freely.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mřížka textu %1. Podržte Ctrl pro volné umístění.</translation>
     </message>
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="96"/>
@@ -21695,6 +22371,41 @@ Pro její zapnutí: Konfigurovat QElectroTech &gt; Obecné &gt; Projekty, nebo n
         <comment>undo command text</comment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Change %1</source>
+        <comment>undo caption - %1 is a part of a cabinet</comment>
+        <translation type="unfinished">Změnit %1</translation>
+    </message>
+    <message>
+        <source>Change the scale of the cabinet to 1:%1</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished">Změnit měřítko rozvaděče na 1:%1</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Šablony</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Přidat kabelový plán</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Kabelový plán</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Přidat kusovník dílů</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Kusovník</translation>
+    </message>
+    <message>
+        <source>(No action)</source>
+        <comment>spacemouse config: unbound button</comment>
+        <translation type="unfinished">(Žádná akce)</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -22552,7 +23263,7 @@ nic nebylo změněno.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="41"/>
         <source>Replace conductor properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Změnit vlastnosti vodiče</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207"/>
@@ -22578,7 +23289,7 @@ nic nebylo změněno.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="35"/>
         <source>Replace element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Změnit vlastnosti prvku</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="84"/>
@@ -22591,7 +23302,7 @@ nic nebylo změněno.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.cpp" line="122"/>
         <source>Replace sheet properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Změnit vlastnosti listu</translation>
     </message>
 </context>
 <context>
@@ -23940,6 +24651,76 @@ Ostatní pole se nepoužívají.</translation>
     <message>
         <source>Action</source>
         <translation type="obsolete">Akce</translation>
+    </message>
+    <message>
+        <source>3D mouse</source>
+        <comment>configuration page title</comment>
+        <translation type="unfinished">3D myš</translation>
+    </message>
+    <message>
+        <source>Add a link</source>
+        <translation type="unfinished">Přidat přiřazení</translation>
+    </message>
+    <message>
+        <source>Button no.</source>
+        <translation type="unfinished">Tlačítko č.</translation>
+    </message>
+    <message>
+        <source>Buttons</source>
+        <translation type="unfinished">Tlačítka</translation>
+    </message>
+    <message>
+        <source>Dead zone:</source>
+        <translation type="unfinished">Mrtvá zóna:</translation>
+    </message>
+    <message>
+        <source>Link a button number on your 3D mouse (SpaceMouse, SpacePilot...) to a QElectroTech action. The button number depends on your device and its driver -- see its documentation, or try the values one by one starting from 0.</source>
+        <comment>spacemouse config page intro</comment>
+        <translation type="unfinished">Přiřaďte číslo tlačítka vaší 3D myši (SpaceMouse, SpacePilot...) akci QElectroTech. Číslo tlačítka závisí na zařízení a jeho ovladači: podívejte se do dokumentace nebo zkoušejte hodnoty jednu po druhé od 0.</translation>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished">Pohyb</translation>
+    </message>
+    <message>
+        <source>Pan speed:</source>
+        <translation type="unfinished">Rychlost posunu:</translation>
+    </message>
+    <message>
+        <source>Push / pull the cap</source>
+        <translation type="unfinished">Stlačit / vytáhnout čepičku</translation>
+    </message>
+    <message>
+        <source>Remove this link</source>
+        <translation type="unfinished">Odebrat toto přiřazení</translation>
+    </message>
+    <message>
+        <source>Reverse horizontal movement</source>
+        <translation type="unfinished">Obrátit vodorovný pohyb</translation>
+    </message>
+    <message>
+        <source>Reverse vertical movement</source>
+        <translation type="unfinished">Obrátit svislý pohyb</translation>
+    </message>
+    <message>
+        <source>Reverse zoom</source>
+        <translation type="unfinished">Obrátit zvětšení</translation>
+    </message>
+    <message>
+        <source>Small movements below this threshold are ignored. Raise it if the view drifts when you are not touching the mouse.</source>
+        <translation type="unfinished">Malé pohyby pod touto mezí se ignorují. Zvyšte, pokud se pohled posouvá, i když se myši nedotýkáte.</translation>
+    </message>
+    <message>
+        <source>Twist the cap</source>
+        <translation type="unfinished">Otočit čepičku</translation>
+    </message>
+    <message>
+        <source>Zoom by:</source>
+        <translation type="unfinished">Zvětšení:</translation>
+    </message>
+    <message>
+        <source>Zoom speed:</source>
+        <translation type="unfinished">Rychlost zvětšení:</translation>
     </message>
 </context>
 <context>
@@ -27006,6 +27787,10 @@ Dvojklikem přejdete na prvek</translation>
         <source>Level 1 terminal:</source>
         <translation>Svorka úrovně 1:</translation>
     </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Schéma svorek</translation>
+    </message>
 </context>
 <context>
     <name>TerminalStripModel</name>
@@ -27431,19 +28216,19 @@ Ctrl+Return gives the cell back, Escape throws the text away.</source>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="163"/>
         <source>Top Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vlevo nahoře</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="164"/>
         <source>Top Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nahoře uprostřed</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="165"/>
         <source>Top Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vpravo nahoře</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="166"/>
@@ -27455,25 +28240,25 @@ Ctrl+Return gives the cell back, Escape throws the text away.</source>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="167"/>
         <source>Bottom Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vlevo dole</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="168"/>
         <source>Bottom Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dole uprostřed</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="169"/>
         <source>Bottom Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vpravo dole</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="170"/>
         <source>Indicate which side of the title border template should be aligned with the edge of the workspace</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Určete, který okraj šablony razítka se zarovná s okrajem pracovní plochy</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="211"/>
@@ -29077,6 +29862,4998 @@ Přiřazení názvu &quot;volta&quot; a hodnoty &quot;1745&quot; v záhlaví vý
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
         <source>What:</source>
         <translation>Co:</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButtons</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Nahlásit chybu</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Přihlásit se</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Požádat o podporu</translation>
+    </message>
+    <message>
+        <source>Session closed</source>
+        <translation type="unfinished">Relace ukončena</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer, so this session was closed: one computer at a time for each account. Sign in again to go on here.</source>
+        <translation type="unfinished">Váš účet byl otevřen na jiném počítači, proto byla tato relace ukončena: jeden účet — jeden počítač zároveň. Přihlaste se znovu, abyste mohli pokračovat zde.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">Služby fasecad.com ještě nejsou otevřeny</translation>
+    </message>
+    <message>
+        <source>Signed in as %1, subscription until %2. Click to change or sign out.</source>
+        <translation type="unfinished">Přihlášen jako %1, předplatné do %2. Klepněte pro změnu nebo odhlášení.</translation>
+    </message>
+    <message>
+        <source>Signed in as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Přihlášen jako %1. Klepněte pro změnu nebo odhlášení.</translation>
+    </message>
+    <message>
+        <source>Sign in to your fasecad.com account</source>
+        <translation type="unfinished">Přihlaste se ke svému účtu fasecad.com</translation>
+    </message>
+    <message>
+        <source>Sign in with an account with a subscription to use it</source>
+        <translation type="unfinished">Pro použití se přihlaste účtem s předplatným</translation>
+    </message>
+    <message>
+        <source>Your account has no subscription running</source>
+        <translation type="unfinished">Váš účet nemá aktivní předplatné</translation>
+    </message>
+    <message>
+        <source>Tell the FaseCAD team about something that does not work</source>
+        <translation type="unfinished">Řekněte týmu FaseCAD o něčem, co nefunguje</translation>
+    </message>
+    <message>
+        <source>Ask the FaseCAD team for help</source>
+        <translation type="unfinished">Požádejte tým FaseCAD o pomoc</translation>
+    </message>
+    <message>
+        <source>another computer</source>
+        <translation type="unfinished">jiném počítači</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Váš účet je otevřen na %1. Účet může používat jen jeden počítač zároveň: zavřít ho tam a pokračovat zde?</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1 since %2. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Váš účet je otevřen na %1 od %2. Účet může používat jen jeden počítač zároveň: zavřít ho tam a pokračovat zde?</translation>
+    </message>
+    <message>
+        <source>Account in use</source>
+        <translation type="unfinished">Účet se používá</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantPanel</name>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">AI</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zavřít</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Přihlásit se...</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project: "add a contactor -KM1 with its coil and a stop and start button", "number the wires of this folio"... It works on the folio shown, and each change it makes can be undone.</source>
+        <translation type="unfinished">Řekněte AI, co má v otevřeném projektu udělat: „přidej stykač -KM1 s cívkou a tlačítky stop a start“, „očísluj vodiče tohoto listu“... Pracuje na zobrazeném listu a každou provedenou změnu lze vrátit.</translation>
+    </message>
+    <message>
+        <source>Write an instruction... (Enter sends, Shift+Enter a new line)</source>
+        <translation type="unfinished">Napište pokyn... (Enter odešle, Shift+Enter nový řádek)</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Odeslat</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Zastavit</translation>
+    </message>
+    <message>
+        <source>New conversation</source>
+        <translation type="unfinished">Nová konverzace</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project</source>
+        <translation type="unfinished">Řekněte AI, co má v otevřeném projektu udělat</translation>
+    </message>
+    <message>
+        <source>AI:</source>
+        <translation type="unfinished">AI:</translation>
+    </message>
+    <message>
+        <source>nothing changed</source>
+        <translation type="unfinished">nic se nezměnilo</translation>
+    </message>
+    <message>
+        <source>Stopped.</source>
+        <translation type="unfinished">Zastaveno.</translation>
+    </message>
+    <message>
+        <source>You:</source>
+        <translation type="unfinished">Vy:</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantSession</name>
+    <message>
+        <source>Thinking...</source>
+        <translation type="unfinished">Přemýšlím...</translation>
+    </message>
+    <message>
+        <source>Working on the project...</source>
+        <translation type="unfinished">Pracuji na projektu...</translation>
+    </message>
+    <message>
+        <source>Your session was closed: the account is open on another computer (Sign in...).</source>
+        <translation type="unfinished">Vaše relace byla ukončena: účet je otevřen na jiném počítači (Přihlásit se...).</translation>
+    </message>
+    <message>
+        <source>The AI service does not accept this user and password (Sign in...).</source>
+        <translation type="unfinished">Služba AI nepřijímá toto uživatelské jméno a heslo (Přihlásit se...).</translation>
+    </message>
+    <message>
+        <source>The AI service asks for your user and password (Sign in...).</source>
+        <translation type="unfinished">Služba AI žádá vaše uživatelské jméno a heslo (Přihlásit se...).</translation>
+    </message>
+    <message>
+        <source>The AI is part of FaseCAD Pro: subscribe at my.fasecad.com, then sign in again.</source>
+        <translation type="unfinished">AI je součástí FaseCAD Pro: předplaťte si ho na my.fasecad.com a pak se znovu přihlaste.</translation>
+    </message>
+    <message>
+        <source>The AI is busy, or the AI included this month is used up: try again in a while.</source>
+        <translation type="unfinished">AI je zaneprázdněna nebo je limit AI pro tento měsíc vyčerpán: zkuste to za chvíli.</translation>
+    </message>
+    <message>
+        <source>The AI service answered %1.</source>
+        <translation type="unfinished">Služba AI odpověděla %1.</translation>
+    </message>
+    <message>
+        <source>The answer of the AI was cut off: %1</source>
+        <translation type="unfinished">Odpověď AI byla zkrácena: %1</translation>
+    </message>
+    <message>
+        <source>Stopped after %1 steps: say how to go on.</source>
+        <translation type="unfinished">Zastaveno po %1 krocích: řekněte, jak pokračovat.</translation>
+    </message>
+    <message>
+        <source>The AI declined to do this.</source>
+        <translation type="unfinished">AI to odmítla udělat.</translation>
+    </message>
+    <message>
+        <source>The answer was too long and was cut off.</source>
+        <translation type="unfinished">Odpověď byla příliš dlouhá a byla zkrácena.</translation>
+    </message>
+    <message>
+        <source>No project is open.</source>
+        <translation type="unfinished">Žádný projekt není otevřen.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">AI</translation>
+    </message>
+    <message>
+        <source>AI: %1</source>
+        <translation type="unfinished">AI: %1</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3d</name>
+    <message>
+        <source>Box %1 × %2 × %3 mm</source>
+        <comment>a device without STEP, by its mounting measures</comment>
+        <translation type="unfinished">Krabice %1 × %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3dWindow</name>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Rozvaděč ve 3D</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D: %1</source>
+        <translation type="unfinished">Rozvaděč ve 3D: %1</translation>
+    </message>
+    <message>
+        <source>Show everything</source>
+        <translation type="unfinished">Zobrazit vše</translation>
+    </message>
+    <message>
+        <source>Duct covers</source>
+        <translation type="unfinished">Kryty žlabů</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Skříň</translation>
+    </message>
+    <message>
+        <source>From the parts database…</source>
+        <translation type="unfinished">Z databáze dílů…</translation>
+    </message>
+    <message>
+        <source>STEP file from the disk…</source>
+        <translation type="unfinished">Soubor STEP z disku…</translation>
+    </message>
+    <message>
+        <source>Measures by hand…</source>
+        <translation type="unfinished">Rozměry ručně…</translation>
+    </message>
+    <message>
+        <source>Turn it 90° about its plate</source>
+        <translation type="unfinished">Otočit o 90° kolem montážní desky</translation>
+    </message>
+    <message>
+        <source>Turn the enclosure</source>
+        <translation type="unfinished">Otočit skříň</translation>
+    </message>
+    <message>
+        <source>No enclosure</source>
+        <translation type="unfinished">Bez skříně</translation>
+    </message>
+    <message>
+        <source>Take the enclosure away</source>
+        <translation type="unfinished">Odebrat skříň</translation>
+    </message>
+    <message>
+        <source>Export as STEP…</source>
+        <translation type="unfinished">Exportovat jako STEP…</translation>
+    </message>
+    <message>
+        <source>Mounting clearances</source>
+        <translation type="unfinished">Montážní vůle</translation>
+    </message>
+    <message>
+        <source>The free space the part of each device asks around it in the parts database, here and on the sheet</source>
+        <translation type="unfinished">Volný prostor, který díl každého zařízení vyžaduje kolem sebe v databázi dílů, zde i na listu</translation>
+    </message>
+    <message>
+        <source>Check the room</source>
+        <translation type="unfinished">Zkontrolovat prostor</translation>
+    </message>
+    <message>
+        <source>Parts in each other, parts in the free space a device asks, devices through the enclosure or keeping its door from closing</source>
+        <translation type="unfinished">Díly v sobě navzájem, díly ve volném prostoru požadovaném zařízením, zařízení procházející skříní nebo bránící zavření dveří</translation>
+    </message>
+    <message>
+        <source>Reading STEP models… %v/%m</source>
+        <translation type="unfinished">Načítání modelů STEP… %v/%m</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Navigátor</translation>
+    </message>
+    <message>
+        <source>Room</source>
+        <translation type="unfinished">Prostor</translation>
+    </message>
+    <message>
+        <source>Left button: turn. Right button: move, or a click for what to do with a part. Wheel: nearer. Double click: everything.</source>
+        <translation type="unfinished">Levé tlačítko: otáčet. Pravé tlačítko: posouvat, nebo klepnutí — co udělat s dílem. Kolečko: blíž. Dvojklik: vše.</translation>
+    </message>
+    <message>
+        <source>Turn 90°</source>
+        <translation type="unfinished">Otočit o 90°</translation>
+    </message>
+    <message>
+        <source>Another side out</source>
+        <translation type="unfinished">Jiná strana ven</translation>
+    </message>
+    <message>
+        <source>For a model drawn with other axes: which of its sides looks out of the face</source>
+        <translation type="unfinished">Pro model kreslený v jiných osách: která jeho strana se dívá ven</translation>
+    </message>
+    <message>
+        <source>How far it goes into the sheet: a push button through the door</source>
+        <translation type="unfinished">Jak hluboko jde do listu: tlačítko skrz dveře</translation>
+    </message>
+    <message>
+        <source>Take it out of 3D</source>
+        <translation type="unfinished">Odebrat ze 3D</translation>
+    </message>
+    <message>
+        <source>Sink:</source>
+        <translation type="unfinished">Zapuštění:</translation>
+    </message>
+    <message>
+        <source>Turn %1</source>
+        <translation type="unfinished">Otočit %1</translation>
+    </message>
+    <message>
+        <source>Sink %1</source>
+        <translation type="unfinished">Zapustit %1</translation>
+    </message>
+    <message>
+        <source>Take %1 out of 3D</source>
+        <translation type="unfinished">Odebrat %1 ze 3D</translation>
+    </message>
+    <message>
+        <source>Move %1</source>
+        <translation type="unfinished">Přesunout %1</translation>
+    </message>
+    <message>
+        <source>Place in 3D</source>
+        <translation type="unfinished">Umístit ve 3D</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet first</source>
+        <translation type="unfinished">Nejprve nakreslete montážní desku na list</translation>
+    </message>
+    <message>
+        <source>Click the face where %1 goes: the door, a side, the roof, the plate. Esc: no.</source>
+        <translation type="unfinished">Klepněte na stěnu, kam patří %1: dveře, bok, střecha, deska. Esc: ne.</translation>
+    </message>
+    <message>
+        <source>Place %1 in 3D</source>
+        <translation type="unfinished">Umístit %1 ve 3D</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n díl</numerusform>
+            <numerusform>%n díly</numerusform>
+            <numerusform>%n dílů</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with a STEP model</source>
+        <translation type="unfinished">
+            <numerusform>%n s modelem STEP</numerusform>
+            <numerusform>%n s modelem STEP</numerusform>
+            <numerusform>%n s modelem STEP</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Without OpenCASCADE the devices are boxes.</source>
+        <translation type="unfinished">Bez OpenCASCADE jsou zařízení krabice.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montážní deska</translation>
+    </message>
+    <message>
+        <source>Wire ducts</source>
+        <translation type="unfinished">Kabelové žlaby</translation>
+    </message>
+    <message>
+        <source>DIN rails</source>
+        <translation type="unfinished">Lišty DIN</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Enclosure: %1</source>
+        <translation type="unfinished">Skříň: %1</translation>
+    </message>
+    <message>
+        <source>Reading…</source>
+        <translation type="unfinished">Načítání…</translation>
+    </message>
+    <message>
+        <source>Not read</source>
+        <translation type="unfinished">Nenačteno</translation>
+    </message>
+    <message>
+        <source>mounting plate</source>
+        <translation type="unfinished">montážní deska</translation>
+    </message>
+    <message>
+        <source>in 3D</source>
+        <translation type="unfinished">ve 3D</translation>
+    </message>
+    <message>
+        <source>Unplaced 3D</source>
+        <translation type="unfinished">Neumístěno ve 3D</translation>
+    </message>
+    <message>
+        <source>Devices of the schematic with a STEP model and no drawing on a cabinet sheet: right click, Place in 3D</source>
+        <translation type="unfinished">Zařízení schématu s modelem STEP a bez výkresu na listu rozvaděče: pravé klepnutí, Umístit ve 3D</translation>
+    </message>
+    <message>
+        <source>Hide %1</source>
+        <translation type="unfinished">Skrýt %1</translation>
+    </message>
+    <message>
+        <source>Show %1</source>
+        <translation type="unfinished">Zobrazit %1</translation>
+    </message>
+    <message>
+        <source>Room enough: no part in another, none in the free space a device asks</source>
+        <translation type="unfinished">Dost místa: žádný díl není v jiném ani ve volném prostoru požadovaném zařízením</translation>
+    </message>
+    <message>
+        <source>No enclosure takes the plate: its walls and its door are not checked</source>
+        <translation type="unfinished">Žádná skříň nepojme desku: její stěny a dveře se nekontrolují</translation>
+    </message>
+    <message>
+        <source>STEP models still being read: their boxes until then</source>
+        <translation type="unfinished">Modely STEP se stále načítají: do té doby jejich krabice</translation>
+    </message>
+    <message numerus="yes">
+        <source>Room: %n problem(s)</source>
+        <translation type="unfinished">
+            <numerusform>Prostor: %n problém</numerusform>
+            <numerusform>Prostor: %n problémy</numerusform>
+            <numerusform>Prostor: %n problémů</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Click the part of the enclosure which is its mounting plate: the plate of the sheet takes its size. Esc: no.</source>
+        <translation type="unfinished">Klepněte na část skříně, která je její montážní deskou: deska listu převezme její velikost. Esc: ne.</translation>
+    </message>
+    <message>
+        <source>The mounting plate is %1: %2 × %3 mm.</source>
+        <translation type="unfinished">Montážní deska je %1: %2 × %3 mm.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be the mounting plate.</source>
+        <translation type="unfinished">%1 nemůže být montážní deskou.</translation>
+    </message>
+    <message>
+        <source>no STEP model in the parts database: a box</source>
+        <translation type="unfinished">žádný model STEP v databázi dílů: krabice</translation>
+    </message>
+    <message>
+        <source>STEP: %1</source>
+        <translation type="unfinished">STEP: %1</translation>
+    </message>
+    <message>
+        <source>of the enclosure</source>
+        <translation type="unfinished">skříně</translation>
+    </message>
+    <message>
+        <source>right click its mounting plate: Use as the mounting plate</source>
+        <translation type="unfinished">pravé klepnutí na její montážní desku: Použít jako montážní desku</translation>
+    </message>
+    <message>
+        <source>Use as the mounting plate</source>
+        <translation type="unfinished">Použít jako montážní desku</translation>
+    </message>
+    <message>
+        <source>The plate chosen is %1 × %2 mm, the plate of the sheet %3 × %4 mm. Give the plate of the sheet the size of the one chosen?</source>
+        <translation type="unfinished">Vybraná deska má %1 × %2 mm, deska listu %3 × %4 mm. Dát desce listu velikost vybrané?</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">Zobrazit</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">Skrýt</translation>
+    </message>
+    <message>
+        <source>Change the enclosure</source>
+        <translation type="unfinished">Změnit skříň</translation>
+    </message>
+    <message>
+        <source>Right click the mounting plate of the enclosure, in the navigator or in the view: Use as the mounting plate.</source>
+        <translation type="unfinished">Klepněte pravým tlačítkem na montážní desku skříně v navigátoru nebo v pohledu: Použít jako montážní desku.</translation>
+    </message>
+    <message>
+        <source>Use %1 as the mounting plate</source>
+        <translation type="unfinished">Použít %1 jako montážní desku</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Databáze dílů se nepoužívá.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database.</source>
+        <translation type="unfinished">%1 %2 nemá v databázi dílů model STEP.</translation>
+    </message>
+    <message>
+        <source>STEP of the enclosure</source>
+        <translation type="unfinished">STEP skříně</translation>
+    </message>
+    <message>
+        <source>STEP files (*.step *.stp)</source>
+        <translation type="unfinished">Soubory STEP (*.step *.stp)</translation>
+    </message>
+    <message>
+        <source>Enclosure by measures</source>
+        <translation type="unfinished">Skříň podle rozměrů</translation>
+    </message>
+    <message>
+        <source>Height of the enclosure:</source>
+        <translation type="unfinished">Výška skříně:</translation>
+    </message>
+    <message>
+        <source>Width of the enclosure:</source>
+        <translation type="unfinished">Šířka skříně:</translation>
+    </message>
+    <message>
+        <source>Depth of the enclosure:</source>
+        <translation type="unfinished">Hloubka skříně:</translation>
+    </message>
+    <message>
+        <source>Height of the plate:</source>
+        <translation type="unfinished">Výška desky:</translation>
+    </message>
+    <message>
+        <source>Width of the plate:</source>
+        <translation type="unfinished">Šířka desky:</translation>
+    </message>
+    <message>
+        <source>A hollow box of %1 mm sheet, open at the front, the plate against its back.</source>
+        <translation type="unfinished">Dutá krabice z plechu %1 mm, otevřená vpředu, deska u zadní stěny.</translation>
+    </message>
+    <message>
+        <source>cabinet</source>
+        <translation type="unfinished">rozvadec</translation>
+    </message>
+    <message>
+        <source>Export the cabinet as STEP</source>
+        <translation type="unfinished">Exportovat rozvaděč jako STEP</translation>
+    </message>
+    <message>
+        <source>Written: %1</source>
+        <translation type="unfinished">Zapsáno: %1</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 nelze načíst.
+
+%2</translation>
+    </message>
+    <message>
+        <source>Box %1 × %2 mm</source>
+        <comment>a device drawn by its mounting measures</comment>
+        <translation type="unfinished">Krabice %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDialogs</name>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Vodorovně</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Svisle</translation>
+    </message>
+    <message>
+        <source>Add a wire duct</source>
+        <translation type="unfinished">Přidat kabelový žlab</translation>
+    </message>
+    <message>
+        <source>Width (mm):</source>
+        <translation type="unfinished">Šířka (mm):</translation>
+    </message>
+    <message>
+        <source>Height (mm):</source>
+        <translation type="unfinished">Výška (mm):</translation>
+    </message>
+    <message>
+        <source>Then draw the duct on the sheet: click where it starts, click again where it ends.</source>
+        <translation type="unfinished">Pak nakreslete žlab na list: klepněte, kde začíná, a znovu, kde končí.</translation>
+    </message>
+    <message>
+        <source>Type the width and the height in millimetres, for example 40.</source>
+        <translation type="unfinished">Zadejte šířku a výšku v milimetrech, například 40.</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate</source>
+        <translation type="unfinished">Přidat montážní desku</translation>
+    </message>
+    <message>
+        <source>By measures</source>
+        <translation type="unfinished">Podle rozměrů</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure of the parts database</source>
+        <translation type="unfinished">Deska skříně z databáze dílů</translation>
+    </message>
+    <message>
+        <source>Choose the enclosure...</source>
+        <translation type="unfinished">Vybrat skříň...</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General)</source>
+        <translation type="unfinished">Databáze dílů se nepoužívá (Nastavení &gt; Obecné)</translation>
+    </message>
+    <message>
+        <source>Other size</source>
+        <translation type="unfinished">Jiná velikost</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>Usual sizes:</source>
+        <translation type="unfinished">Obvyklé velikosti:</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Šířka:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Výška:</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes.</source>
+        <translation type="unfinished">Pak klepněte na list, kam deska patří.</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes: the enclosure opens in 3D, click its mounting plate there and the plate takes its size.</source>
+        <translation type="unfinished">Pak klepněte na list, kam deska patří: skříň se otevře ve 3D, klepněte tam na její montážní desku a deska převezme její velikost.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database: its plate cannot be chosen in 3D.</source>
+        <translation type="unfinished">%1 %2 nemá v databázi dílů model STEP: jeho desku nelze vybrat ve 3D.</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet</source>
+        <translation type="unfinished">Měřítko rozvaděče</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Měřítko:</translation>
+    </message>
+    <message>
+        <source>At 1:5, 5 mm of the cabinet take 1 mm of the sheet. The parts keep their measures: they are drawn again at the new scale.</source>
+        <translation type="unfinished">Při 1:5 zabere 5 mm rozvaděče 1 mm listu. Díly si zachovají rozměry: překreslí se v novém měřítku.</translation>
+    </message>
+    <message>
+        <source>Type a scale such as 1:5.</source>
+        <translation type="unfinished">Zadejte měřítko, například 1:5.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montážní deska</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">Lišta DIN</translation>
+    </message>
+    <message>
+        <source>Profile:</source>
+        <translation type="unfinished">Profil:</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Délka:</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished">Směr:</translation>
+    </message>
+    <message>
+        <source>Wire duct</source>
+        <translation type="unfinished">Kabelový žlab</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Výkresy DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 nelze načíst.
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF: nakresleno čar: %1; vynecháno: %2</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetEnclosure</name>
+    <message>
+        <source>The measures of the enclosure do not make a box.</source>
+        <translation type="unfinished">Rozměry skříně netvoří krabici.</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Skříň</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Záda</translation>
+    </message>
+    <message>
+        <source>Left side</source>
+        <translation type="unfinished">Levý bok</translation>
+    </message>
+    <message>
+        <source>Right side</source>
+        <translation type="unfinished">Pravý bok</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Horní strana</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Spodní strana</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montážní deska</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">%1 nelze načíst: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Databáze dílů se nepoužívá.</translation>
+    </message>
+    <message>
+        <source>The parts database has no part %1.</source>
+        <translation type="unfinished">Databáze dílů neobsahuje díl %1.</translation>
+    </message>
+    <message>
+        <source>The part %1 has no STEP model.</source>
+        <translation type="unfinished">Díl %1 nemá model STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetItem</name>
+    <message>
+        <source>a mounting plate</source>
+        <translation type="unfinished">montážní deska</translation>
+    </message>
+    <message>
+        <source>a DIN rail</source>
+        <translation type="unfinished">lišta DIN</translation>
+    </message>
+    <message>
+        <source>a wire duct</source>
+        <translation type="unfinished">kabelový žlab</translation>
+    </message>
+    <message>
+        <source>a DXF drawing</source>
+        <translation type="unfinished">výkres DXF</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>profile and length of a DIN rail</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1×%2 · %3 mm</source>
+        <comment>width, height and length of a wire duct</comment>
+        <translation type="unfinished">%1×%2 · %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>width and length of a wire duct</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>file, width and height of a DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting</name>
+    <message>
+        <source>The mounting plate of this routing sheet is no longer on its cabinet sheet.</source>
+        <translation type="unfinished">Montážní deska tohoto listu vedení již není na svém listu rozvaděče.</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Vodič</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Odkud</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Svorka</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Kam</translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Průřez</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Barva</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Length (mm)</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Délka (mm)</translation>
+    </message>
+    <message>
+        <source>Way</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Cesta</translation>
+    </message>
+    <message>
+        <source>Routing sheet</source>
+        <translation type="unfinished">List vedení</translation>
+    </message>
+    <message>
+        <source>Put a mounting plate on this cabinet sheet first: a routing sheet shows the ways of the wires on one plate.</source>
+        <translation type="unfinished">Nejprve umístěte montážní desku na tento list rozvaděče: list vedení ukazuje cesty vodičů na jedné desce.</translation>
+    </message>
+    <message>
+        <source>Plate %1: %2 × %3 mm</source>
+        <comment>a mounting plate to route</comment>
+        <translation type="unfinished">Deska %1: %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>Mounting plate to route:</source>
+        <translation type="unfinished">Deska k vedení:</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Vypočítat vedení</translation>
+    </message>
+    <message numerus="yes">
+        <source>Keep the %n way(s) changed by hand?</source>
+        <translation type="unfinished">
+            <numerusform>Ponechat %n cestu změněnou ručně?</numerusform>
+            <numerusform>Ponechat %n cesty změněné ručně?</numerusform>
+            <numerusform>Ponechat %n cest změněných ručně?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) routed on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>Na této desce veden %n vodič.</numerusform>
+            <numerusform>Na této desce vedeny %n vodiče.</numerusform>
+            <numerusform>Na této desce vedeno %n vodičů.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n way(s) changed by hand kept.</source>
+        <translation type="unfinished">
+            <numerusform>Ponechána %n cesta změněná ručně.</numerusform>
+            <numerusform>Ponechány %n cesty změněné ručně.</numerusform>
+            <numerusform>Ponecháno %n cest změněných ručně.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) with no duct between their devices: a straight line, in red.</source>
+        <translation type="unfinished">
+            <numerusform>%n vodič bez žlabu mezi zařízeními: přímka, červeně.</numerusform>
+            <numerusform>%n vodiče bez žlabu mezi zařízeními: přímka, červeně.</numerusform>
+            <numerusform>%n vodičů bez žlabu mezi zařízeními: přímka, červeně.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) left out: one of their ends has no drawing on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>Vynechán %n vodič: jeden z jeho konců nemá výkres na této desce.</numerusform>
+            <numerusform>Vynechány %n vodiče: jeden z jejich konců nemá výkres na této desce.</numerusform>
+            <numerusform>Vynecháno %n vodičů: jeden z jejich konců nemá výkres na této desce.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Export the routing</source>
+        <translation type="unfinished">Exportovat vedení</translation>
+    </message>
+    <message>
+        <source>This routing sheet has no way yet: calculate the routing first.</source>
+        <translation type="unfinished">Tento list vedení ještě nemá cesty: nejprve vypočítejte vedení.</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">Soubory CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>Unable to open the file for writing.</source>
+        <translation type="unfinished">Soubor nelze otevřít pro zápis.</translation>
+    </message>
+    <message>
+        <source>Wire %1</source>
+        <translation type="unfinished">Vodič %1</translation>
+    </message>
+    <message>
+        <source>Length: %1 mm</source>
+        <translation type="unfinished">Délka: %1 mm</translation>
+    </message>
+    <message>
+        <source>Reset the position</source>
+        <translation type="unfinished">Obnovit polohu</translation>
+    </message>
+    <message numerus="yes">
+        <source>Reset the position of %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Obnovit polohu %n vodiče</numerusform>
+            <numerusform>Obnovit polohu %n vodičů</numerusform>
+            <numerusform>Obnovit polohu %n vodičů</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Change the way of a wire</source>
+        <translation type="unfinished">Změnit cestu vodiče</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting::Route</name>
+    <message>
+        <source>changed by hand</source>
+        <translation type="unfinished">změněno ručně</translation>
+    </message>
+    <message>
+        <source>through the ducts</source>
+        <translation type="unfinished">žlaby</translation>
+    </message>
+    <message>
+        <source>no duct: straight line</source>
+        <translation type="unfinished">bez žlabu: přímka</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetSpace</name>
+    <message>
+        <source>the duct %1</source>
+        <translation type="unfinished">žlab %1</translation>
+    </message>
+    <message>
+        <source>the rail %1</source>
+        <translation type="unfinished">lišta %1</translation>
+    </message>
+    <message>
+        <source>above</source>
+        <translation type="unfinished">nad</translation>
+    </message>
+    <message>
+        <source>below</source>
+        <translation type="unfinished">pod</translation>
+    </message>
+    <message>
+        <source>on its left</source>
+        <translation type="unfinished">vlevo</translation>
+    </message>
+    <message>
+        <source>on its right</source>
+        <translation type="unfinished">vpravo</translation>
+    </message>
+    <message>
+        <source>in front</source>
+        <translation type="unfinished">vpředu</translation>
+    </message>
+    <message>
+        <source>behind</source>
+        <translation type="unfinished">vzadu</translation>
+    </message>
+    <message>
+        <source>%1 and %2 are %3 mm into each other</source>
+        <translation type="unfinished">%1 a %2 jsou v sobě %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: the enclosure leaves %4 mm too few</source>
+        <translation type="unfinished">%1 vyžaduje %2 mm volného místa %3: skříň nechává o %4 mm méně</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: %4 is %5 mm too near</source>
+        <translation type="unfinished">%1 vyžaduje %2 mm volného místa %3: %4 je o %5 mm blíž</translation>
+    </message>
+    <message>
+        <source>%1 keeps the door from closing: it is %2 mm too deep</source>
+        <translation type="unfinished">%1 brání zavření dveří: je o %2 mm hlubší</translation>
+    </message>
+    <message>
+        <source>%1 goes %2 mm through the enclosure %3</source>
+        <translation type="unfinished">%1 prochází %2 mm skříní %3</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetStep</name>
+    <message>
+        <source>The STEP file cannot be read.</source>
+        <translation type="unfinished">Soubor STEP nelze načíst.</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no shape.</source>
+        <translation type="unfinished">Soubor STEP neobsahuje žádný tvar.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished">Díl %1</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no surface.</source>
+        <translation type="unfinished">Soubor STEP neobsahuje žádnou plochu.</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot read STEP files.</source>
+        <translation type="unfinished">FaseCAD byl sestaven bez OpenCASCADE: neumí číst soubory STEP.</translation>
+    </message>
+    <message>
+        <source>The cabinet could not be written as STEP.</source>
+        <translation type="unfinished">Rozvaděč nelze zapsat jako STEP.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written: %2</source>
+        <translation type="unfinished">%1 nelze zapsat: %2</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot write STEP files.</source>
+        <translation type="unfinished">FaseCAD byl sestaven bez OpenCASCADE: neumí zapisovat soubory STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermal</name>
+    <message>
+        <source>Free-standing, every side free</source>
+        <translation type="unfinished">Volně stojící, všechny strany volné</translation>
+    </message>
+    <message>
+        <source>Against a wall</source>
+        <translation type="unfinished">U stěny</translation>
+    </message>
+    <message>
+        <source>At the end of a row</source>
+        <translation type="unfinished">Na konci řady</translation>
+    </message>
+    <message>
+        <source>At the end of a row, against a wall</source>
+        <translation type="unfinished">Na konci řady, u stěny</translation>
+    </message>
+    <message>
+        <source>In the middle of a row</source>
+        <translation type="unfinished">Uprostřed řady</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall</source>
+        <translation type="unfinished">Uprostřed řady, u stěny</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall, its top covered</source>
+        <translation type="unfinished">Uprostřed řady, u stěny, zakrytý shora</translation>
+    </message>
+    <message>
+        <source>Painted sheet steel (5.5 W/m²K)</source>
+        <translation type="unfinished">Lakovaný ocelový plech (5,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Stainless steel (4.5 W/m²K)</source>
+        <translation type="unfinished">Nerezová ocel (4,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Aluminium (12 W/m²K)</source>
+        <translation type="unfinished">Hliník (12 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Plastic (3.5 W/m²K)</source>
+        <translation type="unfinished">Plast (3,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet to see where the heat is.</source>
+        <translation type="unfinished">Nakreslete montážní desku na list, abyste viděli, kde je teplo.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermalDialog</name>
+    <message>
+        <source>Thermal analysis of the cabinet</source>
+        <translation type="unfinished">Tepelná analýza rozvaděče</translation>
+    </message>
+    <message>
+        <source> mm</source>
+        <translation type="unfinished"> mm</translation>
+    </message>
+    <message>
+        <source>Enclosure (width × height × depth):</source>
+        <translation type="unfinished">Skříň (šířka × výška × hloubka):</translation>
+    </message>
+    <message>
+        <source>Where it stands:</source>
+        <translation type="unfinished">Kde stojí:</translation>
+    </message>
+    <message>
+        <source>Enclosure made of:</source>
+        <translation type="unfinished">Materiál skříně:</translation>
+    </message>
+    <message>
+        <source> °C</source>
+        <translation type="unfinished"> °C</translation>
+    </message>
+    <message>
+        <source>Temperature outside:</source>
+        <translation type="unfinished">Venkovní teplota:</translation>
+    </message>
+    <message>
+        <source>The highest the devices may have inside, often 35 to 40 °C</source>
+        <translation type="unfinished">Nejvyšší teplota, kterou zařízení snesou uvnitř, často 35 až 40 °C</translation>
+    </message>
+    <message>
+        <source>Highest temperature inside:</source>
+        <translation type="unfinished">Nejvyšší teplota uvnitř:</translation>
+    </message>
+    <message>
+        <source>Where the heat is: the hot air goes up, and each device warms what is around it. An estimate to see the hot spots, not a simulation of the air.</source>
+        <translation type="unfinished">Kde je teplo: horký vzduch stoupá a každé zařízení ohřívá své okolí. Odhad pro nalezení horkých míst, ne simulace vzduchu.</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Díl</translation>
+    </message>
+    <message>
+        <source>Power loss</source>
+        <translation type="unfinished">Ztrátový výkon</translation>
+    </message>
+    <message>
+        <source>(no part)</source>
+        <translation type="unfinished">(žádný díl)</translation>
+    </message>
+    <message>
+        <source>%1 W</source>
+        <translation type="unfinished">%1 W</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">neuvedeno</translation>
+    </message>
+    <message numerus="yes">
+        <source>Heat given off: &lt;b&gt;%1 W&lt;/b&gt; by %n device(s).</source>
+        <translation type="unfinished">
+            <numerusform>Vydané teplo: &lt;b&gt;%1 W&lt;/b&gt; z %n zařízení.</numerusform>
+            <numerusform>Vydané teplo: &lt;b&gt;%1 W&lt;/b&gt; z %n zařízení.</numerusform>
+            <numerusform>Vydané teplo: &lt;b&gt;%1 W&lt;/b&gt; z %n zařízení.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Surface giving it out: %1 m².</source>
+        <translation type="unfinished">Plocha, která ho vydává: %1 m².</translation>
+    </message>
+    <message>
+        <source>Temperature inside: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K above the outside.</source>
+        <translation type="unfinished">Teplota uvnitř: &lt;b&gt;%1 °C&lt;/b&gt;, o %2 K nad venkovní.</translation>
+    </message>
+    <message>
+        <source>Below the highest temperature: the enclosure needs no cooling.</source>
+        <translation type="unfinished">Pod nejvyšší teplotou: skříň nepotřebuje chlazení.</translation>
+    </message>
+    <message>
+        <source>Too hot: %1 W to take out, with a filter fan of at least %2 m³/h, or a cooling unit of at least %1 W.</source>
+        <translation type="unfinished">Příliš horko: odvést %1 W ventilátorem s filtrem alespoň %2 m³/h nebo chladicí jednotkou alespoň %1 W.</translation>
+    </message>
+    <message>
+        <source>Too hot: a cooling unit of at least %1 W. A fan cannot help: the outside is not cooler than the highest temperature.</source>
+        <translation type="unfinished">Příliš horko: chladicí jednotka alespoň %1 W. Ventilátor nepomůže: venku není chladněji než nejvyšší teplota.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Warning: %n device(s) have no power loss in the parts database and count as 0 W, so the cabinet is hotter than shown: %1</source>
+        <translation type="unfinished">
+            <numerusform>Upozornění: %n zařízení nemá v databázi dílů ztrátový výkon a počítá se jako 0 W, takže rozvaděč je teplejší, než je uvedeno: %1</numerusform>
+            <numerusform>Upozornění: %n zařízení nemají v databázi dílů ztrátový výkon a počítají se jako 0 W, takže rozvaděč je teplejší, než je uvedeno: %1</numerusform>
+            <numerusform>Upozornění: %n zařízení nemá v databázi dílů ztrátový výkon a počítá se jako 0 W, takže rozvaděč je teplejší, než je uvedeno: %1</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableChecks</name>
+    <message>
+        <source>No name</source>
+        <translation type="unfinished">Bez názvu</translation>
+    </message>
+    <message>
+        <source>Name used by another cable</source>
+        <translation type="unfinished">Název používá jiný kabel</translation>
+    </message>
+    <message>
+        <source>No cable type</source>
+        <translation type="unfinished">Bez typu kabelu</translation>
+    </message>
+    <message>
+        <source>No core wired</source>
+        <translation type="unfinished">Žádná zapojená žíla</translation>
+    </message>
+    <message>
+        <source>No spare core</source>
+        <translation type="unfinished">Žádná rezervní žíla</translation>
+    </message>
+    <message numerus="yes">
+        <source>Only %n spare core(s)</source>
+        <translation type="unfinished">
+            <numerusform>Jen %n rezervní žíla</numerusform>
+            <numerusform>Jen %n rezervní žíly</numerusform>
+            <numerusform>Jen %n rezervních žil</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableManagerDialog</name>
+    <message>
+        <source>Cable manager - %1</source>
+        <translation type="unfinished">Správce kabelů - %1</translation>
+    </message>
+    <message>
+        <source>Search a cable</source>
+        <translation type="unfinished">Hledat kabel</translation>
+    </message>
+    <message>
+        <source>Only cables with problems</source>
+        <translation type="unfinished">Jen kabely s problémy</translation>
+    </message>
+    <message>
+        <source>A cable with fewer free cores than this is marked. 0 checks nothing.</source>
+        <translation type="unfinished">Kabel s menším počtem volných žil se označí. 0 nic nekontroluje.</translation>
+    </message>
+    <message>
+        <source>Spare cores wanted:</source>
+        <translation type="unfinished">Požadované rezervní žíly:</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Typ</translation>
+    </message>
+    <message>
+        <source>Cores used</source>
+        <translation type="unfinished">Použité žíly</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Rezervní</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Začátek</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Konec</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished">Délka</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Instalace</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Umístění</translation>
+    </message>
+    <message>
+        <source>Problems</source>
+        <translation type="unfinished">Problémy</translation>
+    </message>
+    <message>
+        <source>Double-click a name, a length, an installation or a location to change it.</source>
+        <translation type="unfinished">Dvakrát klepněte na název, délku, instalaci nebo umístění pro změnu.</translation>
+    </message>
+    <message>
+        <source>Edit the selected cables...</source>
+        <translation type="unfinished">Upravit vybrané kabely...</translation>
+    </message>
+    <message>
+        <source>Properties...</source>
+        <translation type="unfinished">Vlastnosti...</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Zobrazit na listu</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Žíla</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Barva</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Stav</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Vodič</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Odkud</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Kam</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n kabel</numerusform>
+            <numerusform>%n kabely</numerusform>
+            <numerusform>%n kabelů</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 cores used</source>
+        <translation type="unfinished">Použito %1 z %2 žil</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with problems</source>
+        <translation type="unfinished">
+            <numerusform>%n s problémy</numerusform>
+            <numerusform>%n s problémy</numerusform>
+            <numerusform>%n s problémy</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select a cable to see its cores.</source>
+        <translation type="unfinished">Vyberte kabel pro zobrazení jeho žil.</translation>
+    </message>
+    <message>
+        <source>Select one cable to see its cores.</source>
+        <translation type="unfinished">Vyberte jeden kabel pro zobrazení jeho žil.</translation>
+    </message>
+    <message>
+        <source>Cores of %1: %2 used, %3 spare</source>
+        <translation type="unfinished">Žíly %1: %2 použité, %3 rezervní</translation>
+    </message>
+    <message numerus="yes">
+        <source>Edit %n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>Upravit %n kabel</numerusform>
+            <numerusform>Upravit %n kabely</numerusform>
+            <numerusform>Upravit %n kabelů</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">Změnit texty svorek</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">Hledat zařízení</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">Označení</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">Artikl</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">Dvojklikem zobrazíte zařízení na jeho listu. Shift a Ctrl vybírají více, Delete je odstraní.</translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">Číslovat...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">Přejmenovat vybraná zařízení jedno po druhém od prvního označení: -K1, -K2...</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>Nakresleno na listu rozvaděče %1</numerusform>
+            <numerusform>Nakresleno na listech rozvaděče %1</numerusform>
+            <numerusform>Nakresleno na listech rozvaděče %1</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">(Bez označení)</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>%n symbol tohoto zařízení</numerusform>
+            <numerusform>%n symboly tohoto zařízení</numerusform>
+            <numerusform>%n symbolů tohoto zařízení</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Zobrazit na listu</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">Vložit DXF na list rozvaděče</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">Vybraná zařízení již jsou na listu rozvaděče.</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">Projekt nemá list konstrukce rozvaděče. Přidat ho na konec projektu?</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1 (%2 z %3): klepněte, kam patří | Pravé klepnutí přeskočí | Esc zastaví</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">%1 nemá ve svých dílech DXF: vyberte soubor DXF</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">Číslovat zařízení</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">První označení:</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">Krok:</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">Nové označení</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">Tato označení již patří jiným zařízením: %1. Nic nebylo přejmenováno.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Očíslovat %n zařízení</numerusform>
+            <numerusform>Očíslovat %n zařízení</numerusform>
+            <numerusform>Očíslovat %n zařízení</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">Odstranit zařízení</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>Odstranit %n zařízení i s vodiči?</numerusform>
+            <numerusform>Odstranit %n zařízení i s vodiči?</numerusform>
+            <numerusform>Odstranit %n zařízení i s vodiči?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Odstranit %n zařízení</numerusform>
+            <numerusform>Odstranit %n zařízení</numerusform>
+            <numerusform>Odstranit %n zařízení</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddCabinetItem</name>
+    <message>
+        <source>%1 mm</source>
+        <comment>length of the part being drawn</comment>
+        <translation type="unfinished">%1 mm</translation>
+    </message>
+    <message>
+        <source>%1 mm ⏎</source>
+        <comment>length typed for the part being drawn, Enter accepts it</comment>
+        <translation type="unfinished">%1 mm ⏎</translation>
+    </message>
+    <message>
+        <source>middle left</source>
+        <translation type="unfinished">vlevo uprostřed</translation>
+    </message>
+    <message>
+        <source>top left</source>
+        <translation type="unfinished">vlevo nahoře</translation>
+    </message>
+    <message>
+        <source>top middle</source>
+        <translation type="unfinished">nahoře uprostřed</translation>
+    </message>
+    <message>
+        <source>top right</source>
+        <translation type="unfinished">vpravo nahoře</translation>
+    </message>
+    <message>
+        <source>middle right</source>
+        <translation type="unfinished">vpravo uprostřed</translation>
+    </message>
+    <message>
+        <source>bottom right</source>
+        <translation type="unfinished">vpravo dole</translation>
+    </message>
+    <message>
+        <source>bottom middle</source>
+        <translation type="unfinished">dole uprostřed</translation>
+    </message>
+    <message>
+        <source>bottom left</source>
+        <translation type="unfinished">vlevo dole</translation>
+    </message>
+    <message>
+        <source>centre</source>
+        <translation type="unfinished">střed</translation>
+    </message>
+    <message>
+        <source> | Tab: anchor point (%1)</source>
+        <comment>the anchor point of the part being placed</comment>
+        <translation type="unfinished"> | Tab: bod ukotvení (%1)</translation>
+    </message>
+    <message>
+        <source>Mounting plate: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Montážní deska: klepněte, kam patří | Esc zruší</translation>
+    </message>
+    <message>
+        <source>DXF drawing: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Výkres DXF: klepněte, kam patří | Esc zruší</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Lišta DIN: klepněte, kde končí, nebo zadejte délku v mm a stiskněte Enter | Esc ji zahodí</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">Lišta DIN: klepněte, kde začíná | Pravé klepnutí nebo Esc dokončí</translation>
+    </message>
+    <message>
+        <source>Wire duct: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Kabelový žlab: klepněte, kde končí, nebo zadejte délku v mm a stiskněte Enter | Esc ho zahodí</translation>
+    </message>
+    <message>
+        <source>Wire duct of %1 mm: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">Kabelový žlab %1 mm: klepněte, kde začíná | Pravé klepnutí nebo Esc dokončí</translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">Automaticky skrývat tento panel</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zavřít</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">Ponechat tento panel otevřený</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">Tažením změníte šířku panelu</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">Sbalené panely</translation>
+    </message>
+</context>
+<context>
+    <name>DxfReader</name>
+    <message>
+        <source>The file could not be opened: %1</source>
+        <translation type="unfinished">Soubor nelze otevřít: %1</translation>
+    </message>
+    <message>
+        <source>This DXF file is binary: save it again as a text (ASCII) DXF.</source>
+        <translation type="unfinished">Tento soubor DXF je binární: uložte ho znovu jako textový (ASCII) DXF.</translation>
+    </message>
+    <message>
+        <source>This file is not a DXF drawing.</source>
+        <translation type="unfinished">Tento soubor není výkres DXF.</translation>
+    </message>
+    <message>
+        <source>This DXF file holds no line this program can draw.</source>
+        <translation type="unfinished">Tento soubor DXF neobsahuje žádnou čáru, kterou program umí nakreslit.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">Kusy</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">Přidat díl...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odebrat</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">Díly databáze dílů, ze kterých je tento prvek složen, a kolik kusů každého.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">Pro výběr dílů tohoto prvku použijte databázi dílů (Nastavení &gt; Obecné).</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">(není v databázi dílů)</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Díly</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">Díl byl přidán. Informace prvku obsahují hlavní artikl a jeden pomocný: tento díl tam nemá vlastní blok.</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">hlavní artikl</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">pomocný artikl %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">Přepsat %1 v informacích prvku daty tohoto dílu (výrobce, objednací číslo, popis...)?</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">Text svorky nahradí její název na listu, v plánech svorkovnic a v seznamech a číslo, které symbol kreslí vedle svorky, se změní s ním. Ponechte název symbolu nebo nic, abyste ten název zachovali.</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">Svorka symbolu</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Text</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">Texty svorek</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">(bez názvu)</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">Jak se kontakty tohoto zařízení zobrazují vedle něj. Pro ruční polohu přetáhněte zobrazení na listu se Shiftem nebo zadejte, kde stojí.</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">Použít nastavení projektu</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">Vlastnosti projektu, stránka křížových odkazů</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">Zrcadlo kontaktů</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">Změnit zobrazení kontaktů relé</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadAccount</name>
+    <message>
+        <source>Sign in to fasecad.com</source>
+        <translation type="unfinished">Přihlásit se na fasecad.com</translation>
+    </message>
+    <message>
+        <source>Your FaseCAD account, for the AI and the official parts catalog.</source>
+        <translation type="unfinished">Váš účet FaseCAD pro AI a oficiální katalog dílů.</translation>
+    </message>
+    <message>
+        <source>User or email:</source>
+        <translation type="unfinished">Uživatel nebo e-mail:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Heslo:</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished">Vytvořit účet</translation>
+    </message>
+    <message>
+        <source>Forgot the password?</source>
+        <translation type="unfinished">Zapomněli jste heslo?</translation>
+    </message>
+    <message>
+        <source>My FaseCAD</source>
+        <translation type="unfinished">Můj FaseCAD</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Přihlásit se</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished">Odhlásit se</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadServices</name>
+    <message>
+        <source>The user or the password is wrong.</source>
+        <translation type="unfinished">Uživatel nebo heslo je chybné.</translation>
+    </message>
+    <message>
+        <source>fasecad.com cannot be reached: %1</source>
+        <translation type="unfinished">fasecad.com není dostupný: %1</translation>
+    </message>
+    <message>
+        <source>Your account is open on another computer.</source>
+        <translation type="unfinished">Váš účet je otevřen na jiném počítači.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet.</source>
+        <translation type="unfinished">Služby fasecad.com ještě nejsou otevřeny.</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer: this session was closed.</source>
+        <translation type="unfinished">Váš účet byl otevřen na jiném počítači: tato relace byla ukončena.</translation>
+    </message>
+    <message>
+        <source>Your subscription is not running.</source>
+        <translation type="unfinished">Vaše předplatné není aktivní.</translation>
+    </message>
+    <message>
+        <source>Too many messages today: try again tomorrow.</source>
+        <translation type="unfinished">Dnes příliš mnoho zpráv: zkuste to zítra.</translation>
+    </message>
+    <message>
+        <source>The message could not be sent: %1</source>
+        <translation type="unfinished">Zprávu nelze odeslat: %1</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">Obsah listů</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">Obsah listů %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoriesDialog</name>
+    <message>
+        <source>Categories of the parts</source>
+        <translation type="unfinished">Kategorie dílů</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Přidat...</translation>
+    </message>
+    <message>
+        <source>Add a subcategory...</source>
+        <translation type="unfinished">Přidat podkategorii...</translation>
+    </message>
+    <message>
+        <source>Rename...</source>
+        <translation type="unfinished">Přejmenovat...</translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished">Ikona</translation>
+    </message>
+    <message>
+        <source>FaseCAD icons...</source>
+        <translation type="unfinished">Ikony FaseCAD...</translation>
+    </message>
+    <message>
+        <source>Image file...</source>
+        <translation type="unfinished">Soubor obrázku...</translation>
+    </message>
+    <message>
+        <source>No icon</source>
+        <translation type="unfinished">Bez ikony</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odebrat</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n díl</numerusform>
+            <numerusform>%n díly</numerusform>
+            <numerusform>%n dílů</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) with its subcategories</source>
+        <translation type="unfinished">
+            <numerusform>%n díl s podkategoriemi</numerusform>
+            <numerusform>%n díly s podkategoriemi</numerusform>
+            <numerusform>%n dílů s podkategoriemi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This category comes with FaseCAD</source>
+        <translation type="unfinished">Tato kategorie je součástí FaseCAD</translation>
+    </message>
+    <message>
+        <source>New category</source>
+        <translation type="unfinished">Nová kategorie</translation>
+    </message>
+    <message>
+        <source>Name of the category:</source>
+        <translation type="unfinished">Název kategorie:</translation>
+    </message>
+    <message>
+        <source>New subcategory</source>
+        <translation type="unfinished">Nová podkategorie</translation>
+    </message>
+    <message>
+        <source>Name of the subcategory of %1:</source>
+        <translation type="unfinished">Název podkategorie %1:</translation>
+    </message>
+    <message>
+        <source>Rename the category</source>
+        <translation type="unfinished">Přejmenovat kategorii</translation>
+    </message>
+    <message>
+        <source>New name of the category:</source>
+        <translation type="unfinished">Nový název kategorie:</translation>
+    </message>
+    <message>
+        <source>Remove the category %1?</source>
+        <translation type="unfinished">Odebrat kategorii %1?</translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) are left without category.</source>
+        <translation type="unfinished">
+            <numerusform>Její %n díl zůstane bez kategorie.</numerusform>
+            <numerusform>Její %n díly zůstanou bez kategorie.</numerusform>
+            <numerusform>Jejích %n dílů zůstane bez kategorie.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) go to %1.</source>
+        <translation type="unfinished">
+            <numerusform>Její %n díl přejde do %1.</numerusform>
+            <numerusform>Její %n díly přejdou do %1.</numerusform>
+            <numerusform>Jejích %n dílů přejde do %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Its subcategories go up one level, with their parts.</source>
+        <translation type="unfinished">Její podkategorie se posunou o úroveň výš i s díly.</translation>
+    </message>
+    <message>
+        <source>Remove the category</source>
+        <translation type="unfinished">Odebrat kategorii</translation>
+    </message>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Ikona kategorie</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</source>
+        <translation type="unfinished">Obrázky (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read or is larger than 512 KB.</source>
+        <translation type="unfinished">Soubor %1 nelze načíst nebo je větší než 512 KB.</translation>
+    </message>
+    <message>
+        <source>The file %1 is not an image.</source>
+        <translation type="unfinished">Soubor %1 není obrázek.</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIconPicker</name>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Ikona kategorie</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIcons</name>
+    <message>
+        <source>Terminal block</source>
+        <translation type="unfinished">Řadová svorka</translation>
+    </message>
+    <message>
+        <source>Circuit breaker</source>
+        <translation type="unfinished">Jistič</translation>
+    </message>
+    <message>
+        <source>Residual current device</source>
+        <translation type="unfinished">Proudový chránič</translation>
+    </message>
+    <message>
+        <source>Motor protection</source>
+        <translation type="unfinished">Motorový spouštěč</translation>
+    </message>
+    <message>
+        <source>Fuse</source>
+        <translation type="unfinished">Pojistka</translation>
+    </message>
+    <message>
+        <source>Contactor</source>
+        <translation type="unfinished">Stykač</translation>
+    </message>
+    <message>
+        <source>Relay</source>
+        <translation type="unfinished">Relé</translation>
+    </message>
+    <message>
+        <source>Disconnector</source>
+        <translation type="unfinished">Odpínač</translation>
+    </message>
+    <message>
+        <source>Pilot light</source>
+        <translation type="unfinished">Signálka</translation>
+    </message>
+    <message>
+        <source>Push button</source>
+        <translation type="unfinished">Tlačítko</translation>
+    </message>
+    <message>
+        <source>Signal tower</source>
+        <translation type="unfinished">Signální sloup</translation>
+    </message>
+    <message>
+        <source>Operator panel</source>
+        <translation type="unfinished">Operátorský panel</translation>
+    </message>
+    <message>
+        <source>PLC</source>
+        <translation type="unfinished">PLC</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation type="unfinished">Pohon</translation>
+    </message>
+    <message>
+        <source>Power supply</source>
+        <translation type="unfinished">Napájecí zdroj</translation>
+    </message>
+    <message>
+        <source>Signal conditioner</source>
+        <translation type="unfinished">Převodník signálu</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">Síť</translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished">Snímač</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Connector</source>
+        <translation type="unfinished">Konektor</translation>
+    </message>
+    <message>
+        <source>Wire end ferrule</source>
+        <translation type="unfinished">Dutinka</translation>
+    </message>
+    <message>
+        <source>Busbar</source>
+        <translation type="unfinished">Přípojnice</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">Lišta DIN</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Skříň</translation>
+    </message>
+    <message>
+        <source>Fan</source>
+        <translation type="unfinished">Ventilátor</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">Osvětlení</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Nástroje</translation>
+    </message>
+    <message>
+        <source>Pneumatics</source>
+        <translation type="unfinished">Pneumatika</translation>
+    </message>
+    <message>
+        <source>Hydraulics</source>
+        <translation type="unfinished">Hydraulika</translation>
+    </message>
+    <message>
+        <source>Transformer</source>
+        <translation type="unfinished">Transformátor</translation>
+    </message>
+    <message>
+        <source>Motor</source>
+        <translation type="unfinished">Motor</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Ostatní</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">Data dílů</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">Hledat údaj, hodnotu nebo díl...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Údaj</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Hodnota</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Díl</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n údaj</numerusform>
+            <numerusform>%n údaje</numerusform>
+            <numerusform>%n údajů</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Ostatní</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">Napájení + (L+, 24 V)</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">Napájení - (M, 0 V)</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">Funkční zem (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">Ochranná zem (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">Fáze (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">Nulový vodič (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">Digitální vstup</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">Digitální výstup</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">Analogový vstup</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">Analogový výstup</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">Port sběrnice</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">Cívka</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">Silový kontakt</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">Spínací kontakt</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">Rozpínací kontakt</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">Přepínací kontakt</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Svorka</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">Vybrat díl</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Hledat díl</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">Kategorie:</translation>
+    </message>
+    <message>
+        <source>Only parts with a STEP model</source>
+        <translation type="unfinished">Jen díly s modelem STEP</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure is chosen on its 3D model</source>
+        <translation type="unfinished">Deska skříně se vybírá na jejím 3D modelu</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Obrázek</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Správce dílů...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">Přidejte nebo změňte díly; toto okno je zobrazí, až se k němu vrátíte.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Vše</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">Textový popis</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">Číslo artiklu</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Výrobce</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Objednací číslo</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">Interní číslo</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Dodavatel</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Číslo dodavatele</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategorie</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">Model</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">Jmenovité napětí</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">Jmenovitý proud</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">Jednotka</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Písmeno zařízení</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Šířka (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Výška (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Hloubka (mm)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Hmotnost (kg)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Ztrátový výkon (W)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Cena</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Počet žil</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Barvy žil</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Průřez</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Barva pláště</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Katalogový list</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Poznámky</translation>
+    </message>
+    <message>
+        <source>Image: %1</source>
+        <translation type="unfinished">Obrázek: %1</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1, %2</translation>
+    </message>
+    <message>
+        <source>(image)</source>
+        <translation type="unfinished">(obrázek)</translation>
+    </message>
+</context>
+<context>
+    <name>PartThumbnails</name>
+    <message>
+        <source>No Picture</source>
+        <translation type="unfinished">Bez obrázku</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">Díl již není v databázi dílů.</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">Soubor nelze načíst: %1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">Toto není soubor dílu FaseCAD.</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">Tento soubor dílu byl vytvořen novější verzí FaseCAD.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">Poz.</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">Množ.</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">Jedn.</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Výrobce</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Objednací číslo</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">Označení</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategorie</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Dodavatel</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Číslo dodavatele</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">Interní číslo</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Databáze dílů</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCatalogDialog</name>
+    <message>
+        <source>Official FaseCAD parts catalog</source>
+        <translation type="unfinished">Oficiální katalog dílů FaseCAD</translation>
+    </message>
+    <message>
+        <source>Manufacturer, order number, description...</source>
+        <translation type="unfinished">Výrobce, objednací číslo, popis...</translation>
+    </message>
+    <message>
+        <source>Every category</source>
+        <translation type="unfinished">Všechny kategorie</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Výrobce</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Objednací číslo</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategorie</translation>
+    </message>
+    <message>
+        <source>&lt; Previous</source>
+        <translation type="unfinished">&lt; Předchozí</translation>
+    </message>
+    <message>
+        <source>Next &gt;</source>
+        <translation type="unfinished">Další &gt;</translation>
+    </message>
+    <message>
+        <source>Replace the parts my database has already</source>
+        <translation type="unfinished">Nahradit díly, které už jsou v mé databázi</translation>
+    </message>
+    <message>
+        <source>Add to my parts database</source>
+        <translation type="unfinished">Přidat do mé databáze dílů</translation>
+    </message>
+    <message>
+        <source>Asking %1...</source>
+        <translation type="unfinished">Dotazuji se %1...</translation>
+    </message>
+    <message>
+        <source>The catalog cannot be reached: %1</source>
+        <translation type="unfinished">Katalog není dostupný: %1</translation>
+    </message>
+    <message>
+        <source>The catalog gave no list of parts.</source>
+        <translation type="unfinished">Katalog nevrátil seznam dílů.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) found, page %1 of %2.</source>
+        <translation type="unfinished">
+            <numerusform>Nalezen %n díl, strana %1 z %2.</numerusform>
+            <numerusform>Nalezeny %n díly, strana %1 z %2.</numerusform>
+            <numerusform>Nalezeno %n dílů, strana %1 z %2.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General).</source>
+        <translation type="unfinished">Databáze dílů se nepoužívá (Nastavení &gt; Obecné).</translation>
+    </message>
+    <message>
+        <source>%1: your session was closed, the account is open on another computer (Sign in...)</source>
+        <translation type="unfinished">%1: vaše relace byla ukončena, účet je otevřen na jiném počítači (Přihlásit se...)</translation>
+    </message>
+    <message>
+        <source>%1: the parts of the official catalog are part of FaseCAD Pro (my.fasecad.com)</source>
+        <translation type="unfinished">%1: díly oficiálního katalogu jsou součástí FaseCAD Pro (my.fasecad.com)</translation>
+    </message>
+    <message>
+        <source>%1: the catalog does not accept this user and password (Sign in...)</source>
+        <translation type="unfinished">%1: katalog nepřijímá toto uživatelské jméno a heslo (Přihlásit se...)</translation>
+    </message>
+    <message>
+        <source>%1: sign in to download it (Sign in...)</source>
+        <translation type="unfinished">%1: pro stažení se přihlaste (Přihlásit se...)</translation>
+    </message>
+    <message>
+        <source>%1: your database has it already</source>
+        <translation type="unfinished">%1: již je ve vaší databázi</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) added to your parts database.</source>
+        <translation type="unfinished">
+            <numerusform>Do vaší databáze dílů přidán %n díl.</numerusform>
+            <numerusform>Do vaší databáze dílů přidány %n díly.</numerusform>
+            <numerusform>Do vaší databáze dílů přidáno %n dílů.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not added: %1</source>
+        <translation type="unfinished">Nepřidáno: %1</translation>
+    </message>
+    <message>
+        <source>No folder for the downloaded file.</source>
+        <translation type="unfinished">Pro stažený soubor není složka.</translation>
+    </message>
+    <message>
+        <source>The downloaded file cannot be written.</source>
+        <translation type="unfinished">Stažený soubor nelze zapsat.</translation>
+    </message>
+    <message>
+        <source>Signed in to fasecad.com as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Přihlášen na fasecad.com jako %1. Klepněte pro změnu nebo odhlášení.</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Přihlásit se...</translation>
+    </message>
+    <message>
+        <source>Sign in to fasecad.com to download the parts</source>
+        <translation type="unfinished">Pro stahování dílů se přihlaste na fasecad.com</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">Sbírka dílů</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">Díly databáze dílů. Přetáhněte díl na list pro umístění jeho symbolu s dílem, nebo na symbol pro přidání dílu k němu.</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">Žádný symbol: pusťte na umístěný symbol</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">Symboly: %1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">Tab mění symbol při umisťování dílu</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Bez kategorie)</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">Složku %1 nelze vytvořit.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">Databázi dílů %1 nelze otevřít: %2</translation>
+    </message>
+    <message>
+        <source>The server of the parts database is not set.</source>
+        <translation type="unfinished">Server databáze dílů není nastaven.</translation>
+    </message>
+    <message>
+        <source>This copy of the program cannot connect to a PostgreSQL server: its driver is missing.</source>
+        <translation type="unfinished">Tato kopie programu se nemůže připojit k serveru PostgreSQL: chybí jeho ovladač.</translation>
+    </message>
+    <message>
+        <source>The parts database on %1 cannot be opened: %2</source>
+        <translation type="unfinished">Databázi dílů na %1 nelze otevřít: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not open.</source>
+        <translation type="unfinished">Databáze dílů není otevřena.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">Databáze dílů %1 byla vytvořena novější verzí programu a nelze ji otevřít.</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">Databázi dílů používá někdo jiný. Zkuste to za chvíli.</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">Do databáze dílů nelze zapisovat: %1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">Soubor %1 je příliš velký pro zkopírování do databáze dílů (více než %2 MB). Místo toho na něj vytvořte odkaz.</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">Tento díl již není v databázi dílů.</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">Díl výrobce „%1“ s objednacím číslem „%2“ již existuje.</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">Díl nemůže být svým vlastním příslušenstvím.</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">Jedno z příslušenství tohoto dílu již není v databázi dílů.</translation>
+    </message>
+    <message>
+        <source>A category needs a name.</source>
+        <translation type="unfinished">Kategorie musí mít název.</translation>
+    </message>
+    <message>
+        <source>The category %1 is there already.</source>
+        <translation type="unfinished">Kategorie %1 již existuje.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be renamed.</source>
+        <translation type="unfinished">Kategorie %1 je součástí FaseCAD: nelze ji přejmenovat.</translation>
+    </message>
+    <message>
+        <source>A category cannot go inside itself.</source>
+        <translation type="unfinished">Kategorie nemůže být sama v sobě.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be removed.</source>
+        <translation type="unfinished">Kategorie %1 je součástí FaseCAD: nelze ji odebrat.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">Soubor %1 nelze načíst.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">Soubor %1 nelze najít.</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">Tento soubor již není v databázi dílů.</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">Odkazovaný soubor %1 nelze najít.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Soubor %1 nelze zapsat.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">Správce dílů</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">Databáze: %1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">Podle kategorie</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">Podle výrobce</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Hledat díl</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Číslo dodavatele</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Obrázek</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nový</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplikovat</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Exportovat</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">Zapsat díly s jejich soubory a symboly do souborů .faspart, jeden na díl</translation>
+    </message>
+    <message>
+        <source>The selected parts...</source>
+        <translation type="unfinished">Vybrané díly...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">Všechny díly seznamu...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">Importovat...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">Přidat díly ze souborů .faspart do databáze dílů</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Obecné</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">Montáž</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">Technická data</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished">Překlady</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Symboly</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">Soubory</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">Zahodit změny</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Uložit</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Písmeno zařízení</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Katalogový list</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Downstream of this device, the cross-section of the wires depends on what is connected to it: the wires it feeds (its outgoing terminals and every wire joined to them) are made for this current.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calculate sections&lt;/b&gt; (Connections tab) gives every wire of the project the cross-section of the device that feeds it.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Průřez vodičů za tímto zařízením závisí na tom, co je k němu připojeno: vodiče, které napájí (výstupní svorky a každý vodič k nim připojený), se dimenzují na tento proud.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vypočítat průřezy&lt;/b&gt; (karta Připojení) dá každému vodiči projektu průřez zařízení, které ho napájí.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Maximum current (A)</source>
+        <translation type="unfinished">Nejvyšší proud (A)</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">Písmeno označení, které dostane umístěné zařízení, např. K pro -K1.</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">Spolu s výrobcem identifikuje díl</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Hmotnost (kg)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Cena</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Šířka (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Výška (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Hloubka (mm)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">Prostor ponechaný v rozvaděči kolem zařízení pro vzduch a vodiče.</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">Volno nahoře (mm)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">Volno dole (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">Volno vlevo (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">Volno vpravo (mm)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">Volno vpředu (mm)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">Volno vzadu (mm)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Ztrátový výkon (W)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">Teplo vydávané zařízením, pro tepelnou bilanci rozvaděče.</translation>
+    </message>
+    <message>
+        <source>The textual description and the model in other languages. In Project languages, Collect texts of the project fills them in, so the folios are shown, printed and exported in each language.</source>
+        <translation type="unfinished">Textový popis a model v jiných jazycích. V jazycích projektu je „Sesbírat texty projektu“ vyplní, takže listy se zobrazují, tisknou a exportují v každém jazyce.</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">Jazyk</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">Co dělá každý pin zařízení, v pořadí výrobce. Přidat zkopíruje vybraný řádek s dalším pinem a číslem.</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">Funkce</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">Konektor</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">Pin</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">Adresa PLC</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odebrat</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Nahoru</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Dolů</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">Kam vedou vodiče na skutečném zařízení a co přijímají. Poloha je v mm od levého horního rohu čelního panelu.</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">Nejmenší průřez (mm²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">Největší průřez (mm²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Vodiče</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">Odizolování (mm)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">Utahovací moment (N·m)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">Šroubovák</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (mm)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (mm)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (mm)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">Kolik vodičů přípojný bod přijme</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">Z funkcí</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">Přidat přípojný bod pro každý pin karty Funkce, který ho ještě nemá.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Název</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Hodnota</translation>
+    </message>
+    <message>
+        <source>Copy the rows</source>
+        <translation type="unfinished">Kopírovat řádky</translation>
+    </message>
+    <message>
+        <source>Paste rows</source>
+        <translation type="unfinished">Vložit řádky</translation>
+    </message>
+    <message>
+        <source>Copy the selected rows (Ctrl+C), to paste them in another part or in a spreadsheet</source>
+        <translation type="unfinished">Kopírovat vybrané řádky pro vložení do jiného dílu nebo tabulky (Ctrl+C)</translation>
+    </message>
+    <message>
+        <source>Paste copied rows (Ctrl+V): a name already in the table takes the pasted value, the others are added</source>
+        <translation type="unfinished">Vložit zkopírované řádky (Ctrl+V): název již v tabulce dostane vloženou hodnotu, ostatní se přidají</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">Přidat příslušenství...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">Pokud se používá databáze dílů (Nastavení), díl s žilami se nabízí jako typ kabelu při kreslení kabelu.</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">Není kabel</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Počet žil</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Barvy žil</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Průřez</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Barva pláště</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">Exportovat díly do</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">Exportovat díly</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 již existuje. Nahradit?</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n díl exportován do %1.</numerusform>
+            <numerusform>%n díly exportovány do %1.</numerusform>
+            <numerusform>%n dílů exportováno do %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">Neexportováno:</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">Importovat díly</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">Díly FaseCAD (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">Databáze dílů již obsahuje %1 %2.
+Nahradit ho dílem ze souboru?</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">Nahradit</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">Ponechat můj</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">Nahradit vše</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">Ponechat všechny mé</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">
+            <numerusform>Importován %n díl.</numerusform>
+            <numerusform>Importovány %n díly.</numerusform>
+            <numerusform>Importováno %n dílů.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">
+            <numerusform>%n díl ponechán beze změny.</numerusform>
+            <numerusform>%n díly ponechány beze změny.</numerusform>
+            <numerusform>%n dílů ponecháno beze změny.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">Neimportováno:</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">Přetažený ze sbírky dílů panelu sbírek přijde díl s prvním symbolem; při umisťování Tab přejde na další, Shift+Tab zpět.</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Přidat...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">Vybrat symbol ze sbírky</translation>
+    </message>
+    <message>
+        <source>Import a file...</source>
+        <translation type="unfinished">Importovat soubor...</translation>
+    </message>
+    <message>
+        <source>A symbol file (.elmt) kept in the parts database: it need not be in the collection</source>
+        <translation type="unfinished">Soubor symbolu (.elmt) uložený v databázi dílů: nemusí být ve sbírce</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">Symbol</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">Umístění symbolu:</translation>
+    </message>
+    <message>
+        <source>Import a symbol</source>
+        <translation type="unfinished">Importovat symbol</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Symboly (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Save the part first: the symbol is kept with it in the parts database.</source>
+        <translation type="unfinished">Nejprve díl uložte: symbol se uchovává s ním v databázi dílů.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">%1 nelze načíst: %2</translation>
+    </message>
+    <message>
+        <source>%1 is not a symbol.</source>
+        <translation type="unfinished">%1 není symbol.</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">Pro přidání souborů díl nejprve uložte.</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">Přidat obrázek...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">Přidat DXF...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">Přidat 3D model...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">Soubor STEP (.stp, .step) pro rozvaděč ve 3D.</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">Odkázat na soubor...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">Uchovat jen cestu k souboru místo kopie. Soubor musí zůstat na místě a být dostupný z každého počítače, který tuto databázi používá.</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">Uložit jako...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">Všechny díly</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Bez kategorie)</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">(Bez výrobce)</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">Díl má neuložené změny. Uložit je?</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">Toto není číslo: %1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">Zadejte alespoň výrobce, objednací číslo nebo popis.</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">Odstranit díl %1 i s jeho soubory? Projekty, které ho používají, si ponechají informace prvků.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete the %n selected parts, with their files? Projects using them keep their element informations.</source>
+        <translation type="unfinished">
+            <numerusform>Odstranit %n vybraný díl i se soubory? Projekty, které je používají, si ponechají informace prvků.</numerusform>
+            <numerusform>Odstranit %n vybrané díly i se soubory? Projekty, které je používají, si ponechají informace prvků.</numerusform>
+            <numerusform>Odstranit %n vybraných dílů i se soubory? Projekty, které je používají, si ponechají informace prvků.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Manage categories...</source>
+        <translation type="unfinished">Spravovat kategorie...</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">Každý pin funkcí již má přípojný bod.</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">V databázi není jiný díl, který by šel použít jako příslušenství.</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">Přidat příslušenství</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">Příslušenství:</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Obrázek</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">3D model (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1: %2 (odkaz: %3)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1: %2 (%3, zkopírováno do databáze)</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">Tento obrázek nelze zobrazit.</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">Obrázky (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">Přidat obrázek</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">Výkresy DXF (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">Přidat DXF</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">Modely STEP (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">Přidat 3D model</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">Odkázat na soubor</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">Obrázky, výkresy DXF a modely STEP (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Uložit jako</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">Odebrat tento soubor z dílu?</translation>
+    </message>
+</context>
+<context>
+    <name>PartsServerDialog</name>
+    <message>
+        <source>Parts database server</source>
+        <translation type="unfinished">Server databáze dílů</translation>
+    </message>
+    <message>
+        <source>A PostgreSQL server keeps the parts database for several computers at once. The tables are made the first time.</source>
+        <translation type="unfinished">Server PostgreSQL uchovává databázi dílů pro více počítačů najednou. Tabulky se vytvoří napoprvé.</translation>
+    </message>
+    <message>
+        <source>Kept in the settings of this user on this computer</source>
+        <translation type="unfinished">Uloženo v nastavení tohoto uživatele na tomto počítači</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">Server:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished">Port:</translation>
+    </message>
+    <message>
+        <source>Database:</source>
+        <translation type="unfinished">Databáze:</translation>
+    </message>
+    <message>
+        <source>User:</source>
+        <translation type="unfinished">Uživatel:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Heslo:</translation>
+    </message>
+    <message>
+        <source>Test the connection</source>
+        <translation type="unfinished">Vyzkoušet připojení</translation>
+    </message>
+    <message>
+        <source>Copy my parts to the server...</source>
+        <translation type="unfinished">Zkopírovat mé díly na server...</translation>
+    </message>
+    <message>
+        <source>Copies the parts of the database file, with their files, symbols and categories. A part the server has already is left as it is there.</source>
+        <translation type="unfinished">Zkopíruje díly souboru databáze s jejich soubory, symboly a kategoriemi. Díl, který už je na serveru, tam zůstane beze změny.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Connected: the server holds %n parts.</source>
+        <translation type="unfinished">
+            <numerusform>Připojeno: server má %n díl.</numerusform>
+            <numerusform>Připojeno: server má %n díly.</numerusform>
+            <numerusform>Připojeno: server má %n dílů.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Copying the parts to the server...</source>
+        <translation type="unfinished">Kopírování dílů na server...</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Zastavit</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n parts copied from %1.</source>
+        <translation type="unfinished">
+            <numerusform>Zkopírován %n díl z %1.</numerusform>
+            <numerusform>Zkopírovány %n díly z %1.</numerusform>
+            <numerusform>Zkopírováno %n dílů z %1.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ProjectVersions</name>
+    <message>
+        <source>Changes from version %1 to version %2</source>
+        <translation type="unfinished">Změny od verze %1 do %2</translation>
+    </message>
+    <message>
+        <source>No device was added, removed or rewired.</source>
+        <translation type="unfinished">Žádné zařízení nebylo přidáno, odebráno ani znovu připojeno.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices added (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Přidaná zařízení (%n)</numerusform>
+            <numerusform>Přidaná zařízení (%n)</numerusform>
+            <numerusform>Přidaná zařízení (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices removed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Odebraná zařízení (%n)</numerusform>
+            <numerusform>Odebraná zařízení (%n)</numerusform>
+            <numerusform>Odebraná zařízení (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Wiring changed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Změněná připojení (%n)</numerusform>
+            <numerusform>Změněná připojení (%n)</numerusform>
+            <numerusform>Změněná připojení (%n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Changes of version %1 (%2/%3)</source>
+        <translation type="unfinished">Změny verze %1 (%2/%3)</translation>
+    </message>
+    <message>
+        <source>Changes of version %1</source>
+        <translation type="unfinished">Změny verze %1</translation>
+    </message>
+</context>
+<context>
+    <name>SupportDialog</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Nahlásit chybu</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Požádat o podporu</translation>
+    </message>
+    <message>
+        <source>Say what you did, what happened and what you expected. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Popište, co jste dělali, co se stalo a co jste očekávali. Odešle se i verze FaseCAD a systému.</translation>
+    </message>
+    <message>
+        <source>Say what you need help with. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Popište, s čím potřebujete pomoc. Odešle se i verze FaseCAD a systému.</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation type="unfinished">Předmět:</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Odeslat</translation>
+    </message>
+    <message>
+        <source>Sent. The FaseCAD team will answer you by email.</source>
+        <translation type="unfinished">Odesláno. Tým FaseCAD vám odpoví e-mailem.</translation>
+    </message>
+    <message>
+        <source>Sending...</source>
+        <translation type="unfinished">Odesílání...</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">Uvnitř</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">Vně</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalPropertiesWidget</name>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Svorka</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSettingsWidget</name>
+    <message>
+        <source>A terminal strip of the project, or the name of a new one. Empty: the strip of the terminal on its left on the folio</source>
+        <translation type="unfinished">Název svorkovnice projektu nebo nové. Prázdné: svorkovnice svorky vlevo na listu</translation>
+    </message>
+    <message>
+        <source>Same as on the left</source>
+        <translation type="unfinished">Jako vlevo</translation>
+    </message>
+    <message>
+        <source>Terminal strip:</source>
+        <translation type="unfinished">Svorkovnice:</translation>
+    </message>
+    <message>
+        <source>Terminal number:</source>
+        <translation type="unfinished">Číslo svorky:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Žádná</translation>
+    </message>
+    <message>
+        <source>Colour:</source>
+        <translation type="unfinished">Barva:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">Typ:</translation>
+    </message>
+    <message>
+        <source>%1 mm²</source>
+        <translation type="unfinished">%1 mm²</translation>
+    </message>
+    <message>
+        <source>Cross-section:</source>
+        <translation type="unfinished">Průřez:</translation>
+    </message>
+    <message>
+        <source>The terminals of the strip with the same number are one terminal of several levels, 1 at the bottom</source>
+        <translation type="unfinished">Svorky svorkovnice se stejným číslem jsou jedna víceúrovňová svorka, 1 dole</translation>
+    </message>
+    <message>
+        <source>Level:</source>
+        <translation type="unfinished">Úroveň:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">dole</translation>
+    </message>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">nahoře</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">vpravo</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">vlevo</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDataDialog</name>
+    <message>
+        <source>Change the title block data</source>
+        <translation type="unfinished">Změnit data rohového razítka</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Data rohového razítka</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Firma</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Název:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished">Adresa:</translation>
+    </message>
+    <message>
+        <source>Contact:</source>
+        <translation type="unfinished">Kontakt:</translation>
+    </message>
+    <message>
+        <source>Phone, e-mail, web</source>
+        <translation type="unfinished">Telefon, e-mail, web</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Zákazník a stavba</translation>
+    </message>
+    <message>
+        <source>Client:</source>
+        <translation type="unfinished">Zákazník:</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">Stavba:</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Podpisy</translation>
+    </message>
+    <message>
+        <source>Drawn by: the author and the date of each sheet, in its properties.</source>
+        <translation type="unfinished">Kreslil: autor a datum každého listu, v jeho vlastnostech.</translation>
+    </message>
+    <message>
+        <source>Checked by:</source>
+        <translation type="unfinished">Kontroloval:</translation>
+    </message>
+    <message>
+        <source>Checked on:</source>
+        <translation type="unfinished">Datum kontroly:</translation>
+    </message>
+    <message>
+        <source>Approved by:</source>
+        <translation type="unfinished">Schválil:</translation>
+    </message>
+    <message>
+        <source>Approved on:</source>
+        <translation type="unfinished">Datum schválení:</translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <translation type="unfinished">Výkres</translation>
+    </message>
+    <message>
+        <source>Standard:</source>
+        <translation type="unfinished">Norma:</translation>
+    </message>
+    <message>
+        <source>The paper size and the scale are worked out for each sheet.</source>
+        <translation type="unfinished">Formát papíru a měřítko se počítají pro každý list.</translation>
+    </message>
+    <message>
+        <source>Revisions, the latest at the top</source>
+        <translation type="unfinished">Revize, nejnovější nahoře</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev.</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Datum</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Kdo</translation>
+    </message>
+    <message>
+        <source>New revision</source>
+        <translation type="unfinished">Nová revize</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odebrat</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesign</name>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Projekt</translation>
+    </message>
+    <message>
+        <source>Sheet title</source>
+        <translation type="unfinished">Název listu</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished">Zákazník</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">Stavba</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished">Adresa</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev.</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Datum</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Popis</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Kdo</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Název</translation>
+    </message>
+    <message>
+        <source>Drawn</source>
+        <translation type="unfinished">Kreslil</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished">Kontroloval</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Schválil</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished">Formát</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished">Měřítko</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished">Norma</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Umístění</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">Logo</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Firma</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Zákazník a stavba</translation>
+    </message>
+    <message>
+        <source>Revisions</source>
+        <translation type="unfinished">Revize</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Podpisy</translation>
+    </message>
+    <message>
+        <source>Format and scale</source>
+        <translation type="unfinished">Formát a měřítko</translation>
+    </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished">Kontakt</translation>
+    </message>
+    <message>
+        <source>Drawn by</source>
+        <translation type="unfinished">Kreslil</translation>
+    </message>
+    <message>
+        <source>Drawn on</source>
+        <translation type="unfinished">Datum kreslení</translation>
+    </message>
+    <message>
+        <source>Checked by</source>
+        <translation type="unfinished">Kontroloval</translation>
+    </message>
+    <message>
+        <source>Checked on</source>
+        <translation type="unfinished">Datum kontroly</translation>
+    </message>
+    <message>
+        <source>Approved by</source>
+        <translation type="unfinished">Schválil</translation>
+    </message>
+    <message>
+        <source>Approved on</source>
+        <translation type="unfinished">Datum schválení</translation>
+    </message>
+    <message>
+        <source>Project title</source>
+        <translation type="unfinished">Název projektu</translation>
+    </message>
+    <message>
+        <source>Sheet number</source>
+        <translation type="unfinished">Číslo listu</translation>
+    </message>
+    <message>
+        <source>Position of the sheet</source>
+        <translation type="unfinished">Pozice listu</translation>
+    </message>
+    <message>
+        <source>Number of sheets</source>
+        <translation type="unfinished">Počet listů</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished">Autor</translation>
+    </message>
+    <message>
+        <source>Revision of the sheet</source>
+        <translation type="unfinished">Revize listu</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Verze</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished">Název souboru</translation>
+    </message>
+    <message>
+        <source>Company address</source>
+        <translation type="unfinished">Adresa firmy</translation>
+    </message>
+    <message>
+        <source>Company contact</source>
+        <translation type="unfinished">Kontakt firmy</translation>
+    </message>
+    <message>
+        <source>Site address</source>
+        <translation type="unfinished">Adresa stavby</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation type="unfinished">Formát papíru</translation>
+    </message>
+    <message>
+        <source>Latest revision</source>
+        <translation type="unfinished">Poslední revize</translation>
+    </message>
+    <message>
+        <source>Date of the latest revision</source>
+        <translation type="unfinished">Datum poslední revize</translation>
+    </message>
+    <message>
+        <source>Made of blocks with the FaseCAD title block designer</source>
+        <translation type="unfinished">Sestaveno z bloků v návrháři rohového razítka FaseCAD</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesignPreview</name>
+    <message>
+        <source>Add the blocks of the title block with the buttons above</source>
+        <translation type="unfinished">Přidejte bloky razítka tlačítky výše</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesigner</name>
+    <message>
+        <source>Use the title block %1</source>
+        <translation type="unfinished">Použít razítko %1</translation>
+    </message>
+    <message>
+        <source>Title block designer</source>
+        <translation type="unfinished">Návrhář rohového razítka</translation>
+    </message>
+    <message>
+        <source>Add a block:</source>
+        <translation type="unfinished">Přidat blok:</translation>
+    </message>
+    <message>
+        <source>Adds the block "%1" at the end of the title block</source>
+        <translation type="unfinished">Přidá blok „%1“ na konec razítka</translation>
+    </message>
+    <message>
+        <source>Click a block to change it. Drag the line between two blocks to share their width, drag a block to move it, Delete takes it away.</source>
+        <translation type="unfinished">Klepnutím na blok ho změníte. Přetažením čáry mezi dvěma bloky rozdělíte jejich šířku, přetažením bloku ho přesunete; Delete ho odebere.</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Rohové razítko</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Název:</translation>
+    </message>
+    <message>
+        <source>Modern: the label small above the value</source>
+        <translation type="unfinished">Moderní: popisek malý nad hodnotou</translation>
+    </message>
+    <message>
+        <source>Classic: label and value on one line</source>
+        <translation type="unfinished">Klasický: popisek a hodnota na jednom řádku</translation>
+    </message>
+    <message>
+        <source>Style:</source>
+        <translation type="unfinished">Styl:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Výška:</translation>
+    </message>
+    <message>
+        <source>Colour of the bar and of the headers</source>
+        <translation type="unfinished">Barva pruhu a nadpisů</translation>
+    </message>
+    <message>
+        <source>Bar along the left side</source>
+        <translation type="unfinished">Pruh podél levého okraje</translation>
+    </message>
+    <message>
+        <source>Accent:</source>
+        <translation type="unfinished">Zvýraznění:</translation>
+    </message>
+    <message>
+        <source>Start again from…</source>
+        <translation type="unfinished">Začít znovu od…</translation>
+    </message>
+    <message>
+        <source>Complete, for A3</source>
+        <translation type="unfinished">Plné, pro A3</translation>
+    </message>
+    <message>
+        <source>Compact, for A4</source>
+        <translation type="unfinished">Kompaktní, pro A4</translation>
+    </message>
+    <message>
+        <source>Give it to:</source>
+        <translation type="unfinished">Přiřadit:</translation>
+    </message>
+    <message>
+        <source>this sheet</source>
+        <translation type="unfinished">tomuto listu</translation>
+    </message>
+    <message>
+        <source>every sheet of the project</source>
+        <translation type="unfinished">každému listu projektu</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished">Barva zvýraznění</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Blok</translation>
+    </message>
+    <message>
+        <source>Pick a block in the title block.</source>
+        <translation type="unfinished">Vyberte blok v razítku.</translation>
+    </message>
+    <message>
+        <source>Block: %1</source>
+        <translation type="unfinished">Blok: %1</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Šířka:</translation>
+    </message>
+    <message>
+        <source>Text, and data between %{ and }: %{projecttitle}</source>
+        <translation type="unfinished">Text a data mezi %{ a }: %{projecttitle}</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Údaj</translation>
+    </message>
+    <message>
+        <source>Revisions shown:</source>
+        <translation type="unfinished">Zobrazené revize:</translation>
+    </message>
+    <message>
+        <source>The revisions are those of the project: Project &gt; Title block data.</source>
+        <translation type="unfinished">Revize jsou z projektu: Projekt &gt; Data rohového razítka.</translation>
+    </message>
+    <message>
+        <source>Choose an image…</source>
+        <translation type="unfinished">Vybrat obrázek…</translation>
+    </message>
+    <message>
+        <source>No logo</source>
+        <translation type="unfinished">Bez loga</translation>
+    </message>
+    <message>
+        <source>Image:</source>
+        <translation type="unfinished">Obrázek:</translation>
+    </message>
+    <message>
+        <source>Take the block away</source>
+        <translation type="unfinished">Odebrat blok</translation>
+    </message>
+    <message>
+        <source>Logo of the title block</source>
+        <translation type="unfinished">Logo razítka</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp)</source>
+        <translation type="unfinished">Obrázky (*.svg *.png *.jpg *.jpeg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Give the title block a name: letters, digits, "-" and "_".</source>
+        <translation type="unfinished">Pojmenujte razítko: písmena, číslice, „-“ a „_“.</translation>
+    </message>
+    <message>
+        <source>The title block has no block.</source>
+        <translation type="unfinished">Razítko nemá žádné bloky.</translation>
+    </message>
+    <message>
+        <source>The project already has a title block template called %1, not made with the designer. Replace it?</source>
+        <translation type="unfinished">Projekt již má šablonu razítka s názvem %1, která nebyla vytvořena návrhářem. Nahradit ji?</translation>
+    </message>
+</context>
+<context>
+    <name>WireNumbering</name>
+    <message>
+        <source>By potential: 1, 2, 3…</source>
+        <translation type="unfinished">Podle potenciálu: 1, 2, 3…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 3.1, 3.2…</source>
+        <translation type="unfinished">List a číslo: 3.1, 3.2…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 301, 302…</source>
+        <translation type="unfinished">List a číslo: 301, 302…</translation>
+    </message>
+    <message>
+        <source>Sheet and column: 3-12</source>
+        <translation type="unfinished">List a sloupec: 3-12</translation>
+    </message>
+    <message>
+        <source>From and to, IEC 62491: -K1:13/-X1:4</source>
+        <translation type="unfinished">Odkud a kam, IEC 62491: -K1:13/-X1:4</translation>
+    </message>
+    <message>
+        <source>By potential type: L1, L2, N, PE, P1, M1</source>
+        <translation type="unfinished">Podle typu potenciálu: L1, L2, N, PE, P1, M1</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Očíslovat %n vodič</numerusform>
+            <numerusform>Očíslovat %n vodiče</numerusform>
+            <numerusform>Očíslovat %n vodičů</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireNumberingDialog</name>
+    <message>
+        <source>Number the wires</source>
+        <translation type="unfinished">Číslovat vodiče</translation>
+    </message>
+    <message>
+        <source>Save as mine…</source>
+        <translation type="unfinished">Uložit jako můj…</translation>
+    </message>
+    <message>
+        <source>Keep this formula among your own, for every project</source>
+        <translation type="unfinished">Ponechat tento vzorec mezi vašimi, pro každý projekt</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Delete this formula of your own</source>
+        <translation type="unfinished">Odstranit tento váš vzorec</translation>
+    </message>
+    <message>
+        <source>Numbering:</source>
+        <translation type="unfinished">Číslování:</translation>
+    </message>
+    <message>
+        <source>Formula:</source>
+        <translation type="unfinished">Vzorec:</translation>
+    </message>
+    <message>
+        <source>%N number in the project · %n number on the sheet · %F sheet · %C column · %R row · %P potential type (L1, N, PE, P1, M1) · %S device and %T terminal it starts from · %D device and %E terminal it goes to · %3N three digits: 001</source>
+        <translation type="unfinished">%N číslo v projektu · %n číslo na listu · %F list · %C sloupec · %R řádek · %P typ potenciálu (L1, N, PE, P1, M1) · %S zařízení, odkud vede, a %T jeho svorka · %D zařízení, kam vede, a %E jeho svorka · %3N tři číslice: 001</translation>
+    </message>
+    <message>
+        <source>A name for each wire, not one for each potential</source>
+        <translation type="unfinished">Jeden název pro každý vodič, ne pro každý potenciál</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Vodiče</translation>
+    </message>
+    <message>
+        <source>Whole project</source>
+        <translation type="unfinished">Celý projekt</translation>
+    </message>
+    <message>
+        <source>This sheet</source>
+        <translation type="unfinished">Tento list</translation>
+    </message>
+    <message>
+        <source>Selected wires</source>
+        <translation type="unfinished">Vybrané vodiče</translation>
+    </message>
+    <message>
+        <source>Order on a sheet:</source>
+        <translation type="unfinished">Pořadí na listu:</translation>
+    </message>
+    <message>
+        <source>From top to bottom, then left to right</source>
+        <translation type="unfinished">Shora dolů, pak zleva doprava</translation>
+    </message>
+    <message>
+        <source>From left to right, then top to bottom</source>
+        <translation type="unfinished">Zleva doprava, pak shora dolů</translation>
+    </message>
+    <message>
+        <source>Start at:</source>
+        <translation type="unfinished">Začít od:</translation>
+    </message>
+    <message>
+        <source>Keep the numbers fixed by hand</source>
+        <translation type="unfinished">Ponechat čísla pevně nastavená ručně</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message>
+        <source>Now</source>
+        <translation type="unfinished">Nyní</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nové</translation>
+    </message>
+    <message>
+        <source>From → to</source>
+        <translation type="unfinished">Odkud → kam</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Číslo</translation>
+    </message>
+    <message>
+        <source>Mine: %1</source>
+        <translation type="unfinished">Můj: %1</translation>
+    </message>
+    <message>
+        <source>Formula of my own</source>
+        <translation type="unfinished">Můj vlastní vzorec</translation>
+    </message>
+    <message>
+        <source>Nothing to change: every wire already has this name.</source>
+        <translation type="unfinished">Není co měnit: každý vodič již má tento název.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n name(s) change:</source>
+        <translation type="unfinished">
+            <numerusform>Mění se %n název:</numerusform>
+            <numerusform>Mění se %n názvy:</numerusform>
+            <numerusform>Mění se %n názvů:</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Save as mine</source>
+        <translation type="unfinished">Uložit jako můj</translation>
+    </message>
+    <message>
+        <source>Name of this numbering:</source>
+        <translation type="unfinished">Název tohoto číslování:</translation>
+    </message>
+</context>
+<context>
+    <name>WireSections</name>
+    <message numerus="yes">
+        <source>Give %n wire(s) the section of their protection</source>
+        <translation type="unfinished">
+            <numerusform>Dát %n vodiči průřez jeho jištění</numerusform>
+            <numerusform>Dát %n vodičům průřez jejich jištění</numerusform>
+            <numerusform>Dát %n vodičům průřez jejich jištění</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireSectionsDialog</name>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Vypočítat průřezy</translation>
+    </message>
+    <message>
+        <source>The section IEC 60204-1 (table 6, copper, PVC) asks for the wires each protection feeds, from its rated current, and the wires each device feeds whose part has a maximum current, from it: the wires on its outgoing terminals (2, 4, 6…) and every wire joined to them.</source>
+        <translation type="unfinished">Průřez požadovaný normou IEC 60204-1 (tabulka 6, měď, PVC) pro vodiče napájené každým jištěním podle jeho jmenovitého proudu a pro vodiče napájené každým zařízením, jehož díl má nejvyšší proud, podle tohoto proudu: vodiče na výstupních svorkách (2, 4, 6…) a každý vodič k nim připojený.</translation>
+    </message>
+    <message>
+        <source>Installation:</source>
+        <translation type="unfinished">Způsob uložení:</translation>
+    </message>
+    <message>
+        <source>B1: single cores in a duct</source>
+        <translation type="unfinished">B1: jednotlivé vodiče ve žlabu</translation>
+    </message>
+    <message>
+        <source>B2: cables in a duct</source>
+        <translation type="unfinished">B2: kabely ve žlabu</translation>
+    </message>
+    <message>
+        <source>C: on a wall</source>
+        <translation type="unfinished">C: na stěně</translation>
+    </message>
+    <message>
+        <source>E: on a cable tray</source>
+        <translation type="unfinished">E: na kabelovém roštu</translation>
+    </message>
+    <message>
+        <source>Ambient:</source>
+        <translation type="unfinished">Okolí:</translation>
+    </message>
+    <message>
+        <source>Circuits grouped:</source>
+        <translation type="unfinished">Seskupené obvody:</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">Proud</translation>
+    </message>
+    <message>
+        <source>Section needed</source>
+        <translation type="unfinished">Potřebný průřez</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Vodiče</translation>
+    </message>
+    <message>
+        <source>Without section</source>
+        <translation type="unfinished">Bez průřezu</translation>
+    </message>
+    <message>
+        <source>Too small</source>
+        <translation type="unfinished">Příliš malý</translation>
+    </message>
+    <message>
+        <source>Give them their section</source>
+        <translation type="unfinished">Dát jim průřezy</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">neuvedeno</translation>
+    </message>
+    <message>
+        <source>over 120 mm²</source>
+        <translation type="unfinished">nad 120 mm²</translation>
+    </message>
+    <message>
+        <source>The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.</source>
+        <translation type="unfinished">Projekt nemá žádné jištění (jistič, motorový spouštěč, pojistka) ani zařízení s nejvyšším proudem.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) without a section or with a smaller one than their protection asks for.</source>
+        <translation type="unfinished">
+            <numerusform>%n vodič bez průřezu nebo s průřezem menším, než požaduje jištění.</numerusform>
+            <numerusform>%n vodiče bez průřezu nebo s průřezem menším, než požaduje jištění.</numerusform>
+            <numerusform>%n vodičů bez průřezu nebo s průřezem menším, než požaduje jištění.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">Křížek</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">Symboly kontaktů</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Zobrazení</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">Pod označením zařízení</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">Pod symbolem</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">Zápatí listu</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">Ruční poloha</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Poloha</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">Vůči symbolu</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">Absolutně na listu</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">Relativní: zobrazení se pohybuje se symbolem. Absolutní: zůstane na místě na listu.</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">Otočí symboly kontaktů; čísla zůstanou svisle.</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">Úhel symbolů kontaktů</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">Tloušťka čáry</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">Mezera pod symbolem</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">Zobrazit definované kontakty, i když nejsou připojeny</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">Poloha X na listu</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">Ruční posun X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">Poloha Y na listu</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">Ruční posun Y</translation>
+    </message>
+</context>
+<context>
+    <name>CommandTabs</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Soubor</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Nabídky</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Projekt</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nový</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">Otevřít</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Uložit</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Uložit jako</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zavřít</translation>
+    </message>
+    <message>
+        <source>Print and export</source>
+        <translation type="unfinished">Tisk a export</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">Tisk</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished">PDF</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Obrázky</translation>
+    </message>
+    <message>
+        <source>Delivery</source>
+        <translation type="unfinished">Předání</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished">Vlastnosti</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Rohové razítko</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Data razítka</translation>
+    </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished">Jazyky</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">Historie</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">Domů</translation>
+    </message>
+    <message>
+        <source>Clipboard</source>
+        <translation type="unfinished">Schránka</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Vložit</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Vyjmout</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopírovat</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Kopírovat formát</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Použít formát</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">List</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Navigátor</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odebrat</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Zpět</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Znovu</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Text</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished">Vložit</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Otočit</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished">Skupina</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Úpravy</translation>
+    </message>
+    <message>
+        <source>Wiring list</source>
+        <translation type="unfinished">Seznam zapojení</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">Najít</translation>
+    </message>
+    <message>
+        <source>Find symbol</source>
+        <translation type="unfinished">Najít symbol</translation>
+    </message>
+    <message>
+        <source>Jump to</source>
+        <translation type="unfinished">Přejít na</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Symboly</translation>
+    </message>
+    <message>
+        <source>Last symbol</source>
+        <translation type="unfinished">Poslední symbol</translation>
+    </message>
+    <message>
+        <source>Connection symbols</source>
+        <translation type="unfinished">Symboly propojení</translation>
+    </message>
+    <message>
+        <source>Outgoing report</source>
+        <translation type="unfinished">Odchozí odkaz</translation>
+    </message>
+    <message>
+        <source>Incoming report</source>
+        <translation type="unfinished">Příchozí odkaz</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Zařízení</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Svorka</translation>
+    </message>
+    <message>
+        <source>Terminal strip</source>
+        <translation type="unfinished">Svorkovnice</translation>
+    </message>
+    <message>
+        <source>Part definition</source>
+        <translation type="unfinished">Definice dílu</translation>
+    </message>
+    <message>
+        <source>Cables / connections</source>
+        <translation type="unfinished">Kabely / připojení</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kabel</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation type="unfinished">Připojení</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Obrázek</translation>
+    </message>
+    <message>
+        <source>Graphic</source>
+        <translation type="unfinished">Grafika</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Čára</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Obdélník</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipsa</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished">Oblouk</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Lomená čára</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Cesta</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Kóta</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Lineární</translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished">Řetězová</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Konstrukce rozvaděče 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet
+construction 2D</source>
+        <translation type="unfinished">Konstrukce
+rozvaděče 2D</translation>
+    </message>
+    <message>
+        <source>Insert
+DXF</source>
+        <translation type="unfinished">Vložit
+DXF</translation>
+    </message>
+    <message>
+        <source>Cabinet
+in 3D</source>
+        <translation type="unfinished">Rozvaděč
+ve 3D</translation>
+    </message>
+    <message>
+        <source>Thermal
+analysis</source>
+        <translation type="unfinished">Tepelná
+analýza</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished">Zrcadlit</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished">Překlopit</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplikovat</translation>
+    </message>
+    <message>
+        <source>Fillet</source>
+        <translation type="unfinished">Zaoblení</translation>
+    </message>
+    <message>
+        <source>Rotate group</source>
+        <translation type="unfinished">Otočit skupinu</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Zrušit seskupení</translation>
+    </message>
+    <message>
+        <source>Group texts</source>
+        <translation type="unfinished">Seskupit texty</translation>
+    </message>
+    <message>
+        <source>Organize</source>
+        <translation type="unfinished">Uspořádat</translation>
+    </message>
+    <message>
+        <source>Align to grid</source>
+        <translation type="unfinished">Zarovnat k mřížce</translation>
+    </message>
+    <message>
+        <source>Connect aligned</source>
+        <translation type="unfinished">Propojit zarovnané</translation>
+    </message>
+    <message>
+        <source>Place texts</source>
+        <translation type="unfinished">Rozmístit texty</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Hloubka</translation>
+    </message>
+    <message>
+        <source>Bring to front</source>
+        <translation type="unfinished">Do popředí</translation>
+    </message>
+    <message>
+        <source>Raise</source>
+        <translation type="unfinished">O úroveň výš</translation>
+    </message>
+    <message>
+        <source>Lower</source>
+        <translation type="unfinished">O úroveň níž</translation>
+    </message>
+    <message>
+        <source>Send to back</source>
+        <translation type="unfinished">Do pozadí</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Vybrat</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Vše</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nic</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Obrátit</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Vodiče</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished">Texty</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Zobrazení</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished">Režim</translation>
+    </message>
+    <message>
+        <source>Move view</source>
+        <translation type="unfinished">Posouvat pohled</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished">Zvětšení</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">Přiblížit</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">Oddálit</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">Přizpůsobit</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation type="unfinished">Obsah</translation>
+    </message>
+    <message>
+        <source>100 %</source>
+        <translation type="unfinished">100 %</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished">Mřížka</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Přichytávání</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Vodítka</translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished">Nitkový kříž</translation>
+    </message>
+    <message>
+        <source>Cell lines</source>
+        <translation type="unfinished">Čáry buněk</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished">Pravítka</translation>
+    </message>
+    <message>
+        <source>Dark sheet</source>
+        <translation type="unfinished">Tmavý list</translation>
+    </message>
+    <message>
+        <source>Panels</source>
+        <translation type="unfinished">Panely</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Projekty</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Sbírky</translation>
+    </message>
+    <message>
+        <source>Undo list</source>
+        <translation type="unfinished">Seznam zpět</translation>
+    </message>
+    <message>
+        <source>Windows</source>
+        <translation type="unfinished">Okna</translation>
+    </message>
+    <message>
+        <source>Tabs</source>
+        <translation type="unfinished">Karty</translation>
+    </message>
+    <message>
+        <source>Tile</source>
+        <translation type="unfinished">Dlaždice</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">Kaskáda</translation>
+    </message>
+    <message>
+        <source>Bill of
+materials</source>
+        <translation type="unfinished">Kusovník</translation>
+    </message>
+    <message>
+        <source>Parts
+list</source>
+        <translation type="unfinished">Seznam
+dílů</translation>
+    </message>
+    <message>
+        <source>Update symbols</source>
+        <translation type="unfinished">Aktualizovat symboly</translation>
+    </message>
+    <message>
+        <source>Redraw symbols</source>
+        <translation type="unfinished">Překreslit symboly</translation>
+    </message>
+    <message>
+        <source>Terminals</source>
+        <translation type="unfinished">Svorky</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Číslovat</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Doplňky</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation type="unfinished">Připojení</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished">Automaticky</translation>
+    </message>
+    <message>
+        <source>Break</source>
+        <translation type="unfinished">Přerušit</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Obnovit</translation>
+    </message>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Vypočítat průřezy</translation>
+    </message>
+    <message>
+        <source>Cables</source>
+        <translation type="unfinished">Kabely</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Kabelový plán</translation>
+    </message>
+    <message>
+        <source>Bridges</source>
+        <translation type="unfinished">Propojky</translation>
+    </message>
+    <message>
+        <source>Terminal bridges</source>
+        <translation type="unfinished">Propojky svorek</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Nástroje</translation>
+    </message>
+    <message>
+        <source>Reports</source>
+        <translation type="unfinished">Sestavy</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">Souhrn</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Kusovník</translation>
+    </message>
+    <message>
+        <source>Parts list</source>
+        <translation type="unfinished">Seznam dílů</translation>
+    </message>
+    <message>
+        <source>Cable list</source>
+        <translation type="unfinished">Seznam kabelů</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Export</translation>
+    </message>
+    <message>
+        <source>Wire names</source>
+        <translation type="unfinished">Názvy vodičů</translation>
+    </message>
+    <message>
+        <source>Database</source>
+        <translation type="unfinished">Databáze</translation>
+    </message>
+    <message>
+        <source>Versions</source>
+        <translation type="unfinished">Verze</translation>
+    </message>
+    <message>
+        <source>Set
+version</source>
+        <translation type="unfinished">Nastavit
+verzi</translation>
+    </message>
+    <message>
+        <source>Checks</source>
+        <translation type="unfinished">Kontroly</translation>
+    </message>
+    <message>
+        <source>Potentials</source>
+        <translation type="unfinished">Potenciály</translation>
+    </message>
+    <message>
+        <source>Duplicate labels</source>
+        <translation type="unfinished">Duplicitní označení</translation>
+    </message>
+    <message>
+        <source>Clean project</source>
+        <translation type="unfinished">Vyčistit projekt</translation>
+    </message>
+    <message>
+        <source>Scripts</source>
+        <translation type="unfinished">Skripty</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished">Spustit</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished">Nahrát</translation>
+    </message>
+    <message>
+        <source>Manage</source>
+        <translation type="unfinished">Spravovat</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished">Složka</translation>
+    </message>
+    <message>
+        <source>Master data</source>
+        <translation type="unfinished">Kmenová data</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Díly</translation>
+    </message>
+    <message>
+        <source>Parts
+manager</source>
+        <translation type="unfinished">Správce
+dílů</translation>
+    </message>
+    <message>
+        <source>Official
+catalog</source>
+        <translation type="unfinished">Oficiální
+katalog</translation>
+    </message>
+    <message>
+        <source>Search command</source>
+        <translation type="unfinished">Hledat příkaz</translation>
+    </message>
+    <message>
+        <source>Fold or unfold the tabs</source>
+        <translation type="unfinished">Sbalit nebo rozbalit karty</translation>
+    </message>
+    <message>
+        <source>%1: coming soon</source>
+        <translation type="unfinished">%1: již brzy</translation>
     </message>
 </context>
 </TS>

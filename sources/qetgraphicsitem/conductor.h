@@ -219,6 +219,9 @@ class Conductor : public QGraphicsObject
 		bool hidesPlaceholder() const;
 		bool isFreezeLabel() const { return m_freeze_label; }
 		bool markReplacesText() const;
+			/// A core of a cable of the project: the cable names it, so
+			/// it shows no text of its own (Brandon, 2026-11-27)
+		bool isCableCore() const {return !m_properties.m_cable_uuid.isNull();}
 	
 	public slots:
 		void displayedTextChanged();

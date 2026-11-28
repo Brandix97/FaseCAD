@@ -23,6 +23,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QJsonArray>
+#include <QJsonDocument>
 #include <QSaveFile>
 #include <QSet>
 #include <QSettings>
@@ -74,7 +75,8 @@ const TextColumn text_columns[] = {
 	{"section", &Part::section},
 	{"sheath_color", &Part::sheath_color},
 	{"gtin", &Part::gtin},
-	{"code_letter", &Part::code_letter}
+	{"code_letter", &Part::code_letter},
+	{"translations", &Part::translations}
 };
 
 const NumberColumn number_columns[] = {
@@ -89,7 +91,8 @@ const NumberColumn number_columns[] = {
 	{"clearance_left", &Part::clearance_left},
 	{"clearance_right", &Part::clearance_right},
 	{"clearance_front", &Part::clearance_front},
-	{"clearance_rear", &Part::clearance_rear}
+	{"clearance_rear", &Part::clearance_rear},
+	{"max_current", &Part::max_current}
 };
 
 	///The text columns a search looks into.
@@ -415,7 +418,7 @@ QString PartsDatabase::path()
 */
 int PartsDatabase::schemaVersion()
 {
-	return 5;
+	return 6;
 }
 
 /**
@@ -601,6 +604,7 @@ bool PartsDatabase::open(const QString &path, QString *error)
 		close();
 		return false;
 	}
+	addDefaultCategories();
 	return true;
 }
 
@@ -649,6 +653,7 @@ bool PartsDatabase::openServer(const Server &server, QString *error)
 		close();
 		return false;
 	}
+	addDefaultCategories();
 	return true;
 }
 
@@ -938,6 +943,8 @@ bool PartsDatabase::createSchema(QString *error)
 					   "clearance_top REAL, clearance_bottom REAL, "
 					   "clearance_left REAL, clearance_right REAL, "
 					   "clearance_front REAL, clearance_rear REAL, "
+					   "max_current REAL, "
+					   "translations TEXT NOT NULL DEFAULT '', "
 					   "created TEXT NOT NULL, modified TEXT NOT NULL)"),
 			//The manufacturer and the order number identify a part, as
 			//they identify it in the element informations.
@@ -978,7 +985,7 @@ bool PartsDatabase::createSchema(QString *error)
 						 + QStringList{categoryTable()}
 						 + QStringList{QStringLiteral(
 							"INSERT INTO meta (key, value) "
-							"VALUES ('schema_version', '5')")},
+							"VALUES ('schema_version', '%1')").arg(schemaVersion())},
 						 error);
 }
 
@@ -1033,6 +1040,13 @@ bool PartsDatabase::upgradeSchema(int version, QString *error)
 									 "(part_id, position, location) "
 									 "SELECT id, 0, symbol FROM part "
 									 "WHERE symbol <> ''");
+	}
+		//Version 6 : the maximum current, and the description and the
+		//model in other languages
+	if (version < 6) {
+		statements << QStringLiteral("ALTER TABLE part ADD COLUMN max_current REAL")
+				   << QStringLiteral("ALTER TABLE part ADD COLUMN "
+									 "translations TEXT NOT NULL DEFAULT ''");
 	}
 	statements << categoryTable()
 			   << QStringLiteral("UPDATE meta SET value = '%1' "
@@ -1750,6 +1764,42 @@ int PartsDatabase::partsInCategory(const QString &name, bool with_subcategories)
 	A category with no part yet, offered when a part is given one; a path
 	makes a subcategory, the categories it is in made with it
 */
+QString PartsDatabase::cablesCategory()
+{
+	return QStringLiteral("Cables");
+}
+
+bool PartsDatabase::isDefaultCategory(const QString &name)
+{
+	return PartCategoryPath::normalized(name).compare(cablesCategory(), Qt::CaseInsensitive) == 0;
+}
+
+/**
+	@brief PartsDatabase::addDefaultCategories
+	The categories every database has (Brandon, 2026-11-27): Cables, with
+	the cable icon, added when it is not there
+*/
+void PartsDatabase::addDefaultCategories()
+{
+	for (const PartCategory &category : categoryList()) {
+		if (isDefaultCategory(category.name)) {
+			return;
+		}
+	}
+	QSqlQuery query(m_db);
+	query.prepare(sql(QStringLiteral("INSERT INTO part_category (name, icon) VALUES (?, ?)")));
+	query.addBindValue(cablesCategory());
+		//The built-in cable icon (PartCategoryIcons), read here so the
+		//database needs no widgets; none when the resources are not there
+	QByteArray icon;
+	QFile file(QStringLiteral(":/ico/categories/cable.svg"));
+	if (file.open(QIODevice::ReadOnly)) {
+		icon = file.readAll();
+	}
+	query.addBindValue(icon.isEmpty() ? QVariant(QMetaType(QMetaType::QByteArray)) : QVariant(icon));
+	query.exec();
+}
+
 bool PartsDatabase::addCategory(const QString &name, QString *error)
 {
 	const QString path = PartCategoryPath::normalized(name);
@@ -1823,6 +1873,10 @@ bool PartsDatabase::renameCategory(const QString &name, const QString &new_name,
 {
 	const QString from = PartCategoryPath::normalized(name);
 	const QString to = PartCategoryPath::normalized(new_name);
+	if (isDefaultCategory(from) && !isDefaultCategory(to)) {
+		report(error, tr("The category %1 comes with FaseCAD: it cannot be renamed.").arg(from));
+		return false;
+	}
 	if (to.isEmpty()) {
 		report(error, tr("A category needs a name."));
 		return false;
@@ -1882,6 +1936,10 @@ bool PartsDatabase::removeCategory(const QString &name, QString *error,
 {
 	const QString path = PartCategoryPath::normalized(name);
 	const QString up = PartCategoryPath::parent(path);
+	if (isDefaultCategory(path)) {
+		report(error, tr("The category %1 comes with FaseCAD: it cannot be removed.").arg(path));
+		return false;
+	}
 	const int length = PartCategoryPath::split(path).size();
 	const QList<PartCategory> all = categoryList();
 	if (!m_db.transaction()) {
@@ -2194,4 +2252,71 @@ bool PartsDatabase::saveFileAs(qint64 file_id, const QString &path,
 		return false;
 	}
 	return true;
+}
+
+QStringList PartTranslations::fields()
+{
+	return {QStringLiteral("description"), QStringLiteral("model")};
+}
+
+QStringList PartTranslations::languages()
+{
+	return {QStringLiteral("es"), QStringLiteral("en"), QStringLiteral("de"),
+			QStringLiteral("fr"), QStringLiteral("it"), QStringLiteral("pt"),
+			QStringLiteral("tr"), QStringLiteral("zh")};
+}
+
+QString PartTranslations::languageName(const QString &language)
+{
+	static const QHash<QString, QString> names = {
+		{QStringLiteral("es"), QStringLiteral("Español")},
+		{QStringLiteral("en"), QStringLiteral("English")},
+		{QStringLiteral("de"), QStringLiteral("Deutsch")},
+		{QStringLiteral("fr"), QStringLiteral("Français")},
+		{QStringLiteral("it"), QStringLiteral("Italiano")},
+		{QStringLiteral("pt"), QStringLiteral("Português")},
+		{QStringLiteral("tr"), QStringLiteral("Türkçe")},
+		{QStringLiteral("zh"), QStringLiteral("中文")}};
+	return names.value(language, language);
+}
+
+QString PartTranslations::translation(const Part &part, const QString &field,
+									  const QString &language)
+{
+	if (part.translations.isEmpty() || language.isEmpty()) {
+		return QString();
+	}
+	const QJsonObject all = QJsonDocument::fromJson(part.translations.toUtf8()).object();
+	return all.value(field).toObject().value(language).toString().trimmed();
+}
+
+void PartTranslations::setTranslation(Part &part, const QString &field,
+									  const QString &language, const QString &text)
+{
+	QJsonObject all = QJsonDocument::fromJson(part.translations.toUtf8()).object();
+	QJsonObject of_field = all.value(field).toObject();
+	if (text.trimmed().isEmpty()) {
+		of_field.remove(language);
+	} else {
+		of_field.insert(language, text.trimmed());
+	}
+	if (of_field.isEmpty()) {
+		all.remove(field);
+	} else {
+		all.insert(field, of_field);
+	}
+	part.translations = all.isEmpty()
+			? QString()
+			: QString::fromUtf8(QJsonDocument(all).toJson(QJsonDocument::Compact));
+}
+
+QString PartTranslations::text(const Part &part, const QString &field, const QString &language)
+{
+	const QString translated = translation(part, field, language);
+	if (!translated.isEmpty()) {
+		return translated;
+	}
+	if (field == QLatin1String("description")) return part.description;
+	if (field == QLatin1String("model")) return part.model;
+	return QString();
 }

@@ -18,6 +18,7 @@
 #ifndef QET_PROJECT_H
 #define QET_PROJECT_H
 
+#include "projectversions.h"
 #include <functional>
 #include "ElementsCollection/elementslocation.h"
 #include "NameList/nameslist.h"
@@ -352,6 +353,10 @@ class QETProject : public QObject
 		bool uprightSymbolTexts() const;
 		void setUprightSymbolTexts(bool upright);
 		const ProjectLanguages &languages() const {return m_languages;}
+			/// The versions set with Set version (ProjectVersions,
+			/// Brandon, 2026-11-27)
+		const ProjectVersions::History &versionHistory() const {return m_versions;}
+		void setVersionHistory(const ProjectVersions::History &history);
 		void setLanguages(const ProjectLanguages &languages);
 		const PotentialTypes &potentialTypes() const {return m_potential_types;}
 		void setPotentialTypes(const PotentialTypes &potential_types);
@@ -529,6 +534,7 @@ class QETProject : public QObject
 		void readOriginXml(QDomDocument& xml_project);
 		void readSymbolTextsXml(QDomDocument &xml_project);
 		void readLanguagesXml(QDomDocument &xml_project);
+		void readVersionsXml(QDomDocument &xml_project);
 		void readPotentialTypesXml(QDomDocument &xml_project);
 		void readChainedReportsXml(QDomDocument &xml_project);
 		void readTerminalLabelSplitXml(QDomDocument &xml_project);
@@ -547,6 +553,7 @@ class QETProject : public QObject
 		void writeOriginXml(QDomElement&);
 		void writeSymbolTextsXml(QDomElement &);
 		void writeLanguagesXml(QDomElement &);
+		void writeVersionsXml(QDomElement &);
 		void writePotentialTypesXml(QDomElement &);
 		void writeChainedReportsXml(QDomElement &);
 		void writeTerminalLabelSplitXml(QDomElement &);
@@ -673,6 +680,7 @@ class QETProject : public QObject
 		bool m_upright_symbol_texts = false;
 			/// The texts in other languages, see ProjectLanguages
 		ProjectLanguages m_languages;
+		ProjectVersions::History m_versions;
 			/// The potential types and whether conductors are drawn from them
 		PotentialTypes m_potential_types;
 		bool m_chained_reports = false;

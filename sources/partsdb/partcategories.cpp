@@ -167,10 +167,7 @@ PartCategoriesDialog::PartCategoriesDialog(PartsDatabase &database, QWidget *par
 	connect(rename_pb, &QPushButton::clicked, this, &PartCategoriesDialog::rename);
 	connect(remove_pb, &QPushButton::clicked, this, &PartCategoriesDialog::remove);
 	connect(m_tree, &QTreeWidget::itemDoubleClicked, this, &PartCategoriesDialog::chooseBuiltin);
-	connect(m_tree, &QTreeWidget::currentItemChanged, this, [this](QTreeWidgetItem *item) {
-		for (QPushButton *button : std::as_const(m_on_selection))
-			button->setEnabled(item);
-	});
+	connect(m_tree, &QTreeWidget::currentItemChanged, this, [this]() {updateButtons();});
 
 	auto *buttons_layout = new QVBoxLayout();
 	buttons_layout->addWidget(add_pb);
@@ -225,8 +222,25 @@ void PartCategoriesDialog::reload(const QString &select)
 		}
 	}
 	m_tree->expandAll();
-	for (QPushButton *button : std::as_const(m_on_selection))
-		button->setEnabled(m_tree->currentItem());
+	updateButtons();
+}
+
+/**
+	@brief PartCategoriesDialog::updateButtons
+	The buttons of the category selected; Cables, which comes with
+	FaseCAD, is neither renamed nor removed (Brandon, 2026-11-27)
+*/
+void PartCategoriesDialog::updateButtons()
+{
+	const bool fixed = PartsDatabase::isDefaultCategory(current());
+	for (QPushButton *button : std::as_const(m_on_selection)) {
+		const QString name = button->objectName();
+		const bool kept = name == QLatin1String("rename_category_pb")
+				|| name == QLatin1String("remove_category_pb");
+		button->setEnabled(m_tree->currentItem() && !(kept && fixed));
+		if (kept)
+			button->setToolTip(fixed ? tr("This category comes with FaseCAD") : QString());
+	}
 }
 
 bool PartCategoriesDialog::warn(bool ok, const QString &error)

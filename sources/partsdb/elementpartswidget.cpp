@@ -221,6 +221,19 @@ void ElementPartsWidget::addPart()
 	link.units = 1;
 	const int block = list.size();
 	list << link;
+		//Its accessories, parts of the symbol too, each with its quantity
+		//(Brandon, 2026-11-27)
+	for (const PartAccessory &accessory : part->accessories) {
+		const std::optional<Part> other = db.part(accessory.accessory_id);
+		if (!other) {
+			continue;
+		}
+		PartsLinks::Link with;
+		with.manufacturer = other->manufacturer;
+		with.order_number = other->order_number;
+		with.units = accessory.quantity > 0 ? accessory.quantity : 1;
+		list << with;
+	}
 	m_info->setPartsValue(PartsLinks::encode(list));
 
 	if (block >= block_count) {

@@ -185,6 +185,13 @@ struct Part
 		/// from one to the next while the part is placed
 	QStringList symbols;
 	std::optional<double> power_loss;		///< W, for the cabinet heat
+		/// A, the most current downstream of the device: the wires it
+		/// feeds get the section of it (WireSections, Brandon, 2026-11-27)
+	std::optional<double> max_current;
+		/// The textual description and the model in other languages, as
+		/// JSON {"description": {"en": "..."}, "model": {...}}
+		/// (PartTranslations, Brandon, 2026-11-27)
+	QString translations;
 		/// Room to leave free around the device in the cabinet, in mm
 	std::optional<double> clearance_top;
 	std::optional<double> clearance_bottom;
@@ -199,6 +206,29 @@ struct Part
 	QList<PartFunction> functions;
 	QList<PartConnection> connections;
 };
+
+/**
+	@brief The textual description and the model of a part in other
+	languages (Brandon, 2026-11-27): the folios and the lists of a project
+	show them in the language of its part data (QETProject::partsLanguage),
+	the text of the part itself when it has none in that language.
+*/
+namespace PartTranslations
+{
+		/// The fields that can be translated: "description", "model"
+	QStringList fields();
+		/// The languages offered: "es", "en", "de", "fr", "it", "pt",
+		/// "tr", "zh"
+	QStringList languages();
+		/// The name of @p language, in it ("Deutsch")
+	QString languageName(const QString &language);
+		/// @p field of @p part in @p language; empty when it has none
+	QString translation(const Part &part, const QString &field, const QString &language);
+	void setTranslation(Part &part, const QString &field, const QString &language,
+						const QString &text);
+		/// @p field of @p part in @p language, or its own text
+	QString text(const Part &part, const QString &field, const QString &language);
+}
 
 /**
 	@brief What a file attached to a part is for.
@@ -353,6 +383,11 @@ class PartsDatabase
 		QStringList manufacturers() const;
 
 		//Categories
+			/// "Cables": always in a database, never removed nor renamed;
+			/// its parts are the ones with the Cable tab (Brandon,
+			/// 2026-11-27)
+		static QString cablesCategory();
+		static bool isDefaultCategory(const QString &name);
 		QList<PartCategory> categoryList() const;
 			/// The parts of category @p name, and of its subcategories
 			/// with @p with_subcategories
@@ -393,6 +428,7 @@ class PartsDatabase
 
 	private:
 		bool createSchema(QString *error);
+		void addDefaultCategories();
 		bool upgradeSchema(int version, QString *error);
 		static QStringList functionTables();
 		static QStringList symbolTables();

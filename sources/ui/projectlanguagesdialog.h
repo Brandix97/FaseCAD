@@ -37,6 +37,11 @@ class ProjectLanguagesDialog : public QDialog
 	Q_OBJECT
 
 	public:
+			/// The texts of @p languages that are the textual description
+			/// or the model of a part of the parts database, in each of its
+			/// languages that has no words yet, from the translations of
+			/// the part (Brandon, 2026-11-27). @return how many were filled
+		static int fillFromParts(ProjectLanguages &languages);
 		ProjectLanguagesDialog(const ProjectLanguages &languages,
 							   const QStringList &project_texts,
 							   QWidget *parent = nullptr);

@@ -1769,7 +1769,8 @@ QPointF Conductor::posForText(Qt::Orientations &flag)
 /**
 	@brief Conductor::updateTextVisibility
 	Show the text of this conductor if its properties ask for it and wire
-	numbers are not hidden (View > Show). With "one text per potential",
+	numbers are not hidden (View > Show). A core of a cable shows none: the
+	cable names its cores. With "one text per potential",
 	call calculateTextItemPosition() afterwards: it hides all texts of the
 	potential but the longest conductor's.
 */
@@ -1779,7 +1780,8 @@ void Conductor::updateTextVisibility()
 						   m_properties.type == ConductorProperties::Multi
 						   && m_properties.m_show_text
 						   && !hidesPlaceholder()
-						   && !markReplacesText());
+						   && !markReplacesText()
+						   && !isCableCore());
 }
 
 /**
@@ -1839,7 +1841,7 @@ void Conductor::calculateTextItemPosition()
 		}
 			//Make sure text item is visible, unless wire numbers are hidden
 			//(View > Show)
-		ShownKinds::setVisible(m_text_item, !hidesPlaceholder() && !markReplacesText());
+		ShownKinds::setVisible(m_text_item, !hidesPlaceholder() && !markReplacesText() && !isCableCore());
 	}
 
 		//position

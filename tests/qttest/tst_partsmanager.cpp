@@ -127,8 +127,10 @@ class tst_partsmanager : public QObject
 		QVERIFY2(m_part_id, qPrintable(error));
 	}
 
-	void showsTheFunctionsOfThePart()
+	void theFunctionsAreKeptButNotShown()
 	{
+			//Not shown (Brandon, 2026-11-27): the parts manager kept
+			//simple. Their tables stay hidden, with what the part has
 		PartsManagerDialog::showManager(nullptr);
 		QVERIFY(manager());
 		auto *parts = child<QTableWidget>("parts_table");
@@ -136,54 +138,23 @@ class tst_partsmanager : public QObject
 		QCOMPARE(parts->rowCount(), 1);
 		parts->selectRow(0);
 
+		auto *tabs = manager()->findChild<QTabWidget *>();
+		QVERIFY(tabs);
+		QStringList titles;
+		for (int index = 0; index < tabs->count(); ++index)
+			titles << tabs->tabText(index);
+		QVERIFY2(!titles.contains(QStringLiteral("Functions"))
+				 && !titles.contains(QStringLiteral("Connection points")),
+				 qPrintable(titles.join(QStringLiteral(", "))));
+
 		auto *functions = child<QTableWidget>("functions_table");
 		QVERIFY(functions);
+		QVERIFY(!functions->isVisibleTo(manager()));
 		QCOMPARE(functions->rowCount(), 3);
-		auto *kind = qobject_cast<QComboBox *>(functions->cellWidget(1, 0));
-		QVERIFY(kind);
-		QCOMPARE(kind->currentData().toString(),
-				 QStringLiteral("digital_input"));
-		QCOMPARE(functions->item(1, 3)->text(), QStringLiteral("DI a.0"));
-
 		auto *connections = child<QTableWidget>("connections_table");
 		QVERIFY(connections);
+		QVERIFY(!connections->isVisibleTo(manager()));
 		QCOMPARE(connections->rowCount(), 1);
-		QCOMPARE(connections->item(0, 3)->text(), QStringLiteral("2.5"));
-	}
-
-	void addCopiesWithTheNextNumber()
-	{
-		auto *functions = child<QTableWidget>("functions_table");
-		functions->setCurrentCell(1, 2);
-		child<QPushButton>("add_function_pb")->click();
-		QCOMPARE(functions->rowCount(), 4);
-		QCOMPARE(functions->item(2, 1)->text(), QStringLiteral("X10"));
-		QCOMPARE(functions->item(2, 2)->text(), QStringLiteral("8"));
-		QCOMPARE(functions->item(2, 3)->text(), QStringLiteral("DI a.1"));
-		QCOMPARE(functions->item(2, 4)->text(), QStringLiteral("I0.1"));
-		auto *kind = qobject_cast<QComboBox *>(functions->cellWidget(2, 0));
-		QCOMPARE(kind->currentData().toString(),
-				 QStringLiteral("digital_input"));
-			//The bus port stays after the inputs
-		QCOMPARE(functions->item(3, 2)->text(), QStringLiteral("P1"));
-	}
-
-	void connectionPointsFromTheFunctions()
-	{
-		auto *connections = child<QTableWidget>("connections_table");
-		child<QPushButton>("from_functions_pb")->click();
-			//X10:1 was there; X10:7, X10:8 and X1:P1 are added once
-		QCOMPARE(connections->rowCount(), 4);
-		QCOMPARE(connections->item(1, 1)->text(), QStringLiteral("7"));
-		QCOMPARE(connections->item(3, 0)->text(), QStringLiteral("X1"));
-
-			//Add copies the wire data with the next pin
-		connections->setCurrentCell(0, 1);
-		child<QPushButton>("add_connection_pb")->click();
-		QCOMPARE(connections->rowCount(), 5);
-		QCOMPARE(connections->item(1, 1)->text(), QStringLiteral("2"));
-		QCOMPARE(connections->item(1, 3)->text(), QStringLiteral("2.5"));
-		connections->item(1, 6)->setText(QStringLiteral("0.6"));
 	}
 
 	void picturesOfTheTabs()
@@ -275,18 +246,13 @@ class tst_partsmanager : public QObject
 		QString error;
 		QVERIFY2(db.open(PartsDatabase::path(), &error), qPrintable(error));
 		const Part part = *db.part(m_part_id);
-		QCOMPARE(part.functions.size(), 4);
-		QVERIFY(part.functions.at(2).kind == PartFunctionKind::DigitalInput);
-		QCOMPARE(part.functions.at(2).description, QStringLiteral("DI a.1"));
-		QCOMPARE(part.functions.at(3).plug, QStringLiteral("X1"));
-
-		QCOMPARE(part.connections.size(), 5);
-			//The direction has no column, and is kept
+			//The functions and connection points it had, kept as they were
+		QCOMPARE(part.functions.size(), 3);
+		QVERIFY(part.functions.at(1).kind == PartFunctionKind::DigitalInput);
+		QCOMPARE(part.functions.at(1).description, QStringLiteral("DI a.0"));
+		QCOMPARE(part.connections.size(), 1);
 		QCOMPARE(part.connections.at(0).direction, QStringLiteral("0 1 0"));
-		QCOMPARE(part.connections.at(1).pin, QStringLiteral("2"));
-		QVERIFY(part.connections.at(1).max_wires == std::optional<int>(2));
-		QVERIFY(part.connections.at(1).torque == std::optional<double>(0.6));
-		QVERIFY(!part.connections.at(2).section_max);
+		QVERIFY(part.connections.at(0).max_wires == std::optional<int>(2));
 		QCOMPARE(part.symbols, (QStringList{QStringLiteral("custom://contact.elmt"),
 											QStringLiteral("custom://relay.elmt")}));
 

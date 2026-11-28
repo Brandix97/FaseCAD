@@ -2271,3 +2271,89 @@ offer to add one at the end; one commit with the 2026-11-17 change.
   05_iec_60617_cuadros/01_contactos/contacto_conmutado.elmt, same uuid)
   is left out of the zip and of the commit. Unzipped elsewhere,
   PATH=C:\Windows only: "FaseCAD 1.0 (QElectroTech 0.200.1-dev)".
+- 2026-11-27: "Connection symbols" (Insert and Connections tabs) keeps
+  only Outgoing report and Incoming report (his screenshot of the Insert
+  group): corner, tees, branches, interruption and the Symbols menu out of
+  the tabs; the actions stay in the program.
+- 2026-11-27: the parts manager no longer shows the Functions and
+  Connection points tabs (Brandon: keep it simple; nothing in the program
+  used them yet). Their tables are built and kept hidden, so a part saved
+  again keeps its functions and connection points, and .faspart and the
+  database keep them. tst_partsmanager checks the tabs are gone and the
+  data kept.
+- 2026-11-27, his list (he chose: like a protection; the language of the
+  project; accessories become parts of the symbol):
+  - Part::max_current (A), parts manager General after Rated current,
+    with a "?" (max_current_help) whose tooltip says the wires downstream
+    depend on what is connected and points to Calculate sections.
+    WireSections::check: any device whose parts say a maximum current
+    (the highest) counts as a protection of it (maxCurrent, the database
+    opened once). The action is now "Calculate sections…" (tab button
+    "Calculate sections"), window titled the same, columns Device/Current.
+  - Part::translations, JSON {"description": {"en": ...}, "model": {...}}
+    (PartTranslations in partsdatabase.*: fields, languages es en de fr it
+    pt tr zh, translation/setTranslation/text). Parts manager tab
+    "Translations" (a row per language). Folios already show the project
+    languages (ProjectLanguages, active language, phrases by source
+    text); Collect texts of the project now also fills, for each phrase
+    that is the description or model of a part, the languages with no
+    words yet from its translations (ProjectLanguagesDialog::fillFromParts;
+    "en-GB" takes "en"); translatableTexts collects "model" too.
+  - Schema 6: max_current REAL, translations TEXT (both upgrades and
+    PostgreSQL through serverSql).
+  - Accessories tab hidden (kept like functions); picking a part for the
+    main article (ElementInfoWidget) or adding it (ElementPartsWidget)
+    adds it and its accessories to the parts of the symbol, each with its
+    quantity, instead of the auxiliary blocks.
+  - Category "Cables" (PartsDatabase::cablesCategory) always in a
+    database (addDefaultCategories after the schema, cable icon read from
+    the resources), never removed nor renamed (database and dialog); the
+    Cable tab only for parts within it (showCableTab).
+  - Tests: tst_parttranslations (new), tst_wiresections maximum current,
+    tst_partsdatabase (Cables apart in the counts, version 6 upgrades).
+- 2026-11-27, Spanish: the command tabs (CommandTabs, 156 texts) in es,
+  and in de fr it pt tr zh as well (his "resto de idiomas": those six
+  for now; the other 29 languages of lang/ still English there). The
+  main window strings with no Spanish (QETDiagramEditor, 112: the Devices
+  dock, history of saves, cable plan...) filled. lupdate on a copy
+  counts 687 empty Spanish translations in the whole program before
+  this, now about 450 (QObject 160, GeneralConfigurationPage 49,
+  dimensions, bridges, cable manager...). They follow the language of
+  Settings > General, as every text does.
+- Set version (Tools > Versions, Project menu; ProjectVersions in
+  sources/projectversions.*): version 1 keeps a picture of the devices
+  (symbols by label) and their wiring (for each terminal, the terminals
+  of other labelled devices on the same potential, over folio reports;
+  so moving or redrawing is no change); each next version adds at the end
+  "Changes of version N" sheet(s) (46 lines each, one free text) with the
+  devices added, removed and rewired (− / + lines), or "No device was
+  added, removed or rewired." Kept as <project_versions> (versions with
+  date, the last picture) in the project and in its settings for .qetdb;
+  project property project_version for title blocks
+  (%{project_version}). Asked first; no undo (adding a folio has none).
+  Test tst_projectversions.
+- 2026-11-27: more than 2 wires on a terminal: the limit was his own
+  setting (Settings > General, wiring rules on, 2 per terminal); set to 0
+  (no limit) in HKCU\Software\FaseCAD\FaseCAD\diagrameditor
+  wiring_rules_max_wires. A project with its own rule keeps it.
+- A core of a cable shows no text of its own (Conductor::isCableCore, in
+  updateTextVisibility and the one-text-per-folio branch): the cable
+  names its cores. Test tst_cabletarget aCoreShowsNoTextOfItsOwn.
+
+## Version 1.1 (2026-11-28)
+- Brandon: "Generame la version 1.1". qetversion productVersion 1.1.
+- Set version now takes the number from the title block «Indice Rev»
+  (indexrev): 1 when empty or not a number, else +1, and keeps the changes.
+- Translations of the FaseCAD strings (base_todo: shared list + the
+  CommandTabs strings, 1471) done for es de fr it pt pt_BR (copy of pt)
+  tr zh zh_TW (converted from zh) ru uk pl cs, all type="unfinished".
+  Still to do: sk ja ko ca sv nl nl_BE nl_NL hu el ro lv da nb no fi hr
+  sl sr rs ar mn. Duplicate messages (sources with an apostrophe written
+  as &apos;) merged in de es it pt pt_BR tr zh zh_TW.
+- First start: the language is already "system" (QLocale), English when
+  there is no translation; no change. His registry still says lang=en.
+- Zip FaseCAD-1.1-windows-x64.zip (148,368,508 bytes, 5068 files) in
+  web/httpdocs/downloads, from scratchpad package.sh 1.1 run from C:\.
+  Unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 1.1 (QElectroTech
+  0.200.1-dev)". Not committed, not pushed, no GitHub release, website
+  (construir.py VERSION) not changed.

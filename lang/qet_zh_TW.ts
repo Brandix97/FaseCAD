@@ -329,6 +329,24 @@
         <comment>Lambda element generator</comment>
         <translation>Lambda元件生成器</translation>
     </message>
+    <message>
+        <source>About FaseCAD</source>
+        <translation type="unfinished">關於 FaseCAD</translation>
+    </message>
+    <message>
+        <source>FaseCAD, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation type="unfinished">FaseCAD，一款用於設計電氣圖的應用程式。</translation>
+    </message>
+    <message>
+        <source>Based on QElectroTech, © 2006-%1 the developers of QElectroTech, under the GNU General Public License, version 2 or later.</source>
+        <comment>about tab, origin line</comment>
+        <translation type="unfinished">基於 QElectroTech，© 2006-%1 QElectroTech 開發者，遵循 GNU 通用公共許可證第 2 版或更高版本。</translation>
+    </message>
+    <message>
+        <source>based on QElectroTech %1</source>
+        <translation type="unfinished">基於 QElectroTech %1</translation>
+    </message>
 </context>
 <context>
     <name>AddLinkDialog</name>
@@ -484,6 +502,10 @@
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="51"/>
         <source>Realistic (screw)</source>
         <translation>寫實（螺釘式）</translation>
+    </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">端子圖</translation>
     </message>
 </context>
 <context>
@@ -1049,7 +1071,7 @@ Note: these options DO NOT allow or block auto numberings, only their update pol
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="14"/>
         <source>Export the bill of materials as CSV</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">將物料清單匯出為 CSV</translation>
     </message>
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="20"/>
@@ -1825,6 +1847,18 @@ If you confirm, the other cable will lose these cores. Do you want to continue?<
             <numerusform>此線纜有 %n 根芯線繫結到導線。使用所選型別後，它們將離開此線纜，其標記也將從圖中消失。是否繼續？</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">來源</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+    <message>
+        <source>This cable type comes from the parts database: change it in the parts manager.</source>
+        <translation type="unfinished">此電纜類型來自零件資料庫：請在零件管理器中更改。</translation>
+    </message>
 </context>
 <context>
     <name>CableExportDialog</name>
@@ -1953,6 +1987,46 @@ If you confirm, the other cable will lose these cores. Do you want to continue?<
         <source>Used cores</source>
         <translation>已用芯線</translation>
     </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">芯線</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">顏色</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">起點</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">終點</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">狀態</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation type="unfinished">已使用</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">備用</translation>
+    </message>
 </context>
 <context>
     <name>CableListModelPropertiesWidget</name>
@@ -2074,6 +2148,18 @@ Do you want to renumber them too?</source>
         <location filename="../sources/ui/cablenumberingdialog.cpp" line="362"/>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>所有線纜的編號都已與規則給出的編號一致。</translation>
+    </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">新電纜採用專案中第一個空閒編號：%1、%2……重新編號會按下列順序重新命名專案中的每條電纜，從而填補刪除電纜後留下的空缺。</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">從 1 開始重新設定專案中每條電纜的編號：刪除電纜後缺失的編號會以此方式補上。</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">所有電纜都已带有將被賦予的編號。</translation>
     </message>
 </context>
 <context>
@@ -2371,6 +2457,14 @@ Do you want to renumber them too?</source>
         <location filename="../sources/cablelist/cablequerywidget.cpp" line="73"/>
         <source>Table columns</source>
         <translation>表格列</translation>
+    </message>
+    <message>
+        <source>Cable:</source>
+        <translation type="unfinished">電纜：</translation>
+    </message>
+    <message>
+        <source>All cables</source>
+        <translation type="unfinished">所有電纜</translation>
     </message>
 </context>
 <context>
@@ -2937,19 +3031,19 @@ Do you want to renumber them too?</source>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="58"/>
         <source>Potential type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">電位類型：</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="148"/>
         <source>Conductor type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導線類型：</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="158"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="168"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="178"/>
         <source>❗</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">❗</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="218"/>
@@ -3177,12 +3271,12 @@ Do you want to renumber them too?</source>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="143"/>
         <source>This wire is a core of a cable: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">此導線是電纜的芯線：截面、顏色和類型來自電纜。</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="144"/>
         <source>This wire is core of cable %1: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">此導線是電纜 %1 的芯線：截面、顏色和類型來自電纜。</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="259"/>
@@ -3501,32 +3595,32 @@ Continue?</source>
     <message>
         <location filename="../sources/diagram.cpp" line="347"/>
         <source>a text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一段文字</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="348"/>
         <source>a shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一個形狀</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="349"/>
         <source>a picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一張圖片</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="350"/>
         <source>a table</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一個表格</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="351"/>
         <source>a terminal strip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一個端子排</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="352"/>
         <source>a cable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">一條電纜</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="3421"/>
@@ -3795,6 +3889,10 @@ Continue?</source>
         <location filename="../sources/diagramevent/diagrameventaddelement.cpp" line="552"/>
         <source>insert %1 × %2</source>
         <translation>插入 %1 × %2</translation>
+    </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">符號 %1 / %2：%3。Tab：下一個符號，Shift+Tab：上一個</translation>
     </message>
 </context>
 <context>
@@ -4203,7 +4301,8 @@ Continue?</source>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="798"/>
         <source>
 Hold Shift and drag to move the symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+按住 Shift 拖動以移動符號</translation>
     </message>
     <message>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="799"/>
@@ -4356,6 +4455,22 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit conductor properties</source>
         <comment>undo caption</comment>
         <translation>編輯導線屬性</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">添加零件</translation>
+    </message>
+    <message>
+        <source>Place terminals</source>
+        <translation type="unfinished">放置端子</translation>
+    </message>
+    <message>
+        <source>Click on the folio to place each terminal: the number goes up by one each time. Right click or Escape ends.</source>
+        <translation type="unfinished">在圖紙上單擊以放置每個端子：編號每次加一。右鍵或 Esc 結束。</translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished">放置</translation>
     </message>
 </context>
 <context>
@@ -5179,6 +5294,14 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit an element text</source>
         <translation>編輯元件文本</translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">選擇...</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">零件資料</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5362,6 +5485,26 @@ Hold Shift and drag to move this text on its own</source>
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1866"/>
         <source>Right</source>
         <translation>右</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">零件資料</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">請使用零件資料庫（設定 &gt; 常規）以顯示零件的資料。</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">此元件的零件在零件資料庫中沒有資料。</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">此元件不包含任何零件：請在“零件”索引標籤中添加。</translation>
     </message>
 </context>
 <context>
@@ -5689,7 +5832,7 @@ The element&apos;s display name is edited separately in the element properties.<
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="71"/>
         <source>Edit on several lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">多行編輯</translation>
     </message>
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="81"/>
@@ -5871,6 +6014,30 @@ Continue?</source>
 更改其編號將替換或清除該名稱。
 
 是否繼續？</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">交換櫃內與櫃外</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">預設情況下，連接電纜的一側朝向櫃外；沒有電纜時為最低的連接點。勾選可為此端子反轉：端子排圖將隨之改變。</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">此端子只有一個連接點。</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">櫃內：%1。櫃外：%2，電纜側。</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">櫃內：%1。櫃外：%2。</translation>
     </message>
 </context>
 <context>
@@ -6592,7 +6759,7 @@ Continue?</source>
     <message>
         <location filename="../sources/ui/elementpropertieswidget.h" line="45"/>
         <source>Element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">元件屬性</translation>
     </message>
 </context>
 <context>
@@ -7247,6 +7414,38 @@ QElectroTech 無法自動判斷您匯入檔案的來源，也無法判斷適用�
         <source>Property of the folder %1</source>
         <translation>資料夾 %1 的屬性</translation>
     </message>
+    <message>
+        <source>Download the symbol...</source>
+        <translation type="unfinished">下載符號...</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">零件管理器...</translation>
+    </message>
+    <message>
+        <source>The symbol %1 is not there.</source>
+        <translation type="unfinished">符號 %1 不存在。</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read.</source>
+        <translation type="unfinished">無法讀取 %1。</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written.</source>
+        <translation type="unfinished">無法寫入 %1。</translation>
+    </message>
+    <message>
+        <source>Download the symbol</source>
+        <translation type="unfinished">下載符號</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">符號 (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Download the symbols</source>
+        <translation type="unfinished">下載符號</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7433,6 +7632,18 @@ QElectroTech 無法自動判斷您匯入檔案的來源，也無法判斷適用�
         <location filename="../sources/elementspanelwidget.cpp" line="102"/>
         <source>Filter</source>
         <translation>篩選</translation>
+    </message>
+    <message>
+        <source>Insert a schematic sheet</source>
+        <translation type="unfinished">插入原理圖圖紙</translation>
+    </message>
+    <message>
+        <source>Insert a cabinet construction sheet</source>
+        <translation type="unfinished">插入機櫃結構圖紙</translation>
+    </message>
+    <message>
+        <source>Insert a routing sheet for this cabinet</source>
+        <translation type="unfinished">為此機櫃插入布線圖紙</translation>
     </message>
 </context>
 <context>
@@ -8287,37 +8498,37 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="64"/>
         <source>Selection rectangle selects:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">選擇框選擇：</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="75"/>
         <source>Everything it overlaps (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">接觸到的所有物件（同以前）</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="80"/>
         <source>What lies wholly within it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">完全在內的物件</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="85"/>
         <source>By direction: wholly within to the right, overlapped to the left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">按方向：向右為完全在內的物件，向左為接觸到的物件</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="104"/>
         <source>Zoom step:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">縮放步長：</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="120"/>
         <source>How far the mouse wheel, Ctrl++ / Ctrl+- and the zoom buttons zoom at a time, in percent of the zoom shown, rounded to whole fives: with 10 %, 100 % goes to 110 %, 120 %, 130 % and 400 % to 440 %. Alt with the mouse wheel zooms four steps at a time.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">滑鼠滾輪、Ctrl++ / Ctrl+- 和縮放按鈕每次縮放的幅度，為目前縮放的百分比，四捨五入到 5 的倍數：10% 時 100% → 110%、120%、130%，400% → 440%。Alt 加滾輪每次縮放四步。</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="123"/>
         <source>Factor 1.15 (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">系數 1.15（同以前）</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="126"/>
@@ -8332,12 +8543,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="152"/>
         <source>Draw a connected terminal in the color of its conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">以導線顏色繪製已連接的端子</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="155"/>
         <source>Unchecked, every terminal is drawn in red. Terminals are never printed or exported.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">不勾選時每個端子都以紅色繪製。端子永遠不會被列印或匯出。</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="162"/>
@@ -8447,12 +8658,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="358"/>
         <source>Dragging a symbol&apos;s text moves the text alone, and Shift+drag moves the symbol, as before version 0.100. Unticked by default: dragging a text moves its symbol, Shift+drag moves the text.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">拖動符號文字只移動文字，Shift+拖動移動符號，與 0.100 版之前相同。預設不勾選：拖動文字會移動其符號，Shift+拖動移動文字。</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="361"/>
         <source>Drag symbol texts without holding Shift</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">無需按 Shift 即可拖動符號文字</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="368"/>
@@ -8497,12 +8708,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="408"/>
         <source>Printing and exporting ask first when symbols, texts, shapes, pictures or tables lie outside the sheet, as they are cut off or left out; saving says so in the status bar.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">當圖紙外有符號、文字、形狀、圖片或表格時，列印和匯出會先詢問，因為它們會被裁切或遺漏；保存時會在狀態列中提示。</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="411"/>
         <source>Warn about items outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">警告圖紙外的物件</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="418"/>
@@ -9077,7 +9288,7 @@ hint shown when no cable type file is configured yet</extracomment>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="674"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">斯洛伐克語</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="675"/>
@@ -9318,6 +9529,106 @@ Any setting other than “No rounding” may cause rendering errors in the proje
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="261"/>
         <source> px</source>
         <translation> px</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation type="unfinished">主題：</translation>
+    </message>
+    <message>
+        <source>Light or dark colors for the whole interface. A sheet left on its system color follows them.</source>
+        <translation type="unfinished">整個界面使用淺色或深色。保留系統顏色的圖紙會隨之改變。</translation>
+    </message>
+    <message>
+        <source>Colors below (as before)</source>
+        <translation type="unfinished">使用下方顏色（同以前）</translation>
+    </message>
+    <message>
+        <source>Follow the system</source>
+        <translation type="unfinished">跟隨系統</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">淺色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">深色</translation>
+    </message>
+    <message>
+        <source>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</source>
+        <translation type="unfinished">以按任務分組的索引標籤（主頁、插入、連接……）顯示工具，而不是工具列</translation>
+    </message>
+    <message>
+        <source>The menus stay, and so do the toolbars you made yourself.</source>
+        <translation type="unfinished">選單保留，您自己建立的工具列也保留。</translation>
+    </message>
+    <message>
+        <source>Hide the menu bar too (every menu stays in the File tab)</source>
+        <translation type="unfinished">同時隱藏選單欄（所有選單仍在“檔案”索引標籤中）</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">側面板折疊為窗口邊緣的索引標籤，滑鼠停留時滑出；其圖釘可保持其開啟</translation>
+    </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">自動隱藏側面板</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+    <message>
+        <source>Use the parts database (cable types from its parts with cores)</source>
+        <translation type="unfinished">使用零件資料庫（電纜類型來自带芯線的零件）</translation>
+    </message>
+    <message>
+        <source>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</source>
+        <translation type="unfinished">零件資料庫檔案。留空以使用本電腦的資料庫；選擇網路資料夾中的檔案以共享。</translation>
+    </message>
+    <message>
+        <source>This computer (%1)</source>
+        <translation type="unfinished">本電腦 (%1)</translation>
+    </message>
+    <message>
+        <source>Parts databases (*.sqlite *.db)</source>
+        <translation type="unfinished">零件資料庫 (*.sqlite *.db)</translation>
+    </message>
+    <message>
+        <source>In a database file</source>
+        <translation type="unfinished">在資料庫檔案中</translation>
+    </message>
+    <message>
+        <source>On a PostgreSQL server</source>
+        <translation type="unfinished">在 PostgreSQL 伺服器上</translation>
+    </message>
+    <message>
+        <source>A server keeps the parts for several computers at once, each reading and writing them</source>
+        <translation type="unfinished">伺服器同時為多台電腦保存零件，每台都可讀寫</translation>
+    </message>
+    <message>
+        <source>Server...</source>
+        <translation type="unfinished">伺服器...</translation>
+    </message>
+    <message>
+        <source>When a project is opened:</source>
+        <translation type="unfinished">開啟專案時：</translation>
+    </message>
+    <message>
+        <source>Make a backup copy beside it</source>
+        <translation type="unfinished">在其旁邊建立備份副本</translation>
+    </message>
+    <message>
+        <source>Ask whether to make a backup copy</source>
+        <translation type="unfinished">詢問是否建立備份副本</translation>
+    </message>
+    <message>
+        <source>Make no backup copy</source>
+        <translation type="unfinished">不建立備份副本</translation>
+    </message>
+    <message>
+        <source>The copy is the project as it was when opened, in its folder, named after it: project_backup.qet. Each opening writes over the copy before.</source>
+        <translation type="unfinished">副本是開啟時的專案，位於其資料夾中，以其命名：project_backup.qet。每次開啟都會覆蓋之前的副本。</translation>
     </message>
 </context>
 <context>
@@ -10143,7 +10454,7 @@ Any setting other than “No rounding” may cause rendering errors in the proje
     <message>
         <location filename="../sources/ui/imagepropertieswidget.h" line="46"/>
         <source>Picture properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圖片屬性</translation>
     </message>
 </context>
 <context>
@@ -10350,6 +10661,18 @@ Please use the advanced editor for this.</source>
         <location filename="../sources/ui/inditextpropertieswidget.cpp" line="323"/>
         <source>Modify the properties of a text</source>
         <translation>修改文本屬性</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">自動</translation>
+    </message>
+    <message>
+        <source>Text width; the text wraps at this width. Auto: no automatic line wrap</source>
+        <translation type="unfinished">文字寬度；文字在此寬度處換行。自動：不自動換行</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">寬度：</translation>
     </message>
 </context>
 <context>
@@ -11342,6 +11665,10 @@ Do you still want to link this slave contact?</source>
         <source>Information</source>
         <translation>資訊</translation>
     </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">交換櫃內與櫃外</translation>
+    </message>
 </context>
 <context>
     <name>MultiPasteDialog</name>
@@ -11509,7 +11836,7 @@ Do you still want to link this slave contact?</source>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="231"/>
         <source>Potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">電位類型</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="238"/>
@@ -12128,22 +12455,22 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="43"/>
         <source>Check potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">檢查電位類型</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="50"/>
         <source>Each row is a potential whose wires have different types. Click a row to select its wires. Types joined on purpose can be declared in the project properties and are not listed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">每行是一個其導線類型不同的電位。單擊一行以選擇其導線。有意合并的類型可在專案屬性中指定，不會列出。</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Types on the potential</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">電位中的類型</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Typed wires</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">带類型的導線</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="69"/>
@@ -12153,24 +12480,24 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="96"/>
         <source>No potential carries wires of different types.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">沒有電位承載不同類型的導線。</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="97"/>
         <source>Potential types are off for this project, so there is nothing to check.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">此專案中電位類型已關閉，因此無需檢查。</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="100"/>
         <source>%n potential(s) carry wires of different types.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>%n 個電位承載不同類型的導線。</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="142"/>
         <source>These wires no longer exist. Refresh the results.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">這些導線已不存在。請刷新結果。</translation>
     </message>
 </context>
 <context>
@@ -12280,22 +12607,22 @@ The following variables are incompatible:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="51"/>
         <source>Draw conductors from their own style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">以導線自身的樣式繪製</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="52"/>
         <source>Draw conductors from their potential type, chosen on each conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">按每根導線上所選的電位類型繪製導線</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="54"/>
         <source>When a type is used, a conductor whose potential has a type is drawn in that type&apos;s colour, line style and width. The style stored on the conductor is kept, and used again when this is off or the conductor has no type.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">使用類型時，其電位具有類型的導線以該類型的顏色、線型和線寬繪製。導線中保存的樣式會保留，在此關閉或導線沒有類型時重新使用。</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="59"/>
         <source>Choose a conductor&apos;s type in its properties. The type applies to every conductor on the same potential.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">在導線屬性中選擇其類型。該類型適用於同一電位上的每根導線。</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12305,12 +12632,12 @@ The following variables are incompatible:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">顏色</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Line style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">線型</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12320,54 +12647,54 @@ The following variables are incompatible:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="75"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">添加</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="76"/>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="93"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">移除</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="77"/>
         <source>Restore the default types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">恢復預設類型</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="86"/>
         <source>Types joined on purpose, for example 0V and PE at a power supply. A potential with only these types is not reported as mixed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">有意合并的類型，例如電源中的 0V 和 PE。僅有這些類型的電位不會被報告為混合。</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="92"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">合并</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="96"/>
         <source>and</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">和</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="116"/>
         <source>New type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新類型</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="156"/>
         <source>Set where the potential starts (not available in this version)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">標記電位的起點（此版本中沒有）</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="173"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 和 %2</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="215"/>
         <source>Solid line</source>
         <comment>conductor style: solid line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">實線</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="216"/>
@@ -12385,12 +12712,12 @@ The following variables are incompatible:
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="218"/>
         <source>Dotted line</source>
         <comment>conductor style: dotted line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">點線</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="235"/>
         <source>Choose a colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">選擇顏色</translation>
     </message>
 </context>
 <context>
@@ -13012,6 +13339,12 @@ Give them another numbering first.</source>
             <numerusform>已匯入 %n 條翻譯。</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>%n translation(s) taken from the parts database.</source>
+        <translation type="unfinished">
+            <numerusform>已從零件資料庫獲取 %n 條翻譯。</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>ProjectMainConfigPage</name>
@@ -13204,13 +13537,13 @@ Give them another numbering first.</source>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="344"/>
         <source>Cell numbering starts from:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">單元格編號起始於：</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="354"/>
         <source>From which corner to start numbering the cells: Top - Left corner(default), Top - Right, Bottom - Left, Bottom - Right.</source>
         <comment>tooltip</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">從哪個角開始為單元格編號：左上（預設）、右上、左下、右下。</translation>
     </message>
     <message>
         <source>Origin (of a coordinate system):</source>
@@ -13251,6 +13584,16 @@ Give them another numbering first.</source>
         <source>%1 h %2 min</source>
         <comment>hours and minutes of time spent on a project</comment>
         <translation>%1 小時 %2 分鐘</translation>
+    </message>
+    <message>
+        <source>Keep a new conductor off the conductors it would lie on</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">使新導線遠離會重疊的導線</translation>
+    </message>
+    <message>
+        <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">繪製導線或移動元件時，自動導線沿另一根導線延伸的中間段每次移動一個柵格步長到空閒處。這會像手動移動一樣保留該路徑。已繪製的導線不變。</translation>
     </message>
 </context>
 <context>
@@ -13441,7 +13784,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="134"/>
         <source>Print preview</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">列印預覽</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="135"/>
@@ -13452,7 +13795,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="141"/>
         <source>Export to PDF</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">匯出為 PDF</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="142"/>
@@ -13524,14 +13867,14 @@ Do you want to save changes?</source>
         <location filename="../sources/projectview.cpp" line="407"/>
         <source>Save as .qetdb?</source>
         <comment>dialog title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">保存為 .qetdb 嗎？</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/projectview.cpp" line="408"/>
         <source>%n bridge(s) are drawn in this project. The .qetdb format does not store bridges yet -- they are kept in the normal .qet format only. Save it as .qetdb anyway?</source>
         <comment>also asked when the file name says .qetdb</comment>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>此專案繪製了 %n 個跨接。.qetdb 格式尚不保存跨接：它們僅在普通 .qet 格式中保留。仍要保存為 .qetdb 嗎？</numerusform>
         </translation>
     </message>
     <message>
@@ -13685,6 +14028,21 @@ Saving over it would lose their changes.</source>
         <source>Project</source>
         <comment>window title for a project-less ProjectView</comment>
         <translation>工程</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">QElectroTech 專案 (*%1)</translation>
+    </message>
+    <message>
+        <source>Zipped project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">壓縮的 QElectroTech 專案 (*%1)</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech, one database file (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">QElectroTech 專案，單個資料庫檔案 (*%1)</translation>
     </message>
 </context>
 <context>
@@ -15142,7 +15500,7 @@ Hold Ctrl while moving to place freely.</source>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1135"/>
         <source>Check potential types...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">檢查電位類型...</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1146"/>
@@ -15234,12 +15592,12 @@ Hold Ctrl while moving to place freely.</source>
         <location filename="../sources/qetdiagrameditor.cpp" line="1311"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="5456"/>
         <source>Update elements from the collections</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">從收藏更新元件</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1314"/>
         <source>Replaces each element of the project that changed in its collection since it was placed, and redraws it (action cannot be undone)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">替換并重新繪製專案中自放置以來在其收藏中已更改的每個元件（無法復原）</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1320"/>
@@ -16044,32 +16402,32 @@ You can also number the cables automatically later: the rule is set at any time 
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5462"/>
         <source>Every element of the project matches the collection it was taken from.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">專案中的每個元件都與其來源收藏一致。</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5471"/>
         <source>%n elements of the project differ from the collection they were taken from. Replace them with the version of the collection?</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>專案中的 %n 個元件與其來源收藏不同。是否用收藏中的版本替換？</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5475"/>
         <source>Placed elements are redrawn and keep their conductors, as long as their terminals have not moved. This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">放置的元件會重新繪製并保留其導線，只要其端子未移動。此操作無法復原。</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5487"/>
         <source>%n elements updated.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>已更新 %n 個元件。</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5564"/>
         <source>%n elements not redrawn: their terminals have changed (a terminal was added, removed or moved).</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>%n 個元件未重新繪製：其端子已更改（添加、移除或移動了端子）。</numerusform>
         </translation>
     </message>
     <message>
@@ -16326,7 +16684,7 @@ You can also number the cables automatically later: the rule is set at any time 
         <location filename="../sources/qetdiagrameditor.cpp" line="6406"/>
         <source>%n more</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>還有 %n 個</numerusform>
         </translation>
     </message>
     <message>
@@ -16338,19 +16696,19 @@ You can also number the cables automatically later: the rule is set at any time 
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6413"/>
         <source>%1 - %2: %3</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 - %2：%3</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6436"/>
         <source>... and %n more folio(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>……以及另外 %n 張圖紙</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6439"/>
         <source>Outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">在圖紙外</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6440"/>
@@ -16359,13 +16717,17 @@ You can also number the cables automatically later: the rule is set at any time 
 %1
 
 Go on anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">這些物件在圖紙外，將被裁切或遺漏：
+
+%1
+
+仍要繼續嗎？</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6461"/>
         <source>Project saved; %n folio(s) with items outside the sheet, named when printing or exporting</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>專案已保存；%n 張圖紙有圖紙外的物件，列印或匯出時會提示</numerusform>
         </translation>
     </message>
     <message>
@@ -16940,6 +17302,298 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <location filename="../sources/qetdiagrameditor.cpp" line="1113"/>
         <source>Find duplicate signals and components...</source>
         <translation>查詢重複的訊號和元件...</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <comment>dock title</comment>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Title block designer…</source>
+        <translation type="unfinished">標題欄設計器…</translation>
+    </message>
+    <message>
+        <source>Makes the title block of the sheet of ready-made blocks: logo, project, revisions, signatures...</source>
+        <translation type="unfinished">用現成的區塊構建圖紙的標題欄：徽標、專案、修訂、簽名...</translation>
+    </message>
+    <message>
+        <source>Title block data…</source>
+        <translation type="unfinished">標題欄資料…</translation>
+    </message>
+    <message>
+        <source>The company, the client, the signatures and the revisions the title blocks of the project show</source>
+        <translation type="unfinished">專案標題欄中顯示的公司、客户、簽名和修訂</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">自動圖紙目錄</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">在專案開頭添加一張目錄圖紙，并隨時更新每張圖紙的編號和標題</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">零件管理器...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">管理零件資料庫：零件、技術資料、附件、圖片和 DXF 圖紙</translation>
+    </message>
+    <message>
+        <source>Official parts catalog...</source>
+        <translation type="unfinished">官方零件目錄...</translation>
+    </message>
+    <message>
+        <source>Searches the official FaseCAD parts catalog and adds the parts chosen to your parts database</source>
+        <translation type="unfinished">在 FaseCAD 官方零件目錄中搜索，并將所選零件添加到您的零件資料庫</translation>
+    </message>
+    <message>
+        <source>Cable manager...</source>
+        <translation type="unfinished">電纜管理器...</translation>
+    </message>
+    <message>
+        <source>List every cable of the project with its cores, used or spare, and edit them</source>
+        <translation type="unfinished">列出并編輯專案中的每條電纜及其已用或備用芯線</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">添加電纜表</translation>
+    </message>
+    <message>
+        <source>Add a table listing every core of the cables, with its colour, wire and ends</source>
+        <translation type="unfinished">添加一個表格，列出電纜的每根芯線及其顏色、導線和兩端</translation>
+    </message>
+    <message>
+        <source>Export the cable plan to CSV format</source>
+        <translation type="unfinished">以 CSV 格式匯出電纜表</translation>
+    </message>
+    <message>
+        <source>Export the cable plan</source>
+        <translation type="unfinished">匯出電纜表</translation>
+    </message>
+    <message>
+        <source>cable_plan</source>
+        <translation type="unfinished">電纜表</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">CSV 檔案 (*.csv)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">無法寫入檔案 %1。</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">添加零件物料清單</translation>
+    </message>
+    <message>
+        <source>Add a table listing the parts of the devices, grouped by order number, with their quantities</source>
+        <translation type="unfinished">添加一個表格，按訂貨號分組列出設備的零件及其數量</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts to CSV format</source>
+        <translation type="unfinished">以 CSV 格式匯出零件物料清單</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts</source>
+        <translation type="unfinished">匯出零件物料清單</translation>
+    </message>
+    <message>
+        <source>bill_of_materials</source>
+        <translation type="unfinished">物料清單</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">按順序重新為專案中的電纜編號</translation>
+    </message>
+    <message>
+        <source>Number the wires…</source>
+        <translation type="unfinished">導線編號…</translation>
+    </message>
+    <message>
+        <source>Numbers the wires of the project, of the sheet or the selected ones, by an example or a formula of your own</source>
+        <translation type="unfinished">用示例或您自己的公式為專案、圖紙或所選內容中的導線編號</translation>
+    </message>
+    <message>
+        <source>Calculate sections…</source>
+        <translation type="unfinished">計算截面…</translation>
+    </message>
+    <message>
+        <source>Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it</source>
+        <translation type="unfinished">根據為每根導線供電的設備的保護裝置或最大電流，賦予 IEC 60204-1 要求的截面</translation>
+    </message>
+    <message>
+        <source>Set version…</source>
+        <translation type="unfinished">設定版本…</translation>
+    </message>
+    <message>
+        <source>Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before</source>
+        <translation type="unfinished">提升專案版本，并添加一張圖紙，列出自上一版本以來添加、移除或重新連接的設備</translation>
+    </message>
+    <message>
+        <source>Add terminals…</source>
+        <translation type="unfinished">添加端子…</translation>
+    </message>
+    <message>
+        <source>Insert a DXF…</source>
+        <translation type="unfinished">添加 DXF…</translation>
+    </message>
+    <message>
+        <source>Places terminals of a terminal strip, numbered one after the other</source>
+        <translation type="unfinished">放置一個端子排的端子并按順序編號</translation>
+    </message>
+    <message>
+        <source>Reads the lines of a DXF drawing in millimetres and places them on the current sheet</source>
+        <translation type="unfinished">以毫米讀取 DXF 圖紙的線條并將其放置到目前圖紙上</translation>
+    </message>
+    <message>
+        <source>Add a wire duct…</source>
+        <translation type="unfinished">添加線槽…</translation>
+    </message>
+    <message>
+        <source>Add a DIN rail</source>
+        <translation type="unfinished">添加 DIN 導軌</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate…</source>
+        <translation type="unfinished">添加安裝板…</translation>
+    </message>
+    <message>
+        <source>Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse</source>
+        <translation type="unfinished">詢問線槽寬度，然後在機櫃圖紙上繪製：長度顯示在滑鼠下方</translation>
+    </message>
+    <message>
+        <source>Draws a DIN rail on the cabinet sheet, as long as the mouse says</source>
+        <translation type="unfinished">在機櫃圖紙上繪製一條長度由滑鼠指示的 DIN 導軌</translation>
+    </message>
+    <message>
+        <source>Asks for the size of the mounting plate, then places it on the cabinet sheet</source>
+        <translation type="unfinished">詢問安裝板尺寸，然後將其放置到機櫃圖紙上</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet…</source>
+        <translation type="unfinished">機櫃比例…</translation>
+    </message>
+    <message>
+        <source>Changes the scale the cabinet sheet is drawn at: the parts keep their measures</source>
+        <translation type="unfinished">更改機櫃圖紙的繪製比例：零件保持其尺寸</translation>
+    </message>
+    <message>
+        <source>Routing sheet of a mounting plate…</source>
+        <translation type="unfinished">安裝板的布線圖紙…</translation>
+    </message>
+    <message>
+        <source>Adds after this cabinet sheet a sheet routing the wires of one of its mounting plates through its ducts</source>
+        <translation type="unfinished">在此機櫃圖紙之後添加一張圖紙，將某塊安裝板上的導線經其線槽布線</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">計算布線</translation>
+    </message>
+    <message>
+        <source>Gives each wire of the schematic the shortest way through the ducts between the drawings of its devices</source>
+        <translation type="unfinished">為原理圖中的每根導線賦予在其設備圖形之間經線槽的最短路徑</translation>
+    </message>
+    <message>
+        <source>Export the routing to CSV…</source>
+        <translation type="unfinished">將布線匯出為 CSV…</translation>
+    </message>
+    <message>
+        <source>Writes every wire of this routing sheet with its length to a CSV file for a spreadsheet</source>
+        <translation type="unfinished">將此布線圖紙中的每根導線及其長度寫入 CSV 檔案，用於電子表格</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D…</source>
+        <translation type="unfinished">3D 機櫃…</translation>
+    </message>
+    <message>
+        <source>Shows the cabinet of this sheet in 3D, the devices from the STEP models of their parts, and exports it as STEP</source>
+        <translation type="unfinished">以 3D 顯示此圖紙的機櫃，設備取自其零件的 STEP 模型，并可匯出為 STEP</translation>
+    </message>
+    <message>
+        <source>Loading the cabinet in 3D...</source>
+        <translation type="unfinished">正在以 3D 加載機櫃...</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">3D 機櫃</translation>
+    </message>
+    <message>
+        <source>Thermal analysis of the cabinet…</source>
+        <translation type="unfinished">機櫃熱分析…</translation>
+    </message>
+    <message>
+        <source>Adds up the power loss of the devices of this cabinet, from their parts, and says how hot it gets inside and what cooling it needs</source>
+        <translation type="unfinished">匯總此機櫃中設備零件的功率損耗，并給出內部升溫程度以及所需的冷卻方式</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">機櫃構造 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates</source>
+        <translation type="unfinished">機櫃構造 2D：向機櫃構造圖紙添加線槽、DIN 導軌和安裝板</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">選單</translation>
+    </message>
+    <message>
+        <source>Command tabs</source>
+        <comment>toolbar title</comment>
+        <translation type="unfinished">命令索引標籤</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet (%1)…</source>
+        <translation type="unfinished">機櫃比例 (%1)…</translation>
+    </message>
+    <message>
+        <source>Snap to the corners and the middles of the sides of the parts</source>
+        <translation type="unfinished">捕捉到零件的角點和邊中點</translation>
+    </message>
+    <message>
+        <source>Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is</source>
+        <translation type="unfinished">將移動或繪製的物件捕捉到其他零件的角點和邊中點；關閉時則跟隨滑鼠位置</translation>
+    </message>
+    <message>
+        <source>Insert a DXF</source>
+        <translation type="unfinished">添加 DXF</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? It is where the changes of the next versions start from.</source>
+        <translation type="unfinished">設定專案版本 %1 嗎？之後版本的更改將從此處開始計算。</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? A sheet with the devices added, removed or rewired since version %2 is added at the end of the project.</source>
+        <translation type="unfinished">設定專案版本 %1 嗎？專案末尾將添加一張圖紙，列出自版本 %2 以來添加、移除或重新連接的設備。</translation>
+    </message>
+    <message>
+        <source>Set version</source>
+        <translation type="unfinished">設定版本</translation>
+    </message>
+    <message>
+        <source>The project is at version %1.</source>
+        <translation type="unfinished">專案處於版本 %1。</translation>
+    </message>
+    <message>
+        <source>The project is at version %1; the changes since version %2 are on its last sheet.</source>
+        <translation type="unfinished">專案處於版本 %1；自版本 %2 以來的更改在其最後一張圖紙上。</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>已添加或移動 %n 個端子文字字段。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 - delivery</source>
+        <translation type="unfinished">%1 - 交付</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (*%1)</source>
+        <translation type="unfinished">QElectroTech 專案 (*%1)</translation>
     </message>
 </context>
 <context>
@@ -18106,6 +18760,24 @@ What do you wish to do ?</source>
         <source>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Setting up cross references&lt;/p&gt;</source>
         <translation>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;開啟當前工程...&lt;/b&gt;&lt;br/&gt;設定交叉引用&lt;/p&gt;</translation>
     </message>
+    <message>
+        <source>QElectroTech project (%1)</source>
+        <translation type="unfinished">QElectroTech 專案 (%1)</translation>
+    </message>
+    <message>
+        <source>Cabinet construction</source>
+        <comment>title of a new cabinet folio</comment>
+        <translation type="unfinished">機櫃構造</translation>
+    </message>
+    <message>
+        <source>Cabinet routing</source>
+        <comment>title of a new routing sheet</comment>
+        <translation type="unfinished">機櫃布線</translation>
+    </message>
+    <message>
+        <source>Not to scale</source>
+        <translation type="unfinished">無比例</translation>
+    </message>
 </context>
 <context>
     <name>QETSql</name>
@@ -19046,7 +19718,7 @@ What do you wish to do ?</source>
         <location filename="../sources/titleblock/templatecommands.cpp" line="1196"/>
         <source>Edit Preview</source>
         <comment>undo preview</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">編輯預覽</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="131"/>
@@ -19583,7 +20255,7 @@ Do you want to replace it ?</source>
     <message>
         <location filename="../sources/qetinformation.cpp" line="401"/>
         <source>Conductor type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導線類型</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="404"/>
@@ -19793,17 +20465,17 @@ Do you want to replace it ?</source>
     <message>
         <location filename="../sources/qetinformation.cpp" line="446"/>
         <source>Exclude from the bill of materials</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">不計入物料清單</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="447"/>
         <source>Wire number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導線編號</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="452"/>
         <source>%1, connection point %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1，連接點 %2</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="385"/>
@@ -20303,7 +20975,7 @@ Please download it by following the link and unzip it in the installation folder
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="95"/>
         <source>Text grid %1. Hold Ctrl to place freely.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">文字柵格 %1。按住 Ctrl 可自由放置。</translation>
     </message>
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="96"/>
@@ -21477,6 +22149,41 @@ To enable it: Configure QElectroTech &gt; General &gt; Projects, or set the QET_
         <comment>undo command text</comment>
         <translation>刪除跨接的一條線</translation>
     </message>
+    <message>
+        <source>Change %1</source>
+        <comment>undo caption - %1 is a part of a cabinet</comment>
+        <translation type="unfinished">更改 %1</translation>
+    </message>
+    <message>
+        <source>Change the scale of the cabinet to 1:%1</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished">將機櫃比例更改為 1:%1</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">模板</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">添加電纜表</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">電纜表</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">添加零件物料清單</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">物料清單</translation>
+    </message>
+    <message>
+        <source>(No action)</source>
+        <comment>spacemouse config: unbound button</comment>
+        <translation type="unfinished">（無操作）</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -22328,7 +23035,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="41"/>
         <source>Replace conductor properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">更改導線屬性</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207"/>
@@ -22354,7 +23061,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="35"/>
         <source>Replace element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">更改元件屬性</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="84"/>
@@ -22367,7 +23074,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.cpp" line="122"/>
         <source>Replace sheet properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">更改圖紙屬性</translation>
     </message>
 </context>
 <context>
@@ -23711,6 +24418,76 @@ The other fields are not used.</source>
     <message>
         <source>Action</source>
         <translation type="obsolete">操作</translation>
+    </message>
+    <message>
+        <source>3D mouse</source>
+        <comment>configuration page title</comment>
+        <translation type="unfinished">3D 滑鼠</translation>
+    </message>
+    <message>
+        <source>Add a link</source>
+        <translation type="unfinished">添加綁定</translation>
+    </message>
+    <message>
+        <source>Button no.</source>
+        <translation type="unfinished">按鍵編號</translation>
+    </message>
+    <message>
+        <source>Buttons</source>
+        <translation type="unfinished">按鍵</translation>
+    </message>
+    <message>
+        <source>Dead zone:</source>
+        <translation type="unfinished">死區：</translation>
+    </message>
+    <message>
+        <source>Link a button number on your 3D mouse (SpaceMouse, SpacePilot...) to a QElectroTech action. The button number depends on your device and its driver -- see its documentation, or try the values one by one starting from 0.</source>
+        <comment>spacemouse config page intro</comment>
+        <translation type="unfinished">將 3D 滑鼠（SpaceMouse、SpacePilot...）上的按鍵編號綁定到 QElectroTech 操作。按鍵編號取決於設備及其驅動程式：請參閱其文檔，或從 0 開始逐個嘗試。</translation>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished">移動</translation>
+    </message>
+    <message>
+        <source>Pan speed:</source>
+        <translation type="unfinished">平移速度：</translation>
+    </message>
+    <message>
+        <source>Push / pull the cap</source>
+        <translation type="unfinished">推/拉蓋子</translation>
+    </message>
+    <message>
+        <source>Remove this link</source>
+        <translation type="unfinished">移除此綁定</translation>
+    </message>
+    <message>
+        <source>Reverse horizontal movement</source>
+        <translation type="unfinished">反轉水平移動</translation>
+    </message>
+    <message>
+        <source>Reverse vertical movement</source>
+        <translation type="unfinished">反轉垂直移動</translation>
+    </message>
+    <message>
+        <source>Reverse zoom</source>
+        <translation type="unfinished">反轉縮放</translation>
+    </message>
+    <message>
+        <source>Small movements below this threshold are ignored. Raise it if the view drifts when you are not touching the mouse.</source>
+        <translation type="unfinished">低於此閾值的小移動將被忽略。如果不觸碰滑鼠時檢視仍在漂移，請調高。</translation>
+    </message>
+    <message>
+        <source>Twist the cap</source>
+        <translation type="unfinished">旋轉蓋子</translation>
+    </message>
+    <message>
+        <source>Zoom by:</source>
+        <translation type="unfinished">縮放：</translation>
+    </message>
+    <message>
+        <source>Zoom speed:</source>
+        <translation type="unfinished">縮放速度：</translation>
     </message>
 </context>
 <context>
@@ -26777,6 +27554,10 @@ Double-click to go to the element</source>
         <source>Level 1 terminal:</source>
         <translation>第1層端子：</translation>
     </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">端子圖</translation>
+    </message>
 </context>
 <context>
     <name>TerminalStripModel</name>
@@ -27187,61 +27968,61 @@ Ctrl+Enter確認單元格，Esc 放棄文字。</translation>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="160"/>
         <source>Alignment:</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">對齊：</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="162"/>
         <source>Top</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">頂部</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="163"/>
         <source>Top Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">左上</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="164"/>
         <source>Top Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">頂部居中</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="165"/>
         <source>Top Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">右上</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="166"/>
         <source>Bottom</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">底部</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="167"/>
         <source>Bottom Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">左下</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="168"/>
         <source>Bottom Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">底部居中</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="169"/>
         <source>Bottom Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">右下</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="170"/>
         <source>Indicate which side of the title border template should be aligned with the edge of the workspace</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">指定標題欄模板的哪條邊與工作區邊緣對齊</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="211"/>
@@ -28841,6 +29622,4919 @@ The following variables can be used:
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
         <source>What:</source>
         <translation>型別：</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButtons</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">報告錯誤</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">登入</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">請求支援</translation>
+    </message>
+    <message>
+        <source>Session closed</source>
+        <translation type="unfinished">會話已關閉</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer, so this session was closed: one computer at a time for each account. Sign in again to go on here.</source>
+        <translation type="unfinished">您的帳戶已在另一台電腦上開啟，因此此會話已關閉：每個帳戶同一時間只能在一台電腦上使用。請重新登入以在此繼續。</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">fasecad.com 的服務尚未開放</translation>
+    </message>
+    <message>
+        <source>Signed in as %1, subscription until %2. Click to change or sign out.</source>
+        <translation type="unfinished">已登入為 %1，訂閱有效期至 %2。點擊以更改或退出登入。</translation>
+    </message>
+    <message>
+        <source>Signed in as %1. Click to change or sign out.</source>
+        <translation type="unfinished">已登入為 %1。點擊以更改或退出登入。</translation>
+    </message>
+    <message>
+        <source>Sign in to your fasecad.com account</source>
+        <translation type="unfinished">登入您的 fasecad.com 帳戶</translation>
+    </message>
+    <message>
+        <source>Sign in with an account with a subscription to use it</source>
+        <translation type="unfinished">請使用有訂閱的帳戶登入以使用此功能</translation>
+    </message>
+    <message>
+        <source>Your account has no subscription running</source>
+        <translation type="unfinished">您的帳戶沒有有效的訂閱</translation>
+    </message>
+    <message>
+        <source>Tell the FaseCAD team about something that does not work</source>
+        <translation type="unfinished">告訴 FaseCAD 團隊哪些功能不正常</translation>
+    </message>
+    <message>
+        <source>Ask the FaseCAD team for help</source>
+        <translation type="unfinished">向 FaseCAD 團隊尋求幫助</translation>
+    </message>
+    <message>
+        <source>another computer</source>
+        <translation type="unfinished">另一台電腦</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">您的帳戶已在 %1 上開啟。一個帳戶同一時間只能在一台電腦上使用：關閉那裡的會話并在此繼續嗎？</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1 since %2. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">您的帳戶自 %2 起已在 %1 上開啟。一個帳戶同一時間只能在一台電腦上使用：關閉那裡的會話并在此繼續嗎？</translation>
+    </message>
+    <message>
+        <source>Account in use</source>
+        <translation type="unfinished">帳戶正在使用中</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantPanel</name>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">AI</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">關閉</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">登入...</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project: "add a contactor -KM1 with its coil and a stop and start button", "number the wires of this folio"... It works on the folio shown, and each change it makes can be undone.</source>
+        <translation type="unfinished">告訴 AI 要對開啟的專案做什麼：“添加一個接觸器 -KM1 及其線圈和一個停止、啟動按鈕”、“為此圖紙的導線編號”……它在顯示的圖紙上工作，所做的每項更改都可以復原。</translation>
+    </message>
+    <message>
+        <source>Write an instruction... (Enter sends, Shift+Enter a new line)</source>
+        <translation type="unfinished">輸入指令……（Enter 發送，Shift+Enter 換行）</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">發送</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">停止</translation>
+    </message>
+    <message>
+        <source>New conversation</source>
+        <translation type="unfinished">新對話</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project</source>
+        <translation type="unfinished">告訴 AI 要對開啟的專案做什麼</translation>
+    </message>
+    <message>
+        <source>AI:</source>
+        <translation type="unfinished">AI：</translation>
+    </message>
+    <message>
+        <source>nothing changed</source>
+        <translation type="unfinished">未做任何更改</translation>
+    </message>
+    <message>
+        <source>Stopped.</source>
+        <translation type="unfinished">已停止。</translation>
+    </message>
+    <message>
+        <source>You:</source>
+        <translation type="unfinished">你：</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantSession</name>
+    <message>
+        <source>Thinking...</source>
+        <translation type="unfinished">思考中...</translation>
+    </message>
+    <message>
+        <source>Working on the project...</source>
+        <translation type="unfinished">正在處理專案...</translation>
+    </message>
+    <message>
+        <source>Your session was closed: the account is open on another computer (Sign in...).</source>
+        <translation type="unfinished">您的會話已關閉：該帳戶已在另一台電腦上開啟（登入...）。</translation>
+    </message>
+    <message>
+        <source>The AI service does not accept this user and password (Sign in...).</source>
+        <translation type="unfinished">AI 服務不接受此用户名和密碼（登入...）。</translation>
+    </message>
+    <message>
+        <source>The AI service asks for your user and password (Sign in...).</source>
+        <translation type="unfinished">AI 服務需要您的用户名和密碼（登入...）。</translation>
+    </message>
+    <message>
+        <source>The AI is part of FaseCAD Pro: subscribe at my.fasecad.com, then sign in again.</source>
+        <translation type="unfinished">AI 是 FaseCAD Pro 的一部分：請在 my.fasecad.com 訂閱，然後重新登入。</translation>
+    </message>
+    <message>
+        <source>The AI is busy, or the AI included this month is used up: try again in a while.</source>
+        <translation type="unfinished">AI 正忙，或本月包含的 AI 額度已用完：請稍後再試。</translation>
+    </message>
+    <message>
+        <source>The AI service answered %1.</source>
+        <translation type="unfinished">AI 服務返回了 %1。</translation>
+    </message>
+    <message>
+        <source>The answer of the AI was cut off: %1</source>
+        <translation type="unfinished">AI 的回答被截斷：%1</translation>
+    </message>
+    <message>
+        <source>Stopped after %1 steps: say how to go on.</source>
+        <translation type="unfinished">在 %1 步後停止：請說明如何繼續。</translation>
+    </message>
+    <message>
+        <source>The AI declined to do this.</source>
+        <translation type="unfinished">AI 拒絕執行此操作。</translation>
+    </message>
+    <message>
+        <source>The answer was too long and was cut off.</source>
+        <translation type="unfinished">回答過長，已被截斷。</translation>
+    </message>
+    <message>
+        <source>No project is open.</source>
+        <translation type="unfinished">沒有開啟的專案。</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">AI</translation>
+    </message>
+    <message>
+        <source>AI: %1</source>
+        <translation type="unfinished">AI：%1</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3d</name>
+    <message>
+        <source>Box %1 × %2 × %3 mm</source>
+        <comment>a device without STEP, by its mounting measures</comment>
+        <translation type="unfinished">箱體 %1 × %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3dWindow</name>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">3D 機櫃</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D: %1</source>
+        <translation type="unfinished">3D 機櫃：%1</translation>
+    </message>
+    <message>
+        <source>Show everything</source>
+        <translation type="unfinished">顯示全部</translation>
+    </message>
+    <message>
+        <source>Duct covers</source>
+        <translation type="unfinished">線槽蓋</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">機櫃外殼</translation>
+    </message>
+    <message>
+        <source>From the parts database…</source>
+        <translation type="unfinished">從零件資料庫…</translation>
+    </message>
+    <message>
+        <source>STEP file from the disk…</source>
+        <translation type="unfinished">磁盤上的 STEP 檔案…</translation>
+    </message>
+    <message>
+        <source>Measures by hand…</source>
+        <translation type="unfinished">手動輸入尺寸…</translation>
+    </message>
+    <message>
+        <source>Turn it 90° about its plate</source>
+        <translation type="unfinished">繞其安裝板旋轉 90°</translation>
+    </message>
+    <message>
+        <source>Turn the enclosure</source>
+        <translation type="unfinished">旋轉機櫃外殼</translation>
+    </message>
+    <message>
+        <source>No enclosure</source>
+        <translation type="unfinished">無機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Take the enclosure away</source>
+        <translation type="unfinished">移除機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Export as STEP…</source>
+        <translation type="unfinished">匯出為 STEP…</translation>
+    </message>
+    <message>
+        <source>Mounting clearances</source>
+        <translation type="unfinished">安裝間隙</translation>
+    </message>
+    <message>
+        <source>The free space the part of each device asks around it in the parts database, here and on the sheet</source>
+        <translation type="unfinished">零件資料庫中每個設備的零件要求的周圍空間，此處和圖紙上都顯示</translation>
+    </message>
+    <message>
+        <source>Check the room</source>
+        <translation type="unfinished">檢查空間</translation>
+    </message>
+    <message>
+        <source>Parts in each other, parts in the free space a device asks, devices through the enclosure or keeping its door from closing</source>
+        <translation type="unfinished">零件相互重疊、零件位於設備要求的空餘空間內、設備穿出機櫃外殼或妨礙櫃門關閉</translation>
+    </message>
+    <message>
+        <source>Reading STEP models… %v/%m</source>
+        <translation type="unfinished">正在讀取 STEP 模型… %v/%m</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">導航器</translation>
+    </message>
+    <message>
+        <source>Room</source>
+        <translation type="unfinished">空間</translation>
+    </message>
+    <message>
+        <source>Left button: turn. Right button: move, or a click for what to do with a part. Wheel: nearer. Double click: everything.</source>
+        <translation type="unfinished">左鍵：旋轉。右鍵：平移，或單擊查看對零件的操作。滾輪：拉近。雙擊：顯示全部。</translation>
+    </message>
+    <message>
+        <source>Turn 90°</source>
+        <translation type="unfinished">旋轉 90°</translation>
+    </message>
+    <message>
+        <source>Another side out</source>
+        <translation type="unfinished">換一面朝外</translation>
+    </message>
+    <message>
+        <source>For a model drawn with other axes: which of its sides looks out of the face</source>
+        <translation type="unfinished">適用於以其他坐標軸繪製的模型：哪一面朝外</translation>
+    </message>
+    <message>
+        <source>How far it goes into the sheet: a push button through the door</source>
+        <translation type="unfinished">伸入圖紙的深度：例如穿過櫃門的按鈕</translation>
+    </message>
+    <message>
+        <source>Take it out of 3D</source>
+        <translation type="unfinished">從 3D 中移除</translation>
+    </message>
+    <message>
+        <source>Sink:</source>
+        <translation type="unfinished">嵌入深度：</translation>
+    </message>
+    <message>
+        <source>Turn %1</source>
+        <translation type="unfinished">旋轉 %1</translation>
+    </message>
+    <message>
+        <source>Sink %1</source>
+        <translation type="unfinished">嵌入 %1</translation>
+    </message>
+    <message>
+        <source>Take %1 out of 3D</source>
+        <translation type="unfinished">從 3D 中移除 %1</translation>
+    </message>
+    <message>
+        <source>Move %1</source>
+        <translation type="unfinished">移動 %1</translation>
+    </message>
+    <message>
+        <source>Place in 3D</source>
+        <translation type="unfinished">放置到 3D</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet first</source>
+        <translation type="unfinished">請先在圖紙上繪製安裝板</translation>
+    </message>
+    <message>
+        <source>Click the face where %1 goes: the door, a side, the roof, the plate. Esc: no.</source>
+        <translation type="unfinished">單擊 %1 要放置的面：櫃門、側板、頂板、安裝板。Esc：取消。</translation>
+    </message>
+    <message>
+        <source>Place %1 in 3D</source>
+        <translation type="unfinished">將 %1 放置到 3D</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n 個零件</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with a STEP model</source>
+        <translation type="unfinished">
+            <numerusform>%n 個带有 STEP 模型</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Without OpenCASCADE the devices are boxes.</source>
+        <translation type="unfinished">沒有 OpenCASCADE 時設備顯示為箱體。</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">安裝板</translation>
+    </message>
+    <message>
+        <source>Wire ducts</source>
+        <translation type="unfinished">線槽</translation>
+    </message>
+    <message>
+        <source>DIN rails</source>
+        <translation type="unfinished">DIN 導軌</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Enclosure: %1</source>
+        <translation type="unfinished">機櫃外殼：%1</translation>
+    </message>
+    <message>
+        <source>Reading…</source>
+        <translation type="unfinished">正在讀取…</translation>
+    </message>
+    <message>
+        <source>Not read</source>
+        <translation type="unfinished">未讀取</translation>
+    </message>
+    <message>
+        <source>mounting plate</source>
+        <translation type="unfinished">安裝板</translation>
+    </message>
+    <message>
+        <source>in 3D</source>
+        <translation type="unfinished">在 3D 中</translation>
+    </message>
+    <message>
+        <source>Unplaced 3D</source>
+        <translation type="unfinished">未放置的 3D</translation>
+    </message>
+    <message>
+        <source>Devices of the schematic with a STEP model and no drawing on a cabinet sheet: right click, Place in 3D</source>
+        <translation type="unfinished">原理圖中有 STEP 模型但在機櫃圖紙上沒有圖形的設備：右鍵單擊，放置到 3D</translation>
+    </message>
+    <message>
+        <source>Hide %1</source>
+        <translation type="unfinished">隱藏 %1</translation>
+    </message>
+    <message>
+        <source>Show %1</source>
+        <translation type="unfinished">顯示 %1</translation>
+    </message>
+    <message>
+        <source>Room enough: no part in another, none in the free space a device asks</source>
+        <translation type="unfinished">空間充足：沒有零件相互重疊，也沒有零件位於設備要求的空餘空間內</translation>
+    </message>
+    <message>
+        <source>No enclosure takes the plate: its walls and its door are not checked</source>
+        <translation type="unfinished">沒有機櫃外殼容納該安裝板：未檢查其側壁和櫃門</translation>
+    </message>
+    <message>
+        <source>STEP models still being read: their boxes until then</source>
+        <translation type="unfinished">仍在讀取 STEP 模型：在此之前顯示為箱體</translation>
+    </message>
+    <message numerus="yes">
+        <source>Room: %n problem(s)</source>
+        <translation type="unfinished">
+            <numerusform>空間：%n 個問題</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Click the part of the enclosure which is its mounting plate: the plate of the sheet takes its size. Esc: no.</source>
+        <translation type="unfinished">單擊機櫃外殼中作為安裝板的部分：圖紙上的安裝板將採用其尺寸。Esc：取消。</translation>
+    </message>
+    <message>
+        <source>The mounting plate is %1: %2 × %3 mm.</source>
+        <translation type="unfinished">安裝板為 %1：%2 × %3 mm。</translation>
+    </message>
+    <message>
+        <source>%1 cannot be the mounting plate.</source>
+        <translation type="unfinished">%1 不能作為安裝板。</translation>
+    </message>
+    <message>
+        <source>no STEP model in the parts database: a box</source>
+        <translation type="unfinished">零件資料庫中沒有 STEP 模型：顯示為箱體</translation>
+    </message>
+    <message>
+        <source>STEP: %1</source>
+        <translation type="unfinished">STEP：%1</translation>
+    </message>
+    <message>
+        <source>of the enclosure</source>
+        <translation type="unfinished">機櫃外殼的</translation>
+    </message>
+    <message>
+        <source>right click its mounting plate: Use as the mounting plate</source>
+        <translation type="unfinished">右鍵單擊其安裝板：用作安裝板</translation>
+    </message>
+    <message>
+        <source>Use as the mounting plate</source>
+        <translation type="unfinished">用作安裝板</translation>
+    </message>
+    <message>
+        <source>The plate chosen is %1 × %2 mm, the plate of the sheet %3 × %4 mm. Give the plate of the sheet the size of the one chosen?</source>
+        <translation type="unfinished">所選安裝板為 %1 × %2 mm，圖紙上的安裝板為 %3 × %4 mm。是否將圖紙上的安裝板設為所選安裝板的尺寸？</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">顯示</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">隱藏</translation>
+    </message>
+    <message>
+        <source>Change the enclosure</source>
+        <translation type="unfinished">更換機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Right click the mounting plate of the enclosure, in the navigator or in the view: Use as the mounting plate.</source>
+        <translation type="unfinished">在導航器或檢視中右鍵單擊機櫃外殼的安裝板：用作安裝板。</translation>
+    </message>
+    <message>
+        <source>Use %1 as the mounting plate</source>
+        <translation type="unfinished">將 %1 用作安裝板</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">未使用零件資料庫。</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database.</source>
+        <translation type="unfinished">零件資料庫中 %1 %2 沒有 STEP 模型。</translation>
+    </message>
+    <message>
+        <source>STEP of the enclosure</source>
+        <translation type="unfinished">機櫃外殼的 STEP</translation>
+    </message>
+    <message>
+        <source>STEP files (*.step *.stp)</source>
+        <translation type="unfinished">STEP 檔案 (*.step *.stp)</translation>
+    </message>
+    <message>
+        <source>Enclosure by measures</source>
+        <translation type="unfinished">按尺寸建立機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Height of the enclosure:</source>
+        <translation type="unfinished">機櫃外殼高度：</translation>
+    </message>
+    <message>
+        <source>Width of the enclosure:</source>
+        <translation type="unfinished">機櫃外殼寬度：</translation>
+    </message>
+    <message>
+        <source>Depth of the enclosure:</source>
+        <translation type="unfinished">機櫃外殼深度：</translation>
+    </message>
+    <message>
+        <source>Height of the plate:</source>
+        <translation type="unfinished">安裝板高度：</translation>
+    </message>
+    <message>
+        <source>Width of the plate:</source>
+        <translation type="unfinished">安裝板寬度：</translation>
+    </message>
+    <message>
+        <source>A hollow box of %1 mm sheet, open at the front, the plate against its back.</source>
+        <translation type="unfinished">一個 %1 mm 板材的空心箱體，前面開口，安裝板靠在背板上。</translation>
+    </message>
+    <message>
+        <source>cabinet</source>
+        <translation type="unfinished">機櫃</translation>
+    </message>
+    <message>
+        <source>Export the cabinet as STEP</source>
+        <translation type="unfinished">將機櫃匯出為 STEP</translation>
+    </message>
+    <message>
+        <source>Written: %1</source>
+        <translation type="unfinished">已寫入：%1</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">無法讀取 %1。
+
+%2</translation>
+    </message>
+    <message>
+        <source>Box %1 × %2 mm</source>
+        <comment>a device drawn by its mounting measures</comment>
+        <translation type="unfinished">箱體 %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDialogs</name>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">水平</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">垂直</translation>
+    </message>
+    <message>
+        <source>Add a wire duct</source>
+        <translation type="unfinished">添加線槽</translation>
+    </message>
+    <message>
+        <source>Width (mm):</source>
+        <translation type="unfinished">寬度 (mm)：</translation>
+    </message>
+    <message>
+        <source>Height (mm):</source>
+        <translation type="unfinished">高度 (mm)：</translation>
+    </message>
+    <message>
+        <source>Then draw the duct on the sheet: click where it starts, click again where it ends.</source>
+        <translation type="unfinished">然後在圖紙上繪製線槽：單擊起點，再單擊終點。</translation>
+    </message>
+    <message>
+        <source>Type the width and the height in millimetres, for example 40.</source>
+        <translation type="unfinished">以毫米為單位輸入寬度和高度，例如 40。</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate</source>
+        <translation type="unfinished">添加安裝板</translation>
+    </message>
+    <message>
+        <source>By measures</source>
+        <translation type="unfinished">按尺寸</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure of the parts database</source>
+        <translation type="unfinished">零件資料庫中機櫃外殼的安裝板</translation>
+    </message>
+    <message>
+        <source>Choose the enclosure...</source>
+        <translation type="unfinished">選擇機櫃外殼...</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General)</source>
+        <translation type="unfinished">未使用零件資料庫（設定 &gt; 常規）</translation>
+    </message>
+    <message>
+        <source>Other size</source>
+        <translation type="unfinished">其他尺寸</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>Usual sizes:</source>
+        <translation type="unfinished">常用尺寸：</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">寬度：</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">高度：</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes.</source>
+        <translation type="unfinished">然後在圖紙上單擊安裝板要放置的位置。</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes: the enclosure opens in 3D, click its mounting plate there and the plate takes its size.</source>
+        <translation type="unfinished">然後在圖紙上單擊安裝板要放置的位置：機櫃外殼將以 3D 開啟，在其中單擊其安裝板，圖紙上的安裝板將採用其尺寸。</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database: its plate cannot be chosen in 3D.</source>
+        <translation type="unfinished">零件資料庫中 %1 %2 沒有 STEP 模型：無法在 3D 中選擇其安裝板。</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet</source>
+        <translation type="unfinished">機櫃比例</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">比例：</translation>
+    </message>
+    <message>
+        <source>At 1:5, 5 mm of the cabinet take 1 mm of the sheet. The parts keep their measures: they are drawn again at the new scale.</source>
+        <translation type="unfinished">在 1:5 時，機櫃的 5 mm 在圖紙上占 1 mm。零件保持其尺寸：它們將按新比例重新繪製。</translation>
+    </message>
+    <message>
+        <source>Type a scale such as 1:5.</source>
+        <translation type="unfinished">請輸入比例，例如 1:5。</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">安裝板</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN 導軌</translation>
+    </message>
+    <message>
+        <source>Profile:</source>
+        <translation type="unfinished">型材：</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">長度：</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished">方向：</translation>
+    </message>
+    <message>
+        <source>Wire duct</source>
+        <translation type="unfinished">線槽</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">DXF 圖紙 (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">無法讀取 %1。
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF：已繪製 %1 條線；省略：%2</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetEnclosure</name>
+    <message>
+        <source>The measures of the enclosure do not make a box.</source>
+        <translation type="unfinished">機櫃外殼的尺寸無法構成箱體。</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">背板</translation>
+    </message>
+    <message>
+        <source>Left side</source>
+        <translation type="unfinished">左側板</translation>
+    </message>
+    <message>
+        <source>Right side</source>
+        <translation type="unfinished">右側板</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">頂板</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">底板</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">安裝板</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">無法讀取 %1：%2</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">未使用零件資料庫。</translation>
+    </message>
+    <message>
+        <source>The parts database has no part %1.</source>
+        <translation type="unfinished">零件資料庫中沒有零件 %1。</translation>
+    </message>
+    <message>
+        <source>The part %1 has no STEP model.</source>
+        <translation type="unfinished">零件 %1 沒有 STEP 模型。</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetItem</name>
+    <message>
+        <source>a mounting plate</source>
+        <translation type="unfinished">一塊安裝板</translation>
+    </message>
+    <message>
+        <source>a DIN rail</source>
+        <translation type="unfinished">一條 DIN 導軌</translation>
+    </message>
+    <message>
+        <source>a wire duct</source>
+        <translation type="unfinished">一條線槽</translation>
+    </message>
+    <message>
+        <source>a DXF drawing</source>
+        <translation type="unfinished">一張 DXF 圖紙</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>profile and length of a DIN rail</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1×%2 · %3 mm</source>
+        <comment>width, height and length of a wire duct</comment>
+        <translation type="unfinished">%1×%2 · %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>width and length of a wire duct</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>file, width and height of a DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting</name>
+    <message>
+        <source>The mounting plate of this routing sheet is no longer on its cabinet sheet.</source>
+        <translation type="unfinished">此布線圖紙的安裝板已不在其機櫃圖紙上。</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">起點</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">端子</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">終點</translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">截面</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">顏色</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Length (mm)</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">長度 (mm)</translation>
+    </message>
+    <message>
+        <source>Way</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">路徑</translation>
+    </message>
+    <message>
+        <source>Routing sheet</source>
+        <translation type="unfinished">布線圖紙</translation>
+    </message>
+    <message>
+        <source>Put a mounting plate on this cabinet sheet first: a routing sheet shows the ways of the wires on one plate.</source>
+        <translation type="unfinished">請先在此機櫃圖紙上放置安裝板：布線圖紙顯示一塊安裝板上導線的路徑。</translation>
+    </message>
+    <message>
+        <source>Plate %1: %2 × %3 mm</source>
+        <comment>a mounting plate to route</comment>
+        <translation type="unfinished">安裝板 %1：%2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>Mounting plate to route:</source>
+        <translation type="unfinished">要布線的安裝板：</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">計算布線</translation>
+    </message>
+    <message numerus="yes">
+        <source>Keep the %n way(s) changed by hand?</source>
+        <translation type="unfinished">
+            <numerusform>保留手動更改的 %n 條路徑嗎？</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) routed on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>此安裝板上已布線 %n 條導線。</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n way(s) changed by hand kept.</source>
+        <translation type="unfinished">
+            <numerusform>已保留手動更改的 %n 條路徑。</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) with no duct between their devices: a straight line, in red.</source>
+        <translation type="unfinished">
+            <numerusform>%n 條導線的設備之間沒有線槽：以紅色直線顯示。</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) left out: one of their ends has no drawing on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>省略了 %n 條導線：其一端在此安裝板上沒有圖形。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Export the routing</source>
+        <translation type="unfinished">匯出布線</translation>
+    </message>
+    <message>
+        <source>This routing sheet has no way yet: calculate the routing first.</source>
+        <translation type="unfinished">此布線圖紙還沒有路徑：請先計算布線。</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">CSV 檔案 (*.csv)</translation>
+    </message>
+    <message>
+        <source>Unable to open the file for writing.</source>
+        <translation type="unfinished">無法開啟檔案進行寫入。</translation>
+    </message>
+    <message>
+        <source>Wire %1</source>
+        <translation type="unfinished">導線 %1</translation>
+    </message>
+    <message>
+        <source>Length: %1 mm</source>
+        <translation type="unfinished">長度：%1 mm</translation>
+    </message>
+    <message>
+        <source>Reset the position</source>
+        <translation type="unfinished">重設位置</translation>
+    </message>
+    <message numerus="yes">
+        <source>Reset the position of %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>重設 %n 條導線的位置</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Change the way of a wire</source>
+        <translation type="unfinished">更改導線的路徑</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting::Route</name>
+    <message>
+        <source>changed by hand</source>
+        <translation type="unfinished">手動更改</translation>
+    </message>
+    <message>
+        <source>through the ducts</source>
+        <translation type="unfinished">經過線槽</translation>
+    </message>
+    <message>
+        <source>no duct: straight line</source>
+        <translation type="unfinished">無線槽：直線</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetSpace</name>
+    <message>
+        <source>the duct %1</source>
+        <translation type="unfinished">線槽 %1</translation>
+    </message>
+    <message>
+        <source>the rail %1</source>
+        <translation type="unfinished">導軌 %1</translation>
+    </message>
+    <message>
+        <source>above</source>
+        <translation type="unfinished">上方</translation>
+    </message>
+    <message>
+        <source>below</source>
+        <translation type="unfinished">下方</translation>
+    </message>
+    <message>
+        <source>on its left</source>
+        <translation type="unfinished">左側</translation>
+    </message>
+    <message>
+        <source>on its right</source>
+        <translation type="unfinished">右側</translation>
+    </message>
+    <message>
+        <source>in front</source>
+        <translation type="unfinished">前方</translation>
+    </message>
+    <message>
+        <source>behind</source>
+        <translation type="unfinished">後方</translation>
+    </message>
+    <message>
+        <source>%1 and %2 are %3 mm into each other</source>
+        <translation type="unfinished">%1 和 %2 相互重疊 %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: the enclosure leaves %4 mm too few</source>
+        <translation type="unfinished">%1 要求%3有 %2 mm 空餘：機櫃外殼少留了 %4 mm</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: %4 is %5 mm too near</source>
+        <translation type="unfinished">%1 要求%3有 %2 mm 空餘：%4 近了 %5 mm</translation>
+    </message>
+    <message>
+        <source>%1 keeps the door from closing: it is %2 mm too deep</source>
+        <translation type="unfinished">%1 妨礙櫃門關閉：深了 %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 goes %2 mm through the enclosure %3</source>
+        <translation type="unfinished">%1 穿出機櫃外殼%3 %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetStep</name>
+    <message>
+        <source>The STEP file cannot be read.</source>
+        <translation type="unfinished">無法讀取 STEP 檔案。</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no shape.</source>
+        <translation type="unfinished">STEP 檔案不包含任何形狀。</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished">零件 %1</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no surface.</source>
+        <translation type="unfinished">STEP 檔案不包含任何曲面。</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot read STEP files.</source>
+        <translation type="unfinished">FaseCAD 構建時未包含 OpenCASCADE：無法讀取 STEP 檔案。</translation>
+    </message>
+    <message>
+        <source>The cabinet could not be written as STEP.</source>
+        <translation type="unfinished">無法將機櫃寫入為 STEP。</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written: %2</source>
+        <translation type="unfinished">無法寫入 %1：%2</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot write STEP files.</source>
+        <translation type="unfinished">FaseCAD 構建時未包含 OpenCASCADE：無法寫入 STEP 檔案。</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermal</name>
+    <message>
+        <source>Free-standing, every side free</source>
+        <translation type="unfinished">獨立放置，各面均空</translation>
+    </message>
+    <message>
+        <source>Against a wall</source>
+        <translation type="unfinished">靠牆</translation>
+    </message>
+    <message>
+        <source>At the end of a row</source>
+        <translation type="unfinished">在一排的末端</translation>
+    </message>
+    <message>
+        <source>At the end of a row, against a wall</source>
+        <translation type="unfinished">在一排的末端，靠牆</translation>
+    </message>
+    <message>
+        <source>In the middle of a row</source>
+        <translation type="unfinished">在一排的中間</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall</source>
+        <translation type="unfinished">在一排的中間，靠牆</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall, its top covered</source>
+        <translation type="unfinished">在一排的中間，靠牆，頂部被遮蓋</translation>
+    </message>
+    <message>
+        <source>Painted sheet steel (5.5 W/m²K)</source>
+        <translation type="unfinished">噴漆鋼板 (5.5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Stainless steel (4.5 W/m²K)</source>
+        <translation type="unfinished">不鏽鋼 (4.5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Aluminium (12 W/m²K)</source>
+        <translation type="unfinished">鋁 (12 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Plastic (3.5 W/m²K)</source>
+        <translation type="unfinished">塑料 (3.5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet to see where the heat is.</source>
+        <translation type="unfinished">請在圖紙上繪製安裝板以查看熱量分布。</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermalDialog</name>
+    <message>
+        <source>Thermal analysis of the cabinet</source>
+        <translation type="unfinished">機櫃熱分析</translation>
+    </message>
+    <message>
+        <source> mm</source>
+        <translation type="unfinished"> mm</translation>
+    </message>
+    <message>
+        <source>Enclosure (width × height × depth):</source>
+        <translation type="unfinished">機櫃外殼（寬 × 高 × 深）：</translation>
+    </message>
+    <message>
+        <source>Where it stands:</source>
+        <translation type="unfinished">安裝位置：</translation>
+    </message>
+    <message>
+        <source>Enclosure made of:</source>
+        <translation type="unfinished">機櫃外殼材料：</translation>
+    </message>
+    <message>
+        <source> °C</source>
+        <translation type="unfinished"> °C</translation>
+    </message>
+    <message>
+        <source>Temperature outside:</source>
+        <translation type="unfinished">外部溫度：</translation>
+    </message>
+    <message>
+        <source>The highest the devices may have inside, often 35 to 40 °C</source>
+        <translation type="unfinished">設備內部允許的最高溫度，通常為 35 至 40 °C</translation>
+    </message>
+    <message>
+        <source>Highest temperature inside:</source>
+        <translation type="unfinished">內部最高溫度：</translation>
+    </message>
+    <message>
+        <source>Where the heat is: the hot air goes up, and each device warms what is around it. An estimate to see the hot spots, not a simulation of the air.</source>
+        <translation type="unfinished">熱量分布：熱空氣上升，每個設備都會加熱其周圍。這是查看熱點的估算，而不是空氣模擬。</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">零件</translation>
+    </message>
+    <message>
+        <source>Power loss</source>
+        <translation type="unfinished">功率損耗</translation>
+    </message>
+    <message>
+        <source>(no part)</source>
+        <translation type="unfinished">（無零件）</translation>
+    </message>
+    <message>
+        <source>%1 W</source>
+        <translation type="unfinished">%1 W</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">未給出</translation>
+    </message>
+    <message numerus="yes">
+        <source>Heat given off: &lt;b&gt;%1 W&lt;/b&gt; by %n device(s).</source>
+        <translation type="unfinished">
+            <numerusform>散發熱量：&lt;b&gt;%1 W&lt;/b&gt;，來自 %n 個設備。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Surface giving it out: %1 m².</source>
+        <translation type="unfinished">散熱面積：%1 m²。</translation>
+    </message>
+    <message>
+        <source>Temperature inside: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K above the outside.</source>
+        <translation type="unfinished">內部溫度：&lt;b&gt;%1 °C&lt;/b&gt;，比外部高 %2 K。</translation>
+    </message>
+    <message>
+        <source>Below the highest temperature: the enclosure needs no cooling.</source>
+        <translation type="unfinished">低於最高溫度：機櫃外殼無需冷卻。</translation>
+    </message>
+    <message>
+        <source>Too hot: %1 W to take out, with a filter fan of at least %2 m³/h, or a cooling unit of at least %1 W.</source>
+        <translation type="unfinished">過熱：需排出 %1 W，使用至少 %2 m³/h 的過濾風扇，或至少 %1 W 的冷卻裝置。</translation>
+    </message>
+    <message>
+        <source>Too hot: a cooling unit of at least %1 W. A fan cannot help: the outside is not cooler than the highest temperature.</source>
+        <translation type="unfinished">過熱：需要至少 %1 W 的冷卻裝置。風扇無濟於事：外部溫度不低於最高溫度。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Warning: %n device(s) have no power loss in the parts database and count as 0 W, so the cabinet is hotter than shown: %1</source>
+        <translation type="unfinished">
+            <numerusform>警告：%n 個設備在零件資料庫中沒有功率損耗，按 0 W 計算，因此機櫃實際比顯示的更熱：%1</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableChecks</name>
+    <message>
+        <source>No name</source>
+        <translation type="unfinished">無名稱</translation>
+    </message>
+    <message>
+        <source>Name used by another cable</source>
+        <translation type="unfinished">名稱已被另一條電纜使用</translation>
+    </message>
+    <message>
+        <source>No cable type</source>
+        <translation type="unfinished">無電纜類型</translation>
+    </message>
+    <message>
+        <source>No core wired</source>
+        <translation type="unfinished">沒有已接線的芯線</translation>
+    </message>
+    <message>
+        <source>No spare core</source>
+        <translation type="unfinished">沒有備用芯線</translation>
+    </message>
+    <message numerus="yes">
+        <source>Only %n spare core(s)</source>
+        <translation type="unfinished">
+            <numerusform>僅 %n 根備用芯線</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableManagerDialog</name>
+    <message>
+        <source>Cable manager - %1</source>
+        <translation type="unfinished">電纜管理器 - %1</translation>
+    </message>
+    <message>
+        <source>Search a cable</source>
+        <translation type="unfinished">搜索電纜</translation>
+    </message>
+    <message>
+        <source>Only cables with problems</source>
+        <translation type="unfinished">僅顯示有問題的電纜</translation>
+    </message>
+    <message>
+        <source>A cable with fewer free cores than this is marked. 0 checks nothing.</source>
+        <translation type="unfinished">空閒芯線少於此數的電纜會被標記。0 表示不檢查。</translation>
+    </message>
+    <message>
+        <source>Spare cores wanted:</source>
+        <translation type="unfinished">所需備用芯線：</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">類型</translation>
+    </message>
+    <message>
+        <source>Cores used</source>
+        <translation type="unfinished">已用芯線</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">備用</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">起點</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">終點</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished">長度</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">安裝</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">位置</translation>
+    </message>
+    <message>
+        <source>Problems</source>
+        <translation type="unfinished">問題</translation>
+    </message>
+    <message>
+        <source>Double-click a name, a length, an installation or a location to change it.</source>
+        <translation type="unfinished">雙擊名稱、長度、安裝或位置以進行更改。</translation>
+    </message>
+    <message>
+        <source>Edit the selected cables...</source>
+        <translation type="unfinished">編輯所選電纜...</translation>
+    </message>
+    <message>
+        <source>Properties...</source>
+        <translation type="unfinished">屬性...</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">在圖紙上顯示</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">芯線</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">顏色</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">狀態</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">起點</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">終點</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n 條電纜</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 cores used</source>
+        <translation type="unfinished">已使用 %1 / %2 根芯線</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with problems</source>
+        <translation type="unfinished">
+            <numerusform>%n 條有問題</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select a cable to see its cores.</source>
+        <translation type="unfinished">選擇一條電纜以查看其芯線。</translation>
+    </message>
+    <message>
+        <source>Select one cable to see its cores.</source>
+        <translation type="unfinished">請只選擇一條電纜以查看其芯線。</translation>
+    </message>
+    <message>
+        <source>Cores of %1: %2 used, %3 spare</source>
+        <translation type="unfinished">%1 的芯線：已用 %2，備用 %3</translation>
+    </message>
+    <message numerus="yes">
+        <source>Edit %n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>編輯 %n 條電纜</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">更改端子文字</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">搜索設備</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">標簽</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">物料</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">雙擊設備以在其圖紙上顯示。Shift 和 Ctrl 可多選，Delete 刪除。</translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">編號...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">從第一個標簽開始依次重命名所選設備：-K1、-K2……</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>已繪製在機櫃圖紙 %1 上</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">（無標簽）</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>此設備的 %n 個符號</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">在圖紙上顯示</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">刪除</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">將 DXF 插入機櫃圖紙</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">所選設備已在機櫃圖紙上。</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">專案中沒有機櫃結構圖紙。是否在專案末尾添加一張？</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1（第 %2 / %3 個）：單擊放置位置 | 右鍵跳過 | Esc 停止</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">%1 的零件中沒有 DXF：請選擇一個 DXF 檔案</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">設備編號</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">第一個標簽：</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">步長：</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">新標簽</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">這些標簽已屬於其他設備：%1。未進行任何重命名。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>為 %n 個設備編號</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">刪除設備</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>刪除 %n 個設備及其導線嗎？</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>刪除 %n 個設備</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddCabinetItem</name>
+    <message>
+        <source>%1 mm</source>
+        <comment>length of the part being drawn</comment>
+        <translation type="unfinished">%1 mm</translation>
+    </message>
+    <message>
+        <source>%1 mm ⏎</source>
+        <comment>length typed for the part being drawn, Enter accepts it</comment>
+        <translation type="unfinished">%1 mm ⏎</translation>
+    </message>
+    <message>
+        <source>middle left</source>
+        <translation type="unfinished">左中</translation>
+    </message>
+    <message>
+        <source>top left</source>
+        <translation type="unfinished">左上</translation>
+    </message>
+    <message>
+        <source>top middle</source>
+        <translation type="unfinished">上中</translation>
+    </message>
+    <message>
+        <source>top right</source>
+        <translation type="unfinished">右上</translation>
+    </message>
+    <message>
+        <source>middle right</source>
+        <translation type="unfinished">右中</translation>
+    </message>
+    <message>
+        <source>bottom right</source>
+        <translation type="unfinished">右下</translation>
+    </message>
+    <message>
+        <source>bottom middle</source>
+        <translation type="unfinished">下中</translation>
+    </message>
+    <message>
+        <source>bottom left</source>
+        <translation type="unfinished">左下</translation>
+    </message>
+    <message>
+        <source>centre</source>
+        <translation type="unfinished">中心</translation>
+    </message>
+    <message>
+        <source> | Tab: anchor point (%1)</source>
+        <comment>the anchor point of the part being placed</comment>
+        <translation type="unfinished"> | Tab：錨點 (%1)</translation>
+    </message>
+    <message>
+        <source>Mounting plate: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">安裝板：單擊放置位置 | Esc 取消</translation>
+    </message>
+    <message>
+        <source>DXF drawing: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">DXF 圖紙：單擊放置位置 | Esc 取消</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">DIN 導軌：單擊終點，或輸入長度（mm）後按 Enter | Esc 放棄</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">DIN 導軌：單擊起點 | 右鍵或 Esc 結束</translation>
+    </message>
+    <message>
+        <source>Wire duct: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">線槽：單擊終點，或輸入長度（mm）後按 Enter | Esc 放棄</translation>
+    </message>
+    <message>
+        <source>Wire duct of %1 mm: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">%1 mm 線槽：單擊起點 | 右鍵或 Esc 結束</translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">自動隱藏此面板</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">關閉</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">保持此面板開啟</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">拖動以更改面板寬度</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">折疊的面板</translation>
+    </message>
+</context>
+<context>
+    <name>DxfReader</name>
+    <message>
+        <source>The file could not be opened: %1</source>
+        <translation type="unfinished">無法開啟檔案：%1</translation>
+    </message>
+    <message>
+        <source>This DXF file is binary: save it again as a text (ASCII) DXF.</source>
+        <translation type="unfinished">此 DXF 檔案為二進制格式：請將其另存為文字（ASCII）DXF。</translation>
+    </message>
+    <message>
+        <source>This file is not a DXF drawing.</source>
+        <translation type="unfinished">此檔案不是 DXF 圖紙。</translation>
+    </message>
+    <message>
+        <source>This DXF file holds no line this program can draw.</source>
+        <translation type="unfinished">此 DXF 檔案不包含本程式可繪製的線條。</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">數量</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">添加零件...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">組成此元件的零件資料庫中的零件，以及每種零件的數量。</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">請使用零件資料庫（設定 &gt; 常規）以選擇此元件的零件。</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">（不在零件資料庫中）</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">零件</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">已添加零件。元件資訊包含主物料和一個輔助物料：此零件在其中沒有自己的區塊。</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">主物料</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">輔助物料 %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">用此零件的資料（製造商、訂貨號、說明……）覆蓋元件資訊中的%1嗎？</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">端子的文字會替換其在圖紙、端子排圖和列表中的名稱，符號在端子旁繪製的編號也隨之改變。保留符號的名稱或留空可保持該名稱。</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">符號的端子</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">文字</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">端子文字</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">（無名稱）</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">此設備的觸點如何顯示在其旁邊。若要手動定位，請在圖紙上按住 Shift 拖動顯示，或輸入其位置。</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">使用專案設定</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">專案屬性，交叉引用頁</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">觸點鏡像</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">更改繼電器觸點顯示</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadAccount</name>
+    <message>
+        <source>Sign in to fasecad.com</source>
+        <translation type="unfinished">登入 fasecad.com</translation>
+    </message>
+    <message>
+        <source>Your FaseCAD account, for the AI and the official parts catalog.</source>
+        <translation type="unfinished">您的 FaseCAD 帳戶，用於 AI 和官方零件目錄。</translation>
+    </message>
+    <message>
+        <source>User or email:</source>
+        <translation type="unfinished">用户名或電子郵件：</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">密碼：</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished">建立帳戶</translation>
+    </message>
+    <message>
+        <source>Forgot the password?</source>
+        <translation type="unfinished">忘記密碼？</translation>
+    </message>
+    <message>
+        <source>My FaseCAD</source>
+        <translation type="unfinished">我的 FaseCAD</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">登入</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished">退出登入</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadServices</name>
+    <message>
+        <source>The user or the password is wrong.</source>
+        <translation type="unfinished">用户名或密碼錯誤。</translation>
+    </message>
+    <message>
+        <source>fasecad.com cannot be reached: %1</source>
+        <translation type="unfinished">無法連接 fasecad.com：%1</translation>
+    </message>
+    <message>
+        <source>Your account is open on another computer.</source>
+        <translation type="unfinished">您的帳戶已在另一台電腦上開啟。</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet.</source>
+        <translation type="unfinished">fasecad.com 的服務尚未開放。</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer: this session was closed.</source>
+        <translation type="unfinished">您的帳戶已在另一台電腦上開啟：此會話已關閉。</translation>
+    </message>
+    <message>
+        <source>Your subscription is not running.</source>
+        <translation type="unfinished">您的訂閱未生效。</translation>
+    </message>
+    <message>
+        <source>Too many messages today: try again tomorrow.</source>
+        <translation type="unfinished">今天的消息過多：請明天再試。</translation>
+    </message>
+    <message>
+        <source>The message could not be sent: %1</source>
+        <translation type="unfinished">無法發送消息：%1</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">圖紙目錄</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">圖紙目錄 %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoriesDialog</name>
+    <message>
+        <source>Categories of the parts</source>
+        <translation type="unfinished">零件類別</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">添加...</translation>
+    </message>
+    <message>
+        <source>Add a subcategory...</source>
+        <translation type="unfinished">添加子類別...</translation>
+    </message>
+    <message>
+        <source>Rename...</source>
+        <translation type="unfinished">重命名...</translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished">圖標</translation>
+    </message>
+    <message>
+        <source>FaseCAD icons...</source>
+        <translation type="unfinished">FaseCAD 圖標...</translation>
+    </message>
+    <message>
+        <source>Image file...</source>
+        <translation type="unfinished">影像檔案...</translation>
+    </message>
+    <message>
+        <source>No icon</source>
+        <translation type="unfinished">無圖標</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n 個零件</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) with its subcategories</source>
+        <translation type="unfinished">
+            <numerusform>%n 個零件（含子類別）</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This category comes with FaseCAD</source>
+        <translation type="unfinished">此類別隨 FaseCAD 提供</translation>
+    </message>
+    <message>
+        <source>New category</source>
+        <translation type="unfinished">新類別</translation>
+    </message>
+    <message>
+        <source>Name of the category:</source>
+        <translation type="unfinished">類別名稱：</translation>
+    </message>
+    <message>
+        <source>New subcategory</source>
+        <translation type="unfinished">新子類別</translation>
+    </message>
+    <message>
+        <source>Name of the subcategory of %1:</source>
+        <translation type="unfinished">%1 的子類別名稱：</translation>
+    </message>
+    <message>
+        <source>Rename the category</source>
+        <translation type="unfinished">重命名類別</translation>
+    </message>
+    <message>
+        <source>New name of the category:</source>
+        <translation type="unfinished">類別的新名稱：</translation>
+    </message>
+    <message>
+        <source>Remove the category %1?</source>
+        <translation type="unfinished">移除類別 %1 嗎？</translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) are left without category.</source>
+        <translation type="unfinished">
+            <numerusform>其 %n 個零件將沒有類別。</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) go to %1.</source>
+        <translation type="unfinished">
+            <numerusform>其 %n 個零件將移至 %1。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Its subcategories go up one level, with their parts.</source>
+        <translation type="unfinished">其子類別連同零件上移一級。</translation>
+    </message>
+    <message>
+        <source>Remove the category</source>
+        <translation type="unfinished">移除類別</translation>
+    </message>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">類別圖標</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</source>
+        <translation type="unfinished">影像 (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read or is larger than 512 KB.</source>
+        <translation type="unfinished">無法讀取檔案 %1 或其大於 512 KB。</translation>
+    </message>
+    <message>
+        <source>The file %1 is not an image.</source>
+        <translation type="unfinished">檔案 %1 不是影像。</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIconPicker</name>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">類別圖標</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIcons</name>
+    <message>
+        <source>Terminal block</source>
+        <translation type="unfinished">接線端子</translation>
+    </message>
+    <message>
+        <source>Circuit breaker</source>
+        <translation type="unfinished">斷路器</translation>
+    </message>
+    <message>
+        <source>Residual current device</source>
+        <translation type="unfinished">剩餘電流保護器</translation>
+    </message>
+    <message>
+        <source>Motor protection</source>
+        <translation type="unfinished">電動機保護</translation>
+    </message>
+    <message>
+        <source>Fuse</source>
+        <translation type="unfinished">熔斷器</translation>
+    </message>
+    <message>
+        <source>Contactor</source>
+        <translation type="unfinished">接觸器</translation>
+    </message>
+    <message>
+        <source>Relay</source>
+        <translation type="unfinished">繼電器</translation>
+    </message>
+    <message>
+        <source>Disconnector</source>
+        <translation type="unfinished">隔離開關</translation>
+    </message>
+    <message>
+        <source>Pilot light</source>
+        <translation type="unfinished">指示燈</translation>
+    </message>
+    <message>
+        <source>Push button</source>
+        <translation type="unfinished">按鈕</translation>
+    </message>
+    <message>
+        <source>Signal tower</source>
+        <translation type="unfinished">信號塔燈</translation>
+    </message>
+    <message>
+        <source>Operator panel</source>
+        <translation type="unfinished">操作面板</translation>
+    </message>
+    <message>
+        <source>PLC</source>
+        <translation type="unfinished">PLC</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation type="unfinished">驅動器</translation>
+    </message>
+    <message>
+        <source>Power supply</source>
+        <translation type="unfinished">電源</translation>
+    </message>
+    <message>
+        <source>Signal conditioner</source>
+        <translation type="unfinished">信號調理器</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">網路</translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished">傳感器</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Connector</source>
+        <translation type="unfinished">連接器</translation>
+    </message>
+    <message>
+        <source>Wire end ferrule</source>
+        <translation type="unfinished">線鼻子</translation>
+    </message>
+    <message>
+        <source>Busbar</source>
+        <translation type="unfinished">母排</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN 導軌</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">機櫃外殼</translation>
+    </message>
+    <message>
+        <source>Fan</source>
+        <translation type="unfinished">風扇</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">照明</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">工具</translation>
+    </message>
+    <message>
+        <source>Pneumatics</source>
+        <translation type="unfinished">氣動</translation>
+    </message>
+    <message>
+        <source>Hydraulics</source>
+        <translation type="unfinished">液壓</translation>
+    </message>
+    <message>
+        <source>Transformer</source>
+        <translation type="unfinished">變壓器</translation>
+    </message>
+    <message>
+        <source>Motor</source>
+        <translation type="unfinished">電動機</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">其他</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">零件資料</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">搜索資料、值或零件...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">資料</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">值</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">零件</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n 項資料</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">其他</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">電源 +（L+，24 V）</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">電源 -（M，0 V）</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">功能接地 (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">保護接地 (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">相線 (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">中性線 (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">數字輸入</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">數字輸出</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">模擬輸入</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">模擬輸出</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">總線端口</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">線圈</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">主觸點</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">常開觸點</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">常閉觸點</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">轉換觸點</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">端子</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">選擇零件</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">搜索零件</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">類別：</translation>
+    </message>
+    <message>
+        <source>Only parts with a STEP model</source>
+        <translation type="unfinished">僅顯示有 STEP 模型的零件</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure is chosen on its 3D model</source>
+        <translation type="unfinished">機櫃外殼的安裝板在其 3D 模型上選擇</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">圖片</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">零件管理器...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">添加或更改零件；回到此窗口時會顯示它們。</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">全部</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">文字說明</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">物料編號</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">製造商</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">訂貨號</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">內部編號</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">供應商</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">供應商參考號</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">類別</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">型號</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">額定電壓</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">額定電流</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">單位</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">設備字母</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">寬度 (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">高度 (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">深度 (mm)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">重量 (kg)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">功率損耗 (W)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">價格</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">芯線數</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">芯線顏色</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">截面</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">護套顏色</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">資料表</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">備注</translation>
+    </message>
+    <message>
+        <source>Image: %1</source>
+        <translation type="unfinished">圖片：%1</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1，%2</translation>
+    </message>
+    <message>
+        <source>(image)</source>
+        <translation type="unfinished">（圖片）</translation>
+    </message>
+</context>
+<context>
+    <name>PartThumbnails</name>
+    <message>
+        <source>No Picture</source>
+        <translation type="unfinished">無圖片</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">該零件已不在零件資料庫中。</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">無法讀取檔案：%1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">這不是 FaseCAD 零件檔案。</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">此零件檔案由更新版本的 FaseCAD 建立。</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">位置</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">數量</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">單位</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">製造商</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">訂貨號</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">名稱</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">類別</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">供應商</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">供應商參考號</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">內部參考號</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">零件資料庫</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCatalogDialog</name>
+    <message>
+        <source>Official FaseCAD parts catalog</source>
+        <translation type="unfinished">FaseCAD 官方零件目錄</translation>
+    </message>
+    <message>
+        <source>Manufacturer, order number, description...</source>
+        <translation type="unfinished">製造商、訂貨號、說明...</translation>
+    </message>
+    <message>
+        <source>Every category</source>
+        <translation type="unfinished">所有類別</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">製造商</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">訂貨號</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">類別</translation>
+    </message>
+    <message>
+        <source>&lt; Previous</source>
+        <translation type="unfinished">&lt; 上一頁</translation>
+    </message>
+    <message>
+        <source>Next &gt;</source>
+        <translation type="unfinished">下一頁 &gt;</translation>
+    </message>
+    <message>
+        <source>Replace the parts my database has already</source>
+        <translation type="unfinished">替換我的資料庫中已有的零件</translation>
+    </message>
+    <message>
+        <source>Add to my parts database</source>
+        <translation type="unfinished">添加到我的零件資料庫</translation>
+    </message>
+    <message>
+        <source>Asking %1...</source>
+        <translation type="unfinished">正在查詢 %1...</translation>
+    </message>
+    <message>
+        <source>The catalog cannot be reached: %1</source>
+        <translation type="unfinished">無法連接目錄：%1</translation>
+    </message>
+    <message>
+        <source>The catalog gave no list of parts.</source>
+        <translation type="unfinished">目錄未返回零件列表。</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) found, page %1 of %2.</source>
+        <translation type="unfinished">
+            <numerusform>找到 %n 個零件，第 %1 / %2 頁。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General).</source>
+        <translation type="unfinished">未使用零件資料庫（設定 &gt; 常規）。</translation>
+    </message>
+    <message>
+        <source>%1: your session was closed, the account is open on another computer (Sign in...)</source>
+        <translation type="unfinished">%1：您的會話已關閉，該帳戶已在另一台電腦上開啟（登入...）</translation>
+    </message>
+    <message>
+        <source>%1: the parts of the official catalog are part of FaseCAD Pro (my.fasecad.com)</source>
+        <translation type="unfinished">%1：官方目錄的零件是 FaseCAD Pro 的一部分（my.fasecad.com）</translation>
+    </message>
+    <message>
+        <source>%1: the catalog does not accept this user and password (Sign in...)</source>
+        <translation type="unfinished">%1：目錄不接受此用户名和密碼（登入...）</translation>
+    </message>
+    <message>
+        <source>%1: sign in to download it (Sign in...)</source>
+        <translation type="unfinished">%1：請登入以下載（登入...）</translation>
+    </message>
+    <message>
+        <source>%1: your database has it already</source>
+        <translation type="unfinished">%1：已在您的資料庫中</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) added to your parts database.</source>
+        <translation type="unfinished">
+            <numerusform>已向您的零件資料庫添加 %n 個零件。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not added: %1</source>
+        <translation type="unfinished">未添加：%1</translation>
+    </message>
+    <message>
+        <source>No folder for the downloaded file.</source>
+        <translation type="unfinished">下載的檔案沒有資料夾。</translation>
+    </message>
+    <message>
+        <source>The downloaded file cannot be written.</source>
+        <translation type="unfinished">無法寫入下載的檔案。</translation>
+    </message>
+    <message>
+        <source>Signed in to fasecad.com as %1. Click to change or sign out.</source>
+        <translation type="unfinished">已在 fasecad.com 登入為 %1。點擊以更改或退出登入。</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">登入...</translation>
+    </message>
+    <message>
+        <source>Sign in to fasecad.com to download the parts</source>
+        <translation type="unfinished">登入 fasecad.com 以下載零件</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">零件收藏</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">零件資料庫中的零件。將其拖到圖紙上以連同符號一起放置，或拖到某個符號上以將零件添加到該符號。</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">無符號：請放到已放置的符號上</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">符號：%1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">放置零件時 Tab 切換符號</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">（無類別）</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">無法建立資料夾 %1。</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">無法開啟零件資料庫 %1：%2</translation>
+    </message>
+    <message>
+        <source>The server of the parts database is not set.</source>
+        <translation type="unfinished">未設定零件資料庫的伺服器。</translation>
+    </message>
+    <message>
+        <source>This copy of the program cannot connect to a PostgreSQL server: its driver is missing.</source>
+        <translation type="unfinished">此程式副本無法連接 PostgreSQL 伺服器：缺少其驅動程式。</translation>
+    </message>
+    <message>
+        <source>The parts database on %1 cannot be opened: %2</source>
+        <translation type="unfinished">無法開啟 %1 上的零件資料庫：%2</translation>
+    </message>
+    <message>
+        <source>The parts database is not open.</source>
+        <translation type="unfinished">零件資料庫未開啟。</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">零件資料庫 %1 由更新版本的程式建立，無法開啟。</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">零件資料庫正被其他人使用。請稍後再試。</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">無法寫入零件資料庫：%1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">檔案 %1 太大（超過 %2 MB），無法複製到零件資料庫中。請改為連結它。</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">此零件已不在零件資料庫中。</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">已存在製造商為“%1”、訂貨號為“%2”的零件。</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">零件不能是其自身的附件。</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">此零件的某個附件已不在零件資料庫中。</translation>
+    </message>
+    <message>
+        <source>A category needs a name.</source>
+        <translation type="unfinished">類別必須有名稱。</translation>
+    </message>
+    <message>
+        <source>The category %1 is there already.</source>
+        <translation type="unfinished">類別 %1 已存在。</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be renamed.</source>
+        <translation type="unfinished">類別 %1 隨 FaseCAD 提供：不能重命名。</translation>
+    </message>
+    <message>
+        <source>A category cannot go inside itself.</source>
+        <translation type="unfinished">類別不能放入其自身。</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be removed.</source>
+        <translation type="unfinished">類別 %1 隨 FaseCAD 提供：不能移除。</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">無法讀取檔案 %1。</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">找不到檔案 %1。</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">此檔案已不在零件資料庫中。</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">找不到連結的檔案 %1。</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">無法寫入檔案 %1。</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">零件管理器</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">資料庫：%1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">按類別</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">按製造商</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">搜索零件</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">供應商參考號</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">圖片</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">新建</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">複製</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">刪除</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">匯出</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">將零件連同其檔案和符號寫入 .faspart 檔案，每個零件一個</translation>
+    </message>
+    <message>
+        <source>The selected parts...</source>
+        <translation type="unfinished">所選零件...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">列表中的所有零件...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">匯入...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">將 .faspart 檔案中的零件添加到零件資料庫</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">常規</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">安裝</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">技術資料</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished">翻譯</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">符號</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">檔案</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">放棄更改</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">保存</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">設備字母</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">資料表</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Downstream of this device, the cross-section of the wires depends on what is connected to it: the wires it feeds (its outgoing terminals and every wire joined to them) are made for this current.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calculate sections&lt;/b&gt; (Connections tab) gives every wire of the project the cross-section of the device that feeds it.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;此設備下游導線的截面取決於其所連接的內容：它供電的導線（輸出端子以及與其相連的每根導線）按此電流確定截面。&lt;/p&gt;&lt;p&gt;&lt;b&gt;計算截面&lt;/b&gt;（連接索引標籤）為專案中的每根導線賦予為其供電的設備所需的截面。&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Maximum current (A)</source>
+        <translation type="unfinished">最大電流 (A)</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">放置的設備所獲得的標簽字母，例如 -K1 中的 K。</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">與製造商一起標識零件</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">重量 (kg)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">價格</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">寬度 (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">高度 (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">深度 (mm)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">在機櫃中設備周圍為空氣和導線留出的空間。</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">上方空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">下方空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">左側空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">右側空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">前方空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">後方空餘 (mm)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">功率損耗 (W)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">設備散發的熱量，用於機櫃的熱平衡。</translation>
+    </message>
+    <message>
+        <source>The textual description and the model in other languages. In Project languages, Collect texts of the project fills them in, so the folios are shown, printed and exported in each language.</source>
+        <translation type="unfinished">其他語言的文字說明和型號。在專案語言中，“收集專案文字”會填入它們，使圖紙在每種語言中顯示、列印和匯出。</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">語言</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">設備每個引腳的作用，按製造商的順序。添加會以下一個引腳和編號複製所選行。</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">功能</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">插頭</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">引腳</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">PLC 地址</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">添加</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">上移</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">下移</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">導線在實際設備上的去向及其接受的內容。位置以距前面板左上角的 mm 表示。</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">最小截面 (mm²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">最大截面 (mm²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">剝線長度 (mm)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">扭矩 (N·m)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">螺絲刀</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (mm)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (mm)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (mm)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">連接點可接的導線數</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">從功能</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">為“功能”索引標籤中尚無連接點的每個引腳添加連接點。</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名稱</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">值</translation>
+    </message>
+    <message>
+        <source>Copy the rows</source>
+        <translation type="unfinished">複製行</translation>
+    </message>
+    <message>
+        <source>Paste rows</source>
+        <translation type="unfinished">貼上行</translation>
+    </message>
+    <message>
+        <source>Copy the selected rows (Ctrl+C), to paste them in another part or in a spreadsheet</source>
+        <translation type="unfinished">複製所選行以貼上到另一個零件或電子表格中（Ctrl+C）</translation>
+    </message>
+    <message>
+        <source>Paste copied rows (Ctrl+V): a name already in the table takes the pasted value, the others are added</source>
+        <translation type="unfinished">貼上複製的行（Ctrl+V）：表中已有的名稱採用貼上的值，其他的將被添加</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">添加附件...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">如果使用零件資料庫（設定），繪製電纜時带芯線的零件會作為電纜類型提供。</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">不是電纜</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">芯線數</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">芯線顏色</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">截面</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">護套顏色</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">將零件匯出到</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">匯出零件</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 已存在。是否替換？</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">
+            <numerusform>已將 %n 個零件匯出到 %1。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">未匯出：</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">匯入零件</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">FaseCAD 零件 (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">零件資料庫中已有 %1 %2。
+是否用檔案中的零件替換？</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">替換</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">保留我的</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">全部替換</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">全部保留我的</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">
+            <numerusform>已匯入 %n 個零件。</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">
+            <numerusform>%n 個零件保持原樣。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">未匯入：</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">從收藏面板的零件收藏中拖動時，零件带第一個符號；放置時 Tab 切換到下一個，Shift+Tab 返回。</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">添加...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">從收藏中選擇符號</translation>
+    </message>
+    <message>
+        <source>Import a file...</source>
+        <translation type="unfinished">匯入檔案...</translation>
+    </message>
+    <message>
+        <source>A symbol file (.elmt) kept in the parts database: it need not be in the collection</source>
+        <translation type="unfinished">保存在零件資料庫中的符號檔案（.elmt）：無需在收藏中</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">符號</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">符號位置：</translation>
+    </message>
+    <message>
+        <source>Import a symbol</source>
+        <translation type="unfinished">匯入符號</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">符號 (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Save the part first: the symbol is kept with it in the parts database.</source>
+        <translation type="unfinished">請先保存零件：符號與其一起保存在零件資料庫中。</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">無法讀取 %1：%2</translation>
+    </message>
+    <message>
+        <source>%1 is not a symbol.</source>
+        <translation type="unfinished">%1 不是符號。</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">請先保存零件再添加檔案。</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">添加圖片...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">添加 DXF...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">添加 3D 模型...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">用於 3D 機櫃的 STEP 檔案（.stp、.step）。</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">連結到檔案...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">只保存檔案的路徑而不是副本。檔案必須保留在原處，并能從使用此資料庫的每台電腦訪問。</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">另存為...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">所有零件</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">（無類別）</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">（無製造商）</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">零件有未保存的更改。是否保存？</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">這不是數字：%1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">請至少輸入製造商、訂貨號或說明。</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">刪除零件 %1 及其檔案嗎？使用它的專案會保留元件資訊。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete the %n selected parts, with their files? Projects using them keep their element informations.</source>
+        <translation type="unfinished">
+            <numerusform>刪除所選的 %n 個零件及其檔案嗎？使用它們的專案會保留元件資訊。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Manage categories...</source>
+        <translation type="unfinished">管理類別...</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">功能的每個引腳都已有連接點。</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">資料庫中沒有其他可用作附件的零件。</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">添加附件</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">附件：</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">圖片</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">3D 模型 (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1：%2（連結：%3）</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1：%2（%3，已複製到資料庫）</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">無法顯示此圖片。</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">影像 (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">添加圖片</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">DXF 圖紙 (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">添加 DXF</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">STEP 模型 (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">添加 3D 模型</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">連結到檔案</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">影像、DXF 圖紙和 STEP 模型 (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">另存為</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">從零件中移除此檔案嗎？</translation>
+    </message>
+</context>
+<context>
+    <name>PartsServerDialog</name>
+    <message>
+        <source>Parts database server</source>
+        <translation type="unfinished">零件資料庫伺服器</translation>
+    </message>
+    <message>
+        <source>A PostgreSQL server keeps the parts database for several computers at once. The tables are made the first time.</source>
+        <translation type="unfinished">PostgreSQL 伺服器同時為多台電腦保存零件資料庫。表會在第一次時建立。</translation>
+    </message>
+    <message>
+        <source>Kept in the settings of this user on this computer</source>
+        <translation type="unfinished">保存在此電腦上此用户的設定中</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">伺服器：</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished">端口：</translation>
+    </message>
+    <message>
+        <source>Database:</source>
+        <translation type="unfinished">資料庫：</translation>
+    </message>
+    <message>
+        <source>User:</source>
+        <translation type="unfinished">用户：</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">密碼：</translation>
+    </message>
+    <message>
+        <source>Test the connection</source>
+        <translation type="unfinished">測試連接</translation>
+    </message>
+    <message>
+        <source>Copy my parts to the server...</source>
+        <translation type="unfinished">將我的零件複製到伺服器...</translation>
+    </message>
+    <message>
+        <source>Copies the parts of the database file, with their files, symbols and categories. A part the server has already is left as it is there.</source>
+        <translation type="unfinished">複製資料庫檔案中的零件及其檔案、符號和類別。伺服器上已有的零件保持不變。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Connected: the server holds %n parts.</source>
+        <translation type="unfinished">
+            <numerusform>已連接：伺服器上有 %n 個零件。</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Copying the parts to the server...</source>
+        <translation type="unfinished">正在將零件複製到伺服器...</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">停止</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n parts copied from %1.</source>
+        <translation type="unfinished">
+            <numerusform>已從 %1 複製 %n 個零件。</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ProjectVersions</name>
+    <message>
+        <source>Changes from version %1 to version %2</source>
+        <translation type="unfinished">從版本 %1 到 %2 的更改</translation>
+    </message>
+    <message>
+        <source>No device was added, removed or rewired.</source>
+        <translation type="unfinished">沒有設備被添加、移除或重新連接。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices added (%n)</source>
+        <translation type="unfinished">
+            <numerusform>添加的設備 (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices removed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>移除的設備 (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Wiring changed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>更改的連接 (%n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Changes of version %1 (%2/%3)</source>
+        <translation type="unfinished">版本 %1 的更改 (%2/%3)</translation>
+    </message>
+    <message>
+        <source>Changes of version %1</source>
+        <translation type="unfinished">版本 %1 的更改</translation>
+    </message>
+</context>
+<context>
+    <name>SupportDialog</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">報告錯誤</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">請求支援</translation>
+    </message>
+    <message>
+        <source>Say what you did, what happened and what you expected. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">請說明您做了什麼、發生了什麼以及您期望什麼。FaseCAD 和系統的版本也會一并發送。</translation>
+    </message>
+    <message>
+        <source>Say what you need help with. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">請說明您需要什麼幫助。FaseCAD 和系統的版本也會一并發送。</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation type="unfinished">主題：</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">發送</translation>
+    </message>
+    <message>
+        <source>Sent. The FaseCAD team will answer you by email.</source>
+        <translation type="unfinished">已發送。FaseCAD 團隊會通過電子郵件回複您。</translation>
+    </message>
+    <message>
+        <source>Sending...</source>
+        <translation type="unfinished">正在發送...</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">櫃內</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">櫃外</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalPropertiesWidget</name>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">端子</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSettingsWidget</name>
+    <message>
+        <source>A terminal strip of the project, or the name of a new one. Empty: the strip of the terminal on its left on the folio</source>
+        <translation type="unfinished">專案中的端子排名稱或新端子排名稱。留空：圖紙上其左側端子的端子排</translation>
+    </message>
+    <message>
+        <source>Same as on the left</source>
+        <translation type="unfinished">同左側</translation>
+    </message>
+    <message>
+        <source>Terminal strip:</source>
+        <translation type="unfinished">端子排：</translation>
+    </message>
+    <message>
+        <source>Terminal number:</source>
+        <translation type="unfinished">端子編號：</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">無</translation>
+    </message>
+    <message>
+        <source>Colour:</source>
+        <translation type="unfinished">顏色：</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">類型：</translation>
+    </message>
+    <message>
+        <source>%1 mm²</source>
+        <translation type="unfinished">%1 mm²</translation>
+    </message>
+    <message>
+        <source>Cross-section:</source>
+        <translation type="unfinished">截面：</translation>
+    </message>
+    <message>
+        <source>The terminals of the strip with the same number are one terminal of several levels, 1 at the bottom</source>
+        <translation type="unfinished">端子排中編號相同的端子是一個多層端子，1 為底層</translation>
+    </message>
+    <message>
+        <source>Level:</source>
+        <translation type="unfinished">層：</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">底</translation>
+    </message>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">頂</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">右</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">左</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDataDialog</name>
+    <message>
+        <source>Change the title block data</source>
+        <translation type="unfinished">更改標題欄資料</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">標題欄資料</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">公司</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">名稱：</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished">地址：</translation>
+    </message>
+    <message>
+        <source>Contact:</source>
+        <translation type="unfinished">聯系方式：</translation>
+    </message>
+    <message>
+        <source>Phone, e-mail, web</source>
+        <translation type="unfinished">電話、電子郵件、網站</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">客户和工地</translation>
+    </message>
+    <message>
+        <source>Client:</source>
+        <translation type="unfinished">客户：</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">工地：</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">簽名</translation>
+    </message>
+    <message>
+        <source>Drawn by: the author and the date of each sheet, in its properties.</source>
+        <translation type="unfinished">繪製：每張圖紙的作者和日期，在其屬性中。</translation>
+    </message>
+    <message>
+        <source>Checked by:</source>
+        <translation type="unfinished">審核：</translation>
+    </message>
+    <message>
+        <source>Checked on:</source>
+        <translation type="unfinished">審核日期：</translation>
+    </message>
+    <message>
+        <source>Approved by:</source>
+        <translation type="unfinished">批準：</translation>
+    </message>
+    <message>
+        <source>Approved on:</source>
+        <translation type="unfinished">批準日期：</translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>Standard:</source>
+        <translation type="unfinished">標準：</translation>
+    </message>
+    <message>
+        <source>The paper size and the scale are worked out for each sheet.</source>
+        <translation type="unfinished">紙張尺寸和比例按每張圖紙計算。</translation>
+    </message>
+    <message>
+        <source>Revisions, the latest at the top</source>
+        <translation type="unfinished">修訂，最新的在上</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">修訂</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">日期</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">修訂人</translation>
+    </message>
+    <message>
+        <source>New revision</source>
+        <translation type="unfinished">新修訂</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesign</name>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">專案</translation>
+    </message>
+    <message>
+        <source>Sheet title</source>
+        <translation type="unfinished">圖紙標題</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished">客户</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">工地</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished">地址</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">修訂</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">日期</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">說明</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">修訂人</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名稱</translation>
+    </message>
+    <message>
+        <source>Drawn</source>
+        <translation type="unfinished">繪製</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished">審核</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">批準</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished">格式</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished">比例</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished">標準</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">設施</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">位置</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">徽標</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">公司</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">客户和工地</translation>
+    </message>
+    <message>
+        <source>Revisions</source>
+        <translation type="unfinished">修訂</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">簽名</translation>
+    </message>
+    <message>
+        <source>Format and scale</source>
+        <translation type="unfinished">格式和比例</translation>
+    </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished">聯系方式</translation>
+    </message>
+    <message>
+        <source>Drawn by</source>
+        <translation type="unfinished">繪製</translation>
+    </message>
+    <message>
+        <source>Drawn on</source>
+        <translation type="unfinished">繪製日期</translation>
+    </message>
+    <message>
+        <source>Checked by</source>
+        <translation type="unfinished">審核</translation>
+    </message>
+    <message>
+        <source>Checked on</source>
+        <translation type="unfinished">審核日期</translation>
+    </message>
+    <message>
+        <source>Approved by</source>
+        <translation type="unfinished">批準</translation>
+    </message>
+    <message>
+        <source>Approved on</source>
+        <translation type="unfinished">批準日期</translation>
+    </message>
+    <message>
+        <source>Project title</source>
+        <translation type="unfinished">專案標題</translation>
+    </message>
+    <message>
+        <source>Sheet number</source>
+        <translation type="unfinished">圖紙編號</translation>
+    </message>
+    <message>
+        <source>Position of the sheet</source>
+        <translation type="unfinished">圖紙位置</translation>
+    </message>
+    <message>
+        <source>Number of sheets</source>
+        <translation type="unfinished">圖紙數</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished">作者</translation>
+    </message>
+    <message>
+        <source>Revision of the sheet</source>
+        <translation type="unfinished">圖紙修訂</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">版本</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished">檔案名</translation>
+    </message>
+    <message>
+        <source>Company address</source>
+        <translation type="unfinished">公司地址</translation>
+    </message>
+    <message>
+        <source>Company contact</source>
+        <translation type="unfinished">公司聯系方式</translation>
+    </message>
+    <message>
+        <source>Site address</source>
+        <translation type="unfinished">工地地址</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation type="unfinished">紙張尺寸</translation>
+    </message>
+    <message>
+        <source>Latest revision</source>
+        <translation type="unfinished">最新修訂</translation>
+    </message>
+    <message>
+        <source>Date of the latest revision</source>
+        <translation type="unfinished">最新修訂的日期</translation>
+    </message>
+    <message>
+        <source>Made of blocks with the FaseCAD title block designer</source>
+        <translation type="unfinished">使用 FaseCAD 標題欄設計器由區塊構建</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesignPreview</name>
+    <message>
+        <source>Add the blocks of the title block with the buttons above</source>
+        <translation type="unfinished">使用上方按鈕添加標題欄的區塊</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesigner</name>
+    <message>
+        <source>Use the title block %1</source>
+        <translation type="unfinished">使用標題欄 %1</translation>
+    </message>
+    <message>
+        <source>Title block designer</source>
+        <translation type="unfinished">標題欄設計器</translation>
+    </message>
+    <message>
+        <source>Add a block:</source>
+        <translation type="unfinished">添加區塊：</translation>
+    </message>
+    <message>
+        <source>Adds the block "%1" at the end of the title block</source>
+        <translation type="unfinished">將區塊“%1”添加到標題欄末尾</translation>
+    </message>
+    <message>
+        <source>Click a block to change it. Drag the line between two blocks to share their width, drag a block to move it, Delete takes it away.</source>
+        <translation type="unfinished">單擊區塊以進行更改。拖動兩個區塊之間的線以分配寬度，拖動區塊以移動它；Delete 將其移除。</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">標題欄</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">名稱：</translation>
+    </message>
+    <message>
+        <source>Modern: the label small above the value</source>
+        <translation type="unfinished">現代：標簽小字位於值上方</translation>
+    </message>
+    <message>
+        <source>Classic: label and value on one line</source>
+        <translation type="unfinished">經典：標簽和值在同一行</translation>
+    </message>
+    <message>
+        <source>Style:</source>
+        <translation type="unfinished">樣式：</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">高度：</translation>
+    </message>
+    <message>
+        <source>Colour of the bar and of the headers</source>
+        <translation type="unfinished">色條和標題的顏色</translation>
+    </message>
+    <message>
+        <source>Bar along the left side</source>
+        <translation type="unfinished">沿左邊緣的色條</translation>
+    </message>
+    <message>
+        <source>Accent:</source>
+        <translation type="unfinished">強調色：</translation>
+    </message>
+    <message>
+        <source>Start again from…</source>
+        <translation type="unfinished">從以下重新開始…</translation>
+    </message>
+    <message>
+        <source>Complete, for A3</source>
+        <translation type="unfinished">完整，用於 A3</translation>
+    </message>
+    <message>
+        <source>Compact, for A4</source>
+        <translation type="unfinished">緊湊，用於 A4</translation>
+    </message>
+    <message>
+        <source>Give it to:</source>
+        <translation type="unfinished">應用於：</translation>
+    </message>
+    <message>
+        <source>this sheet</source>
+        <translation type="unfinished">此圖紙</translation>
+    </message>
+    <message>
+        <source>every sheet of the project</source>
+        <translation type="unfinished">專案的每張圖紙</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished">強調色</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">區塊</translation>
+    </message>
+    <message>
+        <source>Pick a block in the title block.</source>
+        <translation type="unfinished">請在標題欄中選擇一個區塊。</translation>
+    </message>
+    <message>
+        <source>Block: %1</source>
+        <translation type="unfinished">區塊：%1</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">寬度：</translation>
+    </message>
+    <message>
+        <source>Text, and data between %{ and }: %{projecttitle}</source>
+        <translation type="unfinished">文字，以及 %{ 和 } 之間的資料：%{projecttitle}</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">資料</translation>
+    </message>
+    <message>
+        <source>Revisions shown:</source>
+        <translation type="unfinished">顯示的修訂：</translation>
+    </message>
+    <message>
+        <source>The revisions are those of the project: Project &gt; Title block data.</source>
+        <translation type="unfinished">修訂來自專案：專案 &gt; 標題欄資料。</translation>
+    </message>
+    <message>
+        <source>Choose an image…</source>
+        <translation type="unfinished">選擇圖片…</translation>
+    </message>
+    <message>
+        <source>No logo</source>
+        <translation type="unfinished">無徽標</translation>
+    </message>
+    <message>
+        <source>Image:</source>
+        <translation type="unfinished">圖片：</translation>
+    </message>
+    <message>
+        <source>Take the block away</source>
+        <translation type="unfinished">移除區塊</translation>
+    </message>
+    <message>
+        <source>Logo of the title block</source>
+        <translation type="unfinished">標題欄徽標</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp)</source>
+        <translation type="unfinished">影像 (*.svg *.png *.jpg *.jpeg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Give the title block a name: letters, digits, "-" and "_".</source>
+        <translation type="unfinished">請為標題欄命名：字母、數字、“-”和“_”。</translation>
+    </message>
+    <message>
+        <source>The title block has no block.</source>
+        <translation type="unfinished">標題欄中沒有區塊。</translation>
+    </message>
+    <message>
+        <source>The project already has a title block template called %1, not made with the designer. Replace it?</source>
+        <translation type="unfinished">專案中已有一個名為 %1 的標題欄模板，并非用設計器制作。是否替換？</translation>
+    </message>
+</context>
+<context>
+    <name>WireNumbering</name>
+    <message>
+        <source>By potential: 1, 2, 3…</source>
+        <translation type="unfinished">按電位：1、2、3…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 3.1, 3.2…</source>
+        <translation type="unfinished">圖紙和編號：3.1、3.2…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 301, 302…</source>
+        <translation type="unfinished">圖紙和編號：301、302…</translation>
+    </message>
+    <message>
+        <source>Sheet and column: 3-12</source>
+        <translation type="unfinished">圖紙和列：3-12</translation>
+    </message>
+    <message>
+        <source>From and to, IEC 62491: -K1:13/-X1:4</source>
+        <translation type="unfinished">起點和終點，IEC 62491：-K1:13/-X1:4</translation>
+    </message>
+    <message>
+        <source>By potential type: L1, L2, N, PE, P1, M1</source>
+        <translation type="unfinished">按電位類型：L1、L2、N、PE、P1、M1</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>為 %n 根導線編號</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireNumberingDialog</name>
+    <message>
+        <source>Number the wires</source>
+        <translation type="unfinished">導線編號</translation>
+    </message>
+    <message>
+        <source>Save as mine…</source>
+        <translation type="unfinished">保存為我的…</translation>
+    </message>
+    <message>
+        <source>Keep this formula among your own, for every project</source>
+        <translation type="unfinished">將此公式保存在您自己的公式中，適用於每個專案</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">刪除</translation>
+    </message>
+    <message>
+        <source>Delete this formula of your own</source>
+        <translation type="unfinished">刪除您的這個公式</translation>
+    </message>
+    <message>
+        <source>Numbering:</source>
+        <translation type="unfinished">編號方式：</translation>
+    </message>
+    <message>
+        <source>Formula:</source>
+        <translation type="unfinished">公式：</translation>
+    </message>
+    <message>
+        <source>%N number in the project · %n number on the sheet · %F sheet · %C column · %R row · %P potential type (L1, N, PE, P1, M1) · %S device and %T terminal it starts from · %D device and %E terminal it goes to · %3N three digits: 001</source>
+        <translation type="unfinished">%N 專案中的編號 · %n 圖紙中的編號 · %F 圖紙 · %C 列 · %R 行 · %P 電位類型（L1、N、PE、P1、M1）· %S 起始設備和 %T 其端子 · %D 目標設備和 %E 其端子 · %3N 三位數：001</translation>
+    </message>
+    <message>
+        <source>A name for each wire, not one for each potential</source>
+        <translation type="unfinished">每根導線一個名稱，而不是每個電位一個</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>Whole project</source>
+        <translation type="unfinished">整個專案</translation>
+    </message>
+    <message>
+        <source>This sheet</source>
+        <translation type="unfinished">此圖紙</translation>
+    </message>
+    <message>
+        <source>Selected wires</source>
+        <translation type="unfinished">所選導線</translation>
+    </message>
+    <message>
+        <source>Order on a sheet:</source>
+        <translation type="unfinished">圖紙中的順序：</translation>
+    </message>
+    <message>
+        <source>From top to bottom, then left to right</source>
+        <translation type="unfinished">從上到下，然後從左到右</translation>
+    </message>
+    <message>
+        <source>From left to right, then top to bottom</source>
+        <translation type="unfinished">從左到右，然後從上到下</translation>
+    </message>
+    <message>
+        <source>Start at:</source>
+        <translation type="unfinished">起始：</translation>
+    </message>
+    <message>
+        <source>Keep the numbers fixed by hand</source>
+        <translation type="unfinished">保留手動固定的編號</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>Now</source>
+        <translation type="unfinished">目前</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">新</translation>
+    </message>
+    <message>
+        <source>From → to</source>
+        <translation type="unfinished">起點 → 終點</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">編號</translation>
+    </message>
+    <message>
+        <source>Mine: %1</source>
+        <translation type="unfinished">我的：%1</translation>
+    </message>
+    <message>
+        <source>Formula of my own</source>
+        <translation type="unfinished">我自己的公式</translation>
+    </message>
+    <message>
+        <source>Nothing to change: every wire already has this name.</source>
+        <translation type="unfinished">無需更改：每根導線都已是此名稱。</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n name(s) change:</source>
+        <translation type="unfinished">
+            <numerusform>%n 個名稱將更改：</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Save as mine</source>
+        <translation type="unfinished">保存為我的</translation>
+    </message>
+    <message>
+        <source>Name of this numbering:</source>
+        <translation type="unfinished">此編號方式的名稱：</translation>
+    </message>
+</context>
+<context>
+    <name>WireSections</name>
+    <message numerus="yes">
+        <source>Give %n wire(s) the section of their protection</source>
+        <translation type="unfinished">
+            <numerusform>為 %n 根導線賦予其保護裝置的截面</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireSectionsDialog</name>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">計算截面</translation>
+    </message>
+    <message>
+        <source>The section IEC 60204-1 (table 6, copper, PVC) asks for the wires each protection feeds, from its rated current, and the wires each device feeds whose part has a maximum current, from it: the wires on its outgoing terminals (2, 4, 6…) and every wire joined to them.</source>
+        <translation type="unfinished">IEC 60204-1（表 6，銅，PVC）要求的截面：每個保護裝置供電的導線按其額定電流，每個零件有最大電流的設備供電的導線按該電流；即輸出端子（2、4、6…）上的導線及與其相連的每根導線。</translation>
+    </message>
+    <message>
+        <source>Installation:</source>
+        <translation type="unfinished">敷設方式：</translation>
+    </message>
+    <message>
+        <source>B1: single cores in a duct</source>
+        <translation type="unfinished">B1：線槽中的單芯線</translation>
+    </message>
+    <message>
+        <source>B2: cables in a duct</source>
+        <translation type="unfinished">B2：線槽中的電纜</translation>
+    </message>
+    <message>
+        <source>C: on a wall</source>
+        <translation type="unfinished">C：牆面敷設</translation>
+    </message>
+    <message>
+        <source>E: on a cable tray</source>
+        <translation type="unfinished">E：電纜橋架</translation>
+    </message>
+    <message>
+        <source>Ambient:</source>
+        <translation type="unfinished">環境溫度：</translation>
+    </message>
+    <message>
+        <source>Circuits grouped:</source>
+        <translation type="unfinished">成組電路：</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">電流</translation>
+    </message>
+    <message>
+        <source>Section needed</source>
+        <translation type="unfinished">所需截面</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>Without section</source>
+        <translation type="unfinished">無截面</translation>
+    </message>
+    <message>
+        <source>Too small</source>
+        <translation type="unfinished">過小</translation>
+    </message>
+    <message>
+        <source>Give them their section</source>
+        <translation type="unfinished">賦予其截面</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">未指定</translation>
+    </message>
+    <message>
+        <source>over 120 mm²</source>
+        <translation type="unfinished">超過 120 mm²</translation>
+    </message>
+    <message>
+        <source>The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.</source>
+        <translation type="unfinished">專案中沒有保護裝置（斷路器、電動機保護、熔斷器）或有最大電流的設備。</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) without a section or with a smaller one than their protection asks for.</source>
+        <translation type="unfinished">
+            <numerusform>%n 根導線沒有截面或截面小於其保護裝置的要求。</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">叉號</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">觸點符號</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">顯示</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">在設備標簽下方</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">在符號下方</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">圖紙頁腳</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">手動位置</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">位置</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">相對於符號</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">圖紙上的絕對位置</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">相對：符號移動時顯示隨之移動。絕對：保持在圖紙上的原位。</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">旋轉觸點符號；編號保持直立。</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">觸點符號角度</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">線寬</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">符號下方的間距</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">顯示已定義的觸點，即使未連接</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">圖紙上的 X 位置</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">手動偏移 X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">圖紙上的 Y 位置</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">手動偏移 Y</translation>
+    </message>
+</context>
+<context>
+    <name>CommandTabs</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">檔案</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">選單</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">專案</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">新建</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">開啟</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">保存</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">另存為</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">關閉</translation>
+    </message>
+    <message>
+        <source>Print and export</source>
+        <translation type="unfinished">列印和匯出</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">列印</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished">PDF</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">影像</translation>
+    </message>
+    <message>
+        <source>Delivery</source>
+        <translation type="unfinished">交付</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished">屬性</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">標題欄</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">標題欄資料</translation>
+    </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished">語言</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">歷史</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">開始</translation>
+    </message>
+    <message>
+        <source>Clipboard</source>
+        <translation type="unfinished">剪貼板</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">貼上</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">剪切</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">複製</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">刪除</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">複製格式</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">應用格式</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">圖紙</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">導航器</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">復原</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">重做</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">文字</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished">插入</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">旋轉</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished">組合</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">編輯</translation>
+    </message>
+    <message>
+        <source>Wiring list</source>
+        <translation type="unfinished">接線清單</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">查找</translation>
+    </message>
+    <message>
+        <source>Find symbol</source>
+        <translation type="unfinished">查找符號</translation>
+    </message>
+    <message>
+        <source>Jump to</source>
+        <translation type="unfinished">跳轉到</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">符號</translation>
+    </message>
+    <message>
+        <source>Last symbol</source>
+        <translation type="unfinished">上一個符號</translation>
+    </message>
+    <message>
+        <source>Connection symbols</source>
+        <translation type="unfinished">連接符號</translation>
+    </message>
+    <message>
+        <source>Outgoing report</source>
+        <translation type="unfinished">出線參照</translation>
+    </message>
+    <message>
+        <source>Incoming report</source>
+        <translation type="unfinished">進線參照</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">設備</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">端子</translation>
+    </message>
+    <message>
+        <source>Terminal strip</source>
+        <translation type="unfinished">端子排</translation>
+    </message>
+    <message>
+        <source>Part definition</source>
+        <translation type="unfinished">物料定義</translation>
+    </message>
+    <message>
+        <source>Cables / connections</source>
+        <translation type="unfinished">電纜 / 連接</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation type="unfinished">連接</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">影像</translation>
+    </message>
+    <message>
+        <source>Graphic</source>
+        <translation type="unfinished">圖形</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">直線</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">矩形</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">橢圓</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished">圓弧</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">多段線</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">路徑</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">尺寸</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">線性</translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished">鏈式</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">電櫃布置 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet
+construction 2D</source>
+        <translation type="unfinished">電櫃
+布置 2D</translation>
+    </message>
+    <message>
+        <source>Insert
+DXF</source>
+        <translation type="unfinished">插入
+DXF</translation>
+    </message>
+    <message>
+        <source>Cabinet
+in 3D</source>
+        <translation type="unfinished">電櫃
+3D</translation>
+    </message>
+    <message>
+        <source>Thermal
+analysis</source>
+        <translation type="unfinished">熱
+分析</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished">鏡像</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished">翻轉</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">複製副本</translation>
+    </message>
+    <message>
+        <source>Fillet</source>
+        <translation type="unfinished">圓角</translation>
+    </message>
+    <message>
+        <source>Rotate group</source>
+        <translation type="unfinished">旋轉組</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">取消組合</translation>
+    </message>
+    <message>
+        <source>Group texts</source>
+        <translation type="unfinished">組合文字</translation>
+    </message>
+    <message>
+        <source>Organize</source>
+        <translation type="unfinished">整理</translation>
+    </message>
+    <message>
+        <source>Align to grid</source>
+        <translation type="unfinished">對齊網格</translation>
+    </message>
+    <message>
+        <source>Connect aligned</source>
+        <translation type="unfinished">連接對齊項</translation>
+    </message>
+    <message>
+        <source>Place texts</source>
+        <translation type="unfinished">放置文字</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">層次</translation>
+    </message>
+    <message>
+        <source>Bring to front</source>
+        <translation type="unfinished">置於頂層</translation>
+    </message>
+    <message>
+        <source>Raise</source>
+        <translation type="unfinished">上移一層</translation>
+    </message>
+    <message>
+        <source>Lower</source>
+        <translation type="unfinished">下移一層</translation>
+    </message>
+    <message>
+        <source>Send to back</source>
+        <translation type="unfinished">置於底層</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">選擇</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">全部</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">無</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">反選</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">導線</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished">文字</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">檢視</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished">模式</translation>
+    </message>
+    <message>
+        <source>Move view</source>
+        <translation type="unfinished">平移檢視</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished">縮放</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">放大</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">縮小</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">適合</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation type="unfinished">內容</translation>
+    </message>
+    <message>
+        <source>100 %</source>
+        <translation type="unfinished">100 %</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished">網格</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">捕捉</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">參考線</translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished">十字光標</translation>
+    </message>
+    <message>
+        <source>Cell lines</source>
+        <translation type="unfinished">單元格線</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished">標尺</translation>
+    </message>
+    <message>
+        <source>Dark sheet</source>
+        <translation type="unfinished">深色圖紙</translation>
+    </message>
+    <message>
+        <source>Panels</source>
+        <translation type="unfinished">面板</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">專案</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">庫</translation>
+    </message>
+    <message>
+        <source>Undo list</source>
+        <translation type="unfinished">復原列表</translation>
+    </message>
+    <message>
+        <source>Windows</source>
+        <translation type="unfinished">窗口</translation>
+    </message>
+    <message>
+        <source>Tabs</source>
+        <translation type="unfinished">標簽頁</translation>
+    </message>
+    <message>
+        <source>Tile</source>
+        <translation type="unfinished">平鋪</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">層疊</translation>
+    </message>
+    <message>
+        <source>Bill of
+materials</source>
+        <translation type="unfinished">物料
+清單</translation>
+    </message>
+    <message>
+        <source>Parts
+list</source>
+        <translation type="unfinished">零件
+清單</translation>
+    </message>
+    <message>
+        <source>Update symbols</source>
+        <translation type="unfinished">更新符號</translation>
+    </message>
+    <message>
+        <source>Redraw symbols</source>
+        <translation type="unfinished">重繪符號</translation>
+    </message>
+    <message>
+        <source>Terminals</source>
+        <translation type="unfinished">端子</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">編號</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">更多</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation type="unfinished">連接</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished">自動</translation>
+    </message>
+    <message>
+        <source>Break</source>
+        <translation type="unfinished">斷開</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">重設</translation>
+    </message>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">計算截面</translation>
+    </message>
+    <message>
+        <source>Cables</source>
+        <translation type="unfinished">電纜</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">電纜圖</translation>
+    </message>
+    <message>
+        <source>Bridges</source>
+        <translation type="unfinished">跳線</translation>
+    </message>
+    <message>
+        <source>Terminal bridges</source>
+        <translation type="unfinished">端子跳線</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">工具</translation>
+    </message>
+    <message>
+        <source>Reports</source>
+        <translation type="unfinished">報表</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">目錄</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">物料清單</translation>
+    </message>
+    <message>
+        <source>Parts list</source>
+        <translation type="unfinished">零件清單</translation>
+    </message>
+    <message>
+        <source>Cable list</source>
+        <translation type="unfinished">電纜清單</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">匯出</translation>
+    </message>
+    <message>
+        <source>Wire names</source>
+        <translation type="unfinished">導線名稱</translation>
+    </message>
+    <message>
+        <source>Database</source>
+        <translation type="unfinished">資料庫</translation>
+    </message>
+    <message>
+        <source>Versions</source>
+        <translation type="unfinished">版本</translation>
+    </message>
+    <message>
+        <source>Set
+version</source>
+        <translation type="unfinished">設定
+版本</translation>
+    </message>
+    <message>
+        <source>Checks</source>
+        <translation type="unfinished">檢查</translation>
+    </message>
+    <message>
+        <source>Potentials</source>
+        <translation type="unfinished">電位</translation>
+    </message>
+    <message>
+        <source>Duplicate labels</source>
+        <translation type="unfinished">重複標簽</translation>
+    </message>
+    <message>
+        <source>Clean project</source>
+        <translation type="unfinished">清理專案</translation>
+    </message>
+    <message>
+        <source>Scripts</source>
+        <translation type="unfinished">腳本</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished">運行</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished">錄制</translation>
+    </message>
+    <message>
+        <source>Manage</source>
+        <translation type="unfinished">管理</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished">資料夾</translation>
+    </message>
+    <message>
+        <source>Master data</source>
+        <translation type="unfinished">主資料</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">零件</translation>
+    </message>
+    <message>
+        <source>Parts
+manager</source>
+        <translation type="unfinished">零件
+管理器</translation>
+    </message>
+    <message>
+        <source>Official
+catalog</source>
+        <translation type="unfinished">官方
+目錄</translation>
+    </message>
+    <message>
+        <source>Search command</source>
+        <translation type="unfinished">搜索命令</translation>
+    </message>
+    <message>
+        <source>Fold or unfold the tabs</source>
+        <translation type="unfinished">折疊或展開索引標籤</translation>
+    </message>
+    <message>
+        <source>%1: coming soon</source>
+        <translation type="unfinished">%1：即將推出</translation>
     </message>
 </context>
 </TS>

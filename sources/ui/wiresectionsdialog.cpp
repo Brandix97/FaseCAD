@@ -44,13 +44,14 @@ WireSectionsDialog::WireSectionsDialog(QETProject *project, QWidget *parent) :
 	QDialog(parent),
 	m_project(project)
 {
-	setWindowTitle(tr("Sections from the protections"));
+	setWindowTitle(tr("Calculate sections"));
 	resize(820, 560);
 	auto *layout = new QVBoxLayout(this);
 
 	auto *intro = new QLabel(tr("The section IEC 60204-1 (table 6, copper, PVC) asks for the wires "
-								"each protection feeds, from its rated current: the wires on its "
-								"outgoing terminals (2, 4, 6…) and every wire joined to them."), this);
+								"each protection feeds, from its rated current, and the wires each "
+								"device feeds whose part has a maximum current, from it: the wires on "
+								"its outgoing terminals (2, 4, 6…) and every wire joined to them."), this);
 	intro->setWordWrap(true);
 	layout->addWidget(intro);
 
@@ -85,7 +86,7 @@ WireSectionsDialog::WireSectionsDialog(QETProject *project, QWidget *parent) :
 
 	m_table = new QTableWidget(0, 6, this);
 	m_table->setObjectName(QStringLiteral("m_table"));
-	m_table->setHorizontalHeaderLabels({tr("Protection"), tr("Rated current"),
+	m_table->setHorizontalHeaderLabels({tr("Device"), tr("Current"),
 										tr("Section needed"), tr("Wires"),
 										tr("Without section"), tr("Too small")});
 	m_table->verticalHeader()->hide();
@@ -156,7 +157,7 @@ void WireSectionsDialog::refresh()
 		}
 	}
 	m_summary->setText(m_rows.isEmpty()
-					   ? tr("The project has no protection (circuit breaker, motor protection, fuse).")
+					   ? tr("The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.")
 					   : tr("%n wire(s) without a section or with a smaller one than their protection asks for.",
 							"", to_give));
 	m_give->setEnabled(to_give > 0 && m_project && !m_project->isReadOnly());

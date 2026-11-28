@@ -329,6 +329,24 @@
         <comment>Lambda element generator</comment>
         <translation>Lambda öğe üreteci</translation>
     </message>
+    <message>
+        <source>About FaseCAD</source>
+        <translation type="unfinished">FaseCAD hakkında</translation>
+    </message>
+    <message>
+        <source>FaseCAD, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation type="unfinished">FaseCAD, elektrik şemaları tasarlamak için bir uygulama.</translation>
+    </message>
+    <message>
+        <source>Based on QElectroTech, © 2006-%1 the developers of QElectroTech, under the GNU General Public License, version 2 or later.</source>
+        <comment>about tab, origin line</comment>
+        <translation type="unfinished">QElectroTech tabanlıdır, © 2006-%1 QElectroTech geliştiricileri, GNU Genel Kamu Lisansı sürüm 2 veya sonrası altında.</translation>
+    </message>
+    <message>
+        <source>based on QElectroTech %1</source>
+        <translation type="unfinished">QElectroTech %1 tabanlı</translation>
+    </message>
 </context>
 <context>
     <name>AddLinkDialog</name>
@@ -484,6 +502,10 @@
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="51"/>
         <source>Realistic (screw)</source>
         <translation>Gerçekçi (vidalı)</translation>
+    </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Klemens şeması</translation>
     </message>
 </context>
 <context>
@@ -1052,7 +1074,7 @@ Not: Bu durum &quot;Otomatik Numaralandırma&quot;&apos;ya engel koymaz veya izi
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="14"/>
         <source>Export the bill of materials as CSV</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Malzeme listesini CSV olarak dışa aktar</translation>
     </message>
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="20"/>
@@ -1828,6 +1850,18 @@ Onaylarsanız diğer kablo bu damarları kaybedecek. Devam etmek istiyor musunuz
             <numerusform>Bu kablonun %n damarı bir iletkene bağlı. Seçilen tiple bu damarlar kablodan çıkar ve işaretleri çizimden kaybolur. Devam edilsin mi?</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Kaynak</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+    <message>
+        <source>This cable type comes from the parts database: change it in the parts manager.</source>
+        <translation type="unfinished">Bu kablo tipi parça veritabanından geliyor: parça yöneticisinde değiştirin.</translation>
+    </message>
 </context>
 <context>
     <name>CableExportDialog</name>
@@ -1956,6 +1990,46 @@ Onaylarsanız diğer kablo bu damarları kaybedecek. Devam etmek istiyor musunuz
         <source>Used cores</source>
         <translation>Kullanılan damarlar</translation>
     </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Damar</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Renk</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Tel</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Nereden</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Nereye</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Durum</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation type="unfinished">Kullanılan</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Yedek</translation>
+    </message>
 </context>
 <context>
     <name>CableListModelPropertiesWidget</name>
@@ -2077,6 +2151,18 @@ Bunları da yeniden numaralandırmak istiyor musunuz?</numerusform>
         <location filename="../sources/ui/cablenumberingdialog.cpp" line="362"/>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>Tüm kablolar zaten kuralın verdiği numarayı taşıyor.</translation>
+    </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">Yeni bir kablo projedeki ilk boş numarayı alır: %1, %2... Yeniden numaralandırma, projedeki her kabloyu aşağıdaki sırayla yeniden adlandırır ve silinen kabloların bıraktığı boşlukları kapatır.</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">Projedeki her kablonun numarasını 1'den başlayarak yeniden verir: bir kablo silindikten sonra eksik kalan numara böylece doldurulur.</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">Tüm kablolar zaten alacakları numaraya sahip.</translation>
     </message>
 </context>
 <context>
@@ -2374,6 +2460,14 @@ Bunları da yeniden numaralandırmak istiyor musunuz?</numerusform>
         <location filename="../sources/cablelist/cablequerywidget.cpp" line="73"/>
         <source>Table columns</source>
         <translation>Tablo sütunları</translation>
+    </message>
+    <message>
+        <source>Cable:</source>
+        <translation type="unfinished">Kablo:</translation>
+    </message>
+    <message>
+        <source>All cables</source>
+        <translation type="unfinished">Tüm kablolar</translation>
     </message>
 </context>
 <context>
@@ -2962,7 +3056,7 @@ Bunları da yeniden numaralandırmak istiyor musunuz?</numerusform>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="168"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="178"/>
         <source>❗</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">❗</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="218"/>
@@ -3137,7 +3231,7 @@ Bunları da yeniden numaralandırmak istiyor musunuz?</numerusform>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="761"/>
         <source>px</source>
-        <translation></translation>
+        <translation type="unfinished">px</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="771"/>
@@ -3181,12 +3275,12 @@ Bunları da yeniden numaralandırmak istiyor musunuz?</numerusform>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="143"/>
         <source>This wire is a core of a cable: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bu iletken bir kablonun damarıdır: kesit, renk ve tip kablodan gelir.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="144"/>
         <source>This wire is core of cable %1: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bu iletken %1 kablosunun damarıdır: kesit, renk ve tip kablodan gelir.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="259"/>
@@ -3801,6 +3895,10 @@ Devam edilsin mi?</translation>
         <source>insert %1 × %2</source>
         <translation type="unfinished">%1 × %2 ekle</translation>
     </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">Sembol %1 / %2: %3. Tab: sonraki sembol, Shift+Tab: önceki</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -4365,6 +4463,22 @@ Bu metni tek başına taşımak için Shift tuşunu basılı tutup sürükleyin<
         <source>Edit conductor properties</source>
         <comment>undo caption</comment>
         <translation>Bu iletkenin özelliklerini değiştirin</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">Bir parça ekle</translation>
+    </message>
+    <message>
+        <source>Place terminals</source>
+        <translation type="unfinished">Klemens yerleştir</translation>
+    </message>
+    <message>
+        <source>Click on the folio to place each terminal: the number goes up by one each time. Right click or Escape ends.</source>
+        <translation type="unfinished">Her klemensi yerleştirmek için sayfaya tıklayın: numara her seferinde bir artar. Sağ tık veya Escape bitirir.</translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished">Yerleştir</translation>
     </message>
 </context>
 <context>
@@ -5192,6 +5306,14 @@ Bu metni tek başına taşımak için Shift tuşunu basılı tutup sürükleyin<
         <source>Move a text to another group</source>
         <translation>Metni başka bir gruba taşı</translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Seç...</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Parça verileri</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5375,6 +5497,26 @@ Bu metni tek başına taşımak için Shift tuşunu basılı tutup sürükleyin<
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1866"/>
         <source>Right</source>
         <translation>Sağ</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Parça verileri</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">Parçaların verilerini göstermek için parça veritabanını kullanın (Ayarlar &gt; Genel).</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">Bu öğenin parçalarının parça veritabanında verisi yok.</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">Öğe hiçbir parçadan oluşmuyor: Parçalar sekmesinde bir tane ekleyin.</translation>
     </message>
 </context>
 <context>
@@ -5703,7 +5845,7 @@ The element&apos;s display name is edited separately in the element properties.<
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="71"/>
         <source>Edit on several lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Birkaç satırda düzenle</translation>
     </message>
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="81"/>
@@ -5881,6 +6023,30 @@ Continue?</source>
 Numaralandırmasını değiştirmek adı değiştirecek veya silecek.
 
 Devam edilsin mi?</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Panonun içini ve dışını değiştir</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">Varsayılan olarak kabloya bağlanan taraf panodan dışarı çıkar, kablo yoksa en alttaki bağlantı noktası. Bu klemens için tersine çevirmek üzere işaretleyin: klemens dizisi planları onu izler.</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">Bu klemensin tek bir bağlantı noktası var.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">Pano içinde: %1. Pano dışında: %2, kablonun tarafı.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">Pano içinde: %1. Pano dışında: %2.</translation>
     </message>
 </context>
 <context>
@@ -6601,7 +6767,7 @@ Devam edilsin mi?</translation>
     <message>
         <location filename="../sources/ui/elementpropertieswidget.h" line="45"/>
         <source>Element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öğe özellikleri</translation>
     </message>
 </context>
 <context>
@@ -7253,6 +7419,38 @@ Bu dosyayı içe aktararak şunları onaylarsınız:
         <source>Property of the folder %1</source>
         <translation>%1 klasörü özelliği</translation>
     </message>
+    <message>
+        <source>Download the symbol...</source>
+        <translation type="unfinished">Sembolü indir...</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Parça yöneticisi...</translation>
+    </message>
+    <message>
+        <source>The symbol %1 is not there.</source>
+        <translation type="unfinished">%1 sembolü yok.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read.</source>
+        <translation type="unfinished">%1 okunamıyor.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written.</source>
+        <translation type="unfinished">%1 yazılamıyor.</translation>
+    </message>
+    <message>
+        <source>Download the symbol</source>
+        <translation type="unfinished">Sembolü indir</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Semboller (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Download the symbols</source>
+        <translation type="unfinished">Sembolleri indir</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7440,6 +7638,18 @@ Bu dosyayı içe aktararak şunları onaylarsınız:
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
+    <message>
+        <source>Insert a schematic sheet</source>
+        <translation type="unfinished">Şema sayfası ekle</translation>
+    </message>
+    <message>
+        <source>Insert a cabinet construction sheet</source>
+        <translation type="unfinished">Pano yapım sayfası ekle</translation>
+    </message>
+    <message>
+        <source>Insert a routing sheet for this cabinet</source>
+        <translation type="unfinished">Bu pano için güzergâh sayfası ekle</translation>
+    </message>
 </context>
 <context>
     <name>EllipseEditor</name>
@@ -7617,17 +7827,17 @@ Bu dosyayı içe aktararak şunları onaylarsınız:
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="178"/>
         <source>Format:</source>
-        <translation></translation>
+        <translation type="unfinished">Biçim:</translation>
     </message>
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="181"/>
         <source>PNG (*.png)</source>
-        <translation></translation>
+        <translation type="unfinished">PNG (*.png)</translation>
     </message>
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="182"/>
         <source>JPEG (*.jpg)</source>
-        <translation></translation>
+        <translation type="unfinished">JPEG (*.jpg)</translation>
     </message>
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="183"/>
@@ -7637,12 +7847,12 @@ Bu dosyayı içe aktararak şunları onaylarsınız:
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="184"/>
         <source>SVG (*.svg)</source>
-        <translation></translation>
+        <translation type="unfinished">SVG (*.svg)</translation>
     </message>
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="185"/>
         <source>DXF (*.dxf)</source>
-        <translation></translation>
+        <translation type="unfinished">DXF (*.dxf)</translation>
     </message>
     <message>
         <location filename="../sources/exportpropertieswidget.cpp" line="191"/>
@@ -9326,6 +9536,106 @@ Any setting other than “No rounding” may cause rendering errors in the proje
         <source> px</source>
         <translation> px</translation>
     </message>
+    <message>
+        <source>Theme:</source>
+        <translation type="unfinished">Tema:</translation>
+    </message>
+    <message>
+        <source>Light or dark colors for the whole interface. A sheet left on its system color follows them.</source>
+        <translation type="unfinished">Tüm arayüz için açık veya koyu renkler. Sistem rengine bırakılmış bir sayfa onları izler.</translation>
+    </message>
+    <message>
+        <source>Colors below (as before)</source>
+        <translation type="unfinished">Aşağıdaki renkler (önceki gibi)</translation>
+    </message>
+    <message>
+        <source>Follow the system</source>
+        <translation type="unfinished">Sistemi izle</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">Açık</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Koyu</translation>
+    </message>
+    <message>
+        <source>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</source>
+        <translation type="unfinished">Araçları araç çubukları yerine göreve göre gruplanmış sekmelerde göster (Giriş, Ekle, Bağlantılar...)</translation>
+    </message>
+    <message>
+        <source>The menus stay, and so do the toolbars you made yourself.</source>
+        <translation type="unfinished">Menüler kalır, kendi yaptığınız araç çubukları da.</translation>
+    </message>
+    <message>
+        <source>Hide the menu bar too (every menu stays in the File tab)</source>
+        <translation type="unfinished">Menü çubuğunu da gizle (tüm menüler Dosya sekmesinde kalır)</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">Bir yan panel pencere kenarında bir sekmeye katlanır ve fare üzerine gelince dışarı kayar; raptiyesi onu açık tutar</translation>
+    </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">Yan panelleri otomatik gizle</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+    <message>
+        <source>Use the parts database (cable types from its parts with cores)</source>
+        <translation type="unfinished">Parça veritabanını kullan (damarlı parçalarından kablo tipleri)</translation>
+    </message>
+    <message>
+        <source>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</source>
+        <translation type="unfinished">Parça veritabanı dosyası. Bu bilgisayarınkini kullanmak için boş bırakın; paylaşmak için bir ağ klasöründe bir dosya seçin.</translation>
+    </message>
+    <message>
+        <source>This computer (%1)</source>
+        <translation type="unfinished">Bu bilgisayar (%1)</translation>
+    </message>
+    <message>
+        <source>Parts databases (*.sqlite *.db)</source>
+        <translation type="unfinished">Parça veritabanları (*.sqlite *.db)</translation>
+    </message>
+    <message>
+        <source>In a database file</source>
+        <translation type="unfinished">Bir veritabanı dosyasında</translation>
+    </message>
+    <message>
+        <source>On a PostgreSQL server</source>
+        <translation type="unfinished">Bir PostgreSQL sunucusunda</translation>
+    </message>
+    <message>
+        <source>A server keeps the parts for several computers at once, each reading and writing them</source>
+        <translation type="unfinished">Bir sunucu parçaları aynı anda birkaç bilgisayar için tutar, her biri onları okur ve yazar</translation>
+    </message>
+    <message>
+        <source>Server...</source>
+        <translation type="unfinished">Sunucu...</translation>
+    </message>
+    <message>
+        <source>When a project is opened:</source>
+        <translation type="unfinished">Bir proje açıldığında:</translation>
+    </message>
+    <message>
+        <source>Make a backup copy beside it</source>
+        <translation type="unfinished">Yanına bir yedek kopya oluştur</translation>
+    </message>
+    <message>
+        <source>Ask whether to make a backup copy</source>
+        <translation type="unfinished">Yedek kopya oluşturulup oluşturulmayacağını sor</translation>
+    </message>
+    <message>
+        <source>Make no backup copy</source>
+        <translation type="unfinished">Yedek kopya oluşturma</translation>
+    </message>
+    <message>
+        <source>The copy is the project as it was when opened, in its folder, named after it: project_backup.qet. Each opening writes over the copy before.</source>
+        <translation type="unfinished">Kopya, projenin açıldığı andaki hâlidir; kendi klasöründe, kendi adıyla: proje_backup.qet. Her açılış önceki kopyanın üzerine yazar.</translation>
+    </message>
 </context>
 <context>
     <name>GenericDevice</name>
@@ -10150,7 +10460,7 @@ Any setting other than “No rounding” may cause rendering errors in the proje
     <message>
         <location filename="../sources/ui/imagepropertieswidget.h" line="46"/>
         <source>Picture properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Görüntü özellikleri</translation>
     </message>
 </context>
 <context>
@@ -11366,6 +11676,10 @@ Yine de bu bağımlı kontağı bağlamak istiyor musunuz?</translation>
         <source>Information</source>
         <translation>Bilgiler</translation>
     </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Panonun içini ve dışını değiştir</translation>
+    </message>
 </context>
 <context>
     <name>MultiPasteDialog</name>
@@ -12153,22 +12467,22 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="43"/>
         <source>Check potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Potansiyel tiplerini kontrol et</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="50"/>
         <source>Each row is a potential whose wires have different types. Click a row to select its wires. Types joined on purpose can be declared in the project properties and are not listed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Her satır, iletkenlerinin tipleri farklı olan bir potansiyeldir. İletkenlerini seçmek için bir satıra tıklayın. Bilerek birleştirilen tipler proje özelliklerinde belirtilebilir ve listelenmez.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Types on the potential</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Potansiyeldeki tipler</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Typed wires</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipli iletkenler</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="69"/>
@@ -12178,24 +12492,24 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="96"/>
         <source>No potential carries wires of different types.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hiçbir potansiyel farklı tiplerde iletken taşımıyor.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="97"/>
         <source>Potential types are off for this project, so there is nothing to check.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bu projede potansiyel tipleri kapalı, bu yüzden kontrol edilecek bir şey yok.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="100"/>
         <source>%n potential(s) carry wires of different types.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>%n potansiyel farklı tiplerde iletkenler taşıyor.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="142"/>
         <source>These wires no longer exist. Refresh the results.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bu iletkenler artık yok. Sonuçları yenileyin.</translation>
     </message>
 </context>
 <context>
@@ -12314,17 +12628,17 @@ Aşağıdaki değişkenler uyumsuz :
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="51"/>
         <source>Draw conductors from their own style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İletkenleri kendi stilleriyle çiz</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="52"/>
         <source>Draw conductors from their potential type, chosen on each conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İletkenleri her iletkende seçilen potansiyel tiplerine göre çiz</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="54"/>
         <source>When a type is used, a conductor whose potential has a type is drawn in that type&apos;s colour, line style and width. The style stored on the conductor is kept, and used again when this is off or the conductor has no type.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bir tip kullanıldığında, potansiyelinin tipi olan bir iletken o tipin rengi, çizgi stili ve kalınlığıyla çizilir. İletkende saklanan stil korunur ve bu kapalıyken ya da iletkenin tipi yokken yeniden kullanılır.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="59"/>
@@ -12370,17 +12684,17 @@ Aşağıdaki değişkenler uyumsuz :
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="86"/>
         <source>Types joined on purpose, for example 0V and PE at a power supply. A potential with only these types is not reported as mixed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bilerek birleştirilen tipler, örneğin bir güç kaynağında 0V ve PE. Yalnızca bu tiplere sahip bir potansiyel karışık olarak bildirilmez.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="92"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Birleştir</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="96"/>
         <source>and</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ve</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="116"/>
@@ -12390,12 +12704,12 @@ Aşağıdaki değişkenler uyumsuz :
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="156"/>
         <source>Set where the potential starts (not available in this version)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Potansiyelin başladığı yeri belirle (bu sürümde yok)</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="173"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 ve %2</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="215"/>
@@ -13047,6 +13361,12 @@ Give them another numbering first.</source>
             <numerusform>%n çeviri içe aktarıldı.</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>%n translation(s) taken from the parts database.</source>
+        <translation type="unfinished">
+            <numerusform>Parça veritabanından %n çeviri alındı.</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>ProjectMainConfigPage</name>
@@ -13239,13 +13559,13 @@ Give them another numbering first.</source>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="344"/>
         <source>Cell numbering starts from:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hücre numaralandırması şuradan başlar:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="354"/>
         <source>From which corner to start numbering the cells: Top - Left corner(default), Top - Right, Bottom - Left, Bottom - Right.</source>
         <comment>tooltip</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hücrelerin numaralandırılmasına hangi köşeden başlanacağı: sol üst (varsayılan), sağ üst, sol alt, sağ alt.</translation>
     </message>
     <message>
         <source>Origin (of a coordinate system):</source>
@@ -13286,6 +13606,16 @@ Give them another numbering first.</source>
         <source>%1 h %2 min</source>
         <comment>hours and minutes of time spent on a project</comment>
         <translation>%1 sa %2 dk</translation>
+    </message>
+    <message>
+        <source>Keep a new conductor off the conductors it would lie on</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Yeni bir iletkeni üzerine düşeceği iletkenlerden uzak tut</translation>
+    </message>
+    <message>
+        <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Bir iletken çizildiğinde veya bir öğe taşındığında, başka birinin boyunca uzanacak otomatik bir iletkenin orta bölümü boş olduğu yere her seferinde bir ızgara adımı kaydırılır. Bu yolu elle taşınmış gibi korur. Zaten çizilmiş iletkenler değişmez.</translation>
     </message>
 </context>
 <context>
@@ -13476,7 +13806,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="134"/>
         <source>Print preview</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Baskı önizleme</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="135"/>
@@ -13487,7 +13817,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="141"/>
         <source>Export to PDF</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">PDF olarak dışa aktar</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="142"/>
@@ -13703,6 +14033,21 @@ Saving over it would lose their changes.</source>
         <source>Project</source>
         <comment>window title for a project-less ProjectView</comment>
         <translation>Proje</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">QElectroTech projesi (*%1)</translation>
+    </message>
+    <message>
+        <source>Zipped project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Sıkıştırılmış QElectroTech projesi (*%1)</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech, one database file (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">QElectroTech projesi, tek veritabanı dosyası (*%1)</translation>
     </message>
 </context>
 <context>
@@ -14814,7 +15159,7 @@ Serbestçe yerleştirmek için taşırken Ctrl tuşunu basılı tutun.</translat
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1135"/>
         <source>Check potential types...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Potansiyel tiplerini kontrol et...</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1146"/>
@@ -16964,6 +17309,298 @@ Bundan bir betik yapmak için yapay zekâ asistanınıza sorun: aşağıdaki dü
         <source>Find duplicate signals and components...</source>
         <translation type="unfinished">Yinelenen sinyalleri ve bileşenleri bul...</translation>
     </message>
+    <message>
+        <source>Devices</source>
+        <comment>dock title</comment>
+        <translation type="unfinished">Cihazlar</translation>
+    </message>
+    <message>
+        <source>Title block designer…</source>
+        <translation type="unfinished">Antet tasarımcısı…</translation>
+    </message>
+    <message>
+        <source>Makes the title block of the sheet of ready-made blocks: logo, project, revisions, signatures...</source>
+        <translation type="unfinished">Sayfanın antetini hazır bloklardan oluşturur: logo, proje, revizyonlar, imzalar...</translation>
+    </message>
+    <message>
+        <source>Title block data…</source>
+        <translation type="unfinished">Antet verileri…</translation>
+    </message>
+    <message>
+        <source>The company, the client, the signatures and the revisions the title blocks of the project show</source>
+        <translation type="unfinished">Projenin antetlerinde görünen şirket, müşteri, imzalar ve revizyonlar</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">Otomatik sayfa dizini</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">Projenin başına her sayfanın numarası ve başlığıyla güncel tutulan bir dizin sayfası ekler</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Parça yöneticisi...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">Parça veritabanını yönet: parçalar, teknik veriler, aksesuarlar, görüntüler ve DXF çizimleri</translation>
+    </message>
+    <message>
+        <source>Official parts catalog...</source>
+        <translation type="unfinished">Resmi parça kataloğu...</translation>
+    </message>
+    <message>
+        <source>Searches the official FaseCAD parts catalog and adds the parts chosen to your parts database</source>
+        <translation type="unfinished">Resmi FaseCAD parça kataloğunda arar ve seçilen parçaları parça veritabanınıza ekler</translation>
+    </message>
+    <message>
+        <source>Cable manager...</source>
+        <translation type="unfinished">Kablo yöneticisi...</translation>
+    </message>
+    <message>
+        <source>List every cable of the project with its cores, used or spare, and edit them</source>
+        <translation type="unfinished">Projedeki her kabloyu kullanılan veya yedek damarlarıyla listeler ve düzenler</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Bir kablo planı ekle</translation>
+    </message>
+    <message>
+        <source>Add a table listing every core of the cables, with its colour, wire and ends</source>
+        <translation type="unfinished">Kabloların her damarını rengi, teli ve uçlarıyla listeleyen bir tablo ekle</translation>
+    </message>
+    <message>
+        <source>Export the cable plan to CSV format</source>
+        <translation type="unfinished">Kablo planını CSV biçiminde dışa aktar</translation>
+    </message>
+    <message>
+        <source>Export the cable plan</source>
+        <translation type="unfinished">Kablo planını dışa aktar</translation>
+    </message>
+    <message>
+        <source>cable_plan</source>
+        <translation type="unfinished">kablo_plani</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">CSV dosyaları (*.csv)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">%1 dosyası yazılamıyor.</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Parçaların malzeme listesini ekle</translation>
+    </message>
+    <message>
+        <source>Add a table listing the parts of the devices, grouped by order number, with their quantities</source>
+        <translation type="unfinished">Cihazların parçalarını sipariş numarasına göre gruplayıp miktarlarıyla listeleyen bir tablo ekle</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts to CSV format</source>
+        <translation type="unfinished">Parçaların malzeme listesini CSV biçiminde dışa aktar</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts</source>
+        <translation type="unfinished">Parçaların malzeme listesini dışa aktar</translation>
+    </message>
+    <message>
+        <source>bill_of_materials</source>
+        <translation type="unfinished">malzeme_listesi</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">Projenin kablolarını sırayla yeniden numaralandırır</translation>
+    </message>
+    <message>
+        <source>Number the wires…</source>
+        <translation type="unfinished">İletkenleri numaralandır…</translation>
+    </message>
+    <message>
+        <source>Numbers the wires of the project, of the sheet or the selected ones, by an example or a formula of your own</source>
+        <translation type="unfinished">Projenin, sayfanın veya seçilenlerin iletkenlerini bir örnekle ya da kendi formülünüzle numaralandırır</translation>
+    </message>
+    <message>
+        <source>Calculate sections…</source>
+        <translation type="unfinished">Kesitleri hesapla…</translation>
+    </message>
+    <message>
+        <source>Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it</source>
+        <translation type="unfinished">Her iletkene IEC 60204-1'in istediği kesiti, onu besleyen cihazın korumasına veya en yüksek akımına göre verir</translation>
+    </message>
+    <message>
+        <source>Set version…</source>
+        <translation type="unfinished">Sürümü belirle…</translation>
+    </message>
+    <message>
+        <source>Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before</source>
+        <translation type="unfinished">Projenin sürümünü yükseltir ve önceki sürümden beri eklenen, kaldırılan veya yeniden bağlanan cihazları içeren bir sayfa ekler</translation>
+    </message>
+    <message>
+        <source>Add terminals…</source>
+        <translation type="unfinished">Klemens ekle…</translation>
+    </message>
+    <message>
+        <source>Insert a DXF…</source>
+        <translation type="unfinished">DXF ekle…</translation>
+    </message>
+    <message>
+        <source>Places terminals of a terminal strip, numbered one after the other</source>
+        <translation type="unfinished">Bir klemens dizisinin klemenslerini sırayla numaralandırarak yerleştirir</translation>
+    </message>
+    <message>
+        <source>Reads the lines of a DXF drawing in millimetres and places them on the current sheet</source>
+        <translation type="unfinished">Bir DXF çiziminin çizgilerini milimetre olarak okur ve geçerli sayfaya yerleştirir</translation>
+    </message>
+    <message>
+        <source>Add a wire duct…</source>
+        <translation type="unfinished">Kablo kanalı ekle…</translation>
+    </message>
+    <message>
+        <source>Add a DIN rail</source>
+        <translation type="unfinished">DIN rayı ekle</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate…</source>
+        <translation type="unfinished">Montaj plakası ekle…</translation>
+    </message>
+    <message>
+        <source>Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse</source>
+        <translation type="unfinished">Kanalın genişliğini sorar, sonra pano sayfasına çizer: uzunluğu farenin altında gösterilir</translation>
+    </message>
+    <message>
+        <source>Draws a DIN rail on the cabinet sheet, as long as the mouse says</source>
+        <translation type="unfinished">Pano sayfasına farenin gösterdiği uzunlukta bir DIN rayı çizer</translation>
+    </message>
+    <message>
+        <source>Asks for the size of the mounting plate, then places it on the cabinet sheet</source>
+        <translation type="unfinished">Montaj plakasının boyutunu sorar, sonra pano sayfasına yerleştirir</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet…</source>
+        <translation type="unfinished">Pano ölçeği…</translation>
+    </message>
+    <message>
+        <source>Changes the scale the cabinet sheet is drawn at: the parts keep their measures</source>
+        <translation type="unfinished">Pano sayfasının çizildiği ölçeği değiştirir: parçalar ölçülerini korur</translation>
+    </message>
+    <message>
+        <source>Routing sheet of a mounting plate…</source>
+        <translation type="unfinished">Bir montaj plakasının güzergâh sayfası…</translation>
+    </message>
+    <message>
+        <source>Adds after this cabinet sheet a sheet routing the wires of one of its mounting plates through its ducts</source>
+        <translation type="unfinished">Bu pano sayfasından sonra, montaj plakalarından birinin iletkenlerini kanallarından geçiren bir sayfa ekler</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Güzergâhı hesapla</translation>
+    </message>
+    <message>
+        <source>Gives each wire of the schematic the shortest way through the ducts between the drawings of its devices</source>
+        <translation type="unfinished">Şemadaki her iletkene, cihazlarının çizimleri arasında kanallardan geçen en kısa yolu verir</translation>
+    </message>
+    <message>
+        <source>Export the routing to CSV…</source>
+        <translation type="unfinished">Güzergâhı CSV'ye aktar…</translation>
+    </message>
+    <message>
+        <source>Writes every wire of this routing sheet with its length to a CSV file for a spreadsheet</source>
+        <translation type="unfinished">Bu güzergâh sayfasındaki her iletkeni uzunluğuyla birlikte bir hesap tablosu için CSV dosyasına yazar</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D…</source>
+        <translation type="unfinished">3B pano…</translation>
+    </message>
+    <message>
+        <source>Shows the cabinet of this sheet in 3D, the devices from the STEP models of their parts, and exports it as STEP</source>
+        <translation type="unfinished">Bu sayfanın panosunu 3B gösterir, cihazları parçalarının STEP modellerinden alır ve STEP olarak dışa aktarır</translation>
+    </message>
+    <message>
+        <source>Loading the cabinet in 3D...</source>
+        <translation type="unfinished">Pano 3B olarak yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">3B pano</translation>
+    </message>
+    <message>
+        <source>Thermal analysis of the cabinet…</source>
+        <translation type="unfinished">Panonun ısıl analizi…</translation>
+    </message>
+    <message>
+        <source>Adds up the power loss of the devices of this cabinet, from their parts, and says how hot it gets inside and what cooling it needs</source>
+        <translation type="unfinished">Bu panodaki cihazların güç kaybını parçalarından toplar ve içerinin ne kadar ısındığını ve hangi soğutmanın gerektiğini söyler</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Pano yapımı 2B</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates</source>
+        <translation type="unfinished">Pano yapımı 2B: bir pano yapım sayfasına kablo kanalları, DIN rayları ve montaj plakaları ekler</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Menüler</translation>
+    </message>
+    <message>
+        <source>Command tabs</source>
+        <comment>toolbar title</comment>
+        <translation type="unfinished">Komut sekmeleri</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet (%1)…</source>
+        <translation type="unfinished">Pano ölçeği (%1)…</translation>
+    </message>
+    <message>
+        <source>Snap to the corners and the middles of the sides of the parts</source>
+        <translation type="unfinished">Parçaların köşelerine ve kenar ortalarına yakala</translation>
+    </message>
+    <message>
+        <source>Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is</source>
+        <translation type="unfinished">Taşınan veya çizilen şeyi diğer parçaların köşelerine ve kenar ortalarına yakalar; kapalıyken farenin olduğu yere gider</translation>
+    </message>
+    <message>
+        <source>Insert a DXF</source>
+        <translation type="unfinished">DXF ekle</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? It is where the changes of the next versions start from.</source>
+        <translation type="unfinished">Projenin %1 sürümü belirlensin mi? Sonraki sürümlerin değişiklikleri buradan itibaren sayılır.</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? A sheet with the devices added, removed or rewired since version %2 is added at the end of the project.</source>
+        <translation type="unfinished">Projenin %1 sürümü belirlensin mi? Projenin sonuna %2 sürümünden beri eklenen, kaldırılan veya yeniden bağlanan cihazları içeren bir sayfa eklenir.</translation>
+    </message>
+    <message>
+        <source>Set version</source>
+        <translation type="unfinished">Sürümü belirle</translation>
+    </message>
+    <message>
+        <source>The project is at version %1.</source>
+        <translation type="unfinished">Proje %1 sürümünde.</translation>
+    </message>
+    <message>
+        <source>The project is at version %1; the changes since version %2 are on its last sheet.</source>
+        <translation type="unfinished">Proje %1 sürümünde; %2 sürümünden beri olan değişiklikler son sayfasında.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>%n klemens metin alanı eklendi veya taşındı.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 - delivery</source>
+        <translation type="unfinished">%1 - teslim</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (*%1)</source>
+        <translation type="unfinished">QElectroTech projesi (*%1)</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18130,6 +18767,24 @@ Ne yapmak istersiniz?</translation>
         <source>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Setting up cross references&lt;/p&gt;</source>
         <translation>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Devam eden projeyi açıyor...&lt;/b&gt;&lt;br/&gt;Çapraz referansları ayarlama&lt;/p&gt;</translation>
     </message>
+    <message>
+        <source>QElectroTech project (%1)</source>
+        <translation type="unfinished">QElectroTech projesi (%1)</translation>
+    </message>
+    <message>
+        <source>Cabinet construction</source>
+        <comment>title of a new cabinet folio</comment>
+        <translation type="unfinished">Pano yapımı</translation>
+    </message>
+    <message>
+        <source>Cabinet routing</source>
+        <comment>title of a new routing sheet</comment>
+        <translation type="unfinished">Pano güzergâhı</translation>
+    </message>
+    <message>
+        <source>Not to scale</source>
+        <translation type="unfinished">Ölçeksiz</translation>
+    </message>
 </context>
 <context>
     <name>QETSql</name>
@@ -19248,7 +19903,7 @@ Değiştirmek ister misiniz?</translation>
         <location filename="../sources/titleblock/templatecommands.cpp" line="1196"/>
         <source>Edit Preview</source>
         <comment>undo preview</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Düzenleme önizlemesi</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="131"/>
@@ -19831,12 +20486,12 @@ Değiştirmek ister misiniz?</translation>
     <message>
         <location filename="../sources/qetinformation.cpp" line="447"/>
         <source>Wire number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İletken numarası</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="452"/>
         <source>%1, connection point %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1, bağlantı noktası %2</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="385"/>
@@ -21515,6 +22170,36 @@ Etkinleştirmek için: QElectroTech&apos;i yapılandır &gt; Genel &gt; Projeler
         <comment>spacemouse config: unbound button</comment>
         <translation type="obsolete">(İşlem yok)</translation>
     </message>
+    <message>
+        <source>Change %1</source>
+        <comment>undo caption - %1 is a part of a cabinet</comment>
+        <translation type="unfinished">%1 değiştir</translation>
+    </message>
+    <message>
+        <source>Change the scale of the cabinet to 1:%1</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished">Pano ölçeğini 1:%1 olarak değiştir</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Şablonlar</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Bir kablo planı ekle</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Kablo planı</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Parçaların malzeme listesini ekle</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Malzeme listesi</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -22366,7 +23051,7 @@ hiçbir şey değiştirilmedi.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="41"/>
         <source>Replace conductor properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İletken özelliklerini değiştir</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207"/>
@@ -22392,7 +23077,7 @@ hiçbir şey değiştirilmedi.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="35"/>
         <source>Replace element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öğe özelliklerini değiştir</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="84"/>
@@ -22405,7 +23090,7 @@ hiçbir şey değiştirilmedi.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.cpp" line="122"/>
         <source>Replace sheet properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sayfa özelliklerini değiştir</translation>
     </message>
 </context>
 <context>
@@ -26883,6 +27568,10 @@ Double-click to go to the element</source>
         <source>Level 1 terminal:</source>
         <translation>Klemens seviye 1 :</translation>
     </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Klemens şeması</translation>
+    </message>
 </context>
 <context>
     <name>TerminalStripModel</name>
@@ -27293,7 +27982,7 @@ Ctrl+Return metni hücreye aktarır, Escape metni iptal eder.</translation>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="160"/>
         <source>Alignment:</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hizalama:</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="162"/>
@@ -27305,19 +27994,19 @@ Ctrl+Return metni hücreye aktarır, Escape metni iptal eder.</translation>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="163"/>
         <source>Top Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sol üst</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="164"/>
         <source>Top Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Üst orta</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="165"/>
         <source>Top Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sağ üst</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="166"/>
@@ -27329,25 +28018,25 @@ Ctrl+Return metni hücreye aktarır, Escape metni iptal eder.</translation>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="167"/>
         <source>Bottom Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sol alt</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="168"/>
         <source>Bottom Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alt orta</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="169"/>
         <source>Bottom Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sağ alt</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="170"/>
         <source>Indicate which side of the title border template should be aligned with the edge of the workspace</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Antet şablonunun hangi kenarının çalışma alanının kenarıyla hizalanacağını belirtin</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="211"/>
@@ -28948,6 +29637,4919 @@ Aşağıdaki değişkenler kullanılabilir:
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
         <source>What:</source>
         <translation>Ne ile:</translation>
+    </message>
+</context>
+<context>
+    <name>CommandTabs</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Dosya</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Menüler</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Proje</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Yeni</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">Aç</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Kaydet</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Farklı kaydet</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Kapat</translation>
+    </message>
+    <message>
+        <source>Print and export</source>
+        <translation type="unfinished">Yazdır ve dışa aktar</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">Yazdır</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished">PDF</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Görüntüler</translation>
+    </message>
+    <message>
+        <source>Delivery</source>
+        <translation type="unfinished">Teslim</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished">Özellikler</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Antet</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Antet verileri</translation>
+    </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished">Diller</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">Geçmiş</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">Giriş</translation>
+    </message>
+    <message>
+        <source>Clipboard</source>
+        <translation type="unfinished">Pano</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Yapıştır</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Kes</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopyala</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Sil</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Biçimi kopyala</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Biçimi uygula</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Gezgin</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Kaldır</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Geri al</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Yinele</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Metin</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished">Ekle</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Döndür</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished">Grupla</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Düzen</translation>
+    </message>
+    <message>
+        <source>Wiring list</source>
+        <translation type="unfinished">Kablolama listesi</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">Bul</translation>
+    </message>
+    <message>
+        <source>Find symbol</source>
+        <translation type="unfinished">Sembol bul</translation>
+    </message>
+    <message>
+        <source>Jump to</source>
+        <translation type="unfinished">Git</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Semboller</translation>
+    </message>
+    <message>
+        <source>Last symbol</source>
+        <translation type="unfinished">Son sembol</translation>
+    </message>
+    <message>
+        <source>Connection symbols</source>
+        <translation type="unfinished">Bağlantı sembolleri</translation>
+    </message>
+    <message>
+        <source>Outgoing report</source>
+        <translation type="unfinished">Giden yönlendirme</translation>
+    </message>
+    <message>
+        <source>Incoming report</source>
+        <translation type="unfinished">Gelen yönlendirme</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Cihazlar</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Cihaz</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Klemens</translation>
+    </message>
+    <message>
+        <source>Terminal strip</source>
+        <translation type="unfinished">Klemens dizisi</translation>
+    </message>
+    <message>
+        <source>Part definition</source>
+        <translation type="unfinished">Parça tanımı</translation>
+    </message>
+    <message>
+        <source>Cables / connections</source>
+        <translation type="unfinished">Kablolar / bağlantılar</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation type="unfinished">Bağlantı</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Görüntü</translation>
+    </message>
+    <message>
+        <source>Graphic</source>
+        <translation type="unfinished">Grafik</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Çizgi</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Dikdörtgen</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elips</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished">Yay</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Çoklu çizgi</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Yol</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Ölçü</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Doğrusal</translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished">Zincir</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Pano yapımı 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet
+construction 2D</source>
+        <translation type="unfinished">Pano
+yapımı 2D</translation>
+    </message>
+    <message>
+        <source>Insert
+DXF</source>
+        <translation type="unfinished">DXF
+ekle</translation>
+    </message>
+    <message>
+        <source>Cabinet
+in 3D</source>
+        <translation type="unfinished">Pano
+3B</translation>
+    </message>
+    <message>
+        <source>Thermal
+analysis</source>
+        <translation type="unfinished">Termal
+analiz</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished">Ayna</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished">Çevir</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Çoğalt</translation>
+    </message>
+    <message>
+        <source>Fillet</source>
+        <translation type="unfinished">Yuvarla</translation>
+    </message>
+    <message>
+        <source>Rotate group</source>
+        <translation type="unfinished">Grubu döndür</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Grubu çöz</translation>
+    </message>
+    <message>
+        <source>Group texts</source>
+        <translation type="unfinished">Metinleri grupla</translation>
+    </message>
+    <message>
+        <source>Organize</source>
+        <translation type="unfinished">Düzenle</translation>
+    </message>
+    <message>
+        <source>Align to grid</source>
+        <translation type="unfinished">Izgaraya hizala</translation>
+    </message>
+    <message>
+        <source>Connect aligned</source>
+        <translation type="unfinished">Hizalıları bağla</translation>
+    </message>
+    <message>
+        <source>Place texts</source>
+        <translation type="unfinished">Metinleri yerleştir</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Derinlik</translation>
+    </message>
+    <message>
+        <source>Bring to front</source>
+        <translation type="unfinished">Öne getir</translation>
+    </message>
+    <message>
+        <source>Raise</source>
+        <translation type="unfinished">Yukarı al</translation>
+    </message>
+    <message>
+        <source>Lower</source>
+        <translation type="unfinished">Aşağı al</translation>
+    </message>
+    <message>
+        <source>Send to back</source>
+        <translation type="unfinished">Arkaya gönder</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Seç</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Tümü</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Hiçbiri</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Tersine çevir</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">İletkenler</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished">Metinler</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Görünüm</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished">Mod</translation>
+    </message>
+    <message>
+        <source>Move view</source>
+        <translation type="unfinished">Görünümü taşı</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished">Yakınlaştırma</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">Yakınlaştır</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">Uzaklaştır</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">Sığdır</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation type="unfinished">İçerik</translation>
+    </message>
+    <message>
+        <source>100 %</source>
+        <translation type="unfinished">% 100</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished">Izgara</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Yakalama</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Kılavuzlar</translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished">Artı imleç</translation>
+    </message>
+    <message>
+        <source>Cell lines</source>
+        <translation type="unfinished">Hücre çizgileri</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished">Cetveller</translation>
+    </message>
+    <message>
+        <source>Dark sheet</source>
+        <translation type="unfinished">Koyu sayfa</translation>
+    </message>
+    <message>
+        <source>Panels</source>
+        <translation type="unfinished">Paneller</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Projeler</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Koleksiyonlar</translation>
+    </message>
+    <message>
+        <source>Undo list</source>
+        <translation type="unfinished">Geri alma listesi</translation>
+    </message>
+    <message>
+        <source>Windows</source>
+        <translation type="unfinished">Pencereler</translation>
+    </message>
+    <message>
+        <source>Tabs</source>
+        <translation type="unfinished">Sekmeler</translation>
+    </message>
+    <message>
+        <source>Tile</source>
+        <translation type="unfinished">Döşe</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">Basamakla</translation>
+    </message>
+    <message>
+        <source>Bill of
+materials</source>
+        <translation type="unfinished">Malzeme
+listesi</translation>
+    </message>
+    <message>
+        <source>Parts
+list</source>
+        <translation type="unfinished">Parça
+listesi</translation>
+    </message>
+    <message>
+        <source>Update symbols</source>
+        <translation type="unfinished">Sembolleri güncelle</translation>
+    </message>
+    <message>
+        <source>Redraw symbols</source>
+        <translation type="unfinished">Sembolleri yeniden çiz</translation>
+    </message>
+    <message>
+        <source>Terminals</source>
+        <translation type="unfinished">Klemensler</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Numarala</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Ekstralar</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation type="unfinished">Bağlantılar</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished">Otomatik</translation>
+    </message>
+    <message>
+        <source>Break</source>
+        <translation type="unfinished">Kes</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Sıfırla</translation>
+    </message>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Kesitleri hesapla</translation>
+    </message>
+    <message>
+        <source>Cables</source>
+        <translation type="unfinished">Kablolar</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Kablo planı</translation>
+    </message>
+    <message>
+        <source>Bridges</source>
+        <translation type="unfinished">Köprüler</translation>
+    </message>
+    <message>
+        <source>Terminal bridges</source>
+        <translation type="unfinished">Klemens köprüleri</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Araçlar</translation>
+    </message>
+    <message>
+        <source>Reports</source>
+        <translation type="unfinished">Raporlar</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">İçindekiler</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Malzeme listesi</translation>
+    </message>
+    <message>
+        <source>Parts list</source>
+        <translation type="unfinished">Parça listesi</translation>
+    </message>
+    <message>
+        <source>Cable list</source>
+        <translation type="unfinished">Kablo listesi</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Dışa aktar</translation>
+    </message>
+    <message>
+        <source>Wire names</source>
+        <translation type="unfinished">İletken adları</translation>
+    </message>
+    <message>
+        <source>Database</source>
+        <translation type="unfinished">Veritabanı</translation>
+    </message>
+    <message>
+        <source>Checks</source>
+        <translation type="unfinished">Denetimler</translation>
+    </message>
+    <message>
+        <source>Potentials</source>
+        <translation type="unfinished">Potansiyeller</translation>
+    </message>
+    <message>
+        <source>Duplicate labels</source>
+        <translation type="unfinished">Yinelenen etiketler</translation>
+    </message>
+    <message>
+        <source>Clean project</source>
+        <translation type="unfinished">Projeyi temizle</translation>
+    </message>
+    <message>
+        <source>Scripts</source>
+        <translation type="unfinished">Betikler</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished">Çalıştır</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished">Kaydet</translation>
+    </message>
+    <message>
+        <source>Manage</source>
+        <translation type="unfinished">Yönet</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished">Klasör</translation>
+    </message>
+    <message>
+        <source>Master data</source>
+        <translation type="unfinished">Ana veriler</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Parçalar</translation>
+    </message>
+    <message>
+        <source>Parts
+manager</source>
+        <translation type="unfinished">Parça
+yöneticisi</translation>
+    </message>
+    <message>
+        <source>Official
+catalog</source>
+        <translation type="unfinished">Resmi
+katalog</translation>
+    </message>
+    <message>
+        <source>Search command</source>
+        <translation type="unfinished">Komut ara</translation>
+    </message>
+    <message>
+        <source>Fold or unfold the tabs</source>
+        <translation type="unfinished">Sekmeleri daralt veya genişlet</translation>
+    </message>
+    <message>
+        <source>%1: coming soon</source>
+        <translation type="unfinished">%1: yakında</translation>
+    </message>
+    <message>
+        <source>Versions</source>
+        <translation type="unfinished">Sürümler</translation>
+    </message>
+    <message>
+        <source>Set
+version</source>
+        <translation type="unfinished">Sürümü
+belirle</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButtons</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Hata bildir</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Oturum aç</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Destek iste</translation>
+    </message>
+    <message>
+        <source>Session closed</source>
+        <translation type="unfinished">Oturum kapandı</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer, so this session was closed: one computer at a time for each account. Sign in again to go on here.</source>
+        <translation type="unfinished">Hesabınız başka bir bilgisayarda açıldı, bu yüzden bu oturum kapatıldı: her hesap için aynı anda bir bilgisayar. Burada devam etmek için yeniden oturum açın.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">fasecad.com hizmetleri henüz açık değil</translation>
+    </message>
+    <message>
+        <source>Signed in as %1, subscription until %2. Click to change or sign out.</source>
+        <translation type="unfinished">%1 olarak oturum açıldı, abonelik %2 tarihine kadar. Değiştirmek veya oturumu kapatmak için tıklayın.</translation>
+    </message>
+    <message>
+        <source>Signed in as %1. Click to change or sign out.</source>
+        <translation type="unfinished">%1 olarak oturum açıldı. Değiştirmek veya oturumu kapatmak için tıklayın.</translation>
+    </message>
+    <message>
+        <source>Sign in to your fasecad.com account</source>
+        <translation type="unfinished">fasecad.com hesabınızla oturum açın</translation>
+    </message>
+    <message>
+        <source>Sign in with an account with a subscription to use it</source>
+        <translation type="unfinished">Kullanmak için abonelikli bir hesapla oturum açın</translation>
+    </message>
+    <message>
+        <source>Your account has no subscription running</source>
+        <translation type="unfinished">Hesabınızın etkin bir aboneliği yok</translation>
+    </message>
+    <message>
+        <source>Tell the FaseCAD team about something that does not work</source>
+        <translation type="unfinished">FaseCAD ekibine çalışmayan bir şeyi bildirin</translation>
+    </message>
+    <message>
+        <source>Ask the FaseCAD team for help</source>
+        <translation type="unfinished">FaseCAD ekibinden yardım isteyin</translation>
+    </message>
+    <message>
+        <source>another computer</source>
+        <translation type="unfinished">başka bir bilgisayar</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Hesabınız %1 üzerinde açık. Bir hesap aynı anda yalnızca bir bilgisayarda kullanılabilir: orada kapatıp burada devam edilsin mi?</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1 since %2. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Hesabınız %2 tarihinden beri %1 üzerinde açık. Bir hesap aynı anda yalnızca bir bilgisayarda kullanılabilir: orada kapatıp burada devam edilsin mi?</translation>
+    </message>
+    <message>
+        <source>Account in use</source>
+        <translation type="unfinished">Hesap kullanımda</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantPanel</name>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">YZ</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Kapat</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Oturum aç...</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project: "add a contactor -KM1 with its coil and a stop and start button", "number the wires of this folio"... It works on the folio shown, and each change it makes can be undone.</source>
+        <translation type="unfinished">YZ'ye açık projede ne yapacağını söyleyin: "bobini ve başlat-durdur butonlarıyla bir -KM1 kontaktörü ekle", "bu sayfanın iletkenlerini numaralandır"... Gösterilen sayfada çalışır ve yaptığı her değişiklik geri alınabilir.</translation>
+    </message>
+    <message>
+        <source>Write an instruction... (Enter sends, Shift+Enter a new line)</source>
+        <translation type="unfinished">Bir talimat yazın... (Enter gönderir, Shift+Enter yeni satır)</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Gönder</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Durdur</translation>
+    </message>
+    <message>
+        <source>New conversation</source>
+        <translation type="unfinished">Yeni sohbet</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project</source>
+        <translation type="unfinished">YZ'ye açık projede ne yapacağını söyleyin</translation>
+    </message>
+    <message>
+        <source>AI:</source>
+        <translation type="unfinished">YZ:</translation>
+    </message>
+    <message>
+        <source>nothing changed</source>
+        <translation type="unfinished">hiçbir şey değişmedi</translation>
+    </message>
+    <message>
+        <source>Stopped.</source>
+        <translation type="unfinished">Durduruldu.</translation>
+    </message>
+    <message>
+        <source>You:</source>
+        <translation type="unfinished">Siz:</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantSession</name>
+    <message>
+        <source>Thinking...</source>
+        <translation type="unfinished">Düşünüyor...</translation>
+    </message>
+    <message>
+        <source>Working on the project...</source>
+        <translation type="unfinished">Proje üzerinde çalışıyor...</translation>
+    </message>
+    <message>
+        <source>Your session was closed: the account is open on another computer (Sign in...).</source>
+        <translation type="unfinished">Oturumunuz kapatıldı: hesap başka bir bilgisayarda açık (Oturum aç...).</translation>
+    </message>
+    <message>
+        <source>The AI service does not accept this user and password (Sign in...).</source>
+        <translation type="unfinished">YZ hizmeti bu kullanıcıyı ve parolayı kabul etmiyor (Oturum aç...).</translation>
+    </message>
+    <message>
+        <source>The AI service asks for your user and password (Sign in...).</source>
+        <translation type="unfinished">YZ hizmeti kullanıcı adınızı ve parolanızı istiyor (Oturum aç...).</translation>
+    </message>
+    <message>
+        <source>The AI is part of FaseCAD Pro: subscribe at my.fasecad.com, then sign in again.</source>
+        <translation type="unfinished">YZ, FaseCAD Pro'nun bir parçasıdır: my.fasecad.com adresinden abone olun, sonra yeniden oturum açın.</translation>
+    </message>
+    <message>
+        <source>The AI is busy, or the AI included this month is used up: try again in a while.</source>
+        <translation type="unfinished">YZ meşgul ya da bu ay dahil olan YZ kullanımı bitti: bir süre sonra yeniden deneyin.</translation>
+    </message>
+    <message>
+        <source>The AI service answered %1.</source>
+        <translation type="unfinished">YZ hizmeti %1 yanıtını verdi.</translation>
+    </message>
+    <message>
+        <source>The answer of the AI was cut off: %1</source>
+        <translation type="unfinished">YZ'nin yanıtı kesildi: %1</translation>
+    </message>
+    <message>
+        <source>Stopped after %1 steps: say how to go on.</source>
+        <translation type="unfinished">%1 adımdan sonra durdu: nasıl devam edileceğini söyleyin.</translation>
+    </message>
+    <message>
+        <source>The AI declined to do this.</source>
+        <translation type="unfinished">YZ bunu yapmayı reddetti.</translation>
+    </message>
+    <message>
+        <source>The answer was too long and was cut off.</source>
+        <translation type="unfinished">Yanıt çok uzundu ve kesildi.</translation>
+    </message>
+    <message>
+        <source>No project is open.</source>
+        <translation type="unfinished">Açık proje yok.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">YZ</translation>
+    </message>
+    <message>
+        <source>AI: %1</source>
+        <translation type="unfinished">YZ: %1</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3d</name>
+    <message>
+        <source>Box %1 × %2 × %3 mm</source>
+        <comment>a device without STEP, by its mounting measures</comment>
+        <translation type="unfinished">Kutu %1 × %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3dWindow</name>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">3B pano</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D: %1</source>
+        <translation type="unfinished">3B pano: %1</translation>
+    </message>
+    <message>
+        <source>Show everything</source>
+        <translation type="unfinished">Her şeyi göster</translation>
+    </message>
+    <message>
+        <source>Duct covers</source>
+        <translation type="unfinished">Kanal kapakları</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Muhafaza</translation>
+    </message>
+    <message>
+        <source>From the parts database…</source>
+        <translation type="unfinished">Parça veritabanından…</translation>
+    </message>
+    <message>
+        <source>STEP file from the disk…</source>
+        <translation type="unfinished">Diskten STEP dosyası…</translation>
+    </message>
+    <message>
+        <source>Measures by hand…</source>
+        <translation type="unfinished">Elle ölçüler…</translation>
+    </message>
+    <message>
+        <source>Turn it 90° about its plate</source>
+        <translation type="unfinished">Plakası etrafında 90° döndür</translation>
+    </message>
+    <message>
+        <source>Turn the enclosure</source>
+        <translation type="unfinished">Muhafazayı döndür</translation>
+    </message>
+    <message>
+        <source>No enclosure</source>
+        <translation type="unfinished">Muhafaza yok</translation>
+    </message>
+    <message>
+        <source>Take the enclosure away</source>
+        <translation type="unfinished">Muhafazayı kaldır</translation>
+    </message>
+    <message>
+        <source>Export as STEP…</source>
+        <translation type="unfinished">STEP olarak dışa aktar…</translation>
+    </message>
+    <message>
+        <source>Mounting clearances</source>
+        <translation type="unfinished">Montaj mesafeleri</translation>
+    </message>
+    <message>
+        <source>The free space the part of each device asks around it in the parts database, here and on the sheet</source>
+        <translation type="unfinished">Her cihazın parçasının parça veritabanında etrafında istediği boş alan, burada ve sayfada</translation>
+    </message>
+    <message>
+        <source>Check the room</source>
+        <translation type="unfinished">Yeri kontrol et</translation>
+    </message>
+    <message>
+        <source>Parts in each other, parts in the free space a device asks, devices through the enclosure or keeping its door from closing</source>
+        <translation type="unfinished">İç içe parçalar, bir cihazın boş alanındaki parçalar, muhafazayı delen veya kapağın kapanmasını engelleyen cihazlar</translation>
+    </message>
+    <message>
+        <source>Reading STEP models… %v/%m</source>
+        <translation type="unfinished">STEP modelleri okunuyor… %v/%m</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Gezgin</translation>
+    </message>
+    <message>
+        <source>Room</source>
+        <translation type="unfinished">Yer</translation>
+    </message>
+    <message>
+        <source>Left button: turn. Right button: move, or a click for what to do with a part. Wheel: nearer. Double click: everything.</source>
+        <translation type="unfinished">Sol tuş: döndür. Sağ tuş: taşı ya da bir parçayla ne yapılacağı için tıkla. Tekerlek: yaklaş. Çift tık: her şey.</translation>
+    </message>
+    <message>
+        <source>Turn 90°</source>
+        <translation type="unfinished">90° döndür</translation>
+    </message>
+    <message>
+        <source>Another side out</source>
+        <translation type="unfinished">Başka bir yüz dışarıda</translation>
+    </message>
+    <message>
+        <source>For a model drawn with other axes: which of its sides looks out of the face</source>
+        <translation type="unfinished">Başka eksenlerle çizilmiş bir model için: hangi yüzünün yüzeyden dışarı baktığı</translation>
+    </message>
+    <message>
+        <source>How far it goes into the sheet: a push button through the door</source>
+        <translation type="unfinished">Saca ne kadar girdiği: kapaktan geçen bir buton</translation>
+    </message>
+    <message>
+        <source>Take it out of 3D</source>
+        <translation type="unfinished">3B'den çıkar</translation>
+    </message>
+    <message>
+        <source>Sink:</source>
+        <translation type="unfinished">Gömme:</translation>
+    </message>
+    <message>
+        <source>Turn %1</source>
+        <translation type="unfinished">%1 döndür</translation>
+    </message>
+    <message>
+        <source>Sink %1</source>
+        <translation type="unfinished">%1 göm</translation>
+    </message>
+    <message>
+        <source>Take %1 out of 3D</source>
+        <translation type="unfinished">%1 öğesini 3B'den çıkar</translation>
+    </message>
+    <message>
+        <source>Move %1</source>
+        <translation type="unfinished">%1 taşı</translation>
+    </message>
+    <message>
+        <source>Place in 3D</source>
+        <translation type="unfinished">3B'ye yerleştir</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet first</source>
+        <translation type="unfinished">Önce montaj plakasını sayfaya çizin</translation>
+    </message>
+    <message>
+        <source>Click the face where %1 goes: the door, a side, the roof, the plate. Esc: no.</source>
+        <translation type="unfinished">%1 öğesinin gideceği yüze tıklayın: kapak, bir yan, tavan, plaka. Esc: hayır.</translation>
+    </message>
+    <message>
+        <source>Place %1 in 3D</source>
+        <translation type="unfinished">%1 öğesini 3B'ye yerleştir</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n parça</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with a STEP model</source>
+        <translation type="unfinished">
+            <numerusform>%n STEP modelli</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Without OpenCASCADE the devices are boxes.</source>
+        <translation type="unfinished">OpenCASCADE olmadan cihazlar kutudur.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montaj plakası</translation>
+    </message>
+    <message>
+        <source>Wire ducts</source>
+        <translation type="unfinished">Kablo kanalları</translation>
+    </message>
+    <message>
+        <source>DIN rails</source>
+        <translation type="unfinished">DIN rayları</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Cihazlar</translation>
+    </message>
+    <message>
+        <source>Enclosure: %1</source>
+        <translation type="unfinished">Muhafaza: %1</translation>
+    </message>
+    <message>
+        <source>Reading…</source>
+        <translation type="unfinished">Okunuyor…</translation>
+    </message>
+    <message>
+        <source>Not read</source>
+        <translation type="unfinished">Okunmadı</translation>
+    </message>
+    <message>
+        <source>mounting plate</source>
+        <translation type="unfinished">montaj plakası</translation>
+    </message>
+    <message>
+        <source>in 3D</source>
+        <translation type="unfinished">3B'de</translation>
+    </message>
+    <message>
+        <source>Unplaced 3D</source>
+        <translation type="unfinished">3B'ye yerleştirilmemiş</translation>
+    </message>
+    <message>
+        <source>Devices of the schematic with a STEP model and no drawing on a cabinet sheet: right click, Place in 3D</source>
+        <translation type="unfinished">STEP modeli olan ve bir pano sayfasında çizimi olmayan şema cihazları: sağ tık, 3B'ye yerleştir</translation>
+    </message>
+    <message>
+        <source>Hide %1</source>
+        <translation type="unfinished">%1 gizle</translation>
+    </message>
+    <message>
+        <source>Show %1</source>
+        <translation type="unfinished">%1 göster</translation>
+    </message>
+    <message>
+        <source>Room enough: no part in another, none in the free space a device asks</source>
+        <translation type="unfinished">Yeterli yer: hiçbir parça diğerinin içinde değil, hiçbiri bir cihazın boş alanında değil</translation>
+    </message>
+    <message>
+        <source>No enclosure takes the plate: its walls and its door are not checked</source>
+        <translation type="unfinished">Plakayı alan bir muhafaza yok: duvarları ve kapağı kontrol edilmiyor</translation>
+    </message>
+    <message>
+        <source>STEP models still being read: their boxes until then</source>
+        <translation type="unfinished">STEP modelleri hâlâ okunuyor: o zamana kadar kutuları</translation>
+    </message>
+    <message numerus="yes">
+        <source>Room: %n problem(s)</source>
+        <translation type="unfinished">
+            <numerusform>Yer: %n sorun</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Click the part of the enclosure which is its mounting plate: the plate of the sheet takes its size. Esc: no.</source>
+        <translation type="unfinished">Muhafazanın montaj plakası olan parçasına tıklayın: sayfanın plakası onun boyutunu alır. Esc: hayır.</translation>
+    </message>
+    <message>
+        <source>The mounting plate is %1: %2 × %3 mm.</source>
+        <translation type="unfinished">Montaj plakası %1: %2 × %3 mm.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be the mounting plate.</source>
+        <translation type="unfinished">%1 montaj plakası olamaz.</translation>
+    </message>
+    <message>
+        <source>no STEP model in the parts database: a box</source>
+        <translation type="unfinished">parça veritabanında STEP modeli yok: bir kutu</translation>
+    </message>
+    <message>
+        <source>STEP: %1</source>
+        <translation type="unfinished">STEP: %1</translation>
+    </message>
+    <message>
+        <source>of the enclosure</source>
+        <translation type="unfinished">muhafazanın</translation>
+    </message>
+    <message>
+        <source>right click its mounting plate: Use as the mounting plate</source>
+        <translation type="unfinished">montaj plakasına sağ tık: Montaj plakası olarak kullan</translation>
+    </message>
+    <message>
+        <source>Use as the mounting plate</source>
+        <translation type="unfinished">Montaj plakası olarak kullan</translation>
+    </message>
+    <message>
+        <source>The plate chosen is %1 × %2 mm, the plate of the sheet %3 × %4 mm. Give the plate of the sheet the size of the one chosen?</source>
+        <translation type="unfinished">Seçilen plaka %1 × %2 mm, sayfanın plakası %3 × %4 mm. Sayfanın plakasına seçilenin boyutu verilsin mi?</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">Göster</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">Gizle</translation>
+    </message>
+    <message>
+        <source>Change the enclosure</source>
+        <translation type="unfinished">Muhafazayı değiştir</translation>
+    </message>
+    <message>
+        <source>Right click the mounting plate of the enclosure, in the navigator or in the view: Use as the mounting plate.</source>
+        <translation type="unfinished">Gezginde veya görünümde muhafazanın montaj plakasına sağ tıklayın: Montaj plakası olarak kullan.</translation>
+    </message>
+    <message>
+        <source>Use %1 as the mounting plate</source>
+        <translation type="unfinished">%1 öğesini montaj plakası olarak kullan</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Parça veritabanı kullanılmıyor.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database.</source>
+        <translation type="unfinished">%1 %2 için parça veritabanında STEP modeli yok.</translation>
+    </message>
+    <message>
+        <source>STEP of the enclosure</source>
+        <translation type="unfinished">Muhafazanın STEP'i</translation>
+    </message>
+    <message>
+        <source>STEP files (*.step *.stp)</source>
+        <translation type="unfinished">STEP dosyaları (*.step *.stp)</translation>
+    </message>
+    <message>
+        <source>Enclosure by measures</source>
+        <translation type="unfinished">Ölçülere göre muhafaza</translation>
+    </message>
+    <message>
+        <source>Height of the enclosure:</source>
+        <translation type="unfinished">Muhafazanın yüksekliği:</translation>
+    </message>
+    <message>
+        <source>Width of the enclosure:</source>
+        <translation type="unfinished">Muhafazanın genişliği:</translation>
+    </message>
+    <message>
+        <source>Depth of the enclosure:</source>
+        <translation type="unfinished">Muhafazanın derinliği:</translation>
+    </message>
+    <message>
+        <source>Height of the plate:</source>
+        <translation type="unfinished">Plakanın yüksekliği:</translation>
+    </message>
+    <message>
+        <source>Width of the plate:</source>
+        <translation type="unfinished">Plakanın genişliği:</translation>
+    </message>
+    <message>
+        <source>A hollow box of %1 mm sheet, open at the front, the plate against its back.</source>
+        <translation type="unfinished">%1 mm sactan, önü açık, plakası arkasına dayalı içi boş bir kutu.</translation>
+    </message>
+    <message>
+        <source>cabinet</source>
+        <translation type="unfinished">pano</translation>
+    </message>
+    <message>
+        <source>Export the cabinet as STEP</source>
+        <translation type="unfinished">Panoyu STEP olarak dışa aktar</translation>
+    </message>
+    <message>
+        <source>Written: %1</source>
+        <translation type="unfinished">Yazıldı: %1</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 okunamadı.
+
+%2</translation>
+    </message>
+    <message>
+        <source>Box %1 × %2 mm</source>
+        <comment>a device drawn by its mounting measures</comment>
+        <translation type="unfinished">Kutu %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDialogs</name>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Yatay</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Dikey</translation>
+    </message>
+    <message>
+        <source>Add a wire duct</source>
+        <translation type="unfinished">Kablo kanalı ekle</translation>
+    </message>
+    <message>
+        <source>Width (mm):</source>
+        <translation type="unfinished">Genişlik (mm):</translation>
+    </message>
+    <message>
+        <source>Height (mm):</source>
+        <translation type="unfinished">Yükseklik (mm):</translation>
+    </message>
+    <message>
+        <source>Then draw the duct on the sheet: click where it starts, click again where it ends.</source>
+        <translation type="unfinished">Sonra kanalı sayfaya çizin: başladığı yere, sonra bittiği yere tıklayın.</translation>
+    </message>
+    <message>
+        <source>Type the width and the height in millimetres, for example 40.</source>
+        <translation type="unfinished">Genişliği ve yüksekliği milimetre olarak yazın, örneğin 40.</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate</source>
+        <translation type="unfinished">Montaj plakası ekle</translation>
+    </message>
+    <message>
+        <source>By measures</source>
+        <translation type="unfinished">Ölçülere göre</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure of the parts database</source>
+        <translation type="unfinished">Parça veritabanındaki bir muhafazanın plakası</translation>
+    </message>
+    <message>
+        <source>Choose the enclosure...</source>
+        <translation type="unfinished">Muhafazayı seç...</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General)</source>
+        <translation type="unfinished">Parça veritabanı kullanılmıyor (Ayarlar &gt; Genel)</translation>
+    </message>
+    <message>
+        <source>Other size</source>
+        <translation type="unfinished">Başka boyut</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>Usual sizes:</source>
+        <translation type="unfinished">Yaygın boyutlar:</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Genişlik:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Yükseklik:</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes.</source>
+        <translation type="unfinished">Sonra plakanın gideceği yere, sayfaya tıklayın.</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes: the enclosure opens in 3D, click its mounting plate there and the plate takes its size.</source>
+        <translation type="unfinished">Sonra plakanın gideceği yere, sayfaya tıklayın: muhafaza 3B'de açılır, orada montaj plakasına tıklayın ve plaka onun boyutunu alır.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database: its plate cannot be chosen in 3D.</source>
+        <translation type="unfinished">%1 %2 için parça veritabanında STEP modeli yok: plakası 3B'de seçilemez.</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet</source>
+        <translation type="unfinished">Pano ölçeği</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Ölçek:</translation>
+    </message>
+    <message>
+        <source>At 1:5, 5 mm of the cabinet take 1 mm of the sheet. The parts keep their measures: they are drawn again at the new scale.</source>
+        <translation type="unfinished">1:5 ölçeğinde panonun 5 mm'si sayfanın 1 mm'sini kaplar. Parçalar ölçülerini korur: yeni ölçekte yeniden çizilirler.</translation>
+    </message>
+    <message>
+        <source>Type a scale such as 1:5.</source>
+        <translation type="unfinished">1:5 gibi bir ölçek yazın.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montaj plakası</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN rayı</translation>
+    </message>
+    <message>
+        <source>Profile:</source>
+        <translation type="unfinished">Profil:</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Uzunluk:</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished">Yön:</translation>
+    </message>
+    <message>
+        <source>Wire duct</source>
+        <translation type="unfinished">Kablo kanalı</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">DXF çizimleri (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 okunamadı.
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF: %1 çizgi çizildi; dışarıda kalan: %2</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetEnclosure</name>
+    <message>
+        <source>The measures of the enclosure do not make a box.</source>
+        <translation type="unfinished">Muhafazanın ölçüleri bir kutu oluşturmuyor.</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Muhafaza</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Arka</translation>
+    </message>
+    <message>
+        <source>Left side</source>
+        <translation type="unfinished">Sol yan</translation>
+    </message>
+    <message>
+        <source>Right side</source>
+        <translation type="unfinished">Sağ yan</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Tavan</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Taban</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Montaj plakası</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">%1 okunamıyor: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Parça veritabanı kullanılmıyor.</translation>
+    </message>
+    <message>
+        <source>The parts database has no part %1.</source>
+        <translation type="unfinished">Parça veritabanında %1 parçası yok.</translation>
+    </message>
+    <message>
+        <source>The part %1 has no STEP model.</source>
+        <translation type="unfinished">%1 parçasının STEP modeli yok.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetItem</name>
+    <message>
+        <source>a mounting plate</source>
+        <translation type="unfinished">bir montaj plakası</translation>
+    </message>
+    <message>
+        <source>a DIN rail</source>
+        <translation type="unfinished">bir DIN rayı</translation>
+    </message>
+    <message>
+        <source>a wire duct</source>
+        <translation type="unfinished">bir kablo kanalı</translation>
+    </message>
+    <message>
+        <source>a DXF drawing</source>
+        <translation type="unfinished">bir DXF çizimi</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>profile and length of a DIN rail</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1×%2 · %3 mm</source>
+        <comment>width, height and length of a wire duct</comment>
+        <translation type="unfinished">%1×%2 · %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>width and length of a wire duct</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>file, width and height of a DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting</name>
+    <message>
+        <source>The mounting plate of this routing sheet is no longer on its cabinet sheet.</source>
+        <translation type="unfinished">Bu güzergâh sayfasının montaj plakası artık pano sayfasında değil.</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">İletken</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Nereden</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Klemens</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Nereye</translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Kesit</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Renk</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Length (mm)</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Uzunluk (mm)</translation>
+    </message>
+    <message>
+        <source>Way</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Yol</translation>
+    </message>
+    <message>
+        <source>Routing sheet</source>
+        <translation type="unfinished">Güzergâh sayfası</translation>
+    </message>
+    <message>
+        <source>Put a mounting plate on this cabinet sheet first: a routing sheet shows the ways of the wires on one plate.</source>
+        <translation type="unfinished">Önce bu pano sayfasına bir montaj plakası koyun: güzergâh sayfası bir plakadaki iletkenlerin yollarını gösterir.</translation>
+    </message>
+    <message>
+        <source>Plate %1: %2 × %3 mm</source>
+        <comment>a mounting plate to route</comment>
+        <translation type="unfinished">Plaka %1: %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>Mounting plate to route:</source>
+        <translation type="unfinished">Güzergâhı çıkarılacak montaj plakası:</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Güzergâhı hesapla</translation>
+    </message>
+    <message numerus="yes">
+        <source>Keep the %n way(s) changed by hand?</source>
+        <translation type="unfinished">
+            <numerusform>Elle değiştirilen %n yol korunsun mu?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) routed on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>Bu plakada %n iletkenin güzergâhı çıkarıldı.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n way(s) changed by hand kept.</source>
+        <translation type="unfinished">
+            <numerusform>Elle değiştirilen %n yol korundu.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) with no duct between their devices: a straight line, in red.</source>
+        <translation type="unfinished">
+            <numerusform>Cihazları arasında kanal olmayan %n iletken: kırmızı düz bir çizgi.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) left out: one of their ends has no drawing on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>%n iletken dışarıda kaldı: uçlarından birinin bu plakada çizimi yok.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Export the routing</source>
+        <translation type="unfinished">Güzergâhı dışa aktar</translation>
+    </message>
+    <message>
+        <source>This routing sheet has no way yet: calculate the routing first.</source>
+        <translation type="unfinished">Bu güzergâh sayfasında henüz yol yok: önce güzergâhı hesaplayın.</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">CSV dosyaları (*.csv)</translation>
+    </message>
+    <message>
+        <source>Unable to open the file for writing.</source>
+        <translation type="unfinished">Dosya yazmak için açılamıyor.</translation>
+    </message>
+    <message>
+        <source>Wire %1</source>
+        <translation type="unfinished">İletken %1</translation>
+    </message>
+    <message>
+        <source>Length: %1 mm</source>
+        <translation type="unfinished">Uzunluk: %1 mm</translation>
+    </message>
+    <message>
+        <source>Reset the position</source>
+        <translation type="unfinished">Konumu sıfırla</translation>
+    </message>
+    <message numerus="yes">
+        <source>Reset the position of %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n iletkenin konumunu sıfırla</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Change the way of a wire</source>
+        <translation type="unfinished">Bir iletkenin yolunu değiştir</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting::Route</name>
+    <message>
+        <source>changed by hand</source>
+        <translation type="unfinished">elle değiştirildi</translation>
+    </message>
+    <message>
+        <source>through the ducts</source>
+        <translation type="unfinished">kanallardan</translation>
+    </message>
+    <message>
+        <source>no duct: straight line</source>
+        <translation type="unfinished">kanal yok: düz çizgi</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetSpace</name>
+    <message>
+        <source>the duct %1</source>
+        <translation type="unfinished">%1 kanalı</translation>
+    </message>
+    <message>
+        <source>the rail %1</source>
+        <translation type="unfinished">%1 rayı</translation>
+    </message>
+    <message>
+        <source>above</source>
+        <translation type="unfinished">üstte</translation>
+    </message>
+    <message>
+        <source>below</source>
+        <translation type="unfinished">altta</translation>
+    </message>
+    <message>
+        <source>on its left</source>
+        <translation type="unfinished">solunda</translation>
+    </message>
+    <message>
+        <source>on its right</source>
+        <translation type="unfinished">sağında</translation>
+    </message>
+    <message>
+        <source>in front</source>
+        <translation type="unfinished">önde</translation>
+    </message>
+    <message>
+        <source>behind</source>
+        <translation type="unfinished">arkada</translation>
+    </message>
+    <message>
+        <source>%1 and %2 are %3 mm into each other</source>
+        <translation type="unfinished">%1 ve %2 birbirine %3 mm giriyor</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: the enclosure leaves %4 mm too few</source>
+        <translation type="unfinished">%1 %3 tarafında %2 mm boşluk istiyor: muhafaza %4 mm eksik bırakıyor</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: %4 is %5 mm too near</source>
+        <translation type="unfinished">%1 %3 tarafında %2 mm boşluk istiyor: %4 %5 mm fazla yakın</translation>
+    </message>
+    <message>
+        <source>%1 keeps the door from closing: it is %2 mm too deep</source>
+        <translation type="unfinished">%1 kapağın kapanmasını engelliyor: %2 mm fazla derin</translation>
+    </message>
+    <message>
+        <source>%1 goes %2 mm through the enclosure %3</source>
+        <translation type="unfinished">%1 muhafazadan %2 mm taşıyor %3</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetStep</name>
+    <message>
+        <source>The STEP file cannot be read.</source>
+        <translation type="unfinished">STEP dosyası okunamıyor.</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no shape.</source>
+        <translation type="unfinished">STEP dosyasında şekil yok.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished">Parça %1</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no surface.</source>
+        <translation type="unfinished">STEP dosyasında yüzey yok.</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot read STEP files.</source>
+        <translation type="unfinished">FaseCAD OpenCASCADE olmadan derlendi: STEP dosyalarını okuyamaz.</translation>
+    </message>
+    <message>
+        <source>The cabinet could not be written as STEP.</source>
+        <translation type="unfinished">Pano STEP olarak yazılamadı.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written: %2</source>
+        <translation type="unfinished">%1 yazılamıyor: %2</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot write STEP files.</source>
+        <translation type="unfinished">FaseCAD OpenCASCADE olmadan derlendi: STEP dosyalarını yazamaz.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermal</name>
+    <message>
+        <source>Free-standing, every side free</source>
+        <translation type="unfinished">Serbest duran, tüm yanları açık</translation>
+    </message>
+    <message>
+        <source>Against a wall</source>
+        <translation type="unfinished">Duvara dayalı</translation>
+    </message>
+    <message>
+        <source>At the end of a row</source>
+        <translation type="unfinished">Sıranın sonunda</translation>
+    </message>
+    <message>
+        <source>At the end of a row, against a wall</source>
+        <translation type="unfinished">Sıranın sonunda, duvara dayalı</translation>
+    </message>
+    <message>
+        <source>In the middle of a row</source>
+        <translation type="unfinished">Sıranın ortasında</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall</source>
+        <translation type="unfinished">Sıranın ortasında, duvara dayalı</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall, its top covered</source>
+        <translation type="unfinished">Sıranın ortasında, duvara dayalı, üstü kapalı</translation>
+    </message>
+    <message>
+        <source>Painted sheet steel (5.5 W/m²K)</source>
+        <translation type="unfinished">Boyalı çelik sac (5,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Stainless steel (4.5 W/m²K)</source>
+        <translation type="unfinished">Paslanmaz çelik (4,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Aluminium (12 W/m²K)</source>
+        <translation type="unfinished">Alüminyum (12 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Plastic (3.5 W/m²K)</source>
+        <translation type="unfinished">Plastik (3,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet to see where the heat is.</source>
+        <translation type="unfinished">Isının nerede olduğunu görmek için montaj plakasını sayfaya çizin.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermalDialog</name>
+    <message>
+        <source>Thermal analysis of the cabinet</source>
+        <translation type="unfinished">Panonun ısıl analizi</translation>
+    </message>
+    <message>
+        <source> mm</source>
+        <translation type="unfinished"> mm</translation>
+    </message>
+    <message>
+        <source>Enclosure (width × height × depth):</source>
+        <translation type="unfinished">Muhafaza (genişlik × yükseklik × derinlik):</translation>
+    </message>
+    <message>
+        <source>Where it stands:</source>
+        <translation type="unfinished">Duruşu:</translation>
+    </message>
+    <message>
+        <source>Enclosure made of:</source>
+        <translation type="unfinished">Muhafaza malzemesi:</translation>
+    </message>
+    <message>
+        <source> °C</source>
+        <translation type="unfinished"> °C</translation>
+    </message>
+    <message>
+        <source>Temperature outside:</source>
+        <translation type="unfinished">Dış sıcaklık:</translation>
+    </message>
+    <message>
+        <source>The highest the devices may have inside, often 35 to 40 °C</source>
+        <translation type="unfinished">Cihazların içeride olabileceği en yüksek sıcaklık, çoğu zaman 35 ila 40 °C</translation>
+    </message>
+    <message>
+        <source>Highest temperature inside:</source>
+        <translation type="unfinished">En yüksek iç sıcaklık:</translation>
+    </message>
+    <message>
+        <source>Where the heat is: the hot air goes up, and each device warms what is around it. An estimate to see the hot spots, not a simulation of the air.</source>
+        <translation type="unfinished">Isının olduğu yer: sıcak hava yükselir ve her cihaz çevresini ısıtır. Sıcak noktaları görmek için bir tahmin, havanın bir simülasyonu değil.</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Cihaz</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Parça</translation>
+    </message>
+    <message>
+        <source>Power loss</source>
+        <translation type="unfinished">Güç kaybı</translation>
+    </message>
+    <message>
+        <source>(no part)</source>
+        <translation type="unfinished">(parça yok)</translation>
+    </message>
+    <message>
+        <source>%1 W</source>
+        <translation type="unfinished">%1 W</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">belirtilmemiş</translation>
+    </message>
+    <message numerus="yes">
+        <source>Heat given off: &lt;b&gt;%1 W&lt;/b&gt; by %n device(s).</source>
+        <translation type="unfinished">
+            <numerusform>Yayılan ısı: %n cihazdan &lt;b&gt;%1 W&lt;/b&gt;.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Surface giving it out: %1 m².</source>
+        <translation type="unfinished">Isıyı dışarı veren yüzey: %1 m².</translation>
+    </message>
+    <message>
+        <source>Temperature inside: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K above the outside.</source>
+        <translation type="unfinished">İç sıcaklık: &lt;b&gt;%1 °C&lt;/b&gt;, dışarıdan %2 K fazla.</translation>
+    </message>
+    <message>
+        <source>Below the highest temperature: the enclosure needs no cooling.</source>
+        <translation type="unfinished">En yüksek sıcaklığın altında: muhafazanın soğutmaya ihtiyacı yok.</translation>
+    </message>
+    <message>
+        <source>Too hot: %1 W to take out, with a filter fan of at least %2 m³/h, or a cooling unit of at least %1 W.</source>
+        <translation type="unfinished">Çok sıcak: en az %2 m³/h filtreli fanla ya da en az %1 W klima ile atılacak %1 W.</translation>
+    </message>
+    <message>
+        <source>Too hot: a cooling unit of at least %1 W. A fan cannot help: the outside is not cooler than the highest temperature.</source>
+        <translation type="unfinished">Çok sıcak: en az %1 W klima. Fan işe yaramaz: dışarısı en yüksek sıcaklıktan daha serin değil.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Warning: %n device(s) have no power loss in the parts database and count as 0 W, so the cabinet is hotter than shown: %1</source>
+        <translation type="unfinished">
+            <numerusform>Uyarı: %n cihazın parça veritabanında güç kaybı yok ve 0 W sayılıyor, bu yüzden pano gösterilenden daha sıcak: %1</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableChecks</name>
+    <message>
+        <source>No name</source>
+        <translation type="unfinished">İsim yok</translation>
+    </message>
+    <message>
+        <source>Name used by another cable</source>
+        <translation type="unfinished">İsim başka bir kablo tarafından kullanılıyor</translation>
+    </message>
+    <message>
+        <source>No cable type</source>
+        <translation type="unfinished">Kablo tipi yok</translation>
+    </message>
+    <message>
+        <source>No core wired</source>
+        <translation type="unfinished">Bağlanmış damar yok</translation>
+    </message>
+    <message>
+        <source>No spare core</source>
+        <translation type="unfinished">Yedek damar yok</translation>
+    </message>
+    <message numerus="yes">
+        <source>Only %n spare core(s)</source>
+        <translation type="unfinished">
+            <numerusform>Yalnızca %n yedek damar</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableManagerDialog</name>
+    <message>
+        <source>Cable manager - %1</source>
+        <translation type="unfinished">Kablo yöneticisi - %1</translation>
+    </message>
+    <message>
+        <source>Search a cable</source>
+        <translation type="unfinished">Bir kablo ara</translation>
+    </message>
+    <message>
+        <source>Only cables with problems</source>
+        <translation type="unfinished">Yalnızca sorunlu kablolar</translation>
+    </message>
+    <message>
+        <source>A cable with fewer free cores than this is marked. 0 checks nothing.</source>
+        <translation type="unfinished">Bu sayıdan az boş damarı olan kablo işaretlenir. 0 hiçbir şeyi kontrol etmez.</translation>
+    </message>
+    <message>
+        <source>Spare cores wanted:</source>
+        <translation type="unfinished">İstenen yedek damar:</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Tip</translation>
+    </message>
+    <message>
+        <source>Cores used</source>
+        <translation type="unfinished">Kullanılan damarlar</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Yedek</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Başlangıç</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Bitiş</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished">Uzunluk</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Tesis</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Konum</translation>
+    </message>
+    <message>
+        <source>Problems</source>
+        <translation type="unfinished">Sorunlar</translation>
+    </message>
+    <message>
+        <source>Double-click a name, a length, an installation or a location to change it.</source>
+        <translation type="unfinished">Değiştirmek için bir isme, uzunluğa, tesise veya konuma çift tıklayın.</translation>
+    </message>
+    <message>
+        <source>Edit the selected cables...</source>
+        <translation type="unfinished">Seçili kabloları düzenle...</translation>
+    </message>
+    <message>
+        <source>Properties...</source>
+        <translation type="unfinished">Özellikler...</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Sayfada göster</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Damar</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Renk</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Durum</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Tel</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Nereden</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Nereye</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n kablo</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 cores used</source>
+        <translation type="unfinished">%2 damardan %1 kullanıldı</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with problems</source>
+        <translation type="unfinished">
+            <numerusform>%n sorunlu</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select a cable to see its cores.</source>
+        <translation type="unfinished">Damarlarını görmek için bir kablo seçin.</translation>
+    </message>
+    <message>
+        <source>Select one cable to see its cores.</source>
+        <translation type="unfinished">Damarlarını görmek için tek bir kablo seçin.</translation>
+    </message>
+    <message>
+        <source>Cores of %1: %2 used, %3 spare</source>
+        <translation type="unfinished">%1 damarları: %2 kullanılan, %3 yedek</translation>
+    </message>
+    <message numerus="yes">
+        <source>Edit %n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n kabloyu düzenle</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">Klemenslerin metinlerini değiştir</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">Bir cihaz ara</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">Etiket</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">Parça</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">Bir cihazı kendi sayfasında göstermek için çift tıklayın. Shift ve Ctrl birden fazlasını seçer, Delete onları kaldırır.</translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">Numaralandır...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">Seçili cihazları ilk bir etiketten başlayarak sırayla yeniden adlandır: -K1, -K2...</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>%1 pano sayfasında çizildi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">(Etiket yok)</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>Bu cihazın %n sembolü</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Sayfada göster</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Sil</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">DXF'i bir pano sayfasına ekle</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">Seçili cihazlar zaten bir pano sayfasında.</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">Projenin pano yapım sayfası yok. Projenin sonuna bir tane eklensin mi?</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1 (%3 içinden %2): gideceği yere tıklayın | Atlamak için sağ tık | Durdurmak için Esc</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">%1 parçalarında DXF yok: bir DXF dosyası seçin</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">Cihazları numaralandır</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">İlk etiket:</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">Adım:</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">Yeni etiket</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">Bu etiketler zaten başka cihazlara ait: %1. Hiçbir şey yeniden adlandırılmadı.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n cihazı numaralandır</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">Cihazları sil</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>%n cihaz iletkenleriyle birlikte silinsin mi?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n cihazı sil</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddCabinetItem</name>
+    <message>
+        <source>%1 mm</source>
+        <comment>length of the part being drawn</comment>
+        <translation type="unfinished">%1 mm</translation>
+    </message>
+    <message>
+        <source>%1 mm ⏎</source>
+        <comment>length typed for the part being drawn, Enter accepts it</comment>
+        <translation type="unfinished">%1 mm ⏎</translation>
+    </message>
+    <message>
+        <source>middle left</source>
+        <translation type="unfinished">orta sol</translation>
+    </message>
+    <message>
+        <source>top left</source>
+        <translation type="unfinished">sol üst</translation>
+    </message>
+    <message>
+        <source>top middle</source>
+        <translation type="unfinished">orta üst</translation>
+    </message>
+    <message>
+        <source>top right</source>
+        <translation type="unfinished">sağ üst</translation>
+    </message>
+    <message>
+        <source>middle right</source>
+        <translation type="unfinished">orta sağ</translation>
+    </message>
+    <message>
+        <source>bottom right</source>
+        <translation type="unfinished">sağ alt</translation>
+    </message>
+    <message>
+        <source>bottom middle</source>
+        <translation type="unfinished">orta alt</translation>
+    </message>
+    <message>
+        <source>bottom left</source>
+        <translation type="unfinished">sol alt</translation>
+    </message>
+    <message>
+        <source>centre</source>
+        <translation type="unfinished">merkez</translation>
+    </message>
+    <message>
+        <source> | Tab: anchor point (%1)</source>
+        <comment>the anchor point of the part being placed</comment>
+        <translation type="unfinished"> | Tab: bağlantı noktası (%1)</translation>
+    </message>
+    <message>
+        <source>Mounting plate: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Montaj plakası: gideceği yere tıklayın | İptal için Esc</translation>
+    </message>
+    <message>
+        <source>DXF drawing: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">DXF çizimi: gideceği yere tıklayın | İptal için Esc</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">DIN rayı: bittiği yere tıklayın ya da uzunluğunu mm olarak yazıp Enter'a basın | Vazgeçmek için Esc</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">DIN rayı: başladığı yere tıklayın | Bitirmek için sağ tık veya Esc</translation>
+    </message>
+    <message>
+        <source>Wire duct: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Kablo kanalı: bittiği yere tıklayın ya da uzunluğunu mm olarak yazıp Enter'a basın | Vazgeçmek için Esc</translation>
+    </message>
+    <message>
+        <source>Wire duct of %1 mm: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">%1 mm kablo kanalı: başladığı yere tıklayın | Bitirmek için sağ tık veya Esc</translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">Bu paneli otomatik gizle</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Kapat</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">Bu paneli açık tut</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">Panelin genişliğini değiştirmek için sürükleyin</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">Katlanmış paneller</translation>
+    </message>
+</context>
+<context>
+    <name>DxfReader</name>
+    <message>
+        <source>The file could not be opened: %1</source>
+        <translation type="unfinished">Dosya açılamadı: %1</translation>
+    </message>
+    <message>
+        <source>This DXF file is binary: save it again as a text (ASCII) DXF.</source>
+        <translation type="unfinished">Bu DXF dosyası ikili: metin (ASCII) DXF olarak yeniden kaydedin.</translation>
+    </message>
+    <message>
+        <source>This file is not a DXF drawing.</source>
+        <translation type="unfinished">Bu dosya bir DXF çizimi değil.</translation>
+    </message>
+    <message>
+        <source>This DXF file holds no line this program can draw.</source>
+        <translation type="unfinished">Bu DXF dosyasında bu programın çizebileceği bir çizgi yok.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">Birim</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">Bir parça ekle...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Kaldır</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">Bu öğenin oluştuğu parça veritabanı parçaları ve her birinden kaç birim.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">Bu öğenin parçalarını seçmek için parça veritabanını kullanın (Ayarlar &gt; Genel).</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">(parça veritabanında değil)</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Parçalar</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">Parça eklendi. Öğe bilgileri ana ürünü ve bir yardımcı ürünü tutar: bu parçanın orada kendi bloğu yok.</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">ana ürün</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">yardımcı ürün %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">Öğe bilgilerinin %1 kısmının üzerine bu parçanın verileri (üretici, sipariş numarası, açıklama...) yazılsın mı?</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">Bir klemensin metni sayfada, klemens dizisi planlarında ve listelerde adının yerine geçer ve sembolün klemensin yanına çizdiği numara da onunla değişir. O adı korumak için sembolün adını bırakın veya boş bırakın.</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">Sembolün klemensi</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Metin</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">Klemens metinleri</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">(isim yok)</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">Bu cihazın kontaklarının yanında nasıl gösterileceği. Elle konum için gösterimi sayfada Shift ile sürükleyin veya konumunu girin.</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">Proje ayarını kullan</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">Proje özellikleri, Çapraz referanslar sayfası</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">Kontak aynası</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">Röle kontak gösterimini değiştir</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadAccount</name>
+    <message>
+        <source>Sign in to fasecad.com</source>
+        <translation type="unfinished">fasecad.com'da oturum aç</translation>
+    </message>
+    <message>
+        <source>Your FaseCAD account, for the AI and the official parts catalog.</source>
+        <translation type="unfinished">YZ ve resmi parça kataloğu için FaseCAD hesabınız.</translation>
+    </message>
+    <message>
+        <source>User or email:</source>
+        <translation type="unfinished">Kullanıcı veya e-posta:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Parola:</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished">Hesap oluştur</translation>
+    </message>
+    <message>
+        <source>Forgot the password?</source>
+        <translation type="unfinished">Parolayı mı unuttunuz?</translation>
+    </message>
+    <message>
+        <source>My FaseCAD</source>
+        <translation type="unfinished">FaseCAD'im</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Oturum aç</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished">Oturumu kapat</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadServices</name>
+    <message>
+        <source>The user or the password is wrong.</source>
+        <translation type="unfinished">Kullanıcı veya parola yanlış.</translation>
+    </message>
+    <message>
+        <source>fasecad.com cannot be reached: %1</source>
+        <translation type="unfinished">fasecad.com'a ulaşılamıyor: %1</translation>
+    </message>
+    <message>
+        <source>Your account is open on another computer.</source>
+        <translation type="unfinished">Hesabınız başka bir bilgisayarda açık.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet.</source>
+        <translation type="unfinished">fasecad.com hizmetleri henüz açık değil.</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer: this session was closed.</source>
+        <translation type="unfinished">Hesabınız başka bir bilgisayarda açıldı: bu oturum kapatıldı.</translation>
+    </message>
+    <message>
+        <source>Your subscription is not running.</source>
+        <translation type="unfinished">Aboneliğiniz etkin değil.</translation>
+    </message>
+    <message>
+        <source>Too many messages today: try again tomorrow.</source>
+        <translation type="unfinished">Bugün çok fazla mesaj: yarın yeniden deneyin.</translation>
+    </message>
+    <message>
+        <source>The message could not be sent: %1</source>
+        <translation type="unfinished">Mesaj gönderilemedi: %1</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">Sayfa dizini</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">Sayfa dizini %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoriesDialog</name>
+    <message>
+        <source>Categories of the parts</source>
+        <translation type="unfinished">Parça kategorileri</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Ekle...</translation>
+    </message>
+    <message>
+        <source>Add a subcategory...</source>
+        <translation type="unfinished">Alt kategori ekle...</translation>
+    </message>
+    <message>
+        <source>Rename...</source>
+        <translation type="unfinished">Yeniden adlandır...</translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished">Simge</translation>
+    </message>
+    <message>
+        <source>FaseCAD icons...</source>
+        <translation type="unfinished">FaseCAD simgeleri...</translation>
+    </message>
+    <message>
+        <source>Image file...</source>
+        <translation type="unfinished">Görüntü dosyası...</translation>
+    </message>
+    <message>
+        <source>No icon</source>
+        <translation type="unfinished">Simge yok</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Kaldır</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n parça</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) with its subcategories</source>
+        <translation type="unfinished">
+            <numerusform>alt kategorileriyle %n parça</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This category comes with FaseCAD</source>
+        <translation type="unfinished">Bu kategori FaseCAD ile gelir</translation>
+    </message>
+    <message>
+        <source>New category</source>
+        <translation type="unfinished">Yeni kategori</translation>
+    </message>
+    <message>
+        <source>Name of the category:</source>
+        <translation type="unfinished">Kategorinin adı:</translation>
+    </message>
+    <message>
+        <source>New subcategory</source>
+        <translation type="unfinished">Yeni alt kategori</translation>
+    </message>
+    <message>
+        <source>Name of the subcategory of %1:</source>
+        <translation type="unfinished">%1 alt kategorisinin adı:</translation>
+    </message>
+    <message>
+        <source>Rename the category</source>
+        <translation type="unfinished">Kategoriyi yeniden adlandır</translation>
+    </message>
+    <message>
+        <source>New name of the category:</source>
+        <translation type="unfinished">Kategorinin yeni adı:</translation>
+    </message>
+    <message>
+        <source>Remove the category %1?</source>
+        <translation type="unfinished">%1 kategorisi kaldırılsın mı?</translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) are left without category.</source>
+        <translation type="unfinished">
+            <numerusform>%n parçası kategorisiz kalır.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) go to %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n parçası %1 içine gider.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Its subcategories go up one level, with their parts.</source>
+        <translation type="unfinished">Alt kategorileri parçalarıyla birlikte bir seviye yukarı çıkar.</translation>
+    </message>
+    <message>
+        <source>Remove the category</source>
+        <translation type="unfinished">Kategoriyi kaldır</translation>
+    </message>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Kategori simgesi</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</source>
+        <translation type="unfinished">Görüntüler (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read or is larger than 512 KB.</source>
+        <translation type="unfinished">%1 dosyası okunamıyor ya da 512 KB'den büyük.</translation>
+    </message>
+    <message>
+        <source>The file %1 is not an image.</source>
+        <translation type="unfinished">%1 dosyası bir görüntü değil.</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIconPicker</name>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Kategori simgesi</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIcons</name>
+    <message>
+        <source>Terminal block</source>
+        <translation type="unfinished">Klemens</translation>
+    </message>
+    <message>
+        <source>Circuit breaker</source>
+        <translation type="unfinished">Devre kesici</translation>
+    </message>
+    <message>
+        <source>Residual current device</source>
+        <translation type="unfinished">Kaçak akım rölesi</translation>
+    </message>
+    <message>
+        <source>Motor protection</source>
+        <translation type="unfinished">Motor koruma şalteri</translation>
+    </message>
+    <message>
+        <source>Fuse</source>
+        <translation type="unfinished">Sigorta</translation>
+    </message>
+    <message>
+        <source>Contactor</source>
+        <translation type="unfinished">Kontaktör</translation>
+    </message>
+    <message>
+        <source>Relay</source>
+        <translation type="unfinished">Röle</translation>
+    </message>
+    <message>
+        <source>Disconnector</source>
+        <translation type="unfinished">Ayırıcı</translation>
+    </message>
+    <message>
+        <source>Pilot light</source>
+        <translation type="unfinished">Sinyal lambası</translation>
+    </message>
+    <message>
+        <source>Push button</source>
+        <translation type="unfinished">Buton</translation>
+    </message>
+    <message>
+        <source>Signal tower</source>
+        <translation type="unfinished">Sinyal kulesi</translation>
+    </message>
+    <message>
+        <source>Operator panel</source>
+        <translation type="unfinished">Operatör paneli</translation>
+    </message>
+    <message>
+        <source>PLC</source>
+        <translation type="unfinished">PLC</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation type="unfinished">Sürücü</translation>
+    </message>
+    <message>
+        <source>Power supply</source>
+        <translation type="unfinished">Güç kaynağı</translation>
+    </message>
+    <message>
+        <source>Signal conditioner</source>
+        <translation type="unfinished">Sinyal dönüştürücü</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">Ağ</translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished">Sensör</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Connector</source>
+        <translation type="unfinished">Konnektör</translation>
+    </message>
+    <message>
+        <source>Wire end ferrule</source>
+        <translation type="unfinished">Kablo yüksüğü</translation>
+    </message>
+    <message>
+        <source>Busbar</source>
+        <translation type="unfinished">Bara</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN rayı</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Muhafaza</translation>
+    </message>
+    <message>
+        <source>Fan</source>
+        <translation type="unfinished">Fan</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">Aydınlatma</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Aletler</translation>
+    </message>
+    <message>
+        <source>Pneumatics</source>
+        <translation type="unfinished">Pnömatik</translation>
+    </message>
+    <message>
+        <source>Hydraulics</source>
+        <translation type="unfinished">Hidrolik</translation>
+    </message>
+    <message>
+        <source>Transformer</source>
+        <translation type="unfinished">Transformatör</translation>
+    </message>
+    <message>
+        <source>Motor</source>
+        <translation type="unfinished">Motor</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Diğer</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">Parçaların verileri</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">Bir veri, değer veya parça ara...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Veri</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Değer</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Parça</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n veri</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Diğer</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">Besleme + (L+, 24 V)</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">Besleme - (M, 0 V)</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">Fonksiyonel topraklama (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">Koruyucu topraklama (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">Faz (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">Nötr (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">Dijital giriş</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">Dijital çıkış</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">Analog giriş</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">Analog çıkış</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">Bus portu</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">Bobin</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">Güç kontağı</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">Normalde açık kontak</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">Normalde kapalı kontak</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">Değişken kontak</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Klemens</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">Bir parça seç</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Bir parça ara</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">Kategori:</translation>
+    </message>
+    <message>
+        <source>Only parts with a STEP model</source>
+        <translation type="unfinished">Yalnızca STEP modelli parçalar</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure is chosen on its 3D model</source>
+        <translation type="unfinished">Bir muhafazanın plakası 3B modelinde seçilir</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Görüntü</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Parça yöneticisi...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">Parça ekleyin veya değiştirin; bu pencere geri döndüğünüzde onları gösterir.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Tümü</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">Metinsel açıklama</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">Ürün numarası</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Üretici</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Sipariş numarası</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">İç numara</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Tedarikçi</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Tedarikçi referansı</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategori</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">Model</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">Anma gerilimi</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">Anma akımı</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">Birim</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Cihaz harfi</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Genişlik (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Yükseklik (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Derinlik (mm)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Ağırlık (kg)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Güç kaybı (W)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Fiyat</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Damar sayısı</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Damar renkleri</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Kesit</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Kılıf rengi</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Veri sayfası</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Notlar</translation>
+    </message>
+    <message>
+        <source>Image: %1</source>
+        <translation type="unfinished">Görüntü: %1</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1, %2</translation>
+    </message>
+    <message>
+        <source>(image)</source>
+        <translation type="unfinished">(görüntü)</translation>
+    </message>
+</context>
+<context>
+    <name>PartThumbnails</name>
+    <message>
+        <source>No Picture</source>
+        <translation type="unfinished">Görüntü yok</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">Parça artık parça veritabanında yok.</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">Dosya okunamıyor: %1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">Bu bir FaseCAD parça dosyası değil.</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">Bu parça dosyası FaseCAD'in daha yeni bir sürümüyle oluşturuldu.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">Poz.</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">Miktar</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">Birim</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Üretici</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Sipariş numarası</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">Tanım</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategori</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Tedarikçi</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Tedarikçi referansı</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">İç referans</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Cihazlar</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Parça veritabanı</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCatalogDialog</name>
+    <message>
+        <source>Official FaseCAD parts catalog</source>
+        <translation type="unfinished">Resmi FaseCAD parça kataloğu</translation>
+    </message>
+    <message>
+        <source>Manufacturer, order number, description...</source>
+        <translation type="unfinished">Üretici, sipariş numarası, açıklama...</translation>
+    </message>
+    <message>
+        <source>Every category</source>
+        <translation type="unfinished">Tüm kategoriler</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Üretici</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Sipariş numarası</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Kategori</translation>
+    </message>
+    <message>
+        <source>&lt; Previous</source>
+        <translation type="unfinished">&lt; Önceki</translation>
+    </message>
+    <message>
+        <source>Next &gt;</source>
+        <translation type="unfinished">Sonraki &gt;</translation>
+    </message>
+    <message>
+        <source>Replace the parts my database has already</source>
+        <translation type="unfinished">Veritabanımda zaten olan parçaları değiştir</translation>
+    </message>
+    <message>
+        <source>Add to my parts database</source>
+        <translation type="unfinished">Parça veritabanıma ekle</translation>
+    </message>
+    <message>
+        <source>Asking %1...</source>
+        <translation type="unfinished">%1 sorgulanıyor...</translation>
+    </message>
+    <message>
+        <source>The catalog cannot be reached: %1</source>
+        <translation type="unfinished">Kataloğa ulaşılamıyor: %1</translation>
+    </message>
+    <message>
+        <source>The catalog gave no list of parts.</source>
+        <translation type="unfinished">Katalog parça listesi vermedi.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) found, page %1 of %2.</source>
+        <translation type="unfinished">
+            <numerusform>%n parça bulundu, sayfa %1 / %2.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General).</source>
+        <translation type="unfinished">Parça veritabanı kullanılmıyor (Ayarlar &gt; Genel).</translation>
+    </message>
+    <message>
+        <source>%1: your session was closed, the account is open on another computer (Sign in...)</source>
+        <translation type="unfinished">%1: oturumunuz kapatıldı, hesap başka bir bilgisayarda açık (Oturum aç...)</translation>
+    </message>
+    <message>
+        <source>%1: the parts of the official catalog are part of FaseCAD Pro (my.fasecad.com)</source>
+        <translation type="unfinished">%1: resmi katalog parçaları FaseCAD Pro'nun parçasıdır (my.fasecad.com)</translation>
+    </message>
+    <message>
+        <source>%1: the catalog does not accept this user and password (Sign in...)</source>
+        <translation type="unfinished">%1: katalog bu kullanıcıyı ve parolayı kabul etmiyor (Oturum aç...)</translation>
+    </message>
+    <message>
+        <source>%1: sign in to download it (Sign in...)</source>
+        <translation type="unfinished">%1: indirmek için oturum açın (Oturum aç...)</translation>
+    </message>
+    <message>
+        <source>%1: your database has it already</source>
+        <translation type="unfinished">%1: veritabanınızda zaten var</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) added to your parts database.</source>
+        <translation type="unfinished">
+            <numerusform>Parça veritabanınıza %n parça eklendi.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not added: %1</source>
+        <translation type="unfinished">Eklenmeyen: %1</translation>
+    </message>
+    <message>
+        <source>No folder for the downloaded file.</source>
+        <translation type="unfinished">İndirilen dosya için klasör yok.</translation>
+    </message>
+    <message>
+        <source>The downloaded file cannot be written.</source>
+        <translation type="unfinished">İndirilen dosya yazılamıyor.</translation>
+    </message>
+    <message>
+        <source>Signed in to fasecad.com as %1. Click to change or sign out.</source>
+        <translation type="unfinished">fasecad.com'da %1 olarak oturum açıldı. Değiştirmek veya oturumu kapatmak için tıklayın.</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Oturum aç...</translation>
+    </message>
+    <message>
+        <source>Sign in to fasecad.com to download the parts</source>
+        <translation type="unfinished">Parçaları indirmek için fasecad.com'da oturum açın</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">Parça koleksiyonu</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">Parça veritabanının parçaları. Sembolünü parçayla yerleştirmek için birini sayfaya, parçayı bir sembole eklemek için o sembolün üzerine sürükleyin.</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">Sembol yok: yerleştirilmiş bir sembolün üzerine bırakın</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">Semboller: %1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">Parça yerleştirilirken Tab sembolü değiştirir</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Kategori yok)</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">%1 klasörü oluşturulamıyor.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">%1 parça veritabanı açılamıyor: %2</translation>
+    </message>
+    <message>
+        <source>The server of the parts database is not set.</source>
+        <translation type="unfinished">Parça veritabanının sunucusu ayarlanmamış.</translation>
+    </message>
+    <message>
+        <source>This copy of the program cannot connect to a PostgreSQL server: its driver is missing.</source>
+        <translation type="unfinished">Programın bu kopyası bir PostgreSQL sunucusuna bağlanamıyor: sürücüsü eksik.</translation>
+    </message>
+    <message>
+        <source>The parts database on %1 cannot be opened: %2</source>
+        <translation type="unfinished">%1 üzerindeki parça veritabanı açılamıyor: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not open.</source>
+        <translation type="unfinished">Parça veritabanı açık değil.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">%1 parça veritabanı programın daha yeni bir sürümüyle oluşturuldu ve açılamıyor.</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">Parça veritabanı başka biri tarafından kullanılıyor. Birazdan yeniden deneyin.</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">Parça veritabanı yazılamıyor: %1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">%1 dosyası parça veritabanına kopyalanamayacak kadar büyük (%2 MB'den fazla). Bunun yerine bağlantı verin.</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">Bu parça artık parça veritabanında yok.</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">"%1" üreticili ve "%2" sipariş numaralı bir parça zaten var.</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">Bir parça kendi aksesuarı olamaz.</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">Bu parçanın bir aksesuarı artık parça veritabanında yok.</translation>
+    </message>
+    <message>
+        <source>A category needs a name.</source>
+        <translation type="unfinished">Bir kategorinin bir adı olmalı.</translation>
+    </message>
+    <message>
+        <source>The category %1 is there already.</source>
+        <translation type="unfinished">%1 kategorisi zaten var.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be renamed.</source>
+        <translation type="unfinished">%1 kategorisi FaseCAD ile gelir: yeniden adlandırılamaz.</translation>
+    </message>
+    <message>
+        <source>A category cannot go inside itself.</source>
+        <translation type="unfinished">Bir kategori kendi içine giremez.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be removed.</source>
+        <translation type="unfinished">%1 kategorisi FaseCAD ile gelir: kaldırılamaz.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">%1 dosyası okunamıyor.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">%1 dosyası bulunamıyor.</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">Bu dosya artık parça veritabanında yok.</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">Bağlantılı %1 dosyası bulunamıyor.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">%1 dosyası yazılamıyor.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">Parça yöneticisi</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">Veritabanı: %1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">Kategoriye göre</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">Üreticiye göre</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Bir parça ara</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Tedarikçi referansı</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Görüntü</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Yeni</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Çoğalt</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Sil</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Dışa aktar</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">Parçaları dosyaları ve sembolleriyle, her parça için bir .faspart dosyasına yaz</translation>
+    </message>
+    <message>
+        <source>The selected parts...</source>
+        <translation type="unfinished">Seçili parçalar...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">Listedeki tüm parçalar...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">İçe aktar...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">.faspart dosyalarının parçalarını parça veritabanına ekle</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Genel</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">Montaj</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">Teknik veriler</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished">Çeviriler</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Kablo</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Semboller</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">Dosyalar</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">Değişiklikleri at</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Kaydet</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Cihaz harfi</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Veri sayfası</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Downstream of this device, the cross-section of the wires depends on what is connected to it: the wires it feeds (its outgoing terminals and every wire joined to them) are made for this current.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calculate sections&lt;/b&gt; (Connections tab) gives every wire of the project the cross-section of the device that feeds it.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Bu cihazın akış yönünde iletkenlerin kesiti ona neyin bağlı olduğuna bağlıdır: beslediği iletkenler (çıkış klemensleri ve onlara bağlı her iletken) bu akıma göre boyutlandırılır.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Kesitleri hesapla&lt;/b&gt; (Bağlantılar sekmesi) projedeki her iletkene onu besleyen cihazın kesitini verir.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Maximum current (A)</source>
+        <translation type="unfinished">En yüksek akım (A)</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">Yerleştirilen bir cihazın aldığı etiket harfi, örneğin -K1 için K.</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">Parçayı üreticiyle birlikte tanımlar</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Ağırlık (kg)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Fiyat</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Genişlik (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Yükseklik (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Derinlik (mm)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">Panoda cihazın etrafında hava ve iletkenler için boş bırakılacak alan.</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">Üstte boş (mm)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">Altta boş (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">Solda boş (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">Sağda boş (mm)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">Önde boş (mm)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">Arkada boş (mm)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Güç kaybı (W)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">Panonun ısı dengesi için cihazın yaydığı ısı.</translation>
+    </message>
+    <message>
+        <source>The textual description and the model in other languages. In Project languages, Collect texts of the project fills them in, so the folios are shown, printed and exported in each language.</source>
+        <translation type="unfinished">Metinsel açıklama ve model başka dillerde. Proje dillerinde "Projenin metinlerini topla" onları doldurur, böylece sayfalar her dilde gösterilir, yazdırılır ve dışa aktarılır.</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">Dil</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">Cihazın her pininin ne yaptığı, üreticinin sırasıyla. Ekle seçili satırı sonraki pin ve numarayla kopyalar.</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">İşlev</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">Fiş</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">Pin</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">PLC adresi</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Ekle</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Kaldır</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Yukarı taşı</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Aşağı taşı</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">Gerçek cihazda iletkenlerin nereye gittiği ve ne aldığı. Konum ön yüzün sol üst köşesinden mm cinsindendir.</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">En küçük kesit (mm²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">En büyük kesit (mm²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">İletkenler</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">Soyma (mm)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">Tork (N·m)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">Tornavida</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (mm)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (mm)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (mm)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">Bağlantı noktasının kaç iletken aldığı</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">İşlevlerden</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">İşlevler sekmesinde henüz bağlantı noktası olmayan her pin için bir bağlantı noktası ekle.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ad</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Değer</translation>
+    </message>
+    <message>
+        <source>Copy the rows</source>
+        <translation type="unfinished">Satırları kopyala</translation>
+    </message>
+    <message>
+        <source>Paste rows</source>
+        <translation type="unfinished">Satırları yapıştır</translation>
+    </message>
+    <message>
+        <source>Copy the selected rows (Ctrl+C), to paste them in another part or in a spreadsheet</source>
+        <translation type="unfinished">Seçili satırları başka bir parçaya veya bir hesap tablosuna yapıştırmak için kopyala (Ctrl+C)</translation>
+    </message>
+    <message>
+        <source>Paste copied rows (Ctrl+V): a name already in the table takes the pasted value, the others are added</source>
+        <translation type="unfinished">Kopyalanan satırları yapıştır (Ctrl+V): tabloda zaten olan bir ad yapıştırılan değeri alır, diğerleri eklenir</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">Aksesuar ekle...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">Parça veritabanı kullanılıyorsa (Ayarlar), bir kablo çizildiğinde damarlı bir parça kablo tipi olarak sunulur.</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">Kablo değil</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Damar sayısı</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Damar renkleri</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Kesit</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Kılıf rengi</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">Parçaları şuraya aktar</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">Parçaları dışa aktar</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 zaten var. Değiştirilsin mi?</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n parça %1 içine aktarıldı.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">Dışa aktarılmayan:</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">Parçaları içe aktar</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">FaseCAD parçaları (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">Parça veritabanında %1 %2 zaten var.
+Dosyadaki parçayla değiştirilsin mi?</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">Değiştir</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">Benimkini koru</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">Tümünü değiştir</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">Tüm benimkileri koru</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">
+            <numerusform>%n parça içe aktarıldı.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">
+            <numerusform>%n parça olduğu gibi korundu.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">İçe aktarılmayan:</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">Koleksiyon panelinin parça koleksiyonundan sürüklenince parça ilk sembolle gelir; yerleştirilirken Tab sonrakine, Shift+Tab geri gider.</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Ekle...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">Koleksiyondan bir sembol seç</translation>
+    </message>
+    <message>
+        <source>Import a file...</source>
+        <translation type="unfinished">Bir dosya içe aktar...</translation>
+    </message>
+    <message>
+        <source>A symbol file (.elmt) kept in the parts database: it need not be in the collection</source>
+        <translation type="unfinished">Parça veritabanında tutulan bir sembol dosyası (.elmt): koleksiyonda olması gerekmez</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">Sembol</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">Sembolün konumu:</translation>
+    </message>
+    <message>
+        <source>Import a symbol</source>
+        <translation type="unfinished">Bir sembol içe aktar</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Semboller (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Save the part first: the symbol is kept with it in the parts database.</source>
+        <translation type="unfinished">Önce parçayı kaydedin: sembol onunla birlikte parça veritabanında tutulur.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">%1 okunamıyor: %2</translation>
+    </message>
+    <message>
+        <source>%1 is not a symbol.</source>
+        <translation type="unfinished">%1 bir sembol değil.</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">Dosya eklemek için önce parçayı kaydedin.</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">Bir görüntü ekle...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">Bir DXF ekle...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">Bir 3B model ekle...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">3B pano için bir STEP dosyası (.stp, .step).</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">Bir dosyaya bağlantı ver...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">Kopya yerine yalnızca dosyanın yolunu tut. Dosya yerinde kalmalı ve bu veritabanını kullanan her bilgisayardan erişilebilir olmalı.</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">Farklı kaydet...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">Tüm parçalar</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Kategori yok)</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">(Üretici yok)</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">Parçada kaydedilmemiş değişiklikler var. Kaydedilsin mi?</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">Bu bir sayı değil: %1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">En azından bir üretici, bir sipariş numarası veya bir açıklama girin.</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">%1 parçası dosyalarıyla birlikte silinsin mi? Onu kullanan projeler öğe bilgilerini korur.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete the %n selected parts, with their files? Projects using them keep their element informations.</source>
+        <translation type="unfinished">
+            <numerusform>Seçili %n parça dosyalarıyla birlikte silinsin mi? Onları kullanan projeler öğe bilgilerini korur.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Manage categories...</source>
+        <translation type="unfinished">Kategorileri yönet...</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">İşlevlerin her pininin zaten bağlantı noktası var.</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">Veritabanında aksesuar olarak kullanılacak başka parça yok.</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">Aksesuar ekle</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">Aksesuar:</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Görüntü</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">3B model (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1: %2 (bağlantılı: %3)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1: %2 (%3, veritabanına kopyalandı)</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">Bu görüntü gösterilemiyor.</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">Görüntüler (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">Bir görüntü ekle</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">DXF çizimleri (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">Bir DXF ekle</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">STEP modelleri (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">Bir 3B model ekle</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">Bir dosyaya bağlantı ver</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">Görüntüler, DXF çizimleri ve STEP modelleri (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Farklı kaydet</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">Bu dosya parçadan kaldırılsın mı?</translation>
+    </message>
+</context>
+<context>
+    <name>PartsServerDialog</name>
+    <message>
+        <source>Parts database server</source>
+        <translation type="unfinished">Parça veritabanı sunucusu</translation>
+    </message>
+    <message>
+        <source>A PostgreSQL server keeps the parts database for several computers at once. The tables are made the first time.</source>
+        <translation type="unfinished">Bir PostgreSQL sunucusu parça veritabanını aynı anda birkaç bilgisayar için tutar. Tablolar ilk seferde oluşturulur.</translation>
+    </message>
+    <message>
+        <source>Kept in the settings of this user on this computer</source>
+        <translation type="unfinished">Bu bilgisayardaki bu kullanıcının ayarlarında tutulur</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">Sunucu:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished">Port:</translation>
+    </message>
+    <message>
+        <source>Database:</source>
+        <translation type="unfinished">Veritabanı:</translation>
+    </message>
+    <message>
+        <source>User:</source>
+        <translation type="unfinished">Kullanıcı:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Parola:</translation>
+    </message>
+    <message>
+        <source>Test the connection</source>
+        <translation type="unfinished">Bağlantıyı sına</translation>
+    </message>
+    <message>
+        <source>Copy my parts to the server...</source>
+        <translation type="unfinished">Parçalarımı sunucuya kopyala...</translation>
+    </message>
+    <message>
+        <source>Copies the parts of the database file, with their files, symbols and categories. A part the server has already is left as it is there.</source>
+        <translation type="unfinished">Veritabanı dosyasının parçalarını dosyaları, sembolleri ve kategorileriyle kopyalar. Sunucuda zaten olan bir parça orada olduğu gibi kalır.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Connected: the server holds %n parts.</source>
+        <translation type="unfinished">
+            <numerusform>Bağlandı: sunucuda %n parça var.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Copying the parts to the server...</source>
+        <translation type="unfinished">Parçalar sunucuya kopyalanıyor...</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Durdur</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n parts copied from %1.</source>
+        <translation type="unfinished">
+            <numerusform>%1 içinden %n parça kopyalandı.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ProjectVersions</name>
+    <message>
+        <source>Changes from version %1 to version %2</source>
+        <translation type="unfinished">%1 sürümünden %2 sürümüne değişiklikler</translation>
+    </message>
+    <message>
+        <source>No device was added, removed or rewired.</source>
+        <translation type="unfinished">Hiçbir cihaz eklenmedi, kaldırılmadı veya yeniden bağlanmadı.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices added (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Eklenen cihazlar (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices removed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Kaldırılan cihazlar (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Wiring changed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Değişen bağlantılar (%n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Changes of version %1 (%2/%3)</source>
+        <translation type="unfinished">%1 sürümünün değişiklikleri (%2/%3)</translation>
+    </message>
+    <message>
+        <source>Changes of version %1</source>
+        <translation type="unfinished">%1 sürümünün değişiklikleri</translation>
+    </message>
+</context>
+<context>
+    <name>SupportDialog</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Hata bildir</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Destek iste</translation>
+    </message>
+    <message>
+        <source>Say what you did, what happened and what you expected. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Ne yaptığınızı, ne olduğunu ve ne beklediğinizi söyleyin. FaseCAD'in ve sistemin sürümü de gönderilir.</translation>
+    </message>
+    <message>
+        <source>Say what you need help with. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Neyle ilgili yardıma ihtiyacınız olduğunu söyleyin. FaseCAD'in ve sistemin sürümü de gönderilir.</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation type="unfinished">Konu:</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Gönder</translation>
+    </message>
+    <message>
+        <source>Sent. The FaseCAD team will answer you by email.</source>
+        <translation type="unfinished">Gönderildi. FaseCAD ekibi size e-postayla yanıt verecek.</translation>
+    </message>
+    <message>
+        <source>Sending...</source>
+        <translation type="unfinished">Gönderiliyor...</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">İç</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">Dış</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalPropertiesWidget</name>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Klemens</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSettingsWidget</name>
+    <message>
+        <source>A terminal strip of the project, or the name of a new one. Empty: the strip of the terminal on its left on the folio</source>
+        <translation type="unfinished">Projenin bir klemens dizisi veya yenisinin adı. Boş: sayfada solundaki klemensin dizisi</translation>
+    </message>
+    <message>
+        <source>Same as on the left</source>
+        <translation type="unfinished">Soldaki gibi</translation>
+    </message>
+    <message>
+        <source>Terminal strip:</source>
+        <translation type="unfinished">Klemens dizisi:</translation>
+    </message>
+    <message>
+        <source>Terminal number:</source>
+        <translation type="unfinished">Klemens numarası:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Yok</translation>
+    </message>
+    <message>
+        <source>Colour:</source>
+        <translation type="unfinished">Renk:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">Tip:</translation>
+    </message>
+    <message>
+        <source>%1 mm²</source>
+        <translation type="unfinished">%1 mm²</translation>
+    </message>
+    <message>
+        <source>Cross-section:</source>
+        <translation type="unfinished">Kesit:</translation>
+    </message>
+    <message>
+        <source>The terminals of the strip with the same number are one terminal of several levels, 1 at the bottom</source>
+        <translation type="unfinished">Dizide aynı numaralı klemensler birkaç katlı tek bir klemenstir, 1 altta</translation>
+    </message>
+    <message>
+        <source>Level:</source>
+        <translation type="unfinished">Kat:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">alt</translation>
+    </message>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">üst</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">sağ</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">sol</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDataDialog</name>
+    <message>
+        <source>Change the title block data</source>
+        <translation type="unfinished">Antet verilerini değiştir</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Antet verileri</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Şirket</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Ad:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished">Adres:</translation>
+    </message>
+    <message>
+        <source>Contact:</source>
+        <translation type="unfinished">İletişim:</translation>
+    </message>
+    <message>
+        <source>Phone, e-mail, web</source>
+        <translation type="unfinished">Telefon, e-posta, web</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Müşteri ve şantiye</translation>
+    </message>
+    <message>
+        <source>Client:</source>
+        <translation type="unfinished">Müşteri:</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">Şantiye:</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">İmzalar</translation>
+    </message>
+    <message>
+        <source>Drawn by: the author and the date of each sheet, in its properties.</source>
+        <translation type="unfinished">Çizen: her sayfanın yazarı ve tarihi, özelliklerinde.</translation>
+    </message>
+    <message>
+        <source>Checked by:</source>
+        <translation type="unfinished">Kontrol eden:</translation>
+    </message>
+    <message>
+        <source>Checked on:</source>
+        <translation type="unfinished">Kontrol tarihi:</translation>
+    </message>
+    <message>
+        <source>Approved by:</source>
+        <translation type="unfinished">Onaylayan:</translation>
+    </message>
+    <message>
+        <source>Approved on:</source>
+        <translation type="unfinished">Onay tarihi:</translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <translation type="unfinished">Çizim</translation>
+    </message>
+    <message>
+        <source>Standard:</source>
+        <translation type="unfinished">Standart:</translation>
+    </message>
+    <message>
+        <source>The paper size and the scale are worked out for each sheet.</source>
+        <translation type="unfinished">Kâğıt boyutu ve ölçek her sayfa için hesaplanır.</translation>
+    </message>
+    <message>
+        <source>Revisions, the latest at the top</source>
+        <translation type="unfinished">Revizyonlar, en yenisi üstte</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Tarih</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Yapan</translation>
+    </message>
+    <message>
+        <source>New revision</source>
+        <translation type="unfinished">Yeni revizyon</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Kaldır</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesign</name>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Proje</translation>
+    </message>
+    <message>
+        <source>Sheet title</source>
+        <translation type="unfinished">Sayfa başlığı</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished">Müşteri</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">Şantiye</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished">Adres</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Tarih</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Açıklama</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Yapan</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ad</translation>
+    </message>
+    <message>
+        <source>Drawn</source>
+        <translation type="unfinished">Çizen</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished">Kontrol eden</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Onaylayan</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished">Biçim</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished">Ölçek</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished">Standart</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Tesis</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Konum</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">Logo</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Şirket</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Müşteri ve şantiye</translation>
+    </message>
+    <message>
+        <source>Revisions</source>
+        <translation type="unfinished">Revizyonlar</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">İmzalar</translation>
+    </message>
+    <message>
+        <source>Format and scale</source>
+        <translation type="unfinished">Biçim ve ölçek</translation>
+    </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished">İletişim</translation>
+    </message>
+    <message>
+        <source>Drawn by</source>
+        <translation type="unfinished">Çizen</translation>
+    </message>
+    <message>
+        <source>Drawn on</source>
+        <translation type="unfinished">Çizim tarihi</translation>
+    </message>
+    <message>
+        <source>Checked by</source>
+        <translation type="unfinished">Kontrol eden</translation>
+    </message>
+    <message>
+        <source>Checked on</source>
+        <translation type="unfinished">Kontrol tarihi</translation>
+    </message>
+    <message>
+        <source>Approved by</source>
+        <translation type="unfinished">Onaylayan</translation>
+    </message>
+    <message>
+        <source>Approved on</source>
+        <translation type="unfinished">Onay tarihi</translation>
+    </message>
+    <message>
+        <source>Project title</source>
+        <translation type="unfinished">Proje başlığı</translation>
+    </message>
+    <message>
+        <source>Sheet number</source>
+        <translation type="unfinished">Sayfa numarası</translation>
+    </message>
+    <message>
+        <source>Position of the sheet</source>
+        <translation type="unfinished">Sayfanın konumu</translation>
+    </message>
+    <message>
+        <source>Number of sheets</source>
+        <translation type="unfinished">Sayfa sayısı</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished">Yazar</translation>
+    </message>
+    <message>
+        <source>Revision of the sheet</source>
+        <translation type="unfinished">Sayfanın revizyonu</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Sürüm</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished">Dosya adı</translation>
+    </message>
+    <message>
+        <source>Company address</source>
+        <translation type="unfinished">Şirket adresi</translation>
+    </message>
+    <message>
+        <source>Company contact</source>
+        <translation type="unfinished">Şirket iletişimi</translation>
+    </message>
+    <message>
+        <source>Site address</source>
+        <translation type="unfinished">Şantiye adresi</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation type="unfinished">Kâğıt boyutu</translation>
+    </message>
+    <message>
+        <source>Latest revision</source>
+        <translation type="unfinished">Son revizyon</translation>
+    </message>
+    <message>
+        <source>Date of the latest revision</source>
+        <translation type="unfinished">Son revizyonun tarihi</translation>
+    </message>
+    <message>
+        <source>Made of blocks with the FaseCAD title block designer</source>
+        <translation type="unfinished">FaseCAD antet tasarımcısıyla bloklardan yapıldı</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesignPreview</name>
+    <message>
+        <source>Add the blocks of the title block with the buttons above</source>
+        <translation type="unfinished">Antedin bloklarını yukarıdaki düğmelerle ekleyin</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesigner</name>
+    <message>
+        <source>Use the title block %1</source>
+        <translation type="unfinished">%1 antetini kullan</translation>
+    </message>
+    <message>
+        <source>Title block designer</source>
+        <translation type="unfinished">Antet tasarımcısı</translation>
+    </message>
+    <message>
+        <source>Add a block:</source>
+        <translation type="unfinished">Blok ekle:</translation>
+    </message>
+    <message>
+        <source>Adds the block "%1" at the end of the title block</source>
+        <translation type="unfinished">"%1" bloğunu antedin sonuna ekler</translation>
+    </message>
+    <message>
+        <source>Click a block to change it. Drag the line between two blocks to share their width, drag a block to move it, Delete takes it away.</source>
+        <translation type="unfinished">Değiştirmek için bir bloğa tıklayın. Genişliklerini paylaştırmak için iki blok arasındaki çizgiyi, taşımak için bir bloğu sürükleyin; Delete onu kaldırır.</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Antet</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Ad:</translation>
+    </message>
+    <message>
+        <source>Modern: the label small above the value</source>
+        <translation type="unfinished">Modern: etiket değerin üstünde küçük</translation>
+    </message>
+    <message>
+        <source>Classic: label and value on one line</source>
+        <translation type="unfinished">Klasik: etiket ve değer aynı satırda</translation>
+    </message>
+    <message>
+        <source>Style:</source>
+        <translation type="unfinished">Stil:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Yükseklik:</translation>
+    </message>
+    <message>
+        <source>Colour of the bar and of the headers</source>
+        <translation type="unfinished">Çubuğun ve başlıkların rengi</translation>
+    </message>
+    <message>
+        <source>Bar along the left side</source>
+        <translation type="unfinished">Sol kenar boyunca çubuk</translation>
+    </message>
+    <message>
+        <source>Accent:</source>
+        <translation type="unfinished">Vurgu:</translation>
+    </message>
+    <message>
+        <source>Start again from…</source>
+        <translation type="unfinished">Şuradan yeniden başla…</translation>
+    </message>
+    <message>
+        <source>Complete, for A3</source>
+        <translation type="unfinished">Tam, A3 için</translation>
+    </message>
+    <message>
+        <source>Compact, for A4</source>
+        <translation type="unfinished">Kompakt, A4 için</translation>
+    </message>
+    <message>
+        <source>Give it to:</source>
+        <translation type="unfinished">Şuna ver:</translation>
+    </message>
+    <message>
+        <source>this sheet</source>
+        <translation type="unfinished">bu sayfa</translation>
+    </message>
+    <message>
+        <source>every sheet of the project</source>
+        <translation type="unfinished">projenin her sayfası</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished">Vurgu rengi</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Blok</translation>
+    </message>
+    <message>
+        <source>Pick a block in the title block.</source>
+        <translation type="unfinished">Antette bir blok seçin.</translation>
+    </message>
+    <message>
+        <source>Block: %1</source>
+        <translation type="unfinished">Blok: %1</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Genişlik:</translation>
+    </message>
+    <message>
+        <source>Text, and data between %{ and }: %{projecttitle}</source>
+        <translation type="unfinished">Metin ve %{ ile } arasında veriler: %{projecttitle}</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Veri</translation>
+    </message>
+    <message>
+        <source>Revisions shown:</source>
+        <translation type="unfinished">Gösterilen revizyonlar:</translation>
+    </message>
+    <message>
+        <source>The revisions are those of the project: Project &gt; Title block data.</source>
+        <translation type="unfinished">Revizyonlar projeninkilerdir: Proje &gt; Antet verileri.</translation>
+    </message>
+    <message>
+        <source>Choose an image…</source>
+        <translation type="unfinished">Bir görüntü seç…</translation>
+    </message>
+    <message>
+        <source>No logo</source>
+        <translation type="unfinished">Logo yok</translation>
+    </message>
+    <message>
+        <source>Image:</source>
+        <translation type="unfinished">Görüntü:</translation>
+    </message>
+    <message>
+        <source>Take the block away</source>
+        <translation type="unfinished">Bloğu kaldır</translation>
+    </message>
+    <message>
+        <source>Logo of the title block</source>
+        <translation type="unfinished">Antet logosu</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp)</source>
+        <translation type="unfinished">Görüntüler (*.svg *.png *.jpg *.jpeg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Give the title block a name: letters, digits, "-" and "_".</source>
+        <translation type="unfinished">Antede bir ad verin: harfler, rakamlar, "-" ve "_".</translation>
+    </message>
+    <message>
+        <source>The title block has no block.</source>
+        <translation type="unfinished">Antette blok yok.</translation>
+    </message>
+    <message>
+        <source>The project already has a title block template called %1, not made with the designer. Replace it?</source>
+        <translation type="unfinished">Projede tasarımcıyla yapılmamış %1 adlı bir antet şablonu zaten var. Değiştirilsin mi?</translation>
+    </message>
+</context>
+<context>
+    <name>WireNumbering</name>
+    <message>
+        <source>By potential: 1, 2, 3…</source>
+        <translation type="unfinished">Potansiyele göre: 1, 2, 3…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 3.1, 3.2…</source>
+        <translation type="unfinished">Sayfa ve numara: 3.1, 3.2…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 301, 302…</source>
+        <translation type="unfinished">Sayfa ve numara: 301, 302…</translation>
+    </message>
+    <message>
+        <source>Sheet and column: 3-12</source>
+        <translation type="unfinished">Sayfa ve sütun: 3-12</translation>
+    </message>
+    <message>
+        <source>From and to, IEC 62491: -K1:13/-X1:4</source>
+        <translation type="unfinished">Nereden ve nereye, IEC 62491: -K1:13/-X1:4</translation>
+    </message>
+    <message>
+        <source>By potential type: L1, L2, N, PE, P1, M1</source>
+        <translation type="unfinished">Potansiyel tipine göre: L1, L2, N, PE, P1, M1</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n iletkeni numaralandır</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireNumberingDialog</name>
+    <message>
+        <source>Number the wires</source>
+        <translation type="unfinished">İletkenleri numaralandır</translation>
+    </message>
+    <message>
+        <source>Save as mine…</source>
+        <translation type="unfinished">Benimki olarak kaydet…</translation>
+    </message>
+    <message>
+        <source>Keep this formula among your own, for every project</source>
+        <translation type="unfinished">Bu formülü kendi formüllerinizin arasında, her proje için tutun</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Sil</translation>
+    </message>
+    <message>
+        <source>Delete this formula of your own</source>
+        <translation type="unfinished">Bu kendi formülünüzü silin</translation>
+    </message>
+    <message>
+        <source>Numbering:</source>
+        <translation type="unfinished">Numaralandırma:</translation>
+    </message>
+    <message>
+        <source>Formula:</source>
+        <translation type="unfinished">Formül:</translation>
+    </message>
+    <message>
+        <source>%N number in the project · %n number on the sheet · %F sheet · %C column · %R row · %P potential type (L1, N, PE, P1, M1) · %S device and %T terminal it starts from · %D device and %E terminal it goes to · %3N three digits: 001</source>
+        <translation type="unfinished">%N projedeki numara · %n sayfadaki numara · %F sayfa · %C sütun · %R satır · %P potansiyel tipi (L1, N, PE, P1, M1) · %S başladığı cihaz ve %T klemens · %D gittiği cihaz ve %E klemens · %3N üç basamak: 001</translation>
+    </message>
+    <message>
+        <source>A name for each wire, not one for each potential</source>
+        <translation type="unfinished">Her iletken için bir ad, her potansiyel için bir tane değil</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">İletkenler</translation>
+    </message>
+    <message>
+        <source>Whole project</source>
+        <translation type="unfinished">Tüm proje</translation>
+    </message>
+    <message>
+        <source>This sheet</source>
+        <translation type="unfinished">Bu sayfa</translation>
+    </message>
+    <message>
+        <source>Selected wires</source>
+        <translation type="unfinished">Seçili iletkenler</translation>
+    </message>
+    <message>
+        <source>Order on a sheet:</source>
+        <translation type="unfinished">Sayfada sıra:</translation>
+    </message>
+    <message>
+        <source>From top to bottom, then left to right</source>
+        <translation type="unfinished">Yukarıdan aşağı, sonra soldan sağa</translation>
+    </message>
+    <message>
+        <source>From left to right, then top to bottom</source>
+        <translation type="unfinished">Soldan sağa, sonra yukarıdan aşağı</translation>
+    </message>
+    <message>
+        <source>Start at:</source>
+        <translation type="unfinished">Başlangıç:</translation>
+    </message>
+    <message>
+        <source>Keep the numbers fixed by hand</source>
+        <translation type="unfinished">Elle sabitlenen numaraları koru</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Sayfa</translation>
+    </message>
+    <message>
+        <source>Now</source>
+        <translation type="unfinished">Şimdi</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Yeni</translation>
+    </message>
+    <message>
+        <source>From → to</source>
+        <translation type="unfinished">Nereden → nereye</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Numara</translation>
+    </message>
+    <message>
+        <source>Mine: %1</source>
+        <translation type="unfinished">Benim: %1</translation>
+    </message>
+    <message>
+        <source>Formula of my own</source>
+        <translation type="unfinished">Kendi formülüm</translation>
+    </message>
+    <message>
+        <source>Nothing to change: every wire already has this name.</source>
+        <translation type="unfinished">Değişecek bir şey yok: her iletken zaten bu ada sahip.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n name(s) change:</source>
+        <translation type="unfinished">
+            <numerusform>%n ad değişiyor:</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Save as mine</source>
+        <translation type="unfinished">Benimki olarak kaydet</translation>
+    </message>
+    <message>
+        <source>Name of this numbering:</source>
+        <translation type="unfinished">Bu numaralandırmanın adı:</translation>
+    </message>
+</context>
+<context>
+    <name>WireSections</name>
+    <message numerus="yes">
+        <source>Give %n wire(s) the section of their protection</source>
+        <translation type="unfinished">
+            <numerusform>%n iletkene korumasının kesitini ver</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireSectionsDialog</name>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Kesitleri hesapla</translation>
+    </message>
+    <message>
+        <source>The section IEC 60204-1 (table 6, copper, PVC) asks for the wires each protection feeds, from its rated current, and the wires each device feeds whose part has a maximum current, from it: the wires on its outgoing terminals (2, 4, 6…) and every wire joined to them.</source>
+        <translation type="unfinished">IEC 60204-1'in (tablo 6, bakır, PVC) her korumanın beslediği iletkenler için anma akımına göre, ve parçasının en yüksek akımı olan her cihazın beslediği iletkenler için o akıma göre istediği kesit: çıkış klemenslerindeki (2, 4, 6…) iletkenler ve onlara bağlı her iletken.</translation>
+    </message>
+    <message>
+        <source>Installation:</source>
+        <translation type="unfinished">Döşeme:</translation>
+    </message>
+    <message>
+        <source>B1: single cores in a duct</source>
+        <translation type="unfinished">B1: kanal içinde tek damarlar</translation>
+    </message>
+    <message>
+        <source>B2: cables in a duct</source>
+        <translation type="unfinished">B2: kanal içinde kablolar</translation>
+    </message>
+    <message>
+        <source>C: on a wall</source>
+        <translation type="unfinished">C: duvar üzerinde</translation>
+    </message>
+    <message>
+        <source>E: on a cable tray</source>
+        <translation type="unfinished">E: kablo tavasında</translation>
+    </message>
+    <message>
+        <source>Ambient:</source>
+        <translation type="unfinished">Ortam:</translation>
+    </message>
+    <message>
+        <source>Circuits grouped:</source>
+        <translation type="unfinished">Gruplanmış devreler:</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Cihaz</translation>
+    </message>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">Akım</translation>
+    </message>
+    <message>
+        <source>Section needed</source>
+        <translation type="unfinished">Gereken kesit</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">İletkenler</translation>
+    </message>
+    <message>
+        <source>Without section</source>
+        <translation type="unfinished">Kesitsiz</translation>
+    </message>
+    <message>
+        <source>Too small</source>
+        <translation type="unfinished">Çok küçük</translation>
+    </message>
+    <message>
+        <source>Give them their section</source>
+        <translation type="unfinished">Onlara kesitlerini ver</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">belirtilmemiş</translation>
+    </message>
+    <message>
+        <source>over 120 mm²</source>
+        <translation type="unfinished">120 mm² üzeri</translation>
+    </message>
+    <message>
+        <source>The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.</source>
+        <translation type="unfinished">Projede koruma (devre kesici, motor koruma, sigorta) veya en yüksek akımı olan cihaz yok.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) without a section or with a smaller one than their protection asks for.</source>
+        <translation type="unfinished">
+            <numerusform>Kesiti olmayan veya korumasının istediğinden küçük olan %n iletken.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">Çarpı</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">Kontak sembolleri</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Görünüm</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">Cihaz etiketinin altında</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">Sembolün altında</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">Sayfa altbilgisi</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">Elle konum</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Konum</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">Sembole göre</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">Sayfada mutlak</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">Göreli: gösterim sembol hareket edince onu izler. Mutlak: sayfada olduğu yerde kalır.</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">Kontak sembollerini döndürür; numaraları dik kalır.</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">Kontak sembolü açısı</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">Çizgi kalınlığı</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">Sembolün altındaki boşluk</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">Tanımlı kontakları bağlı olmasalar da göster</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">Sayfada X konumu</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">Elle kaydırma X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">Sayfada Y konumu</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">Elle kaydırma Y</translation>
     </message>
 </context>
 </TS>

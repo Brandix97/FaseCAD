@@ -229,6 +229,13 @@ class PartsManagerDialog : public QDialog
 			/// The pictures of the first column of the table of the parts
 		PartThumbnails *m_thumbnails = nullptr;
 		QTableWidget *m_technical_table = nullptr;
+			/// The description and the model in other languages: a row
+			/// per language (PartTranslations)
+		QTableWidget *m_translations_table = nullptr;
+			/// Shown only for a part of the category Cables
+		QWidget *m_cable_tab = nullptr;
+		QWidget *buildTranslationsTab();
+		void showCableTab();
 		QTableWidget *m_functions_table = nullptr;
 		QTableWidget *m_connections_table = nullptr;
 		QTableWidget *m_accessories_table = nullptr;

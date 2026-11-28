@@ -195,6 +195,7 @@ class QETDiagramEditor : public QETMainWindow
 		void slot_cableNumbering();
 		void slot_wireNumbering();
 		void slot_wireSections();
+		void setProjectVersion();
 		void slot_titleBlockDesigner();
 		void slot_titleBlockData();
 		void slot_reloadElementDrawings();
@@ -330,7 +331,8 @@ class QETDiagramEditor : public QETMainWindow
 		*m_terminal_numbering,         ///< Action to launch terminal numbering
 		*m_cable_numbering,            ///< Action to open the cable numbering window (rule + numbering of every cable)
 		*m_wire_numbering,             ///< Action numbering the wires by an example or a formula (WireNumberingDialog)
-		*m_wire_sections,              ///< Action giving the wires the section of their protection (WireSectionsDialog)
+		*m_wire_sections,
+		*m_set_version,               ///< Raise the version of the project, with a sheet of the changes (ProjectVersions)              ///< Action giving the wires the section of their protection (WireSectionsDialog)
 		*m_add_cable_list,             ///< Add a cable list graphics item
 		*m_add_parts_bom,             ///< Add a bill of materials of the parts graphics item
 		*m_export_parts_bom,            ///< Export the bill of materials of the parts to CSV

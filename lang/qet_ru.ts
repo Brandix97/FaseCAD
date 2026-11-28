@@ -329,6 +329,24 @@
         <comment>Qet_translate</comment>
         <translation>Инструмент перевода элементов</translation>
     </message>
+    <message>
+        <source>About FaseCAD</source>
+        <translation type="unfinished">О программе FaseCAD</translation>
+    </message>
+    <message>
+        <source>FaseCAD, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation type="unfinished">FaseCAD — приложение для проектирования электрических схем.</translation>
+    </message>
+    <message>
+        <source>Based on QElectroTech, © 2006-%1 the developers of QElectroTech, under the GNU General Public License, version 2 or later.</source>
+        <comment>about tab, origin line</comment>
+        <translation type="unfinished">Основано на QElectroTech, © 2006-%1 разработчики QElectroTech, по лицензии GNU General Public License версии 2 или более поздней.</translation>
+    </message>
+    <message>
+        <source>based on QElectroTech %1</source>
+        <translation type="unfinished">на основе QElectroTech %1</translation>
+    </message>
 </context>
 <context>
     <name>AddLinkDialog</name>
@@ -486,6 +504,10 @@
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="51"/>
         <source>Realistic (screw)</source>
         <translation>Реалистичный (винтовой)</translation>
+    </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Схема клемм</translation>
     </message>
 </context>
 <context>
@@ -1067,7 +1089,7 @@ Note: these options DO NOT allow or block auto numberings, only their update pol
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="14"/>
         <source>Export the bill of materials as CSV</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Экспорт спецификации в CSV</translation>
     </message>
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="20"/>
@@ -1869,6 +1891,18 @@ If you confirm, the other cable will lose these cores. Do you want to continue?<
             <numerusform>%n жил этого кабеля привязаны к проводнику. С выбранным типом они выйдут из этого кабеля, а их отметка исчезнет с чертежа. Продолжить?</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Источник</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+    <message>
+        <source>This cable type comes from the parts database: change it in the parts manager.</source>
+        <translation type="unfinished">Этот тип кабеля взят из базы деталей: измените его в менеджере деталей.</translation>
+    </message>
 </context>
 <context>
     <name>CableExportDialog</name>
@@ -1997,6 +2031,46 @@ If you confirm, the other cable will lose these cores. Do you want to continue?<
         <source>Used cores</source>
         <translation>Используемые жилы</translation>
     </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Жила</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Цвет</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Провод</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Откуда</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Куда</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Состояние</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation type="unfinished">Используется</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Запасная</translation>
+    </message>
 </context>
 <context>
     <name>CableListModelPropertiesWidget</name>
@@ -2124,6 +2198,18 @@ Do you want to renumber them too?</source>
         <location filename="../sources/ui/cablenumberingdialog.cpp" line="362"/>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>Все кабели уже имеют номер, который даёт им правило.</translation>
+    </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">Новый кабель получает первый свободный номер в проекте: %1, %2... Перенумерация заново называет каждый кабель проекта в порядке ниже, закрывая пропуски, оставленные удалёнными кабелями.</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">Заново задаёт номер каждого кабеля проекта, начиная с 1: так заполняется номер, пропавший после удаления кабеля.</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">Все кабели уже имеют номер, который им был бы присвоен.</translation>
     </message>
 </context>
 <context>
@@ -2431,6 +2517,14 @@ Do you want to renumber them too?</source>
         <location filename="../sources/cablelist/cablequerywidget.cpp" line="73"/>
         <source>Table columns</source>
         <translation>Столбцы таблицы</translation>
+    </message>
+    <message>
+        <source>Cable:</source>
+        <translation type="unfinished">Кабель:</translation>
+    </message>
+    <message>
+        <source>All cables</source>
+        <translation type="unfinished">Все кабели</translation>
     </message>
 </context>
 <context>
@@ -3006,17 +3100,17 @@ Do you want to renumber them too?</source>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="143"/>
         <source>This wire is a core of a cable: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Этот провод — жила кабеля: сечение, цвет и тип берутся из кабеля.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="144"/>
         <source>This wire is core of cable %1: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Этот провод — жила кабеля %1: сечение, цвет и тип берутся из кабеля.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="259"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Нет</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="319"/>
@@ -3105,19 +3199,19 @@ Locked by this sheet&apos;s “Show one potential text per sheet” option, in S
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="58"/>
         <source>Potential type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Тип потенциала:</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="148"/>
         <source>Conductor type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Тип провода:</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="158"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="168"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="178"/>
         <source>❗</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">❗</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="218"/>
@@ -3572,32 +3666,32 @@ Continue?</source>
     <message>
         <location filename="../sources/diagram.cpp" line="347"/>
         <source>a text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">текст</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="348"/>
         <source>a shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">фигура</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="349"/>
         <source>a picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">изображение</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="350"/>
         <source>a table</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">таблица</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="351"/>
         <source>a terminal strip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">клеммный ряд</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="352"/>
         <source>a cable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">кабель</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="3421"/>
@@ -3876,6 +3970,10 @@ Continue?</source>
         <location filename="../sources/diagramevent/diagrameventaddelement.cpp" line="552"/>
         <source>insert %1 × %2</source>
         <translation>вставить %1 × %2</translation>
+    </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">Символ %1 из %2: %3. Tab: следующий символ, Shift+Tab: предыдущий</translation>
     </message>
 </context>
 <context>
@@ -4284,7 +4382,8 @@ Continue?</source>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="798"/>
         <source>
 Hold Shift and drag to move the symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+Перетащите с Shift, чтобы переместить символ</translation>
     </message>
     <message>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="799"/>
@@ -4440,6 +4539,22 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit conductor properties</source>
         <comment>undo caption</comment>
         <translation>Изменить свойства проводника</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">Добавить деталь</translation>
+    </message>
+    <message>
+        <source>Place terminals</source>
+        <translation type="unfinished">Разместить клеммы</translation>
+    </message>
+    <message>
+        <source>Click on the folio to place each terminal: the number goes up by one each time. Right click or Escape ends.</source>
+        <translation type="unfinished">Щёлкайте на листе, чтобы разместить каждую клемму: номер каждый раз увеличивается на один. Правый щелчок или Escape — конец.</translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished">Разместить</translation>
     </message>
 </context>
 <context>
@@ -5268,6 +5383,14 @@ Hold Shift and drag to move this text on its own</source>
         <source>Edit an element text</source>
         <translation>Редактировать текст элемента</translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Выбрать...</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Данные детали</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5451,6 +5574,26 @@ Hold Shift and drag to move this text on its own</source>
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1866"/>
         <source>Right</source>
         <translation>Вправо</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Данные детали</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">Используйте базу деталей (Настройки &gt; Общие), чтобы показывать данные деталей.</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">У деталей этого элемента нет данных в базе деталей.</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">Элемент не состоит из деталей: добавьте деталь на вкладке «Детали».</translation>
     </message>
 </context>
 <context>
@@ -5779,7 +5922,7 @@ The element&apos;s display name is edited separately in the element properties.<
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="71"/>
         <source>Edit on several lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Редактировать в несколько строк</translation>
     </message>
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="81"/>
@@ -5962,6 +6105,30 @@ Continue?</source>
 Изменение его нумерации заменит или сотрёт его.
 
 Продолжить?</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Поменять местами внутреннюю и внешнюю сторону шкафа</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">По умолчанию наружу шкафа идёт сторона, подключённая к кабелю, а без кабеля — нижняя точка подключения. Отметьте, чтобы развернуть для этой клеммы: планы клеммных рядов следуют за этим.</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">У этой клеммы одна точка подключения.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">Внутри шкафа: %1. Снаружи шкафа: %2, сторона кабеля.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">Внутри шкафа: %1. Снаружи шкафа: %2.</translation>
     </message>
 </context>
 <context>
@@ -6683,7 +6850,7 @@ Continue?</source>
     <message>
         <location filename="../sources/ui/elementpropertieswidget.h" line="45"/>
         <source>Element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Свойства элемента</translation>
     </message>
 </context>
 <context>
@@ -7342,6 +7509,38 @@ QElectroTech не может автоматически определить п�
         <source>Property of the folder %1</source>
         <translation>Свойства папки %1</translation>
     </message>
+    <message>
+        <source>Download the symbol...</source>
+        <translation type="unfinished">Скачать символ...</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Менеджер деталей...</translation>
+    </message>
+    <message>
+        <source>The symbol %1 is not there.</source>
+        <translation type="unfinished">Символа %1 нет.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read.</source>
+        <translation type="unfinished">Не удаётся прочитать %1.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written.</source>
+        <translation type="unfinished">Не удаётся записать %1.</translation>
+    </message>
+    <message>
+        <source>Download the symbol</source>
+        <translation type="unfinished">Скачать символ</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Символы (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Download the symbols</source>
+        <translation type="unfinished">Скачать символы</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7529,6 +7728,18 @@ QElectroTech не может автоматически определить п�
         <location filename="../sources/elementspanelwidget.cpp" line="85"/>
         <source>Delete this template</source>
         <translation>Удалить этот шаблон</translation>
+    </message>
+    <message>
+        <source>Insert a schematic sheet</source>
+        <translation type="unfinished">Вставить лист схемы</translation>
+    </message>
+    <message>
+        <source>Insert a cabinet construction sheet</source>
+        <translation type="unfinished">Вставить лист конструкции шкафа</translation>
+    </message>
+    <message>
+        <source>Insert a routing sheet for this cabinet</source>
+        <translation type="unfinished">Вставить лист трассировки для этого шкафа</translation>
     </message>
 </context>
 <context>
@@ -8377,37 +8588,37 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="64"/>
         <source>Selection rectangle selects:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Рамка выделения выбирает:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="75"/>
         <source>Everything it overlaps (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Всё, чего касается (как раньше)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="80"/>
         <source>What lies wholly within it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Целиком внутри</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="85"/>
         <source>By direction: wholly within to the right, overlapped to the left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">По направлению: вправо — целиком внутри, влево — касающиеся</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="104"/>
         <source>Zoom step:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Шаг масштаба:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="120"/>
         <source>How far the mouse wheel, Ctrl++ / Ctrl+- and the zoom buttons zoom at a time, in percent of the zoom shown, rounded to whole fives: with 10 %, 100 % goes to 110 %, 120 %, 130 % and 400 % to 440 %. Alt with the mouse wheel zooms four steps at a time.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Насколько за один раз приближают колесо мыши, Ctrl++ / Ctrl+- и кнопки масштаба, в процентах от текущего масштаба, с округлением до кратного пяти: при 10% 100% → 110%, 120%, 130%, а 400% → 440%. Alt с колесом приближает на четыре шага за раз.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="123"/>
         <source>Factor 1.15 (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Коэффициент 1,15 (как раньше)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="126"/>
@@ -8422,12 +8633,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="152"/>
         <source>Draw a connected terminal in the color of its conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Рисовать подключённую клемму цветом её провода</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="155"/>
         <source>Unchecked, every terminal is drawn in red. Terminals are never printed or exported.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Если выключено, каждая клемма рисуется красной. Клеммы никогда не печатаются и не экспортируются.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="162"/>
@@ -8537,12 +8748,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="358"/>
         <source>Dragging a symbol&apos;s text moves the text alone, and Shift+drag moves the symbol, as before version 0.100. Unticked by default: dragging a text moves its symbol, Shift+drag moves the text.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Перетаскивание текста символа перемещает только текст, а Shift+перетаскивание — символ, как до версии 0.100. По умолчанию выключено: перетаскивание текста перемещает его символ, Shift+перетаскивание — текст.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="361"/>
         <source>Drag symbol texts without holding Shift</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Перетаскивать тексты символов без Shift</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="368"/>
@@ -8587,12 +8798,12 @@ that you create. Text and number inputs are
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="408"/>
         <source>Printing and exporting ask first when symbols, texts, shapes, pictures or tables lie outside the sheet, as they are cut off or left out; saving says so in the status bar.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Когда за пределами листа есть символы, тексты, фигуры, изображения или таблицы, печать и экспорт сначала спрашивают, так как они будут обрезаны или пропущены; сохранение сообщает об этом в строке состояния.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="411"/>
         <source>Warn about items outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Предупреждать об элементах за пределами листа</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="418"/>
@@ -9180,7 +9391,7 @@ hint shown when no cable type file is configured yet</extracomment>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="674"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Словацкий</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="675"/>
@@ -9422,6 +9633,106 @@ Any setting other than “No rounding” may cause rendering errors in the proje
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="261"/>
         <source> px</source>
         <translation> px</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation type="unfinished">Тема:</translation>
+    </message>
+    <message>
+        <source>Light or dark colors for the whole interface. A sheet left on its system color follows them.</source>
+        <translation type="unfinished">Светлые или тёмные цвета для всего интерфейса. Лист с системным цветом следует за ними.</translation>
+    </message>
+    <message>
+        <source>Colors below (as before)</source>
+        <translation type="unfinished">Цвета ниже (как раньше)</translation>
+    </message>
+    <message>
+        <source>Follow the system</source>
+        <translation type="unfinished">Как в системе</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">Светлая</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Тёмная</translation>
+    </message>
+    <message>
+        <source>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</source>
+        <translation type="unfinished">Показывать инструменты на вкладках по задачам (Главная, Вставка, Соединения...) вместо панелей инструментов</translation>
+    </message>
+    <message>
+        <source>The menus stay, and so do the toolbars you made yourself.</source>
+        <translation type="unfinished">Меню остаются, как и панели инструментов, созданные вами.</translation>
+    </message>
+    <message>
+        <source>Hide the menu bar too (every menu stays in the File tab)</source>
+        <translation type="unfinished">Скрыть и строку меню (все меню остаются на вкладке «Файл»)</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">Боковая панель сворачивается во вкладку у края окна и выдвигается, когда на неё наводится мышь; булавка держит её открытой</translation>
+    </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">Автоматически скрывать боковые панели</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+    <message>
+        <source>Use the parts database (cable types from its parts with cores)</source>
+        <translation type="unfinished">Использовать базу деталей (типы кабелей из деталей с жилами)</translation>
+    </message>
+    <message>
+        <source>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</source>
+        <translation type="unfinished">Файл базы деталей. Оставьте пустым, чтобы использовать базу этого компьютера; выберите файл в сетевой папке, чтобы делиться им.</translation>
+    </message>
+    <message>
+        <source>This computer (%1)</source>
+        <translation type="unfinished">Этот компьютер (%1)</translation>
+    </message>
+    <message>
+        <source>Parts databases (*.sqlite *.db)</source>
+        <translation type="unfinished">Базы деталей (*.sqlite *.db)</translation>
+    </message>
+    <message>
+        <source>In a database file</source>
+        <translation type="unfinished">В файле базы данных</translation>
+    </message>
+    <message>
+        <source>On a PostgreSQL server</source>
+        <translation type="unfinished">На сервере PostgreSQL</translation>
+    </message>
+    <message>
+        <source>A server keeps the parts for several computers at once, each reading and writing them</source>
+        <translation type="unfinished">Сервер хранит детали сразу для нескольких компьютеров, каждый читает и записывает их</translation>
+    </message>
+    <message>
+        <source>Server...</source>
+        <translation type="unfinished">Сервер...</translation>
+    </message>
+    <message>
+        <source>When a project is opened:</source>
+        <translation type="unfinished">При открытии проекта:</translation>
+    </message>
+    <message>
+        <source>Make a backup copy beside it</source>
+        <translation type="unfinished">Делать резервную копию рядом</translation>
+    </message>
+    <message>
+        <source>Ask whether to make a backup copy</source>
+        <translation type="unfinished">Спрашивать, делать ли резервную копию</translation>
+    </message>
+    <message>
+        <source>Make no backup copy</source>
+        <translation type="unfinished">Не делать резервную копию</translation>
+    </message>
+    <message>
+        <source>The copy is the project as it was when opened, in its folder, named after it: project_backup.qet. Each opening writes over the copy before.</source>
+        <translation type="unfinished">Копия — это проект в том виде, в каком он был открыт, в его папке, с его именем: project_backup.qet. Каждое открытие перезаписывает предыдущую копию.</translation>
     </message>
 </context>
 <context>
@@ -10251,7 +10562,7 @@ Any setting other than “No rounding” may cause rendering errors in the proje
     <message>
         <location filename="../sources/ui/imagepropertieswidget.h" line="46"/>
         <source>Picture properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Свойства изображения</translation>
     </message>
 </context>
 <context>
@@ -10457,6 +10768,18 @@ Please use the advanced editor for this.</source>
         <location filename="../sources/ui/inditextpropertieswidget.cpp" line="323"/>
         <source>Modify the properties of a text</source>
         <translation>Изменить свойства текста</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Авто</translation>
+    </message>
+    <message>
+        <source>Text width; the text wraps at this width. Auto: no automatic line wrap</source>
+        <translation type="unfinished">Ширина текста; текст переносится на этой ширине. Авто: без автоматического переноса</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Ширина:</translation>
     </message>
 </context>
 <context>
@@ -11460,6 +11783,10 @@ Do you still want to link this slave contact?</source>
         <source>Information</source>
         <translation>Информация</translation>
     </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Поменять местами внутреннюю и внешнюю сторону шкафа</translation>
+    </message>
 </context>
 <context>
     <name>MultiPasteDialog</name>
@@ -11627,7 +11954,7 @@ Do you still want to link this slave contact?</source>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="231"/>
         <source>Potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Типы потенциалов</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="238"/>
@@ -12256,22 +12583,22 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="43"/>
         <source>Check potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Проверить типы потенциалов</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="50"/>
         <source>Each row is a potential whose wires have different types. Click a row to select its wires. Types joined on purpose can be declared in the project properties and are not listed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Каждая строка — потенциал, провода которого имеют разные типы. Щёлкните строку, чтобы выбрать его провода. Типы, объединённые намеренно, можно указать в свойствах проекта, и они не показываются.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Types on the potential</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Типы в потенциале</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Typed wires</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Провода с типом</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="69"/>
@@ -12281,26 +12608,26 @@ Import them? The elements will then receive the next numbers, starting from 1. O
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="96"/>
         <source>No potential carries wires of different types.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ни один потенциал не несёт провода разных типов.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="97"/>
         <source>Potential types are off for this project, so there is nothing to check.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Типы потенциалов отключены в этом проекте, поэтому проверять нечего.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="100"/>
         <source>%n potential(s) carry wires of different types.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n потенциал несёт провода разных типов.</numerusform>
+            <numerusform>%n потенциала несут провода разных типов.</numerusform>
+            <numerusform>%n потенциалов несут провода разных типов.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="142"/>
         <source>These wires no longer exist. Refresh the results.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Этих проводов больше нет. Обновите результаты.</translation>
     </message>
 </context>
 <context>
@@ -12412,37 +12739,37 @@ The following variables are incompatible:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="51"/>
         <source>Draw conductors from their own style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Рисовать провода их собственным стилем</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="52"/>
         <source>Draw conductors from their potential type, chosen on each conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Рисовать провода по типам потенциала, выбранным на каждом проводе</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="54"/>
         <source>When a type is used, a conductor whose potential has a type is drawn in that type&apos;s colour, line style and width. The style stored on the conductor is kept, and used again when this is off or the conductor has no type.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Когда используется тип, провод, у потенциала которого есть тип, рисуется цветом, стилем линии и толщиной этого типа. Стиль, сохранённый в проводе, сохраняется и снова используется, когда это выключено или у провода нет типа.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="59"/>
         <source>Choose a conductor&apos;s type in its properties. The type applies to every conductor on the same potential.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выберите тип провода в его свойствах. Тип действует для всех проводов того же потенциала.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Имя</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Цвет</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Line style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Стиль линии</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12452,54 +12779,54 @@ The following variables are incompatible:
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="75"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Добавить</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="76"/>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="93"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Удалить</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="77"/>
         <source>Restore the default types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Восстановить типы по умолчанию</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="86"/>
         <source>Types joined on purpose, for example 0V and PE at a power supply. A potential with only these types is not reported as mixed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Типы, объединённые намеренно, например 0V и PE в блоке питания. Потенциал только с этими типами не считается смешанным.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="92"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Объединить</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="96"/>
         <source>and</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">и</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="116"/>
         <source>New type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Новый тип</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="156"/>
         <source>Set where the potential starts (not available in this version)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Отметить, где начинается потенциал (не в этой версии)</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="173"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 и %2</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="215"/>
         <source>Solid line</source>
         <comment>conductor style: solid line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сплошная линия</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="216"/>
@@ -12517,12 +12844,12 @@ The following variables are incompatible:
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="218"/>
         <source>Dotted line</source>
         <comment>conductor style: dotted line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Пунктир</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="235"/>
         <source>Choose a colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выберите цвет</translation>
     </message>
 </context>
 <context>
@@ -13183,6 +13510,14 @@ Give them another numbering first.</source>
             <numerusform>Импортировано %n переводов.</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>%n translation(s) taken from the parts database.</source>
+        <translation type="unfinished">
+            <numerusform>Из базы деталей взят %n перевод.</numerusform>
+            <numerusform>Из базы деталей взято %n перевода.</numerusform>
+            <numerusform>Из базы деталей взято %n переводов.</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>ProjectMainConfigPage</name>
@@ -13377,13 +13712,13 @@ Give them another numbering first.</source>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="344"/>
         <source>Cell numbering starts from:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Нумерация ячеек начинается с:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="354"/>
         <source>From which corner to start numbering the cells: Top - Left corner(default), Top - Right, Bottom - Left, Bottom - Right.</source>
         <comment>tooltip</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">С какого угла начинать нумерацию ячеек: слева сверху (по умолчанию), справа сверху, слева снизу, справа снизу.</translation>
     </message>
     <message>
         <source>Origin (of a coordinate system):</source>
@@ -13424,6 +13759,16 @@ Give them another numbering first.</source>
         <source>%1 h %2 min</source>
         <comment>hours and minutes of time spent on a project</comment>
         <translation>%1 ч %2 мин</translation>
+    </message>
+    <message>
+        <source>Keep a new conductor off the conductors it would lie on</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Отводить новый провод от проводов, на которые он ляжет</translation>
+    </message>
+    <message>
+        <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Когда рисуется провод или перемещается элемент, средний участок автоматического провода, который пошёл бы вдоль другого, смещается на один шаг сетки за раз туда, где свободно. Это сохраняет путь, как если бы его переместили вручную. Уже нарисованные провода не меняются.</translation>
     </message>
 </context>
 <context>
@@ -13615,7 +13960,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="134"/>
         <source>Print preview</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Предварительный просмотр</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="135"/>
@@ -13626,7 +13971,7 @@ Give them another numbering first.</source>
         <location filename="../sources/print/projectprintwindow.cpp" line="141"/>
         <source>Export to PDF</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Экспорт в PDF</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="142"/>
@@ -13808,16 +14153,16 @@ To write a file for a version of QElectroTech that cannot open %2, use File &gt;
         <location filename="../sources/projectview.cpp" line="407"/>
         <source>Save as .qetdb?</source>
         <comment>dialog title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сохранить как .qetdb?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/projectview.cpp" line="408"/>
         <source>%n bridge(s) are drawn in this project. The .qetdb format does not store bridges yet -- they are kept in the normal .qet format only. Save it as .qetdb anyway?</source>
         <comment>also asked when the file name says .qetdb</comment>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>В этом проекте нарисована %n перемычка. Формат .qetdb пока не хранит перемычки: они сохраняются только в обычном формате .qet. Всё равно сохранить как .qetdb?</numerusform>
+            <numerusform>В этом проекте нарисовано %n перемычки. Формат .qetdb пока не хранит перемычки: они сохраняются только в обычном формате .qet. Всё равно сохранить как .qetdb?</numerusform>
+            <numerusform>В этом проекте нарисовано %n перемычек. Формат .qetdb пока не хранит перемычки: они сохраняются только в обычном формате .qet. Всё равно сохранить как .qetdb?</numerusform>
         </translation>
     </message>
     <message>
@@ -13861,6 +14206,21 @@ Saving over it would lose their changes.</source>
         <source>Project</source>
         <comment>window title for a project-less ProjectView</comment>
         <translation>Проект</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Проект QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <source>Zipped project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Сжатый проект QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech, one database file (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Проект QElectroTech, один файл базы данных (*%1)</translation>
     </message>
 </context>
 <context>
@@ -14816,7 +15176,7 @@ Hold Ctrl while moving to place freely.</source>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1135"/>
         <source>Check potential types...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Проверить типы потенциалов...</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1146"/>
@@ -14920,12 +15280,12 @@ Hold Ctrl while moving to place freely.</source>
         <location filename="../sources/qetdiagrameditor.cpp" line="1311"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="5456"/>
         <source>Update elements from the collections</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Обновить элементы из коллекций</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1314"/>
         <source>Replaces each element of the project that changed in its collection since it was placed, and redraws it (action cannot be undone)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Заменяет и перерисовывает каждый элемент проекта, изменившийся в своей коллекции с момента размещения (нельзя отменить)</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1320"/>
@@ -15816,38 +16176,38 @@ You can also number the cables automatically later: the rule is set at any time 
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5462"/>
         <source>Every element of the project matches the collection it was taken from.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Каждый элемент проекта совпадает с коллекцией, из которой взят.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5471"/>
         <source>%n elements of the project differ from the collection they were taken from. Replace them with the version of the collection?</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n элемент проекта отличается от коллекции, из которой взят. Заменить его версией из коллекции?</numerusform>
+            <numerusform>%n элемента проекта отличаются от коллекции, из которой взяты. Заменить их версией из коллекции?</numerusform>
+            <numerusform>%n элементов проекта отличаются от коллекции, из которой взяты. Заменить их версией из коллекции?</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5475"/>
         <source>Placed elements are redrawn and keep their conductors, as long as their terminals have not moved. This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Размещённые элементы перерисовываются и сохраняют свои провода, если их клеммы не перемещены. Это нельзя отменить.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5487"/>
         <source>%n elements updated.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Обновлён %n элемент.</numerusform>
+            <numerusform>Обновлено %n элемента.</numerusform>
+            <numerusform>Обновлено %n элементов.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5564"/>
         <source>%n elements not redrawn: their terminals have changed (a terminal was added, removed or moved).</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n элемент не перерисован: изменились его клеммы (клемма добавлена, удалена или перемещена).</numerusform>
+            <numerusform>%n элемента не перерисованы: изменились их клеммы (клемма добавлена, удалена или перемещена).</numerusform>
+            <numerusform>%n элементов не перерисованы: изменились их клеммы (клемма добавлена, удалена или перемещена).</numerusform>
         </translation>
     </message>
     <message>
@@ -16108,9 +16468,9 @@ You can also number the cables automatically later: the rule is set at any time 
         <location filename="../sources/qetdiagrameditor.cpp" line="6406"/>
         <source>%n more</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>ещё %n</numerusform>
+            <numerusform>ещё %n</numerusform>
+            <numerusform>ещё %n</numerusform>
         </translation>
     </message>
     <message>
@@ -16122,21 +16482,21 @@ You can also number the cables automatically later: the rule is set at any time 
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6413"/>
         <source>%1 - %2: %3</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 - %2: %3</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6436"/>
         <source>... and %n more folio(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>... и ещё %n лист</numerusform>
+            <numerusform>... и ещё %n листа</numerusform>
+            <numerusform>... и ещё %n листов</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6439"/>
         <source>Outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Вне листа</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6440"/>
@@ -16145,15 +16505,19 @@ You can also number the cables automatically later: the rule is set at any time 
 %1
 
 Go on anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Эти элементы находятся вне листа и будут обрезаны или пропущены:
+
+%1
+
+Всё равно продолжить?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6461"/>
         <source>Project saved; %n folio(s) with items outside the sheet, named when printing or exporting</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Проект сохранён; %n лист с элементами вне листа, это будет указано при печати или экспорте</numerusform>
+            <numerusform>Проект сохранён; %n листа с элементами вне листа, это будет указано при печати или экспорте</numerusform>
+            <numerusform>Проект сохранён; %n листов с элементами вне листа, это будет указано при печати или экспорте</numerusform>
         </translation>
     </message>
     <message>
@@ -17186,6 +17550,300 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <location filename="../sources/qetdiagrameditor.cpp" line="1113"/>
         <source>Find duplicate signals and components...</source>
         <translation>Найти дубликаты сигналов и компонентов...</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <comment>dock title</comment>
+        <translation type="unfinished">Устройства</translation>
+    </message>
+    <message>
+        <source>Title block designer…</source>
+        <translation type="unfinished">Конструктор основной надписи…</translation>
+    </message>
+    <message>
+        <source>Makes the title block of the sheet of ready-made blocks: logo, project, revisions, signatures...</source>
+        <translation type="unfinished">Собирает основную надпись листа из готовых блоков: логотип, проект, ревизии, подписи...</translation>
+    </message>
+    <message>
+        <source>Title block data…</source>
+        <translation type="unfinished">Данные основной надписи…</translation>
+    </message>
+    <message>
+        <source>The company, the client, the signatures and the revisions the title blocks of the project show</source>
+        <translation type="unfinished">Компания, заказчик, подписи и ревизии, показываемые в основных надписях проекта</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">Автоматическое содержание листов</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">Добавляет в начало проекта лист содержания, обновляемый с номером и названием каждого листа</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Менеджер деталей...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">Управление базой деталей: детали, технические данные, принадлежности, изображения и чертежи DXF</translation>
+    </message>
+    <message>
+        <source>Official parts catalog...</source>
+        <translation type="unfinished">Официальный каталог деталей...</translation>
+    </message>
+    <message>
+        <source>Searches the official FaseCAD parts catalog and adds the parts chosen to your parts database</source>
+        <translation type="unfinished">Ищет в официальном каталоге деталей FaseCAD и добавляет выбранные детали в вашу базу</translation>
+    </message>
+    <message>
+        <source>Cable manager...</source>
+        <translation type="unfinished">Менеджер кабелей...</translation>
+    </message>
+    <message>
+        <source>List every cable of the project with its cores, used or spare, and edit them</source>
+        <translation type="unfinished">Показывает и изменяет каждый кабель проекта с его использованными и запасными жилами</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Добавить кабельный журнал</translation>
+    </message>
+    <message>
+        <source>Add a table listing every core of the cables, with its colour, wire and ends</source>
+        <translation type="unfinished">Добавить таблицу со всеми жилами кабелей, их цветом, проводом и концами</translation>
+    </message>
+    <message>
+        <source>Export the cable plan to CSV format</source>
+        <translation type="unfinished">Экспорт кабельного журнала в CSV</translation>
+    </message>
+    <message>
+        <source>Export the cable plan</source>
+        <translation type="unfinished">Экспорт кабельного журнала</translation>
+    </message>
+    <message>
+        <source>cable_plan</source>
+        <translation type="unfinished">kabelnyi_zhurnal</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">Файлы CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Не удаётся записать файл %1.</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Добавить спецификацию деталей</translation>
+    </message>
+    <message>
+        <source>Add a table listing the parts of the devices, grouped by order number, with their quantities</source>
+        <translation type="unfinished">Добавить таблицу с деталями устройств, сгруппированными по номеру заказа, с количеством</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts to CSV format</source>
+        <translation type="unfinished">Экспорт спецификации деталей в CSV</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts</source>
+        <translation type="unfinished">Экспорт спецификации деталей</translation>
+    </message>
+    <message>
+        <source>bill_of_materials</source>
+        <translation type="unfinished">specifikaciya</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">Заново нумерует кабели проекта по порядку</translation>
+    </message>
+    <message>
+        <source>Number the wires…</source>
+        <translation type="unfinished">Нумерация проводов…</translation>
+    </message>
+    <message>
+        <source>Numbers the wires of the project, of the sheet or the selected ones, by an example or a formula of your own</source>
+        <translation type="unfinished">Нумерует провода проекта, листа или выделения по образцу или вашей формуле</translation>
+    </message>
+    <message>
+        <source>Calculate sections…</source>
+        <translation type="unfinished">Рассчитать сечения…</translation>
+    </message>
+    <message>
+        <source>Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it</source>
+        <translation type="unfinished">Задаёт каждому проводу сечение, требуемое IEC 60204-1 по защите или максимальному току питающего его устройства</translation>
+    </message>
+    <message>
+        <source>Set version…</source>
+        <translation type="unfinished">Задать версию…</translation>
+    </message>
+    <message>
+        <source>Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before</source>
+        <translation type="unfinished">Повышает версию проекта и добавляет лист с устройствами, добавленными, удалёнными или переподключёнными с предыдущей версии</translation>
+    </message>
+    <message>
+        <source>Add terminals…</source>
+        <translation type="unfinished">Добавить клеммы…</translation>
+    </message>
+    <message>
+        <source>Insert a DXF…</source>
+        <translation type="unfinished">Добавить DXF…</translation>
+    </message>
+    <message>
+        <source>Places terminals of a terminal strip, numbered one after the other</source>
+        <translation type="unfinished">Размещает клеммы клеммного ряда, нумеруя их по порядку</translation>
+    </message>
+    <message>
+        <source>Reads the lines of a DXF drawing in millimetres and places them on the current sheet</source>
+        <translation type="unfinished">Читает линии чертежа DXF в миллиметрах и размещает их на текущем листе</translation>
+    </message>
+    <message>
+        <source>Add a wire duct…</source>
+        <translation type="unfinished">Добавить кабель-канал…</translation>
+    </message>
+    <message>
+        <source>Add a DIN rail</source>
+        <translation type="unfinished">Добавить DIN-рейку</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate…</source>
+        <translation type="unfinished">Добавить монтажную панель…</translation>
+    </message>
+    <message>
+        <source>Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse</source>
+        <translation type="unfinished">Запрашивает ширину канала, затем рисует его на листе шкафа: длина показывается под мышью</translation>
+    </message>
+    <message>
+        <source>Draws a DIN rail on the cabinet sheet, as long as the mouse says</source>
+        <translation type="unfinished">Рисует на листе шкафа DIN-рейку длиной, которую показывает мышь</translation>
+    </message>
+    <message>
+        <source>Asks for the size of the mounting plate, then places it on the cabinet sheet</source>
+        <translation type="unfinished">Запрашивает размер монтажной панели, затем размещает её на листе шкафа</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet…</source>
+        <translation type="unfinished">Масштаб шкафа…</translation>
+    </message>
+    <message>
+        <source>Changes the scale the cabinet sheet is drawn at: the parts keep their measures</source>
+        <translation type="unfinished">Меняет масштаб, в котором нарисован лист шкафа: детали сохраняют размеры</translation>
+    </message>
+    <message>
+        <source>Routing sheet of a mounting plate…</source>
+        <translation type="unfinished">Лист трассировки монтажной панели…</translation>
+    </message>
+    <message>
+        <source>Adds after this cabinet sheet a sheet routing the wires of one of its mounting plates through its ducts</source>
+        <translation type="unfinished">Добавляет после этого листа шкафа лист, прокладывающий провода одной из монтажных панелей по её каналам</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Рассчитать трассировку</translation>
+    </message>
+    <message>
+        <source>Gives each wire of the schematic the shortest way through the ducts between the drawings of its devices</source>
+        <translation type="unfinished">Задаёт каждому проводу схемы кратчайший путь по каналам между чертежами его устройств</translation>
+    </message>
+    <message>
+        <source>Export the routing to CSV…</source>
+        <translation type="unfinished">Экспорт трассировки в CSV…</translation>
+    </message>
+    <message>
+        <source>Writes every wire of this routing sheet with its length to a CSV file for a spreadsheet</source>
+        <translation type="unfinished">Записывает каждый провод этого листа трассировки с длиной в файл CSV для электронной таблицы</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D…</source>
+        <translation type="unfinished">Шкаф в 3D…</translation>
+    </message>
+    <message>
+        <source>Shows the cabinet of this sheet in 3D, the devices from the STEP models of their parts, and exports it as STEP</source>
+        <translation type="unfinished">Показывает шкаф этого листа в 3D, устройства — по моделям STEP их деталей, и экспортирует его в STEP</translation>
+    </message>
+    <message>
+        <source>Loading the cabinet in 3D...</source>
+        <translation type="unfinished">Загрузка шкафа в 3D...</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Шкаф в 3D</translation>
+    </message>
+    <message>
+        <source>Thermal analysis of the cabinet…</source>
+        <translation type="unfinished">Тепловой расчёт шкафа…</translation>
+    </message>
+    <message>
+        <source>Adds up the power loss of the devices of this cabinet, from their parts, and says how hot it gets inside and what cooling it needs</source>
+        <translation type="unfinished">Суммирует потери мощности устройств этого шкафа по их деталям и показывает, насколько нагревается внутри и какое нужно охлаждение</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Конструкция шкафа 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates</source>
+        <translation type="unfinished">Конструкция шкафа 2D: добавляет кабель-каналы, DIN-рейки и монтажные панели на лист конструкции шкафа</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Меню</translation>
+    </message>
+    <message>
+        <source>Command tabs</source>
+        <comment>toolbar title</comment>
+        <translation type="unfinished">Вкладки команд</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet (%1)…</source>
+        <translation type="unfinished">Масштаб шкафа (%1)…</translation>
+    </message>
+    <message>
+        <source>Snap to the corners and the middles of the sides of the parts</source>
+        <translation type="unfinished">Привязка к углам и серединам сторон деталей</translation>
+    </message>
+    <message>
+        <source>Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is</source>
+        <translation type="unfinished">Привязывает перемещаемое или рисуемое к углам и серединам сторон других деталей; выключено — идёт за мышью</translation>
+    </message>
+    <message>
+        <source>Insert a DXF</source>
+        <translation type="unfinished">Добавить DXF</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? It is where the changes of the next versions start from.</source>
+        <translation type="unfinished">Задать версию проекта %1? Изменения следующих версий считаются отсюда.</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? A sheet with the devices added, removed or rewired since version %2 is added at the end of the project.</source>
+        <translation type="unfinished">Задать версию проекта %1? В конец проекта будет добавлен лист с устройствами, добавленными, удалёнными или переподключёнными с версии %2.</translation>
+    </message>
+    <message>
+        <source>Set version</source>
+        <translation type="unfinished">Задать версию</translation>
+    </message>
+    <message>
+        <source>The project is at version %1.</source>
+        <translation type="unfinished">Проект в версии %1.</translation>
+    </message>
+    <message>
+        <source>The project is at version %1; the changes since version %2 are on its last sheet.</source>
+        <translation type="unfinished">Проект в версии %1; изменения с версии %2 — на его последнем листе.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>Добавлено или перемещено %n текстовое поле клеммы.</numerusform>
+            <numerusform>Добавлено или перемещено %n текстовых поля клемм.</numerusform>
+            <numerusform>Добавлено или перемещено %n текстовых полей клемм.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 - delivery</source>
+        <translation type="unfinished">%1 - передача</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (*%1)</source>
+        <translation type="unfinished">Проект QElectroTech (*%1)</translation>
     </message>
 </context>
 <context>
@@ -18368,6 +19026,24 @@ What do you wish to do ?</source>
         <comment>message box title</comment>
         <translation>Предупреждение</translation>
     </message>
+    <message>
+        <source>QElectroTech project (%1)</source>
+        <translation type="unfinished">Проект QElectroTech (%1)</translation>
+    </message>
+    <message>
+        <source>Cabinet construction</source>
+        <comment>title of a new cabinet folio</comment>
+        <translation type="unfinished">Конструкция шкафа</translation>
+    </message>
+    <message>
+        <source>Cabinet routing</source>
+        <comment>title of a new routing sheet</comment>
+        <translation type="unfinished">Трассировка шкафа</translation>
+    </message>
+    <message>
+        <source>Not to scale</source>
+        <translation type="unfinished">Без масштаба</translation>
+    </message>
 </context>
 <context>
     <name>QETSql</name>
@@ -19241,7 +19917,7 @@ What do you wish to do ?</source>
         <location filename="../sources/titleblock/templatecommands.cpp" line="1196"/>
         <source>Edit Preview</source>
         <comment>undo preview</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Предпросмотр правки</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="131"/>
@@ -19875,7 +20551,7 @@ Do you want to replace it ?</source>
     <message>
         <location filename="../sources/qetinformation.cpp" line="401"/>
         <source>Conductor type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Тип провода</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="404"/>
@@ -20090,12 +20766,12 @@ Do you want to replace it ?</source>
     <message>
         <location filename="../sources/qetinformation.cpp" line="447"/>
         <source>Wire number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Номер провода</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="452"/>
         <source>%1, connection point %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1, точка подключения %2</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="385"/>
@@ -20595,7 +21271,7 @@ Please download it by following the link and unzip it in the installation folder
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="95"/>
         <source>Text grid %1. Hold Ctrl to place freely.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сетка текста %1. Удерживайте Ctrl, чтобы размещать свободно.</translation>
     </message>
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="96"/>
@@ -21803,6 +22479,41 @@ To enable it: Configure QElectroTech &gt; General &gt; Projects, or set the QET_
         <comment>undo command text</comment>
         <translation>Удаление линии перемычки</translation>
     </message>
+    <message>
+        <source>Change %1</source>
+        <comment>undo caption - %1 is a part of a cabinet</comment>
+        <translation type="unfinished">Изменить %1</translation>
+    </message>
+    <message>
+        <source>Change the scale of the cabinet to 1:%1</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished">Изменить масштаб шкафа на 1:%1</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Шаблоны</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Добавить кабельный журнал</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Кабельный журнал</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Добавить спецификацию деталей</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Спецификация</translation>
+    </message>
+    <message>
+        <source>(No action)</source>
+        <comment>spacemouse config: unbound button</comment>
+        <translation type="unfinished">(Нет действия)</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -22660,7 +23371,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="41"/>
         <source>Replace conductor properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Изменить свойства провода</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207"/>
@@ -22687,7 +23398,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="35"/>
         <source>Replace element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Изменить свойства элемента</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="84"/>
@@ -22700,7 +23411,7 @@ nothing has been changed.</source>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.cpp" line="122"/>
         <source>Replace sheet properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Изменить свойства листа</translation>
     </message>
 </context>
 <context>
@@ -24051,6 +24762,76 @@ The other fields are not used.</source>
     <message>
         <source>Action</source>
         <translation type="obsolete">Действие</translation>
+    </message>
+    <message>
+        <source>3D mouse</source>
+        <comment>configuration page title</comment>
+        <translation type="unfinished">3D-мышь</translation>
+    </message>
+    <message>
+        <source>Add a link</source>
+        <translation type="unfinished">Добавить привязку</translation>
+    </message>
+    <message>
+        <source>Button no.</source>
+        <translation type="unfinished">Кнопка №</translation>
+    </message>
+    <message>
+        <source>Buttons</source>
+        <translation type="unfinished">Кнопки</translation>
+    </message>
+    <message>
+        <source>Dead zone:</source>
+        <translation type="unfinished">Мёртвая зона:</translation>
+    </message>
+    <message>
+        <source>Link a button number on your 3D mouse (SpaceMouse, SpacePilot...) to a QElectroTech action. The button number depends on your device and its driver -- see its documentation, or try the values one by one starting from 0.</source>
+        <comment>spacemouse config page intro</comment>
+        <translation type="unfinished">Привяжите номер кнопки вашей 3D-мыши (SpaceMouse, SpacePilot...) к действию QElectroTech. Номер кнопки зависит от устройства и драйвера: посмотрите документацию или пробуйте значения по одному, начиная с 0.</translation>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished">Движение</translation>
+    </message>
+    <message>
+        <source>Pan speed:</source>
+        <translation type="unfinished">Скорость панорамирования:</translation>
+    </message>
+    <message>
+        <source>Push / pull the cap</source>
+        <translation type="unfinished">Нажать / потянуть колпачок</translation>
+    </message>
+    <message>
+        <source>Remove this link</source>
+        <translation type="unfinished">Удалить эту привязку</translation>
+    </message>
+    <message>
+        <source>Reverse horizontal movement</source>
+        <translation type="unfinished">Инвертировать горизонтальное движение</translation>
+    </message>
+    <message>
+        <source>Reverse vertical movement</source>
+        <translation type="unfinished">Инвертировать вертикальное движение</translation>
+    </message>
+    <message>
+        <source>Reverse zoom</source>
+        <translation type="unfinished">Инвертировать масштаб</translation>
+    </message>
+    <message>
+        <source>Small movements below this threshold are ignored. Raise it if the view drifts when you are not touching the mouse.</source>
+        <translation type="unfinished">Мелкие движения ниже этого порога игнорируются. Увеличьте, если вид сдвигается, когда вы не касаетесь мыши.</translation>
+    </message>
+    <message>
+        <source>Twist the cap</source>
+        <translation type="unfinished">Повернуть колпачок</translation>
+    </message>
+    <message>
+        <source>Zoom by:</source>
+        <translation type="unfinished">Масштаб:</translation>
+    </message>
+    <message>
+        <source>Zoom speed:</source>
+        <translation type="unfinished">Скорость масштабирования:</translation>
     </message>
 </context>
 <context>
@@ -27123,6 +27904,10 @@ Double-click to go to the element</source>
         <source>Level 1 terminal:</source>
         <translation>Клемма уровня 1:</translation>
     </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Схема клемм</translation>
+    </message>
 </context>
 <context>
     <name>TerminalStripModel</name>
@@ -27543,55 +28328,55 @@ Ctrl+Enter возвращает ячейку, Escape отбрасывает те
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="162"/>
         <source>Top</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Верх</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="163"/>
         <source>Top Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Слева сверху</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="164"/>
         <source>Top Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Верх по центру</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="165"/>
         <source>Top Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Справа сверху</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="166"/>
         <source>Bottom</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Низ</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="167"/>
         <source>Bottom Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Слева снизу</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="168"/>
         <source>Bottom Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Низ по центру</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="169"/>
         <source>Bottom Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Справа снизу</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="170"/>
         <source>Indicate which side of the title border template should be aligned with the edge of the workspace</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Укажите, какой край шаблона основной надписи выравнивается по краю рабочей области</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="211"/>
@@ -29195,6 +29980,4999 @@ The following variables can be used:
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
         <source>What:</source>
         <translation>Где:</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButtons</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Сообщить об ошибке</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Войти</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Запросить поддержку</translation>
+    </message>
+    <message>
+        <source>Session closed</source>
+        <translation type="unfinished">Сеанс закрыт</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer, so this session was closed: one computer at a time for each account. Sign in again to go on here.</source>
+        <translation type="unfinished">Ваша учётная запись была открыта на другом компьютере, поэтому этот сеанс закрыт: одна учётная запись — один компьютер одновременно. Войдите снова, чтобы продолжить здесь.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">Сервисы fasecad.com ещё не открыты</translation>
+    </message>
+    <message>
+        <source>Signed in as %1, subscription until %2. Click to change or sign out.</source>
+        <translation type="unfinished">Вход выполнен как %1, подписка до %2. Нажмите, чтобы сменить или выйти.</translation>
+    </message>
+    <message>
+        <source>Signed in as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Вход выполнен как %1. Нажмите, чтобы сменить или выйти.</translation>
+    </message>
+    <message>
+        <source>Sign in to your fasecad.com account</source>
+        <translation type="unfinished">Войдите в свою учётную запись fasecad.com</translation>
+    </message>
+    <message>
+        <source>Sign in with an account with a subscription to use it</source>
+        <translation type="unfinished">Войдите с учётной записью с подпиской, чтобы использовать это</translation>
+    </message>
+    <message>
+        <source>Your account has no subscription running</source>
+        <translation type="unfinished">У вашей учётной записи нет действующей подписки</translation>
+    </message>
+    <message>
+        <source>Tell the FaseCAD team about something that does not work</source>
+        <translation type="unfinished">Сообщить команде FaseCAD о том, что не работает</translation>
+    </message>
+    <message>
+        <source>Ask the FaseCAD team for help</source>
+        <translation type="unfinished">Попросить помощи у команды FaseCAD</translation>
+    </message>
+    <message>
+        <source>another computer</source>
+        <translation type="unfinished">другом компьютере</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Ваша учётная запись открыта на %1. Учётную запись может использовать только один компьютер одновременно: закрыть её там и продолжить здесь?</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1 since %2. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Ваша учётная запись открыта на %1 с %2. Учётную запись может использовать только один компьютер одновременно: закрыть её там и продолжить здесь?</translation>
+    </message>
+    <message>
+        <source>Account in use</source>
+        <translation type="unfinished">Учётная запись используется</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantPanel</name>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">ИИ</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Войти...</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project: "add a contactor -KM1 with its coil and a stop and start button", "number the wires of this folio"... It works on the folio shown, and each change it makes can be undone.</source>
+        <translation type="unfinished">Скажите ИИ, что сделать в открытом проекте: «добавь контактор -KM1 с катушкой и кнопками стоп и пуск», «пронумеруй провода этого листа»... Он работает с показанным листом, и каждое его изменение можно отменить.</translation>
+    </message>
+    <message>
+        <source>Write an instruction... (Enter sends, Shift+Enter a new line)</source>
+        <translation type="unfinished">Напишите указание... (Enter — отправить, Shift+Enter — новая строка)</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Отправить</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Стоп</translation>
+    </message>
+    <message>
+        <source>New conversation</source>
+        <translation type="unfinished">Новый разговор</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project</source>
+        <translation type="unfinished">Скажите ИИ, что сделать в открытом проекте</translation>
+    </message>
+    <message>
+        <source>AI:</source>
+        <translation type="unfinished">ИИ:</translation>
+    </message>
+    <message>
+        <source>nothing changed</source>
+        <translation type="unfinished">ничего не изменено</translation>
+    </message>
+    <message>
+        <source>Stopped.</source>
+        <translation type="unfinished">Остановлено.</translation>
+    </message>
+    <message>
+        <source>You:</source>
+        <translation type="unfinished">Вы:</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantSession</name>
+    <message>
+        <source>Thinking...</source>
+        <translation type="unfinished">Думаю...</translation>
+    </message>
+    <message>
+        <source>Working on the project...</source>
+        <translation type="unfinished">Работаю над проектом...</translation>
+    </message>
+    <message>
+        <source>Your session was closed: the account is open on another computer (Sign in...).</source>
+        <translation type="unfinished">Ваш сеанс закрыт: учётная запись открыта на другом компьютере (Войти...).</translation>
+    </message>
+    <message>
+        <source>The AI service does not accept this user and password (Sign in...).</source>
+        <translation type="unfinished">Сервис ИИ не принимает это имя пользователя и пароль (Войти...).</translation>
+    </message>
+    <message>
+        <source>The AI service asks for your user and password (Sign in...).</source>
+        <translation type="unfinished">Сервис ИИ запрашивает имя пользователя и пароль (Войти...).</translation>
+    </message>
+    <message>
+        <source>The AI is part of FaseCAD Pro: subscribe at my.fasecad.com, then sign in again.</source>
+        <translation type="unfinished">ИИ входит в FaseCAD Pro: оформите подписку на my.fasecad.com и войдите снова.</translation>
+    </message>
+    <message>
+        <source>The AI is busy, or the AI included this month is used up: try again in a while.</source>
+        <translation type="unfinished">ИИ занят или включённый в этот месяц лимит ИИ исчерпан: попробуйте позже.</translation>
+    </message>
+    <message>
+        <source>The AI service answered %1.</source>
+        <translation type="unfinished">Сервис ИИ ответил %1.</translation>
+    </message>
+    <message>
+        <source>The answer of the AI was cut off: %1</source>
+        <translation type="unfinished">Ответ ИИ был обрезан: %1</translation>
+    </message>
+    <message>
+        <source>Stopped after %1 steps: say how to go on.</source>
+        <translation type="unfinished">Остановлено после %1 шагов: скажите, как продолжить.</translation>
+    </message>
+    <message>
+        <source>The AI declined to do this.</source>
+        <translation type="unfinished">ИИ отказался это делать.</translation>
+    </message>
+    <message>
+        <source>The answer was too long and was cut off.</source>
+        <translation type="unfinished">Ответ был слишком длинным и был обрезан.</translation>
+    </message>
+    <message>
+        <source>No project is open.</source>
+        <translation type="unfinished">Нет открытого проекта.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">ИИ</translation>
+    </message>
+    <message>
+        <source>AI: %1</source>
+        <translation type="unfinished">ИИ: %1</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3d</name>
+    <message>
+        <source>Box %1 × %2 × %3 mm</source>
+        <comment>a device without STEP, by its mounting measures</comment>
+        <translation type="unfinished">Короб %1 × %2 × %3 мм</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3dWindow</name>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Шкаф в 3D</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D: %1</source>
+        <translation type="unfinished">Шкаф в 3D: %1</translation>
+    </message>
+    <message>
+        <source>Show everything</source>
+        <translation type="unfinished">Показать всё</translation>
+    </message>
+    <message>
+        <source>Duct covers</source>
+        <translation type="unfinished">Крышки кабель-каналов</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Корпус</translation>
+    </message>
+    <message>
+        <source>From the parts database…</source>
+        <translation type="unfinished">Из базы деталей…</translation>
+    </message>
+    <message>
+        <source>STEP file from the disk…</source>
+        <translation type="unfinished">Файл STEP с диска…</translation>
+    </message>
+    <message>
+        <source>Measures by hand…</source>
+        <translation type="unfinished">Размеры вручную…</translation>
+    </message>
+    <message>
+        <source>Turn it 90° about its plate</source>
+        <translation type="unfinished">Повернуть на 90° относительно панели</translation>
+    </message>
+    <message>
+        <source>Turn the enclosure</source>
+        <translation type="unfinished">Повернуть корпус</translation>
+    </message>
+    <message>
+        <source>No enclosure</source>
+        <translation type="unfinished">Без корпуса</translation>
+    </message>
+    <message>
+        <source>Take the enclosure away</source>
+        <translation type="unfinished">Убрать корпус</translation>
+    </message>
+    <message>
+        <source>Export as STEP…</source>
+        <translation type="unfinished">Экспорт в STEP…</translation>
+    </message>
+    <message>
+        <source>Mounting clearances</source>
+        <translation type="unfinished">Монтажные зазоры</translation>
+    </message>
+    <message>
+        <source>The free space the part of each device asks around it in the parts database, here and on the sheet</source>
+        <translation type="unfinished">Свободное место, которое деталь каждого устройства требует вокруг себя в базе деталей, здесь и на листе</translation>
+    </message>
+    <message>
+        <source>Check the room</source>
+        <translation type="unfinished">Проверить место</translation>
+    </message>
+    <message>
+        <source>Parts in each other, parts in the free space a device asks, devices through the enclosure or keeping its door from closing</source>
+        <translation type="unfinished">Детали друг в друге, детали в свободном месте, которое требует устройство, устройства сквозь корпус или мешающие закрыть дверь</translation>
+    </message>
+    <message>
+        <source>Reading STEP models… %v/%m</source>
+        <translation type="unfinished">Чтение моделей STEP… %v/%m</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Навигатор</translation>
+    </message>
+    <message>
+        <source>Room</source>
+        <translation type="unfinished">Место</translation>
+    </message>
+    <message>
+        <source>Left button: turn. Right button: move, or a click for what to do with a part. Wheel: nearer. Double click: everything.</source>
+        <translation type="unfinished">Левая кнопка: вращать. Правая кнопка: перемещать или щелчок — действия с деталью. Колесо: ближе. Двойной щелчок: всё.</translation>
+    </message>
+    <message>
+        <source>Turn 90°</source>
+        <translation type="unfinished">Повернуть на 90°</translation>
+    </message>
+    <message>
+        <source>Another side out</source>
+        <translation type="unfinished">Другая сторона наружу</translation>
+    </message>
+    <message>
+        <source>For a model drawn with other axes: which of its sides looks out of the face</source>
+        <translation type="unfinished">Для модели, нарисованной в других осях: какая её сторона смотрит наружу</translation>
+    </message>
+    <message>
+        <source>How far it goes into the sheet: a push button through the door</source>
+        <translation type="unfinished">Насколько она уходит в лист: кнопка сквозь дверь</translation>
+    </message>
+    <message>
+        <source>Take it out of 3D</source>
+        <translation type="unfinished">Убрать из 3D</translation>
+    </message>
+    <message>
+        <source>Sink:</source>
+        <translation type="unfinished">Утопление:</translation>
+    </message>
+    <message>
+        <source>Turn %1</source>
+        <translation type="unfinished">Повернуть %1</translation>
+    </message>
+    <message>
+        <source>Sink %1</source>
+        <translation type="unfinished">Утопить %1</translation>
+    </message>
+    <message>
+        <source>Take %1 out of 3D</source>
+        <translation type="unfinished">Убрать %1 из 3D</translation>
+    </message>
+    <message>
+        <source>Move %1</source>
+        <translation type="unfinished">Переместить %1</translation>
+    </message>
+    <message>
+        <source>Place in 3D</source>
+        <translation type="unfinished">Разместить в 3D</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet first</source>
+        <translation type="unfinished">Сначала нарисуйте монтажную панель на листе</translation>
+    </message>
+    <message>
+        <source>Click the face where %1 goes: the door, a side, the roof, the plate. Esc: no.</source>
+        <translation type="unfinished">Щёлкните грань, куда идёт %1: дверь, боковина, крыша, панель. Esc: нет.</translation>
+    </message>
+    <message>
+        <source>Place %1 in 3D</source>
+        <translation type="unfinished">Разместить %1 в 3D</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n деталь</numerusform>
+            <numerusform>%n детали</numerusform>
+            <numerusform>%n деталей</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with a STEP model</source>
+        <translation type="unfinished">
+            <numerusform>%n с моделью STEP</numerusform>
+            <numerusform>%n с моделью STEP</numerusform>
+            <numerusform>%n с моделью STEP</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Without OpenCASCADE the devices are boxes.</source>
+        <translation type="unfinished">Без OpenCASCADE устройства показываются коробками.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Монтажная панель</translation>
+    </message>
+    <message>
+        <source>Wire ducts</source>
+        <translation type="unfinished">Кабель-каналы</translation>
+    </message>
+    <message>
+        <source>DIN rails</source>
+        <translation type="unfinished">DIN-рейки</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Устройства</translation>
+    </message>
+    <message>
+        <source>Enclosure: %1</source>
+        <translation type="unfinished">Корпус: %1</translation>
+    </message>
+    <message>
+        <source>Reading…</source>
+        <translation type="unfinished">Чтение…</translation>
+    </message>
+    <message>
+        <source>Not read</source>
+        <translation type="unfinished">Не прочитано</translation>
+    </message>
+    <message>
+        <source>mounting plate</source>
+        <translation type="unfinished">монтажная панель</translation>
+    </message>
+    <message>
+        <source>in 3D</source>
+        <translation type="unfinished">в 3D</translation>
+    </message>
+    <message>
+        <source>Unplaced 3D</source>
+        <translation type="unfinished">Не размещено в 3D</translation>
+    </message>
+    <message>
+        <source>Devices of the schematic with a STEP model and no drawing on a cabinet sheet: right click, Place in 3D</source>
+        <translation type="unfinished">Устройства схемы с моделью STEP и без чертежа на листе шкафа: правый щелчок, Разместить в 3D</translation>
+    </message>
+    <message>
+        <source>Hide %1</source>
+        <translation type="unfinished">Скрыть %1</translation>
+    </message>
+    <message>
+        <source>Show %1</source>
+        <translation type="unfinished">Показать %1</translation>
+    </message>
+    <message>
+        <source>Room enough: no part in another, none in the free space a device asks</source>
+        <translation type="unfinished">Места достаточно: ни одна деталь не в другой, ни одна не в свободном месте, которое требует устройство</translation>
+    </message>
+    <message>
+        <source>No enclosure takes the plate: its walls and its door are not checked</source>
+        <translation type="unfinished">Ни один корпус не вмещает панель: его стенки и дверь не проверяются</translation>
+    </message>
+    <message>
+        <source>STEP models still being read: their boxes until then</source>
+        <translation type="unfinished">Модели STEP ещё читаются: до тех пор — их коробки</translation>
+    </message>
+    <message numerus="yes">
+        <source>Room: %n problem(s)</source>
+        <translation type="unfinished">
+            <numerusform>Место: %n проблема</numerusform>
+            <numerusform>Место: %n проблемы</numerusform>
+            <numerusform>Место: %n проблем</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Click the part of the enclosure which is its mounting plate: the plate of the sheet takes its size. Esc: no.</source>
+        <translation type="unfinished">Щёлкните часть корпуса, которая является его монтажной панелью: панель листа примет её размер. Esc: нет.</translation>
+    </message>
+    <message>
+        <source>The mounting plate is %1: %2 × %3 mm.</source>
+        <translation type="unfinished">Монтажная панель — %1: %2 × %3 мм.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be the mounting plate.</source>
+        <translation type="unfinished">%1 не может быть монтажной панелью.</translation>
+    </message>
+    <message>
+        <source>no STEP model in the parts database: a box</source>
+        <translation type="unfinished">нет модели STEP в базе деталей: коробка</translation>
+    </message>
+    <message>
+        <source>STEP: %1</source>
+        <translation type="unfinished">STEP: %1</translation>
+    </message>
+    <message>
+        <source>of the enclosure</source>
+        <translation type="unfinished">корпуса</translation>
+    </message>
+    <message>
+        <source>right click its mounting plate: Use as the mounting plate</source>
+        <translation type="unfinished">правый щелчок по его монтажной панели: Использовать как монтажную панель</translation>
+    </message>
+    <message>
+        <source>Use as the mounting plate</source>
+        <translation type="unfinished">Использовать как монтажную панель</translation>
+    </message>
+    <message>
+        <source>The plate chosen is %1 × %2 mm, the plate of the sheet %3 × %4 mm. Give the plate of the sheet the size of the one chosen?</source>
+        <translation type="unfinished">Выбранная панель — %1 × %2 мм, панель листа — %3 × %4 мм. Задать панели листа размер выбранной?</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">Показать</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">Скрыть</translation>
+    </message>
+    <message>
+        <source>Change the enclosure</source>
+        <translation type="unfinished">Сменить корпус</translation>
+    </message>
+    <message>
+        <source>Right click the mounting plate of the enclosure, in the navigator or in the view: Use as the mounting plate.</source>
+        <translation type="unfinished">Щёлкните правой кнопкой монтажную панель корпуса в навигаторе или в виде: Использовать как монтажную панель.</translation>
+    </message>
+    <message>
+        <source>Use %1 as the mounting plate</source>
+        <translation type="unfinished">Использовать %1 как монтажную панель</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">База деталей не используется.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database.</source>
+        <translation type="unfinished">У %1 %2 нет модели STEP в базе деталей.</translation>
+    </message>
+    <message>
+        <source>STEP of the enclosure</source>
+        <translation type="unfinished">STEP корпуса</translation>
+    </message>
+    <message>
+        <source>STEP files (*.step *.stp)</source>
+        <translation type="unfinished">Файлы STEP (*.step *.stp)</translation>
+    </message>
+    <message>
+        <source>Enclosure by measures</source>
+        <translation type="unfinished">Корпус по размерам</translation>
+    </message>
+    <message>
+        <source>Height of the enclosure:</source>
+        <translation type="unfinished">Высота корпуса:</translation>
+    </message>
+    <message>
+        <source>Width of the enclosure:</source>
+        <translation type="unfinished">Ширина корпуса:</translation>
+    </message>
+    <message>
+        <source>Depth of the enclosure:</source>
+        <translation type="unfinished">Глубина корпуса:</translation>
+    </message>
+    <message>
+        <source>Height of the plate:</source>
+        <translation type="unfinished">Высота панели:</translation>
+    </message>
+    <message>
+        <source>Width of the plate:</source>
+        <translation type="unfinished">Ширина панели:</translation>
+    </message>
+    <message>
+        <source>A hollow box of %1 mm sheet, open at the front, the plate against its back.</source>
+        <translation type="unfinished">Полый короб из листа %1 мм, открытый спереди, панель у задней стенки.</translation>
+    </message>
+    <message>
+        <source>cabinet</source>
+        <translation type="unfinished">шкаф</translation>
+    </message>
+    <message>
+        <source>Export the cabinet as STEP</source>
+        <translation type="unfinished">Экспорт шкафа в STEP</translation>
+    </message>
+    <message>
+        <source>Written: %1</source>
+        <translation type="unfinished">Записано: %1</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Не удалось прочитать %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source>Box %1 × %2 mm</source>
+        <comment>a device drawn by its mounting measures</comment>
+        <translation type="unfinished">Короб %1 × %2 мм</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDialogs</name>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Горизонтально</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Вертикально</translation>
+    </message>
+    <message>
+        <source>Add a wire duct</source>
+        <translation type="unfinished">Добавить кабель-канал</translation>
+    </message>
+    <message>
+        <source>Width (mm):</source>
+        <translation type="unfinished">Ширина (мм):</translation>
+    </message>
+    <message>
+        <source>Height (mm):</source>
+        <translation type="unfinished">Высота (мм):</translation>
+    </message>
+    <message>
+        <source>Then draw the duct on the sheet: click where it starts, click again where it ends.</source>
+        <translation type="unfinished">Затем нарисуйте канал на листе: щёлкните в начале, затем ещё раз в конце.</translation>
+    </message>
+    <message>
+        <source>Type the width and the height in millimetres, for example 40.</source>
+        <translation type="unfinished">Введите ширину и высоту в миллиметрах, например 40.</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate</source>
+        <translation type="unfinished">Добавить монтажную панель</translation>
+    </message>
+    <message>
+        <source>By measures</source>
+        <translation type="unfinished">По размерам</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure of the parts database</source>
+        <translation type="unfinished">Панель корпуса из базы деталей</translation>
+    </message>
+    <message>
+        <source>Choose the enclosure...</source>
+        <translation type="unfinished">Выбрать корпус...</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General)</source>
+        <translation type="unfinished">База деталей не используется (Настройки &gt; Общие)</translation>
+    </message>
+    <message>
+        <source>Other size</source>
+        <translation type="unfinished">Другой размер</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 мм</translation>
+    </message>
+    <message>
+        <source>Usual sizes:</source>
+        <translation type="unfinished">Обычные размеры:</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Ширина:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Высота:</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes.</source>
+        <translation type="unfinished">Затем щёлкните на листе, где будет панель.</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes: the enclosure opens in 3D, click its mounting plate there and the plate takes its size.</source>
+        <translation type="unfinished">Затем щёлкните на листе, где будет панель: корпус откроется в 3D, щёлкните там его монтажную панель, и панель примет её размер.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database: its plate cannot be chosen in 3D.</source>
+        <translation type="unfinished">У %1 %2 нет модели STEP в базе деталей: его панель нельзя выбрать в 3D.</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet</source>
+        <translation type="unfinished">Масштаб шкафа</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Масштаб:</translation>
+    </message>
+    <message>
+        <source>At 1:5, 5 mm of the cabinet take 1 mm of the sheet. The parts keep their measures: they are drawn again at the new scale.</source>
+        <translation type="unfinished">При 1:5 5 мм шкафа занимают 1 мм листа. Детали сохраняют свои размеры: они перерисовываются в новом масштабе.</translation>
+    </message>
+    <message>
+        <source>Type a scale such as 1:5.</source>
+        <translation type="unfinished">Введите масштаб, например 1:5.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Монтажная панель</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN-рейка</translation>
+    </message>
+    <message>
+        <source>Profile:</source>
+        <translation type="unfinished">Профиль:</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Длина:</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished">Направление:</translation>
+    </message>
+    <message>
+        <source>Wire duct</source>
+        <translation type="unfinished">Кабель-канал</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Чертежи DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Не удалось прочитать %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF: нарисовано линий: %1; пропущено: %2</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetEnclosure</name>
+    <message>
+        <source>The measures of the enclosure do not make a box.</source>
+        <translation type="unfinished">Размеры корпуса не образуют коробку.</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Корпус</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Задняя стенка</translation>
+    </message>
+    <message>
+        <source>Left side</source>
+        <translation type="unfinished">Левая боковина</translation>
+    </message>
+    <message>
+        <source>Right side</source>
+        <translation type="unfinished">Правая боковина</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Верх</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Низ</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Монтажная панель</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">Не удаётся прочитать %1: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">База деталей не используется.</translation>
+    </message>
+    <message>
+        <source>The parts database has no part %1.</source>
+        <translation type="unfinished">В базе деталей нет детали %1.</translation>
+    </message>
+    <message>
+        <source>The part %1 has no STEP model.</source>
+        <translation type="unfinished">У детали %1 нет модели STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetItem</name>
+    <message>
+        <source>a mounting plate</source>
+        <translation type="unfinished">монтажная панель</translation>
+    </message>
+    <message>
+        <source>a DIN rail</source>
+        <translation type="unfinished">DIN-рейка</translation>
+    </message>
+    <message>
+        <source>a wire duct</source>
+        <translation type="unfinished">кабель-канал</translation>
+    </message>
+    <message>
+        <source>a DXF drawing</source>
+        <translation type="unfinished">чертёж DXF</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 мм</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>profile and length of a DIN rail</comment>
+        <translation type="unfinished">%1 · %2 мм</translation>
+    </message>
+    <message>
+        <source>%1×%2 · %3 mm</source>
+        <comment>width, height and length of a wire duct</comment>
+        <translation type="unfinished">%1×%2 · %3 мм</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>width and length of a wire duct</comment>
+        <translation type="unfinished">%1 · %2 мм</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 мм</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>file, width and height of a DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 мм</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting</name>
+    <message>
+        <source>The mounting plate of this routing sheet is no longer on its cabinet sheet.</source>
+        <translation type="unfinished">Монтажной панели этого листа трассировки больше нет на её листе шкафа.</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Провод</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Откуда</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Клемма</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Куда</translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Сечение</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Цвет</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Length (mm)</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Длина (мм)</translation>
+    </message>
+    <message>
+        <source>Way</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Путь</translation>
+    </message>
+    <message>
+        <source>Routing sheet</source>
+        <translation type="unfinished">Лист трассировки</translation>
+    </message>
+    <message>
+        <source>Put a mounting plate on this cabinet sheet first: a routing sheet shows the ways of the wires on one plate.</source>
+        <translation type="unfinished">Сначала поставьте монтажную панель на этот лист шкафа: лист трассировки показывает пути проводов на одной панели.</translation>
+    </message>
+    <message>
+        <source>Plate %1: %2 × %3 mm</source>
+        <comment>a mounting plate to route</comment>
+        <translation type="unfinished">Панель %1: %2 × %3 мм</translation>
+    </message>
+    <message>
+        <source>Mounting plate to route:</source>
+        <translation type="unfinished">Панель для трассировки:</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Рассчитать трассировку</translation>
+    </message>
+    <message numerus="yes">
+        <source>Keep the %n way(s) changed by hand?</source>
+        <translation type="unfinished">
+            <numerusform>Сохранить %n путь, изменённый вручную?</numerusform>
+            <numerusform>Сохранить %n пути, изменённые вручную?</numerusform>
+            <numerusform>Сохранить %n путей, изменённых вручную?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) routed on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>На этой панели проложен %n провод.</numerusform>
+            <numerusform>На этой панели проложено %n провода.</numerusform>
+            <numerusform>На этой панели проложено %n проводов.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n way(s) changed by hand kept.</source>
+        <translation type="unfinished">
+            <numerusform>Сохранён %n путь, изменённый вручную.</numerusform>
+            <numerusform>Сохранено %n пути, изменённых вручную.</numerusform>
+            <numerusform>Сохранено %n путей, изменённых вручную.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) with no duct between their devices: a straight line, in red.</source>
+        <translation type="unfinished">
+            <numerusform>%n провод без канала между устройствами: прямая линия, красным.</numerusform>
+            <numerusform>%n провода без канала между устройствами: прямая линия, красным.</numerusform>
+            <numerusform>%n проводов без канала между устройствами: прямая линия, красным.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) left out: one of their ends has no drawing on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>Пропущен %n провод: у одного из концов нет чертежа на этой панели.</numerusform>
+            <numerusform>Пропущено %n провода: у одного из концов нет чертежа на этой панели.</numerusform>
+            <numerusform>Пропущено %n проводов: у одного из концов нет чертежа на этой панели.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Export the routing</source>
+        <translation type="unfinished">Экспорт трассировки</translation>
+    </message>
+    <message>
+        <source>This routing sheet has no way yet: calculate the routing first.</source>
+        <translation type="unfinished">На этом листе трассировки ещё нет путей: сначала рассчитайте трассировку.</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">Файлы CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>Unable to open the file for writing.</source>
+        <translation type="unfinished">Не удаётся открыть файл для записи.</translation>
+    </message>
+    <message>
+        <source>Wire %1</source>
+        <translation type="unfinished">Провод %1</translation>
+    </message>
+    <message>
+        <source>Length: %1 mm</source>
+        <translation type="unfinished">Длина: %1 мм</translation>
+    </message>
+    <message>
+        <source>Reset the position</source>
+        <translation type="unfinished">Сбросить положение</translation>
+    </message>
+    <message numerus="yes">
+        <source>Reset the position of %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Сбросить положение %n провода</numerusform>
+            <numerusform>Сбросить положение %n проводов</numerusform>
+            <numerusform>Сбросить положение %n проводов</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Change the way of a wire</source>
+        <translation type="unfinished">Изменить путь провода</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting::Route</name>
+    <message>
+        <source>changed by hand</source>
+        <translation type="unfinished">изменён вручную</translation>
+    </message>
+    <message>
+        <source>through the ducts</source>
+        <translation type="unfinished">по каналам</translation>
+    </message>
+    <message>
+        <source>no duct: straight line</source>
+        <translation type="unfinished">нет канала: прямая линия</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetSpace</name>
+    <message>
+        <source>the duct %1</source>
+        <translation type="unfinished">канал %1</translation>
+    </message>
+    <message>
+        <source>the rail %1</source>
+        <translation type="unfinished">рейка %1</translation>
+    </message>
+    <message>
+        <source>above</source>
+        <translation type="unfinished">сверху</translation>
+    </message>
+    <message>
+        <source>below</source>
+        <translation type="unfinished">снизу</translation>
+    </message>
+    <message>
+        <source>on its left</source>
+        <translation type="unfinished">слева</translation>
+    </message>
+    <message>
+        <source>on its right</source>
+        <translation type="unfinished">справа</translation>
+    </message>
+    <message>
+        <source>in front</source>
+        <translation type="unfinished">спереди</translation>
+    </message>
+    <message>
+        <source>behind</source>
+        <translation type="unfinished">сзади</translation>
+    </message>
+    <message>
+        <source>%1 and %2 are %3 mm into each other</source>
+        <translation type="unfinished">%1 и %2 входят друг в друга на %3 мм</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: the enclosure leaves %4 mm too few</source>
+        <translation type="unfinished">%1 требует %2 мм свободного места %3: корпус оставляет на %4 мм меньше</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: %4 is %5 mm too near</source>
+        <translation type="unfinished">%1 требует %2 мм свободного места %3: %4 ближе на %5 мм</translation>
+    </message>
+    <message>
+        <source>%1 keeps the door from closing: it is %2 mm too deep</source>
+        <translation type="unfinished">%1 мешает закрыть дверь: он глубже на %2 мм</translation>
+    </message>
+    <message>
+        <source>%1 goes %2 mm through the enclosure %3</source>
+        <translation type="unfinished">%1 выходит на %2 мм сквозь корпус %3</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetStep</name>
+    <message>
+        <source>The STEP file cannot be read.</source>
+        <translation type="unfinished">Не удаётся прочитать файл STEP.</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no shape.</source>
+        <translation type="unfinished">Файл STEP не содержит формы.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished">Деталь %1</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no surface.</source>
+        <translation type="unfinished">Файл STEP не содержит поверхности.</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot read STEP files.</source>
+        <translation type="unfinished">FaseCAD собран без OpenCASCADE: он не может читать файлы STEP.</translation>
+    </message>
+    <message>
+        <source>The cabinet could not be written as STEP.</source>
+        <translation type="unfinished">Не удалось записать шкаф в STEP.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written: %2</source>
+        <translation type="unfinished">Не удаётся записать %1: %2</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot write STEP files.</source>
+        <translation type="unfinished">FaseCAD собран без OpenCASCADE: он не может записывать файлы STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermal</name>
+    <message>
+        <source>Free-standing, every side free</source>
+        <translation type="unfinished">Отдельно стоящий, все стороны свободны</translation>
+    </message>
+    <message>
+        <source>Against a wall</source>
+        <translation type="unfinished">У стены</translation>
+    </message>
+    <message>
+        <source>At the end of a row</source>
+        <translation type="unfinished">В конце ряда</translation>
+    </message>
+    <message>
+        <source>At the end of a row, against a wall</source>
+        <translation type="unfinished">В конце ряда, у стены</translation>
+    </message>
+    <message>
+        <source>In the middle of a row</source>
+        <translation type="unfinished">В середине ряда</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall</source>
+        <translation type="unfinished">В середине ряда, у стены</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall, its top covered</source>
+        <translation type="unfinished">В середине ряда, у стены, верх закрыт</translation>
+    </message>
+    <message>
+        <source>Painted sheet steel (5.5 W/m²K)</source>
+        <translation type="unfinished">Окрашенная листовая сталь (5,5 Вт/м²К)</translation>
+    </message>
+    <message>
+        <source>Stainless steel (4.5 W/m²K)</source>
+        <translation type="unfinished">Нержавеющая сталь (4,5 Вт/м²К)</translation>
+    </message>
+    <message>
+        <source>Aluminium (12 W/m²K)</source>
+        <translation type="unfinished">Алюминий (12 Вт/м²К)</translation>
+    </message>
+    <message>
+        <source>Plastic (3.5 W/m²K)</source>
+        <translation type="unfinished">Пластик (3,5 Вт/м²К)</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet to see where the heat is.</source>
+        <translation type="unfinished">Нарисуйте монтажную панель на листе, чтобы увидеть, где тепло.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermalDialog</name>
+    <message>
+        <source>Thermal analysis of the cabinet</source>
+        <translation type="unfinished">Тепловой расчёт шкафа</translation>
+    </message>
+    <message>
+        <source> mm</source>
+        <translation type="unfinished"> мм</translation>
+    </message>
+    <message>
+        <source>Enclosure (width × height × depth):</source>
+        <translation type="unfinished">Корпус (ширина × высота × глубина):</translation>
+    </message>
+    <message>
+        <source>Where it stands:</source>
+        <translation type="unfinished">Где стоит:</translation>
+    </message>
+    <message>
+        <source>Enclosure made of:</source>
+        <translation type="unfinished">Материал корпуса:</translation>
+    </message>
+    <message>
+        <source> °C</source>
+        <translation type="unfinished"> °C</translation>
+    </message>
+    <message>
+        <source>Temperature outside:</source>
+        <translation type="unfinished">Температура снаружи:</translation>
+    </message>
+    <message>
+        <source>The highest the devices may have inside, often 35 to 40 °C</source>
+        <translation type="unfinished">Наибольшая допустимая для устройств температура внутри, часто 35–40 °C</translation>
+    </message>
+    <message>
+        <source>Highest temperature inside:</source>
+        <translation type="unfinished">Наибольшая температура внутри:</translation>
+    </message>
+    <message>
+        <source>Where the heat is: the hot air goes up, and each device warms what is around it. An estimate to see the hot spots, not a simulation of the air.</source>
+        <translation type="unfinished">Где тепло: горячий воздух поднимается, и каждое устройство нагревает то, что вокруг. Это оценка для поиска горячих точек, а не моделирование воздуха.</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Устройство</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Деталь</translation>
+    </message>
+    <message>
+        <source>Power loss</source>
+        <translation type="unfinished">Потери мощности</translation>
+    </message>
+    <message>
+        <source>(no part)</source>
+        <translation type="unfinished">(нет детали)</translation>
+    </message>
+    <message>
+        <source>%1 W</source>
+        <translation type="unfinished">%1 Вт</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">не указано</translation>
+    </message>
+    <message numerus="yes">
+        <source>Heat given off: &lt;b&gt;%1 W&lt;/b&gt; by %n device(s).</source>
+        <translation type="unfinished">
+            <numerusform>Выделяемое тепло: &lt;b&gt;%1 Вт&lt;/b&gt; от %n устройства.</numerusform>
+            <numerusform>Выделяемое тепло: &lt;b&gt;%1 Вт&lt;/b&gt; от %n устройств.</numerusform>
+            <numerusform>Выделяемое тепло: &lt;b&gt;%1 Вт&lt;/b&gt; от %n устройств.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Surface giving it out: %1 m².</source>
+        <translation type="unfinished">Отдающая тепло поверхность: %1 м².</translation>
+    </message>
+    <message>
+        <source>Temperature inside: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K above the outside.</source>
+        <translation type="unfinished">Температура внутри: &lt;b&gt;%1 °C&lt;/b&gt;, на %2 K выше наружной.</translation>
+    </message>
+    <message>
+        <source>Below the highest temperature: the enclosure needs no cooling.</source>
+        <translation type="unfinished">Ниже наибольшей температуры: корпусу не нужно охлаждение.</translation>
+    </message>
+    <message>
+        <source>Too hot: %1 W to take out, with a filter fan of at least %2 m³/h, or a cooling unit of at least %1 W.</source>
+        <translation type="unfinished">Слишком жарко: нужно отвести %1 Вт вентилятором с фильтром не менее %2 м³/ч или холодильным агрегатом не менее %1 Вт.</translation>
+    </message>
+    <message>
+        <source>Too hot: a cooling unit of at least %1 W. A fan cannot help: the outside is not cooler than the highest temperature.</source>
+        <translation type="unfinished">Слишком жарко: холодильный агрегат не менее %1 Вт. Вентилятор не поможет: снаружи не холоднее наибольшей температуры.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Warning: %n device(s) have no power loss in the parts database and count as 0 W, so the cabinet is hotter than shown: %1</source>
+        <translation type="unfinished">
+            <numerusform>Внимание: у %n устройства нет потерь мощности в базе деталей, оно считается как 0 Вт, поэтому шкаф горячее, чем показано: %1</numerusform>
+            <numerusform>Внимание: у %n устройств нет потерь мощности в базе деталей, они считаются как 0 Вт, поэтому шкаф горячее, чем показано: %1</numerusform>
+            <numerusform>Внимание: у %n устройств нет потерь мощности в базе деталей, они считаются как 0 Вт, поэтому шкаф горячее, чем показано: %1</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableChecks</name>
+    <message>
+        <source>No name</source>
+        <translation type="unfinished">Без имени</translation>
+    </message>
+    <message>
+        <source>Name used by another cable</source>
+        <translation type="unfinished">Имя используется другим кабелем</translation>
+    </message>
+    <message>
+        <source>No cable type</source>
+        <translation type="unfinished">Нет типа кабеля</translation>
+    </message>
+    <message>
+        <source>No core wired</source>
+        <translation type="unfinished">Нет подключённых жил</translation>
+    </message>
+    <message>
+        <source>No spare core</source>
+        <translation type="unfinished">Нет запасной жилы</translation>
+    </message>
+    <message numerus="yes">
+        <source>Only %n spare core(s)</source>
+        <translation type="unfinished">
+            <numerusform>Только %n запасная жила</numerusform>
+            <numerusform>Только %n запасные жилы</numerusform>
+            <numerusform>Только %n запасных жил</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableManagerDialog</name>
+    <message>
+        <source>Cable manager - %1</source>
+        <translation type="unfinished">Менеджер кабелей - %1</translation>
+    </message>
+    <message>
+        <source>Search a cable</source>
+        <translation type="unfinished">Поиск кабеля</translation>
+    </message>
+    <message>
+        <source>Only cables with problems</source>
+        <translation type="unfinished">Только кабели с проблемами</translation>
+    </message>
+    <message>
+        <source>A cable with fewer free cores than this is marked. 0 checks nothing.</source>
+        <translation type="unfinished">Кабель, у которого свободных жил меньше этого числа, отмечается. 0 — без проверки.</translation>
+    </message>
+    <message>
+        <source>Spare cores wanted:</source>
+        <translation type="unfinished">Нужно запасных жил:</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Тип</translation>
+    </message>
+    <message>
+        <source>Cores used</source>
+        <translation type="unfinished">Использовано жил</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Запасные</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Начало</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Конец</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished">Длина</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Установка</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Местоположение</translation>
+    </message>
+    <message>
+        <source>Problems</source>
+        <translation type="unfinished">Проблемы</translation>
+    </message>
+    <message>
+        <source>Double-click a name, a length, an installation or a location to change it.</source>
+        <translation type="unfinished">Дважды щёлкните имя, длину, установку или местоположение, чтобы изменить.</translation>
+    </message>
+    <message>
+        <source>Edit the selected cables...</source>
+        <translation type="unfinished">Изменить выбранные кабели...</translation>
+    </message>
+    <message>
+        <source>Properties...</source>
+        <translation type="unfinished">Свойства...</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Показать на листе</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Жила</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Цвет</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Состояние</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Провод</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Откуда</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">Куда</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n кабель</numerusform>
+            <numerusform>%n кабеля</numerusform>
+            <numerusform>%n кабелей</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 cores used</source>
+        <translation type="unfinished">Использовано %1 из %2 жил</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with problems</source>
+        <translation type="unfinished">
+            <numerusform>%n с проблемами</numerusform>
+            <numerusform>%n с проблемами</numerusform>
+            <numerusform>%n с проблемами</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select a cable to see its cores.</source>
+        <translation type="unfinished">Выберите кабель, чтобы увидеть его жилы.</translation>
+    </message>
+    <message>
+        <source>Select one cable to see its cores.</source>
+        <translation type="unfinished">Выберите один кабель, чтобы увидеть его жилы.</translation>
+    </message>
+    <message>
+        <source>Cores of %1: %2 used, %3 spare</source>
+        <translation type="unfinished">Жилы %1: %2 использовано, %3 запасных</translation>
+    </message>
+    <message numerus="yes">
+        <source>Edit %n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>Изменить %n кабель</numerusform>
+            <numerusform>Изменить %n кабеля</numerusform>
+            <numerusform>Изменить %n кабелей</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">Изменить тексты клемм</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">Поиск устройства</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">Метка</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">Артикул</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">Дважды щёлкните устройство, чтобы показать его на листе. Shift и Ctrl выбирают несколько, Delete удаляет их.</translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">Нумеровать...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">Переименовать выбранные устройства одно за другим, начиная с первой метки: -K1, -K2...</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>Нарисовано на листе шкафа %1</numerusform>
+            <numerusform>Нарисовано на листах шкафа %1</numerusform>
+            <numerusform>Нарисовано на листах шкафа %1</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">(Без метки)</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>%n символ этого устройства</numerusform>
+            <numerusform>%n символа этого устройства</numerusform>
+            <numerusform>%n символов этого устройства</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Показать на листе</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">Вставить DXF на лист шкафа</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">Выбранные устройства уже на листе шкафа.</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">В проекте нет листа конструкции шкафа. Добавить его в конец проекта?</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1 (%2 из %3): щёлкните, куда поставить | Правый щелчок — пропустить | Esc — остановить</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">У %1 нет DXF в деталях: выберите файл DXF</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">Нумерация устройств</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">Первая метка:</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">Шаг:</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">Новая метка</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">Эти метки уже принадлежат другим устройствам: %1. Ничего не переименовано.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Нумеровать %n устройство</numerusform>
+            <numerusform>Нумеровать %n устройства</numerusform>
+            <numerusform>Нумеровать %n устройств</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">Удалить устройства</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>Удалить %n устройство с проводами?</numerusform>
+            <numerusform>Удалить %n устройства с проводами?</numerusform>
+            <numerusform>Удалить %n устройств с проводами?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Удалить %n устройство</numerusform>
+            <numerusform>Удалить %n устройства</numerusform>
+            <numerusform>Удалить %n устройств</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddCabinetItem</name>
+    <message>
+        <source>%1 mm</source>
+        <comment>length of the part being drawn</comment>
+        <translation type="unfinished">%1 мм</translation>
+    </message>
+    <message>
+        <source>%1 mm ⏎</source>
+        <comment>length typed for the part being drawn, Enter accepts it</comment>
+        <translation type="unfinished">%1 мм ⏎</translation>
+    </message>
+    <message>
+        <source>middle left</source>
+        <translation type="unfinished">слева посередине</translation>
+    </message>
+    <message>
+        <source>top left</source>
+        <translation type="unfinished">слева сверху</translation>
+    </message>
+    <message>
+        <source>top middle</source>
+        <translation type="unfinished">сверху посередине</translation>
+    </message>
+    <message>
+        <source>top right</source>
+        <translation type="unfinished">справа сверху</translation>
+    </message>
+    <message>
+        <source>middle right</source>
+        <translation type="unfinished">справа посередине</translation>
+    </message>
+    <message>
+        <source>bottom right</source>
+        <translation type="unfinished">справа снизу</translation>
+    </message>
+    <message>
+        <source>bottom middle</source>
+        <translation type="unfinished">снизу посередине</translation>
+    </message>
+    <message>
+        <source>bottom left</source>
+        <translation type="unfinished">слева снизу</translation>
+    </message>
+    <message>
+        <source>centre</source>
+        <translation type="unfinished">центр</translation>
+    </message>
+    <message>
+        <source> | Tab: anchor point (%1)</source>
+        <comment>the anchor point of the part being placed</comment>
+        <translation type="unfinished"> | Tab: точка привязки (%1)</translation>
+    </message>
+    <message>
+        <source>Mounting plate: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Монтажная панель: щёлкните, куда поставить | Esc — отмена</translation>
+    </message>
+    <message>
+        <source>DXF drawing: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Чертёж DXF: щёлкните, куда поставить | Esc — отмена</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">DIN-рейка: щёлкните в конце или введите длину в мм и нажмите Enter | Esc — отказаться</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">DIN-рейка: щёлкните в начале | Правый щелчок или Esc — закончить</translation>
+    </message>
+    <message>
+        <source>Wire duct: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Кабель-канал: щёлкните в конце или введите длину в мм и нажмите Enter | Esc — отказаться</translation>
+    </message>
+    <message>
+        <source>Wire duct of %1 mm: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">Кабель-канал %1 мм: щёлкните в начале | Правый щелчок или Esc — закончить</translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">Автоматически скрывать эту панель</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">Держать эту панель открытой</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">Перетащите, чтобы изменить ширину панели</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">Свёрнутые панели</translation>
+    </message>
+</context>
+<context>
+    <name>DxfReader</name>
+    <message>
+        <source>The file could not be opened: %1</source>
+        <translation type="unfinished">Не удалось открыть файл: %1</translation>
+    </message>
+    <message>
+        <source>This DXF file is binary: save it again as a text (ASCII) DXF.</source>
+        <translation type="unfinished">Этот файл DXF двоичный: сохраните его снова как текстовый (ASCII) DXF.</translation>
+    </message>
+    <message>
+        <source>This file is not a DXF drawing.</source>
+        <translation type="unfinished">Этот файл не является чертежом DXF.</translation>
+    </message>
+    <message>
+        <source>This DXF file holds no line this program can draw.</source>
+        <translation type="unfinished">В этом файле DXF нет линий, которые может нарисовать программа.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">Количество</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">Добавить деталь...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">Детали из базы деталей, из которых состоит этот элемент, и количество каждой.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">Используйте базу деталей (Настройки &gt; Общие), чтобы выбирать детали этого элемента.</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">(нет в базе деталей)</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Детали</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">Деталь добавлена. Информация элемента содержит основной артикул и один дополнительный: у этой детали там нет своего блока.</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">основной артикул</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">дополнительный артикул %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">Перезаписать %1 в информации элемента данными этой детали (производитель, номер заказа, описание...)?</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">Текст клеммы заменяет её имя на листе, в планах клеммных рядов и в списках, и номер, который символ рисует рядом с клеммой, меняется вместе с ним. Оставьте имя символа или пустое поле, чтобы сохранить это имя.</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">Клемма символа</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Текст</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">Тексты клемм</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">(без имени)</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">Как контакты этого устройства показываются рядом с ним. Для ручного положения перетащите отображение на листе с Shift или введите его положение.</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">Использовать настройку проекта</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">Свойства проекта, страница перекрёстных ссылок</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">Зеркало контактов</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">Изменить отображение контактов реле</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadAccount</name>
+    <message>
+        <source>Sign in to fasecad.com</source>
+        <translation type="unfinished">Вход в fasecad.com</translation>
+    </message>
+    <message>
+        <source>Your FaseCAD account, for the AI and the official parts catalog.</source>
+        <translation type="unfinished">Ваша учётная запись FaseCAD для ИИ и официального каталога деталей.</translation>
+    </message>
+    <message>
+        <source>User or email:</source>
+        <translation type="unfinished">Пользователь или e-mail:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Пароль:</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished">Создать учётную запись</translation>
+    </message>
+    <message>
+        <source>Forgot the password?</source>
+        <translation type="unfinished">Забыли пароль?</translation>
+    </message>
+    <message>
+        <source>My FaseCAD</source>
+        <translation type="unfinished">Мой FaseCAD</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Войти</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished">Выйти</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadServices</name>
+    <message>
+        <source>The user or the password is wrong.</source>
+        <translation type="unfinished">Неверное имя пользователя или пароль.</translation>
+    </message>
+    <message>
+        <source>fasecad.com cannot be reached: %1</source>
+        <translation type="unfinished">fasecad.com недоступен: %1</translation>
+    </message>
+    <message>
+        <source>Your account is open on another computer.</source>
+        <translation type="unfinished">Ваша учётная запись открыта на другом компьютере.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet.</source>
+        <translation type="unfinished">Сервисы fasecad.com ещё не открыты.</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer: this session was closed.</source>
+        <translation type="unfinished">Ваша учётная запись была открыта на другом компьютере: этот сеанс закрыт.</translation>
+    </message>
+    <message>
+        <source>Your subscription is not running.</source>
+        <translation type="unfinished">Ваша подписка не действует.</translation>
+    </message>
+    <message>
+        <source>Too many messages today: try again tomorrow.</source>
+        <translation type="unfinished">Слишком много сообщений сегодня: попробуйте завтра.</translation>
+    </message>
+    <message>
+        <source>The message could not be sent: %1</source>
+        <translation type="unfinished">Не удалось отправить сообщение: %1</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">Содержание листов</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">Содержание листов %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoriesDialog</name>
+    <message>
+        <source>Categories of the parts</source>
+        <translation type="unfinished">Категории деталей</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Добавить...</translation>
+    </message>
+    <message>
+        <source>Add a subcategory...</source>
+        <translation type="unfinished">Добавить подкатегорию...</translation>
+    </message>
+    <message>
+        <source>Rename...</source>
+        <translation type="unfinished">Переименовать...</translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished">Значок</translation>
+    </message>
+    <message>
+        <source>FaseCAD icons...</source>
+        <translation type="unfinished">Значки FaseCAD...</translation>
+    </message>
+    <message>
+        <source>Image file...</source>
+        <translation type="unfinished">Файл изображения...</translation>
+    </message>
+    <message>
+        <source>No icon</source>
+        <translation type="unfinished">Без значка</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n деталь</numerusform>
+            <numerusform>%n детали</numerusform>
+            <numerusform>%n деталей</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) with its subcategories</source>
+        <translation type="unfinished">
+            <numerusform>%n деталь с подкатегориями</numerusform>
+            <numerusform>%n детали с подкатегориями</numerusform>
+            <numerusform>%n деталей с подкатегориями</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This category comes with FaseCAD</source>
+        <translation type="unfinished">Эта категория поставляется с FaseCAD</translation>
+    </message>
+    <message>
+        <source>New category</source>
+        <translation type="unfinished">Новая категория</translation>
+    </message>
+    <message>
+        <source>Name of the category:</source>
+        <translation type="unfinished">Имя категории:</translation>
+    </message>
+    <message>
+        <source>New subcategory</source>
+        <translation type="unfinished">Новая подкатегория</translation>
+    </message>
+    <message>
+        <source>Name of the subcategory of %1:</source>
+        <translation type="unfinished">Имя подкатегории %1:</translation>
+    </message>
+    <message>
+        <source>Rename the category</source>
+        <translation type="unfinished">Переименовать категорию</translation>
+    </message>
+    <message>
+        <source>New name of the category:</source>
+        <translation type="unfinished">Новое имя категории:</translation>
+    </message>
+    <message>
+        <source>Remove the category %1?</source>
+        <translation type="unfinished">Удалить категорию %1?</translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) are left without category.</source>
+        <translation type="unfinished">
+            <numerusform>Её %n деталь остаётся без категории.</numerusform>
+            <numerusform>Её %n детали остаются без категории.</numerusform>
+            <numerusform>Её %n деталей остаются без категории.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) go to %1.</source>
+        <translation type="unfinished">
+            <numerusform>Её %n деталь переходит в %1.</numerusform>
+            <numerusform>Её %n детали переходят в %1.</numerusform>
+            <numerusform>Её %n деталей переходят в %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Its subcategories go up one level, with their parts.</source>
+        <translation type="unfinished">Её подкатегории поднимаются на уровень выше вместе с деталями.</translation>
+    </message>
+    <message>
+        <source>Remove the category</source>
+        <translation type="unfinished">Удалить категорию</translation>
+    </message>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Значок категории</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</source>
+        <translation type="unfinished">Изображения (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read or is larger than 512 KB.</source>
+        <translation type="unfinished">Файл %1 не читается или больше 512 КБ.</translation>
+    </message>
+    <message>
+        <source>The file %1 is not an image.</source>
+        <translation type="unfinished">Файл %1 не является изображением.</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIconPicker</name>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Значок категории</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIcons</name>
+    <message>
+        <source>Terminal block</source>
+        <translation type="unfinished">Клеммная колодка</translation>
+    </message>
+    <message>
+        <source>Circuit breaker</source>
+        <translation type="unfinished">Автоматический выключатель</translation>
+    </message>
+    <message>
+        <source>Residual current device</source>
+        <translation type="unfinished">Устройство защитного отключения</translation>
+    </message>
+    <message>
+        <source>Motor protection</source>
+        <translation type="unfinished">Защита двигателя</translation>
+    </message>
+    <message>
+        <source>Fuse</source>
+        <translation type="unfinished">Предохранитель</translation>
+    </message>
+    <message>
+        <source>Contactor</source>
+        <translation type="unfinished">Контактор</translation>
+    </message>
+    <message>
+        <source>Relay</source>
+        <translation type="unfinished">Реле</translation>
+    </message>
+    <message>
+        <source>Disconnector</source>
+        <translation type="unfinished">Разъединитель</translation>
+    </message>
+    <message>
+        <source>Pilot light</source>
+        <translation type="unfinished">Сигнальная лампа</translation>
+    </message>
+    <message>
+        <source>Push button</source>
+        <translation type="unfinished">Кнопка</translation>
+    </message>
+    <message>
+        <source>Signal tower</source>
+        <translation type="unfinished">Сигнальная колонна</translation>
+    </message>
+    <message>
+        <source>Operator panel</source>
+        <translation type="unfinished">Панель оператора</translation>
+    </message>
+    <message>
+        <source>PLC</source>
+        <translation type="unfinished">ПЛК</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation type="unfinished">Привод</translation>
+    </message>
+    <message>
+        <source>Power supply</source>
+        <translation type="unfinished">Блок питания</translation>
+    </message>
+    <message>
+        <source>Signal conditioner</source>
+        <translation type="unfinished">Преобразователь сигналов</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">Сеть</translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished">Датчик</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Connector</source>
+        <translation type="unfinished">Разъём</translation>
+    </message>
+    <message>
+        <source>Wire end ferrule</source>
+        <translation type="unfinished">Кабельный наконечник</translation>
+    </message>
+    <message>
+        <source>Busbar</source>
+        <translation type="unfinished">Шина</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">DIN-рейка</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Корпус</translation>
+    </message>
+    <message>
+        <source>Fan</source>
+        <translation type="unfinished">Вентилятор</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">Освещение</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Инструменты</translation>
+    </message>
+    <message>
+        <source>Pneumatics</source>
+        <translation type="unfinished">Пневматика</translation>
+    </message>
+    <message>
+        <source>Hydraulics</source>
+        <translation type="unfinished">Гидравлика</translation>
+    </message>
+    <message>
+        <source>Transformer</source>
+        <translation type="unfinished">Трансформатор</translation>
+    </message>
+    <message>
+        <source>Motor</source>
+        <translation type="unfinished">Двигатель</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Прочее</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">Данные деталей</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">Поиск данных, значения или детали...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Данные</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Значение</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Деталь</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n элемент данных</numerusform>
+            <numerusform>%n элемента данных</numerusform>
+            <numerusform>%n элементов данных</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Прочее</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">Питание + (L+, 24 В)</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">Питание - (M, 0 В)</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">Функциональная земля (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">Защитное заземление (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">Фаза (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">Нейтраль (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">Цифровой вход</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">Цифровой выход</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">Аналоговый вход</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">Аналоговый выход</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">Порт шины</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">Катушка</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">Силовой контакт</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">Нормально открытый контакт</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">Нормально закрытый контакт</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">Переключающий контакт</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Клемма</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">Выбрать деталь</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Поиск детали</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">Категория:</translation>
+    </message>
+    <message>
+        <source>Only parts with a STEP model</source>
+        <translation type="unfinished">Только детали с моделью STEP</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure is chosen on its 3D model</source>
+        <translation type="unfinished">Панель корпуса выбирается на его 3D-модели</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Изображение</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Менеджер деталей...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">Добавьте или измените детали; это окно покажет их, когда вы вернётесь к нему.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Все</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">Текстовое описание</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">Номер артикула</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Производитель</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Номер заказа</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">Внутренний номер</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Поставщик</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Номер поставщика</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Категория</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">Модель</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">Номинальное напряжение</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">Номинальный ток</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">Единица</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Буква устройства</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Ширина (мм)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Высота (мм)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Глубина (мм)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Масса (кг)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Потери мощности (Вт)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Цена</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Число жил</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Цвета жил</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Сечение</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Цвет оболочки</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Техническое описание</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Примечания</translation>
+    </message>
+    <message>
+        <source>Image: %1</source>
+        <translation type="unfinished">Изображение: %1</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1, %2</translation>
+    </message>
+    <message>
+        <source>(image)</source>
+        <translation type="unfinished">(изображение)</translation>
+    </message>
+</context>
+<context>
+    <name>PartThumbnails</name>
+    <message>
+        <source>No Picture</source>
+        <translation type="unfinished">Нет изображения</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">Детали больше нет в базе деталей.</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">Не удаётся прочитать файл: %1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">Это не файл детали FaseCAD.</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">Этот файл детали создан более новой версией FaseCAD.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">Поз.</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">Кол-во</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">Ед.</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Производитель</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Номер заказа</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">Обозначение</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Категория</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Поставщик</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Номер поставщика</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">Внутренний номер</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Устройства</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">База деталей</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCatalogDialog</name>
+    <message>
+        <source>Official FaseCAD parts catalog</source>
+        <translation type="unfinished">Официальный каталог деталей FaseCAD</translation>
+    </message>
+    <message>
+        <source>Manufacturer, order number, description...</source>
+        <translation type="unfinished">Производитель, номер заказа, описание...</translation>
+    </message>
+    <message>
+        <source>Every category</source>
+        <translation type="unfinished">Все категории</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Производитель</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Номер заказа</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Категория</translation>
+    </message>
+    <message>
+        <source>&lt; Previous</source>
+        <translation type="unfinished">&lt; Назад</translation>
+    </message>
+    <message>
+        <source>Next &gt;</source>
+        <translation type="unfinished">Далее &gt;</translation>
+    </message>
+    <message>
+        <source>Replace the parts my database has already</source>
+        <translation type="unfinished">Заменять детали, которые уже есть в моей базе</translation>
+    </message>
+    <message>
+        <source>Add to my parts database</source>
+        <translation type="unfinished">Добавить в мою базу деталей</translation>
+    </message>
+    <message>
+        <source>Asking %1...</source>
+        <translation type="unfinished">Запрос к %1...</translation>
+    </message>
+    <message>
+        <source>The catalog cannot be reached: %1</source>
+        <translation type="unfinished">Каталог недоступен: %1</translation>
+    </message>
+    <message>
+        <source>The catalog gave no list of parts.</source>
+        <translation type="unfinished">Каталог не вернул список деталей.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) found, page %1 of %2.</source>
+        <translation type="unfinished">
+            <numerusform>Найдена %n деталь, страница %1 из %2.</numerusform>
+            <numerusform>Найдено %n детали, страница %1 из %2.</numerusform>
+            <numerusform>Найдено %n деталей, страница %1 из %2.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General).</source>
+        <translation type="unfinished">База деталей не используется (Настройки &gt; Общие).</translation>
+    </message>
+    <message>
+        <source>%1: your session was closed, the account is open on another computer (Sign in...)</source>
+        <translation type="unfinished">%1: ваш сеанс закрыт, учётная запись открыта на другом компьютере (Войти...)</translation>
+    </message>
+    <message>
+        <source>%1: the parts of the official catalog are part of FaseCAD Pro (my.fasecad.com)</source>
+        <translation type="unfinished">%1: детали официального каталога входят в FaseCAD Pro (my.fasecad.com)</translation>
+    </message>
+    <message>
+        <source>%1: the catalog does not accept this user and password (Sign in...)</source>
+        <translation type="unfinished">%1: каталог не принимает это имя пользователя и пароль (Войти...)</translation>
+    </message>
+    <message>
+        <source>%1: sign in to download it (Sign in...)</source>
+        <translation type="unfinished">%1: войдите, чтобы скачать (Войти...)</translation>
+    </message>
+    <message>
+        <source>%1: your database has it already</source>
+        <translation type="unfinished">%1: уже есть в вашей базе</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) added to your parts database.</source>
+        <translation type="unfinished">
+            <numerusform>В вашу базу деталей добавлена %n деталь.</numerusform>
+            <numerusform>В вашу базу деталей добавлено %n детали.</numerusform>
+            <numerusform>В вашу базу деталей добавлено %n деталей.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not added: %1</source>
+        <translation type="unfinished">Не добавлено: %1</translation>
+    </message>
+    <message>
+        <source>No folder for the downloaded file.</source>
+        <translation type="unfinished">Нет папки для скачанного файла.</translation>
+    </message>
+    <message>
+        <source>The downloaded file cannot be written.</source>
+        <translation type="unfinished">Не удаётся записать скачанный файл.</translation>
+    </message>
+    <message>
+        <source>Signed in to fasecad.com as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Вход на fasecad.com выполнен как %1. Нажмите, чтобы сменить или выйти.</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Войти...</translation>
+    </message>
+    <message>
+        <source>Sign in to fasecad.com to download the parts</source>
+        <translation type="unfinished">Войдите на fasecad.com, чтобы скачивать детали</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">Коллекция деталей</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">Детали базы деталей. Перетащите деталь на лист, чтобы поставить её символ с деталью, или на символ, чтобы добавить деталь к нему.</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">Нет символа: отпустите на размещённом символе</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">Символы: %1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">Tab меняет символ при размещении детали</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Без категории)</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">Не удаётся создать папку %1.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">Не удаётся открыть базу деталей %1: %2</translation>
+    </message>
+    <message>
+        <source>The server of the parts database is not set.</source>
+        <translation type="unfinished">Сервер базы деталей не настроен.</translation>
+    </message>
+    <message>
+        <source>This copy of the program cannot connect to a PostgreSQL server: its driver is missing.</source>
+        <translation type="unfinished">Эта копия программы не может подключиться к серверу PostgreSQL: нет его драйвера.</translation>
+    </message>
+    <message>
+        <source>The parts database on %1 cannot be opened: %2</source>
+        <translation type="unfinished">Не удаётся открыть базу деталей на %1: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not open.</source>
+        <translation type="unfinished">База деталей не открыта.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">База деталей %1 создана более новой версией программы и не может быть открыта.</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">База деталей используется кем-то другим. Попробуйте чуть позже.</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">Не удаётся записать в базу деталей: %1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">Файл %1 слишком большой для копирования в базу деталей (более %2 МБ). Вместо этого создайте ссылку на него.</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">Этой детали больше нет в базе деталей.</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">Деталь производителя «%1» с номером заказа «%2» уже существует.</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">Деталь не может быть своей собственной принадлежностью.</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">Одной из принадлежностей этой детали больше нет в базе деталей.</translation>
+    </message>
+    <message>
+        <source>A category needs a name.</source>
+        <translation type="unfinished">У категории должно быть имя.</translation>
+    </message>
+    <message>
+        <source>The category %1 is there already.</source>
+        <translation type="unfinished">Категория %1 уже существует.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be renamed.</source>
+        <translation type="unfinished">Категория %1 поставляется с FaseCAD: её нельзя переименовать.</translation>
+    </message>
+    <message>
+        <source>A category cannot go inside itself.</source>
+        <translation type="unfinished">Категория не может находиться внутри самой себя.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be removed.</source>
+        <translation type="unfinished">Категория %1 поставляется с FaseCAD: её нельзя удалить.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">Не удаётся прочитать файл %1.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">Файл %1 не найден.</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">Этого файла больше нет в базе деталей.</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">Связанный файл %1 не найден.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Не удаётся записать файл %1.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">Менеджер деталей</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">База: %1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">По категориям</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">По производителям</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Поиск детали</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Номер поставщика</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Изображение</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Новая</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Дублировать</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Экспорт</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">Записать детали с их файлами и символами в файлы .faspart, по одному на деталь</translation>
+    </message>
+    <message>
+        <source>The selected parts...</source>
+        <translation type="unfinished">Выбранные детали...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">Все детали списка...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">Импорт...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">Добавить детали из файлов .faspart в базу деталей</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Общие</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">Монтаж</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">Технические данные</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished">Переводы</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Символы</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">Файлы</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">Отменить изменения</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Буква устройства</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Техническое описание</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Downstream of this device, the cross-section of the wires depends on what is connected to it: the wires it feeds (its outgoing terminals and every wire joined to them) are made for this current.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calculate sections&lt;/b&gt; (Connections tab) gives every wire of the project the cross-section of the device that feeds it.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;Сечение проводов после этого устройства зависит от того, что к нему подключено: провода, которые оно питает (выходные клеммы и все провода, подключённые к ним), выбираются по этому току.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Рассчитать сечения&lt;/b&gt; (вкладка «Соединения») задаёт каждому проводу проекта сечение устройства, которое его питает.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Maximum current (A)</source>
+        <translation type="unfinished">Максимальный ток (А)</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">Буква метки, которую получает размещённое устройство, например K для -K1.</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">Вместе с производителем идентифицирует деталь</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Масса (кг)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Цена</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Ширина (мм)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Высота (мм)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Глубина (мм)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">Место, оставляемое в шкафу вокруг устройства для воздуха и проводов.</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">Свободно сверху (мм)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">Свободно снизу (мм)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">Свободно слева (мм)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">Свободно справа (мм)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">Свободно спереди (мм)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">Свободно сзади (мм)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Потери мощности (Вт)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">Тепло, выделяемое устройством, для теплового баланса шкафа.</translation>
+    </message>
+    <message>
+        <source>The textual description and the model in other languages. In Project languages, Collect texts of the project fills them in, so the folios are shown, printed and exported in each language.</source>
+        <translation type="unfinished">Текстовое описание и модель на других языках. В языках проекта «Собрать тексты проекта» заполняет их, чтобы листы показывались, печатались и экспортировались на каждом языке.</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">Язык</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">Что делает каждый вывод устройства, в порядке производителя. «Добавить» копирует выбранную строку со следующим выводом и номером.</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">Функция</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">Разъём</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">Вывод</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">Адрес ПЛК</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Добавить</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Вверх</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Вниз</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">Куда идут провода на реальном устройстве и что они принимают. Положение — в мм от левого верхнего угла лицевой панели.</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">Наименьшее сечение (мм²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">Наибольшее сечение (мм²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Провода</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">Зачистка (мм)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">Момент затяжки (Н·м)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">Отвёртка</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (мм)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (мм)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (мм)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">Сколько проводов принимает точка подключения</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">Из функций</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">Добавить точку подключения для каждого вывода вкладки «Функции», у которого её ещё нет.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Имя</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Значение</translation>
+    </message>
+    <message>
+        <source>Copy the rows</source>
+        <translation type="unfinished">Копировать строки</translation>
+    </message>
+    <message>
+        <source>Paste rows</source>
+        <translation type="unfinished">Вставить строки</translation>
+    </message>
+    <message>
+        <source>Copy the selected rows (Ctrl+C), to paste them in another part or in a spreadsheet</source>
+        <translation type="unfinished">Копировать выбранные строки, чтобы вставить их в другую деталь или в электронную таблицу (Ctrl+C)</translation>
+    </message>
+    <message>
+        <source>Paste copied rows (Ctrl+V): a name already in the table takes the pasted value, the others are added</source>
+        <translation type="unfinished">Вставить скопированные строки (Ctrl+V): имя, которое уже есть в таблице, получает вставленное значение, остальные добавляются</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">Добавить принадлежность...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">Если используется база деталей (Настройки), деталь с жилами предлагается как тип кабеля при рисовании кабеля.</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">Не кабель</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Число жил</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Цвета жил</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Сечение</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Цвет оболочки</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">Экспортировать детали в</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">Экспорт деталей</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 уже существует. Заменить?</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n деталь экспортирована в %1.</numerusform>
+            <numerusform>%n детали экспортированы в %1.</numerusform>
+            <numerusform>%n деталей экспортировано в %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">Не экспортировано:</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">Импорт деталей</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">Детали FaseCAD (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">В базе деталей уже есть %1 %2.
+Заменить её деталью из файла?</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">Заменить</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">Оставить мою</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">Заменить все</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">Оставить все мои</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">
+            <numerusform>Импортирована %n деталь.</numerusform>
+            <numerusform>Импортировано %n детали.</numerusform>
+            <numerusform>Импортировано %n деталей.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">
+            <numerusform>%n деталь оставлена как была.</numerusform>
+            <numerusform>%n детали оставлены как были.</numerusform>
+            <numerusform>%n деталей оставлены как были.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">Не импортировано:</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">При перетаскивании из коллекции деталей панели коллекций деталь идёт с первым символом; при размещении Tab переходит к следующему, Shift+Tab — назад.</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Добавить...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">Выбрать символ из коллекции</translation>
+    </message>
+    <message>
+        <source>Import a file...</source>
+        <translation type="unfinished">Импортировать файл...</translation>
+    </message>
+    <message>
+        <source>A symbol file (.elmt) kept in the parts database: it need not be in the collection</source>
+        <translation type="unfinished">Файл символа (.elmt), хранимый в базе деталей: ему не нужно быть в коллекции</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">Символ</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">Расположение символа:</translation>
+    </message>
+    <message>
+        <source>Import a symbol</source>
+        <translation type="unfinished">Импорт символа</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Символы (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Save the part first: the symbol is kept with it in the parts database.</source>
+        <translation type="unfinished">Сначала сохраните деталь: символ хранится вместе с ней в базе деталей.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">Не удаётся прочитать %1: %2</translation>
+    </message>
+    <message>
+        <source>%1 is not a symbol.</source>
+        <translation type="unfinished">%1 не является символом.</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">Сначала сохраните деталь, чтобы добавить файлы.</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">Добавить изображение...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">Добавить DXF...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">Добавить 3D-модель...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">Файл STEP (.stp, .step) для шкафа в 3D.</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">Связать с файлом...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">Хранить только путь к файлу, а не копию. Файл должен оставаться на месте и быть доступен с каждого компьютера, использующего эту базу.</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">Сохранить как...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">Все детали</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Без категории)</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">(Без производителя)</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">В детали есть несохранённые изменения. Сохранить их?</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">Это не число: %1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">Введите хотя бы производителя, номер заказа или описание.</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">Удалить деталь %1 вместе с её файлами? Проекты, которые её используют, сохраняют информацию элементов.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete the %n selected parts, with their files? Projects using them keep their element informations.</source>
+        <translation type="unfinished">
+            <numerusform>Удалить %n выбранную деталь вместе с файлами? Проекты, которые их используют, сохраняют информацию элементов.</numerusform>
+            <numerusform>Удалить %n выбранные детали вместе с файлами? Проекты, которые их используют, сохраняют информацию элементов.</numerusform>
+            <numerusform>Удалить %n выбранных деталей вместе с файлами? Проекты, которые их используют, сохраняют информацию элементов.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Manage categories...</source>
+        <translation type="unfinished">Управление категориями...</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">У каждого вывода функций уже есть точка подключения.</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">В базе нет другой детали, которую можно использовать как принадлежность.</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">Добавить принадлежность</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">Принадлежность:</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Изображение</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">3D-модель (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1: %2 (связан: %3)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1: %2 (%3, скопирован в базу)</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">Это изображение нельзя показать.</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">Изображения (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">Добавить изображение</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">Чертежи DXF (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">Добавить DXF</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">Модели STEP (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">Добавить 3D-модель</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">Связать с файлом</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">Изображения, чертежи DXF и модели STEP (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Сохранить как</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">Удалить этот файл из детали?</translation>
+    </message>
+</context>
+<context>
+    <name>PartsServerDialog</name>
+    <message>
+        <source>Parts database server</source>
+        <translation type="unfinished">Сервер базы деталей</translation>
+    </message>
+    <message>
+        <source>A PostgreSQL server keeps the parts database for several computers at once. The tables are made the first time.</source>
+        <translation type="unfinished">Сервер PostgreSQL хранит базу деталей сразу для нескольких компьютеров. Таблицы создаются при первом подключении.</translation>
+    </message>
+    <message>
+        <source>Kept in the settings of this user on this computer</source>
+        <translation type="unfinished">Хранится в настройках этого пользователя на этом компьютере</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">Сервер:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished">Порт:</translation>
+    </message>
+    <message>
+        <source>Database:</source>
+        <translation type="unfinished">База данных:</translation>
+    </message>
+    <message>
+        <source>User:</source>
+        <translation type="unfinished">Пользователь:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Пароль:</translation>
+    </message>
+    <message>
+        <source>Test the connection</source>
+        <translation type="unfinished">Проверить подключение</translation>
+    </message>
+    <message>
+        <source>Copy my parts to the server...</source>
+        <translation type="unfinished">Скопировать мои детали на сервер...</translation>
+    </message>
+    <message>
+        <source>Copies the parts of the database file, with their files, symbols and categories. A part the server has already is left as it is there.</source>
+        <translation type="unfinished">Копирует детали из файла базы с их файлами, символами и категориями. Деталь, которая уже есть на сервере, остаётся там как есть.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Connected: the server holds %n parts.</source>
+        <translation type="unfinished">
+            <numerusform>Подключено: на сервере %n деталь.</numerusform>
+            <numerusform>Подключено: на сервере %n детали.</numerusform>
+            <numerusform>Подключено: на сервере %n деталей.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Copying the parts to the server...</source>
+        <translation type="unfinished">Копирование деталей на сервер...</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Стоп</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n parts copied from %1.</source>
+        <translation type="unfinished">
+            <numerusform>Скопирована %n деталь из %1.</numerusform>
+            <numerusform>Скопировано %n детали из %1.</numerusform>
+            <numerusform>Скопировано %n деталей из %1.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ProjectVersions</name>
+    <message>
+        <source>Changes from version %1 to version %2</source>
+        <translation type="unfinished">Изменения с версии %1 до %2</translation>
+    </message>
+    <message>
+        <source>No device was added, removed or rewired.</source>
+        <translation type="unfinished">Ни одно устройство не добавлено, не удалено и не переподключено.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices added (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Добавленные устройства (%n)</numerusform>
+            <numerusform>Добавленные устройства (%n)</numerusform>
+            <numerusform>Добавленные устройства (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices removed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Удалённые устройства (%n)</numerusform>
+            <numerusform>Удалённые устройства (%n)</numerusform>
+            <numerusform>Удалённые устройства (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Wiring changed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Изменённые соединения (%n)</numerusform>
+            <numerusform>Изменённые соединения (%n)</numerusform>
+            <numerusform>Изменённые соединения (%n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Changes of version %1 (%2/%3)</source>
+        <translation type="unfinished">Изменения версии %1 (%2/%3)</translation>
+    </message>
+    <message>
+        <source>Changes of version %1</source>
+        <translation type="unfinished">Изменения версии %1</translation>
+    </message>
+</context>
+<context>
+    <name>SupportDialog</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Сообщить об ошибке</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Запросить поддержку</translation>
+    </message>
+    <message>
+        <source>Say what you did, what happened and what you expected. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Опишите, что вы делали, что произошло и чего вы ожидали. Версии FaseCAD и системы тоже отправляются.</translation>
+    </message>
+    <message>
+        <source>Say what you need help with. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Опишите, с чем нужна помощь. Версии FaseCAD и системы тоже отправляются.</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation type="unfinished">Тема:</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Отправить</translation>
+    </message>
+    <message>
+        <source>Sent. The FaseCAD team will answer you by email.</source>
+        <translation type="unfinished">Отправлено. Команда FaseCAD ответит вам по электронной почте.</translation>
+    </message>
+    <message>
+        <source>Sending...</source>
+        <translation type="unfinished">Отправка...</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">Внутри</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">Снаружи</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalPropertiesWidget</name>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Клемма</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSettingsWidget</name>
+    <message>
+        <source>A terminal strip of the project, or the name of a new one. Empty: the strip of the terminal on its left on the folio</source>
+        <translation type="unfinished">Имя клеммного ряда проекта или нового ряда. Пусто: ряд клеммы слева на листе</translation>
+    </message>
+    <message>
+        <source>Same as on the left</source>
+        <translation type="unfinished">Как слева</translation>
+    </message>
+    <message>
+        <source>Terminal strip:</source>
+        <translation type="unfinished">Клеммный ряд:</translation>
+    </message>
+    <message>
+        <source>Terminal number:</source>
+        <translation type="unfinished">Номер клеммы:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Нет</translation>
+    </message>
+    <message>
+        <source>Colour:</source>
+        <translation type="unfinished">Цвет:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">Тип:</translation>
+    </message>
+    <message>
+        <source>%1 mm²</source>
+        <translation type="unfinished">%1 мм²</translation>
+    </message>
+    <message>
+        <source>Cross-section:</source>
+        <translation type="unfinished">Сечение:</translation>
+    </message>
+    <message>
+        <source>The terminals of the strip with the same number are one terminal of several levels, 1 at the bottom</source>
+        <translation type="unfinished">Клеммы ряда с одинаковым номером — одна многоуровневая клемма, 1 внизу</translation>
+    </message>
+    <message>
+        <source>Level:</source>
+        <translation type="unfinished">Уровень:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">низ</translation>
+    </message>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">верх</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">справа</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">слева</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDataDialog</name>
+    <message>
+        <source>Change the title block data</source>
+        <translation type="unfinished">Изменить данные основной надписи</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Данные основной надписи</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Компания</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Название:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished">Адрес:</translation>
+    </message>
+    <message>
+        <source>Contact:</source>
+        <translation type="unfinished">Контакты:</translation>
+    </message>
+    <message>
+        <source>Phone, e-mail, web</source>
+        <translation type="unfinished">Телефон, e-mail, сайт</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Заказчик и объект</translation>
+    </message>
+    <message>
+        <source>Client:</source>
+        <translation type="unfinished">Заказчик:</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">Объект:</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Подписи</translation>
+    </message>
+    <message>
+        <source>Drawn by: the author and the date of each sheet, in its properties.</source>
+        <translation type="unfinished">Разработал: автор и дата каждого листа, в его свойствах.</translation>
+    </message>
+    <message>
+        <source>Checked by:</source>
+        <translation type="unfinished">Проверил:</translation>
+    </message>
+    <message>
+        <source>Checked on:</source>
+        <translation type="unfinished">Дата проверки:</translation>
+    </message>
+    <message>
+        <source>Approved by:</source>
+        <translation type="unfinished">Утвердил:</translation>
+    </message>
+    <message>
+        <source>Approved on:</source>
+        <translation type="unfinished">Дата утверждения:</translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <translation type="unfinished">Чертёж</translation>
+    </message>
+    <message>
+        <source>Standard:</source>
+        <translation type="unfinished">Стандарт:</translation>
+    </message>
+    <message>
+        <source>The paper size and the scale are worked out for each sheet.</source>
+        <translation type="unfinished">Формат бумаги и масштаб определяются для каждого листа.</translation>
+    </message>
+    <message>
+        <source>Revisions, the latest at the top</source>
+        <translation type="unfinished">Ревизии, новейшая сверху</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Рев.</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Дата</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Кем</translation>
+    </message>
+    <message>
+        <source>New revision</source>
+        <translation type="unfinished">Новая ревизия</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesign</name>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Проект</translation>
+    </message>
+    <message>
+        <source>Sheet title</source>
+        <translation type="unfinished">Название листа</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished">Заказчик</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">Объект</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished">Адрес</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Рев.</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Дата</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Описание</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Кем</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Название</translation>
+    </message>
+    <message>
+        <source>Drawn</source>
+        <translation type="unfinished">Разработал</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished">Проверил</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Утвердил</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished">Формат</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished">Масштаб</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished">Стандарт</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Установка</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Местоположение</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">Логотип</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Компания</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Заказчик и объект</translation>
+    </message>
+    <message>
+        <source>Revisions</source>
+        <translation type="unfinished">Ревизии</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Подписи</translation>
+    </message>
+    <message>
+        <source>Format and scale</source>
+        <translation type="unfinished">Формат и масштаб</translation>
+    </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished">Контакты</translation>
+    </message>
+    <message>
+        <source>Drawn by</source>
+        <translation type="unfinished">Разработал</translation>
+    </message>
+    <message>
+        <source>Drawn on</source>
+        <translation type="unfinished">Дата разработки</translation>
+    </message>
+    <message>
+        <source>Checked by</source>
+        <translation type="unfinished">Проверил</translation>
+    </message>
+    <message>
+        <source>Checked on</source>
+        <translation type="unfinished">Дата проверки</translation>
+    </message>
+    <message>
+        <source>Approved by</source>
+        <translation type="unfinished">Утвердил</translation>
+    </message>
+    <message>
+        <source>Approved on</source>
+        <translation type="unfinished">Дата утверждения</translation>
+    </message>
+    <message>
+        <source>Project title</source>
+        <translation type="unfinished">Название проекта</translation>
+    </message>
+    <message>
+        <source>Sheet number</source>
+        <translation type="unfinished">Номер листа</translation>
+    </message>
+    <message>
+        <source>Position of the sheet</source>
+        <translation type="unfinished">Положение листа</translation>
+    </message>
+    <message>
+        <source>Number of sheets</source>
+        <translation type="unfinished">Число листов</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished">Автор</translation>
+    </message>
+    <message>
+        <source>Revision of the sheet</source>
+        <translation type="unfinished">Ревизия листа</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Версия</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished">Имя файла</translation>
+    </message>
+    <message>
+        <source>Company address</source>
+        <translation type="unfinished">Адрес компании</translation>
+    </message>
+    <message>
+        <source>Company contact</source>
+        <translation type="unfinished">Контакты компании</translation>
+    </message>
+    <message>
+        <source>Site address</source>
+        <translation type="unfinished">Адрес объекта</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation type="unfinished">Формат бумаги</translation>
+    </message>
+    <message>
+        <source>Latest revision</source>
+        <translation type="unfinished">Последняя ревизия</translation>
+    </message>
+    <message>
+        <source>Date of the latest revision</source>
+        <translation type="unfinished">Дата последней ревизии</translation>
+    </message>
+    <message>
+        <source>Made of blocks with the FaseCAD title block designer</source>
+        <translation type="unfinished">Собрано из блоков в конструкторе основной надписи FaseCAD</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesignPreview</name>
+    <message>
+        <source>Add the blocks of the title block with the buttons above</source>
+        <translation type="unfinished">Добавьте блоки основной надписи кнопками выше</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesigner</name>
+    <message>
+        <source>Use the title block %1</source>
+        <translation type="unfinished">Использовать основную надпись %1</translation>
+    </message>
+    <message>
+        <source>Title block designer</source>
+        <translation type="unfinished">Конструктор основной надписи</translation>
+    </message>
+    <message>
+        <source>Add a block:</source>
+        <translation type="unfinished">Добавить блок:</translation>
+    </message>
+    <message>
+        <source>Adds the block "%1" at the end of the title block</source>
+        <translation type="unfinished">Добавляет блок «%1» в конец основной надписи</translation>
+    </message>
+    <message>
+        <source>Click a block to change it. Drag the line between two blocks to share their width, drag a block to move it, Delete takes it away.</source>
+        <translation type="unfinished">Щёлкните блок, чтобы изменить его. Перетащите линию между двумя блоками, чтобы распределить их ширину, или блок, чтобы переместить его; Delete удаляет его.</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Основная надпись</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Имя:</translation>
+    </message>
+    <message>
+        <source>Modern: the label small above the value</source>
+        <translation type="unfinished">Современный: подпись мелко над значением</translation>
+    </message>
+    <message>
+        <source>Classic: label and value on one line</source>
+        <translation type="unfinished">Классический: подпись и значение в одной строке</translation>
+    </message>
+    <message>
+        <source>Style:</source>
+        <translation type="unfinished">Стиль:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Высота:</translation>
+    </message>
+    <message>
+        <source>Colour of the bar and of the headers</source>
+        <translation type="unfinished">Цвет полосы и заголовков</translation>
+    </message>
+    <message>
+        <source>Bar along the left side</source>
+        <translation type="unfinished">Полоса вдоль левого края</translation>
+    </message>
+    <message>
+        <source>Accent:</source>
+        <translation type="unfinished">Акцент:</translation>
+    </message>
+    <message>
+        <source>Start again from…</source>
+        <translation type="unfinished">Начать заново с…</translation>
+    </message>
+    <message>
+        <source>Complete, for A3</source>
+        <translation type="unfinished">Полная, для A3</translation>
+    </message>
+    <message>
+        <source>Compact, for A4</source>
+        <translation type="unfinished">Компактная, для A4</translation>
+    </message>
+    <message>
+        <source>Give it to:</source>
+        <translation type="unfinished">Применить к:</translation>
+    </message>
+    <message>
+        <source>this sheet</source>
+        <translation type="unfinished">этому листу</translation>
+    </message>
+    <message>
+        <source>every sheet of the project</source>
+        <translation type="unfinished">каждому листу проекта</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished">Цвет акцента</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Блок</translation>
+    </message>
+    <message>
+        <source>Pick a block in the title block.</source>
+        <translation type="unfinished">Выберите блок в основной надписи.</translation>
+    </message>
+    <message>
+        <source>Block: %1</source>
+        <translation type="unfinished">Блок: %1</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Ширина:</translation>
+    </message>
+    <message>
+        <source>Text, and data between %{ and }: %{projecttitle}</source>
+        <translation type="unfinished">Текст и данные между %{ и }: %{projecttitle}</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Данные</translation>
+    </message>
+    <message>
+        <source>Revisions shown:</source>
+        <translation type="unfinished">Показываемые ревизии:</translation>
+    </message>
+    <message>
+        <source>The revisions are those of the project: Project &gt; Title block data.</source>
+        <translation type="unfinished">Ревизии берутся из проекта: Проект &gt; Данные основной надписи.</translation>
+    </message>
+    <message>
+        <source>Choose an image…</source>
+        <translation type="unfinished">Выбрать изображение…</translation>
+    </message>
+    <message>
+        <source>No logo</source>
+        <translation type="unfinished">Без логотипа</translation>
+    </message>
+    <message>
+        <source>Image:</source>
+        <translation type="unfinished">Изображение:</translation>
+    </message>
+    <message>
+        <source>Take the block away</source>
+        <translation type="unfinished">Удалить блок</translation>
+    </message>
+    <message>
+        <source>Logo of the title block</source>
+        <translation type="unfinished">Логотип основной надписи</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp)</source>
+        <translation type="unfinished">Изображения (*.svg *.png *.jpg *.jpeg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Give the title block a name: letters, digits, "-" and "_".</source>
+        <translation type="unfinished">Дайте основной надписи имя: буквы, цифры, «-» и «_».</translation>
+    </message>
+    <message>
+        <source>The title block has no block.</source>
+        <translation type="unfinished">В основной надписи нет блоков.</translation>
+    </message>
+    <message>
+        <source>The project already has a title block template called %1, not made with the designer. Replace it?</source>
+        <translation type="unfinished">В проекте уже есть шаблон основной надписи с именем %1, созданный не конструктором. Заменить его?</translation>
+    </message>
+</context>
+<context>
+    <name>WireNumbering</name>
+    <message>
+        <source>By potential: 1, 2, 3…</source>
+        <translation type="unfinished">По потенциалу: 1, 2, 3…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 3.1, 3.2…</source>
+        <translation type="unfinished">Лист и номер: 3.1, 3.2…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 301, 302…</source>
+        <translation type="unfinished">Лист и номер: 301, 302…</translation>
+    </message>
+    <message>
+        <source>Sheet and column: 3-12</source>
+        <translation type="unfinished">Лист и столбец: 3-12</translation>
+    </message>
+    <message>
+        <source>From and to, IEC 62491: -K1:13/-X1:4</source>
+        <translation type="unfinished">Откуда и куда, IEC 62491: -K1:13/-X1:4</translation>
+    </message>
+    <message>
+        <source>By potential type: L1, L2, N, PE, P1, M1</source>
+        <translation type="unfinished">По типу потенциала: L1, L2, N, PE, P1, M1</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Пронумеровать %n провод</numerusform>
+            <numerusform>Пронумеровать %n провода</numerusform>
+            <numerusform>Пронумеровать %n проводов</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireNumberingDialog</name>
+    <message>
+        <source>Number the wires</source>
+        <translation type="unfinished">Нумерация проводов</translation>
+    </message>
+    <message>
+        <source>Save as mine…</source>
+        <translation type="unfinished">Сохранить как мою…</translation>
+    </message>
+    <message>
+        <source>Keep this formula among your own, for every project</source>
+        <translation type="unfinished">Сохранить эту формулу среди ваших, для каждого проекта</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Delete this formula of your own</source>
+        <translation type="unfinished">Удалить эту вашу формулу</translation>
+    </message>
+    <message>
+        <source>Numbering:</source>
+        <translation type="unfinished">Нумерация:</translation>
+    </message>
+    <message>
+        <source>Formula:</source>
+        <translation type="unfinished">Формула:</translation>
+    </message>
+    <message>
+        <source>%N number in the project · %n number on the sheet · %F sheet · %C column · %R row · %P potential type (L1, N, PE, P1, M1) · %S device and %T terminal it starts from · %D device and %E terminal it goes to · %3N three digits: 001</source>
+        <translation type="unfinished">%N номер в проекте · %n номер на листе · %F лист · %C столбец · %R строка · %P тип потенциала (L1, N, PE, P1, M1) · %S устройство, откуда идёт, и %T его клемма · %D устройство, куда идёт, и %E его клемма · %3N три цифры: 001</translation>
+    </message>
+    <message>
+        <source>A name for each wire, not one for each potential</source>
+        <translation type="unfinished">Одно имя на каждый провод, а не на каждый потенциал</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Провода</translation>
+    </message>
+    <message>
+        <source>Whole project</source>
+        <translation type="unfinished">Весь проект</translation>
+    </message>
+    <message>
+        <source>This sheet</source>
+        <translation type="unfinished">Этот лист</translation>
+    </message>
+    <message>
+        <source>Selected wires</source>
+        <translation type="unfinished">Выбранные провода</translation>
+    </message>
+    <message>
+        <source>Order on a sheet:</source>
+        <translation type="unfinished">Порядок на листе:</translation>
+    </message>
+    <message>
+        <source>From top to bottom, then left to right</source>
+        <translation type="unfinished">Сверху вниз, затем слева направо</translation>
+    </message>
+    <message>
+        <source>From left to right, then top to bottom</source>
+        <translation type="unfinished">Слева направо, затем сверху вниз</translation>
+    </message>
+    <message>
+        <source>Start at:</source>
+        <translation type="unfinished">Начать с:</translation>
+    </message>
+    <message>
+        <source>Keep the numbers fixed by hand</source>
+        <translation type="unfinished">Сохранять номера, закреплённые вручную</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message>
+        <source>Now</source>
+        <translation type="unfinished">Сейчас</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Новое</translation>
+    </message>
+    <message>
+        <source>From → to</source>
+        <translation type="unfinished">Откуда → куда</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Номер</translation>
+    </message>
+    <message>
+        <source>Mine: %1</source>
+        <translation type="unfinished">Моя: %1</translation>
+    </message>
+    <message>
+        <source>Formula of my own</source>
+        <translation type="unfinished">Моя формула</translation>
+    </message>
+    <message>
+        <source>Nothing to change: every wire already has this name.</source>
+        <translation type="unfinished">Нечего менять: у каждого провода уже это имя.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n name(s) change:</source>
+        <translation type="unfinished">
+            <numerusform>Меняется %n имя:</numerusform>
+            <numerusform>Меняется %n имени:</numerusform>
+            <numerusform>Меняется %n имён:</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Save as mine</source>
+        <translation type="unfinished">Сохранить как мою</translation>
+    </message>
+    <message>
+        <source>Name of this numbering:</source>
+        <translation type="unfinished">Имя этой нумерации:</translation>
+    </message>
+</context>
+<context>
+    <name>WireSections</name>
+    <message numerus="yes">
+        <source>Give %n wire(s) the section of their protection</source>
+        <translation type="unfinished">
+            <numerusform>Задать %n проводу сечение его защиты</numerusform>
+            <numerusform>Задать %n проводам сечение их защиты</numerusform>
+            <numerusform>Задать %n проводам сечение их защиты</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireSectionsDialog</name>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Рассчитать сечения</translation>
+    </message>
+    <message>
+        <source>The section IEC 60204-1 (table 6, copper, PVC) asks for the wires each protection feeds, from its rated current, and the wires each device feeds whose part has a maximum current, from it: the wires on its outgoing terminals (2, 4, 6…) and every wire joined to them.</source>
+        <translation type="unfinished">Сечение, требуемое IEC 60204-1 (таблица 6, медь, ПВХ) для проводов, питаемых каждой защитой, по её номинальному току, и для проводов, питаемых каждым устройством, у детали которого есть максимальный ток, по этому току: провода на выходных клеммах (2, 4, 6…) и все провода, подключённые к ним.</translation>
+    </message>
+    <message>
+        <source>Installation:</source>
+        <translation type="unfinished">Способ прокладки:</translation>
+    </message>
+    <message>
+        <source>B1: single cores in a duct</source>
+        <translation type="unfinished">B1: одножильные в канале</translation>
+    </message>
+    <message>
+        <source>B2: cables in a duct</source>
+        <translation type="unfinished">B2: кабели в канале</translation>
+    </message>
+    <message>
+        <source>C: on a wall</source>
+        <translation type="unfinished">C: на стене</translation>
+    </message>
+    <message>
+        <source>E: on a cable tray</source>
+        <translation type="unfinished">E: на кабельном лотке</translation>
+    </message>
+    <message>
+        <source>Ambient:</source>
+        <translation type="unfinished">Окружающая среда:</translation>
+    </message>
+    <message>
+        <source>Circuits grouped:</source>
+        <translation type="unfinished">Сгруппированные цепи:</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Устройство</translation>
+    </message>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">Ток</translation>
+    </message>
+    <message>
+        <source>Section needed</source>
+        <translation type="unfinished">Нужное сечение</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Провода</translation>
+    </message>
+    <message>
+        <source>Without section</source>
+        <translation type="unfinished">Без сечения</translation>
+    </message>
+    <message>
+        <source>Too small</source>
+        <translation type="unfinished">Слишком мало</translation>
+    </message>
+    <message>
+        <source>Give them their section</source>
+        <translation type="unfinished">Задать им сечения</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">не указано</translation>
+    </message>
+    <message>
+        <source>over 120 mm²</source>
+        <translation type="unfinished">более 120 мм²</translation>
+    </message>
+    <message>
+        <source>The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.</source>
+        <translation type="unfinished">В проекте нет защиты (автоматический выключатель, защита двигателя, предохранитель) или устройства с максимальным током.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) without a section or with a smaller one than their protection asks for.</source>
+        <translation type="unfinished">
+            <numerusform>%n провод без сечения или с сечением меньше требуемого защитой.</numerusform>
+            <numerusform>%n провода без сечения или с сечением меньше требуемого защитой.</numerusform>
+            <numerusform>%n проводов без сечения или с сечением меньше требуемого защитой.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">Крест</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">Символы контактов</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Отображение</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">Под меткой устройства</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">Под символом</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">Нижний колонтитул листа</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">Ручное положение</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Положение</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">Относительно символа</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">Абсолютно на листе</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">Относительно: отображение следует за символом при его перемещении. Абсолютно: остаётся на месте на листе.</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">Поворачивает символы контактов; номера остаются вертикальными.</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">Угол символов контактов</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">Толщина линии</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">Отступ под символом</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">Показывать заданные контакты, даже если они не подключены</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">Положение X на листе</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">Ручное смещение X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">Положение Y на листе</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">Ручное смещение Y</translation>
+    </message>
+</context>
+<context>
+    <name>CommandTabs</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Файл</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Меню</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Проект</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">Открыть</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Сохранить как</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <source>Print and export</source>
+        <translation type="unfinished">Печать и экспорт</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">Печать</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished">PDF</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Изображения</translation>
+    </message>
+    <message>
+        <source>Delivery</source>
+        <translation type="unfinished">Передача</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished">Свойства</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Основная надпись</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Данные основной надписи</translation>
+    </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished">Языки</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">История</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">Главная</translation>
+    </message>
+    <message>
+        <source>Clipboard</source>
+        <translation type="unfinished">Буфер обмена</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Вставить</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Вырезать</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Копировать</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Копировать формат</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Применить формат</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Лист</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Навигатор</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Отменить</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Повторить</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Текст</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished">Вставка</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Повернуть</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished">Группа</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Правка</translation>
+    </message>
+    <message>
+        <source>Wiring list</source>
+        <translation type="unfinished">Список соединений</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+    <message>
+        <source>Find symbol</source>
+        <translation type="unfinished">Найти символ</translation>
+    </message>
+    <message>
+        <source>Jump to</source>
+        <translation type="unfinished">Перейти к</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Символы</translation>
+    </message>
+    <message>
+        <source>Last symbol</source>
+        <translation type="unfinished">Последний символ</translation>
+    </message>
+    <message>
+        <source>Connection symbols</source>
+        <translation type="unfinished">Символы соединений</translation>
+    </message>
+    <message>
+        <source>Outgoing report</source>
+        <translation type="unfinished">Исходящая ссылка</translation>
+    </message>
+    <message>
+        <source>Incoming report</source>
+        <translation type="unfinished">Входящая ссылка</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Устройства</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Устройство</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Клемма</translation>
+    </message>
+    <message>
+        <source>Terminal strip</source>
+        <translation type="unfinished">Клеммный ряд</translation>
+    </message>
+    <message>
+        <source>Part definition</source>
+        <translation type="unfinished">Определение детали</translation>
+    </message>
+    <message>
+        <source>Cables / connections</source>
+        <translation type="unfinished">Кабели / соединения</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Кабель</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation type="unfinished">Соединение</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Изображение</translation>
+    </message>
+    <message>
+        <source>Graphic</source>
+        <translation type="unfinished">Графика</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Линия</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Прямоугольник</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Эллипс</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished">Дуга</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Полилиния</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Контур</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Размер</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Линейный</translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished">Цепной</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Конструкция шкафа 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet
+construction 2D</source>
+        <translation type="unfinished">Конструкция
+шкафа 2D</translation>
+    </message>
+    <message>
+        <source>Insert
+DXF</source>
+        <translation type="unfinished">Вставить
+DXF</translation>
+    </message>
+    <message>
+        <source>Cabinet
+in 3D</source>
+        <translation type="unfinished">Шкаф
+в 3D</translation>
+    </message>
+    <message>
+        <source>Thermal
+analysis</source>
+        <translation type="unfinished">Тепловой
+расчёт</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished">Зеркало</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished">Отразить</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Дублировать</translation>
+    </message>
+    <message>
+        <source>Fillet</source>
+        <translation type="unfinished">Скругление</translation>
+    </message>
+    <message>
+        <source>Rotate group</source>
+        <translation type="unfinished">Повернуть группу</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Разгруппировать</translation>
+    </message>
+    <message>
+        <source>Group texts</source>
+        <translation type="unfinished">Группировать тексты</translation>
+    </message>
+    <message>
+        <source>Organize</source>
+        <translation type="unfinished">Упорядочить</translation>
+    </message>
+    <message>
+        <source>Align to grid</source>
+        <translation type="unfinished">Выровнять по сетке</translation>
+    </message>
+    <message>
+        <source>Connect aligned</source>
+        <translation type="unfinished">Соединить выровненные</translation>
+    </message>
+    <message>
+        <source>Place texts</source>
+        <translation type="unfinished">Расставить тексты</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Глубина</translation>
+    </message>
+    <message>
+        <source>Bring to front</source>
+        <translation type="unfinished">На передний план</translation>
+    </message>
+    <message>
+        <source>Raise</source>
+        <translation type="unfinished">Поднять</translation>
+    </message>
+    <message>
+        <source>Lower</source>
+        <translation type="unfinished">Опустить</translation>
+    </message>
+    <message>
+        <source>Send to back</source>
+        <translation type="unfinished">На задний план</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Выделить</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Все</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Ничего</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Инвертировать</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Провода</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished">Тексты</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Вид</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished">Режим</translation>
+    </message>
+    <message>
+        <source>Move view</source>
+        <translation type="unfinished">Перемещать вид</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished">Масштаб</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">Приблизить</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">Отдалить</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">По размеру</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation type="unfinished">Содержимое</translation>
+    </message>
+    <message>
+        <source>100 %</source>
+        <translation type="unfinished">100 %</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished">Сетка</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Привязка</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Направляющие</translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished">Перекрестие</translation>
+    </message>
+    <message>
+        <source>Cell lines</source>
+        <translation type="unfinished">Линии ячеек</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished">Линейки</translation>
+    </message>
+    <message>
+        <source>Dark sheet</source>
+        <translation type="unfinished">Тёмный лист</translation>
+    </message>
+    <message>
+        <source>Panels</source>
+        <translation type="unfinished">Панели</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Проекты</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Коллекции</translation>
+    </message>
+    <message>
+        <source>Undo list</source>
+        <translation type="unfinished">Список отмены</translation>
+    </message>
+    <message>
+        <source>Windows</source>
+        <translation type="unfinished">Окна</translation>
+    </message>
+    <message>
+        <source>Tabs</source>
+        <translation type="unfinished">Вкладки</translation>
+    </message>
+    <message>
+        <source>Tile</source>
+        <translation type="unfinished">Мозаика</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">Каскад</translation>
+    </message>
+    <message>
+        <source>Bill of
+materials</source>
+        <translation type="unfinished">Специ-
+фикация</translation>
+    </message>
+    <message>
+        <source>Parts
+list</source>
+        <translation type="unfinished">Список
+деталей</translation>
+    </message>
+    <message>
+        <source>Update symbols</source>
+        <translation type="unfinished">Обновить символы</translation>
+    </message>
+    <message>
+        <source>Redraw symbols</source>
+        <translation type="unfinished">Перерисовать символы</translation>
+    </message>
+    <message>
+        <source>Terminals</source>
+        <translation type="unfinished">Клеммы</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Нумеровать</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Дополнительно</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation type="unfinished">Соединения</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished">Автоматически</translation>
+    </message>
+    <message>
+        <source>Break</source>
+        <translation type="unfinished">Разрыв</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Сброс</translation>
+    </message>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Рассчитать сечения</translation>
+    </message>
+    <message>
+        <source>Cables</source>
+        <translation type="unfinished">Кабели</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Кабельный журнал</translation>
+    </message>
+    <message>
+        <source>Bridges</source>
+        <translation type="unfinished">Перемычки</translation>
+    </message>
+    <message>
+        <source>Terminal bridges</source>
+        <translation type="unfinished">Перемычки клемм</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Инструменты</translation>
+    </message>
+    <message>
+        <source>Reports</source>
+        <translation type="unfinished">Отчёты</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">Сводка</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Спецификация</translation>
+    </message>
+    <message>
+        <source>Parts list</source>
+        <translation type="unfinished">Список деталей</translation>
+    </message>
+    <message>
+        <source>Cable list</source>
+        <translation type="unfinished">Список кабелей</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Экспорт</translation>
+    </message>
+    <message>
+        <source>Wire names</source>
+        <translation type="unfinished">Имена проводов</translation>
+    </message>
+    <message>
+        <source>Database</source>
+        <translation type="unfinished">База данных</translation>
+    </message>
+    <message>
+        <source>Versions</source>
+        <translation type="unfinished">Версии</translation>
+    </message>
+    <message>
+        <source>Set
+version</source>
+        <translation type="unfinished">Задать
+версию</translation>
+    </message>
+    <message>
+        <source>Checks</source>
+        <translation type="unfinished">Проверки</translation>
+    </message>
+    <message>
+        <source>Potentials</source>
+        <translation type="unfinished">Потенциалы</translation>
+    </message>
+    <message>
+        <source>Duplicate labels</source>
+        <translation type="unfinished">Повторяющиеся метки</translation>
+    </message>
+    <message>
+        <source>Clean project</source>
+        <translation type="unfinished">Очистить проект</translation>
+    </message>
+    <message>
+        <source>Scripts</source>
+        <translation type="unfinished">Скрипты</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished">Запустить</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished">Записать</translation>
+    </message>
+    <message>
+        <source>Manage</source>
+        <translation type="unfinished">Управление</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished">Папка</translation>
+    </message>
+    <message>
+        <source>Master data</source>
+        <translation type="unfinished">Основные данные</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Детали</translation>
+    </message>
+    <message>
+        <source>Parts
+manager</source>
+        <translation type="unfinished">Менеджер
+деталей</translation>
+    </message>
+    <message>
+        <source>Official
+catalog</source>
+        <translation type="unfinished">Официальный
+каталог</translation>
+    </message>
+    <message>
+        <source>Search command</source>
+        <translation type="unfinished">Поиск команды</translation>
+    </message>
+    <message>
+        <source>Fold or unfold the tabs</source>
+        <translation type="unfinished">Свернуть или развернуть вкладки</translation>
+    </message>
+    <message>
+        <source>%1: coming soon</source>
+        <translation type="unfinished">%1: скоро</translation>
     </message>
 </context>
 </TS>

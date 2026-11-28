@@ -216,11 +216,34 @@ QList<Terminal *> WireSections::outgoing(const Element *element)
 	return list;
 }
 
+qreal WireSections::maxCurrent(const Element *element, const PartsDatabase *database)
+{
+	if (!element || !database || !database->isOpen()) {
+		return 0;
+	}
+	qreal highest = 0;
+	const QList<PartsLinks::Link> links = PartsLinks::decode(
+				element->elementInformations().value(PartsLinks::infoKey()).toString());
+	for (const PartsLinks::Link &link : links) {
+		const std::optional<Part> part = database->part(
+					database->findPart(link.manufacturer, link.order_number));
+		if (part && part->max_current) {
+			highest = qMax(highest, qreal(*part->max_current));
+		}
+	}
+	return highest;
+}
+
 QList<WireSections::Row> WireSections::check(QETProject *project, const Conditions &conditions)
 {
 	QList<Row> rows;
 	if (!project) {
 		return rows;
+	}
+		//The maximum current of the parts, one opening for them all
+	PartsDatabase database;
+	if (PartsDatabase::isEnabled()) {
+		database.open(PartsDatabase::path());
 	}
 	for (Diagram *sheet : project->diagrams())
 	{
@@ -230,13 +253,14 @@ QList<WireSections::Row> WireSections::check(QETProject *project, const Conditio
 		sheet->ensureLoaded();
 		for (Element *element : sheet->elements())
 		{
-			if (!isProtection(element)) {
+			const qreal maximum = maxCurrent(element, &database);
+			if (!isProtection(element) && maximum <= 0) {
 				continue;
 			}
 			Row row;
 			row.protection = element;
 			row.label = element->actualLabel();
-			row.current = ratedCurrent(element);
+			row.current = maximum > 0 ? maximum : ratedCurrent(element);
 			row.required = minimumSection(row.current, conditions);
 			QSet<Conductor *> seen;
 			for (Terminal *terminal : outgoing(element)) {

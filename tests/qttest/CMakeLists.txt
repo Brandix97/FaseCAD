@@ -2486,6 +2486,12 @@ qet_add_app_test(tst_wirenumbering tst_wirenumbering.cpp)
 # temperature and grouping factors, the rated current read from the breaker,
 # its outgoing wires given the section in one step of undo.
 qet_add_app_test(tst_wiresections tst_wiresections.cpp)
+# The parts manager of 2026-11-27: maximum current, translations of the
+# description and the model into the project languages, Cable tab only for
+# the Cables category, no Accessories tab.
+qet_add_app_test(tst_parttranslations tst_parttranslations.cpp)
+# Set version: the sheet of the devices added, removed or rewired.
+qet_add_app_test(tst_projectversions tst_projectversions.cpp)
 
 # The title block made of blocks: the template built from a design, the
 # label above the value, fill and borders kept through the XML, the design

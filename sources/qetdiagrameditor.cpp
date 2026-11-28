@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "qetdiagrameditor.h"
+#include "projectversions.h"
 #include "itemdescription.h"
 #include "container/qetcontainer.h"
 #include "container/qetzip.h"
@@ -1537,11 +1538,19 @@ void QETDiagramEditor::setUpActions()
 	connect(m_wire_numbering, &QAction::triggered, this, &QETDiagramEditor::slot_wireNumbering);
 
 		//The section each protection asks for, IEC 60204-1
-	m_wire_sections = new QAction(QET::Icons::Conductor, tr("Sections from the protections…"), this);
+	m_wire_sections = new QAction(QET::Icons::Conductor, tr("Calculate sections…"), this);
 	ShortcutManager::instance().registerAction(m_wire_sections, "diagrameditor.wire_sections", tr("Diagram editors"), QKeySequence());
 	m_wire_sections->setStatusTip(
-		tr("Shows the section IEC 60204-1 asks for the wires each protection feeds, and gives it to them"));
+		tr("Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it"));
 	connect(m_wire_sections, &QAction::triggered, this, &QETDiagramEditor::slot_wireSections);
+
+		//The version of the project, with a sheet of the changes since the
+		//version before (Brandon, 2026-11-27)
+	m_set_version = new QAction(QET::Icons::DocumentNew, tr("Set version…"), this);
+	ShortcutManager::instance().registerAction(m_set_version, "diagrameditor.set_version", tr("Diagram editors"), QKeySequence());
+	m_set_version->setStatusTip(
+		tr("Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before"));
+	connect(m_set_version, &QAction::triggered, this, &QETDiagramEditor::setProjectVersion);
 
 	// Reload element drawings from their current definition (bugtracker #802)
 	m_reload_element_drawings = new QAction(QET::Icons::ViewRefresh, tr("Reload element drawings"), this);
@@ -2654,6 +2663,7 @@ void QETDiagramEditor::setUpMenu()
 	menu_project -> addAction(m_project_history);
 	menu_project -> addAction(m_auto_conductor);
 	menu_project -> addAction(m_wire_sections);
+	menu_project -> addAction(m_set_version);
 		//Sits beside m_auto_conductor, the setting it pairs with. It was
 		//toolbar-only and so had no keyboard route at all.
 	menu_project -> addAction(m_auto_break_conductor);
@@ -6091,6 +6101,47 @@ void QETDiagramEditor::slot_wireSections()
 	if (!project) return;
 	WireSectionsDialog dialog(project, this);
 	dialog.exec();
+}
+
+/**
+	@brief QETDiagramEditor::setProjectVersion
+	Raise the version of the current project (Brandon, 2026-11-27): from
+	the second version on, a sheet of the devices added, removed or rewired
+	since the version before is added at its end. Asked first: the sheet
+	is no step of undo.
+*/
+void QETDiagramEditor::setProjectVersion()
+{
+	QETProject *project = currentProject();
+	if (!project) return;
+	bool number = false;
+	const int written = project->defaultTitleBlockProperties().indexrev.trimmed().toInt(&number);
+	const int next = number && written >= 0 ? written + 1 : 1;
+	const int from = project->versionHistory().current();
+	const QString question = from == 0
+			? tr("Set version %1 of the project? It is where the changes of the next versions start from.").arg(next)
+			: tr("Set version %1 of the project? A sheet with the devices added, removed or rewired "
+				 "since version %2 is added at the end of the project.").arg(next).arg(from);
+	if (QET::QetMessageBox::question(this, tr("Set version"), question,
+									 QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)
+		!= QMessageBox::Yes) {
+		return;
+	}
+	QApplication::setOverrideCursor(Qt::WaitCursor);
+	const QList<Diagram *> sheets = ProjectVersions::setVersion(project);
+	QApplication::restoreOverrideCursor();
+	const int to = project->versionHistory().current();
+	const int before = project->versionHistory().versions.size() > 1
+			? project->versionHistory().versions.at(project->versionHistory().versions.size() - 2).number : 0;
+	if (!sheets.isEmpty()) {
+		if (ProjectView *view = currentProjectView()) {
+			view->showDiagram(sheets.first());
+		}
+	}
+	statusBar()->showMessage(sheets.isEmpty()
+							 ? tr("The project is at version %1.").arg(to)
+							 : tr("The project is at version %1; the changes since version %2 are on its last sheet.")
+							   .arg(to).arg(before), 8000);
 }
 
 /**

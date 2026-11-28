@@ -329,6 +329,24 @@
         <comment>Lambda element generator</comment>
         <translation>Generatore di elementi Lambda</translation>
     </message>
+    <message>
+        <source>About FaseCAD</source>
+        <translation type="unfinished">Informazioni su FaseCAD</translation>
+    </message>
+    <message>
+        <source>FaseCAD, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation type="unfinished">FaseCAD, un'applicazione per progettare schemi elettrici.</translation>
+    </message>
+    <message>
+        <source>Based on QElectroTech, © 2006-%1 the developers of QElectroTech, under the GNU General Public License, version 2 or later.</source>
+        <comment>about tab, origin line</comment>
+        <translation type="unfinished">Basato su QElectroTech, © 2006-%1 gli sviluppatori di QElectroTech, sotto la GNU General Public License, versione 2 o successiva.</translation>
+    </message>
+    <message>
+        <source>based on QElectroTech %1</source>
+        <translation type="unfinished">basato su QElectroTech %1</translation>
+    </message>
 </context>
 <context>
     <name>AddLinkDialog</name>
@@ -484,6 +502,10 @@
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="51"/>
         <source>Realistic (screw)</source>
         <translation>Realistico (a vite)</translation>
+    </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Schema morsetti</translation>
     </message>
 </context>
 <context>
@@ -1148,7 +1170,7 @@ Nota: queste opzioni non consentono attivare o disattivare la numerazione automa
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="14"/>
         <source>Export the bill of materials as CSV</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Esporta la distinta materiali come CSV</translation>
     </message>
     <message>
         <location filename="../sources/ui/bomexportdialog.ui" line="26"/>
@@ -1845,6 +1867,18 @@ Se confermi, l&apos;altro cavo perderà queste anime. Vuoi continuare?</numerusf
             <numerusform>%n anime di questo cavo sono collegate a un conduttore. Con il tipo scelto, lasciano questo cavo e il loro segno scompare dal disegno. Continuare?</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Source</source>
+        <translation type="unfinished">Origine</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+    <message>
+        <source>This cable type comes from the parts database: change it in the parts manager.</source>
+        <translation type="unfinished">Questo tipo di cavo viene dal database articoli: modificalo nel gestore articoli.</translation>
+    </message>
 </context>
 <context>
     <name>CableExportDialog</name>
@@ -1973,6 +2007,46 @@ Se confermi, l&apos;altro cavo perderà queste anime. Vuoi continuare?</numerusf
         <source>Used cores</source>
         <translation>Anime usate</translation>
     </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Conduttore</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Colore</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Filo</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Da</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Stato</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation type="unfinished">Usato</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Riserva</translation>
+    </message>
 </context>
 <context>
     <name>CableListModelPropertiesWidget</name>
@@ -2097,6 +2171,18 @@ Vuoi rinumerare anche questi?</numerusform>
         <location filename="../sources/ui/cablenumberingdialog.cpp" line="362"/>
         <source>All the cables already carry the number that the rule gives them.</source>
         <translation>Tutti i cavi hanno già il numero assegnato dalla regola.</translation>
+    </message>
+    <message>
+        <source>A new cable takes the first number free in the project: %1, %2... Renumbering names every cable of the project again in the order below, which closes the gaps left by deleted cables.</source>
+        <translation type="unfinished">Un nuovo cavo prende il primo numero libero del progetto: %1, %2... Rinumerare dà di nuovo un nome a ogni cavo del progetto nell'ordine sotto, chiudendo i vuoti lasciati dai cavi eliminati.</translation>
+    </message>
+    <message>
+        <source>Sets the number of each cable of the project again, starting at 1: a number left missing after a cable is deleted is filled in this way.</source>
+        <translation type="unfinished">Riassegna il numero di ogni cavo del progetto, a partire da 1: un numero mancante dopo l'eliminazione di un cavo viene così riempito.</translation>
+    </message>
+    <message>
+        <source>All the cables already carry the number they would be given.</source>
+        <translation type="unfinished">Tutti i cavi hanno già il numero che riceverebbero.</translation>
     </message>
 </context>
 <context>
@@ -2399,6 +2485,14 @@ Vuoi rinumerare anche questi?</numerusform>
         <location filename="../sources/cablelist/cablequerywidget.cpp" line="73"/>
         <source>Table columns</source>
         <translation>Colonne della tabella</translation>
+    </message>
+    <message>
+        <source>Cable:</source>
+        <translation type="unfinished">Cavo:</translation>
+    </message>
+    <message>
+        <source>All cables</source>
+        <translation type="unfinished">Tutti i cavi</translation>
     </message>
 </context>
 <context>
@@ -2904,19 +2998,19 @@ Vuoi rinumerare anche questi?</numerusform>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="58"/>
         <source>Potential type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipo di potenziale :</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="148"/>
         <source>Conductor type :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipo di conduttore :</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="158"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="168"/>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="178"/>
         <source>❗</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">❗</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.ui" line="218"/>
@@ -3207,12 +3301,12 @@ Vuoi rinumerare anche questi?</numerusform>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="143"/>
         <source>This wire is a core of a cable: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Questo conduttore è un conduttore di un cavo: sezione, colore e tipo vengono dal cavo.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="144"/>
         <source>This wire is core of cable %1: section, colour and type come from the cable.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Questo conduttore è un conduttore del cavo %1: sezione, colore e tipo vengono dal cavo.</translation>
     </message>
     <message>
         <location filename="../sources/ui/conductorpropertieswidget.cpp" line="259"/>
@@ -3532,32 +3626,32 @@ Continuare?</translation>
     <message>
         <location filename="../sources/diagram.cpp" line="347"/>
         <source>a text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">un testo</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="348"/>
         <source>a shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">una forma</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="349"/>
         <source>a picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">un'immagine</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="350"/>
         <source>a table</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">una tabella</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="351"/>
         <source>a terminal strip</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">una morsettiera</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="352"/>
         <source>a cable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">un cavo</translation>
     </message>
     <message>
         <location filename="../sources/diagram.cpp" line="3421"/>
@@ -3831,6 +3925,10 @@ Continuare?</translation>
         <location filename="../sources/diagramevent/diagrameventaddelement.cpp" line="552"/>
         <source>insert %1 × %2</source>
         <translation>inserisci %1 × %2</translation>
+    </message>
+    <message>
+        <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
+        <translation type="unfinished">Simbolo %1 di %2: %3. Tab: simbolo successivo, Maiusc+Tab: precedente</translation>
     </message>
 </context>
 <context>
@@ -4239,7 +4337,8 @@ Continuare?</translation>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="798"/>
         <source>
 Hold Shift and drag to move the symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+Tieni premuto Maiusc e trascina per spostare il simbolo</translation>
     </message>
     <message>
         <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="799"/>
@@ -4394,6 +4493,22 @@ Tieni premuto Maiusc e trascina per spostare solo questo testo</translation>
         <location filename="../sources/diagramview.cpp" line="222"/>
         <source>Choose the new color for this conductor</source>
         <translation>Scegliere il nuovo colore di questo conduttore</translation>
+    </message>
+    <message>
+        <source>Add a part</source>
+        <translation type="unfinished">Aggiungi un articolo</translation>
+    </message>
+    <message>
+        <source>Place terminals</source>
+        <translation type="unfinished">Posiziona morsetti</translation>
+    </message>
+    <message>
+        <source>Click on the folio to place each terminal: the number goes up by one each time. Right click or Escape ends.</source>
+        <translation type="unfinished">Fai clic sul foglio per posizionare ogni morsetto: il numero aumenta di uno ogni volta. Clic destro o Esc per finire.</translation>
+    </message>
+    <message>
+        <source>Place</source>
+        <translation type="unfinished">Posiziona</translation>
     </message>
 </context>
 <context>
@@ -5219,6 +5334,14 @@ Tieni premuto Maiusc e trascina per spostare solo questo testo</translation>
         <source>Change the color of an element text</source>
         <translation>Modificare il colore di un testo dell&apos;elemento</translation>
     </message>
+    <message>
+        <source>Choose...</source>
+        <translation type="unfinished">Scegli...</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Dati dell'articolo</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextFieldEditor</name>
@@ -5402,6 +5525,26 @@ Tieni premuto Maiusc e trascina per spostare solo questo testo</translation>
         <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1715"/>
         <source>Composite text</source>
         <translation>Testo composto</translation>
+    </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Dati dell'articolo</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to show the data of the parts.</source>
+        <translation type="unfinished">Usa il database articoli (Impostazioni &gt; Generale) per mostrare i dati degli articoli.</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+    <message>
+        <source>The parts of this element have no data in the parts database.</source>
+        <translation type="unfinished">Gli articoli di questo elemento non hanno dati nel database articoli.</translation>
+    </message>
+    <message>
+        <source>The element is made of no part: add one in the Parts tab.</source>
+        <translation type="unfinished">L'elemento non è composto da alcun articolo: aggiungine uno nella scheda Articoli.</translation>
     </message>
 </context>
 <context>
@@ -5724,7 +5867,7 @@ Il nome visualizzato dell&apos;elemento si modifica separatamente nelle propriet
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="71"/>
         <source>Edit on several lines</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Modifica su più righe</translation>
     </message>
     <message>
         <location filename="../sources/ui/elementinfopartwidget.ui" line="81"/>
@@ -5907,6 +6050,30 @@ Continue?</source>
 Cambiarne la numerazione lo sostituirà o lo cancellerà.
 
 Continuare?</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Scambia interno ed esterno del quadro</translation>
+    </message>
+    <message>
+        <source>By default the side wired to a cable goes out of the panel, and without a cable the lowest connection point. Tick to turn it round for this terminal: the terminal strip plans follow it.</source>
+        <translation type="unfinished">Per impostazione predefinita il lato cablato a un cavo esce dal quadro, e senza cavo il punto di connessione più basso. Spunta per invertirlo per questo morsetto: gli schemi delle morsettiere lo seguono.</translation>
+    </message>
+    <message>
+        <source>This terminal has a single connection point.</source>
+        <translation type="unfinished">Questo morsetto ha un solo punto di connessione.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2, the side of the cable.</source>
+        <translation type="unfinished">Dentro il quadro: %1. Fuori dal quadro: %2, il lato del cavo.</translation>
+    </message>
+    <message>
+        <source>Inside the panel: %1. Outside the panel: %2.</source>
+        <translation type="unfinished">Dentro il quadro: %1. Fuori dal quadro: %2.</translation>
     </message>
 </context>
 <context>
@@ -6619,7 +6786,7 @@ Continuare?</translation>
     <message>
         <location filename="../sources/ui/elementpropertieswidget.h" line="45"/>
         <source>Element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Proprietà dell'elemento</translation>
     </message>
 </context>
 <context>
@@ -7272,6 +7439,38 @@ Importando questo file confermi che:
         <source>Delete element</source>
         <translation>Cancellare l&apos;elemento</translation>
     </message>
+    <message>
+        <source>Download the symbol...</source>
+        <translation type="unfinished">Scarica il simbolo...</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestore articoli...</translation>
+    </message>
+    <message>
+        <source>The symbol %1 is not there.</source>
+        <translation type="unfinished">Il simbolo %1 non c'è.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read.</source>
+        <translation type="unfinished">Impossibile leggere %1.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written.</source>
+        <translation type="unfinished">Impossibile scrivere %1.</translation>
+    </message>
+    <message>
+        <source>Download the symbol</source>
+        <translation type="unfinished">Scarica il simbolo</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Simboli (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Download the symbols</source>
+        <translation type="unfinished">Scarica i simboli</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7458,6 +7657,18 @@ Importando questo file confermi che:
         <location filename="../sources/elementspanelwidget.cpp" line="77"/>
         <source>Move down this sheet</source>
         <translation>Sposta in giu questa pagina</translation>
+    </message>
+    <message>
+        <source>Insert a schematic sheet</source>
+        <translation type="unfinished">Inserisci un foglio di schema</translation>
+    </message>
+    <message>
+        <source>Insert a cabinet construction sheet</source>
+        <translation type="unfinished">Inserisci un foglio di costruzione quadro</translation>
+    </message>
+    <message>
+        <source>Insert a routing sheet for this cabinet</source>
+        <translation type="unfinished">Inserisci un foglio di instradamento per questo quadro</translation>
     </message>
 </context>
 <context>
@@ -8258,7 +8469,7 @@ che si crea. Si possono anche inserire caratteri alfanumerici.</translation>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="674"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Slovacco</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="684"/>
@@ -8484,37 +8695,37 @@ Qualsiasi impostazione diversa da “Nessun arrotondamento” può causare error
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="64"/>
         <source>Selection rectangle selects:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Il rettangolo di selezione seleziona:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="75"/>
         <source>Everything it overlaps (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tutto ciò che tocca (come prima)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="80"/>
         <source>What lies wholly within it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ciò che è interamente al suo interno</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="85"/>
         <source>By direction: wholly within to the right, overlapped to the left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Secondo la direzione: interamente dentro verso destra, toccato verso sinistra</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="104"/>
         <source>Zoom step:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Passo di zoom:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="120"/>
         <source>How far the mouse wheel, Ctrl++ / Ctrl+- and the zoom buttons zoom at a time, in percent of the zoom shown, rounded to whole fives: with 10 %, 100 % goes to 110 %, 120 %, 130 % and 400 % to 440 %. Alt with the mouse wheel zooms four steps at a time.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Quanto ingrandiscono ogni volta la rotellina del mouse, Ctrl++ / Ctrl+- e i pulsanti di zoom, in percentuale dello zoom mostrato, arrotondato a multipli di cinque: con 10 %, 100 % passa a 110 %, 120 %, 130 % e 400 % a 440 %. Alt con la rotellina ingrandisce quattro passi alla volta.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="123"/>
         <source>Factor 1.15 (as before)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fattore 1,15 (come prima)</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="126"/>
@@ -8529,12 +8740,12 @@ Qualsiasi impostazione diversa da “Nessun arrotondamento” può causare error
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="152"/>
         <source>Draw a connected terminal in the color of its conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Disegna un morsetto collegato nel colore del suo conduttore</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="155"/>
         <source>Unchecked, every terminal is drawn in red. Terminals are never printed or exported.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Non spuntato, ogni morsetto è disegnato in rosso. I morsetti non vengono mai stampati né esportati.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="162"/>
@@ -8639,12 +8850,12 @@ Qualsiasi impostazione diversa da “Nessun arrotondamento” può causare error
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="358"/>
         <source>Dragging a symbol&apos;s text moves the text alone, and Shift+drag moves the symbol, as before version 0.100. Unticked by default: dragging a text moves its symbol, Shift+drag moves the text.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trascinare un testo di un simbolo sposta solo il testo, e Maiusc+trascina sposta il simbolo, come prima della versione 0.100. Non spuntato per impostazione predefinita: trascinare un testo sposta il suo simbolo, Maiusc+trascina sposta il testo.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="361"/>
         <source>Drag symbol texts without holding Shift</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Trascina i testi dei simboli senza tenere premuto Maiusc</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="368"/>
@@ -8689,12 +8900,12 @@ Qualsiasi impostazione diversa da “Nessun arrotondamento” può causare error
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="408"/>
         <source>Printing and exporting ask first when symbols, texts, shapes, pictures or tables lie outside the sheet, as they are cut off or left out; saving says so in the status bar.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stampa ed esportazione chiedono prima quando simboli, testi, forme, immagini o tabelle sono fuori dal foglio, perché vengono tagliati o esclusi; il salvataggio lo segnala nella barra di stato.</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="411"/>
         <source>Warn about items outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Avvisa degli elementi fuori dal foglio</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="551"/>
@@ -9344,6 +9555,106 @@ Qui è possibile specificare il valore predefinito di questo campo per gli ogget
         <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="261"/>
         <source> px</source>
         <translation> px</translation>
+    </message>
+    <message>
+        <source>Theme:</source>
+        <translation type="unfinished">Tema:</translation>
+    </message>
+    <message>
+        <source>Light or dark colors for the whole interface. A sheet left on its system color follows them.</source>
+        <translation type="unfinished">Colori chiari o scuri per tutta l'interfaccia. Un foglio lasciato sul colore di sistema li segue.</translation>
+    </message>
+    <message>
+        <source>Colors below (as before)</source>
+        <translation type="unfinished">Colori qui sotto (come prima)</translation>
+    </message>
+    <message>
+        <source>Follow the system</source>
+        <translation type="unfinished">Segui il sistema</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">Chiaro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Scuro</translation>
+    </message>
+    <message>
+        <source>Show the tools in tabs grouped by task (Home, Insert, Connections...) instead of toolbars</source>
+        <translation type="unfinished">Mostra gli strumenti in schede raggruppate per attività (Home, Inserisci, Collegamenti...) invece delle barre degli strumenti</translation>
+    </message>
+    <message>
+        <source>The menus stay, and so do the toolbars you made yourself.</source>
+        <translation type="unfinished">I menu restano, e anche le barre degli strumenti che hai creato tu.</translation>
+    </message>
+    <message>
+        <source>Hide the menu bar too (every menu stays in the File tab)</source>
+        <translation type="unfinished">Nascondi anche la barra dei menu (tutti i menu restano nella scheda File)</translation>
+    </message>
+    <message>
+        <source>A side panel folds into a tab along the edge of the window and slides out when the mouse rests on it; its pin keeps it open</source>
+        <translation type="unfinished">Un pannello laterale si ripiega in una scheda lungo il bordo della finestra e scorre fuori quando il mouse ci si posa; la sua puntina lo tiene aperto</translation>
+    </message>
+    <message>
+        <source>Hide the side panels automatically</source>
+        <translation type="unfinished">Nascondi automaticamente i pannelli laterali</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+    <message>
+        <source>Use the parts database (cable types from its parts with cores)</source>
+        <translation type="unfinished">Usa il database articoli (tipi di cavo dai suoi articoli con conduttori)</translation>
+    </message>
+    <message>
+        <source>The parts database file. Leave it empty to use the one of this computer; choose a file on a network folder to share it.</source>
+        <translation type="unfinished">Il file del database articoli. Lascialo vuoto per usare quello di questo computer; scegli un file in una cartella di rete per condividerlo.</translation>
+    </message>
+    <message>
+        <source>This computer (%1)</source>
+        <translation type="unfinished">Questo computer (%1)</translation>
+    </message>
+    <message>
+        <source>Parts databases (*.sqlite *.db)</source>
+        <translation type="unfinished">Database articoli (*.sqlite *.db)</translation>
+    </message>
+    <message>
+        <source>In a database file</source>
+        <translation type="unfinished">In un file di database</translation>
+    </message>
+    <message>
+        <source>On a PostgreSQL server</source>
+        <translation type="unfinished">Su un server PostgreSQL</translation>
+    </message>
+    <message>
+        <source>A server keeps the parts for several computers at once, each reading and writing them</source>
+        <translation type="unfinished">Un server conserva gli articoli per più computer insieme, ognuno dei quali li legge e li scrive</translation>
+    </message>
+    <message>
+        <source>Server...</source>
+        <translation type="unfinished">Server...</translation>
+    </message>
+    <message>
+        <source>When a project is opened:</source>
+        <translation type="unfinished">All'apertura di un progetto:</translation>
+    </message>
+    <message>
+        <source>Make a backup copy beside it</source>
+        <translation type="unfinished">Crea una copia di backup accanto</translation>
+    </message>
+    <message>
+        <source>Ask whether to make a backup copy</source>
+        <translation type="unfinished">Chiedi se creare una copia di backup</translation>
+    </message>
+    <message>
+        <source>Make no backup copy</source>
+        <translation type="unfinished">Non creare copie di backup</translation>
+    </message>
+    <message>
+        <source>The copy is the project as it was when opened, in its folder, named after it: project_backup.qet. Each opening writes over the copy before.</source>
+        <translation type="unfinished">La copia è il progetto com'era all'apertura, nella sua cartella, con il suo nome: progetto_backup.qet. Ogni apertura sovrascrive la copia precedente.</translation>
     </message>
 </context>
 <context>
@@ -10171,7 +10482,7 @@ Qui è possibile specificare il valore predefinito di questo campo per gli ogget
     <message>
         <location filename="../sources/ui/imagepropertieswidget.h" line="46"/>
         <source>Picture properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Proprietà dell'immagine</translation>
     </message>
 </context>
 <context>
@@ -10378,6 +10689,18 @@ Si prega di utilizzare l&apos;editor avanzato per questo.</translation>
         <location filename="../sources/ui/inditextpropertieswidget.cpp" line="217"/>
         <source>Change the size of a text field</source>
         <translation>Modifica la dimensione di un campo di testo</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Auto</translation>
+    </message>
+    <message>
+        <source>Text width; the text wraps at this width. Auto: no automatic line wrap</source>
+        <translation type="unfinished">Larghezza del testo; il testo va a capo a questa larghezza. Auto: nessun a capo automatico</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Larghezza:</translation>
     </message>
 </context>
 <context>
@@ -11374,6 +11697,10 @@ Vuoi comunque collegare questo contatto slave?</translation>
         <source>Information</source>
         <translation>Informazioni</translation>
     </message>
+    <message>
+        <source>Swap inside and outside of the panel</source>
+        <translation type="unfinished">Scambia interno ed esterno del quadro</translation>
+    </message>
 </context>
 <context>
     <name>MultiPasteDialog</name>
@@ -11541,7 +11868,7 @@ Vuoi comunque collegare questo contatto slave?</translation>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="231"/>
         <source>Potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipi di potenziale</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/configpages.cpp" line="238"/>
@@ -12165,22 +12492,22 @@ Importarle? Gli elementi riceveranno allora i numeri successivi, a partire da 1.
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="43"/>
         <source>Check potential types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Controlla i tipi di potenziale</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="50"/>
         <source>Each row is a potential whose wires have different types. Click a row to select its wires. Types joined on purpose can be declared in the project properties and are not listed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ogni riga è un potenziale i cui conduttori hanno tipi diversi. Fai clic su una riga per selezionarne i conduttori. I tipi uniti di proposito si possono dichiarare nelle proprietà del progetto e non vengono elencati.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Types on the potential</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipi sul potenziale</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="58"/>
         <source>Typed wires</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Conduttori con tipo</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="69"/>
@@ -12190,25 +12517,25 @@ Importarle? Gli elementi riceveranno allora i numeri successivi, a partire da 1.
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="96"/>
         <source>No potential carries wires of different types.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nessun potenziale porta conduttori di tipi diversi.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="97"/>
         <source>Potential types are off for this project, so there is nothing to check.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I tipi di potenziale sono disattivati per questo progetto, quindi non c'è nulla da controllare.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="100"/>
         <source>%n potential(s) carry wires of different types.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n potenziale porta conduttori di tipi diversi.</numerusform>
+            <numerusform>%n potenziali portano conduttori di tipi diversi.</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialcheckdialog.cpp" line="142"/>
         <source>These wires no longer exist. Refresh the results.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Questi conduttori non esistono più. Aggiorna i risultati.</translation>
     </message>
 </context>
 <context>
@@ -12319,22 +12646,22 @@ Funzione : %1</translation>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="51"/>
         <source>Draw conductors from their own style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Disegna i conduttori con il loro stile</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="52"/>
         <source>Draw conductors from their potential type, chosen on each conductor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Disegna i conduttori secondo il loro tipo di potenziale, scelto su ogni conduttore</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="54"/>
         <source>When a type is used, a conductor whose potential has a type is drawn in that type&apos;s colour, line style and width. The style stored on the conductor is kept, and used again when this is off or the conductor has no type.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Quando si usa un tipo, un conduttore il cui potenziale ha un tipo viene disegnato con il colore, lo stile di linea e lo spessore di quel tipo. Lo stile memorizzato nel conduttore viene mantenuto e riusato quando questo è disattivato o il conduttore non ha tipo.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="59"/>
         <source>Choose a conductor&apos;s type in its properties. The type applies to every conductor on the same potential.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Scegli il tipo di un conduttore nelle sue proprietà. Il tipo vale per ogni conduttore dello stesso potenziale.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12344,12 +12671,12 @@ Funzione : %1</translation>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Colore</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
         <source>Line style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stile della linea</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="64"/>
@@ -12359,54 +12686,54 @@ Funzione : %1</translation>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="75"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aggiungi</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="76"/>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="93"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rimuovi</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="77"/>
         <source>Restore the default types</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ripristina i tipi predefiniti</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="86"/>
         <source>Types joined on purpose, for example 0V and PE at a power supply. A potential with only these types is not reported as mixed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipi uniti di proposito, per esempio 0V e PE su un alimentatore. Un potenziale con solo questi tipi non viene segnalato come misto.</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="92"/>
         <source>Join</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Unisci</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="96"/>
         <source>and</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">e</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="116"/>
         <source>New type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nuovo tipo</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="156"/>
         <source>Set where the potential starts (not available in this version)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imposta dove inizia il potenziale (non disponibile in questa versione)</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="173"/>
         <source>%1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 e %2</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="215"/>
         <source>Solid line</source>
         <comment>conductor style: solid line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Linea continua</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="216"/>
@@ -12418,18 +12745,18 @@ Funzione : %1</translation>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="217"/>
         <source>Dots and dashes</source>
         <comment>conductor style: dashed and dotted line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Punti e linee</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="218"/>
         <source>Dotted line</source>
         <comment>conductor style: dotted line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Linea punteggiata</translation>
     </message>
     <message>
         <location filename="../sources/ui/potentialtypeswidget.cpp" line="235"/>
         <source>Choose a colour</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Scegli un colore</translation>
     </message>
 </context>
 <context>
@@ -13068,6 +13395,13 @@ Assegna loro prima un&apos;altra numerazione.</numerusform>
             <numerusform>%n traduzioni importate.</numerusform>
         </translation>
     </message>
+    <message numerus="yes">
+        <source>%n translation(s) taken from the parts database.</source>
+        <translation type="unfinished">
+            <numerusform>%n traduzione presa dal database articoli.</numerusform>
+            <numerusform>%n traduzioni prese dal database articoli.</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>ProjectMainConfigPage</name>
@@ -13260,13 +13594,13 @@ Assegna loro prima un&apos;altra numerazione.</numerusform>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="344"/>
         <source>Cell numbering starts from:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">La numerazione delle celle inizia da:</translation>
     </message>
     <message>
         <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="354"/>
         <source>From which corner to start numbering the cells: Top - Left corner(default), Top - Right, Bottom - Left, Bottom - Right.</source>
         <comment>tooltip</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Da quale angolo iniziare a numerare le celle: in alto a sinistra (predefinito), in alto a destra, in basso a sinistra, in basso a destra.</translation>
     </message>
     <message>
         <source>Origin (of a coordinate system):</source>
@@ -13307,6 +13641,16 @@ Assegna loro prima un&apos;altra numerazione.</numerusform>
         <source>%1 h %2 min</source>
         <comment>hours and minutes of time spent on a project</comment>
         <translation>%1 h %2 min</translation>
+    </message>
+    <message>
+        <source>Keep a new conductor off the conductors it would lie on</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Tieni un nuovo conduttore lontano dai conduttori su cui si sovrapporrebbe</translation>
+    </message>
+    <message>
+        <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Quando si disegna un conduttore, o si sposta un elemento, il tratto centrale di un conduttore automatico che correrebbe lungo un altro viene spostato, un passo di griglia alla volta, dove è libero. Mantiene quel percorso come uno spostato a mano. I conduttori già disegnati non cambiano.</translation>
     </message>
 </context>
 <context>
@@ -13477,13 +13821,13 @@ Assegna loro prima un&apos;altra numerazione.</numerusform>
         <location filename="../sources/print/projectprintwindow.cpp" line="134"/>
         <source>Print preview</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Anteprima di stampa</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="141"/>
         <source>Export to PDF</source>
         <comment>window title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Esporta in PDF</translation>
     </message>
     <message>
         <location filename="../sources/print/projectprintwindow.cpp" line="172"/>
@@ -13569,15 +13913,15 @@ Assegna loro prima un&apos;altra numerazione.</numerusform>
         <location filename="../sources/projectview.cpp" line="407"/>
         <source>Save as .qetdb?</source>
         <comment>dialog title</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Salvare come .qetdb?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/projectview.cpp" line="408"/>
         <source>%n bridge(s) are drawn in this project. The .qetdb format does not store bridges yet -- they are kept in the normal .qet format only. Save it as .qetdb anyway?</source>
         <comment>also asked when the file name says .qetdb</comment>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>In questo progetto è disegnato %n ponticello. Il formato .qetdb non salva ancora i ponticelli: restano solo nel normale formato .qet. Salvarlo comunque come .qetdb?</numerusform>
+            <numerusform>In questo progetto sono disegnati %n ponticelli. Il formato .qetdb non salva ancora i ponticelli: restano solo nel normale formato .qet. Salvarlo comunque come .qetdb?</numerusform>
         </translation>
     </message>
     <message>
@@ -13742,6 +14086,21 @@ Per scrivere un file per una versione di QElectroTech che non può aprire %2, us
         <source>Project</source>
         <comment>window title for a project-less ProjectView</comment>
         <translation>Progetto</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Progetto QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <source>Zipped project QElectroTech (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Progetto QElectroTech compresso (*%1)</translation>
+    </message>
+    <message>
+        <source>Project QElectroTech, one database file (*%1)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation type="unfinished">Progetto QElectroTech, un file di database (*%1)</translation>
     </message>
 </context>
 <context>
@@ -15072,7 +15431,7 @@ Ecco gli ultimi messaggi registrati prima della chiusura — puoi salvarli per i
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1135"/>
         <source>Check potential types...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Controlla i tipi di potenziale...</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1146"/>
@@ -15159,12 +15518,12 @@ Ecco gli ultimi messaggi registrati prima della chiusura — puoi salvarli per i
         <location filename="../sources/qetdiagrameditor.cpp" line="1311"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="5456"/>
         <source>Update elements from the collections</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aggiorna gli elementi dalle raccolte</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1314"/>
         <source>Replaces each element of the project that changed in its collection since it was placed, and redraws it (action cannot be undone)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sostituisce ogni elemento del progetto cambiato nella sua raccolta da quando è stato posizionato, e lo ridisegna (non si può annullare)</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1320"/>
@@ -16109,35 +16468,35 @@ Puoi anche numerare i cavi automaticamente in seguito: la regola si imposta in q
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5462"/>
         <source>Every element of the project matches the collection it was taken from.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ogni elemento del progetto corrisponde alla raccolta da cui è stato preso.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5471"/>
         <source>%n elements of the project differ from the collection they were taken from. Replace them with the version of the collection?</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n elemento del progetto differisce dalla raccolta da cui è stato preso. Sostituirlo con la versione della raccolta?</numerusform>
+            <numerusform>%n elementi del progetto differiscono dalla raccolta da cui sono stati presi. Sostituirli con la versione della raccolta?</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="5475"/>
         <source>Placed elements are redrawn and keep their conductors, as long as their terminals have not moved. This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gli elementi posizionati vengono ridisegnati e mantengono i loro conduttori, purché i loro morsetti non si siano spostati. Questa azione non può essere annullata.</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5487"/>
         <source>%n elements updated.</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n elemento aggiornato.</numerusform>
+            <numerusform>%n elementi aggiornati.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="5564"/>
         <source>%n elements not redrawn: their terminals have changed (a terminal was added, removed or moved).</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n elemento non ridisegnato: i suoi morsetti sono cambiati (un morsetto è stato aggiunto, rimosso o spostato).</numerusform>
+            <numerusform>%n elementi non ridisegnati: i loro morsetti sono cambiati (un morsetto è stato aggiunto, rimosso o spostato).</numerusform>
         </translation>
     </message>
     <message>
@@ -16396,8 +16755,8 @@ Puoi anche numerare i cavi automaticamente in seguito: la regola si imposta in q
         <location filename="../sources/qetdiagrameditor.cpp" line="6406"/>
         <source>%n more</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>altro %n</numerusform>
+            <numerusform>altri %n</numerusform>
         </translation>
     </message>
     <message>
@@ -16409,20 +16768,20 @@ Puoi anche numerare i cavi automaticamente in seguito: la regola si imposta in q
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6413"/>
         <source>%1 - %2: %3</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 - %2: %3</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6436"/>
         <source>... and %n more folio(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>... e %n altro foglio</numerusform>
+            <numerusform>... e %n altri fogli</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6439"/>
         <source>Outside the sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fuori dal foglio</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="6440"/>
@@ -16431,14 +16790,18 @@ Puoi anche numerare i cavi automaticamente in seguito: la regola si imposta in q
 %1
 
 Go on anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Questi elementi sono fuori dal foglio e vengono tagliati o esclusi:
+
+%1
+
+Continuare comunque?</translation>
     </message>
     <message numerus="yes">
         <location filename="../sources/qetdiagrameditor.cpp" line="6461"/>
         <source>Project saved; %n folio(s) with items outside the sheet, named when printing or exporting</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>Progetto salvato; %n foglio con elementi fuori dal foglio, indicati alla stampa o all'esportazione</numerusform>
+            <numerusform>Progetto salvato; %n fogli con elementi fuori dal foglio, indicati alla stampa o all'esportazione</numerusform>
         </translation>
     </message>
     <message>
@@ -17028,6 +17391,299 @@ Tieni premuto Ctrl durante lo spostamento per posizionare liberamente.</translat
         <location filename="../sources/qetdiagrameditor.cpp" line="1113"/>
         <source>Find duplicate signals and components...</source>
         <translation>Trova segnali e componenti duplicati...</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <comment>dock title</comment>
+        <translation type="unfinished">Dispositivi</translation>
+    </message>
+    <message>
+        <source>Title block designer…</source>
+        <translation type="unfinished">Progettista del cartiglio…</translation>
+    </message>
+    <message>
+        <source>Makes the title block of the sheet of ready-made blocks: logo, project, revisions, signatures...</source>
+        <translation type="unfinished">Compone il cartiglio del foglio con blocchi pronti: logo, progetto, revisioni, firme...</translation>
+    </message>
+    <message>
+        <source>Title block data…</source>
+        <translation type="unfinished">Dati del cartiglio…</translation>
+    </message>
+    <message>
+        <source>The company, the client, the signatures and the revisions the title blocks of the project show</source>
+        <translation type="unfinished">L'azienda, il cliente, le firme e le revisioni che mostrano i cartigli del progetto</translation>
+    </message>
+    <message>
+        <source>Automatic folio index</source>
+        <translation type="unfinished">Indice dei fogli automatico</translation>
+    </message>
+    <message>
+        <source>Adds an index folio at the start of the project, with the number and title of every folio, kept up to date</source>
+        <translation type="unfinished">Aggiunge un foglio indice all'inizio del progetto, con numero e titolo di ogni foglio, sempre aggiornato</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestore articoli...</translation>
+    </message>
+    <message>
+        <source>Manage the parts database: parts, technical data, accessories, images and DXF drawings</source>
+        <translation type="unfinished">Gestisci il database articoli: articoli, dati tecnici, accessori, immagini e disegni DXF</translation>
+    </message>
+    <message>
+        <source>Official parts catalog...</source>
+        <translation type="unfinished">Catalogo ufficiale degli articoli...</translation>
+    </message>
+    <message>
+        <source>Searches the official FaseCAD parts catalog and adds the parts chosen to your parts database</source>
+        <translation type="unfinished">Cerca nel catalogo ufficiale degli articoli FaseCAD e aggiunge gli articoli scelti al tuo database articoli</translation>
+    </message>
+    <message>
+        <source>Cable manager...</source>
+        <translation type="unfinished">Gestore cavi...</translation>
+    </message>
+    <message>
+        <source>List every cable of the project with its cores, used or spare, and edit them</source>
+        <translation type="unfinished">Elenca ogni cavo del progetto con i suoi conduttori, usati o di riserva, e modificali</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Aggiungi un piano cavi</translation>
+    </message>
+    <message>
+        <source>Add a table listing every core of the cables, with its colour, wire and ends</source>
+        <translation type="unfinished">Aggiungi una tabella con ogni conduttore dei cavi, con il suo colore, filo ed estremità</translation>
+    </message>
+    <message>
+        <source>Export the cable plan to CSV format</source>
+        <translation type="unfinished">Esporta il piano cavi in formato CSV</translation>
+    </message>
+    <message>
+        <source>Export the cable plan</source>
+        <translation type="unfinished">Esporta il piano cavi</translation>
+    </message>
+    <message>
+        <source>cable_plan</source>
+        <translation type="unfinished">piano_cavi</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">File CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Impossibile scrivere il file %1.</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Aggiungi una distinta materiali degli articoli</translation>
+    </message>
+    <message>
+        <source>Add a table listing the parts of the devices, grouped by order number, with their quantities</source>
+        <translation type="unfinished">Aggiungi una tabella degli articoli dei dispositivi, raggruppati per codice d'ordine, con le loro quantità</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts to CSV format</source>
+        <translation type="unfinished">Esporta la distinta materiali degli articoli in formato CSV</translation>
+    </message>
+    <message>
+        <source>Export the bill of materials of the parts</source>
+        <translation type="unfinished">Esporta la distinta materiali degli articoli</translation>
+    </message>
+    <message>
+        <source>bill_of_materials</source>
+        <translation type="unfinished">distinta_materiali</translation>
+    </message>
+    <message>
+        <source>Renumbers the cables of the project in order</source>
+        <translation type="unfinished">Rinumera in ordine i cavi del progetto</translation>
+    </message>
+    <message>
+        <source>Number the wires…</source>
+        <translation type="unfinished">Numera i conduttori…</translation>
+    </message>
+    <message>
+        <source>Numbers the wires of the project, of the sheet or the selected ones, by an example or a formula of your own</source>
+        <translation type="unfinished">Numera i conduttori del progetto, del foglio o quelli selezionati, secondo un esempio o una formula tua</translation>
+    </message>
+    <message>
+        <source>Calculate sections…</source>
+        <translation type="unfinished">Calcola sezioni…</translation>
+    </message>
+    <message>
+        <source>Gives every wire the section IEC 60204-1 asks for, from the protection or the maximum current of the device that feeds it</source>
+        <translation type="unfinished">Dà a ogni conduttore la sezione richiesta dalla IEC 60204-1, in base alla protezione o alla corrente massima del dispositivo che lo alimenta</translation>
+    </message>
+    <message>
+        <source>Set version…</source>
+        <translation type="unfinished">Imposta versione…</translation>
+    </message>
+    <message>
+        <source>Raises the version of the project and adds a sheet with the devices added, removed or rewired since the version before</source>
+        <translation type="unfinished">Aumenta la versione del progetto e aggiunge un foglio con i dispositivi aggiunti, rimossi o ricablati dalla versione precedente</translation>
+    </message>
+    <message>
+        <source>Add terminals…</source>
+        <translation type="unfinished">Aggiungi morsetti…</translation>
+    </message>
+    <message>
+        <source>Insert a DXF…</source>
+        <translation type="unfinished">Inserisci un DXF…</translation>
+    </message>
+    <message>
+        <source>Places terminals of a terminal strip, numbered one after the other</source>
+        <translation type="unfinished">Posiziona i morsetti di una morsettiera, numerati uno dopo l'altro</translation>
+    </message>
+    <message>
+        <source>Reads the lines of a DXF drawing in millimetres and places them on the current sheet</source>
+        <translation type="unfinished">Legge le linee di un disegno DXF in millimetri e le posiziona sul foglio corrente</translation>
+    </message>
+    <message>
+        <source>Add a wire duct…</source>
+        <translation type="unfinished">Aggiungi una canalina…</translation>
+    </message>
+    <message>
+        <source>Add a DIN rail</source>
+        <translation type="unfinished">Aggiungi una guida DIN</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate…</source>
+        <translation type="unfinished">Aggiungi una piastra di montaggio…</translation>
+    </message>
+    <message>
+        <source>Asks for the width of the duct, then draws it on the cabinet sheet: its length is shown under the mouse</source>
+        <translation type="unfinished">Chiede la larghezza della canalina, poi la disegna sul foglio quadro: la sua lunghezza appare sotto il mouse</translation>
+    </message>
+    <message>
+        <source>Draws a DIN rail on the cabinet sheet, as long as the mouse says</source>
+        <translation type="unfinished">Disegna una guida DIN sul foglio quadro, lunga quanto indica il mouse</translation>
+    </message>
+    <message>
+        <source>Asks for the size of the mounting plate, then places it on the cabinet sheet</source>
+        <translation type="unfinished">Chiede la dimensione della piastra di montaggio, poi la posiziona sul foglio quadro</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet…</source>
+        <translation type="unfinished">Scala del quadro…</translation>
+    </message>
+    <message>
+        <source>Changes the scale the cabinet sheet is drawn at: the parts keep their measures</source>
+        <translation type="unfinished">Cambia la scala con cui è disegnato il foglio quadro: le parti mantengono le loro misure</translation>
+    </message>
+    <message>
+        <source>Routing sheet of a mounting plate…</source>
+        <translation type="unfinished">Foglio di instradamento di una piastra di montaggio…</translation>
+    </message>
+    <message>
+        <source>Adds after this cabinet sheet a sheet routing the wires of one of its mounting plates through its ducts</source>
+        <translation type="unfinished">Aggiunge dopo questo foglio quadro un foglio che instrada i conduttori di una delle sue piastre di montaggio attraverso le sue canaline</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Calcola l'instradamento</translation>
+    </message>
+    <message>
+        <source>Gives each wire of the schematic the shortest way through the ducts between the drawings of its devices</source>
+        <translation type="unfinished">Dà a ogni conduttore dello schema il percorso più breve attraverso le canaline tra i disegni dei suoi dispositivi</translation>
+    </message>
+    <message>
+        <source>Export the routing to CSV…</source>
+        <translation type="unfinished">Esporta l'instradamento in CSV…</translation>
+    </message>
+    <message>
+        <source>Writes every wire of this routing sheet with its length to a CSV file for a spreadsheet</source>
+        <translation type="unfinished">Scrive ogni conduttore di questo foglio di instradamento con la sua lunghezza in un file CSV per un foglio di calcolo</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D…</source>
+        <translation type="unfinished">Quadro in 3D…</translation>
+    </message>
+    <message>
+        <source>Shows the cabinet of this sheet in 3D, the devices from the STEP models of their parts, and exports it as STEP</source>
+        <translation type="unfinished">Mostra in 3D il quadro di questo foglio, i dispositivi dai modelli STEP dei loro articoli, e lo esporta come STEP</translation>
+    </message>
+    <message>
+        <source>Loading the cabinet in 3D...</source>
+        <translation type="unfinished">Caricamento del quadro in 3D...</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Quadro in 3D</translation>
+    </message>
+    <message>
+        <source>Thermal analysis of the cabinet…</source>
+        <translation type="unfinished">Analisi termica del quadro…</translation>
+    </message>
+    <message>
+        <source>Adds up the power loss of the devices of this cabinet, from their parts, and says how hot it gets inside and what cooling it needs</source>
+        <translation type="unfinished">Somma la potenza dissipata dei dispositivi di questo quadro, dai loro articoli, e indica quanto si scalda all'interno e quale raffreddamento serve</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Costruzione quadro 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D: on a cabinet construction sheet, adds wire ducts, DIN rails and mounting plates</source>
+        <translation type="unfinished">Costruzione quadro 2D: su un foglio di costruzione quadro, aggiunge canaline, guide DIN e piastre di montaggio</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Menu</translation>
+    </message>
+    <message>
+        <source>Command tabs</source>
+        <comment>toolbar title</comment>
+        <translation type="unfinished">Schede dei comandi</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet (%1)…</source>
+        <translation type="unfinished">Scala del quadro (%1)…</translation>
+    </message>
+    <message>
+        <source>Snap to the corners and the middles of the sides of the parts</source>
+        <translation type="unfinished">Aggancia agli angoli e ai punti medi dei lati delle parti</translation>
+    </message>
+    <message>
+        <source>Snap what is moved or drawn to the corners and the middles of the sides of the other parts; off, it goes where the mouse is</source>
+        <translation type="unfinished">Aggancia ciò che si sposta o si disegna agli angoli e ai punti medi dei lati delle altre parti; disattivato, va dove si trova il mouse</translation>
+    </message>
+    <message>
+        <source>Insert a DXF</source>
+        <translation type="unfinished">Inserisci un DXF</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? It is where the changes of the next versions start from.</source>
+        <translation type="unfinished">Impostare la versione %1 del progetto? Da qui si contano le modifiche delle versioni successive.</translation>
+    </message>
+    <message>
+        <source>Set version %1 of the project? A sheet with the devices added, removed or rewired since version %2 is added at the end of the project.</source>
+        <translation type="unfinished">Impostare la versione %1 del progetto? Alla fine del progetto si aggiunge un foglio con i dispositivi aggiunti, rimossi o ricablati dalla versione %2.</translation>
+    </message>
+    <message>
+        <source>Set version</source>
+        <translation type="unfinished">Imposta versione</translation>
+    </message>
+    <message>
+        <source>The project is at version %1.</source>
+        <translation type="unfinished">Il progetto è alla versione %1.</translation>
+    </message>
+    <message>
+        <source>The project is at version %1; the changes since version %2 are on its last sheet.</source>
+        <translation type="unfinished">Il progetto è alla versione %1; le modifiche dalla versione %2 sono nel suo ultimo foglio.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n text fields of terminals added or moved.</source>
+        <translation type="unfinished">
+            <numerusform>%n campo di testo di morsetto aggiunto o spostato.</numerusform>
+            <numerusform>%n campi di testo di morsetti aggiunti o spostati.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 - delivery</source>
+        <translation type="unfinished">%1 - consegna</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (*%1)</source>
+        <translation type="unfinished">Progetto QElectroTech (*%1)</translation>
     </message>
 </context>
 <context>
@@ -18197,6 +18853,24 @@ Cosa vuoi fare?</translation>
         <location filename="../sources/qetproject.cpp" line="4443"/>
         <source>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Creation of sheets&lt;/p&gt;</source>
         <translation>&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Apertura progetto in corso...&lt;/b&gt;&lt;br/&gt;Creazione dei fogli :&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>QElectroTech project (%1)</source>
+        <translation type="unfinished">Progetto QElectroTech (%1)</translation>
+    </message>
+    <message>
+        <source>Cabinet construction</source>
+        <comment>title of a new cabinet folio</comment>
+        <translation type="unfinished">Costruzione quadro</translation>
+    </message>
+    <message>
+        <source>Cabinet routing</source>
+        <comment>title of a new routing sheet</comment>
+        <translation type="unfinished">Instradamento quadro</translation>
+    </message>
+    <message>
+        <source>Not to scale</source>
+        <translation type="unfinished">Non in scala</translation>
     </message>
 </context>
 <context>
@@ -19445,7 +20119,7 @@ La si vuole sostituire ?</translation>
     <message>
         <location filename="../sources/qetinformation.cpp" line="401"/>
         <source>Conductor type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tipo di conduttore</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="404"/>
@@ -19660,12 +20334,12 @@ La si vuole sostituire ?</translation>
     <message>
         <location filename="../sources/qetinformation.cpp" line="447"/>
         <source>Wire number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Numero del conduttore</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="452"/>
         <source>%1, connection point %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1, punto di connessione %2</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="385"/>
@@ -19981,7 +20655,7 @@ La si vuole sostituire ?</translation>
         <location filename="../sources/titleblock/templatecommands.cpp" line="1196"/>
         <source>Edit Preview</source>
         <comment>undo preview</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Anteprima della modifica</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="131"/>
@@ -20408,7 +21082,7 @@ Scaricalo seguendo il link e decomprimilo nella cartella di installazione</trans
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="95"/>
         <source>Text grid %1. Hold Ctrl to place freely.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Griglia del testo %1. Tieni premuto Ctrl per posizionare liberamente.</translation>
     </message>
     <message>
         <location filename="../sources/elementtextsmover.cpp" line="96"/>
@@ -21599,6 +22273,41 @@ Per attivarla: Configura QElectroTech &gt; Generale &gt; Progetti, oppure impost
         <comment>undo command text</comment>
         <translation>Eliminazione di una linea di un ponticello</translation>
     </message>
+    <message>
+        <source>Change %1</source>
+        <comment>undo caption - %1 is a part of a cabinet</comment>
+        <translation type="unfinished">Modifica %1</translation>
+    </message>
+    <message>
+        <source>Change the scale of the cabinet to 1:%1</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished">Cambia la scala del quadro in 1:%1</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished">Modelli</translation>
+    </message>
+    <message>
+        <source>Add a cable plan</source>
+        <translation type="unfinished">Aggiungi un piano cavi</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Piano cavi</translation>
+    </message>
+    <message>
+        <source>Add a bill of materials of the parts</source>
+        <translation type="unfinished">Aggiungi una distinta materiali degli articoli</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Distinta materiali</translation>
+    </message>
+    <message>
+        <source>(No action)</source>
+        <comment>spacemouse config: unbound button</comment>
+        <translation type="unfinished">(Nessuna azione)</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -22453,7 +23162,7 @@ non è stato modificato nulla.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="41"/>
         <source>Replace conductor properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sostituisci le proprietà del conduttore</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207"/>
@@ -22479,7 +23188,7 @@ non è stato modificato nulla.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="35"/>
         <source>Replace element properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sostituisci le proprietà dell'elemento</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="84"/>
@@ -22492,7 +23201,7 @@ non è stato modificato nulla.</translation>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.cpp" line="122"/>
         <source>Replace sheet properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sostituisci le proprietà del foglio</translation>
     </message>
 </context>
 <context>
@@ -23838,6 +24547,76 @@ Gli altri campi non vengono usati.</translation>
     <message>
         <source>Action</source>
         <translation type="obsolete">Azione</translation>
+    </message>
+    <message>
+        <source>3D mouse</source>
+        <comment>configuration page title</comment>
+        <translation type="unfinished">Mouse 3D</translation>
+    </message>
+    <message>
+        <source>Add a link</source>
+        <translation type="unfinished">Aggiungi un collegamento</translation>
+    </message>
+    <message>
+        <source>Button no.</source>
+        <translation type="unfinished">N. pulsante</translation>
+    </message>
+    <message>
+        <source>Buttons</source>
+        <translation type="unfinished">Pulsanti</translation>
+    </message>
+    <message>
+        <source>Dead zone:</source>
+        <translation type="unfinished">Zona morta:</translation>
+    </message>
+    <message>
+        <source>Link a button number on your 3D mouse (SpaceMouse, SpacePilot...) to a QElectroTech action. The button number depends on your device and its driver -- see its documentation, or try the values one by one starting from 0.</source>
+        <comment>spacemouse config page intro</comment>
+        <translation type="unfinished">Collega un numero di pulsante del tuo mouse 3D (SpaceMouse, SpacePilot...) a un'azione di QElectroTech. Il numero del pulsante dipende dal dispositivo e dal suo driver: consulta la sua documentazione, o prova i valori uno per uno partendo da 0.</translation>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished">Movimento</translation>
+    </message>
+    <message>
+        <source>Pan speed:</source>
+        <translation type="unfinished">Velocità di spostamento:</translation>
+    </message>
+    <message>
+        <source>Push / pull the cap</source>
+        <translation type="unfinished">Spingi / tira la manopola</translation>
+    </message>
+    <message>
+        <source>Remove this link</source>
+        <translation type="unfinished">Rimuovi questo collegamento</translation>
+    </message>
+    <message>
+        <source>Reverse horizontal movement</source>
+        <translation type="unfinished">Inverti il movimento orizzontale</translation>
+    </message>
+    <message>
+        <source>Reverse vertical movement</source>
+        <translation type="unfinished">Inverti il movimento verticale</translation>
+    </message>
+    <message>
+        <source>Reverse zoom</source>
+        <translation type="unfinished">Inverti lo zoom</translation>
+    </message>
+    <message>
+        <source>Small movements below this threshold are ignored. Raise it if the view drifts when you are not touching the mouse.</source>
+        <translation type="unfinished">I piccoli movimenti sotto questa soglia vengono ignorati. Alzala se la vista si sposta senza che tocchi il mouse.</translation>
+    </message>
+    <message>
+        <source>Twist the cap</source>
+        <translation type="unfinished">Ruota la manopola</translation>
+    </message>
+    <message>
+        <source>Zoom by:</source>
+        <translation type="unfinished">Zoom con:</translation>
+    </message>
+    <message>
+        <source>Zoom speed:</source>
+        <translation type="unfinished">Velocità dello zoom:</translation>
     </message>
 </context>
 <context>
@@ -26907,6 +27686,10 @@ Doppio clic per andare all&apos;elemento</translation>
         <source>Level 1 terminal:</source>
         <translation>Morsetto livello 1:</translation>
     </message>
+    <message>
+        <source>Terminal diagram</source>
+        <translation type="unfinished">Schema morsetti</translation>
+    </message>
 </context>
 <context>
     <name>TerminalStripModel</name>
@@ -27319,61 +28102,61 @@ Ctrl+Invio conferma la cella, Esc scarta il testo.</translation>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="160"/>
         <source>Alignment:</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Allineamento:</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="162"/>
         <source>Top</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In alto</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="163"/>
         <source>Top Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In alto a sinistra</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="164"/>
         <source>Top Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In alto al centro</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="165"/>
         <source>Top Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In alto a destra</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="166"/>
         <source>Bottom</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In basso</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="167"/>
         <source>Bottom Left</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In basso a sinistra</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="168"/>
         <source>Bottom Center</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In basso al centro</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="169"/>
         <source>Bottom Right</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">In basso a destra</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="170"/>
         <source>Indicate which side of the title border template should be aligned with the edge of the workspace</source>
         <comment>default dialog label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Indica quale lato del modello del cartiglio si allinea con il bordo dell'area di lavoro</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/dimensionwidget.cpp" line="211"/>
@@ -28974,6 +29757,4959 @@ si possono utilizzare le seguenti variabili:
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="79"/>
         <source>Conductor</source>
         <translation>Conduttore</translation>
+    </message>
+</context>
+<context>
+    <name>CommandTabs</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">File</translation>
+    </message>
+    <message>
+        <source>Menus</source>
+        <translation type="unfinished">Menu</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Progetto</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nuovo</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished">Apri</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Salva</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Salva come</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Chiudi</translation>
+    </message>
+    <message>
+        <source>Print and export</source>
+        <translation type="unfinished">Stampa ed esporta</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">Stampa</translation>
+    </message>
+    <message>
+        <source>PDF</source>
+        <translation type="unfinished">PDF</translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Immagini</translation>
+    </message>
+    <message>
+        <source>Delivery</source>
+        <translation type="unfinished">Consegna</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished">Proprietà</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Cartiglio</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Dati del cartiglio</translation>
+    </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished">Lingue</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished">Cronologia</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished">Home</translation>
+    </message>
+    <message>
+        <source>Clipboard</source>
+        <translation type="unfinished">Appunti</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Incolla</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Taglia</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copia</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Elimina</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Copia formato</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Applica formato</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Navigatore</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Annulla</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Ripeti</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Testo</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished">Inserisci</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Ruota</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished">Raggruppa</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Modifica</translation>
+    </message>
+    <message>
+        <source>Wiring list</source>
+        <translation type="unfinished">Elenco cablaggio</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished">Trova</translation>
+    </message>
+    <message>
+        <source>Find symbol</source>
+        <translation type="unfinished">Trova simbolo</translation>
+    </message>
+    <message>
+        <source>Jump to</source>
+        <translation type="unfinished">Vai a</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Simboli</translation>
+    </message>
+    <message>
+        <source>Last symbol</source>
+        <translation type="unfinished">Ultimo simbolo</translation>
+    </message>
+    <message>
+        <source>Connection symbols</source>
+        <translation type="unfinished">Simboli di collegamento</translation>
+    </message>
+    <message>
+        <source>Outgoing report</source>
+        <translation type="unfinished">Rimando in uscita</translation>
+    </message>
+    <message>
+        <source>Incoming report</source>
+        <translation type="unfinished">Rimando in entrata</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Dispositivi</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Dispositivo</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Morsetto</translation>
+    </message>
+    <message>
+        <source>Terminal strip</source>
+        <translation type="unfinished">Morsettiera</translation>
+    </message>
+    <message>
+        <source>Part definition</source>
+        <translation type="unfinished">Definizione articolo</translation>
+    </message>
+    <message>
+        <source>Cables / connections</source>
+        <translation type="unfinished">Cavi / collegamenti</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation type="unfinished">Collegamento</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Immagine</translation>
+    </message>
+    <message>
+        <source>Graphic</source>
+        <translation type="unfinished">Grafica</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Linea</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Rettangolo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Ellisse</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished">Arco</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilinea</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Tracciato</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Quota</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Lineare</translation>
+    </message>
+    <message>
+        <source>Chain</source>
+        <translation type="unfinished">Catena</translation>
+    </message>
+    <message>
+        <source>Cabinet construction 2D</source>
+        <translation type="unfinished">Costruzione quadro 2D</translation>
+    </message>
+    <message>
+        <source>Cabinet
+construction 2D</source>
+        <translation type="unfinished">Costruzione
+quadro 2D</translation>
+    </message>
+    <message>
+        <source>Insert
+DXF</source>
+        <translation type="unfinished">Inserisci
+DXF</translation>
+    </message>
+    <message>
+        <source>Cabinet
+in 3D</source>
+        <translation type="unfinished">Quadro
+in 3D</translation>
+    </message>
+    <message>
+        <source>Thermal
+analysis</source>
+        <translation type="unfinished">Analisi
+termica</translation>
+    </message>
+    <message>
+        <source>Mirror</source>
+        <translation type="unfinished">Specchia</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished">Capovolgi</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplica</translation>
+    </message>
+    <message>
+        <source>Fillet</source>
+        <translation type="unfinished">Raccorda</translation>
+    </message>
+    <message>
+        <source>Rotate group</source>
+        <translation type="unfinished">Ruota gruppo</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished">Separa</translation>
+    </message>
+    <message>
+        <source>Group texts</source>
+        <translation type="unfinished">Raggruppa testi</translation>
+    </message>
+    <message>
+        <source>Organize</source>
+        <translation type="unfinished">Organizza</translation>
+    </message>
+    <message>
+        <source>Align to grid</source>
+        <translation type="unfinished">Allinea alla griglia</translation>
+    </message>
+    <message>
+        <source>Connect aligned</source>
+        <translation type="unfinished">Collega allineati</translation>
+    </message>
+    <message>
+        <source>Place texts</source>
+        <translation type="unfinished">Posiziona testi</translation>
+    </message>
+    <message>
+        <source>Depth</source>
+        <translation type="unfinished">Profondità</translation>
+    </message>
+    <message>
+        <source>Bring to front</source>
+        <translation type="unfinished">Porta in primo piano</translation>
+    </message>
+    <message>
+        <source>Raise</source>
+        <translation type="unfinished">Porta avanti</translation>
+    </message>
+    <message>
+        <source>Lower</source>
+        <translation type="unfinished">Porta indietro</translation>
+    </message>
+    <message>
+        <source>Send to back</source>
+        <translation type="unfinished">Porta in fondo</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Seleziona</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Tutto</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished">Inverti</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Conduttori</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished">Testi</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Visualizza</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished">Modalità</translation>
+    </message>
+    <message>
+        <source>Move view</source>
+        <translation type="unfinished">Sposta vista</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished">Zoom</translation>
+    </message>
+    <message>
+        <source>Zoom in</source>
+        <translation type="unfinished">Ingrandisci</translation>
+    </message>
+    <message>
+        <source>Zoom out</source>
+        <translation type="unfinished">Riduci</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished">Adatta</translation>
+    </message>
+    <message>
+        <source>Content</source>
+        <translation type="unfinished">Contenuto</translation>
+    </message>
+    <message>
+        <source>100 %</source>
+        <translation type="unfinished">100 %</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished">Griglia</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished">Aggancio</translation>
+    </message>
+    <message>
+        <source>Guides</source>
+        <translation type="unfinished">Guide</translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished">Mirino</translation>
+    </message>
+    <message>
+        <source>Cell lines</source>
+        <translation type="unfinished">Linee delle celle</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished">Righelli</translation>
+    </message>
+    <message>
+        <source>Dark sheet</source>
+        <translation type="unfinished">Foglio scuro</translation>
+    </message>
+    <message>
+        <source>Panels</source>
+        <translation type="unfinished">Pannelli</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation type="unfinished">Progetti</translation>
+    </message>
+    <message>
+        <source>Collections</source>
+        <translation type="unfinished">Collezioni</translation>
+    </message>
+    <message>
+        <source>Undo list</source>
+        <translation type="unfinished">Elenco annullamenti</translation>
+    </message>
+    <message>
+        <source>Windows</source>
+        <translation type="unfinished">Finestre</translation>
+    </message>
+    <message>
+        <source>Tabs</source>
+        <translation type="unfinished">Schede</translation>
+    </message>
+    <message>
+        <source>Tile</source>
+        <translation type="unfinished">Affianca</translation>
+    </message>
+    <message>
+        <source>Cascade</source>
+        <translation type="unfinished">A cascata</translation>
+    </message>
+    <message>
+        <source>Bill of
+materials</source>
+        <translation type="unfinished">Distinta
+materiali</translation>
+    </message>
+    <message>
+        <source>Parts
+list</source>
+        <translation type="unfinished">Elenco
+articoli</translation>
+    </message>
+    <message>
+        <source>Update symbols</source>
+        <translation type="unfinished">Aggiorna simboli</translation>
+    </message>
+    <message>
+        <source>Redraw symbols</source>
+        <translation type="unfinished">Ridisegna simboli</translation>
+    </message>
+    <message>
+        <source>Terminals</source>
+        <translation type="unfinished">Morsetti</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Numera</translation>
+    </message>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished">Extra</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation type="unfinished">Collegamenti</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished">Automatico</translation>
+    </message>
+    <message>
+        <source>Break</source>
+        <translation type="unfinished">Interrompi</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished">Ripristina</translation>
+    </message>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Calcola sezioni</translation>
+    </message>
+    <message>
+        <source>Cables</source>
+        <translation type="unfinished">Cavi</translation>
+    </message>
+    <message>
+        <source>Cable plan</source>
+        <translation type="unfinished">Piano cavi</translation>
+    </message>
+    <message>
+        <source>Bridges</source>
+        <translation type="unfinished">Ponticelli</translation>
+    </message>
+    <message>
+        <source>Terminal bridges</source>
+        <translation type="unfinished">Ponticelli morsetti</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Strumenti</translation>
+    </message>
+    <message>
+        <source>Reports</source>
+        <translation type="unfinished">Report</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">Sommario</translation>
+    </message>
+    <message>
+        <source>Bill of materials</source>
+        <translation type="unfinished">Distinta materiali</translation>
+    </message>
+    <message>
+        <source>Parts list</source>
+        <translation type="unfinished">Elenco articoli</translation>
+    </message>
+    <message>
+        <source>Cable list</source>
+        <translation type="unfinished">Elenco cavi</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Esporta</translation>
+    </message>
+    <message>
+        <source>Wire names</source>
+        <translation type="unfinished">Nomi conduttori</translation>
+    </message>
+    <message>
+        <source>Database</source>
+        <translation type="unfinished">Database</translation>
+    </message>
+    <message>
+        <source>Checks</source>
+        <translation type="unfinished">Controlli</translation>
+    </message>
+    <message>
+        <source>Potentials</source>
+        <translation type="unfinished">Potenziali</translation>
+    </message>
+    <message>
+        <source>Duplicate labels</source>
+        <translation type="unfinished">Etichette duplicate</translation>
+    </message>
+    <message>
+        <source>Clean project</source>
+        <translation type="unfinished">Pulisci progetto</translation>
+    </message>
+    <message>
+        <source>Scripts</source>
+        <translation type="unfinished">Script</translation>
+    </message>
+    <message>
+        <source>Run</source>
+        <translation type="unfinished">Esegui</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished">Registra</translation>
+    </message>
+    <message>
+        <source>Manage</source>
+        <translation type="unfinished">Gestisci</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished">Cartella</translation>
+    </message>
+    <message>
+        <source>Master data</source>
+        <translation type="unfinished">Dati anagrafici</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Articoli</translation>
+    </message>
+    <message>
+        <source>Parts
+manager</source>
+        <translation type="unfinished">Gestione
+articoli</translation>
+    </message>
+    <message>
+        <source>Official
+catalog</source>
+        <translation type="unfinished">Catalogo
+ufficiale</translation>
+    </message>
+    <message>
+        <source>Search command</source>
+        <translation type="unfinished">Cerca comando</translation>
+    </message>
+    <message>
+        <source>Fold or unfold the tabs</source>
+        <translation type="unfinished">Comprimi o espandi le schede</translation>
+    </message>
+    <message>
+        <source>%1: coming soon</source>
+        <translation type="unfinished">%1: prossimamente</translation>
+    </message>
+    <message>
+        <source>Versions</source>
+        <translation type="unfinished">Versioni</translation>
+    </message>
+    <message>
+        <source>Set
+version</source>
+        <translation type="unfinished">Imposta
+versione</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButtons</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Segnala un errore</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Accedi</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Richiedi assistenza</translation>
+    </message>
+    <message>
+        <source>Session closed</source>
+        <translation type="unfinished">Sessione chiusa</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer, so this session was closed: one computer at a time for each account. Sign in again to go on here.</source>
+        <translation type="unfinished">Il tuo account è stato aperto su un altro computer, quindi questa sessione è stata chiusa: un computer alla volta per ogni account. Accedi di nuovo per continuare qui.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">I servizi di fasecad.com non sono ancora aperti</translation>
+    </message>
+    <message>
+        <source>Signed in as %1, subscription until %2. Click to change or sign out.</source>
+        <translation type="unfinished">Accesso come %1, abbonamento fino al %2. Fai clic per cambiare o uscire.</translation>
+    </message>
+    <message>
+        <source>Signed in as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Accesso come %1. Fai clic per cambiare o uscire.</translation>
+    </message>
+    <message>
+        <source>Sign in to your fasecad.com account</source>
+        <translation type="unfinished">Accedi al tuo account fasecad.com</translation>
+    </message>
+    <message>
+        <source>Sign in with an account with a subscription to use it</source>
+        <translation type="unfinished">Accedi con un account con abbonamento per usarlo</translation>
+    </message>
+    <message>
+        <source>Your account has no subscription running</source>
+        <translation type="unfinished">Il tuo account non ha un abbonamento attivo</translation>
+    </message>
+    <message>
+        <source>Tell the FaseCAD team about something that does not work</source>
+        <translation type="unfinished">Segnala al team FaseCAD qualcosa che non funziona</translation>
+    </message>
+    <message>
+        <source>Ask the FaseCAD team for help</source>
+        <translation type="unfinished">Chiedi aiuto al team FaseCAD</translation>
+    </message>
+    <message>
+        <source>another computer</source>
+        <translation type="unfinished">un altro computer</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Il tuo account è aperto su %1. Un account si usa su un solo computer alla volta: chiuderlo lì e continuare qui?</translation>
+    </message>
+    <message>
+        <source>Your account is open on %1 since %2. One computer at a time can use an account: close it there and go on here?</source>
+        <translation type="unfinished">Il tuo account è aperto su %1 dal %2. Un account si usa su un solo computer alla volta: chiuderlo lì e continuare qui?</translation>
+    </message>
+    <message>
+        <source>Account in use</source>
+        <translation type="unfinished">Account in uso</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantPanel</name>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">IA</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Chiudi</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Accedi...</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project: "add a contactor -KM1 with its coil and a stop and start button", "number the wires of this folio"... It works on the folio shown, and each change it makes can be undone.</source>
+        <translation type="unfinished">Di' all'IA cosa fare nel progetto aperto: "aggiungi un contattore -KM1 con la sua bobina e i pulsanti di marcia e arresto", "numera i conduttori di questo foglio"... Lavora sul foglio mostrato e ogni modifica può essere annullata.</translation>
+    </message>
+    <message>
+        <source>Write an instruction... (Enter sends, Shift+Enter a new line)</source>
+        <translation type="unfinished">Scrivi un'istruzione... (Invio invia, Maiusc+Invio va a capo)</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Invia</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Ferma</translation>
+    </message>
+    <message>
+        <source>New conversation</source>
+        <translation type="unfinished">Nuova conversazione</translation>
+    </message>
+    <message>
+        <source>Tell the AI what to do on the open project</source>
+        <translation type="unfinished">Di' all'IA cosa fare nel progetto aperto</translation>
+    </message>
+    <message>
+        <source>AI:</source>
+        <translation type="unfinished">IA:</translation>
+    </message>
+    <message>
+        <source>nothing changed</source>
+        <translation type="unfinished">nessuna modifica</translation>
+    </message>
+    <message>
+        <source>Stopped.</source>
+        <translation type="unfinished">Fermato.</translation>
+    </message>
+    <message>
+        <source>You:</source>
+        <translation type="unfinished">Tu:</translation>
+    </message>
+</context>
+<context>
+    <name>AssistantSession</name>
+    <message>
+        <source>Thinking...</source>
+        <translation type="unfinished">Sto pensando...</translation>
+    </message>
+    <message>
+        <source>Working on the project...</source>
+        <translation type="unfinished">Sto lavorando al progetto...</translation>
+    </message>
+    <message>
+        <source>Your session was closed: the account is open on another computer (Sign in...).</source>
+        <translation type="unfinished">La tua sessione è stata chiusa: l'account è aperto su un altro computer (Accedi...).</translation>
+    </message>
+    <message>
+        <source>The AI service does not accept this user and password (Sign in...).</source>
+        <translation type="unfinished">Il servizio IA non accetta questo utente e questa password (Accedi...).</translation>
+    </message>
+    <message>
+        <source>The AI service asks for your user and password (Sign in...).</source>
+        <translation type="unfinished">Il servizio IA chiede il tuo utente e la tua password (Accedi...).</translation>
+    </message>
+    <message>
+        <source>The AI is part of FaseCAD Pro: subscribe at my.fasecad.com, then sign in again.</source>
+        <translation type="unfinished">L'IA fa parte di FaseCAD Pro: abbonati su my.fasecad.com, poi accedi di nuovo.</translation>
+    </message>
+    <message>
+        <source>The AI is busy, or the AI included this month is used up: try again in a while.</source>
+        <translation type="unfinished">L'IA è occupata, oppure l'IA inclusa questo mese è esaurita: riprova più tardi.</translation>
+    </message>
+    <message>
+        <source>The AI service answered %1.</source>
+        <translation type="unfinished">Il servizio IA ha risposto %1.</translation>
+    </message>
+    <message>
+        <source>The answer of the AI was cut off: %1</source>
+        <translation type="unfinished">La risposta dell'IA è stata interrotta: %1</translation>
+    </message>
+    <message>
+        <source>Stopped after %1 steps: say how to go on.</source>
+        <translation type="unfinished">Fermato dopo %1 passaggi: di' come continuare.</translation>
+    </message>
+    <message>
+        <source>The AI declined to do this.</source>
+        <translation type="unfinished">L'IA ha rifiutato di farlo.</translation>
+    </message>
+    <message>
+        <source>The answer was too long and was cut off.</source>
+        <translation type="unfinished">La risposta era troppo lunga ed è stata interrotta.</translation>
+    </message>
+    <message>
+        <source>No project is open.</source>
+        <translation type="unfinished">Nessun progetto è aperto.</translation>
+    </message>
+    <message>
+        <source>AI</source>
+        <translation type="unfinished">IA</translation>
+    </message>
+    <message>
+        <source>AI: %1</source>
+        <translation type="unfinished">IA: %1</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3d</name>
+    <message>
+        <source>Box %1 × %2 × %3 mm</source>
+        <comment>a device without STEP, by its mounting measures</comment>
+        <translation type="unfinished">Scatola %1 × %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>Cabinet3dWindow</name>
+    <message>
+        <source>Cabinet in 3D</source>
+        <translation type="unfinished">Quadro in 3D</translation>
+    </message>
+    <message>
+        <source>Cabinet in 3D: %1</source>
+        <translation type="unfinished">Quadro in 3D: %1</translation>
+    </message>
+    <message>
+        <source>Show everything</source>
+        <translation type="unfinished">Mostra tutto</translation>
+    </message>
+    <message>
+        <source>Duct covers</source>
+        <translation type="unfinished">Coperchi delle canaline</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Involucro</translation>
+    </message>
+    <message>
+        <source>From the parts database…</source>
+        <translation type="unfinished">Dal database articoli…</translation>
+    </message>
+    <message>
+        <source>STEP file from the disk…</source>
+        <translation type="unfinished">File STEP dal disco…</translation>
+    </message>
+    <message>
+        <source>Measures by hand…</source>
+        <translation type="unfinished">Misure a mano…</translation>
+    </message>
+    <message>
+        <source>Turn it 90° about its plate</source>
+        <translation type="unfinished">Ruotalo di 90° attorno alla sua piastra</translation>
+    </message>
+    <message>
+        <source>Turn the enclosure</source>
+        <translation type="unfinished">Ruota l'involucro</translation>
+    </message>
+    <message>
+        <source>No enclosure</source>
+        <translation type="unfinished">Nessun involucro</translation>
+    </message>
+    <message>
+        <source>Take the enclosure away</source>
+        <translation type="unfinished">Togli l'involucro</translation>
+    </message>
+    <message>
+        <source>Export as STEP…</source>
+        <translation type="unfinished">Esporta come STEP…</translation>
+    </message>
+    <message>
+        <source>Mounting clearances</source>
+        <translation type="unfinished">Distanze di montaggio</translation>
+    </message>
+    <message>
+        <source>The free space the part of each device asks around it in the parts database, here and on the sheet</source>
+        <translation type="unfinished">Lo spazio libero che l'articolo di ogni dispositivo chiede attorno a sé nel database articoli, qui e sul foglio</translation>
+    </message>
+    <message>
+        <source>Check the room</source>
+        <translation type="unfinished">Controlla lo spazio</translation>
+    </message>
+    <message>
+        <source>Parts in each other, parts in the free space a device asks, devices through the enclosure or keeping its door from closing</source>
+        <translation type="unfinished">Parti una dentro l'altra, parti nello spazio libero di un dispositivo, dispositivi che attraversano l'involucro o impediscono la chiusura della porta</translation>
+    </message>
+    <message>
+        <source>Reading STEP models… %v/%m</source>
+        <translation type="unfinished">Lettura dei modelli STEP… %v/%m</translation>
+    </message>
+    <message>
+        <source>Navigator</source>
+        <translation type="unfinished">Navigatore</translation>
+    </message>
+    <message>
+        <source>Room</source>
+        <translation type="unfinished">Spazio</translation>
+    </message>
+    <message>
+        <source>Left button: turn. Right button: move, or a click for what to do with a part. Wheel: nearer. Double click: everything.</source>
+        <translation type="unfinished">Tasto sinistro: ruota. Tasto destro: sposta, o un clic per agire su una parte. Rotellina: avvicina. Doppio clic: tutto.</translation>
+    </message>
+    <message>
+        <source>Turn 90°</source>
+        <translation type="unfinished">Ruota di 90°</translation>
+    </message>
+    <message>
+        <source>Another side out</source>
+        <translation type="unfinished">Un altro lato verso l'esterno</translation>
+    </message>
+    <message>
+        <source>For a model drawn with other axes: which of its sides looks out of the face</source>
+        <translation type="unfinished">Per un modello disegnato con altri assi: quale lato guarda fuori dalla superficie</translation>
+    </message>
+    <message>
+        <source>How far it goes into the sheet: a push button through the door</source>
+        <translation type="unfinished">Quanto entra nella lamiera: un pulsante attraverso la porta</translation>
+    </message>
+    <message>
+        <source>Take it out of 3D</source>
+        <translation type="unfinished">Toglilo dal 3D</translation>
+    </message>
+    <message>
+        <source>Sink:</source>
+        <translation type="unfinished">Incasso:</translation>
+    </message>
+    <message>
+        <source>Turn %1</source>
+        <translation type="unfinished">Ruota %1</translation>
+    </message>
+    <message>
+        <source>Sink %1</source>
+        <translation type="unfinished">Incassa %1</translation>
+    </message>
+    <message>
+        <source>Take %1 out of 3D</source>
+        <translation type="unfinished">Togli %1 dal 3D</translation>
+    </message>
+    <message>
+        <source>Move %1</source>
+        <translation type="unfinished">Sposta %1</translation>
+    </message>
+    <message>
+        <source>Place in 3D</source>
+        <translation type="unfinished">Posiziona in 3D</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet first</source>
+        <translation type="unfinished">Disegna prima la piastra di montaggio sul foglio</translation>
+    </message>
+    <message>
+        <source>Click the face where %1 goes: the door, a side, the roof, the plate. Esc: no.</source>
+        <translation type="unfinished">Fai clic sulla faccia dove va %1: la porta, un lato, il tetto, la piastra. Esc: no.</translation>
+    </message>
+    <message>
+        <source>Place %1 in 3D</source>
+        <translation type="unfinished">Posiziona %1 in 3D</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n parte</numerusform>
+            <numerusform>%n parti</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with a STEP model</source>
+        <translation type="unfinished">
+            <numerusform>%n con modello STEP</numerusform>
+            <numerusform>%n con modello STEP</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Without OpenCASCADE the devices are boxes.</source>
+        <translation type="unfinished">Senza OpenCASCADE i dispositivi sono scatole.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>Wire ducts</source>
+        <translation type="unfinished">Canaline</translation>
+    </message>
+    <message>
+        <source>DIN rails</source>
+        <translation type="unfinished">Guide DIN</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Dispositivi</translation>
+    </message>
+    <message>
+        <source>Enclosure: %1</source>
+        <translation type="unfinished">Involucro: %1</translation>
+    </message>
+    <message>
+        <source>Reading…</source>
+        <translation type="unfinished">Lettura…</translation>
+    </message>
+    <message>
+        <source>Not read</source>
+        <translation type="unfinished">Non letto</translation>
+    </message>
+    <message>
+        <source>mounting plate</source>
+        <translation type="unfinished">piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>in 3D</source>
+        <translation type="unfinished">in 3D</translation>
+    </message>
+    <message>
+        <source>Unplaced 3D</source>
+        <translation type="unfinished">Non posizionati in 3D</translation>
+    </message>
+    <message>
+        <source>Devices of the schematic with a STEP model and no drawing on a cabinet sheet: right click, Place in 3D</source>
+        <translation type="unfinished">Dispositivi dello schema con un modello STEP e senza disegno su un foglio quadro: clic destro, Posiziona in 3D</translation>
+    </message>
+    <message>
+        <source>Hide %1</source>
+        <translation type="unfinished">Nascondi %1</translation>
+    </message>
+    <message>
+        <source>Show %1</source>
+        <translation type="unfinished">Mostra %1</translation>
+    </message>
+    <message>
+        <source>Room enough: no part in another, none in the free space a device asks</source>
+        <translation type="unfinished">Spazio sufficiente: nessuna parte dentro un'altra, nessuna nello spazio libero di un dispositivo</translation>
+    </message>
+    <message>
+        <source>No enclosure takes the plate: its walls and its door are not checked</source>
+        <translation type="unfinished">Nessun involucro accoglie la piastra: le sue pareti e la sua porta non sono controllate</translation>
+    </message>
+    <message>
+        <source>STEP models still being read: their boxes until then</source>
+        <translation type="unfinished">Modelli STEP ancora in lettura: le loro scatole fino ad allora</translation>
+    </message>
+    <message numerus="yes">
+        <source>Room: %n problem(s)</source>
+        <translation type="unfinished">
+            <numerusform>Spazio: %n problema</numerusform>
+            <numerusform>Spazio: %n problemi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Click the part of the enclosure which is its mounting plate: the plate of the sheet takes its size. Esc: no.</source>
+        <translation type="unfinished">Fai clic sulla parte dell'involucro che è la sua piastra di montaggio: la piastra del foglio ne prende la dimensione. Esc: no.</translation>
+    </message>
+    <message>
+        <source>The mounting plate is %1: %2 × %3 mm.</source>
+        <translation type="unfinished">La piastra di montaggio è %1: %2 × %3 mm.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be the mounting plate.</source>
+        <translation type="unfinished">%1 non può essere la piastra di montaggio.</translation>
+    </message>
+    <message>
+        <source>no STEP model in the parts database: a box</source>
+        <translation type="unfinished">nessun modello STEP nel database articoli: una scatola</translation>
+    </message>
+    <message>
+        <source>STEP: %1</source>
+        <translation type="unfinished">STEP: %1</translation>
+    </message>
+    <message>
+        <source>of the enclosure</source>
+        <translation type="unfinished">dell'involucro</translation>
+    </message>
+    <message>
+        <source>right click its mounting plate: Use as the mounting plate</source>
+        <translation type="unfinished">clic destro sulla sua piastra di montaggio: Usa come piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>Use as the mounting plate</source>
+        <translation type="unfinished">Usa come piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>The plate chosen is %1 × %2 mm, the plate of the sheet %3 × %4 mm. Give the plate of the sheet the size of the one chosen?</source>
+        <translation type="unfinished">La piastra scelta è %1 × %2 mm, quella del foglio %3 × %4 mm. Dare alla piastra del foglio la dimensione di quella scelta?</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">Mostra</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">Nascondi</translation>
+    </message>
+    <message>
+        <source>Change the enclosure</source>
+        <translation type="unfinished">Cambia l'involucro</translation>
+    </message>
+    <message>
+        <source>Right click the mounting plate of the enclosure, in the navigator or in the view: Use as the mounting plate.</source>
+        <translation type="unfinished">Clic destro sulla piastra di montaggio dell'involucro, nel navigatore o nella vista: Usa come piastra di montaggio.</translation>
+    </message>
+    <message>
+        <source>Use %1 as the mounting plate</source>
+        <translation type="unfinished">Usa %1 come piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Il database articoli non è in uso.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database.</source>
+        <translation type="unfinished">%1 %2 non ha un modello STEP nel database articoli.</translation>
+    </message>
+    <message>
+        <source>STEP of the enclosure</source>
+        <translation type="unfinished">STEP dell'involucro</translation>
+    </message>
+    <message>
+        <source>STEP files (*.step *.stp)</source>
+        <translation type="unfinished">File STEP (*.step *.stp)</translation>
+    </message>
+    <message>
+        <source>Enclosure by measures</source>
+        <translation type="unfinished">Involucro a misure</translation>
+    </message>
+    <message>
+        <source>Height of the enclosure:</source>
+        <translation type="unfinished">Altezza dell'involucro:</translation>
+    </message>
+    <message>
+        <source>Width of the enclosure:</source>
+        <translation type="unfinished">Larghezza dell'involucro:</translation>
+    </message>
+    <message>
+        <source>Depth of the enclosure:</source>
+        <translation type="unfinished">Profondità dell'involucro:</translation>
+    </message>
+    <message>
+        <source>Height of the plate:</source>
+        <translation type="unfinished">Altezza della piastra:</translation>
+    </message>
+    <message>
+        <source>Width of the plate:</source>
+        <translation type="unfinished">Larghezza della piastra:</translation>
+    </message>
+    <message>
+        <source>A hollow box of %1 mm sheet, open at the front, the plate against its back.</source>
+        <translation type="unfinished">Una scatola cava in lamiera da %1 mm, aperta davanti, con la piastra sul fondo.</translation>
+    </message>
+    <message>
+        <source>cabinet</source>
+        <translation type="unfinished">quadro</translation>
+    </message>
+    <message>
+        <source>Export the cabinet as STEP</source>
+        <translation type="unfinished">Esporta il quadro come STEP</translation>
+    </message>
+    <message>
+        <source>Written: %1</source>
+        <translation type="unfinished">Scritto: %1</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDevices</name>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Impossibile leggere %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source>Box %1 × %2 mm</source>
+        <comment>a device drawn by its mounting measures</comment>
+        <translation type="unfinished">Scatola %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetDialogs</name>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Orizzontale</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Verticale</translation>
+    </message>
+    <message>
+        <source>Add a wire duct</source>
+        <translation type="unfinished">Aggiungi una canalina</translation>
+    </message>
+    <message>
+        <source>Width (mm):</source>
+        <translation type="unfinished">Larghezza (mm):</translation>
+    </message>
+    <message>
+        <source>Height (mm):</source>
+        <translation type="unfinished">Altezza (mm):</translation>
+    </message>
+    <message>
+        <source>Then draw the duct on the sheet: click where it starts, click again where it ends.</source>
+        <translation type="unfinished">Poi disegna la canalina sul foglio: fai clic dove inizia, poi dove finisce.</translation>
+    </message>
+    <message>
+        <source>Type the width and the height in millimetres, for example 40.</source>
+        <translation type="unfinished">Scrivi larghezza e altezza in millimetri, per esempio 40.</translation>
+    </message>
+    <message>
+        <source>Add a mounting plate</source>
+        <translation type="unfinished">Aggiungi una piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>By measures</source>
+        <translation type="unfinished">A misure</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure of the parts database</source>
+        <translation type="unfinished">La piastra di un involucro del database articoli</translation>
+    </message>
+    <message>
+        <source>Choose the enclosure...</source>
+        <translation type="unfinished">Scegli l'involucro...</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General)</source>
+        <translation type="unfinished">Il database articoli non è in uso (Impostazioni &gt; Generale)</translation>
+    </message>
+    <message>
+        <source>Other size</source>
+        <translation type="unfinished">Altra dimensione</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>Usual sizes:</source>
+        <translation type="unfinished">Dimensioni comuni:</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Larghezza:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Altezza:</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes.</source>
+        <translation type="unfinished">Poi fai clic sul foglio dove va la piastra.</translation>
+    </message>
+    <message>
+        <source>Then click on the sheet where the plate goes: the enclosure opens in 3D, click its mounting plate there and the plate takes its size.</source>
+        <translation type="unfinished">Poi fai clic sul foglio dove va la piastra: l'involucro si apre in 3D, fai clic lì sulla sua piastra di montaggio e la piastra ne prende la dimensione.</translation>
+    </message>
+    <message>
+        <source>%1 %2 has no STEP model in the parts database: its plate cannot be chosen in 3D.</source>
+        <translation type="unfinished">%1 %2 non ha un modello STEP nel database articoli: la sua piastra non può essere scelta in 3D.</translation>
+    </message>
+    <message>
+        <source>Scale of the cabinet</source>
+        <translation type="unfinished">Scala del quadro</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Scala:</translation>
+    </message>
+    <message>
+        <source>At 1:5, 5 mm of the cabinet take 1 mm of the sheet. The parts keep their measures: they are drawn again at the new scale.</source>
+        <translation type="unfinished">A 1:5, 5 mm del quadro occupano 1 mm del foglio. Le parti mantengono le loro misure: vengono ridisegnate alla nuova scala.</translation>
+    </message>
+    <message>
+        <source>Type a scale such as 1:5.</source>
+        <translation type="unfinished">Scrivi una scala come 1:5.</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">Guida DIN</translation>
+    </message>
+    <message>
+        <source>Profile:</source>
+        <translation type="unfinished">Profilo:</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Lunghezza:</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished">Direzione:</translation>
+    </message>
+    <message>
+        <source>Wire duct</source>
+        <translation type="unfinished">Canalina</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Disegni DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Impossibile leggere %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source>DXF: %1 lines drawn; left out: %2</source>
+        <translation type="unfinished">DXF: %1 linee disegnate; tralasciati: %2</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetEnclosure</name>
+    <message>
+        <source>The measures of the enclosure do not make a box.</source>
+        <translation type="unfinished">Le misure dell'involucro non formano una scatola.</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Involucro</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Fondo</translation>
+    </message>
+    <message>
+        <source>Left side</source>
+        <translation type="unfinished">Lato sinistro</translation>
+    </message>
+    <message>
+        <source>Right side</source>
+        <translation type="unfinished">Lato destro</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Tetto</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Base</translation>
+    </message>
+    <message>
+        <source>Mounting plate</source>
+        <translation type="unfinished">Piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">Impossibile leggere %1: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not in use.</source>
+        <translation type="unfinished">Il database articoli non è in uso.</translation>
+    </message>
+    <message>
+        <source>The parts database has no part %1.</source>
+        <translation type="unfinished">Il database articoli non ha l'articolo %1.</translation>
+    </message>
+    <message>
+        <source>The part %1 has no STEP model.</source>
+        <translation type="unfinished">L'articolo %1 non ha un modello STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetItem</name>
+    <message>
+        <source>a mounting plate</source>
+        <translation type="unfinished">una piastra di montaggio</translation>
+    </message>
+    <message>
+        <source>a DIN rail</source>
+        <translation type="unfinished">una guida DIN</translation>
+    </message>
+    <message>
+        <source>a wire duct</source>
+        <translation type="unfinished">una canalina</translation>
+    </message>
+    <message>
+        <source>a DXF drawing</source>
+        <translation type="unfinished">un disegno DXF</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm</source>
+        <comment>width and height of a mounting plate</comment>
+        <translation type="unfinished">%1 × %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>profile and length of a DIN rail</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1×%2 · %3 mm</source>
+        <comment>width, height and length of a wire duct</comment>
+        <translation type="unfinished">%1×%2 · %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 mm</source>
+        <comment>width and length of a wire duct</comment>
+        <translation type="unfinished">%1 · %2 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>device, width and height of its DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 · %2 × %3 mm</source>
+        <comment>file, width and height of a DXF drawing</comment>
+        <translation type="unfinished">%1 · %2 × %3 mm</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting</name>
+    <message>
+        <source>The mounting plate of this routing sheet is no longer on its cabinet sheet.</source>
+        <translation type="unfinished">La piastra di montaggio di questo foglio di instradamento non è più sul suo foglio quadro.</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Conduttore</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Da</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Morsetto</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Sezione</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Colore</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Length (mm)</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Lunghezza (mm)</translation>
+    </message>
+    <message>
+        <source>Way</source>
+        <comment>routing CSV header</comment>
+        <translation type="unfinished">Percorso</translation>
+    </message>
+    <message>
+        <source>Routing sheet</source>
+        <translation type="unfinished">Foglio di instradamento</translation>
+    </message>
+    <message>
+        <source>Put a mounting plate on this cabinet sheet first: a routing sheet shows the ways of the wires on one plate.</source>
+        <translation type="unfinished">Metti prima una piastra di montaggio su questo foglio quadro: un foglio di instradamento mostra i percorsi dei conduttori su una piastra.</translation>
+    </message>
+    <message>
+        <source>Plate %1: %2 × %3 mm</source>
+        <comment>a mounting plate to route</comment>
+        <translation type="unfinished">Piastra %1: %2 × %3 mm</translation>
+    </message>
+    <message>
+        <source>Mounting plate to route:</source>
+        <translation type="unfinished">Piastra di montaggio da instradare:</translation>
+    </message>
+    <message>
+        <source>Calculate the routing</source>
+        <translation type="unfinished">Calcola l'instradamento</translation>
+    </message>
+    <message numerus="yes">
+        <source>Keep the %n way(s) changed by hand?</source>
+        <translation type="unfinished">
+            <numerusform>Mantenere il percorso modificato a mano?</numerusform>
+            <numerusform>Mantenere i %n percorsi modificati a mano?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) routed on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>%n conduttore instradato su questa piastra.</numerusform>
+            <numerusform>%n conduttori instradati su questa piastra.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n way(s) changed by hand kept.</source>
+        <translation type="unfinished">
+            <numerusform>%n percorso modificato a mano mantenuto.</numerusform>
+            <numerusform>%n percorsi modificati a mano mantenuti.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) with no duct between their devices: a straight line, in red.</source>
+        <translation type="unfinished">
+            <numerusform>%n conduttore senza canalina tra i suoi dispositivi: una linea retta, in rosso.</numerusform>
+            <numerusform>%n conduttori senza canalina tra i loro dispositivi: una linea retta, in rosso.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) left out: one of their ends has no drawing on this plate.</source>
+        <translation type="unfinished">
+            <numerusform>%n conduttore tralasciato: una delle sue estremità non ha disegno su questa piastra.</numerusform>
+            <numerusform>%n conduttori tralasciati: una delle loro estremità non ha disegno su questa piastra.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Export the routing</source>
+        <translation type="unfinished">Esporta l'instradamento</translation>
+    </message>
+    <message>
+        <source>This routing sheet has no way yet: calculate the routing first.</source>
+        <translation type="unfinished">Questo foglio di instradamento non ha ancora percorsi: calcola prima l'instradamento.</translation>
+    </message>
+    <message>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished">File CSV (*.csv)</translation>
+    </message>
+    <message>
+        <source>Unable to open the file for writing.</source>
+        <translation type="unfinished">Impossibile aprire il file in scrittura.</translation>
+    </message>
+    <message>
+        <source>Wire %1</source>
+        <translation type="unfinished">Conduttore %1</translation>
+    </message>
+    <message>
+        <source>Length: %1 mm</source>
+        <translation type="unfinished">Lunghezza: %1 mm</translation>
+    </message>
+    <message>
+        <source>Reset the position</source>
+        <translation type="unfinished">Ripristina la posizione</translation>
+    </message>
+    <message numerus="yes">
+        <source>Reset the position of %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Ripristina la posizione di %n conduttore</numerusform>
+            <numerusform>Ripristina la posizione di %n conduttori</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Change the way of a wire</source>
+        <translation type="unfinished">Cambia il percorso di un conduttore</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetRouting::Route</name>
+    <message>
+        <source>changed by hand</source>
+        <translation type="unfinished">modificato a mano</translation>
+    </message>
+    <message>
+        <source>through the ducts</source>
+        <translation type="unfinished">attraverso le canaline</translation>
+    </message>
+    <message>
+        <source>no duct: straight line</source>
+        <translation type="unfinished">senza canalina: linea retta</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetSpace</name>
+    <message>
+        <source>the duct %1</source>
+        <translation type="unfinished">la canalina %1</translation>
+    </message>
+    <message>
+        <source>the rail %1</source>
+        <translation type="unfinished">la guida %1</translation>
+    </message>
+    <message>
+        <source>above</source>
+        <translation type="unfinished">sopra</translation>
+    </message>
+    <message>
+        <source>below</source>
+        <translation type="unfinished">sotto</translation>
+    </message>
+    <message>
+        <source>on its left</source>
+        <translation type="unfinished">alla sua sinistra</translation>
+    </message>
+    <message>
+        <source>on its right</source>
+        <translation type="unfinished">alla sua destra</translation>
+    </message>
+    <message>
+        <source>in front</source>
+        <translation type="unfinished">davanti</translation>
+    </message>
+    <message>
+        <source>behind</source>
+        <translation type="unfinished">dietro</translation>
+    </message>
+    <message>
+        <source>%1 and %2 are %3 mm into each other</source>
+        <translation type="unfinished">%1 e %2 si compenetrano di %3 mm</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: the enclosure leaves %4 mm too few</source>
+        <translation type="unfinished">%1 chiede %2 mm liberi %3: l'involucro ne lascia %4 mm in meno</translation>
+    </message>
+    <message>
+        <source>%1 asks for %2 mm free %3: %4 is %5 mm too near</source>
+        <translation type="unfinished">%1 chiede %2 mm liberi %3: %4 è %5 mm troppo vicino</translation>
+    </message>
+    <message>
+        <source>%1 keeps the door from closing: it is %2 mm too deep</source>
+        <translation type="unfinished">%1 impedisce la chiusura della porta: è %2 mm troppo profondo</translation>
+    </message>
+    <message>
+        <source>%1 goes %2 mm through the enclosure %3</source>
+        <translation type="unfinished">%1 attraversa l'involucro di %2 mm %3</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetStep</name>
+    <message>
+        <source>The STEP file cannot be read.</source>
+        <translation type="unfinished">Impossibile leggere il file STEP.</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no shape.</source>
+        <translation type="unfinished">Il file STEP non contiene forme.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished">Parte %1</translation>
+    </message>
+    <message>
+        <source>The STEP file holds no surface.</source>
+        <translation type="unfinished">Il file STEP non contiene superfici.</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot read STEP files.</source>
+        <translation type="unfinished">FaseCAD è stato compilato senza OpenCASCADE: non può leggere file STEP.</translation>
+    </message>
+    <message>
+        <source>The cabinet could not be written as STEP.</source>
+        <translation type="unfinished">Impossibile scrivere il quadro come STEP.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written: %2</source>
+        <translation type="unfinished">Impossibile scrivere %1: %2</translation>
+    </message>
+    <message>
+        <source>FaseCAD was built without OpenCASCADE: it cannot write STEP files.</source>
+        <translation type="unfinished">FaseCAD è stato compilato senza OpenCASCADE: non può scrivere file STEP.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermal</name>
+    <message>
+        <source>Free-standing, every side free</source>
+        <translation type="unfinished">Isolato, tutti i lati liberi</translation>
+    </message>
+    <message>
+        <source>Against a wall</source>
+        <translation type="unfinished">Contro una parete</translation>
+    </message>
+    <message>
+        <source>At the end of a row</source>
+        <translation type="unfinished">In fondo a una fila</translation>
+    </message>
+    <message>
+        <source>At the end of a row, against a wall</source>
+        <translation type="unfinished">In fondo a una fila, contro una parete</translation>
+    </message>
+    <message>
+        <source>In the middle of a row</source>
+        <translation type="unfinished">In mezzo a una fila</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall</source>
+        <translation type="unfinished">In mezzo a una fila, contro una parete</translation>
+    </message>
+    <message>
+        <source>In the middle of a row, against a wall, its top covered</source>
+        <translation type="unfinished">In mezzo a una fila, contro una parete, tetto coperto</translation>
+    </message>
+    <message>
+        <source>Painted sheet steel (5.5 W/m²K)</source>
+        <translation type="unfinished">Lamiera d'acciaio verniciata (5,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Stainless steel (4.5 W/m²K)</source>
+        <translation type="unfinished">Acciaio inossidabile (4,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Aluminium (12 W/m²K)</source>
+        <translation type="unfinished">Alluminio (12 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Plastic (3.5 W/m²K)</source>
+        <translation type="unfinished">Plastica (3,5 W/m²K)</translation>
+    </message>
+    <message>
+        <source>Draw the mounting plate on the sheet to see where the heat is.</source>
+        <translation type="unfinished">Disegna la piastra di montaggio sul foglio per vedere dov'è il calore.</translation>
+    </message>
+</context>
+<context>
+    <name>CabinetThermalDialog</name>
+    <message>
+        <source>Thermal analysis of the cabinet</source>
+        <translation type="unfinished">Analisi termica del quadro</translation>
+    </message>
+    <message>
+        <source> mm</source>
+        <translation type="unfinished"> mm</translation>
+    </message>
+    <message>
+        <source>Enclosure (width × height × depth):</source>
+        <translation type="unfinished">Involucro (larghezza × altezza × profondità):</translation>
+    </message>
+    <message>
+        <source>Where it stands:</source>
+        <translation type="unfinished">Posizione:</translation>
+    </message>
+    <message>
+        <source>Enclosure made of:</source>
+        <translation type="unfinished">Involucro in:</translation>
+    </message>
+    <message>
+        <source> °C</source>
+        <translation type="unfinished"> °C</translation>
+    </message>
+    <message>
+        <source>Temperature outside:</source>
+        <translation type="unfinished">Temperatura esterna:</translation>
+    </message>
+    <message>
+        <source>The highest the devices may have inside, often 35 to 40 °C</source>
+        <translation type="unfinished">La più alta che i dispositivi possono avere all'interno, spesso da 35 a 40 °C</translation>
+    </message>
+    <message>
+        <source>Highest temperature inside:</source>
+        <translation type="unfinished">Temperatura interna massima:</translation>
+    </message>
+    <message>
+        <source>Where the heat is: the hot air goes up, and each device warms what is around it. An estimate to see the hot spots, not a simulation of the air.</source>
+        <translation type="unfinished">Dov'è il calore: l'aria calda sale, e ogni dispositivo scalda ciò che ha attorno. Una stima per vedere i punti caldi, non una simulazione dell'aria.</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Dispositivo</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Articolo</translation>
+    </message>
+    <message>
+        <source>Power loss</source>
+        <translation type="unfinished">Potenza dissipata</translation>
+    </message>
+    <message>
+        <source>(no part)</source>
+        <translation type="unfinished">(nessun articolo)</translation>
+    </message>
+    <message>
+        <source>%1 W</source>
+        <translation type="unfinished">%1 W</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">non indicato</translation>
+    </message>
+    <message numerus="yes">
+        <source>Heat given off: &lt;b&gt;%1 W&lt;/b&gt; by %n device(s).</source>
+        <translation type="unfinished">
+            <numerusform>Calore dissipato: &lt;b&gt;%1 W&lt;/b&gt; da %n dispositivo.</numerusform>
+            <numerusform>Calore dissipato: &lt;b&gt;%1 W&lt;/b&gt; da %n dispositivi.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Surface giving it out: %1 m².</source>
+        <translation type="unfinished">Superficie che lo dissipa: %1 m².</translation>
+    </message>
+    <message>
+        <source>Temperature inside: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K above the outside.</source>
+        <translation type="unfinished">Temperatura interna: &lt;b&gt;%1 °C&lt;/b&gt;, %2 K sopra l'esterno.</translation>
+    </message>
+    <message>
+        <source>Below the highest temperature: the enclosure needs no cooling.</source>
+        <translation type="unfinished">Sotto la temperatura massima: l'involucro non ha bisogno di raffreddamento.</translation>
+    </message>
+    <message>
+        <source>Too hot: %1 W to take out, with a filter fan of at least %2 m³/h, or a cooling unit of at least %1 W.</source>
+        <translation type="unfinished">Troppo caldo: %1 W da smaltire, con un ventilatore con filtro di almeno %2 m³/h, o un condizionatore di almeno %1 W.</translation>
+    </message>
+    <message>
+        <source>Too hot: a cooling unit of at least %1 W. A fan cannot help: the outside is not cooler than the highest temperature.</source>
+        <translation type="unfinished">Troppo caldo: un condizionatore di almeno %1 W. Un ventilatore non basta: fuori non è più fresco della temperatura massima.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Warning: %n device(s) have no power loss in the parts database and count as 0 W, so the cabinet is hotter than shown: %1</source>
+        <translation type="unfinished">
+            <numerusform>Attenzione: %n dispositivo non ha potenza dissipata nel database articoli e conta come 0 W, quindi il quadro è più caldo di quanto mostrato: %1</numerusform>
+            <numerusform>Attenzione: %n dispositivi non hanno potenza dissipata nel database articoli e contano come 0 W, quindi il quadro è più caldo di quanto mostrato: %1</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableChecks</name>
+    <message>
+        <source>No name</source>
+        <translation type="unfinished">Nessun nome</translation>
+    </message>
+    <message>
+        <source>Name used by another cable</source>
+        <translation type="unfinished">Nome usato da un altro cavo</translation>
+    </message>
+    <message>
+        <source>No cable type</source>
+        <translation type="unfinished">Nessun tipo di cavo</translation>
+    </message>
+    <message>
+        <source>No core wired</source>
+        <translation type="unfinished">Nessun conduttore cablato</translation>
+    </message>
+    <message>
+        <source>No spare core</source>
+        <translation type="unfinished">Nessun conduttore di riserva</translation>
+    </message>
+    <message numerus="yes">
+        <source>Only %n spare core(s)</source>
+        <translation type="unfinished">
+            <numerusform>Solo %n conduttore di riserva</numerusform>
+            <numerusform>Solo %n conduttori di riserva</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>CableManagerDialog</name>
+    <message>
+        <source>Cable manager - %1</source>
+        <translation type="unfinished">Gestore cavi - %1</translation>
+    </message>
+    <message>
+        <source>Search a cable</source>
+        <translation type="unfinished">Cerca un cavo</translation>
+    </message>
+    <message>
+        <source>Only cables with problems</source>
+        <translation type="unfinished">Solo i cavi con problemi</translation>
+    </message>
+    <message>
+        <source>A cable with fewer free cores than this is marked. 0 checks nothing.</source>
+        <translation type="unfinished">Un cavo con meno conduttori liberi di questo numero viene segnalato. 0 non controlla nulla.</translation>
+    </message>
+    <message>
+        <source>Spare cores wanted:</source>
+        <translation type="unfinished">Conduttori di riserva desiderati:</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Tipo</translation>
+    </message>
+    <message>
+        <source>Cores used</source>
+        <translation type="unfinished">Conduttori usati</translation>
+    </message>
+    <message>
+        <source>Spare</source>
+        <translation type="unfinished">Riserva</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inizio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fine</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished">Lunghezza</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Impianto</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Ubicazione</translation>
+    </message>
+    <message>
+        <source>Problems</source>
+        <translation type="unfinished">Problemi</translation>
+    </message>
+    <message>
+        <source>Double-click a name, a length, an installation or a location to change it.</source>
+        <translation type="unfinished">Fai doppio clic su un nome, una lunghezza, un impianto o un'ubicazione per modificarlo.</translation>
+    </message>
+    <message>
+        <source>Edit the selected cables...</source>
+        <translation type="unfinished">Modifica i cavi selezionati...</translation>
+    </message>
+    <message>
+        <source>Properties...</source>
+        <translation type="unfinished">Proprietà...</translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Mostra sul foglio</translation>
+    </message>
+    <message>
+        <source>Core</source>
+        <translation type="unfinished">Conduttore</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Colore</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished">Stato</translation>
+    </message>
+    <message>
+        <source>Wire</source>
+        <translation type="unfinished">Filo</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished">Da</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n cavo</numerusform>
+            <numerusform>%n cavi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 cores used</source>
+        <translation type="unfinished">%1 di %2 conduttori usati</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n with problems</source>
+        <translation type="unfinished">
+            <numerusform>%n con problemi</numerusform>
+            <numerusform>%n con problemi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select a cable to see its cores.</source>
+        <translation type="unfinished">Seleziona un cavo per vederne i conduttori.</translation>
+    </message>
+    <message>
+        <source>Select one cable to see its cores.</source>
+        <translation type="unfinished">Seleziona un solo cavo per vederne i conduttori.</translation>
+    </message>
+    <message>
+        <source>Cores of %1: %2 used, %3 spare</source>
+        <translation type="unfinished">Conduttori di %1: %2 usati, %3 di riserva</translation>
+    </message>
+    <message numerus="yes">
+        <source>Edit %n cable(s)</source>
+        <translation type="unfinished">
+            <numerusform>Modifica %n cavo</numerusform>
+            <numerusform>Modifica %n cavi</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTerminalTextsCommand</name>
+    <message>
+        <source>Change the texts of the terminals</source>
+        <translation type="unfinished">Modifica i testi dei morsetti</translation>
+    </message>
+</context>
+<context>
+    <name>DevicesPanel</name>
+    <message>
+        <source>Search a device</source>
+        <translation type="unfinished">Cerca un dispositivo</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished">Sigla</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>Article</source>
+        <translation type="unfinished">Articolo</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message>
+        <source>Double-click a device to show it on its sheet. Shift and Ctrl select several, Delete removes them.</source>
+        <translation type="unfinished">Fai doppio clic su un dispositivo per mostrarlo sul suo foglio. Maiusc e Ctrl ne selezionano più di uno, Canc li elimina.</translation>
+    </message>
+    <message>
+        <source>Number...</source>
+        <translation type="unfinished">Numera...</translation>
+    </message>
+    <message>
+        <source>Rename the selected devices one after the other from a first label: -K1, -K2...</source>
+        <translation type="unfinished">Rinomina i dispositivi selezionati uno dopo l'altro a partire da una prima sigla: -K1, -K2...</translation>
+    </message>
+    <message numerus="yes">
+        <source>Drawn on the cabinet sheet(s) %1</source>
+        <translation type="unfinished">
+            <numerusform>Disegnato sul foglio quadro %1</numerusform>
+            <numerusform>Disegnato sui fogli quadro %1</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>(No label)</source>
+        <translation type="unfinished">(Senza sigla)</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of this device</source>
+        <translation type="unfinished">
+            <numerusform>%n simbolo di questo dispositivo</numerusform>
+            <numerusform>%n simboli di questo dispositivo</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show on the sheet</source>
+        <translation type="unfinished">Mostra sul foglio</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Elimina</translation>
+    </message>
+    <message>
+        <source>Insert the DXF on a cabinet sheet</source>
+        <translation type="unfinished">Inserisci il DXF su un foglio quadro</translation>
+    </message>
+    <message>
+        <source>The selected devices are on a cabinet sheet already.</source>
+        <translation type="unfinished">I dispositivi selezionati sono già su un foglio quadro.</translation>
+    </message>
+    <message>
+        <source>The project has no cabinet construction sheet. Add one at the end of the project?</source>
+        <translation type="unfinished">Il progetto non ha un foglio di costruzione quadro. Aggiungerne uno alla fine del progetto?</translation>
+    </message>
+    <message>
+        <source>%1 (%2 of %3): click where it goes | Right click to skip it | Esc to stop</source>
+        <translation type="unfinished">%1 (%2 di %3): fai clic dove va | Clic destro per saltarlo | Esc per fermarti</translation>
+    </message>
+    <message>
+        <source>%1 has no DXF in its parts: choose a DXF file</source>
+        <translation type="unfinished">%1 non ha DXF nei suoi articoli: scegli un file DXF</translation>
+    </message>
+    <message>
+        <source>Number devices</source>
+        <translation type="unfinished">Numera i dispositivi</translation>
+    </message>
+    <message>
+        <source>First label:</source>
+        <translation type="unfinished">Prima sigla:</translation>
+    </message>
+    <message>
+        <source>Step:</source>
+        <translation type="unfinished">Passo:</translation>
+    </message>
+    <message>
+        <source>New label</source>
+        <translation type="unfinished">Nuova sigla</translation>
+    </message>
+    <message>
+        <source>These labels belong to other devices already: %1. Nothing was renamed.</source>
+        <translation type="unfinished">Queste sigle appartengono già ad altri dispositivi: %1. Nulla è stato rinominato.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Numera %n dispositivo</numerusform>
+            <numerusform>Numera %n dispositivi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Delete devices</source>
+        <translation type="unfinished">Elimina dispositivi</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s), with their wires?</source>
+        <translation type="unfinished">
+            <numerusform>Eliminare %n dispositivo, con i suoi conduttori?</numerusform>
+            <numerusform>Eliminare %n dispositivi, con i loro conduttori?</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete %n device(s)</source>
+        <translation type="unfinished">
+            <numerusform>Elimina %n dispositivo</numerusform>
+            <numerusform>Elimina %n dispositivi</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddCabinetItem</name>
+    <message>
+        <source>%1 mm</source>
+        <comment>length of the part being drawn</comment>
+        <translation type="unfinished">%1 mm</translation>
+    </message>
+    <message>
+        <source>%1 mm ⏎</source>
+        <comment>length typed for the part being drawn, Enter accepts it</comment>
+        <translation type="unfinished">%1 mm ⏎</translation>
+    </message>
+    <message>
+        <source>middle left</source>
+        <translation type="unfinished">centro sinistra</translation>
+    </message>
+    <message>
+        <source>top left</source>
+        <translation type="unfinished">in alto a sinistra</translation>
+    </message>
+    <message>
+        <source>top middle</source>
+        <translation type="unfinished">in alto al centro</translation>
+    </message>
+    <message>
+        <source>top right</source>
+        <translation type="unfinished">in alto a destra</translation>
+    </message>
+    <message>
+        <source>middle right</source>
+        <translation type="unfinished">centro destra</translation>
+    </message>
+    <message>
+        <source>bottom right</source>
+        <translation type="unfinished">in basso a destra</translation>
+    </message>
+    <message>
+        <source>bottom middle</source>
+        <translation type="unfinished">in basso al centro</translation>
+    </message>
+    <message>
+        <source>bottom left</source>
+        <translation type="unfinished">in basso a sinistra</translation>
+    </message>
+    <message>
+        <source>centre</source>
+        <translation type="unfinished">centro</translation>
+    </message>
+    <message>
+        <source> | Tab: anchor point (%1)</source>
+        <comment>the anchor point of the part being placed</comment>
+        <translation type="unfinished"> | Tab: punto di aggancio (%1)</translation>
+    </message>
+    <message>
+        <source>Mounting plate: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Piastra di montaggio: fai clic dove va | Esc per annullare</translation>
+    </message>
+    <message>
+        <source>DXF drawing: click where it goes | Esc to cancel</source>
+        <translation type="unfinished">Disegno DXF: fai clic dove va | Esc per annullare</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Guida DIN: fai clic dove finisce, o scrivi la lunghezza in mm e premi Invio | Esc per rinunciare</translation>
+    </message>
+    <message>
+        <source>DIN rail: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">Guida DIN: fai clic dove inizia | Clic destro o Esc per finire</translation>
+    </message>
+    <message>
+        <source>Wire duct: click where it ends, or type its length in mm and press Enter | Esc to give it up</source>
+        <translation type="unfinished">Canalina: fai clic dove finisce, o scrivi la lunghezza in mm e premi Invio | Esc per rinunciare</translation>
+    </message>
+    <message>
+        <source>Wire duct of %1 mm: click where it starts | Right click or Esc to finish</source>
+        <translation type="unfinished">Canalina da %1 mm: fai clic dove inizia | Clic destro o Esc per finire</translation>
+    </message>
+</context>
+<context>
+    <name>DockAutoHide</name>
+    <message>
+        <source>Hide this panel automatically</source>
+        <translation type="unfinished">Nascondi automaticamente questo pannello</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Chiudi</translation>
+    </message>
+    <message>
+        <source>Keep this panel open</source>
+        <translation type="unfinished">Tieni aperto questo pannello</translation>
+    </message>
+    <message>
+        <source>Drag to change the width of the panel</source>
+        <translation type="unfinished">Trascina per cambiare la larghezza del pannello</translation>
+    </message>
+    <message>
+        <source>Folded panels</source>
+        <translation type="unfinished">Pannelli ripiegati</translation>
+    </message>
+</context>
+<context>
+    <name>DxfReader</name>
+    <message>
+        <source>The file could not be opened: %1</source>
+        <translation type="unfinished">Impossibile aprire il file: %1</translation>
+    </message>
+    <message>
+        <source>This DXF file is binary: save it again as a text (ASCII) DXF.</source>
+        <translation type="unfinished">Questo file DXF è binario: salvalo di nuovo come DXF di testo (ASCII).</translation>
+    </message>
+    <message>
+        <source>This file is not a DXF drawing.</source>
+        <translation type="unfinished">Questo file non è un disegno DXF.</translation>
+    </message>
+    <message>
+        <source>This DXF file holds no line this program can draw.</source>
+        <translation type="unfinished">Questo file DXF non contiene linee che questo programma possa disegnare.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPartsWidget</name>
+    <message>
+        <source>Units</source>
+        <translation type="unfinished">Unità</translation>
+    </message>
+    <message>
+        <source>Add a part...</source>
+        <translation type="unfinished">Aggiungi un articolo...</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database this element is made of, and how many units of each.</source>
+        <translation type="unfinished">Gli articoli del database articoli di cui è composto questo elemento, e quante unità di ciascuno.</translation>
+    </message>
+    <message>
+        <source>Use the parts database (Settings &gt; General) to choose the parts of this element.</source>
+        <translation type="unfinished">Usa il database articoli (Impostazioni &gt; Generale) per scegliere gli articoli di questo elemento.</translation>
+    </message>
+    <message>
+        <source>(not in the parts database)</source>
+        <translation type="unfinished">(non nel database articoli)</translation>
+    </message>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+    <message>
+        <source>Parts</source>
+        <translation type="unfinished">Articoli</translation>
+    </message>
+    <message>
+        <source>The part is added. The element information holds the main article and one auxiliary one: this part has no block of its own there.</source>
+        <translation type="unfinished">L'articolo è stato aggiunto. Le informazioni dell'elemento contengono l'articolo principale e uno ausiliario: questo articolo non vi ha un blocco proprio.</translation>
+    </message>
+    <message>
+        <source>the main article</source>
+        <translation type="unfinished">l'articolo principale</translation>
+    </message>
+    <message>
+        <source>the auxiliary article %1</source>
+        <translation type="unfinished">l'articolo ausiliario %1</translation>
+    </message>
+    <message>
+        <source>Overwrite %1 of the element information with the data of this part (manufacturer, order number, description...)?</source>
+        <translation type="unfinished">Sovrascrivere %1 delle informazioni dell'elemento con i dati di questo articolo (costruttore, codice d'ordine, descrizione...)?</translation>
+    </message>
+</context>
+<context>
+    <name>ElementTerminalTextsWidget</name>
+    <message>
+        <source>The text of a terminal replaces its name on the folio, in the terminal strip plans and in the lists, and the number the symbol draws beside the terminal changes with it. Leave the name of the symbol, or nothing, to keep that name.</source>
+        <translation type="unfinished">Il testo di un morsetto sostituisce il suo nome sul foglio, negli schemi delle morsettiere e negli elenchi, e il numero che il simbolo disegna accanto al morsetto cambia con esso. Lascia il nome del simbolo, o niente, per mantenere quel nome.</translation>
+    </message>
+    <message>
+        <source>Terminal of the symbol</source>
+        <translation type="unfinished">Morsetto del simbolo</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Testo</translation>
+    </message>
+    <message>
+        <source>Terminal texts</source>
+        <translation type="unfinished">Testi dei morsetti</translation>
+    </message>
+    <message>
+        <source>(no name)</source>
+        <translation type="unfinished">(senza nome)</translation>
+    </message>
+</context>
+<context>
+    <name>ElementXRefDisplayWidget</name>
+    <message>
+        <source>How the contacts of this device are shown beside it. For a manual position, Shift-drag the display on the folio, or enter where it stands.</source>
+        <translation type="unfinished">Come vengono mostrati i contatti di questo dispositivo accanto ad esso. Per una posizione manuale, trascina la visualizzazione sul foglio con Maiusc, o inserisci dove si trova.</translation>
+    </message>
+    <message>
+        <source>Use the project setting</source>
+        <translation type="unfinished">Usa l'impostazione del progetto</translation>
+    </message>
+    <message>
+        <source>Project properties, Cross references page</source>
+        <translation type="unfinished">Proprietà del progetto, pagina Riferimenti incrociati</translation>
+    </message>
+    <message>
+        <source>Contact mirror</source>
+        <translation type="unfinished">Specchio contatti</translation>
+    </message>
+    <message>
+        <source>Change relay contact display</source>
+        <translation type="unfinished">Cambia la visualizzazione dei contatti del relè</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadAccount</name>
+    <message>
+        <source>Sign in to fasecad.com</source>
+        <translation type="unfinished">Accedi a fasecad.com</translation>
+    </message>
+    <message>
+        <source>Your FaseCAD account, for the AI and the official parts catalog.</source>
+        <translation type="unfinished">Il tuo account FaseCAD, per l'IA e il catalogo ufficiale degli articoli.</translation>
+    </message>
+    <message>
+        <source>User or email:</source>
+        <translation type="unfinished">Utente o e-mail:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Password:</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished">Crea un account</translation>
+    </message>
+    <message>
+        <source>Forgot the password?</source>
+        <translation type="unfinished">Password dimenticata?</translation>
+    </message>
+    <message>
+        <source>My FaseCAD</source>
+        <translation type="unfinished">Il mio FaseCAD</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Accedi</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation type="unfinished">Esci</translation>
+    </message>
+</context>
+<context>
+    <name>FaseCadServices</name>
+    <message>
+        <source>The user or the password is wrong.</source>
+        <translation type="unfinished">Utente o password errati.</translation>
+    </message>
+    <message>
+        <source>fasecad.com cannot be reached: %1</source>
+        <translation type="unfinished">fasecad.com non è raggiungibile: %1</translation>
+    </message>
+    <message>
+        <source>Your account is open on another computer.</source>
+        <translation type="unfinished">Il tuo account è aperto su un altro computer.</translation>
+    </message>
+    <message>
+        <source>The services of fasecad.com are not open yet.</source>
+        <translation type="unfinished">I servizi di fasecad.com non sono ancora aperti.</translation>
+    </message>
+    <message>
+        <source>Your account was opened on another computer: this session was closed.</source>
+        <translation type="unfinished">Il tuo account è stato aperto su un altro computer: questa sessione è stata chiusa.</translation>
+    </message>
+    <message>
+        <source>Your subscription is not running.</source>
+        <translation type="unfinished">Il tuo abbonamento non è attivo.</translation>
+    </message>
+    <message>
+        <source>Too many messages today: try again tomorrow.</source>
+        <translation type="unfinished">Troppi messaggi oggi: riprova domani.</translation>
+    </message>
+    <message>
+        <source>The message could not be sent: %1</source>
+        <translation type="unfinished">Impossibile inviare il messaggio: %1</translation>
+    </message>
+</context>
+<context>
+    <name>FolioIndex</name>
+    <message>
+        <source>Folio index</source>
+        <translation type="unfinished">Indice dei fogli</translation>
+    </message>
+    <message>
+        <source>Folio index %1</source>
+        <translation type="unfinished">Indice dei fogli %1</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoriesDialog</name>
+    <message>
+        <source>Categories of the parts</source>
+        <translation type="unfinished">Categorie degli articoli</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Aggiungi...</translation>
+    </message>
+    <message>
+        <source>Add a subcategory...</source>
+        <translation type="unfinished">Aggiungi una sottocategoria...</translation>
+    </message>
+    <message>
+        <source>Rename...</source>
+        <translation type="unfinished">Rinomina...</translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished">Icona</translation>
+    </message>
+    <message>
+        <source>FaseCAD icons...</source>
+        <translation type="unfinished">Icone FaseCAD...</translation>
+    </message>
+    <message>
+        <source>Image file...</source>
+        <translation type="unfinished">File immagine...</translation>
+    </message>
+    <message>
+        <source>No icon</source>
+        <translation type="unfinished">Nessuna icona</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo</numerusform>
+            <numerusform>%n articoli</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) with its subcategories</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo con le sue sottocategorie</numerusform>
+            <numerusform>%n articoli con le sue sottocategorie</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This category comes with FaseCAD</source>
+        <translation type="unfinished">Questa categoria viene con FaseCAD</translation>
+    </message>
+    <message>
+        <source>New category</source>
+        <translation type="unfinished">Nuova categoria</translation>
+    </message>
+    <message>
+        <source>Name of the category:</source>
+        <translation type="unfinished">Nome della categoria:</translation>
+    </message>
+    <message>
+        <source>New subcategory</source>
+        <translation type="unfinished">Nuova sottocategoria</translation>
+    </message>
+    <message>
+        <source>Name of the subcategory of %1:</source>
+        <translation type="unfinished">Nome della sottocategoria di %1:</translation>
+    </message>
+    <message>
+        <source>Rename the category</source>
+        <translation type="unfinished">Rinomina la categoria</translation>
+    </message>
+    <message>
+        <source>New name of the category:</source>
+        <translation type="unfinished">Nuovo nome della categoria:</translation>
+    </message>
+    <message>
+        <source>Remove the category %1?</source>
+        <translation type="unfinished">Rimuovere la categoria %1?</translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) are left without category.</source>
+        <translation type="unfinished">
+            <numerusform>Il suo articolo resta senza categoria.</numerusform>
+            <numerusform>I suoi %n articoli restano senza categoria.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Its %n part(s) go to %1.</source>
+        <translation type="unfinished">
+            <numerusform>Il suo articolo va in %1.</numerusform>
+            <numerusform>I suoi %n articoli vanno in %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Its subcategories go up one level, with their parts.</source>
+        <translation type="unfinished">Le sue sottocategorie salgono di un livello, con i loro articoli.</translation>
+    </message>
+    <message>
+        <source>Remove the category</source>
+        <translation type="unfinished">Rimuovi la categoria</translation>
+    </message>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Icona della categoria</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</source>
+        <translation type="unfinished">Immagini (*.svg *.png *.jpg *.jpeg *.bmp *.ico)</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read or is larger than 512 KB.</source>
+        <translation type="unfinished">Il file %1 non può essere letto o supera 512 KB.</translation>
+    </message>
+    <message>
+        <source>The file %1 is not an image.</source>
+        <translation type="unfinished">Il file %1 non è un'immagine.</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIconPicker</name>
+    <message>
+        <source>Icon of the category</source>
+        <translation type="unfinished">Icona della categoria</translation>
+    </message>
+</context>
+<context>
+    <name>PartCategoryIcons</name>
+    <message>
+        <source>Terminal block</source>
+        <translation type="unfinished">Morsetto</translation>
+    </message>
+    <message>
+        <source>Circuit breaker</source>
+        <translation type="unfinished">Interruttore magnetotermico</translation>
+    </message>
+    <message>
+        <source>Residual current device</source>
+        <translation type="unfinished">Interruttore differenziale</translation>
+    </message>
+    <message>
+        <source>Motor protection</source>
+        <translation type="unfinished">Salvamotore</translation>
+    </message>
+    <message>
+        <source>Fuse</source>
+        <translation type="unfinished">Fusibile</translation>
+    </message>
+    <message>
+        <source>Contactor</source>
+        <translation type="unfinished">Contattore</translation>
+    </message>
+    <message>
+        <source>Relay</source>
+        <translation type="unfinished">Relè</translation>
+    </message>
+    <message>
+        <source>Disconnector</source>
+        <translation type="unfinished">Sezionatore</translation>
+    </message>
+    <message>
+        <source>Pilot light</source>
+        <translation type="unfinished">Spia luminosa</translation>
+    </message>
+    <message>
+        <source>Push button</source>
+        <translation type="unfinished">Pulsante</translation>
+    </message>
+    <message>
+        <source>Signal tower</source>
+        <translation type="unfinished">Colonna luminosa</translation>
+    </message>
+    <message>
+        <source>Operator panel</source>
+        <translation type="unfinished">Pannello operatore</translation>
+    </message>
+    <message>
+        <source>PLC</source>
+        <translation type="unfinished">PLC</translation>
+    </message>
+    <message>
+        <source>Drive</source>
+        <translation type="unfinished">Azionamento</translation>
+    </message>
+    <message>
+        <source>Power supply</source>
+        <translation type="unfinished">Alimentatore</translation>
+    </message>
+    <message>
+        <source>Signal conditioner</source>
+        <translation type="unfinished">Convertitore di segnale</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">Rete</translation>
+    </message>
+    <message>
+        <source>Sensor</source>
+        <translation type="unfinished">Sensore</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Connector</source>
+        <translation type="unfinished">Connettore</translation>
+    </message>
+    <message>
+        <source>Wire end ferrule</source>
+        <translation type="unfinished">Capocorda</translation>
+    </message>
+    <message>
+        <source>Busbar</source>
+        <translation type="unfinished">Sbarra</translation>
+    </message>
+    <message>
+        <source>DIN rail</source>
+        <translation type="unfinished">Guida DIN</translation>
+    </message>
+    <message>
+        <source>Enclosure</source>
+        <translation type="unfinished">Involucro</translation>
+    </message>
+    <message>
+        <source>Fan</source>
+        <translation type="unfinished">Ventilatore</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">Illuminazione</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Utensili</translation>
+    </message>
+    <message>
+        <source>Pneumatics</source>
+        <translation type="unfinished">Pneumatica</translation>
+    </message>
+    <message>
+        <source>Hydraulics</source>
+        <translation type="unfinished">Idraulica</translation>
+    </message>
+    <message>
+        <source>Transformer</source>
+        <translation type="unfinished">Trasformatore</translation>
+    </message>
+    <message>
+        <source>Motor</source>
+        <translation type="unfinished">Motore</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Altro</translation>
+    </message>
+</context>
+<context>
+    <name>PartFieldDialog</name>
+    <message>
+        <source>Data of the parts</source>
+        <translation type="unfinished">Dati degli articoli</translation>
+    </message>
+    <message>
+        <source>Search a piece of data, a value or a part...</source>
+        <translation type="unfinished">Cerca un dato, un valore o un articolo...</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Dato</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Valore</translation>
+    </message>
+    <message>
+        <source>Part</source>
+        <translation type="unfinished">Articolo</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n piece(s) of data</source>
+        <translation type="unfinished">
+            <numerusform>%n dato</numerusform>
+            <numerusform>%n dati</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>PartFunction</name>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Altro</translation>
+    </message>
+    <message>
+        <source>Supply + (L+, 24 V)</source>
+        <translation type="unfinished">Alimentazione + (L+, 24 V)</translation>
+    </message>
+    <message>
+        <source>Supply - (M, 0 V)</source>
+        <translation type="unfinished">Alimentazione - (M, 0 V)</translation>
+    </message>
+    <message>
+        <source>Functional earth (FE)</source>
+        <translation type="unfinished">Terra funzionale (FE)</translation>
+    </message>
+    <message>
+        <source>Protective earth (PE)</source>
+        <translation type="unfinished">Terra di protezione (PE)</translation>
+    </message>
+    <message>
+        <source>Phase (L)</source>
+        <translation type="unfinished">Fase (L)</translation>
+    </message>
+    <message>
+        <source>Neutral (N)</source>
+        <translation type="unfinished">Neutro (N)</translation>
+    </message>
+    <message>
+        <source>Digital input</source>
+        <translation type="unfinished">Ingresso digitale</translation>
+    </message>
+    <message>
+        <source>Digital output</source>
+        <translation type="unfinished">Uscita digitale</translation>
+    </message>
+    <message>
+        <source>Analog input</source>
+        <translation type="unfinished">Ingresso analogico</translation>
+    </message>
+    <message>
+        <source>Analog output</source>
+        <translation type="unfinished">Uscita analogica</translation>
+    </message>
+    <message>
+        <source>Bus port</source>
+        <translation type="unfinished">Porta bus</translation>
+    </message>
+    <message>
+        <source>Coil</source>
+        <translation type="unfinished">Bobina</translation>
+    </message>
+    <message>
+        <source>Power contact</source>
+        <translation type="unfinished">Contatto di potenza</translation>
+    </message>
+    <message>
+        <source>Normally open contact</source>
+        <translation type="unfinished">Contatto normalmente aperto</translation>
+    </message>
+    <message>
+        <source>Normally closed contact</source>
+        <translation type="unfinished">Contatto normalmente chiuso</translation>
+    </message>
+    <message>
+        <source>Changeover contact</source>
+        <translation type="unfinished">Contatto in scambio</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Morsetto</translation>
+    </message>
+</context>
+<context>
+    <name>PartPickerDialog</name>
+    <message>
+        <source>Choose a part</source>
+        <translation type="unfinished">Scegli un articolo</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Cerca un articolo</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished">Categoria:</translation>
+    </message>
+    <message>
+        <source>Only parts with a STEP model</source>
+        <translation type="unfinished">Solo articoli con modello STEP</translation>
+    </message>
+    <message>
+        <source>The plate of an enclosure is chosen on its 3D model</source>
+        <translation type="unfinished">La piastra di un involucro si sceglie sul suo modello 3D</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Immagine</translation>
+    </message>
+    <message>
+        <source>Parts manager...</source>
+        <translation type="unfinished">Gestore articoli...</translation>
+    </message>
+    <message>
+        <source>Add or change parts; this window shows them when you come back to it.</source>
+        <translation type="unfinished">Aggiungi o modifica articoli; questa finestra li mostra quando ci torni.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Tutti</translation>
+    </message>
+</context>
+<context>
+    <name>PartTexts</name>
+    <message>
+        <source>Textual description</source>
+        <translation type="unfinished">Descrizione testuale</translation>
+    </message>
+    <message>
+        <source>Article number</source>
+        <translation type="unfinished">Numero articolo</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Costruttore</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Codice d'ordine</translation>
+    </message>
+    <message>
+        <source>Internal number</source>
+        <translation type="unfinished">Numero interno</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Fornitore</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Codice fornitore</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Categoria</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished">Modello</translation>
+    </message>
+    <message>
+        <source>Rated voltage</source>
+        <translation type="unfinished">Tensione nominale</translation>
+    </message>
+    <message>
+        <source>Rated current</source>
+        <translation type="unfinished">Corrente nominale</translation>
+    </message>
+    <message>
+        <source>Unity</source>
+        <translation type="unfinished">Unità</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Lettera del dispositivo</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Larghezza (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Altezza (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Profondità (mm)</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Peso (kg)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Potenza dissipata (W)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Prezzo</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Numero di conduttori</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Colori dei conduttori</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Sezione</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Colore della guaina</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Scheda tecnica</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Note</translation>
+    </message>
+    <message>
+        <source>Image: %1</source>
+        <translation type="unfinished">Immagine: %1</translation>
+    </message>
+    <message>
+        <source>%1, %2</source>
+        <comment>the data a text shows (rated voltage...), then the order number of the part</comment>
+        <translation type="unfinished">%1, %2</translation>
+    </message>
+    <message>
+        <source>(image)</source>
+        <translation type="unfinished">(immagine)</translation>
+    </message>
+</context>
+<context>
+    <name>PartThumbnails</name>
+    <message>
+        <source>No Picture</source>
+        <translation type="unfinished">Nessuna immagine</translation>
+    </message>
+</context>
+<context>
+    <name>PartsArchive</name>
+    <message>
+        <source>The part no longer exists in the parts database.</source>
+        <translation type="unfinished">L'articolo non esiste più nel database articoli.</translation>
+    </message>
+    <message>
+        <source>The file cannot be read: %1</source>
+        <translation type="unfinished">Impossibile leggere il file: %1</translation>
+    </message>
+    <message>
+        <source>This is not a FaseCAD part file.</source>
+        <translation type="unfinished">Questo non è un file articolo di FaseCAD.</translation>
+    </message>
+    <message>
+        <source>This part file was made by a newer version of FaseCAD.</source>
+        <translation type="unfinished">Questo file articolo è stato creato da una versione più recente di FaseCAD.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsBom</name>
+    <message>
+        <source>Pos.</source>
+        <translation type="unfinished">Pos.</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation type="unfinished">Quantità</translation>
+    </message>
+    <message>
+        <source>Unit</source>
+        <translation type="unfinished">Unità</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Costruttore</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Codice d'ordine</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>Designation</source>
+        <translation type="unfinished">Designazione</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Categoria</translation>
+    </message>
+    <message>
+        <source>Supplier</source>
+        <translation type="unfinished">Fornitore</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Codice fornitore</translation>
+    </message>
+    <message>
+        <source>Internal reference</source>
+        <translation type="unfinished">Codice interno</translation>
+    </message>
+    <message>
+        <source>Devices</source>
+        <translation type="unfinished">Dispositivi</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCableTypes</name>
+    <message>
+        <source>Parts database</source>
+        <translation type="unfinished">Database articoli</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCatalogDialog</name>
+    <message>
+        <source>Official FaseCAD parts catalog</source>
+        <translation type="unfinished">Catalogo ufficiale degli articoli FaseCAD</translation>
+    </message>
+    <message>
+        <source>Manufacturer, order number, description...</source>
+        <translation type="unfinished">Costruttore, codice d'ordine, descrizione...</translation>
+    </message>
+    <message>
+        <source>Every category</source>
+        <translation type="unfinished">Tutte le categorie</translation>
+    </message>
+    <message>
+        <source>Manufacturer</source>
+        <translation type="unfinished">Costruttore</translation>
+    </message>
+    <message>
+        <source>Order number</source>
+        <translation type="unfinished">Codice d'ordine</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished">Categoria</translation>
+    </message>
+    <message>
+        <source>&lt; Previous</source>
+        <translation type="unfinished">&lt; Precedente</translation>
+    </message>
+    <message>
+        <source>Next &gt;</source>
+        <translation type="unfinished">Successiva &gt;</translation>
+    </message>
+    <message>
+        <source>Replace the parts my database has already</source>
+        <translation type="unfinished">Sostituisci gli articoli che il mio database ha già</translation>
+    </message>
+    <message>
+        <source>Add to my parts database</source>
+        <translation type="unfinished">Aggiungi al mio database articoli</translation>
+    </message>
+    <message>
+        <source>Asking %1...</source>
+        <translation type="unfinished">Richiesta a %1...</translation>
+    </message>
+    <message>
+        <source>The catalog cannot be reached: %1</source>
+        <translation type="unfinished">Il catalogo non è raggiungibile: %1</translation>
+    </message>
+    <message>
+        <source>The catalog gave no list of parts.</source>
+        <translation type="unfinished">Il catalogo non ha fornito un elenco di articoli.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) found, page %1 of %2.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo trovato, pagina %1 di %2.</numerusform>
+            <numerusform>%n articoli trovati, pagina %1 di %2.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The parts database is not in use (Settings &gt; General).</source>
+        <translation type="unfinished">Il database articoli non è in uso (Impostazioni &gt; Generale).</translation>
+    </message>
+    <message>
+        <source>%1: your session was closed, the account is open on another computer (Sign in...)</source>
+        <translation type="unfinished">%1: la tua sessione è stata chiusa, l'account è aperto su un altro computer (Accedi...)</translation>
+    </message>
+    <message>
+        <source>%1: the parts of the official catalog are part of FaseCAD Pro (my.fasecad.com)</source>
+        <translation type="unfinished">%1: gli articoli del catalogo ufficiale fanno parte di FaseCAD Pro (my.fasecad.com)</translation>
+    </message>
+    <message>
+        <source>%1: the catalog does not accept this user and password (Sign in...)</source>
+        <translation type="unfinished">%1: il catalogo non accetta questo utente e questa password (Accedi...)</translation>
+    </message>
+    <message>
+        <source>%1: sign in to download it (Sign in...)</source>
+        <translation type="unfinished">%1: accedi per scaricarlo (Accedi...)</translation>
+    </message>
+    <message>
+        <source>%1: your database has it already</source>
+        <translation type="unfinished">%1: il tuo database lo ha già</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) added to your parts database.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo aggiunto al tuo database articoli.</numerusform>
+            <numerusform>%n articoli aggiunti al tuo database articoli.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not added: %1</source>
+        <translation type="unfinished">Non aggiunti: %1</translation>
+    </message>
+    <message>
+        <source>No folder for the downloaded file.</source>
+        <translation type="unfinished">Nessuna cartella per il file scaricato.</translation>
+    </message>
+    <message>
+        <source>The downloaded file cannot be written.</source>
+        <translation type="unfinished">Impossibile scrivere il file scaricato.</translation>
+    </message>
+    <message>
+        <source>Signed in to fasecad.com as %1. Click to change or sign out.</source>
+        <translation type="unfinished">Accesso a fasecad.com come %1. Fai clic per cambiare o uscire.</translation>
+    </message>
+    <message>
+        <source>Sign in...</source>
+        <translation type="unfinished">Accedi...</translation>
+    </message>
+    <message>
+        <source>Sign in to fasecad.com to download the parts</source>
+        <translation type="unfinished">Accedi a fasecad.com per scaricare gli articoli</translation>
+    </message>
+</context>
+<context>
+    <name>PartsCollectionItem</name>
+    <message>
+        <source>Parts collection</source>
+        <translation type="unfinished">Raccolta articoli</translation>
+    </message>
+    <message>
+        <source>The parts of the parts database. Drag one onto the folio to place its symbol with the part, or onto a symbol to add the part to it.</source>
+        <translation type="unfinished">Gli articoli del database articoli. Trascinane uno sul foglio per posizionare il suo simbolo con l'articolo, o su un simbolo per aggiungervi l'articolo.</translation>
+    </message>
+    <message>
+        <source>No symbol: drop it onto a placed symbol</source>
+        <translation type="unfinished">Nessun simbolo: rilascialo su un simbolo posizionato</translation>
+    </message>
+    <message>
+        <source>Symbols: %1</source>
+        <translation type="unfinished">Simboli: %1</translation>
+    </message>
+    <message>
+        <source>Tab changes the symbol while the part is placed</source>
+        <translation type="unfinished">Tab cambia il simbolo mentre l'articolo viene posizionato</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Nessuna categoria)</translation>
+    </message>
+</context>
+<context>
+    <name>PartsDatabase</name>
+    <message>
+        <source>The folder %1 cannot be created.</source>
+        <translation type="unfinished">Impossibile creare la cartella %1.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 cannot be opened: %2</source>
+        <translation type="unfinished">Impossibile aprire il database articoli %1: %2</translation>
+    </message>
+    <message>
+        <source>The server of the parts database is not set.</source>
+        <translation type="unfinished">Il server del database articoli non è impostato.</translation>
+    </message>
+    <message>
+        <source>This copy of the program cannot connect to a PostgreSQL server: its driver is missing.</source>
+        <translation type="unfinished">Questa copia del programma non può collegarsi a un server PostgreSQL: manca il suo driver.</translation>
+    </message>
+    <message>
+        <source>The parts database on %1 cannot be opened: %2</source>
+        <translation type="unfinished">Impossibile aprire il database articoli su %1: %2</translation>
+    </message>
+    <message>
+        <source>The parts database is not open.</source>
+        <translation type="unfinished">Il database articoli non è aperto.</translation>
+    </message>
+    <message>
+        <source>The parts database %1 was made by a newer version of the program and cannot be opened.</source>
+        <translation type="unfinished">Il database articoli %1 è stato creato da una versione più recente del programma e non può essere aperto.</translation>
+    </message>
+    <message>
+        <source>The parts database is being used by someone else. Try again in a moment.</source>
+        <translation type="unfinished">Il database articoli è in uso da qualcun altro. Riprova tra un momento.</translation>
+    </message>
+    <message>
+        <source>The parts database cannot be written: %1</source>
+        <translation type="unfinished">Impossibile scrivere il database articoli: %1</translation>
+    </message>
+    <message>
+        <source>The file %1 is too big to be copied in the parts database (more than %2 MB). Link it instead.</source>
+        <translation type="unfinished">Il file %1 è troppo grande per essere copiato nel database articoli (più di %2 MB). Collegalo invece.</translation>
+    </message>
+    <message>
+        <source>This part no longer exists in the parts database.</source>
+        <translation type="unfinished">Questo articolo non esiste più nel database articoli.</translation>
+    </message>
+    <message>
+        <source>A part with the manufacturer "%1" and the order number "%2" already exists.</source>
+        <translation type="unfinished">Esiste già un articolo con costruttore "%1" e codice d'ordine "%2".</translation>
+    </message>
+    <message>
+        <source>A part cannot be its own accessory.</source>
+        <translation type="unfinished">Un articolo non può essere accessorio di sé stesso.</translation>
+    </message>
+    <message>
+        <source>An accessory of this part no longer exists in the parts database.</source>
+        <translation type="unfinished">Un accessorio di questo articolo non esiste più nel database articoli.</translation>
+    </message>
+    <message>
+        <source>A category needs a name.</source>
+        <translation type="unfinished">Una categoria ha bisogno di un nome.</translation>
+    </message>
+    <message>
+        <source>The category %1 is there already.</source>
+        <translation type="unfinished">La categoria %1 esiste già.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be renamed.</source>
+        <translation type="unfinished">La categoria %1 viene con FaseCAD: non può essere rinominata.</translation>
+    </message>
+    <message>
+        <source>A category cannot go inside itself.</source>
+        <translation type="unfinished">Una categoria non può stare dentro sé stessa.</translation>
+    </message>
+    <message>
+        <source>The category %1 comes with FaseCAD: it cannot be removed.</source>
+        <translation type="unfinished">La categoria %1 viene con FaseCAD: non può essere rimossa.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be read.</source>
+        <translation type="unfinished">Impossibile leggere il file %1.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be found.</source>
+        <translation type="unfinished">Il file %1 non è stato trovato.</translation>
+    </message>
+    <message>
+        <source>This file no longer exists in the parts database.</source>
+        <translation type="unfinished">Questo file non esiste più nel database articoli.</translation>
+    </message>
+    <message>
+        <source>The linked file %1 cannot be found.</source>
+        <translation type="unfinished">Il file collegato %1 non è stato trovato.</translation>
+    </message>
+    <message>
+        <source>The file %1 cannot be written.</source>
+        <translation type="unfinished">Impossibile scrivere il file %1.</translation>
+    </message>
+</context>
+<context>
+    <name>PartsManagerDialog</name>
+    <message>
+        <source>Parts manager</source>
+        <translation type="unfinished">Gestore articoli</translation>
+    </message>
+    <message>
+        <source>Database: %1</source>
+        <translation type="unfinished">Database: %1</translation>
+    </message>
+    <message>
+        <source>By category</source>
+        <translation type="unfinished">Per categoria</translation>
+    </message>
+    <message>
+        <source>By manufacturer</source>
+        <translation type="unfinished">Per costruttore</translation>
+    </message>
+    <message>
+        <source>Search a part</source>
+        <translation type="unfinished">Cerca un articolo</translation>
+    </message>
+    <message>
+        <source>Supplier reference</source>
+        <translation type="unfinished">Codice fornitore</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished">Immagine</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nuovo</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished">Duplica</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Elimina</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Esporta</translation>
+    </message>
+    <message>
+        <source>Write parts to .faspart files, one file per part, with their files and symbols</source>
+        <translation type="unfinished">Scrivi gli articoli in file .faspart, un file per articolo, con i loro file e simboli</translation>
+    </message>
+    <message>
+        <source>The selected parts...</source>
+        <translation type="unfinished">Gli articoli selezionati...</translation>
+    </message>
+    <message>
+        <source>All the parts of the list...</source>
+        <translation type="unfinished">Tutti gli articoli dell'elenco...</translation>
+    </message>
+    <message>
+        <source>Import...</source>
+        <translation type="unfinished">Importa...</translation>
+    </message>
+    <message>
+        <source>Add the parts of .faspart files to the parts database</source>
+        <translation type="unfinished">Aggiungi gli articoli di file .faspart al database articoli</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Generale</translation>
+    </message>
+    <message>
+        <source>Mounting</source>
+        <translation type="unfinished">Montaggio</translation>
+    </message>
+    <message>
+        <source>Technical data</source>
+        <translation type="unfinished">Dati tecnici</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished">Traduzioni</translation>
+    </message>
+    <message>
+        <source>Cable</source>
+        <translation type="unfinished">Cavo</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation type="unfinished">Simboli</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished">File</translation>
+    </message>
+    <message>
+        <source>Discard changes</source>
+        <translation type="unfinished">Annulla modifiche</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Salva</translation>
+    </message>
+    <message>
+        <source>GTIN / EAN</source>
+        <translation type="unfinished">GTIN / EAN</translation>
+    </message>
+    <message>
+        <source>Device letter</source>
+        <translation type="unfinished">Lettera del dispositivo</translation>
+    </message>
+    <message>
+        <source>Datasheet</source>
+        <translation type="unfinished">Scheda tecnica</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Downstream of this device, the cross-section of the wires depends on what is connected to it: the wires it feeds (its outgoing terminals and every wire joined to them) are made for this current.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calculate sections&lt;/b&gt; (Connections tab) gives every wire of the project the cross-section of the device that feeds it.&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;A valle di questo dispositivo, la sezione dei conduttori dipende da ciò che vi è collegato: i conduttori che alimenta (i suoi morsetti di uscita e ogni conduttore unito ad essi) sono dimensionati per questa corrente.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Calcola sezioni&lt;/b&gt; (scheda Collegamenti) dà a ogni conduttore del progetto la sezione del dispositivo che lo alimenta.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Maximum current (A)</source>
+        <translation type="unfinished">Corrente massima (A)</translation>
+    </message>
+    <message>
+        <source>Letter of the tag a placed device gets, for instance K for -K1.</source>
+        <translation type="unfinished">Lettera della sigla che riceve un dispositivo posizionato, per esempio K per -K1.</translation>
+    </message>
+    <message>
+        <source>Identifies the part, with the manufacturer</source>
+        <translation type="unfinished">Identifica l'articolo, con il costruttore</translation>
+    </message>
+    <message>
+        <source>Weight (kg)</source>
+        <translation type="unfinished">Peso (kg)</translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished">Prezzo</translation>
+    </message>
+    <message>
+        <source>Width (mm)</source>
+        <translation type="unfinished">Larghezza (mm)</translation>
+    </message>
+    <message>
+        <source>Height (mm)</source>
+        <translation type="unfinished">Altezza (mm)</translation>
+    </message>
+    <message>
+        <source>Depth (mm)</source>
+        <translation type="unfinished">Profondità (mm)</translation>
+    </message>
+    <message>
+        <source>Room to leave free around the device in the cabinet, for the air and the wires.</source>
+        <translation type="unfinished">Spazio da lasciare libero attorno al dispositivo nel quadro, per l'aria e i conduttori.</translation>
+    </message>
+    <message>
+        <source>Free above (mm)</source>
+        <translation type="unfinished">Libero sopra (mm)</translation>
+    </message>
+    <message>
+        <source>Free below (mm)</source>
+        <translation type="unfinished">Libero sotto (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the left (mm)</source>
+        <translation type="unfinished">Libero a sinistra (mm)</translation>
+    </message>
+    <message>
+        <source>Free on the right (mm)</source>
+        <translation type="unfinished">Libero a destra (mm)</translation>
+    </message>
+    <message>
+        <source>Free in front (mm)</source>
+        <translation type="unfinished">Libero davanti (mm)</translation>
+    </message>
+    <message>
+        <source>Free behind (mm)</source>
+        <translation type="unfinished">Libero dietro (mm)</translation>
+    </message>
+    <message>
+        <source>Power loss (W)</source>
+        <translation type="unfinished">Potenza dissipata (W)</translation>
+    </message>
+    <message>
+        <source>Heat the device gives off, for the heat balance of the cabinet.</source>
+        <translation type="unfinished">Calore che il dispositivo emette, per il bilancio termico del quadro.</translation>
+    </message>
+    <message>
+        <source>The textual description and the model in other languages. In Project languages, Collect texts of the project fills them in, so the folios are shown, printed and exported in each language.</source>
+        <translation type="unfinished">La descrizione testuale e il modello in altre lingue. In Lingue del progetto, "Raccogli i testi del progetto" li compila, così i fogli si mostrano, si stampano e si esportano in ogni lingua.</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">Lingua</translation>
+    </message>
+    <message>
+        <source>What each pin of the device does, in the order of the manufacturer. Add copies the selected row with the next pin and number.</source>
+        <translation type="unfinished">Cosa fa ogni pin del dispositivo, nell'ordine del costruttore. Aggiungi copia la riga selezionata con il pin e il numero successivi.</translation>
+    </message>
+    <message>
+        <source>Function</source>
+        <translation type="unfinished">Funzione</translation>
+    </message>
+    <message>
+        <source>Plug</source>
+        <translation type="unfinished">Connettore</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished">Pin</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>PLC address</source>
+        <translation type="unfinished">Indirizzo PLC</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Aggiungi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Sposta su</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Sposta giù</translation>
+    </message>
+    <message>
+        <source>Where the wires go on the real device and what they take. The position is in mm from the top left corner of the front.</source>
+        <translation type="unfinished">Dove vanno i conduttori sul dispositivo reale e cosa accettano. La posizione è in mm dall'angolo superiore sinistro del fronte.</translation>
+    </message>
+    <message>
+        <source>Min. section (mm²)</source>
+        <translation type="unfinished">Sezione min. (mm²)</translation>
+    </message>
+    <message>
+        <source>Max. section (mm²)</source>
+        <translation type="unfinished">Sezione max. (mm²)</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Conduttori</translation>
+    </message>
+    <message>
+        <source>Stripping (mm)</source>
+        <translation type="unfinished">Spelatura (mm)</translation>
+    </message>
+    <message>
+        <source>Torque (N·m)</source>
+        <translation type="unfinished">Coppia (N·m)</translation>
+    </message>
+    <message>
+        <source>Screwdriver</source>
+        <translation type="unfinished">Cacciavite</translation>
+    </message>
+    <message>
+        <source>X (mm)</source>
+        <translation type="unfinished">X (mm)</translation>
+    </message>
+    <message>
+        <source>Y (mm)</source>
+        <translation type="unfinished">Y (mm)</translation>
+    </message>
+    <message>
+        <source>Z (mm)</source>
+        <translation type="unfinished">Z (mm)</translation>
+    </message>
+    <message>
+        <source>How many wires the connection point takes</source>
+        <translation type="unfinished">Quanti conduttori accetta il punto di connessione</translation>
+    </message>
+    <message>
+        <source>From the functions</source>
+        <translation type="unfinished">Dalle funzioni</translation>
+    </message>
+    <message>
+        <source>Add a connection point for every pin of the Functions tab that has none yet.</source>
+        <translation type="unfinished">Aggiungi un punto di connessione per ogni pin della scheda Funzioni che non ne ha ancora uno.</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Valore</translation>
+    </message>
+    <message>
+        <source>Copy the rows</source>
+        <translation type="unfinished">Copia le righe</translation>
+    </message>
+    <message>
+        <source>Paste rows</source>
+        <translation type="unfinished">Incolla righe</translation>
+    </message>
+    <message>
+        <source>Copy the selected rows (Ctrl+C), to paste them in another part or in a spreadsheet</source>
+        <translation type="unfinished">Copia le righe selezionate (Ctrl+C), per incollarle in un altro articolo o in un foglio di calcolo</translation>
+    </message>
+    <message>
+        <source>Paste copied rows (Ctrl+V): a name already in the table takes the pasted value, the others are added</source>
+        <translation type="unfinished">Incolla le righe copiate (Ctrl+V): un nome già nella tabella prende il valore incollato, gli altri vengono aggiunti</translation>
+    </message>
+    <message>
+        <source>Add an accessory...</source>
+        <translation type="unfinished">Aggiungi un accessorio...</translation>
+    </message>
+    <message>
+        <source>A part with cores is offered as a cable type when a cable is drawn, if the parts database is used (Settings).</source>
+        <translation type="unfinished">Un articolo con conduttori viene proposto come tipo di cavo quando si disegna un cavo, se si usa il database articoli (Impostazioni).</translation>
+    </message>
+    <message>
+        <source>Not a cable</source>
+        <translation type="unfinished">Non è un cavo</translation>
+    </message>
+    <message>
+        <source>Number of cores</source>
+        <translation type="unfinished">Numero di conduttori</translation>
+    </message>
+    <message>
+        <source>Core colors</source>
+        <translation type="unfinished">Colori dei conduttori</translation>
+    </message>
+    <message>
+        <source>Cross-section</source>
+        <translation type="unfinished">Sezione</translation>
+    </message>
+    <message>
+        <source>Sheath color</source>
+        <translation type="unfinished">Colore della guaina</translation>
+    </message>
+    <message>
+        <source>Export the parts to</source>
+        <translation type="unfinished">Esporta gli articoli in</translation>
+    </message>
+    <message>
+        <source>Export the parts</source>
+        <translation type="unfinished">Esporta gli articoli</translation>
+    </message>
+    <message>
+        <source>%1 already exists. Replace it?</source>
+        <translation type="unfinished">%1 esiste già. Sostituirlo?</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) exported to %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo esportato in %1.</numerusform>
+            <numerusform>%n articoli esportati in %1.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not exported:</source>
+        <translation type="unfinished">Non esportati:</translation>
+    </message>
+    <message>
+        <source>Import parts</source>
+        <translation type="unfinished">Importa articoli</translation>
+    </message>
+    <message>
+        <source>FaseCAD parts (*.faspart)</source>
+        <translation type="unfinished">Articoli FaseCAD (*.faspart)</translation>
+    </message>
+    <message>
+        <source>The parts database has %1 %2 already.
+Replace it with the part of the file?</source>
+        <translation type="unfinished">Il database articoli ha già %1 %2.
+Sostituirlo con l'articolo del file?</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished">Sostituisci</translation>
+    </message>
+    <message>
+        <source>Keep mine</source>
+        <translation type="unfinished">Tieni il mio</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished">Sostituisci tutti</translation>
+    </message>
+    <message>
+        <source>Keep all mine</source>
+        <translation type="unfinished">Tieni tutti i miei</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) imported.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo importato.</numerusform>
+            <numerusform>%n articoli importati.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n part(s) kept as they were.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo mantenuto com'era.</numerusform>
+            <numerusform>%n articoli mantenuti com'erano.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Not imported:</source>
+        <translation type="unfinished">Non importati:</translation>
+    </message>
+    <message>
+        <source>Dragged from the parts collection of the collection panel, the part comes with the first symbol; Tab goes to the next one, Shift+Tab back, while it is placed.</source>
+        <translation type="unfinished">Trascinato dalla raccolta articoli del pannello delle raccolte, l'articolo arriva con il primo simbolo; Tab passa al successivo, Maiusc+Tab torna indietro, mentre viene posizionato.</translation>
+    </message>
+    <message>
+        <source>Add...</source>
+        <translation type="unfinished">Aggiungi...</translation>
+    </message>
+    <message>
+        <source>Choose a symbol of the collection</source>
+        <translation type="unfinished">Scegli un simbolo della raccolta</translation>
+    </message>
+    <message>
+        <source>Import a file...</source>
+        <translation type="unfinished">Importa un file...</translation>
+    </message>
+    <message>
+        <source>A symbol file (.elmt) kept in the parts database: it need not be in the collection</source>
+        <translation type="unfinished">Un file di simbolo (.elmt) conservato nel database articoli: non serve che sia nella raccolta</translation>
+    </message>
+    <message>
+        <source>Symbol</source>
+        <translation type="unfinished">Simbolo</translation>
+    </message>
+    <message>
+        <source>Location of the symbol:</source>
+        <translation type="unfinished">Posizione del simbolo:</translation>
+    </message>
+    <message>
+        <source>Import a symbol</source>
+        <translation type="unfinished">Importa un simbolo</translation>
+    </message>
+    <message>
+        <source>Symbols (*.elmt)</source>
+        <translation type="unfinished">Simboli (*.elmt)</translation>
+    </message>
+    <message>
+        <source>Save the part first: the symbol is kept with it in the parts database.</source>
+        <translation type="unfinished">Salva prima l'articolo: il simbolo viene conservato con esso nel database articoli.</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read: %2</source>
+        <translation type="unfinished">Impossibile leggere %1: %2</translation>
+    </message>
+    <message>
+        <source>%1 is not a symbol.</source>
+        <translation type="unfinished">%1 non è un simbolo.</translation>
+    </message>
+    <message>
+        <source>Save the part first to attach files.</source>
+        <translation type="unfinished">Salva prima l'articolo per allegare file.</translation>
+    </message>
+    <message>
+        <source>Add an image...</source>
+        <translation type="unfinished">Aggiungi un'immagine...</translation>
+    </message>
+    <message>
+        <source>Add a DXF...</source>
+        <translation type="unfinished">Aggiungi un DXF...</translation>
+    </message>
+    <message>
+        <source>Add a 3D model...</source>
+        <translation type="unfinished">Aggiungi un modello 3D...</translation>
+    </message>
+    <message>
+        <source>A STEP file (.stp, .step), for the cabinet in 3D.</source>
+        <translation type="unfinished">Un file STEP (.stp, .step), per il quadro in 3D.</translation>
+    </message>
+    <message>
+        <source>Link a file...</source>
+        <translation type="unfinished">Collega un file...</translation>
+    </message>
+    <message>
+        <source>Keep only the path of the file instead of a copy. The file must stay where it is and be reachable from every computer using this database.</source>
+        <translation type="unfinished">Conserva solo il percorso del file invece di una copia. Il file deve restare dov'è ed essere raggiungibile da ogni computer che usa questo database.</translation>
+    </message>
+    <message>
+        <source>Save as...</source>
+        <translation type="unfinished">Salva come...</translation>
+    </message>
+    <message>
+        <source>All parts</source>
+        <translation type="unfinished">Tutti gli articoli</translation>
+    </message>
+    <message>
+        <source>(No category)</source>
+        <translation type="unfinished">(Nessuna categoria)</translation>
+    </message>
+    <message>
+        <source>(No manufacturer)</source>
+        <translation type="unfinished">(Nessun costruttore)</translation>
+    </message>
+    <message>
+        <source>The part has unsaved changes. Save them?</source>
+        <translation type="unfinished">L'articolo ha modifiche non salvate. Salvarle?</translation>
+    </message>
+    <message>
+        <source>This is not a number: %1</source>
+        <translation type="unfinished">Questo non è un numero: %1</translation>
+    </message>
+    <message>
+        <source>Give at least a manufacturer, an order number or a description.</source>
+        <translation type="unfinished">Indica almeno un costruttore, un codice d'ordine o una descrizione.</translation>
+    </message>
+    <message>
+        <source>Delete the part %1, with its files? Projects using it keep their element informations.</source>
+        <translation type="unfinished">Eliminare l'articolo %1, con i suoi file? I progetti che lo usano mantengono le informazioni degli elementi.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Delete the %n selected parts, with their files? Projects using them keep their element informations.</source>
+        <translation type="unfinished">
+            <numerusform>Eliminare l'articolo selezionato, con i suoi file? I progetti che lo usano mantengono le informazioni degli elementi.</numerusform>
+            <numerusform>Eliminare i %n articoli selezionati, con i loro file? I progetti che li usano mantengono le informazioni degli elementi.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Manage categories...</source>
+        <translation type="unfinished">Gestisci categorie...</translation>
+    </message>
+    <message>
+        <source>Every pin of the functions already has its connection point.</source>
+        <translation type="unfinished">Ogni pin delle funzioni ha già il suo punto di connessione.</translation>
+    </message>
+    <message>
+        <source>The database has no other part to use as an accessory.</source>
+        <translation type="unfinished">Il database non ha altri articoli da usare come accessorio.</translation>
+    </message>
+    <message>
+        <source>Add an accessory</source>
+        <translation type="unfinished">Aggiungi un accessorio</translation>
+    </message>
+    <message>
+        <source>Accessory:</source>
+        <translation type="unfinished">Accessorio:</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Immagine</translation>
+    </message>
+    <message>
+        <source>3D model (STEP)</source>
+        <translation type="unfinished">Modello 3D (STEP)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (linked: %3)</source>
+        <translation type="unfinished">%1: %2 (collegato: %3)</translation>
+    </message>
+    <message>
+        <source>%1: %2 (%3, copied in the database)</source>
+        <translation type="unfinished">%1: %2 (%3, copiato nel database)</translation>
+    </message>
+    <message>
+        <source>This image cannot be shown.</source>
+        <translation type="unfinished">Questa immagine non può essere mostrata.</translation>
+    </message>
+    <message>
+        <source>Images (%1)</source>
+        <translation type="unfinished">Immagini (%1)</translation>
+    </message>
+    <message>
+        <source>Add an image</source>
+        <translation type="unfinished">Aggiungi un'immagine</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf)</source>
+        <translation type="unfinished">Disegni DXF (*.dxf)</translation>
+    </message>
+    <message>
+        <source>Add a DXF</source>
+        <translation type="unfinished">Aggiungi un DXF</translation>
+    </message>
+    <message>
+        <source>STEP models (*.stp *.step)</source>
+        <translation type="unfinished">Modelli STEP (*.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Add a 3D model</source>
+        <translation type="unfinished">Aggiungi un modello 3D</translation>
+    </message>
+    <message>
+        <source>Link a file</source>
+        <translation type="unfinished">Collega un file</translation>
+    </message>
+    <message>
+        <source>Images, DXF drawings and STEP models (%1 *.dxf *.stp *.step)</source>
+        <translation type="unfinished">Immagini, disegni DXF e modelli STEP (%1 *.dxf *.stp *.step)</translation>
+    </message>
+    <message>
+        <source>Save as</source>
+        <translation type="unfinished">Salva come</translation>
+    </message>
+    <message>
+        <source>Remove this file from the part?</source>
+        <translation type="unfinished">Rimuovere questo file dall'articolo?</translation>
+    </message>
+</context>
+<context>
+    <name>PartsServerDialog</name>
+    <message>
+        <source>Parts database server</source>
+        <translation type="unfinished">Server del database articoli</translation>
+    </message>
+    <message>
+        <source>A PostgreSQL server keeps the parts database for several computers at once. The tables are made the first time.</source>
+        <translation type="unfinished">Un server PostgreSQL conserva il database articoli per più computer insieme. Le tabelle vengono create la prima volta.</translation>
+    </message>
+    <message>
+        <source>Kept in the settings of this user on this computer</source>
+        <translation type="unfinished">Conservato nelle impostazioni di questo utente su questo computer</translation>
+    </message>
+    <message>
+        <source>Server:</source>
+        <translation type="unfinished">Server:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation type="unfinished">Porta:</translation>
+    </message>
+    <message>
+        <source>Database:</source>
+        <translation type="unfinished">Database:</translation>
+    </message>
+    <message>
+        <source>User:</source>
+        <translation type="unfinished">Utente:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Password:</translation>
+    </message>
+    <message>
+        <source>Test the connection</source>
+        <translation type="unfinished">Prova la connessione</translation>
+    </message>
+    <message>
+        <source>Copy my parts to the server...</source>
+        <translation type="unfinished">Copia i miei articoli sul server...</translation>
+    </message>
+    <message>
+        <source>Copies the parts of the database file, with their files, symbols and categories. A part the server has already is left as it is there.</source>
+        <translation type="unfinished">Copia gli articoli del file di database, con i loro file, simboli e categorie. Un articolo che il server ha già resta lì com'è.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Connected: the server holds %n parts.</source>
+        <translation type="unfinished">
+            <numerusform>Connesso: il server contiene %n articolo.</numerusform>
+            <numerusform>Connesso: il server contiene %n articoli.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Copying the parts to the server...</source>
+        <translation type="unfinished">Copia degli articoli sul server...</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Ferma</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n parts copied from %1.</source>
+        <translation type="unfinished">
+            <numerusform>%n articolo copiato da %1.</numerusform>
+            <numerusform>%n articoli copiati da %1.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>ProjectVersions</name>
+    <message>
+        <source>Changes from version %1 to version %2</source>
+        <translation type="unfinished">Modifiche dalla versione %1 alla versione %2</translation>
+    </message>
+    <message>
+        <source>No device was added, removed or rewired.</source>
+        <translation type="unfinished">Nessun dispositivo è stato aggiunto, rimosso o ricablato.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices added (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Dispositivi aggiunti (%n)</numerusform>
+            <numerusform>Dispositivi aggiunti (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Devices removed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Dispositivi rimossi (%n)</numerusform>
+            <numerusform>Dispositivi rimossi (%n)</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Wiring changed (%n)</source>
+        <translation type="unfinished">
+            <numerusform>Cablaggio modificato (%n)</numerusform>
+            <numerusform>Cablaggio modificato (%n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Changes of version %1 (%2/%3)</source>
+        <translation type="unfinished">Modifiche della versione %1 (%2/%3)</translation>
+    </message>
+    <message>
+        <source>Changes of version %1</source>
+        <translation type="unfinished">Modifiche della versione %1</translation>
+    </message>
+</context>
+<context>
+    <name>SupportDialog</name>
+    <message>
+        <source>Report a bug</source>
+        <translation type="unfinished">Segnala un errore</translation>
+    </message>
+    <message>
+        <source>Request support</source>
+        <translation type="unfinished">Richiedi assistenza</translation>
+    </message>
+    <message>
+        <source>Say what you did, what happened and what you expected. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Di' cosa hai fatto, cosa è successo e cosa ti aspettavi. Vengono inviate anche la versione di FaseCAD e del sistema.</translation>
+    </message>
+    <message>
+        <source>Say what you need help with. The version of FaseCAD and of the system go with it.</source>
+        <translation type="unfinished">Di' in cosa ti serve aiuto. Vengono inviate anche la versione di FaseCAD e del sistema.</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation type="unfinished">Oggetto:</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Invia</translation>
+    </message>
+    <message>
+        <source>Sent. The FaseCAD team will answer you by email.</source>
+        <translation type="unfinished">Inviato. Il team FaseCAD ti risponderà per e-mail.</translation>
+    </message>
+    <message>
+        <source>Sending...</source>
+        <translation type="unfinished">Invio...</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalElement</name>
+    <message>
+        <source>Inside</source>
+        <comment>mark beside the connection point of a selected terminal going into the panel</comment>
+        <translation type="unfinished">Interno</translation>
+    </message>
+    <message>
+        <source>Outside</source>
+        <comment>mark beside the connection point of a selected terminal going out of the panel</comment>
+        <translation type="unfinished">Esterno</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalPropertiesWidget</name>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished">Morsetto</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSettingsWidget</name>
+    <message>
+        <source>A terminal strip of the project, or the name of a new one. Empty: the strip of the terminal on its left on the folio</source>
+        <translation type="unfinished">Una morsettiera del progetto, o il nome di una nuova. Vuoto: la morsettiera del morsetto alla sua sinistra sul foglio</translation>
+    </message>
+    <message>
+        <source>Same as on the left</source>
+        <translation type="unfinished">Come a sinistra</translation>
+    </message>
+    <message>
+        <source>Terminal strip:</source>
+        <translation type="unfinished">Morsettiera:</translation>
+    </message>
+    <message>
+        <source>Terminal number:</source>
+        <translation type="unfinished">Numero morsetto:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Nessuno</translation>
+    </message>
+    <message>
+        <source>Colour:</source>
+        <translation type="unfinished">Colore:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">Tipo:</translation>
+    </message>
+    <message>
+        <source>%1 mm²</source>
+        <translation type="unfinished">%1 mm²</translation>
+    </message>
+    <message>
+        <source>Cross-section:</source>
+        <translation type="unfinished">Sezione:</translation>
+    </message>
+    <message>
+        <source>The terminals of the strip with the same number are one terminal of several levels, 1 at the bottom</source>
+        <translation type="unfinished">I morsetti della morsettiera con lo stesso numero sono un morsetto a più piani, 1 in basso</translation>
+    </message>
+    <message>
+        <source>Level:</source>
+        <translation type="unfinished">Piano:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalSides</name>
+    <message>
+        <source>bottom</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">basso</translation>
+    </message>
+    <message>
+        <source>top</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">alto</translation>
+    </message>
+    <message>
+        <source>right</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">destra</translation>
+    </message>
+    <message>
+        <source>left</source>
+        <comment>where a connection point of a terminal stands</comment>
+        <translation type="unfinished">sinistra</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDataDialog</name>
+    <message>
+        <source>Change the title block data</source>
+        <translation type="unfinished">Modifica i dati del cartiglio</translation>
+    </message>
+    <message>
+        <source>Title block data</source>
+        <translation type="unfinished">Dati del cartiglio</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Azienda</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Nome:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished">Indirizzo:</translation>
+    </message>
+    <message>
+        <source>Contact:</source>
+        <translation type="unfinished">Contatto:</translation>
+    </message>
+    <message>
+        <source>Phone, e-mail, web</source>
+        <translation type="unfinished">Telefono, e-mail, web</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Cliente e cantiere</translation>
+    </message>
+    <message>
+        <source>Client:</source>
+        <translation type="unfinished">Cliente:</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">Cantiere:</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Firme</translation>
+    </message>
+    <message>
+        <source>Drawn by: the author and the date of each sheet, in its properties.</source>
+        <translation type="unfinished">Disegnato da: l'autore e la data di ogni foglio, nelle sue proprietà.</translation>
+    </message>
+    <message>
+        <source>Checked by:</source>
+        <translation type="unfinished">Controllato da:</translation>
+    </message>
+    <message>
+        <source>Checked on:</source>
+        <translation type="unfinished">Controllato il:</translation>
+    </message>
+    <message>
+        <source>Approved by:</source>
+        <translation type="unfinished">Approvato da:</translation>
+    </message>
+    <message>
+        <source>Approved on:</source>
+        <translation type="unfinished">Approvato il:</translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <translation type="unfinished">Disegno</translation>
+    </message>
+    <message>
+        <source>Standard:</source>
+        <translation type="unfinished">Norma:</translation>
+    </message>
+    <message>
+        <source>The paper size and the scale are worked out for each sheet.</source>
+        <translation type="unfinished">Il formato della carta e la scala si calcolano per ogni foglio.</translation>
+    </message>
+    <message>
+        <source>Revisions, the latest at the top</source>
+        <translation type="unfinished">Revisioni, la più recente in alto</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Data</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Da</translation>
+    </message>
+    <message>
+        <source>New revision</source>
+        <translation type="unfinished">Nuova revisione</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesign</name>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Progetto</translation>
+    </message>
+    <message>
+        <source>Sheet title</source>
+        <translation type="unfinished">Titolo del foglio</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished">Cliente</translation>
+    </message>
+    <message>
+        <source>Site</source>
+        <translation type="unfinished">Cantiere</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished">Indirizzo</translation>
+    </message>
+    <message>
+        <source>Rev</source>
+        <translation type="unfinished">Rev</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">Data</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Descrizione</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished">Da</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <source>Drawn</source>
+        <translation type="unfinished">Disegnato</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished">Controllato</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Approvato</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished">Formato</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished">Scala</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished">Norma</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message>
+        <source>Installation</source>
+        <translation type="unfinished">Impianto</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished">Ubicazione</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">Logo</translation>
+    </message>
+    <message>
+        <source>Company</source>
+        <translation type="unfinished">Azienda</translation>
+    </message>
+    <message>
+        <source>Client and site</source>
+        <translation type="unfinished">Cliente e cantiere</translation>
+    </message>
+    <message>
+        <source>Revisions</source>
+        <translation type="unfinished">Revisioni</translation>
+    </message>
+    <message>
+        <source>Signatures</source>
+        <translation type="unfinished">Firme</translation>
+    </message>
+    <message>
+        <source>Format and scale</source>
+        <translation type="unfinished">Formato e scala</translation>
+    </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished">Contatto</translation>
+    </message>
+    <message>
+        <source>Drawn by</source>
+        <translation type="unfinished">Disegnato da</translation>
+    </message>
+    <message>
+        <source>Drawn on</source>
+        <translation type="unfinished">Disegnato il</translation>
+    </message>
+    <message>
+        <source>Checked by</source>
+        <translation type="unfinished">Controllato da</translation>
+    </message>
+    <message>
+        <source>Checked on</source>
+        <translation type="unfinished">Controllato il</translation>
+    </message>
+    <message>
+        <source>Approved by</source>
+        <translation type="unfinished">Approvato da</translation>
+    </message>
+    <message>
+        <source>Approved on</source>
+        <translation type="unfinished">Approvato il</translation>
+    </message>
+    <message>
+        <source>Project title</source>
+        <translation type="unfinished">Titolo del progetto</translation>
+    </message>
+    <message>
+        <source>Sheet number</source>
+        <translation type="unfinished">Numero del foglio</translation>
+    </message>
+    <message>
+        <source>Position of the sheet</source>
+        <translation type="unfinished">Posizione del foglio</translation>
+    </message>
+    <message>
+        <source>Number of sheets</source>
+        <translation type="unfinished">Numero di fogli</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished">Autore</translation>
+    </message>
+    <message>
+        <source>Revision of the sheet</source>
+        <translation type="unfinished">Revisione del foglio</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versione</translation>
+    </message>
+    <message>
+        <source>File name</source>
+        <translation type="unfinished">Nome del file</translation>
+    </message>
+    <message>
+        <source>Company address</source>
+        <translation type="unfinished">Indirizzo dell'azienda</translation>
+    </message>
+    <message>
+        <source>Company contact</source>
+        <translation type="unfinished">Contatto dell'azienda</translation>
+    </message>
+    <message>
+        <source>Site address</source>
+        <translation type="unfinished">Indirizzo del cantiere</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation type="unfinished">Formato della carta</translation>
+    </message>
+    <message>
+        <source>Latest revision</source>
+        <translation type="unfinished">Ultima revisione</translation>
+    </message>
+    <message>
+        <source>Date of the latest revision</source>
+        <translation type="unfinished">Data dell'ultima revisione</translation>
+    </message>
+    <message>
+        <source>Made of blocks with the FaseCAD title block designer</source>
+        <translation type="unfinished">Composto da blocchi con il progettista del cartiglio di FaseCAD</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesignPreview</name>
+    <message>
+        <source>Add the blocks of the title block with the buttons above</source>
+        <translation type="unfinished">Aggiungi i blocchi del cartiglio con i pulsanti qui sopra</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDesigner</name>
+    <message>
+        <source>Use the title block %1</source>
+        <translation type="unfinished">Usa il cartiglio %1</translation>
+    </message>
+    <message>
+        <source>Title block designer</source>
+        <translation type="unfinished">Progettista del cartiglio</translation>
+    </message>
+    <message>
+        <source>Add a block:</source>
+        <translation type="unfinished">Aggiungi un blocco:</translation>
+    </message>
+    <message>
+        <source>Adds the block "%1" at the end of the title block</source>
+        <translation type="unfinished">Aggiunge il blocco "%1" alla fine del cartiglio</translation>
+    </message>
+    <message>
+        <source>Click a block to change it. Drag the line between two blocks to share their width, drag a block to move it, Delete takes it away.</source>
+        <translation type="unfinished">Fai clic su un blocco per modificarlo. Trascina la linea tra due blocchi per dividere la loro larghezza, trascina un blocco per spostarlo, Canc lo toglie.</translation>
+    </message>
+    <message>
+        <source>Title block</source>
+        <translation type="unfinished">Cartiglio</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Nome:</translation>
+    </message>
+    <message>
+        <source>Modern: the label small above the value</source>
+        <translation type="unfinished">Moderno: l'etichetta piccola sopra il valore</translation>
+    </message>
+    <message>
+        <source>Classic: label and value on one line</source>
+        <translation type="unfinished">Classico: etichetta e valore su una riga</translation>
+    </message>
+    <message>
+        <source>Style:</source>
+        <translation type="unfinished">Stile:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished">Altezza:</translation>
+    </message>
+    <message>
+        <source>Colour of the bar and of the headers</source>
+        <translation type="unfinished">Colore della barra e delle intestazioni</translation>
+    </message>
+    <message>
+        <source>Bar along the left side</source>
+        <translation type="unfinished">Barra lungo il lato sinistro</translation>
+    </message>
+    <message>
+        <source>Accent:</source>
+        <translation type="unfinished">Accento:</translation>
+    </message>
+    <message>
+        <source>Start again from…</source>
+        <translation type="unfinished">Ricomincia da…</translation>
+    </message>
+    <message>
+        <source>Complete, for A3</source>
+        <translation type="unfinished">Completo, per A3</translation>
+    </message>
+    <message>
+        <source>Compact, for A4</source>
+        <translation type="unfinished">Compatto, per A4</translation>
+    </message>
+    <message>
+        <source>Give it to:</source>
+        <translation type="unfinished">Assegnalo a:</translation>
+    </message>
+    <message>
+        <source>this sheet</source>
+        <translation type="unfinished">questo foglio</translation>
+    </message>
+    <message>
+        <source>every sheet of the project</source>
+        <translation type="unfinished">ogni foglio del progetto</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished">Colore d'accento</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Blocco</translation>
+    </message>
+    <message>
+        <source>Pick a block in the title block.</source>
+        <translation type="unfinished">Scegli un blocco nel cartiglio.</translation>
+    </message>
+    <message>
+        <source>Block: %1</source>
+        <translation type="unfinished">Blocco: %1</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished">Larghezza:</translation>
+    </message>
+    <message>
+        <source>Text, and data between %{ and }: %{projecttitle}</source>
+        <translation type="unfinished">Testo, e dati tra %{ e }: %{projecttitle}</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation type="unfinished">Dato</translation>
+    </message>
+    <message>
+        <source>Revisions shown:</source>
+        <translation type="unfinished">Revisioni mostrate:</translation>
+    </message>
+    <message>
+        <source>The revisions are those of the project: Project &gt; Title block data.</source>
+        <translation type="unfinished">Le revisioni sono quelle del progetto: Progetto &gt; Dati del cartiglio.</translation>
+    </message>
+    <message>
+        <source>Choose an image…</source>
+        <translation type="unfinished">Scegli un'immagine…</translation>
+    </message>
+    <message>
+        <source>No logo</source>
+        <translation type="unfinished">Nessun logo</translation>
+    </message>
+    <message>
+        <source>Image:</source>
+        <translation type="unfinished">Immagine:</translation>
+    </message>
+    <message>
+        <source>Take the block away</source>
+        <translation type="unfinished">Togli il blocco</translation>
+    </message>
+    <message>
+        <source>Logo of the title block</source>
+        <translation type="unfinished">Logo del cartiglio</translation>
+    </message>
+    <message>
+        <source>Images (*.svg *.png *.jpg *.jpeg *.bmp)</source>
+        <translation type="unfinished">Immagini (*.svg *.png *.jpg *.jpeg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Give the title block a name: letters, digits, "-" and "_".</source>
+        <translation type="unfinished">Dai un nome al cartiglio: lettere, cifre, "-" e "_".</translation>
+    </message>
+    <message>
+        <source>The title block has no block.</source>
+        <translation type="unfinished">Il cartiglio non ha blocchi.</translation>
+    </message>
+    <message>
+        <source>The project already has a title block template called %1, not made with the designer. Replace it?</source>
+        <translation type="unfinished">Il progetto ha già un modello di cartiglio chiamato %1, non fatto con il progettista. Sostituirlo?</translation>
+    </message>
+</context>
+<context>
+    <name>WireNumbering</name>
+    <message>
+        <source>By potential: 1, 2, 3…</source>
+        <translation type="unfinished">Per potenziale: 1, 2, 3…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 3.1, 3.2…</source>
+        <translation type="unfinished">Foglio e numero: 3.1, 3.2…</translation>
+    </message>
+    <message>
+        <source>Sheet and number: 301, 302…</source>
+        <translation type="unfinished">Foglio e numero: 301, 302…</translation>
+    </message>
+    <message>
+        <source>Sheet and column: 3-12</source>
+        <translation type="unfinished">Foglio e colonna: 3-12</translation>
+    </message>
+    <message>
+        <source>From and to, IEC 62491: -K1:13/-X1:4</source>
+        <translation type="unfinished">Da e a, IEC 62491: -K1:13/-X1:4</translation>
+    </message>
+    <message>
+        <source>By potential type: L1, L2, N, PE, P1, M1</source>
+        <translation type="unfinished">Per tipo di potenziale: L1, L2, N, PE, P1, M1</translation>
+    </message>
+    <message numerus="yes">
+        <source>Number %n wire(s)</source>
+        <translation type="unfinished">
+            <numerusform>Numera %n conduttore</numerusform>
+            <numerusform>Numera %n conduttori</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireNumberingDialog</name>
+    <message>
+        <source>Number the wires</source>
+        <translation type="unfinished">Numera i conduttori</translation>
+    </message>
+    <message>
+        <source>Save as mine…</source>
+        <translation type="unfinished">Salva come mia…</translation>
+    </message>
+    <message>
+        <source>Keep this formula among your own, for every project</source>
+        <translation type="unfinished">Conserva questa formula tra le tue, per ogni progetto</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Elimina</translation>
+    </message>
+    <message>
+        <source>Delete this formula of your own</source>
+        <translation type="unfinished">Elimina questa tua formula</translation>
+    </message>
+    <message>
+        <source>Numbering:</source>
+        <translation type="unfinished">Numerazione:</translation>
+    </message>
+    <message>
+        <source>Formula:</source>
+        <translation type="unfinished">Formula:</translation>
+    </message>
+    <message>
+        <source>%N number in the project · %n number on the sheet · %F sheet · %C column · %R row · %P potential type (L1, N, PE, P1, M1) · %S device and %T terminal it starts from · %D device and %E terminal it goes to · %3N three digits: 001</source>
+        <translation type="unfinished">%N numero nel progetto · %n numero sul foglio · %F foglio · %C colonna · %R riga · %P tipo di potenziale (L1, N, PE, P1, M1) · %S dispositivo e %T morsetto di partenza · %D dispositivo e %E morsetto di arrivo · %3N tre cifre: 001</translation>
+    </message>
+    <message>
+        <source>A name for each wire, not one for each potential</source>
+        <translation type="unfinished">Un nome per ogni conduttore, non uno per ogni potenziale</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Conduttori</translation>
+    </message>
+    <message>
+        <source>Whole project</source>
+        <translation type="unfinished">Tutto il progetto</translation>
+    </message>
+    <message>
+        <source>This sheet</source>
+        <translation type="unfinished">Questo foglio</translation>
+    </message>
+    <message>
+        <source>Selected wires</source>
+        <translation type="unfinished">Conduttori selezionati</translation>
+    </message>
+    <message>
+        <source>Order on a sheet:</source>
+        <translation type="unfinished">Ordine su un foglio:</translation>
+    </message>
+    <message>
+        <source>From top to bottom, then left to right</source>
+        <translation type="unfinished">Dall'alto in basso, poi da sinistra a destra</translation>
+    </message>
+    <message>
+        <source>From left to right, then top to bottom</source>
+        <translation type="unfinished">Da sinistra a destra, poi dall'alto in basso</translation>
+    </message>
+    <message>
+        <source>Start at:</source>
+        <translation type="unfinished">Inizia da:</translation>
+    </message>
+    <message>
+        <source>Keep the numbers fixed by hand</source>
+        <translation type="unfinished">Mantieni i numeri fissati a mano</translation>
+    </message>
+    <message>
+        <source>Sheet</source>
+        <translation type="unfinished">Foglio</translation>
+    </message>
+    <message>
+        <source>Now</source>
+        <translation type="unfinished">Attuale</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nuovo</translation>
+    </message>
+    <message>
+        <source>From → to</source>
+        <translation type="unfinished">Da → a</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Numero</translation>
+    </message>
+    <message>
+        <source>Mine: %1</source>
+        <translation type="unfinished">Mia: %1</translation>
+    </message>
+    <message>
+        <source>Formula of my own</source>
+        <translation type="unfinished">Formula mia</translation>
+    </message>
+    <message>
+        <source>Nothing to change: every wire already has this name.</source>
+        <translation type="unfinished">Niente da cambiare: ogni conduttore ha già questo nome.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n name(s) change:</source>
+        <translation type="unfinished">
+            <numerusform>%n nome cambia:</numerusform>
+            <numerusform>%n nomi cambiano:</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Save as mine</source>
+        <translation type="unfinished">Salva come mia</translation>
+    </message>
+    <message>
+        <source>Name of this numbering:</source>
+        <translation type="unfinished">Nome di questa numerazione:</translation>
+    </message>
+</context>
+<context>
+    <name>WireSections</name>
+    <message numerus="yes">
+        <source>Give %n wire(s) the section of their protection</source>
+        <translation type="unfinished">
+            <numerusform>Dai a %n conduttore la sezione della sua protezione</numerusform>
+            <numerusform>Dai a %n conduttori la sezione della loro protezione</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>WireSectionsDialog</name>
+    <message>
+        <source>Calculate sections</source>
+        <translation type="unfinished">Calcola sezioni</translation>
+    </message>
+    <message>
+        <source>The section IEC 60204-1 (table 6, copper, PVC) asks for the wires each protection feeds, from its rated current, and the wires each device feeds whose part has a maximum current, from it: the wires on its outgoing terminals (2, 4, 6…) and every wire joined to them.</source>
+        <translation type="unfinished">La sezione che la IEC 60204-1 (tabella 6, rame, PVC) richiede per i conduttori che alimenta ogni protezione, in base alla sua corrente nominale, e per quelli che alimenta ogni dispositivo il cui articolo ha una corrente massima, in base a questa: i conduttori dei suoi morsetti di uscita (2, 4, 6…) e ogni conduttore unito ad essi.</translation>
+    </message>
+    <message>
+        <source>Installation:</source>
+        <translation type="unfinished">Posa:</translation>
+    </message>
+    <message>
+        <source>B1: single cores in a duct</source>
+        <translation type="unfinished">B1: conduttori singoli in canalina</translation>
+    </message>
+    <message>
+        <source>B2: cables in a duct</source>
+        <translation type="unfinished">B2: cavi in canalina</translation>
+    </message>
+    <message>
+        <source>C: on a wall</source>
+        <translation type="unfinished">C: su una parete</translation>
+    </message>
+    <message>
+        <source>E: on a cable tray</source>
+        <translation type="unfinished">E: su una passerella</translation>
+    </message>
+    <message>
+        <source>Ambient:</source>
+        <translation type="unfinished">Ambiente:</translation>
+    </message>
+    <message>
+        <source>Circuits grouped:</source>
+        <translation type="unfinished">Circuiti raggruppati:</translation>
+    </message>
+    <message>
+        <source>Device</source>
+        <translation type="unfinished">Dispositivo</translation>
+    </message>
+    <message>
+        <source>Current</source>
+        <translation type="unfinished">Corrente</translation>
+    </message>
+    <message>
+        <source>Section needed</source>
+        <translation type="unfinished">Sezione necessaria</translation>
+    </message>
+    <message>
+        <source>Wires</source>
+        <translation type="unfinished">Conduttori</translation>
+    </message>
+    <message>
+        <source>Without section</source>
+        <translation type="unfinished">Senza sezione</translation>
+    </message>
+    <message>
+        <source>Too small</source>
+        <translation type="unfinished">Troppo piccola</translation>
+    </message>
+    <message>
+        <source>Give them their section</source>
+        <translation type="unfinished">Dai loro la loro sezione</translation>
+    </message>
+    <message>
+        <source>not given</source>
+        <translation type="unfinished">non indicato</translation>
+    </message>
+    <message>
+        <source>over 120 mm²</source>
+        <translation type="unfinished">oltre 120 mm²</translation>
+    </message>
+    <message>
+        <source>The project has no protection (circuit breaker, motor protection, fuse) nor device with a maximum current.</source>
+        <translation type="unfinished">Il progetto non ha protezioni (magnetotermico, salvamotore, fusibile) né dispositivi con corrente massima.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n wire(s) without a section or with a smaller one than their protection asks for.</source>
+        <translation type="unfinished">
+            <numerusform>%n conduttore senza sezione o con una più piccola di quella richiesta dalla sua protezione.</numerusform>
+            <numerusform>%n conduttori senza sezione o con una più piccola di quella richiesta dalla loro protezione.</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>XRefDisplayForm</name>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished">Croce</translation>
+    </message>
+    <message>
+        <source>Contact symbols</source>
+        <translation type="unfinished">Simboli dei contatti</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Aspetto</translation>
+    </message>
+    <message>
+        <source>Under device label</source>
+        <translation type="unfinished">Sotto la sigla del dispositivo</translation>
+    </message>
+    <message>
+        <source>Below symbol</source>
+        <translation type="unfinished">Sotto il simbolo</translation>
+    </message>
+    <message>
+        <source>Folio footer</source>
+        <translation type="unfinished">Piè di foglio</translation>
+    </message>
+    <message>
+        <source>Manual position</source>
+        <translation type="unfinished">Posizione manuale</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Posizione</translation>
+    </message>
+    <message>
+        <source>Relative to the symbol</source>
+        <translation type="unfinished">Relativa al simbolo</translation>
+    </message>
+    <message>
+        <source>Absolute on the folio</source>
+        <translation type="unfinished">Assoluta sul foglio</translation>
+    </message>
+    <message>
+        <source>Relative: the display follows the symbol when it moves. Absolute: it stays where it is on the folio.</source>
+        <translation type="unfinished">Relativa: la visualizzazione segue il simbolo quando si sposta. Assoluta: resta dov'è sul foglio.</translation>
+    </message>
+    <message>
+        <source>Turns the contact symbols; their numbers stay upright.</source>
+        <translation type="unfinished">Ruota i simboli dei contatti; i loro numeri restano dritti.</translation>
+    </message>
+    <message>
+        <source>Contact symbol angle</source>
+        <translation type="unfinished">Angolo dei simboli dei contatti</translation>
+    </message>
+    <message>
+        <source>Line thickness</source>
+        <translation type="unfinished">Spessore della linea</translation>
+    </message>
+    <message>
+        <source>Gap below symbol</source>
+        <translation type="unfinished">Distanza sotto il simbolo</translation>
+    </message>
+    <message>
+        <source>Show defined contacts even when not linked</source>
+        <translation type="unfinished">Mostra i contatti definiti anche se non collegati</translation>
+    </message>
+    <message>
+        <source>Folio position X</source>
+        <translation type="unfinished">Posizione X sul foglio</translation>
+    </message>
+    <message>
+        <source>Manual offset X</source>
+        <translation type="unfinished">Scostamento manuale X</translation>
+    </message>
+    <message>
+        <source>Folio position Y</source>
+        <translation type="unfinished">Posizione Y sul foglio</translation>
+    </message>
+    <message>
+        <source>Manual offset Y</source>
+        <translation type="unfinished">Scostamento manuale Y</translation>
     </message>
 </context>
 </TS>

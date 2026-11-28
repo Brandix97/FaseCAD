@@ -27,8 +27,11 @@
 #include "qetinformation.h"
 #include "qetproject.h"
 #include "wiresections.h"
+#include "partsdb/partsdatabase.h"
+#include "partsdb/partslinks.h"
 
 #include <QDomDocument>
+#include <QTemporaryDir>
 #include <QUndoCommand>
 #include <QUndoStack>
 
@@ -167,6 +170,59 @@ private slots:
 		QVERIFY(!WireSections::apply(WireSections::check(&project, {})));
 		project.undoStack()->undo();
 		QVERIFY(out->properties().m_wire_section.isEmpty());
+	}
+
+	void aDeviceWithAMaximumCurrentCountsAsAProtection()
+	{
+			//Brandon, 2026-11-27: a contactor whose part says 25 A
+		QTemporaryDir dir;
+		const QString path = dir.filePath(QStringLiteral("parts.sqlite"));
+		{
+			PartsDatabase database;
+			QString error;
+			QVERIFY2(database.open(path, &error), qPrintable(error));
+			Part part;
+			part.manufacturer = QStringLiteral("Acme");
+			part.order_number = QStringLiteral("MC-25");
+			part.max_current = 25;
+			QVERIFY2(database.addPart(part, &error) > 0, qPrintable(error));
+		}
+		const bool was_enabled = PartsDatabase::isEnabled();
+		const QString was_path = PartsDatabase::configuredPath();
+		PartsDatabase::setConfiguredPath(path);
+		PartsDatabase::setEnabled(true);
+
+		QETProject project;
+		Diagram *folio = project.addNewDiagram();
+		Element *contactor = place(folio, QStringLiteral("-K1"), QStringLiteral("simple"),
+								   QStringLiteral("coil"), {200, 200});
+		Element *motor = place(folio, QStringLiteral("-M1"), QStringLiteral("simple"),
+							   QStringLiteral("coil"), {200, 400});
+		QVERIFY(contactor && motor);
+		QVERIFY(!WireSections::isProtection(contactor));
+			//No part yet: nothing to do
+		auto *out = new Conductor(terminal(contactor, QStringLiteral("2")), terminal(motor, QStringLiteral("1")));
+		folio->addItem(out);
+		QVERIFY(WireSections::check(&project, {}).isEmpty());
+
+		DiagramContext information = contactor->elementInformations();
+		information.addValue(PartsLinks::infoKey(),
+							 PartsLinks::encode({{QStringLiteral("Acme"), QStringLiteral("MC-25"), 1}}));
+		contactor->setElementInformations(information);
+		const QList<WireSections::Row> rows = WireSections::check(&project, {});
+		QCOMPARE(rows.size(), 1);
+		QCOMPARE(rows.first().label, QStringLiteral("-K1"));
+		QCOMPARE(rows.first().current, 25.0);
+		QCOMPARE(rows.first().required, WireSections::minimumSection(25, {}));
+		QVERIFY(rows.first().required > 2.5);
+		QCOMPARE(rows.first().wires.size(), 1);
+		QUndoCommand *undo = WireSections::apply(rows);
+		QVERIFY(undo);
+		project.undoStack()->push(undo);
+		QCOMPARE(WireSections::parseSection(out->properties().m_wire_section), rows.first().required);
+
+		PartsDatabase::setConfiguredPath(was_path);
+		PartsDatabase::setEnabled(was_enabled);
 	}
 };
 

@@ -131,11 +131,6 @@ QString CommandTabs::searchCommandId()
 */
 QList<CommandTabs::Tab> CommandTabs::layout()
 {
-	const QStringList connection_symbols = {
-		editor("place_corner"), editor("place_tee"),
-		editor("place_tee_mirrored"), editor("place_tee_branch_left"),
-		editor("place_tee_branch_right"), editor("place_interruption")};
-
 	return {
 		{tr("File"), {
 			{tr("Menus"), {
@@ -190,13 +185,8 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 			{tr("Symbols"), {
 				large(editor("show_element_picker"), tr("Navigator")),
 				small(editor("insert_last_element"), tr("Last symbol"))}},
+				//Only the reports (Brandon, 2026-11-27)
 			{tr("Connection symbols"), {
-				symbol(iconOnly(editor("place_corner"), tr("Corner"))),
-				symbol(iconOnly(editor("place_tee"), tr("Tee"))),
-				symbol(iconOnly(editor("place_tee_mirrored"), tr("Tee mirrored"))),
-				symbol(iconOnly(editor("place_tee_branch_left"), tr("Branch left"))),
-				symbol(iconOnly(editor("place_tee_branch_right"), tr("Branch right"))),
-				symbol(iconOnly(editor("place_interruption"), tr("Interruption"))),
 				symbol(iconOnly(editor("place_report_outgoing"), tr("Outgoing report"))),
 				symbol(iconOnly(editor("place_report_incoming"), tr("Incoming report")))}},
 			{tr("Devices"), {
@@ -313,15 +303,13 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 				small(editor("conductor_reset"), tr("Reset")),
 				small(editor("connect_aligned"), tr("Connect aligned")),
 				small(editor("wire_numbering"), tr("Number")),
-				small(editor("wire_sections"), tr("Sections"))}},
+				small(editor("wire_sections"), tr("Calculate sections"))}},
 			{tr("Cables"), {
 				large(editor("cable_manager"), tr("Navigator")),
 				small(editor("add_cable"), tr("Cable")),
 				small(editor("cable_numbering"), tr("Number")),
 				small(editor("add_cable_plan"), tr("Cable plan"))}},
 			{tr("Connection symbols"), {
-				symbol(menu(QStringLiteral("menu.connection_symbols"),
-					 tr("Symbols"), Size::Large, connection_symbols)),
 				symbol(small(editor("place_report_outgoing"), tr("Outgoing report"))),
 				symbol(small(editor("place_report_incoming"), tr("Incoming report")))}},
 			{tr("Bridges"), {
@@ -341,6 +329,8 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 				small(editor("export_cable_list"), tr("Cable list")),
 				small(editor("export_cable_plan"), tr("Cable plan")),
 				small(editor("export_project_db"), tr("Database"))}},
+			{tr("Versions"), {
+				large(editor("set_version"), tr("Set\nversion"))}},
 			{tr("Checks"), {
 				small(editor("check_potential_types"), tr("Potentials")),
 				small(editor("find_duplicate_labels"), tr("Duplicate labels")),

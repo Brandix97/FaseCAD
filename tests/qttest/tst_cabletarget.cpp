@@ -27,6 +27,7 @@
 #include "diagram.h"
 #include "properties/elementdata.h"
 #include "qetgraphicsitem/conductor.h"
+#include "qetgraphicsitem/conductortextitem.h"
 #include "qetgraphicsitem/element.h"
 #include "qetinformation.h"
 #include "qetproject.h"
@@ -184,6 +185,7 @@ private slots:
 	void typedTargetIsDrawnInItsOwnLines();
 	void boxesOfTwoCablesAreSetApart();
 	void realisticStyleDrawsTheCable();
+	void aCoreShowsNoTextOfItsOwn();
 };
 
 void tst_cabletarget::init()
@@ -726,6 +728,38 @@ void tst_cabletarget::boxesOfTwoCablesAreSetApart()
 			 "the strip reserves no room for the box it sets lower");
 	QVERIFY2(two_bounds.bottom() - one_bounds.bottom() > 0.5 * box_height,
 			 "the room reserved for the lower box is too small");
+}
+
+/**
+	A wire that is a core of a cable shows no text of its own: the cable
+	names its cores (Brandon, 2026-11-27). Taken out of the cable, its
+	text is back.
+*/
+void tst_cabletarget::aCoreShowsNoTextOfItsOwn()
+{
+	Conductor *wire = nullptr;
+	for (Diagram *diagram_ : m_project->diagrams()) {
+		for (Conductor *conductor_ : diagram_->conductors()) {
+			if (conductor_ && conductor_->properties().type == ConductorProperties::Multi
+				&& conductor_->properties().m_show_text && conductor_->properties().m_cable_uuid.isNull()) {
+				auto properties_ = conductor_->properties();
+				properties_.text = QStringLiteral("W99");
+				conductor_->setProperties(properties_);
+				if (conductor_->textItem()->isVisible()) {
+					wire = conductor_;
+					break;
+				}
+			}
+		}
+		if (wire) break;
+	}
+	QVERIFY(wire);
+	claimCable(wire, QUuid::createUuid());
+	QVERIFY(wire->isCableCore());
+	QVERIFY(!wire->textItem()->isVisible());
+	claimCable(wire, QUuid());
+	QVERIFY(!wire->isCableCore());
+	QVERIFY(wire->textItem()->isVisible());
 }
 
 int main(int argc, char **argv)

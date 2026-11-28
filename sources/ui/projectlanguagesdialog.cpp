@@ -18,6 +18,7 @@
 */
 #include "projectlanguages.h"
 #include "projectlanguagesdialog.h"
+#include "../partsdb/partsdatabase.h"
 
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -196,8 +197,51 @@ void ProjectLanguagesDialog::collectTexts()
 	for (const QString &text : std::as_const(m_project_texts))
 		m_languages.addPhrase(text);
 	added = m_languages.phrases().size() - before;
+	const int from_parts = fillFromParts(m_languages);
 	fillTable();
-	QMessageBox::information(this, tr("Collect texts"), tr("%n new text(s) added.", nullptr, added));
+	QString message = tr("%n new text(s) added.", nullptr, added);
+	if (from_parts > 0)
+		message += QLatin1Char(' ') + tr("%n translation(s) taken from the parts database.", nullptr, from_parts);
+	QMessageBox::information(this, tr("Collect texts"), message);
+}
+
+int ProjectLanguagesDialog::fillFromParts(ProjectLanguages &languages)
+{
+	const QStringList added = languages.languages().mid(1);
+	if (added.isEmpty() || languages.phrases().isEmpty() || !PartsDatabase::isEnabled())
+		return 0;
+	PartsDatabase database;
+	if (!database.open(PartsDatabase::path()))
+		return 0;
+		//The texts the parts have, with the part and which field
+	QHash<QString, QPair<Part, QString>> texts;
+	for (const Part &part : database.parts()) {
+		if (part.translations.isEmpty())
+			continue;
+		for (const QString &field : PartTranslations::fields()) {
+			const QString own = PartTranslations::text(part, field, QString()).trimmed();
+			if (!own.isEmpty() && !texts.contains(own))
+				texts.insert(own, qMakePair(part, field));
+		}
+	}
+	int filled = 0;
+	for (const QString &phrase : languages.phrases()) {
+		const auto found = texts.constFind(phrase.trimmed());
+		if (found == texts.constEnd())
+			continue;
+		for (const QString &language : added) {
+			if (!languages.translation(phrase, language).isEmpty())
+				continue;
+				//"en-GB" takes the English of the part
+			const QString words = PartTranslations::translation(
+					found->first, found->second, language.section(QLatin1Char('-'), 0, 0).toLower());
+			if (!words.isEmpty()) {
+				languages.setTranslation(phrase, language, words);
+				++filled;
+			}
+		}
+	}
+	return filled;
 }
 
 void ProjectLanguagesDialog::addText()

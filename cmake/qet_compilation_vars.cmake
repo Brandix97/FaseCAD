@@ -837,6 +837,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/ui/wirenumberingdialog.cpp
   ${QET_DIR}/sources/ui/wirenumberingdialog.h
   ${QET_DIR}/sources/wiresections.cpp
+  ${QET_DIR}/sources/projectversions.cpp
+  ${QET_DIR}/sources/projectversions.h
   ${QET_DIR}/sources/wiresections.h
   ${QET_DIR}/sources/ui/wiresectionsdialog.cpp
   ${QET_DIR}/sources/ui/wiresectionsdialog.h

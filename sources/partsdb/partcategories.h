@@ -101,6 +101,7 @@ class PartCategoriesDialog : public QDialog
 		PartsDatabase &m_db;
 		QTreeWidget *m_tree = nullptr;
 		QList<QPushButton *> m_on_selection;
+		void updateButtons();
 		QHash<QString, QString> m_renamed;
 		bool m_changed = false;
 };

@@ -391,10 +391,18 @@ void PartsManagerDialog::buildUi()
 	m_tabs->addTab(buildGeneralTab(), tr("General"));
 	m_tabs->addTab(buildMountingTab(), tr("Mounting"));
 	m_tabs->addTab(buildTechnicalTab(), tr("Technical data"));
-	m_tabs->addTab(buildFunctionsTab(), tr("Functions"));
-	m_tabs->addTab(buildConnectionsTab(), tr("Connection points"));
-	m_tabs->addTab(buildAccessoriesTab(), tr("Accessories"));
-	m_tabs->addTab(buildCableTab(), tr("Cable"));
+	m_tabs->addTab(buildTranslationsTab(), tr("Translations"));
+		//The functions and the connection points are not shown (Brandon,
+		//2026-11-27: the parts manager kept simple); their tables stay,
+		//hidden, so a part saved again keeps what it had
+		//The accessories too (2026-11-27): an accessory is one more part
+		//of the symbol
+	for (QWidget *kept : {buildFunctionsTab(), buildConnectionsTab(), buildAccessoriesTab()}) {
+		kept->setParent(m_form);
+		kept->hide();
+	}
+	m_cable_tab = buildCableTab();
+	m_tabs->addTab(m_cable_tab, tr("Cable"));
 	m_tabs->addTab(buildSymbolsTab(), tr("Symbols"));
 	m_tabs->addTab(buildFilesTab(), tr("Files"));
 	form_layout->addWidget(m_tabs, 1);
@@ -467,6 +475,7 @@ QWidget *PartsManagerDialog::buildGeneralTab()
 				if (chosen != m_category_shown) {
 					m_category_shown = chosen;
 					setModified(true);
+					showCableTab();
 				}
 			});
 			continue;
@@ -476,6 +485,36 @@ QWidget *PartsManagerDialog::buildGeneralTab()
 		m_text_edits.append({field.member, edit});
 		connect(edit, &QLineEdit::textEdited,
 				this, [this]() {setModified(true);});
+		if (field.member == &Part::current) {
+				//The maximum current (Brandon, 2026-11-27), with a ? that
+				//says what it is for
+			auto *row = new QWidget(widget);
+			auto *row_layout = new QHBoxLayout(row);
+			row_layout->setContentsMargins(0, 0, 0, 0);
+			auto *max_current = new QLineEdit(row);
+			max_current->setObjectName(QStringLiteral("max_current_le"));
+			auto *validator = new QDoubleValidator(0, 1e6, 3, max_current);
+			validator->setNotation(QDoubleValidator::StandardNotation);
+			max_current->setValidator(validator);
+			auto *help = new QLabel(QStringLiteral("?"), row);
+			help->setObjectName(QStringLiteral("max_current_help"));
+			help->setAlignment(Qt::AlignCenter);
+			help->setFixedSize(20, 20);
+			help->setStyleSheet(QStringLiteral(
+				"QLabel {border: 1px solid palette(mid); border-radius: 10px; font-weight: bold;}"));
+			help->setToolTip(tr("<p>Downstream of this device, the cross-section of the wires depends on "
+								"what is connected to it: the wires it feeds (its outgoing terminals and "
+								"every wire joined to them) are made for this current.</p>"
+								"<p><b>Calculate sections</b> (Connections tab) gives every wire of the "
+								"project the cross-section of the device that feeds it.</p>"));
+			help->setCursor(Qt::WhatsThisCursor);
+			row_layout->addWidget(max_current, 1);
+			row_layout->addWidget(help);
+			layout->addRow(tr("Maximum current (A)"), row);
+			m_number_edits.append({&Part::max_current, max_current});
+			connect(max_current, &QLineEdit::textEdited,
+					this, [this]() {setModified(true);});
+		}
 		if (field.member == &Part::code_letter) {
 			edit->setMaxLength(8);
 			edit->setPlaceholderText(QStringLiteral("K, Q, F, X..."));
@@ -551,6 +590,64 @@ QWidget *PartsManagerDialog::buildMountingTab()
 			->setToolTip(tr("Heat the device gives off, for the heat balance"
 							" of the cabinet."));
 	return widget;
+}
+
+/**
+	@brief PartsManagerDialog::buildTranslationsTab
+	The textual description and the model in other languages (Brandon,
+	2026-11-27): Project languages fills them into the translations of a
+	project, so its folios read in each language.
+*/
+QWidget *PartsManagerDialog::buildTranslationsTab()
+{
+	auto *widget = new QWidget();
+	auto *layout = new QVBoxLayout(widget);
+	auto *hint = new QLabel(tr("The textual description and the model in other languages. In "
+							   "Project languages, Collect texts of the project fills them in, "
+							   "so the folios are shown, printed and exported in each language."),
+							widget);
+	hint->setWordWrap(true);
+	layout->addWidget(hint);
+	const QStringList languages = PartTranslations::languages();
+	m_translations_table = new QTableWidget(languages.size(), 3, widget);
+	m_translations_table->setObjectName(QStringLiteral("translations_table"));
+	m_translations_table->setHorizontalHeaderLabels(
+				{tr("Language"), QObject::tr("Textual description"), QObject::tr("Model")});
+	m_translations_table->verticalHeader()->hide();
+	m_translations_table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+	for (int row = 0; row < languages.size(); ++row) {
+		auto *language = new QTableWidgetItem(PartTranslations::languageName(languages.at(row)));
+		language->setData(Qt::UserRole, languages.at(row));
+		language->setFlags(Qt::ItemIsEnabled);
+		m_translations_table->setItem(row, 0, language);
+		m_translations_table->setItem(row, 1, new QTableWidgetItem());
+		m_translations_table->setItem(row, 2, new QTableWidgetItem());
+	}
+	m_translations_table->resizeColumnToContents(0);
+	connect(m_translations_table, &QTableWidget::itemChanged, this, [this]() {
+		if (!m_filling) {
+			setModified(true);
+		}
+	});
+	layout->addWidget(m_translations_table, 1);
+	return widget;
+}
+
+/**
+	@brief PartsManagerDialog::showCableTab
+	The Cable tab, only for a part of the category Cables or one of its
+	subcategories (Brandon, 2026-11-27)
+*/
+void PartsManagerDialog::showCableTab()
+{
+	if (!m_tabs || !m_cable_tab) {
+		return;
+	}
+	const int index = m_tabs->indexOf(m_cable_tab);
+	if (index >= 0) {
+		m_tabs->setTabVisible(index, PartCategoryPath::isWithin(
+								  m_category_shown, PartsDatabase::cablesCategory()));
+	}
 }
 
 /**
@@ -1498,6 +1595,16 @@ void PartsManagerDialog::showPart(const Part &part, bool is_new)
 	}
 	m_notes_te->setPlainText(part.notes);
 	m_cores_sb->setValue(part.core_count);
+	{
+		const QStringList fields = PartTranslations::fields();
+		for (int row = 0; row < m_translations_table->rowCount(); ++row) {
+			const QString language = m_translations_table->item(row, 0)->data(Qt::UserRole).toString();
+			for (int column = 0; column < fields.size(); ++column) {
+				m_translations_table->item(row, column + 1)->setText(
+							PartTranslations::translation(part, fields.at(column), language));
+			}
+		}
+	}
 
 	m_technical_table->setRowCount(0);
 	for (const auto &data : part.technical_data) {
@@ -1566,6 +1673,16 @@ Part PartsManagerDialog::partFromForm() const
 	}
 	part.notes = m_notes_te->toPlainText().trimmed();
 	part.core_count = m_cores_sb->value();
+	{
+		const QStringList fields = PartTranslations::fields();
+		for (int row = 0; row < m_translations_table->rowCount(); ++row) {
+			const QString language = m_translations_table->item(row, 0)->data(Qt::UserRole).toString();
+			for (int column = 0; column < fields.size(); ++column) {
+				PartTranslations::setTranslation(part, fields.at(column), language,
+												 m_translations_table->item(row, column + 1)->text());
+			}
+		}
+	}
 	for (int row = 0; row < m_symbols_list->count(); ++row) {
 		part.symbols.append(m_symbols_list->item(row)->data(Qt::UserRole).toString());
 	}
@@ -1862,6 +1979,7 @@ void PartsManagerDialog::fillCategories(const QString &select)
 	}
 	m_category_cb->setCurrentIndex(index);
 	m_category_shown = m_category_cb->itemData(index).toString();
+	showCableTab();
 }
 
 /**

@@ -25,6 +25,7 @@
 
 class Conductor;
 class Element;
+class PartsDatabase;
 class QETProject;
 class QUndoCommand;
 class Terminal;
@@ -43,6 +44,10 @@ class Terminal;
 	they feed are those on their outgoing terminals -- the even ones (2, 4,
 	6, 2/T1...), else those at the bottom of the symbol -- and every wire
 	joined to them.
+
+	A device whose part has a maximum current (Brandon, 2026-11-27) counts
+	as a protection of that current, whatever its kind: the wires it feeds
+	are made for it.
 */
 namespace WireSections
 {
@@ -73,6 +78,9 @@ namespace WireSections
 
 	bool isProtection(const Element *element);
 	qreal ratedCurrent(const Element *element);
+		/// The maximum current of the parts of @p element in @p database
+		/// (the highest of them), 0 when none says one
+	qreal maxCurrent(const Element *element, const PartsDatabase *database);
 	QList<Terminal *> outgoing(const Element *element);
 
 		/// One protection and the wires it feeds
