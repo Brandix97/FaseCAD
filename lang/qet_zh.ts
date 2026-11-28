@@ -5453,6 +5453,18 @@ Hold Shift and drag to move this text on its own</source>
         <source>Modify the alignment of a text field</source>
         <translation>修改文本的对齐方式</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">零件数据</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">选择数据...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">元件第一个零件在零件数据库中的数据或图片</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12160,6 +12172,10 @@ Do you still want to link this slave contact?</source>
         <source>Move a text field</source>
         <translation>移动文本框</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">零件数据</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17595,6 +17611,10 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">QElectroTech 项目 (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">fasecad.com 的服务尚未开放</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18408,6 +18428,166 @@ the conditions are not valid</source>
         <source>The chosen virtual path does not match an element.</source>
         <comment>message box content</comment>
         <translation>所选的虚拟路径不对应于元件。</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">显示 A4 图纸</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">图纸尺寸...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">图纸尺寸</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">导入 DXF 图纸</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">DXF 图纸 (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">无法读取 %1。
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px/mm</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 mm，符号中 %3 × %4 px</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">实际尺寸</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">图纸上 1 mm 打印为 1 mm：每 mm %1 px</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">比例：</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">尺寸：</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF：已绘制 %n 个部件</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">；省略：%1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">复制格式</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">复制所选部件的线型、颜色、填充和字体</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">应用格式</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">将复制的格式应用到所选部件</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">左对齐</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">对齐所选部件的左边缘</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">水平居中</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">按中心将所选部件放在同一条垂直线上</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">右对齐</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">对齐所选部件的右边缘</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">顶端对齐</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">对齐所选部件的上边缘</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">垂直居中</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">按中心将所选部件放在同一条水平线上</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">底端对齐</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">对齐所选部件的下边缘</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">水平分布</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">保持第一个和最后一个部件不动，沿一行在每个所选部件与下一个之间留出相同间距（3 个或更多部件）</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">垂直分布</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">保持第一个和最后一个部件不动，沿一列在每个所选部件与下一个之间留出相同间距（3 个或更多部件）</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">对齐和分布</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>请至少选择 %n 个部件</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">所选部件已就位</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">格式已复制：选择部件后点击“应用格式”</translation>
     </message>
 </context>
 <context>
@@ -32352,6 +32532,10 @@ version</source>
             <numerusform>%n 项数据</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">主零件</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32585,6 +32769,15 @@ version</source>
     <message>
         <source>(image)</source>
         <translation type="unfinished">（图片）</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">图片</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1，主零件</translation>
     </message>
 </context>
 <context>
@@ -34535,6 +34728,35 @@ Replace it with the part of the file?</source>
     <message>
         <source>Manual offset Y</source>
         <translation type="unfinished">手动偏移 Y</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">应用格式</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">A4 图纸（297 × 210 mm）</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">图纸 %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">分布</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">对齐</translation>
     </message>
 </context>
 </TS>

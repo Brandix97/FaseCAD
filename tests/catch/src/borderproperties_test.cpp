@@ -20,13 +20,13 @@ TEST_CASE("BorderProperties")
 
 	My2 = My.defaultProperties();
 
-	CHECK((My2 == My) == true);
-
-	CHECK(My2.columns_count == 17);
-	CHECK(My2.columns_width == 60.0);
+		// A new folio is an A4, landscape, with the default title block
+		// inside it (FaseCAD): 19 columns of 58 px, 9 rows of 80 px
+	CHECK(My2.columns_count == 19);
+	CHECK(My2.columns_width == 58.0);
 	CHECK(My2.columns_header_height == 20.0);
 	CHECK(My2.display_columns == true);
-	CHECK(My2.rows_count == 8);
+	CHECK(My2.rows_count == 9);
 	CHECK(My2.rows_height == 80.0);
 	CHECK(My2.rows_header_width == 20.0);
 	CHECK(My2.display_rows == true);

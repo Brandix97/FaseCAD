@@ -67,6 +67,20 @@
 #include <QDialogButtonBox>
 #include <QDoubleSpinBox>
 #include <QFormLayout>
+#include <QStatusBar>
+#include "../elementformatpattern.h"
+#include "../partslayout.h"
+#include "../dxfimport.h"
+#include "../graphicspart/partline.h"
+#include "../graphicspart/partpolygon.h"
+#include "../UndoCommand/addpartcommand.h"
+#include "../../cabinet/dxfreader.h"
+#include <QFileInfo>
+#include <QGuiApplication>
+#include <QLabel>
+#include <QPushButton>
+#include <QMenu>
+#include <QToolBar>
 
 /**
  * @brief QETElementEditor::QETElementEditor
@@ -135,6 +149,8 @@ void QETElementEditor::contextMenu(QPoint p, QList<QAction *> actions)
 	menu.addAction(ui->m_delete_action);
 	menu.addAction(ui->m_cut_action);
 	menu.addAction(ui->m_copy_action);
+	menu.addAction(m_copy_format_action);
+	menu.addAction(m_apply_format_action);
 	menu.addSeparator();
 	menu.addAction((ui->m_mirror_action));
 	menu.addAction((ui->m_flip_action));
@@ -1254,7 +1270,7 @@ void QETElementEditor::setupActions()
 		//Background frame action: a visual-only reference rectangle, never
 		//written to the saved .elmt file, to help proportion the drawing
 		//against a representative folio surface.
-	auto *toggle_background_frame_action = new QAction(QET::Icons::DocumentPrintFrame, tr("Show the background frame"), this);
+	auto *toggle_background_frame_action = new QAction(QET::Icons::DocumentPrintFrame, tr("Show the A4 sheet"), this);
 	toggle_background_frame_action -> setCheckable(true);
 	toggle_background_frame_action -> setChecked(m_elmt_scene -> backgroundFrameVisible());
 	connect(toggle_background_frame_action, &QAction::toggled, m_elmt_scene, &ElementScene::setBackgroundFrameVisible);
@@ -1262,10 +1278,10 @@ void QETElementEditor::setupActions()
 	ui->m_display_menu->addAction(toggle_background_frame_action);
 	ui->m_view_toolbar->addAction(toggle_background_frame_action);
 
-	auto *configure_background_frame_action = new QAction(tr("Background frame size..."), this);
+	auto *configure_background_frame_action = new QAction(tr("Sheet size..."), this);
 	connect(configure_background_frame_action, &QAction::triggered, this, [this]() {
 		QDialog dialog(this);
-		dialog.setWindowTitle(tr("Background frame size"));
+		dialog.setWindowTitle(tr("Sheet size"));
 		auto *layout = new QFormLayout(&dialog);
 
 		auto *width_spin = new QDoubleSpinBox(&dialog);
@@ -1291,6 +1307,106 @@ void QETElementEditor::setupActions()
 	});
 	ShortcutManager::instance().registerAction(configure_background_frame_action, "elementeditor.configure_background_frame", tr("Element editors"), QKeySequence());
 	ui->m_display_menu->addAction(configure_background_frame_action);
+
+		//Copy format, Apply format: the look of one part given to others
+	m_copy_format_action = new QAction(QET::Icons::CopyElementTextFormat, tr("Copy format"), this);
+	m_copy_format_action->setStatusTip(tr("Copy the line style, colour, filling and font of the selected part"));
+	m_apply_format_action = new QAction(QET::Icons::ApplyElementTextFormat, tr("Apply format"), this);
+	m_apply_format_action->setStatusTip(tr("Give the selected parts the format copied"));
+	ShortcutManager::instance().registerAction(m_copy_format_action, "elementeditor.copy_format", tr("Element editors"), QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_C));
+	ShortcutManager::instance().registerAction(m_apply_format_action, "elementeditor.apply_format", tr("Element editors"), QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_V));
+	connect(m_copy_format_action, &QAction::triggered, this, &QETElementEditor::copyFormat);
+	connect(m_apply_format_action, &QAction::triggered, this, &QETElementEditor::applyFormat);
+	ui->m_edit_menu->insertAction(ui->m_delete_action, m_copy_format_action);
+	ui->m_edit_menu->insertAction(ui->m_delete_action, m_apply_format_action);
+	ui->m_edit_menu->insertSeparator(ui->m_delete_action);
+	ui->m_undo_toolbar->addSeparator();
+	ui->m_undo_toolbar->addAction(m_copy_format_action);
+	ui->m_undo_toolbar->addAction(m_apply_format_action);
+
+		//Align and distribute the selected parts
+	m_layout_action_group = new QActionGroup(this);
+	m_layout_action_group->setExclusive(false);
+	const struct {
+		const char *id;
+		QIcon icon;
+		QString text;
+		QString tip;
+		PartsLayout::Mode mode;
+	} layout_actions[] = {
+		{"align_left",    QET::Icons::AlignLeft,    tr("Align left"),          tr("Aligns the left edges of the selected parts"), PartsLayout::Mode::AlignLeft},
+		{"align_hcenter", QET::Icons::AlignHCenter, tr("Centre horizontally"), tr("Puts the selected parts on one vertical line, by their centres"), PartsLayout::Mode::AlignHCenter},
+		{"align_right",   QET::Icons::AlignRight,   tr("Align right"),         tr("Aligns the right edges of the selected parts"), PartsLayout::Mode::AlignRight},
+		{"align_top",     QET::Icons::AlignTop,     tr("Align top"),           tr("Aligns the top edges of the selected parts"), PartsLayout::Mode::AlignTop},
+		{"align_vcenter", QET::Icons::AlignVCenter, tr("Centre vertically"),   tr("Puts the selected parts on one horizontal line, by their centres"), PartsLayout::Mode::AlignVCenter},
+		{"align_bottom",  QET::Icons::AlignBottom,  tr("Align bottom"),        tr("Aligns the bottom edges of the selected parts"), PartsLayout::Mode::AlignBottom},
+		{"distribute_horizontally", QIcon(QStringLiteral(":/ico/distribute-horizontal.svg")), tr("Distribute horizontally"), tr("Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)"), PartsLayout::Mode::DistributeHorizontally},
+		{"distribute_vertically",   QIcon(QStringLiteral(":/ico/distribute-vertical.svg")),   tr("Distribute vertically"),   tr("Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)"), PartsLayout::Mode::DistributeVertically}
+	};
+	auto *layout_menu = new QMenu(tr("Align and distribute"), this);
+	auto *layout_toolbar = new QToolBar(tr("Align and distribute"), this);
+	layout_toolbar->setObjectName(QStringLiteral("align_distribute_toolbar"));
+	for (const auto &a : layout_actions) {
+		QAction *action = m_layout_action_group->addAction(a.icon, a.text);
+		action->setStatusTip(a.tip);
+		action->setData(int(a.mode));
+		ShortcutManager::instance().registerAction(action, QStringLiteral("elementeditor.") + QLatin1String(a.id), tr("Element editors"), QKeySequence());
+		if (a.mode == PartsLayout::Mode::DistributeHorizontally) {
+			layout_menu->addSeparator();
+			layout_toolbar->addSeparator();
+		}
+		layout_menu->addAction(action);
+		layout_toolbar->addAction(action);
+	}
+	connect(m_layout_action_group, &QActionGroup::triggered, this, [this](QAction *action) {
+		const auto mode = PartsLayout::Mode(action->data().toInt());
+		QList<QGraphicsItem *> parts;
+		for (CustomElementPart *part : m_elmt_scene->primitives())
+			if (part->toItem() && part->toItem()->isSelected())
+				parts << part->toItem();
+		auto *command = new PartsLayoutCommand(parts, mode);
+		if (!command->isValid()) {
+			delete command;
+			statusBar()->showMessage(parts.size() < PartsLayout::minimumCount(mode)
+				? tr("Select at least %n parts", "", PartsLayout::minimumCount(mode))
+				: tr("The selected parts are already in place"), 4000);
+			return;
+		}
+		m_elmt_scene->undoStack().push(command);
+	});
+	ui->m_edit_menu->insertMenu(ui->m_delete_action, layout_menu);
+	ui->m_edit_menu->insertSeparator(ui->m_delete_action);
+	addToolBar(Qt::TopToolBarArea, layout_toolbar);
+}
+
+/**
+	@brief QETElementEditor::copyFormat
+	Keeps the format of the selected part for Apply format
+*/
+void QETElementEditor::copyFormat()
+{
+	const QList<QGraphicsItem *> items = m_elmt_scene->selectedItems();
+	if (items.size() != 1 || !items.first()->toGraphicsObject()) return;
+	const QVariantHash pattern = ElementFormatPattern::take(items.first()->toGraphicsObject());
+	if (pattern.isEmpty()) return;
+	ElementFormatPattern::setCopied(pattern);
+	statusBar()->showMessage(tr("Format copied: select parts and Apply format"), 4000);
+	updateAction();
+}
+
+/**
+	@brief QETElementEditor::applyFormat
+	Gives the selected parts the format copied, in one undo step
+*/
+void QETElementEditor::applyFormat()
+{
+	if (m_read_only || !ElementFormatPattern::hasCopied()) return;
+	QList<QObject *> parts;
+	for (QGraphicsItem *item : m_elmt_scene->selectedItems())
+		if (QGraphicsObject *object = item->toGraphicsObject())
+			parts << object;
+	if (QUndoCommand *command = ElementFormatPattern::applyCommand(parts, ElementFormatPattern::copied()))
+		m_elmt_scene->undoStack().push(command);
 }
 
 /**
@@ -1336,6 +1452,18 @@ void QETElementEditor::updateAction()
 		//disabled, so the element itself is still protected.
 	ui->m_copy_action->setEnabled(has_selection);
 	ui->m_deselect_all_action->setEnabled(has_selection);
+	if (m_copy_format_action) {
+		m_copy_format_action->setEnabled(!adding_part
+			&& m_elmt_scene->selectedItems().count() == 1);
+		m_apply_format_action->setEnabled(items_selected
+			&& ElementFormatPattern::hasCopied());
+	}
+	if (m_layout_action_group) {
+		const int count = m_elmt_scene->selectedItems().count();
+		for (QAction *action : m_layout_action_group->actions())
+			action->setEnabled(items_selected && count >= PartsLayout::minimumCount(
+				PartsLayout::Mode(action->data().toInt())));
+	}
 
 		//Action about clipboard
 	auto clipboard_contain_elmt = !m_read_only && ElementScene::clipboardMayContainElement();
@@ -1840,28 +1968,90 @@ void QETElementEditor::on_m_about_qt_action_triggered() { qApp->aboutQt(); }
 
 void QETElementEditor::on_m_import_dxf_triggered()
 {
-	if (dxf2ElmtIsPresent(true, this))
-	{
-		QString file_path{QFileDialog::getOpenFileName(this,
-													   QObject::tr("Import a dxf file"),
-													   QETApp::documentDir(),
-													   "DXF (*.dxf)")};
-		if (file_path.isEmpty()) {
-			return;
-		}
+		//The DXF reader of the folios (DxfReader), not the dxf2elmt tool:
+		//the lines of the drawing become lines and polylines of the symbol
+	if (m_read_only) return;
+	QSettings settings;
+	const QString folder = settings.value(QStringLiteral("elementeditor/dxf_folder"),
+										  QETApp::documentDir()).toString();
+	const QString file_path = QFileDialog::getOpenFileName(
+				this, tr("Import a DXF drawing"), folder, tr("DXF drawings (*.dxf *.DXF)"));
+	if (file_path.isEmpty()) return;
+	settings.setValue(QStringLiteral("elementeditor/dxf_folder"), QFileInfo(file_path).absolutePath());
 
-		QMessageBox::information(this, tr("Warning"), tr("Importing a large dxf can take time \n"
-															   "please wait while importing..."));
-
-		const QByteArray array_{dxfToElmt(file_path)};
-		if (array_.isEmpty()) {
-			return;
-		}
-		QDomDocument xml_;
-		xml_.setContent(array_);
-
-		m_elmt_scene->undoStack().push(new OpenElmtCommand(xml_, m_elmt_scene));
+	QGuiApplication::setOverrideCursor(Qt::WaitCursor);
+	const DxfReader::Result read = DxfReader::readFile(file_path);
+	QGuiApplication::restoreOverrideCursor();
+	if (!read.ok) {
+		QMessageBox::warning(this, tr("Import a DXF drawing"),
+							 tr("%1 could not be read.\n\n%2")
+							 .arg(QFileInfo(file_path).fileName(), read.error));
+		return;
 	}
+
+		//The scale: real size on paper by default
+	const QSizeF mm = read.path.boundingRect().size();
+	QDialog dialog(this);
+	dialog.setWindowTitle(tr("Import a DXF drawing"));
+	auto *form = new QFormLayout(&dialog);
+	auto *scale = new QDoubleSpinBox(&dialog);
+	scale->setRange(0.01, 1000);
+	scale->setDecimals(3);
+	scale->setSuffix(tr(" px per mm"));
+	scale->setValue(settings.value(QStringLiteral("elementeditor/dxf_scale"),
+								   DxfImport::realSize).toDouble());
+	auto *size = new QLabel(&dialog);
+	auto show_size = [scale, size, mm]() {
+		size->setText(tr("%1 × %2 mm, %3 × %4 px in the symbol")
+					  .arg(qRound(mm.width())).arg(qRound(mm.height()))
+					  .arg(qRound(mm.width() * scale->value()))
+					  .arg(qRound(mm.height() * scale->value())));
+	};
+	show_size();
+	connect(scale, qOverload<double>(&QDoubleSpinBox::valueChanged), &dialog, show_size);
+	auto *real = new QPushButton(tr("Real size"), &dialog);
+	real->setToolTip(tr("1 mm of the drawing is 1 mm printed: %1 px per mm").arg(DxfImport::realSize, 0, 'f', 3));
+	connect(real, &QPushButton::clicked, &dialog, [scale]() {scale->setValue(DxfImport::realSize);});
+	auto *scale_row = new QHBoxLayout;
+	scale_row->addWidget(scale, 1);
+	scale_row->addWidget(real);
+	form->addRow(tr("Scale:"), scale_row);
+	form->addRow(tr("Size:"), size);
+	auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+	connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+	form->addRow(buttons);
+	if (dialog.exec() != QDialog::Accepted) return;
+	settings.setValue(QStringLiteral("elementeditor/dxf_scale"), scale->value());
+
+		//One step of undo for the whole drawing, centred on the hotspot
+	const QList<DxfImport::Piece> pieces = DxfImport::pieces(read.path, scale->value());
+	if (pieces.isEmpty()) return;
+	auto *command = new QUndoCommand(tr("Import a DXF drawing"));
+	for (const DxfImport::Piece &piece : pieces) {
+		QGraphicsItem *item = nullptr;
+		if (piece.points.size() == 2 && !piece.closed) {
+			auto *line = new PartLine(this);
+			line->setLine(QLineF(piece.points.at(0), piece.points.at(1)));
+			item = line;
+		} else {
+			auto *polygon = new PartPolygon(this);
+			polygon->setPolygon(piece.points);
+			polygon->setClosed(piece.closed);
+			item = polygon;
+		}
+		new AddPartCommand(tr("Import a DXF drawing"), m_elmt_scene, item, command);
+	}
+	m_elmt_scene->undoStack().push(command);
+
+	QString message = tr("DXF: %n pieces drawn", "", pieces.size());
+	if (!read.skipped.isEmpty()) {
+		QStringList skipped;
+		for (auto it = read.skipped.constBegin() ; it != read.skipped.constEnd() ; ++it)
+			skipped << QStringLiteral("%1 (%2)").arg(it.key()).arg(it.value());
+		message += tr("; left out: %1").arg(skipped.join(QStringLiteral(", ")));
+	}
+	statusBar()->showMessage(message, 8000);
 }
 
 /**

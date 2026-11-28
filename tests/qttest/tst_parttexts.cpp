@@ -16,6 +16,7 @@
 	along with FaseCAD.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "qetapptest.h"
+#include "editor/graphicspart/partdynamictextfield.h"
 #include "ElementsCollection/elementslocation.h"
 #include "ElementsCollection/xmlelementcollection.h"
 #include "diagram.h"
@@ -219,6 +220,62 @@ private slots:
 		DynamicElementTextItem *plain = textOn(element);
 		plain->setText(QStringLiteral("hello"));
 		QVERIFY(plain->toXml(document).firstChildElement(QStringLiteral("part_info")).isNull());
+	}
+
+	/// A text of a symbol drawn in the element editor shows the data of
+	/// whichever part the placed element is made of first
+	void aSymbolTextShowsTheMainPart()
+	{
+			//The element editor saves the data, with no part
+		PartDynamicTextField field(nullptr);
+		field.setTextFrom(DynamicElementTextItem::PartInfo);
+		field.setPartField(QStringLiteral("description"));
+		QCOMPARE(field.toPlainText(), QStringLiteral("[Textual description]"));
+		QDomDocument document;
+		const QDomElement saved = field.toXml(document);
+		QCOMPARE(saved.attribute(QStringLiteral("text_from")), QStringLiteral("UserText"));
+		QVERIFY(saved.firstChildElement(QStringLiteral("text")).text().isEmpty());
+		const QString reference = saved.firstChildElement(QStringLiteral("part_info"))
+				.attribute(QStringLiteral("reference"));
+		QVERIFY(PartTexts::isMainPart(reference));
+		QCOMPARE(reference, PartTexts::mainPartReference(QStringLiteral("description")));
+
+			//And reads it back
+		PartDynamicTextField again(nullptr);
+		again.fromXml(saved);
+		QCOMPARE(again.textFrom(), DynamicElementTextItem::PartInfo);
+		QCOMPARE(again.partField(), QStringLiteral("description"));
+
+			//Placed, it shows nothing until the element is made of a part
+		QETProject project;
+		Diagram *folio = project.addNewDiagram();
+		Element *element = place(folio);
+		QVERIFY(element);
+		DynamicElementTextItem *text = textOn(element);
+		QDomElement as_folio = saved.cloneNode().toElement();
+		as_folio.setTagName(DynamicElementTextItem::xmlTagName());
+		text->fromXml(as_folio);
+		QCOMPARE(text->textFrom(), DynamicElementTextItem::PartInfo);
+		QVERIFY(text->toPlainText().isEmpty());
+
+			//Then the description of that part, read when the parts change
+		madeOf(element, QStringLiteral("Acme"), QStringLiteral("K-24"));
+		QCOMPARE(text->toPlainText(), QStringLiteral("Relay"));
+		QCOMPARE(PartTexts::describe(text->partField()), QStringLiteral("Textual description, main part"));
+
+			//The search window offers every piece of data, the image and
+			//the lines of technical data the parts have
+		PartsDatabase database;
+		QVERIFY(database.open(databasePath()));
+		QStringList ids;
+		for (const PartTexts::Field &f : PartTexts::symbolFields(&database)) {
+			ids << f.id;
+			QVERIFY(PartTexts::isMainPart(f.reference()));
+		}
+		QVERIFY(ids.contains(QStringLiteral("voltage")));
+		QVERIFY(ids.contains(PartTexts::firstImageId()));
+		QVERIFY(ids.contains(QStringLiteral("data:Coil voltage")));
+		QCOMPARE(PartTexts::fieldName(PartTexts::firstImageId()), QStringLiteral("Image"));
 	}
 
 	void theDatabaseRefreshesTheText()

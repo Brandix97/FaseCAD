@@ -241,6 +241,7 @@ class DynamicElementTextItem : public DiagramTextItem
 		m_part_value,
 		m_report_formula,
 		m_F_str;
+		QMetaObject::Connection m_main_part_connection;
 		QByteArray m_part_image;
 		QImage m_image;
 		DynamicElementTextItem::TextFrom m_text_from = UserText;

@@ -5542,6 +5542,18 @@ Hold Shift and drag to move this text on its own</source>
         <source>Modify the alignment of a text field</source>
         <translation>Изменить выравнивание текстового поля</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Данные детали</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">Выбрать данные...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">Данные или изображение первой детали, из которой состоит элемент, из базы деталей</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12280,6 +12292,10 @@ Do you still want to link this slave contact?</source>
         <source>Move a text field</source>
         <translation>Переместить текстовое поле</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Данные детали</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17845,6 +17861,10 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">Проект QElectroTech (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">Сервисы fasecad.com ещё не открыты</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18669,6 +18689,170 @@ the conditions are not valid</source>
         <source>The chosen virtual path does not match an element.</source>
         <comment>message box content</comment>
         <translation>Выбранный виртуальный путь не соответствует элементу.</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">Показать лист A4</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">Размер листа...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">Размер листа</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">Импортировать чертёж DXF</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Чертежи DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Не удалось прочитать %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px на мм</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 мм, %3 × %4 px в символе</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">Реальный размер</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">1 мм чертежа — 1 мм при печати: %1 px на мм</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Масштаб:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Размер:</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF: нарисован %n элемент</numerusform>
+            <numerusform>DXF: нарисовано %n элемента</numerusform>
+            <numerusform>DXF: нарисовано %n элементов</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">; пропущено: %1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Копировать формат</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">Копирует стиль линии, цвет, заливку и шрифт выбранного элемента</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Применить формат</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">Применяет скопированный формат к выбранным элементам</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">Выровнять по левому краю</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">Выравнивает левые края выбранных элементов</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">Центрировать по горизонтали</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">Ставит выбранные элементы центрами на одну вертикальную линию</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">Выровнять по правому краю</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">Выравнивает правые края выбранных элементов</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">Выровнять по верху</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">Выравнивает верхние края выбранных элементов</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">Центрировать по вертикали</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">Ставит выбранные элементы центрами на одну горизонтальную линию</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">Выровнять по низу</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">Выравнивает нижние края выбранных элементов</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">Распределить по горизонтали</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">Оставляет первый и последний элемент на месте и задаёт одинаковый промежуток между каждым выбранным элементом и следующим вдоль ряда (3 элемента и более)</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">Распределить по вертикали</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">Оставляет первый и последний элемент на месте и задаёт одинаковый промежуток между каждым выбранным элементом и следующим вдоль столбца (3 элемента и более)</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">Выровнять и распределить</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>Выберите не менее %n элемента</numerusform>
+            <numerusform>Выберите не менее %n элементов</numerusform>
+            <numerusform>Выберите не менее %n элементов</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">Выбранные элементы уже на месте</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">Формат скопирован: выберите элементы и нажмите «Применить формат»</translation>
     </message>
 </context>
 <context>
@@ -32107,6 +32291,10 @@ The following variables can be used:
             <numerusform>%n элементов данных</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">Основная деталь</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32340,6 +32528,15 @@ The following variables can be used:
     <message>
         <source>(image)</source>
         <translation type="unfinished">(изображение)</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Изображение</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1, основная деталь</translation>
     </message>
 </context>
 <context>
@@ -34973,6 +35170,35 @@ catalog</source>
     <message>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: скоро</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Применить формат</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">Лист A4 (297 × 210 мм)</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">Лист %1 × %2 мм</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">Распределить</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">Выровнять</translation>
     </message>
 </context>
 </TS>

@@ -215,9 +215,17 @@ void BorderPropertiesWidget::setReadOnly(const bool &ro)
 */
 void BorderPropertiesWidget::setTitleBlockSize(int height, Qt::Edge edge)
 {
+		//A folio of a paper size keeps it when its title block changes:
+		//the title block takes its room from the rows above it instead
+		//of making the folio larger. The first call only says which title
+		//block the folio has.
+	const bool keep_paper = m_paper_picked
+			|| (m_titleblock_known && ui->m_paper_cb->currentIndex() > 0
+				&& (height != m_titleblock_height || edge != m_titleblock_edge));
 	m_titleblock_height = height;
 	m_titleblock_edge = edge;
-	if (m_paper_picked)
+	m_titleblock_known = true;
+	if (keep_paper)
 		applyPaperSize();
 	else
 		showMatchingPaperSize();

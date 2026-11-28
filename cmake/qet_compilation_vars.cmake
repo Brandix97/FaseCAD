@@ -457,6 +457,10 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/editor/editorcommands.cpp
   ${QET_DIR}/sources/editor/editorcommands.h
   ${QET_DIR}/sources/editor/elementcontent.h
+  ${QET_DIR}/sources/editor/dxfimport.cpp
+  ${QET_DIR}/sources/editor/dxfimport.h
+  ${QET_DIR}/sources/editor/elementformatpattern.cpp
+  ${QET_DIR}/sources/editor/elementformatpattern.h
   ${QET_DIR}/sources/editor/elementitemeditor.cpp
   ${QET_DIR}/sources/editor/elementitemeditor.h
   ${QET_DIR}/sources/editor/elementprimitivedecorator.cpp
@@ -465,6 +469,8 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/editor/elementscene.h
   ${QET_DIR}/sources/editor/elementview.cpp
   ${QET_DIR}/sources/editor/elementview.h
+  ${QET_DIR}/sources/editor/partslayout.cpp
+  ${QET_DIR}/sources/editor/partslayout.h
   ${QET_DIR}/sources/editor/styleeditor.cpp
   ${QET_DIR}/sources/editor/styleeditor.h
 

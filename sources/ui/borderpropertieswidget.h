@@ -65,6 +65,7 @@ class BorderPropertiesWidget : public QWidget
 			/// true once the user picked a paper size, until the columns or
 			/// rows are edited by hand
 		bool m_paper_picked = false;
+		bool m_titleblock_known = false; ///< setTitleBlockSize() was called
 			/// the column width and row height last set by hand: a paper
 			/// size is fitted from these, not from what a previous paper
 			/// size left, so A4, A3 and A4 again gives the first A4 back

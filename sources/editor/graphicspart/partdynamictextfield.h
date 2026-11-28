@@ -38,6 +38,7 @@ class PartDynamicTextField : public QGraphicsTextItem, public CustomElementPart
 	Q_PROPERTY(DynamicElementTextItem::TextFrom textFrom READ textFrom WRITE setTextFrom NOTIFY textFromChanged)
 	Q_PROPERTY(QString infoName READ infoName WRITE setInfoName NOTIFY infoNameChanged)
 	Q_PROPERTY(QString compositeText READ compositeText WRITE setCompositeText NOTIFY compositeTextChanged)
+	Q_PROPERTY(QString partField READ partField WRITE setPartField NOTIFY partFieldChanged)
 	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 	Q_PROPERTY(bool frame READ frame WRITE setFrame NOTIFY frameChanged)
 	Q_PROPERTY(qreal textWidth READ textWidth WRITE setTextWidth NOTIFY textWidthChanged)
@@ -59,6 +60,7 @@ class PartDynamicTextField : public QGraphicsTextItem, public CustomElementPart
 		void textFromChanged(DynamicElementTextItem::TextFrom text_from);
 		void infoNameChanged(QString info);
 		void compositeTextChanged(QString text);
+		void partFieldChanged(QString id);
 		void colorChanged(QColor color);
 		void frameChanged(bool frame);
 		void textWidthChanged(qreal width);
@@ -95,6 +97,9 @@ class PartDynamicTextField : public QGraphicsTextItem, public CustomElementPart
 		QString infoName() const;
 		void setCompositeText(const QString &text);
 		QString compositeText() const;
+		void setPartField(const QString &id);
+		QString partField() const {return m_part_field;}
+		QString partPlaceholder() const;
 		void setColor(const QColor& color);
 		QColor color() const;
 		void setFrame(bool frame);
@@ -134,7 +139,8 @@ class PartDynamicTextField : public QGraphicsTextItem, public CustomElementPart
 				m_saved_point;
 		QString m_text,
 				m_info_name,
-				m_composite_text;
+				m_composite_text,
+				m_part_field; ///< the data of the main part shown (PartTexts id)
 		DynamicElementTextItem::TextFrom m_text_from = DynamicElementTextItem::UserText;
 		QUuid m_uuid;
 		bool m_frame = false,

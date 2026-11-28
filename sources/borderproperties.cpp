@@ -180,6 +180,13 @@ BorderProperties BorderProperties::defaultProperties()
 	QSettings settings;
 
 	BorderProperties def;
+		//Unless the settings say otherwise, a new folio is an A4,
+		//landscape, with the default title block (50 px) inside it:
+		//1123 x 794 px at 96 px an inch
+	def.columns_count = 19;
+	def.columns_width = 58;
+	def.rows_count = 9;
+	def.rows_height = 80;
 	def.fromSettings(settings, "diagrameditor/default");
 
 	return(def);

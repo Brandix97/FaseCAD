@@ -77,14 +77,16 @@ ElementScene::ElementScene(QETElementEditor *editor, QObject *parent) :
 	connect(this, &ElementScene::selectionChanged, this, &ElementScene::managePrimitivesGroups);
 
 	QSettings settings;
+		//An A4 sheet, landscape, shown by default: how big the symbol is
+		//against a folio (the sizes of paper are at 96 px an inch, as the
+		//folio sizes of the border properties)
 	m_background_frame_visible = settings.value(
-			QStringLiteral("elementeditor/background_frame_visible"), false).toBool();
-	BorderProperties bp = BorderProperties::defaultProperties();
+			QStringLiteral("elementeditor/a4_sheet_visible"), true).toBool();
 	m_background_frame_size = QSizeF(
-			settings.value(QStringLiteral("elementeditor/background_frame_width"),
-						   bp.columns_count * bp.columns_width).toReal(),
-			settings.value(QStringLiteral("elementeditor/background_frame_height"),
-						   bp.rows_count * bp.rows_height).toReal());
+			settings.value(QStringLiteral("elementeditor/a4_sheet_width"),
+						   a4SheetSize().width()).toReal(),
+			settings.value(QStringLiteral("elementeditor/a4_sheet_height"),
+						   a4SheetSize().height()).toReal());
 }
 
 /**
@@ -100,7 +102,7 @@ void ElementScene::setBackgroundFrameVisible(bool visible)
 		return;
 	}
 	m_background_frame_visible = visible;
-	QSettings().setValue(QStringLiteral("elementeditor/background_frame_visible"), visible);
+	QSettings().setValue(QStringLiteral("elementeditor/a4_sheet_visible"), visible);
 	update();
 }
 
@@ -115,8 +117,8 @@ void ElementScene::setBackgroundFrameSize(const QSizeF &size)
 	}
 	m_background_frame_size = size;
 	QSettings settings;
-	settings.setValue(QStringLiteral("elementeditor/background_frame_width"), size.width());
-	settings.setValue(QStringLiteral("elementeditor/background_frame_height"), size.height());
+	settings.setValue(QStringLiteral("elementeditor/a4_sheet_width"), size.width());
+	settings.setValue(QStringLiteral("elementeditor/a4_sheet_height"), size.height());
 	update();
 }
 

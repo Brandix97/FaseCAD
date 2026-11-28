@@ -639,6 +639,17 @@ void DynamicElementTextItem::setTextFrom(DynamicElementTextItem::TextFrom text_f
 	{
 			//What was last read from the parts database (PartTexts)
 		setPlainText(m_part_value);
+			//A text of the symbol shows the main part: read again when
+			//the parts of the element change
+		disconnect(m_main_part_connection);
+		if (m_parent_element && PartTexts::isMainPart(m_part_field)) {
+			Element *element = m_parent_element.data();
+			m_main_part_connection = connect(element, &Element::elementInfoChange, this,
+				[element](const DiagramContext &old_info, const DiagramContext &new_info) {
+					if (old_info.value(QStringLiteral("parts")) != new_info.value(QStringLiteral("parts")))
+						PartTexts::refresh({element});
+				});
+		}
 	}
 	else if (m_text_from == ElementInfo && elementUseForInfo())
 	{

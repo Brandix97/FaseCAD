@@ -63,6 +63,21 @@ class PartTexts
 								 const QString &id);
 		static bool decode(const QString &reference, QString *manufacturer,
 						   QString *order_number, QString *id);
+			/// The data @p id of the main part of the element, whichever it
+			/// is: what a text of a symbol drawn in the element editor
+			/// saves (no manufacturer and no order number)
+		static QString mainPartReference(const QString &id);
+		static bool isMainPart(const QString &reference);
+			/// The data every part has, as (id, name), for a text of a
+			/// symbol to show
+		static QList<QPair<QString, QString>> standardFields();
+			/// What a text of a symbol drawn in the element editor may
+			/// show of the main part: every piece of data a part has, its
+			/// image and, from @p database when it is open, the lines of
+			/// technical data the parts have
+		static QList<Field> symbolFields(const PartsDatabase *database);
+			/// The image of the main part, whichever file it is
+		static QString firstImageId();
 			/// The name of the data @p id, as the user reads it
 		static QString fieldName(const QString &id);
 			/// "Rated voltage, K-24": what a text reads

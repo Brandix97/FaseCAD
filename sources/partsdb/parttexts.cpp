@@ -112,13 +112,62 @@ bool PartTexts::decode(const QString &reference, QString *manufacturer,
 	return true;
 }
 
+QString PartTexts::mainPartReference(const QString &id)
+{
+	return reference(QString(), QString(), id);
+}
+
+bool PartTexts::isMainPart(const QString &reference)
+{
+	QString manufacturer, order_number;
+	return decode(reference, &manufacturer, &order_number, nullptr)
+			&& manufacturer.isEmpty() && order_number.isEmpty();
+}
+
+QString PartTexts::firstImageId()
+{
+	return image_prefix;
+}
+
+QList<PartTexts::Field> PartTexts::symbolFields(const PartsDatabase *database)
+{
+	QList<Field> fields;
+	auto add = [&fields](const QString &id) {
+		Field field;
+		field.id = id;
+		field.name = fieldName(id);
+		fields << field;
+	};
+	for (const FieldName &field : field_names) {
+		add(QString::fromLatin1(field.id));
+	}
+	add(firstImageId());
+	if (database && database->isOpen()) {
+		for (const QString &name : database->dataNames()) {
+			add(data_prefix + name);
+		}
+	}
+	return fields;
+}
+
+QList<QPair<QString, QString>> PartTexts::standardFields()
+{
+	QList<QPair<QString, QString>> fields;
+	for (const FieldName &field : field_names) {
+		fields << qMakePair(QString::fromLatin1(field.id),
+							QCoreApplication::translate("PartTexts", field.name));
+	}
+	return fields;
+}
+
 QString PartTexts::fieldName(const QString &id)
 {
 	if (id.startsWith(data_prefix)) {
 		return id.mid(data_prefix.size());
 	}
 	if (isImage(id)) {
-		return tr("Image: %1").arg(id.mid(image_prefix.size()));
+		return id == image_prefix ? tr("Image")
+								  : tr("Image: %1").arg(id.mid(image_prefix.size()));
 	}
 	for (const FieldName &field : field_names) {
 		if (id == QLatin1String(field.id)) {
@@ -133,6 +182,10 @@ QString PartTexts::describe(const QString &reference)
 	QString manufacturer, order_number, id;
 	if (!decode(reference, &manufacturer, &order_number, &id)) {
 		return QString();
+	}
+	if (manufacturer.isEmpty() && order_number.isEmpty()) {
+		return tr("%1, main part", "the data a text of a symbol shows, of"
+				  " whichever part the element is made of first").arg(fieldName(id));
 	}
 	return tr("%1, %2", "the data a text shows (rated voltage...), then the"
 					   " order number of the part").arg(fieldName(id), order_number);
@@ -324,6 +377,24 @@ int PartTexts::refresh(const QList<Element *> &elements)
 		if (!decode(text->partField(), &manufacturer, &order_number, &id)) {
 			continue;
 		}
+			//A text of the symbol: the main part, the first the element
+			//is made of
+		if (manufacturer.isEmpty() && order_number.isEmpty()) {
+			const Element *element = text->parentElement();
+			const QList<PartsLinks::Link> links = element
+					? PartsLinks::decode(element->elementInformations()
+										 .value(PartsLinks::infoKey()).toString())
+					: QList<PartsLinks::Link>();
+			if (links.isEmpty()) {
+				if (!text->partValue().isEmpty()) {
+					text->setPartValue(QString());
+					++changed;
+				}
+				continue;
+			}
+			manufacturer = links.first().manufacturer;
+			order_number = links.first().order_number;
+		}
 		const QString key = manufacturer + QLatin1Char('\t') + order_number;
 		if (!read.contains(key)) {
 			read.insert(key, database.part(database.findPart(manufacturer, order_number)));
@@ -335,8 +406,20 @@ int PartTexts::refresh(const QList<Element *> &elements)
 			continue;
 		}
 		if (isImage(id)) {
+				//The image of the main part: its first one
+			QString image_id = id;
+			if (id == image_prefix) {
+				const qint64 part_id = database.findPart(manufacturer, order_number);
+				for (const PartFile &file : database.files(part_id)) {
+					if (file.kind == PartFileKind::Image) {
+						image_id = imageId(file.file_name);
+						break;
+					}
+				}
+				if (image_id == image_prefix) continue;
+			}
 				//An image gone from the part: the copy kept stays
-			const QByteArray image = imageOf(database, manufacturer, order_number, id);
+			const QByteArray image = imageOf(database, manufacturer, order_number, image_id);
 			if (!image.isEmpty() && image != text->partImage()) {
 				text->setPartImage(image);
 				++changed;

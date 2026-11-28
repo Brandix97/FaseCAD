@@ -5531,6 +5531,18 @@ Hold Shift and drag to move this text on its own</source>
         <source>Modify the alignment of a text field</source>
         <translation>Upravit zarovnání textového pole</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Data dílu</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">Vybrat údaj...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">Údaj nebo obrázek prvního dílu, ze kterého je prvek složen, z databáze dílů</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12238,6 +12250,10 @@ Chcete přesto propojit tento podřízený kontakt?</translation>
         <source>Move a text field</source>
         <translation>Přesunout textové pole</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Data dílu</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17748,6 +17764,10 @@ Chcete-li z něj vytvořit skript, požádejte svého asistenta AI: tlačítko n
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">Projekt QElectroTech (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">Služby fasecad.com ještě nejsou otevřeny</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18572,6 +18592,170 @@ podmínky nejsou platné</translation>
         <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1186"/>
         <source>Add a rectangle</source>
         <translation>Přidat obdélník</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">Zobrazit list A4</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">Velikost listu...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">Velikost listu</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">Importovat výkres DXF</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Výkresy DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 nelze načíst.
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px na mm</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 mm, %3 × %4 px v symbolu</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">Skutečná velikost</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">1 mm výkresu je 1 mm vytištěný: %1 px na mm</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Měřítko:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Velikost:</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF: nakreslen %n kus</numerusform>
+            <numerusform>DXF: nakresleny %n kusy</numerusform>
+            <numerusform>DXF: nakresleno %n kusů</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">; vynecháno: %1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Kopírovat formát</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">Zkopíruje styl čáry, barvu, výplň a písmo vybraného dílu</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Použít formát</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">Dá vybraným dílům zkopírovaný formát</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">Zarovnat vlevo</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">Zarovná levé okraje vybraných dílů</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">Vycentrovat vodorovně</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">Postaví vybrané díly středy na jednu svislou čáru</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">Zarovnat vpravo</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">Zarovná pravé okraje vybraných dílů</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">Zarovnat nahoru</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">Zarovná horní okraje vybraných dílů</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">Vycentrovat svisle</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">Postaví vybrané díly středy na jednu vodorovnou čáru</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">Zarovnat dolů</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">Zarovná dolní okraje vybraných dílů</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">Rozmístit vodorovně</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">Ponechá první a poslední díl na místě a mezi každý vybraný díl a následující dá stejnou mezeru podél řady (3 díly a více)</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">Rozmístit svisle</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">Ponechá první a poslední díl na místě a mezi každý vybraný díl a následující dá stejnou mezeru podél sloupce (3 díly a více)</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">Zarovnat a rozmístit</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>Vyberte alespoň %n díl</numerusform>
+            <numerusform>Vyberte alespoň %n díly</numerusform>
+            <numerusform>Vyberte alespoň %n dílů</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">Vybrané díly už jsou na místě</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">Formát zkopírován: vyberte díly a Použít formát</translation>
     </message>
 </context>
 <context>
@@ -31989,6 +32173,10 @@ Přiřazení názvu &quot;volta&quot; a hodnoty &quot;1745&quot; v záhlaví vý
             <numerusform>%n údajů</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">Hlavní díl</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32222,6 +32410,15 @@ Přiřazení názvu &quot;volta&quot; a hodnoty &quot;1745&quot; v záhlaví vý
     <message>
         <source>(image)</source>
         <translation type="unfinished">(obrázek)</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Obrázek</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1, hlavní díl</translation>
     </message>
 </context>
 <context>
@@ -34854,6 +35051,35 @@ katalog</translation>
     <message>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: již brzy</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Použít formát</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">List A4 (297 × 210 mm)</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">List %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">Rozmístit</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">Zarovnat</translation>
     </message>
 </context>
 </TS>

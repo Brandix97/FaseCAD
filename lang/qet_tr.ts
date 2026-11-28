@@ -5465,6 +5465,18 @@ Bu metni tek başına taşımak için Shift tuşunu basılı tutup sürükleyin<
         <source>Modify the alignment of a text field</source>
         <translation>Metin alanının hizalamasını değiştirin</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Parça verileri</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">Veriyi seç...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">Öğenin yapıldığı ilk parçanın parça veritabanındaki verisi veya görüntüsü</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12172,6 +12184,10 @@ Yine de bu bağımlı kontağı bağlamak istiyor musunuz?</translation>
         <source>Move a text field</source>
         <translation>Bir metin alanını taşı</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Parça verileri</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17601,6 +17617,10 @@ Bundan bir betik yapmak için yapay zekâ asistanınıza sorun: aşağıdaki dü
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">QElectroTech projesi (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">fasecad.com hizmetleri henüz açık değil</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18415,6 +18435,166 @@ the conditions are not valid</source>
         <source>The element does not exist.</source>
         <comment>message box content</comment>
         <translation>Öğe mevcut değil.</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">A4 sayfayı göster</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">Sayfa boyutu...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">Sayfa boyutu</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">Bir DXF çizimi içe aktar</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">DXF çizimleri (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">%1 okunamadı.
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px / mm</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 mm, sembolde %3 × %4 px</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">Gerçek boyut</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">Çizimin 1 mm'si basılı 1 mm'dir: mm başına %1 px</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Ölçek:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Boyut:</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF: %n parça çizildi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">; dışarıda bırakılan: %1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Biçimi kopyala</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">Seçili parçanın çizgi stilini, rengini, dolgusunu ve yazı tipini kopyalar</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Biçimi uygula</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">Seçili parçalara kopyalanan biçimi verir</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">Sola hizala</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">Seçili parçaların sol kenarlarını hizalar</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">Yatay ortala</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">Seçili parçaları merkezlerinden tek bir dikey çizgiye koyar</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">Sağa hizala</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">Seçili parçaların sağ kenarlarını hizalar</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">Üste hizala</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">Seçili parçaların üst kenarlarını hizalar</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">Dikey ortala</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">Seçili parçaları merkezlerinden tek bir yatay çizgiye koyar</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">Alta hizala</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">Seçili parçaların alt kenarlarını hizalar</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">Yatay dağıt</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">İlk ve son parçayı yerinde bırakır ve bir satır boyunca her seçili parça ile sonraki arasına aynı boşluğu koyar (3 parça veya daha fazla)</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">Dikey dağıt</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">İlk ve son parçayı yerinde bırakır ve bir sütun boyunca her seçili parça ile sonraki arasına aynı boşluğu koyar (3 parça veya daha fazla)</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">Hizala ve dağıt</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>En az %n parça seçin</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">Seçili parçalar zaten yerinde</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">Biçim kopyalandı: parçaları seçin ve Biçimi uygula</translation>
     </message>
 </context>
 <context>
@@ -32367,6 +32547,10 @@ belirle</translation>
             <numerusform>%n veri</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">Ana parça</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32600,6 +32784,15 @@ belirle</translation>
     <message>
         <source>(image)</source>
         <translation type="unfinished">(görüntü)</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Görüntü</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1, ana parça</translation>
     </message>
 </context>
 <context>
@@ -34550,6 +34743,35 @@ Dosyadaki parçayla değiştirilsin mi?</translation>
     <message>
         <source>Manual offset Y</source>
         <translation type="unfinished">Elle kaydırma Y</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Biçimi uygula</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">A4 sayfa (297 × 210 mm)</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">Sayfa %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">Dağıt</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">Hizala</translation>
     </message>
 </context>
 </TS>

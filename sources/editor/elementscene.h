@@ -154,6 +154,8 @@ class ElementScene : public QGraphicsScene
 		bool backgroundFrameVisible() const {return m_background_frame_visible;}
 		void setBackgroundFrameVisible(bool visible);
 		QSizeF backgroundFrameSize() const {return m_background_frame_size;}
+			/// A4 landscape, 297 x 210 mm at 96 px an inch
+		static QSizeF a4SheetSize() {return QSizeF(1123, 794);}
 		void setBackgroundFrameSize(const QSizeF &size);
 	
 	protected:

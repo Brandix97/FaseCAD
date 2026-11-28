@@ -86,6 +86,44 @@ class tst_borderpropertiespaper : public QObject
 		QVERIFY2(label->text().contains("Smallest paper"), qPrintable(label->text()));
 		QVERIFY2(label->text().contains("Folio size:"), qPrintable(label->text()));
 	}
+
+	/// A new folio is an A4, landscape, title block included
+	void theDefaultFolioIsAnA4()
+	{
+		BorderProperties bp;
+		bp.columns_count = 19;
+		bp.columns_width = 58;
+		bp.rows_count = 9;
+		bp.rows_height = 80;
+		BorderPropertiesWidget w(bp);
+		w.setTitleBlockSize(50, Qt::BottomEdge);
+		auto *paper = w.findChild<QComboBox *>("m_paper_cb");
+		auto *orient = w.findChild<QComboBox *>("m_orientation_cb");
+		QCOMPARE(paper->currentText(), QStringLiteral("A4"));
+		QCOMPARE(orient->currentIndex(), 0);
+	}
+
+	/// A taller title block takes its room from the rows: the folio stays
+	/// an A4 instead of growing
+	void theTitleBlockEatsUpwards()
+	{
+		BorderProperties bp;
+		bp.columns_count = 19;
+		bp.columns_width = 58;
+		bp.rows_count = 9;
+		bp.rows_height = 80;
+		BorderPropertiesWidget w(bp);
+		w.setTitleBlockSize(50, Qt::BottomEdge);
+		auto *paper = w.findChild<QComboBox *>("m_paper_cb");
+		auto *rh = w.findChild<QSpinBox *>("m_rows_height_sp");
+		auto *rc = w.findChild<QSpinBox *>("m_rows_count_sp");
+
+		w.setTitleBlockSize(100, Qt::BottomEdge);
+		QCOMPARE(paper->currentText(), QStringLiteral("A4"));
+			//794 px high: 20 of header, the line, 100 of title block
+		QVERIFY(rc->value() * rh->value() <= 794 - 1 - 20 - 100);
+		QVERIFY(rc->value() * rh->value() >= 794 - 1 - 20 - 100 - 3);
+	}
 };
 
 QTEST_MAIN(tst_borderpropertiespaper)

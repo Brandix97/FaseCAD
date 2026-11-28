@@ -447,6 +447,19 @@ add_test(NAME tst_itemgroups COMMAND tst_itemgroups)
 target_include_directories(tst_itemgroups PRIVATE ${QET_DIR}/sources)
 target_link_libraries(tst_itemgroups PRIVATE Qt::Test Qt::Widgets Qt::Xml)
 
+# Align and distribute of the element editor (partslayout.cpp), on a plain
+# scene of rectangles.
+add_executable(tst_partslayout tst_partslayout.cpp ${QET_DIR}/sources/editor/partslayout.cpp)
+add_test(NAME tst_partslayout COMMAND tst_partslayout)
+target_include_directories(tst_partslayout PRIVATE ${QET_DIR}/sources)
+target_link_libraries(tst_partslayout PRIVATE Qt::Test Qt::Widgets)
+
+# The DXF drawing of the element editor (dxfimport.cpp): pieces scaled and
+# centred on the hotspot.
+add_executable(tst_dxfimport tst_dxfimport.cpp ${QET_DIR}/sources/editor/dxfimport.cpp)
+add_test(NAME tst_dxfimport COMMAND tst_dxfimport)
+target_link_libraries(tst_dxfimport PRIVATE Qt::Test Qt::Gui)
+
 # shownkinds.cpp keeps View > Show (bugtracker #301) apart from the item
 # classes, so it is tested here on a plain scene of rectangles.
 add_executable(tst_shownkinds tst_shownkinds.cpp ${QET_DIR}/sources/shownkinds.cpp)
@@ -2492,6 +2505,9 @@ qet_add_app_test(tst_wiresections tst_wiresections.cpp)
 qet_add_app_test(tst_parttranslations tst_parttranslations.cpp)
 # Set version: the sheet of the devices added, removed or rewired.
 qet_add_app_test(tst_projectversions tst_projectversions.cpp)
+
+# Copy format and Apply format of the element editor, and its A4 sheet.
+qet_add_app_test(tst_elementformat tst_elementformat.cpp)
 
 # The title block made of blocks: the template built from a design, the
 # label above the value, fill and borders kept through the XML, the design

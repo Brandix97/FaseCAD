@@ -113,6 +113,8 @@ class QETElementEditor : public QMainWindow
 		void on_m_import_dxf_triggered();
 		void on_m_import_scaled_element_triggered();
 		void scaleElement();
+		void copyFormat();
+		void applyFormat();
 
 	private:
 		bool canClose();
@@ -138,7 +140,8 @@ class QETElementEditor : public QMainWindow
 
 		QActionGroup
 			*m_add_part_action_grp = nullptr,
-			*m_depth_action_group  = nullptr;
+			*m_depth_action_group  = nullptr,
+			*m_layout_action_group = nullptr;
 
 		QList<QAction *> m_context_menu_action_list;
 
@@ -147,7 +150,9 @@ class QETElementEditor : public QMainWindow
 			*m_undo_action = nullptr,
 			*m_redo_action = nullptr,
 			*m_tape_measure_action = nullptr,
-			*m_clear_measure_action = nullptr;
+			*m_clear_measure_action = nullptr,
+			*m_copy_format_action = nullptr,
+			*m_apply_format_action = nullptr;
 
 
 			/// Hash associating primitive names with their matching edition widget

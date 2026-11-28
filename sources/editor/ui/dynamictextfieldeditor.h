@@ -35,6 +35,7 @@ namespace Ui {
 	@brief The DynamicTextFieldEditor class
 	This class provide a widget used to edit the property of a dynamic text field
 */
+class QPushButton;
 class DynamicTextFieldEditor : public ElementItemEditor {
 	Q_OBJECT
 
@@ -82,6 +83,8 @@ class DynamicTextFieldEditor : public ElementItemEditor {
 		QList<QMetaObject::Connection> m_connection_list;
 
 		KColorButton* m_color_kpb = nullptr;
+		QPushButton *m_part_field_pb = nullptr;
+		QString choosePartField(const QString &current);
 };
 
 #endif // DYNAMICTEXTFIELDEDITOR_H

@@ -5493,6 +5493,18 @@ Tieni premuto Maiusc e trascina per spostare solo questo testo</translation>
         <source>Frame the text</source>
         <translation>Incornicia il testo</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Dati dell’articolo</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">Scegli il dato...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">Il dato o l’immagine del primo articolo di cui è fatto l’elemento, dalla banca dati degli articoli</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12193,6 +12205,10 @@ Vuoi comunque collegare questo contatto slave?</translation>
         <source>Move a text field</source>
         <translation>Sposta un campo di testo</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Dati dell’articolo</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17685,6 +17701,10 @@ Tieni premuto Ctrl durante lo spostamento per posizionare liberamente.</translat
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">Progetto QElectroTech (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">I servizi di fasecad.com non sono ancora aperti</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18502,6 +18522,168 @@ le condizioni richieste non sono validi</translation>
         <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1621"/>
         <source>Registration failed</source>
         <translation>Registrazione fallita</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">Mostra il foglio A4</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">Dimensione del foglio...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">Dimensione del foglio</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">Importa un disegno DXF</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Disegni DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Impossibile leggere %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px per mm</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 mm, %3 × %4 px nel simbolo</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">Dimensione reale</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">1 mm del disegno è 1 mm stampato: %1 px per mm</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Scala:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Dimensione:</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF: %n pezzo disegnato</numerusform>
+            <numerusform>DXF: %n pezzi disegnati</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">; tralasciato: %1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Copia formato</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">Copia stile di linea, colore, riempimento e carattere del pezzo selezionato</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Applica formato</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">Dà ai pezzi selezionati il formato copiato</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">Allinea a sinistra</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">Allinea i bordi sinistri dei pezzi selezionati</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">Centra orizzontalmente</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">Mette i pezzi selezionati su una stessa linea verticale, per i loro centri</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">Allinea a destra</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">Allinea i bordi destri dei pezzi selezionati</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">Allinea in alto</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">Allinea i bordi superiori dei pezzi selezionati</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">Centra verticalmente</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">Mette i pezzi selezionati su una stessa linea orizzontale, per i loro centri</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">Allinea in basso</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">Allinea i bordi inferiori dei pezzi selezionati</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">Distribuisci orizzontalmente</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">Lascia al loro posto il primo e l’ultimo pezzo e mette lo stesso spazio tra ogni pezzo selezionato e il successivo, lungo una riga (3 pezzi o più)</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">Distribuisci verticalmente</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">Lascia al loro posto il primo e l’ultimo pezzo e mette lo stesso spazio tra ogni pezzo selezionato e il successivo, lungo una colonna (3 pezzi o più)</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">Allinea e distribuisci</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>Seleziona almeno %n pezzo</numerusform>
+            <numerusform>Seleziona almeno %n pezzi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">I pezzi selezionati sono già al loro posto</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">Formato copiato: seleziona dei pezzi e Applica formato</translation>
     </message>
 </context>
 <context>
@@ -32512,6 +32694,10 @@ versione</translation>
             <numerusform>%n dati</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">Articolo principale</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32745,6 +32931,15 @@ versione</translation>
     <message>
         <source>(image)</source>
         <translation type="unfinished">(immagine)</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Immagine</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1, articolo principale</translation>
     </message>
 </context>
 <context>
@@ -34710,6 +34905,35 @@ Sostituirlo con l'articolo del file?</translation>
     <message>
         <source>Manual offset Y</source>
         <translation type="unfinished">Scostamento manuale Y</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Applica formato</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">Foglio A4 (297 × 210 mm)</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">Foglio %1 × %2 mm</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">Distribuisci</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">Allinea</translation>
     </message>
 </context>
 </TS>

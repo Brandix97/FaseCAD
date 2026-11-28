@@ -16,6 +16,10 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "dynamictextfieldeditor.h"
+#include "../../partsdb/parttexts.h"
+#include "../../partsdb/partfielddialog.h"
+#include "../../partsdb/partsdatabase.h"
+#include <QPushButton>
 
 #include "../../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../../editor/graphicspart/customelementpart.h"
@@ -175,7 +179,12 @@ void DynamicTextFieldEditor::updateForm()
 				ui -> m_text_from_cb -> setCurrentIndex(2);
 				break;
 			}
-				//Data of a part: texts of a placed symbol only
+				//Data of the main part of the element
+			case DynamicElementTextItem::PartInfo: {
+				ui -> m_text_from_cb -> setCurrentIndex(3);
+				m_part_field_pb -> setText(PartTexts::fieldName(m_text_field.data() -> partField()));
+				break;
+			}
 			default:
 				break;
 		}
@@ -193,6 +202,30 @@ void DynamicTextFieldEditor::setupWidget()
 			this, &DynamicTextFieldEditor::m_color_kpb_changed);
 
 	ui->m_main_grid_layout->addWidget(m_color_kpb, 6, 1, 1, 2);
+
+		//Data of the main part of the element, as the texts of a placed
+		//symbol show it: read from the parts database once the element is
+		//made of a part
+	ui->m_text_from_cb->addItem(tr("Part data"));
+	m_part_field_pb = new QPushButton(tr("Choose the data..."), this);
+	m_part_field_pb->setObjectName(QStringLiteral("m_part_field_pb"));
+	m_part_field_pb->setToolTip(tr("The data or the image of the first part the element is made of, from the parts database"));
+	m_part_field_pb->setDisabled(true);
+	if (QLayoutItem *spacer = ui->m_main_grid_layout->itemAtPosition(13, 1)) {
+		ui->m_main_grid_layout->removeItem(spacer);
+		ui->m_main_grid_layout->addItem(spacer, 14, 1);
+	}
+	ui->m_main_grid_layout->addWidget(m_part_field_pb, 13, 1, 1, 2);
+	connect(m_part_field_pb, &QPushButton::clicked, this, [this]() {
+		const QString id = choosePartField(m_text_field ? m_text_field->partField() : QString());
+		if (id.isEmpty()) return;
+		for (PartDynamicTextField *part : std::as_const(m_parts)) {
+			if (part->partField() == id) continue;
+			auto *undo = new QPropertyUndoCommand(part, "partField", part->partField(), id);
+			undo->setText(tr("Edit text information"));
+			undoStack().push(undo);
+		}
+	});
 }
 
 void DynamicTextFieldEditor::setUpConnections()
@@ -206,6 +239,7 @@ void DynamicTextFieldEditor::setUpConnections()
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::textFromChanged, this, [this](){this -> updateForm();});
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::textChanged, this, [this](){this -> updateForm();});
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::infoNameChanged, this, [this](){this -> updateForm();});
+	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::partFieldChanged, this, [this](){this -> updateForm();});
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::rotationChanged, this, [this](){this -> updateForm();});
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::frameChanged, this, [this](){this -> updateForm();});
 	m_connection_list << connect(m_text_field.data(), &PartDynamicTextField::textWidthChanged, this, [this](){this -> updateForm();});
@@ -428,8 +462,12 @@ void DynamicTextFieldEditor::updateTextFromWidgetsEnabled(int index)
 	ui -> m_user_text_le -> setDisabled(true);
 	ui -> m_elmt_info_cb -> setDisabled(true);
 	ui -> m_composite_text_pb -> setDisabled(true);
+	if (m_part_field_pb) m_part_field_pb -> setDisabled(true);
 
-	if(index == 0) {
+	if (index == 3) {
+		if (m_part_field_pb) m_part_field_pb -> setEnabled(true);
+	}
+	else if(index == 0) {
 		ui->m_user_text_le->setEnabled(true);
 	}
 	else if (index == 1) {
@@ -450,8 +488,27 @@ void DynamicTextFieldEditor::on_m_text_from_cb_activated(int index) {
 	else if(index == 1) {
 		tf = DynamicElementTextItem::ElementInfo;
 	}
+	else if (index == 3) {
+		tf = DynamicElementTextItem::PartInfo;
+	}
 	else {
 		tf = DynamicElementTextItem::CompositeText;
+	}
+
+		//A text of the data of a part: the data is chosen in the search
+		//window, the description when none is
+	if (tf == DynamicElementTextItem::PartInfo) {
+		bool empty = false;
+		for (PartDynamicTextField *part : std::as_const(m_parts))
+			empty = empty || part->partField().isEmpty();
+		if (empty) {
+			QString id = choosePartField(QString());
+			if (id.isEmpty()) id = QStringLiteral("description");
+			for (PartDynamicTextField *part : std::as_const(m_parts)) {
+				if (part->partField().isEmpty())
+					part->setPartField(id);
+			}
+		}
 	}
 
 	for (int i = 0; i < m_parts.length(); i++) {
@@ -558,4 +615,23 @@ void DynamicTextFieldEditor::on_m_rotation_point_center_cb_clicked()
 			undoStack().push(undo);
 		}
 	}
+}
+
+/**
+	@brief DynamicTextFieldEditor::choosePartField
+	The search window of the data of the parts, as for a text of a placed
+	symbol: here every piece of data a part may have, of whichever part
+	the element is made of first
+	@param current : the data shown now
+	@return the data chosen, empty when none is
+*/
+QString DynamicTextFieldEditor::choosePartField(const QString &current)
+{
+	PartsDatabase database;
+	const bool open = PartsDatabase::isEnabled() && database.open(PartsDatabase::path());
+	PartFieldDialog dialog(PartTexts::symbolFields(open ? &database : nullptr),
+						   PartTexts::mainPartReference(current), this);
+	if (dialog.exec() != QDialog::Accepted || !dialog.hasSelection())
+		return QString();
+	return dialog.selectedField().id;
 }

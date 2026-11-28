@@ -36,6 +36,9 @@ namespace
 
 	QString partOf(const PartTexts::Field &field)
 	{
+			//A text of a symbol: whichever part the element is made of
+		if (field.manufacturer.isEmpty() && field.order_number.isEmpty())
+			return PartFieldDialog::tr("Main part");
 		return field.manufacturer.isEmpty()
 				? field.order_number
 				: field.manufacturer + QStringLiteral(" ") + field.order_number;

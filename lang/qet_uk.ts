@@ -5532,6 +5532,18 @@ Hold Shift and drag to move this text on its own</source>
         <source>Change the rotation point of a text field</source>
         <translation>Змінити точку обертання текстового поля</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Дані деталі</translation>
+    </message>
+    <message>
+        <source>Choose the data...</source>
+        <translation type="unfinished">Вибрати дані...</translation>
+    </message>
+    <message>
+        <source>The data or the image of the first part the element is made of, from the parts database</source>
+        <translation type="unfinished">Дані або зображення першої деталі, з якої складається елемент, з бази деталей</translation>
+    </message>
 </context>
 <context>
     <name>DynamicTextItemDelegate</name>
@@ -12245,6 +12257,10 @@ Do you still want to link this slave contact?</source>
         <source>Move a text field</source>
         <translation>Перемістити текстове поле</translation>
     </message>
+    <message>
+        <source>Part data</source>
+        <translation type="unfinished">Дані деталі</translation>
+    </message>
 </context>
 <context>
     <name>PartEllipse</name>
@@ -17801,6 +17817,10 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <source>QElectroTech project (*%1)</source>
         <translation type="unfinished">Проєкт QElectroTech (*%1)</translation>
     </message>
+    <message>
+        <source>The services of fasecad.com are not open yet</source>
+        <translation type="unfinished">Сервіси fasecad.com ще не відкриті</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18622,6 +18642,170 @@ the conditions are not valid</source>
 please wait while importing...</source>
         <translation>Імпорт великого файла в форматі DXF може зайняти деякий час,
 будьласка, дочекайтесь зкінчення...</translation>
+    </message>
+    <message>
+        <source>Show the A4 sheet</source>
+        <translation type="unfinished">Показати аркуш A4</translation>
+    </message>
+    <message>
+        <source>Sheet size...</source>
+        <translation type="unfinished">Розмір аркуша...</translation>
+    </message>
+    <message>
+        <source>Sheet size</source>
+        <translation type="unfinished">Розмір аркуша</translation>
+    </message>
+    <message>
+        <source>Import a DXF drawing</source>
+        <translation type="unfinished">Імпортувати креслення DXF</translation>
+    </message>
+    <message>
+        <source>DXF drawings (*.dxf *.DXF)</source>
+        <translation type="unfinished">Креслення DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>%1 could not be read.
+
+%2</source>
+        <translation type="unfinished">Не вдалося прочитати %1.
+
+%2</translation>
+    </message>
+    <message>
+        <source> px per mm</source>
+        <translation type="unfinished"> px на мм</translation>
+    </message>
+    <message>
+        <source>%1 × %2 mm, %3 × %4 px in the symbol</source>
+        <translation type="unfinished">%1 × %2 мм, %3 × %4 px у символі</translation>
+    </message>
+    <message>
+        <source>Real size</source>
+        <translation type="unfinished">Реальний розмір</translation>
+    </message>
+    <message>
+        <source>1 mm of the drawing is 1 mm printed: %1 px per mm</source>
+        <translation type="unfinished">1 мм креслення — 1 мм при друці: %1 px на мм</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished">Масштаб:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Розмір:</translation>
+    </message>
+    <message numerus="yes">
+        <source>DXF: %n pieces drawn</source>
+        <translation type="unfinished">
+            <numerusform>DXF: намальовано %n елемент</numerusform>
+            <numerusform>DXF: намальовано %n елементи</numerusform>
+            <numerusform>DXF: намальовано %n елементів</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>; left out: %1</source>
+        <translation type="unfinished">; пропущено: %1</translation>
+    </message>
+    <message>
+        <source>Copy format</source>
+        <translation type="unfinished">Копіювати формат</translation>
+    </message>
+    <message>
+        <source>Copy the line style, colour, filling and font of the selected part</source>
+        <translation type="unfinished">Копіює стиль лінії, колір, заливку та шрифт вибраного елемента</translation>
+    </message>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Застосувати формат</translation>
+    </message>
+    <message>
+        <source>Give the selected parts the format copied</source>
+        <translation type="unfinished">Застосовує скопійований формат до вибраних елементів</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="unfinished">Вирівняти ліворуч</translation>
+    </message>
+    <message>
+        <source>Aligns the left edges of the selected parts</source>
+        <translation type="unfinished">Вирівнює ліві краї вибраних елементів</translation>
+    </message>
+    <message>
+        <source>Centre horizontally</source>
+        <translation type="unfinished">Центрувати по горизонталі</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one vertical line, by their centres</source>
+        <translation type="unfinished">Ставить вибрані елементи центрами на одну вертикальну лінію</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="unfinished">Вирівняти праворуч</translation>
+    </message>
+    <message>
+        <source>Aligns the right edges of the selected parts</source>
+        <translation type="unfinished">Вирівнює праві краї вибраних елементів</translation>
+    </message>
+    <message>
+        <source>Align top</source>
+        <translation type="unfinished">Вирівняти вгорі</translation>
+    </message>
+    <message>
+        <source>Aligns the top edges of the selected parts</source>
+        <translation type="unfinished">Вирівнює верхні краї вибраних елементів</translation>
+    </message>
+    <message>
+        <source>Centre vertically</source>
+        <translation type="unfinished">Центрувати по вертикалі</translation>
+    </message>
+    <message>
+        <source>Puts the selected parts on one horizontal line, by their centres</source>
+        <translation type="unfinished">Ставить вибрані елементи центрами на одну горизонтальну лінію</translation>
+    </message>
+    <message>
+        <source>Align bottom</source>
+        <translation type="unfinished">Вирівняти внизу</translation>
+    </message>
+    <message>
+        <source>Aligns the bottom edges of the selected parts</source>
+        <translation type="unfinished">Вирівнює нижні краї вибраних елементів</translation>
+    </message>
+    <message>
+        <source>Distribute horizontally</source>
+        <translation type="unfinished">Розподілити по горизонталі</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, along a row (3 parts or more)</source>
+        <translation type="unfinished">Залишає перший і останній елемент на місці й ставить однаковий проміжок між кожним вибраним елементом і наступним уздовж ряду (3 елементи або більше)</translation>
+    </message>
+    <message>
+        <source>Distribute vertically</source>
+        <translation type="unfinished">Розподілити по вертикалі</translation>
+    </message>
+    <message>
+        <source>Leaves the first and the last part in place and puts the same gap between each selected part and the next, down a column (3 parts or more)</source>
+        <translation type="unfinished">Залишає перший і останній елемент на місці й ставить однаковий проміжок між кожним вибраним елементом і наступним уздовж стовпця (3 елементи або більше)</translation>
+    </message>
+    <message>
+        <source>Align and distribute</source>
+        <translation type="unfinished">Вирівняти й розподілити</translation>
+    </message>
+    <message numerus="yes">
+        <source>Select at least %n parts</source>
+        <translation type="unfinished">
+            <numerusform>Виберіть щонайменше %n елемент</numerusform>
+            <numerusform>Виберіть щонайменше %n елементи</numerusform>
+            <numerusform>Виберіть щонайменше %n елементів</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>The selected parts are already in place</source>
+        <translation type="unfinished">Вибрані елементи вже на місці</translation>
+    </message>
+    <message>
+        <source>Format copied: select parts and Apply format</source>
+        <translation type="unfinished">Формат скопійовано: виберіть елементи й натисніть «Застосувати формат»</translation>
     </message>
 </context>
 <context>
@@ -32054,6 +32238,10 @@ The following variables can be used:
             <numerusform>%n елементів даних</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Main part</source>
+        <translation type="unfinished">Основна деталь</translation>
+    </message>
 </context>
 <context>
     <name>PartFunction</name>
@@ -32287,6 +32475,15 @@ The following variables can be used:
     <message>
         <source>(image)</source>
         <translation type="unfinished">(зображення)</translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Зображення</translation>
+    </message>
+    <message>
+        <source>%1, main part</source>
+        <comment>the data a text of a symbol shows, of whichever part the element is made of first</comment>
+        <translation type="unfinished">%1, основна деталь</translation>
     </message>
 </context>
 <context>
@@ -34920,6 +35117,35 @@ catalog</source>
     <message>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: незабаром</translation>
+    </message>
+</context>
+<context>
+    <name>ElementFormatPattern</name>
+    <message>
+        <source>Apply format</source>
+        <translation type="unfinished">Застосувати формат</translation>
+    </message>
+</context>
+<context>
+    <name>ElementView</name>
+    <message>
+        <source>A4 sheet (297 × 210 mm)</source>
+        <translation type="unfinished">Аркуш A4 (297 × 210 мм)</translation>
+    </message>
+    <message>
+        <source>Sheet %1 × %2 mm</source>
+        <translation type="unfinished">Аркуш %1 × %2 мм</translation>
+    </message>
+</context>
+<context>
+    <name>PartsLayout</name>
+    <message>
+        <source>Distribute</source>
+        <translation type="unfinished">Розподілити</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished">Вирівняти</translation>
     </message>
 </context>
 </TS>

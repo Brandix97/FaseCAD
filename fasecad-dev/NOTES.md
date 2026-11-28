@@ -2359,3 +2359,53 @@ offer to add one at the end; one commit with the 2026-11-17 change.
   (construir.py VERSION) not changed.
 - 2026-11-28: committed 5479f0479 "FaseCAD 1.1", pushed to origin/fasecad, GitHub release v1.1 (latest) with the zip.
 - 2026-11-28: the Official catalog action (menu and tab button) is grey until the services of fasecad.com are open, like Sign in (tst_accountbuttons checks it). v1.1 replaced: tag moved to the new commit, zip rebuilt (148,368,518 bytes) and swapped in the release.
+
+## After 1.1 (2026-11-28)
+- Element editor: the background frame is now an A4 sheet, landscape
+  (1123 x 794 px, 297 x 210 mm at 96 px an inch, as the folio paper
+  sizes), light grey under the grid with "A4 sheet (297 × 210 mm)",
+  centred on the hotspot, shown by default (new settings keys
+  elementeditor/a4_sheet_*; "Show the A4 sheet", "Sheet size...").
+- Element editor: Copy format / Apply format (Ctrl+Alt+C / Ctrl+Alt+V,
+  Edit menu, undo toolbar, context menu): editor/elementformatpattern.*
+  copies line_style, line_weight, filling, color, antialias, font, frame,
+  label_font, label_color, label_frame; a property goes only to a part
+  with the same property and type; one undo step. tst_elementformat.
+- Next: plugins (he chose JavaScript on the existing script API, own
+  tab/buttons, own dialogs, exporters/reports, a plugin manager).
+- Element editor: Align (left, centre H, right, top, centre V, bottom;
+  2 parts or more) and Distribute horizontally / vertically (3 or more:
+  first and last stay, equal gaps between bounding boxes, ordered by
+  centre), Edit › "Align and distribute" and its own toolbar
+  (align_distribute_toolbar), one undo step each (PartsLayoutCommand).
+  editor/partslayout.*, icons ico/distribute-*.svg, tst_partslayout.
+- Element editor dynamic text: source "Part data" (PartInfo), chosen in
+  the search window of the folio (PartFieldDialog, part column "Main
+  part") from PartTexts::symbolFields(): every field, "Image" (id
+  "image:", the first image of the part) and the technical data names
+  of the database (PartsDatabase::dataNames). Saved as a user text with
+  <part_info reference="\t\t<id>"> (PartTexts::mainPartReference); on a
+  folio it shows that data of the element's first part (PartsLinks),
+  refreshed when the "parts" information changes. tst_parttexts.
+- New folios default to A4 landscape: BorderProperties::defaultProperties
+  19 x 58 px columns, 9 x 80 px rows (default title block 50 px) unless
+  the settings say otherwise. A folio of a paper size keeps it when its
+  title block changes (BorderPropertiesWidget::setTitleBlockSize: the
+  rows give the room). tst_borderpropertiespaper, Catch borderproperties.
+- Element editor Import DXF: our DxfReader (as the cabinet folios), not
+  dxf2elmt: scale dialog (real size 96/25.4 px per mm by default,
+  remembered), lines and polylines added centred on the hotspot in one
+  undo step (editor/dxfimport.*, tst_dxfimport).
+- Full ctest without probes, -j4: 256/265; the 3 old failures,
+  tst_accountbuttons passes alone, C_unittests updated for A4, the 4
+  slow ones pass one by one (200-550 s).
+
+## Version 1.2 (2026-11-28)
+- Brandon: "Termina y prepara la version 1.2". The 51 new strings
+  (element editor: A4 sheet, copy/apply format, align and distribute,
+  part data, DXF import) translated into es de fr it pt pt_BR tr zh
+  zh_TW ru uk pl cs (unfinished); productVersion 1.2.
+- Zip FaseCAD-1.2-windows-x64.zip (148,422,925 bytes, 5068 files) in
+  web/httpdocs/downloads; folder C:\Users\Brandon\FaseCAD\FaseCAD-1.2.
+  Unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 1.2 (QElectroTech
+  0.200.1-dev)". Not committed, not pushed, no release yet.

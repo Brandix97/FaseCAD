@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "partdynamictextfield.h"
+#include "../../partsdb/parttexts.h"
 
 #include "../../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../../qetapp.h"
@@ -152,7 +153,11 @@ const QDomElement PartDynamicTextField::toXml(QDomDocument &dom_doc) const
 	root_element.setAttribute("rotation_point_center", m_rotation_point_center ? "true" : "false");
 
 	QMetaEnum me = DynamicElementTextItem::textFromMetaEnum();
-	root_element.setAttribute("text_from", me.valueToKey(m_text_from));
+		//Data of the main part: a user text for QElectroTech, which shows
+		//the value last read; part_info says where it comes from
+	const bool part_info = m_text_from == DynamicElementTextItem::PartInfo;
+	root_element.setAttribute("text_from", me.valueToKey(
+		part_info ? DynamicElementTextItem::UserText : m_text_from));
 
 	me = QMetaEnum::fromType<Qt::Alignment>();
 	if(this -> alignment() &Qt::AlignRight)
@@ -170,8 +175,16 @@ const QDomElement PartDynamicTextField::toXml(QDomDocument &dom_doc) const
 		root_element.setAttribute("Valignment", me.valueToKey(Qt::AlignVCenter));
 
 	QDomElement dom_text = dom_doc.createElement("text");
-	dom_text.appendChild(dom_doc.createTextNode(toPlainText()));
+		//Nothing until the element is made of a part
+	dom_text.appendChild(dom_doc.createTextNode(part_info ? QString() : toPlainText()));
 	root_element.appendChild(dom_text);
+
+	if (part_info && !m_part_field.isEmpty()) {
+		QDomElement dom_part = dom_doc.createElement(QStringLiteral("part_info"));
+		dom_part.setAttribute(QStringLiteral("reference"),
+							  PartTexts::mainPartReference(m_part_field));
+		root_element.appendChild(dom_part);
+	}
 
 		//Info name
 	if(!m_info_name.isEmpty()) {
@@ -271,6 +284,19 @@ void PartDynamicTextField::fromXml(const QDomElement &dom_elmt) {
 	if(!dom_comp_text.isNull())
 		m_composite_text = dom_comp_text.text();
 
+		//Data of the main part
+	const QDomElement dom_part = dom_elmt.firstChildElement(QStringLiteral("part_info"));
+	QString part_id;
+	if (!dom_part.isNull()
+		&& PartTexts::decode(dom_part.attribute(QStringLiteral("reference")),
+							 nullptr, nullptr, &part_id)) {
+		m_part_field = part_id;
+		m_text_from = DynamicElementTextItem::PartInfo;
+		m_block_alignment = true;
+		setPlainText(partPlaceholder());
+		m_block_alignment = false;
+	}
+
 		//Color
 	QDomElement dom_color = dom_elmt.firstChildElement("color");
 	if(!dom_color.isNull())
@@ -343,6 +369,9 @@ void PartDynamicTextField::setTextFrom(DynamicElementTextItem::TextFrom text_fro
 		case DynamicElementTextItem::CompositeText:
 			setCompositeText(m_composite_text);
 			break;
+		case DynamicElementTextItem::PartInfo:
+			setPlainText(partPlaceholder());
+			break;
 		default:
 			break;
 	}
@@ -367,6 +396,30 @@ void PartDynamicTextField::setText(const QString &text) {
 	m_text = text;
 	setPlainText(m_text);
 	emit textChanged(m_text);
+}
+
+/**
+	@brief PartDynamicTextField::setPartField
+	The data of the main part of the element this text shows, once the
+	element is placed and made of a part (PartTexts id: "description",
+	"voltage", "data:" and the name of a line of technical data...)
+*/
+void PartDynamicTextField::setPartField(const QString &id)
+{
+	m_part_field = id;
+	if (m_text_from == DynamicElementTextItem::PartInfo)
+		setPlainText(partPlaceholder());
+	emit partFieldChanged(m_part_field);
+}
+
+/**
+	@brief PartDynamicTextField::partPlaceholder
+	What the editor shows for a text of the data of the main part
+*/
+QString PartDynamicTextField::partPlaceholder() const
+{
+	return QStringLiteral("[%1]").arg(m_part_field.isEmpty()
+		? tr("Part data") : PartTexts::fieldName(m_part_field));
 }
 
 void PartDynamicTextField::setInfoName(const QString &info_name) {

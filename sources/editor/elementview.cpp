@@ -531,6 +531,33 @@ void ElementView::drawBackground(QPainter *p, const QRectF &r) {
 	p -> setBrush(Qt::white);
 	p -> drawRect(r);
 
+		//The sheet, light grey under the grid: how big the symbol is
+		//against an A4 folio
+	if (m_scene->backgroundFrameVisible()) {
+		const QSizeF frame_size = m_scene->backgroundFrameSize();
+		const QRectF frame_rect(-frame_size.width() / 2.0, -frame_size.height() / 2.0,
+					 frame_size.width(), frame_size.height());
+		QPen frame_pen(QColor(190, 190, 190));
+		frame_pen.setCosmetic(true);
+		frame_pen.setWidth(2);
+		p -> setPen(frame_pen);
+		p -> setBrush(QColor(242, 242, 242));
+		p -> drawRect(frame_rect);
+
+		const QSizeF a4 = ElementScene::a4SheetSize();
+		const QString label = (frame_size == a4 || frame_size == a4.transposed())
+				? tr("A4 sheet (297 × 210 mm)")
+				: tr("Sheet %1 × %2 mm")
+					  .arg(qRound(frame_size.width() * 25.4 / 96.0))
+					  .arg(qRound(frame_size.height() * 25.4 / 96.0));
+		QFont font = p -> font();
+		font.setPointSizeF(10);
+		p -> setFont(font);
+		p -> setPen(QColor(160, 160, 160));
+		p -> drawText(frame_rect.adjusted(8, 6, -8, -6),
+					  Qt::AlignLeft | Qt::AlignTop, label);
+	}
+
 	// determine le zoom en cours
 	// determine the zoom-level
 	qreal zoom_factor = transform().m11();
@@ -590,18 +617,6 @@ void ElementView::drawBackground(QPainter *p, const QRectF &r) {
 				}
 			}
 		}
-	}
-
-	if (m_scene->backgroundFrameVisible()) {
-		const QSizeF frame_size = m_scene->backgroundFrameSize();
-		const QRectF frame_rect(-frame_size.width() / 2.0, -frame_size.height() / 2.0,
-					 frame_size.width(), frame_size.height());
-		QPen frame_pen(Qt::blue);
-		frame_pen.setCosmetic(true);
-		frame_pen.setStyle(Qt::DashLine);
-		p -> setPen(frame_pen);
-		p -> setBrush(Qt::NoBrush);
-		p -> drawRect(frame_rect);
 	}
 
 	p -> restore();

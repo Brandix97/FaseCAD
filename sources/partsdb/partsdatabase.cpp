@@ -2016,6 +2016,25 @@ QStringList PartsDatabase::manufacturers() const
 }
 
 /**
+	@brief PartsDatabase::dataNames
+	@return the names of the lines of technical data, every part's, once
+	each, in alphabetical order
+*/
+QStringList PartsDatabase::dataNames() const
+{
+	QStringList result;
+	QSqlQuery query(m_db);
+	if (query.exec(sql(QStringLiteral("SELECT key FROM part_data "
+								  "WHERE key <> '' GROUP BY key "
+								  "ORDER BY key COLLATE NOCASE")))) {
+		while (query.next()) {
+			result << query.value(0).toString();
+		}
+	}
+	return result;
+}
+
+/**
 	@brief PartsDatabase::addFile
 	Copy @p content inside the database, as the file @p file_name of the
 	part @p part_id.

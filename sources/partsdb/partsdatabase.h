@@ -381,6 +381,8 @@ class PartsDatabase
 		QList<Part> parts(const QString &search = QString()) const;
 		QStringList categories() const;
 		QStringList manufacturers() const;
+			/// The names of the lines of technical data the parts have
+		QStringList dataNames() const;
 
 		//Categories
 			/// "Cables": always in a database, never removed nor renamed;
