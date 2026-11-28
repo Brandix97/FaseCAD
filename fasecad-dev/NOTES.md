@@ -2357,3 +2357,5 @@ offer to add one at the end; one commit with the 2026-11-17 change.
   Unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 1.1 (QElectroTech
   0.200.1-dev)". Not committed, not pushed, no GitHub release, website
   (construir.py VERSION) not changed.
+- 2026-11-28: committed 5479f0479 "FaseCAD 1.1", pushed to origin/fasecad, GitHub release v1.1 (latest) with the zip.
+- 2026-11-28: the Official catalog action (menu and tab button) is grey until the services of fasecad.com are open, like Sign in (tst_accountbuttons checks it). v1.1 replaced: tag moved to the new commit, zip rebuilt (148,368,518 bytes) and swapped in the release.

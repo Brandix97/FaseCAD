@@ -114,6 +114,7 @@
 #include "ui/conductorcolortoolbutton.h"
 #include "branding/projectextensions.h"
 #include "ui/accountbuttons.h"
+#include "utils/fasecadservices.h"
 #include "ui/commandtabs.h"
 #include "ui/devicespanel.h"
 #include "ui/diagrambgcolorbutton.h"
@@ -1382,6 +1383,17 @@ void QETDiagramEditor::setUpActions()
 		PartsCatalogDialog dialog(this);
 		dialog.exec();
 	});
+		//Grey, as Sign in, until the services of fasecad.com are open
+	auto catalog_open = [this]() {
+		const bool on = FaseCadServices::instance()->serviceOn();
+		m_parts_catalog->setEnabled(on);
+		m_parts_catalog->setToolTip(on
+			? m_parts_catalog->text().remove(QStringLiteral("..."))
+			: tr("The services of fasecad.com are not open yet"));
+	};
+	catalog_open();
+	connect(FaseCadServices::instance(), &FaseCadServices::changed,
+			this, catalog_open);
 		//The texts showing data of a part follow the parts manager
 	connect(PartsDatabaseChanges::instance(), &PartsDatabaseChanges::changed, this, [this]() {
 		for (ProjectView *view : openedProjects()) {

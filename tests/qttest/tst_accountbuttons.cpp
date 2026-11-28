@@ -180,6 +180,28 @@ private slots:
 		QVERIFY(editor->findChild<QToolButton *>(QStringLiteral("account_request_support")));
 	}
 
+	void theOfficialCatalogWaitsForTheService()
+	{
+		QETDiagramEditor *editor = QetAppTest::editor();
+		QVERIFY(editor);
+		QAction *catalog = nullptr;
+		for (QAction *action : editor->findChildren<QAction *>())
+			if (action->text() == QStringLiteral("Official parts catalog..."))
+				catalog = action;
+		QVERIFY(catalog);
+		FaseCadServices *services = FaseCadServices::instance();
+
+		m_service = false;
+		QVERIFY(waitFor([services]() {services->refresh();}));
+		QVERIFY(!catalog->isEnabled());
+
+		m_service = true;
+		QVERIFY(waitFor([services]() {services->refresh();}));
+		QVERIFY(catalog->isEnabled());
+		m_service = false;
+		QVERIFY(waitFor([services]() {services->refresh();}));
+	}
+
 	void signingInWaitsForTheService()
 	{
 		signedOutEverywhere();
