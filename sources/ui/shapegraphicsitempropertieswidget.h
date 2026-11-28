@@ -61,6 +61,8 @@ class ShapeGraphicsItemPropertiesWidget : public PropertiesEditorWidget
 	private:
 		Ui::ShapeGraphicsItemPropertiesWidget *ui;
 		QetShapeItem *m_shape;
+		class QPushButton *m_structure_pb = nullptr;
+		void setUpStructureButton();
 		QList <QPointer<QetShapeItem>> m_shapes_list;
 		QList <QMetaObject::Connection> m_connect_list,
 										m_edit_connection;

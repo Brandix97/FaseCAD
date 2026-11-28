@@ -69,7 +69,9 @@ class Element : public QetGraphicsItem
             Slave = 16,
             Terminale = 32,
             Thumbnail = 64,
-            ConductorDefinition = 128};
+            ConductorDefinition = 128,
+            PlcSummary = 256,
+            NetworkSummary = 512};
 
 		/**
 		 * @brief The LinkInfo struct
@@ -90,6 +92,9 @@ class Element : public QetGraphicsItem
 			int *state = nullptr,
 			Element::kind link_type = Element::Simple);
 		~Element() override;
+	private:
+		QHash<QString, QString> m_computed_info;
+
 	private:
 		bool definitionGeometryMatches(const QDomElement &definition,
 									   bool check_frame = true) const;
@@ -205,6 +210,13 @@ class Element : public QetGraphicsItem
 		QString conductorInfoForDisplay(const QString &info_name);
 		void addDisplayValues(DiagramContext &dc);
 		QString infoForDisplay(const QString &info_name);
+			/// Information worked out from the project, shown by the texts
+			/// of the element but not saved: the function given by a
+			/// function text over or under it, what a summary symbol shows
+			/// of its terminal (SummarySymbols, Brandon 2026-11-28). Its
+			/// own stored information wins over a worked out function.
+		void setComputedInfo(const QHash<QString, QString> &values);
+		QHash<QString, QString> computedInfo() const {return m_computed_info;}
 		bool hasTerminalNumberText() const;
 		bool labelShown() const;
 			/**

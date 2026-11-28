@@ -2409,3 +2409,89 @@ offer to add one at the end; one commit with the 2026-11-17 change.
   web/httpdocs/downloads; folder C:\Users\Brandon\FaseCAD\FaseCAD-1.2.
   Unzipped elsewhere, PATH=C:\Windows only: "FaseCAD 1.2 (QElectroTech
   0.200.1-dev)". Not committed, not pushed, no release yet.
+- 2026-11-28: committed e104345d2 "FaseCAD 1.2", pushed to origin/fasecad, GitHub release v1.2 (latest) with the zip. Website left to Brandon.
+
+## Plugins (2026-11-28)
+- He chose: JavaScript on the qet script API, own tab/buttons, own
+  windows, exporters/reports, a plugin manager.
+- sources/plugins: PluginManifest (plugin.json: id, name, version,
+  author, description, api (current 1), permissions ["files"], tab,
+  commands {id, label, tooltip, icon, group, size, script, function}),
+  PluginLibrary (QETApp::dataDir()/plugins/<id>, .fasplugin = zip with
+  plugin.json at the root or in one folder, paths outside refused;
+  install/uninstall/setEnabled (QSettings plugins/disabled); run() =
+  script + call of the function through QetScripting::runPlugin, which
+  runs even with scripting off, one undo step "Plugin: <label>"),
+  PluginManagerDialog (Tools > Plugins, Project > Plugins > Plugins…:
+  install shows author and permissions first, tick on/off, remove,
+  open folder, reload).
+- Plugin commands: actions diagrameditor.plugin.<id>.<command>
+  (command search, shortcuts), Project > Plugins menu, command tabs: the
+  plugin's "tab" or the Plugins tab, a group per plugin
+  (CommandTabs::setPluginTabs).
+- qet API: dialog(spec) (scripting/scriptdialog.*: text, multiline,
+  number, decimal, choice, check, table; null when cancelled),
+  chooseSaveFile, writeTextFile, pluginFolder, fasecadVersion,
+  apiVersion. The script time limit leaves out the time a window waits
+  on the user (QetScriptApi::waitingOnUser).
+- Example examples/plugins/fasecad.ejemplo-aparatos (CSV of the devices,
+  summary per folio); guide docs/plugins.md. tst_plugins.
+- Wire hops: a project without <wire_crossings> now hops (horizontal);
+  not written when horizontal and not apart, "No hop" written.
+  tst_wiresapart anOldProjectHops.
+- Hops fixes (his test.edrwz): (1) a new wire changed the hops of the
+  wires it crossed but only its own area was repainted: Conductor keeps
+  what paint() drew (m_painted_path) and a queued Conductor::refreshHops
+  repaints whole every conductor of the folio whose hops changed, after
+  a conductor enters/leaves a folio, moves or changes path. (2) A wire
+  saved with a point on a straight run (260,440 between two vertical
+  segments) counted as a bend, so the crossing was a junction: WireHops
+  straightens the points (crossings() and path()). tst_wirehops rows,
+  tst_wiresapart aWireDrawnAcrossHops.
+
+## 1.3 (2026-11-28)
+- Part symbols in the project: a symbol placed from a part of the parts
+  database goes into import/<order number>/ (QETProject::
+  importPartElement), replacing one of the same name there without asking
+  and redrawing the placed ones. tst_partimportfolder.
+- Devices panel: under a device with an article, "To place" lists the
+  symbols of its article not drawn yet under its label (by file name);
+  a double click places one with the device's label, no part (counted
+  once); a contact is linked to the device's master in the same step.
+  tst_devicespanel symbolsOfTheArticleToPlace.
+- Device cross references (DeviceXRefs, DeviceXRefItem, not saved): the
+  symbols sharing a label (simple/master) are one device; the main part
+  (made of parts, else the first) lists the places of the others, the
+  others show the main part (project setting <device_xrefs>, on in new
+  projects, Project properties). Refreshed after each undo step and DB
+  update. tst_devicexrefs.
+- Summary reports of the first try were removed (his choice).
+- Summary folios: Diagram::FolioKind PlcSummary / NetworkSummary
+  (folioKind attribute), "Insert a PLC/network summary sheet" in the
+  project tree. Element types plc_summary / network_summary
+  (ElementData::PlcSummary/NetworkSummary, Element::PlcSummary...): only
+  on their folio (Diagram::acceptsSymbol), asked their device when
+  placed, an Information tab, left out of devices, BOM and xrefs.
+  Collection menu "New PLC/network summary symbol"; a PLC one is drawn
+  by SummaryGeneratorDialog (terminals of a device of an open project, a
+  pattern like I0.0-I3.7, or the 4-terminal example; one or two
+  columns). SummarySymbols: each terminal of a summary symbol shows the
+  terminal of the same name of the device of its label (names read from
+  the symbol definitions, a terminal without wire counts): computed
+  infos summary_pin/_function/_reference, numbered _N (by position) and
+  @<name> (DynamicElementTextItem reads them from Element::
+  computedInfo(), a DiagramContext refuses such keys). Place = the
+  terminal's cell, project xref format. tst_summarysymbols.
+- Function texts: IndependentTextItem function_text="true" (checkbox in
+  its properties): what is over/under it within its width has that
+  function unless it has its own (Element computed "function").
+- Structure box (Insert > Structure box): a dash-dotted rectangle
+  (QetShapeItem structure_box/plant/location) writing = and + into the
+  symbols whose middle is in it (smallest box), on insert, edit, move,
+  resize, placement. tst_summarysymbols aStructureBoxGivesItsPlace.
+- Cabinet routing: a wire between two terminals of one device goes out
+  to the duct and back (was skipped). tst_cabinetrouter.
+- Element editor: "Show the frames of the texts" (on by default, not
+  saved); a generated summary symbol can be saved at once.
+- CLI image/PDF/DXF export refreshes references before drawing.
+- 112 new strings in the 13 languages (unfinished).

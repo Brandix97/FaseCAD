@@ -1,0 +1,27 @@
+{
+  "id": "fasecad.ejemplo-aparatos",
+  "name": "Ejemplo: lista de aparatos",
+  "version": "1.0.0",
+  "author": "The FaseCAD Team",
+  "description": "Plugin de ejemplo: exporta los aparatos del proyecto a CSV y muestra un resumen por folio. Sirve de modelo para escribir los tuyos.",
+  "api": 1,
+  "permissions": ["files"],
+  "commands": [
+    {
+      "id": "exportar",
+      "label": "Exportar\naparatos",
+      "tooltip": "Escribe un CSV con la marca, la designación y el fabricante de cada aparato",
+      "icon": "icono.svg",
+      "size": "large",
+      "script": "main.js",
+      "function": "exportarAparatos"
+    },
+    {
+      "id": "resumen",
+      "label": "Resumen",
+      "tooltip": "Cuántos aparatos y cables tiene cada folio",
+      "script": "main.js",
+      "function": "resumen"
+    }
+  ]
+}

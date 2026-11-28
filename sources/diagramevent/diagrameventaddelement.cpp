@@ -16,6 +16,13 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "diagrameventaddelement.h"
+#include "../qetmessagebox.h"
+#include "../qetinformation.h"
+#include "../dataBase/projectdatabase.h"
+#include <QSqlQuery>
+#include <QInputDialog>
+#include <QCollator>
+#include "../structureboxes.h"
 #include "../qetproject.h"
 #include "../conductorautonumerotation.h"
 #include "../devicenaming.h"
@@ -46,9 +53,11 @@
 	@param diagram : diagram owner of this event
 	@param pos : first pos of item ( optional, by defaut QPointF(0,0) )
 */
-DiagramEventAddElement::DiagramEventAddElement(ElementsLocation &location, Diagram *diagram, QPointF pos) :
+DiagramEventAddElement::DiagramEventAddElement(ElementsLocation &location, Diagram *diagram, QPointF pos,
+											   const QString &part_name) :
 	DiagramEventInterface(diagram),
 	m_location(location),
+	m_part_name(part_name),
 	m_element(nullptr)
 {
 		//Check if there is an element at this location
@@ -357,7 +366,9 @@ void DiagramEventAddElement::init()
 */
 bool DiagramEventAddElement::buildElement()
 {
-	ElementsLocation import_loc = m_diagram->project()->importElement(m_location);
+	ElementsLocation import_loc = m_part_name.isEmpty()
+			? m_diagram->project()->importElement(m_location)
+			: m_diagram->project()->importPartElement(m_location, m_part_name);
 	if (import_loc.exist()) {
 		m_integrate_path = import_loc.projectCollectionPath();
 	}
@@ -373,6 +384,48 @@ bool DiagramEventAddElement::buildElement()
 	if (state) {
 		delete m_element;
 		return(false);
+	}
+		//A summary symbol goes on a summary folio of its kind only
+		//(Brandon, 2026-11-28)
+	if (!m_diagram->acceptsSymbol(m_element->linkType())) {
+		const QString message = m_element->linkType() == Element::PlcSummary
+				? tr("A PLC summary symbol goes on a PLC summary sheet only.")
+				: tr("A network summary symbol goes on a network summary sheet only.");
+		delete m_element;
+		m_element = nullptr;
+		QET::QetMessageBox::information(m_diagram->views().isEmpty() ? nullptr
+																	 : m_diagram->views().first(),
+										tr("Summary symbol"), message);
+		return(false);
+	}
+		//A summary symbol is of a device drawn elsewhere: which one, once
+	if ((m_element->linkType() == Element::PlcSummary
+		 || m_element->linkType() == Element::NetworkSummary)
+		&& m_summary_label.isEmpty()) {
+		QStringList labels;
+		QSqlQuery query = m_diagram->project()->dataBase()->newQuery(QStringLiteral(
+			"SELECT DISTINCT TRIM(ei.label) FROM element e "
+			"JOIN element_info ei ON ei.element_uuid = e.uuid "
+			"WHERE e.type IN ('simple', 'master', 'terminal') AND TRIM(ei.label) <> ''"));
+		if (query.exec()) {
+			while (query.next()) labels << query.value(0).toString();
+		}
+		QCollator collator;
+		collator.setNumericMode(true);
+		std::sort(labels.begin(), labels.end(), [&collator](const QString &a, const QString &b) {
+			return collator.compare(a, b) < 0;
+		});
+		bool ok = false;
+		const QString label = QInputDialog::getItem(
+					m_diagram->views().isEmpty() ? nullptr : m_diagram->views().first(),
+					tr("Summary symbol"),
+					tr("The device this summary symbol shows:"), labels, 0, true, &ok).trimmed();
+		if (!ok || label.isEmpty()) {
+			delete m_element;
+			m_element = nullptr;
+			return(false);
+		}
+		m_summary_label = label;
 	}
 		//Everything is good
 	return true;
@@ -463,6 +516,22 @@ Element *DiagramEventAddElement::createElement() const
 	return element;
 }
 
+/**
+	@brief DiagramEventAddElement::giveSummaryLabel
+	A summary symbol placed takes the label of the device chosen for it
+*/
+void DiagramEventAddElement::giveSummaryLabel(Element *element) const
+{
+	if (!element || m_summary_label.isEmpty()) {
+		return;
+	}
+	DiagramContext information = element->elementInformations();
+	information.addValue(QETInformation::ELMT_LABEL, m_summary_label);
+	information.remove(QETInformation::ELMT_FORMULA);
+	information.remove(QETInformation::ELMT_FORMULA_ID);
+	element->setElementInformations(information);
+}
+
 void DiagramEventAddElement::addElement()
 {
 	Element *element = createElement();
@@ -528,8 +597,11 @@ void DiagramEventAddElement::addElement()
 		//the project (DeviceNaming), before undo_object is pushed: one
 		//Ctrl+Z takes the element and its label away together
 	DeviceNaming::nameNewElement(element, m_naming_letter);
+	giveSummaryLabel(element);
 	if (m_prepare)
 		m_prepare(element, undo_object);
+		//Put in a structure box: its plant and location (2026-11-28)
+	StructureBoxes::apply(m_diagram, undo_object, {element});
 
 	m_diagram -> undoStack().push(undo_object);
 	element->freezeNewAddedElement();
@@ -670,6 +742,8 @@ void DiagramEventAddElement::addElements(const QList<QPointF> &positions)
 	m_diagram->addItem(m_element);
 
 	DeviceNaming::nameNewElements(added, m_naming_letter);
+	for (Element *element : std::as_const(added))
+		giveSummaryLabel(element);
 	if (m_prepare)
 		for (Element *element : std::as_const(added))
 			m_prepare(element, undo_object);

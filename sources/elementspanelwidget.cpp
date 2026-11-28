@@ -74,6 +74,8 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_insert_diagram_below = new QAction(QET::Icons::DiagramAdd,              tr("Insert a schematic sheet"),     this);
 	prj_insert_cabinet_diagram = new QAction(CabinetDialogs::folioIcon(),       tr("Insert a cabinet construction sheet"), this);
 	prj_insert_routing_diagram = new QAction(CabinetDialogs::routingIcon(),     tr("Insert a routing sheet for this cabinet"), this);
+	prj_insert_plc_summary   = new QAction(QET::Icons::DiagramAdd,              tr("Insert a PLC summary sheet"),       this);
+	prj_insert_network_summary = new QAction(QET::Icons::DiagramAdd,            tr("Insert a network summary sheet"),   this);
 	prj_duplicate_diagram   = new QAction(QET::Icons::IC_CopyFile,              tr("Copy and paste"),               this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this sheet"),              this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this sheet up"),               this);
@@ -116,6 +118,17 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	connect(prj_add_diagram, &QAction::triggered, this, &ElementsPanelWidget::newDiagram);
 	connect(prj_insert_diagram_below, &QAction::triggered, this, &ElementsPanelWidget::insertDiagramBelow);
 	connect(prj_insert_cabinet_diagram, &QAction::triggered, this, &ElementsPanelWidget::insertCabinetDiagramBelow);
+		//Summary sheets, right after the folio selected (Brandon, 2026-11-28)
+	auto insert_summary = [this](Diagram::FolioKind kind) {
+		if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
+			QETProject *project = selected_diagram->project();
+			project->addNewSummaryDiagram(kind, project->folioIndex(selected_diagram) + 1);
+		}
+	};
+	connect(prj_insert_plc_summary, &QAction::triggered, this,
+			[insert_summary]() {insert_summary(Diagram::FolioKind::PlcSummary);});
+	connect(prj_insert_network_summary, &QAction::triggered, this,
+			[insert_summary]() {insert_summary(Diagram::FolioKind::NetworkSummary);});
 		//The routing of the wires on a plate of a cabinet sheet
 	connect(prj_insert_routing_diagram, &QAction::triggered, this, [this]() {
 		if (Diagram *cabinet = elements_panel->selectedDiagram()) {
@@ -503,6 +516,8 @@ void ElementsPanelWidget::updateButtons()
 			prj_duplicate_diagram     -> setEnabled(is_writable);
 			prj_insert_diagram_below -> setEnabled(is_writable);
 			prj_insert_cabinet_diagram -> setEnabled(is_writable);
+			prj_insert_plc_summary     -> setEnabled(is_writable);
+			prj_insert_network_summary -> setEnabled(is_writable);
 			prj_insert_routing_diagram -> setEnabled(is_writable && selected_diagrams.size() == 1
 													  && selected_diagrams.first()->isCabinetFolio());
 			prj_move_diagram_up        -> setEnabled(is_writable && min_position > 0);
@@ -561,6 +576,8 @@ void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 			context_menu -> addAction(prj_insert_diagram_below);
 			context_menu -> addAction(prj_insert_cabinet_diagram);
 			context_menu -> addAction(prj_insert_routing_diagram);
+			context_menu -> addAction(prj_insert_plc_summary);
+			context_menu -> addAction(prj_insert_network_summary);
 			context_menu -> addAction(prj_del_diagram);
 			context_menu -> addAction(prj_duplicate_diagram);
 			context_menu -> addAction(prj_move_diagram_top);

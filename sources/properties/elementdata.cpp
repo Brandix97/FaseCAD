@@ -741,6 +741,10 @@ QString ElementData::typeToString(ElementData::Type type)
 			return  QStringLiteral("thumbnail");
 		case ElementData::ConductorDefinition:
 			return QStringLiteral("conductor_definition");
+		case ElementData::PlcSummary:
+			return QStringLiteral("plc_summary");
+		case ElementData::NetworkSummary:
+			return QStringLiteral("network_summary");
 		default:
 			qDebug() << "ElementData::typeToString : type don't exist"
 					 << "return failsafe value 'simple'";
@@ -766,6 +770,10 @@ ElementData::Type ElementData::typeFromString(const QString &string)
 		return ElementData::Thumbnail;
 	} else if (string == QLatin1String("conductor_definition")) {
 		return ElementData::ConductorDefinition;
+	} else if (string == QLatin1String("plc_summary")) {
+		return ElementData::PlcSummary;
+	} else if (string == QLatin1String("network_summary")) {
+		return ElementData::NetworkSummary;
 	}
 
 		//Return simple if nothing match

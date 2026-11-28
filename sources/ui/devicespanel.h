@@ -20,6 +20,7 @@
 
 #include "../cabinet/cabinetitem.h"
 
+#include <QHash>
 #include <QList>
 #include <QPair>
 #include <QPointer>
@@ -90,6 +91,15 @@ class DevicesPanel : public QWidget
 			int main = 0;
 		};
 
+			/// A symbol of the article of a device not placed yet
+			/// (Brandon, 2026-11-28)
+		struct Unplaced {
+				/// Its location in the collection, as a string
+			QString symbol;
+			QString manufacturer;
+			QString order_number;
+		};
+
 		explicit DevicesPanel(QWidget *parent = nullptr);
 
 		void setProject(QETProject *project);
@@ -107,6 +117,12 @@ class DevicesPanel : public QWidget
 			/// Where @p a stands before @p b on the sheets: sheet, then
 			/// column, then row
 		static bool positionLessThan(const Device &a, const Device &b);
+			/// Of @p symbols (the symbols of an article, as locations),
+			/// those not among @p placed (the definitions of the symbols
+			/// carrying the device's label), told apart by file name: a
+			/// symbol twice in the article is to be placed twice
+		static QStringList unplacedSymbols(const QStringList &symbols,
+										   const QStringList &placed);
 
 	protected:
 		void showEvent(QShowEvent *event) override;
@@ -122,6 +138,9 @@ class DevicesPanel : public QWidget
 		void scheduleRefresh();
 		void refresh();
 		void showDevice(QTreeWidgetItem *item);
+		void placeUnplaced(QTreeWidgetItem *item);
+		QList<Unplaced> unplacedOf(const Line &line,
+								   const QHash<QString, QStringList> &placed) const;
 		void deleteSelected();
 		void showContextMenu(const QPoint &pos);
 		void addDrawingActions(QMenu &menu);

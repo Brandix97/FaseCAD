@@ -17,6 +17,9 @@
 */
 
 #include "shapegraphicsitempropertieswidget.h"
+#include "../structureboxes.h"
+#include <QLayout>
+#include <QPushButton>
 
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../diagram.h"
@@ -38,7 +41,25 @@ ShapeGraphicsItemPropertiesWidget::ShapeGraphicsItemPropertiesWidget(QetShapeIte
 	m_shape(nullptr)
 {
 	ui->setupUi(this);
+	setUpStructureButton();
 	setItem(item);
+}
+
+/**
+	@brief ShapeGraphicsItemPropertiesWidget::setUpStructureButton
+	The plant and the location of a structure box (Brandon, 2026-11-28)
+*/
+void ShapeGraphicsItemPropertiesWidget::setUpStructureButton()
+{
+	m_structure_pb = new QPushButton(tr("Plant and location of the structure box…"), this);
+	m_structure_pb->setVisible(false);
+	layout()->addWidget(m_structure_pb);
+	connect(m_structure_pb, &QPushButton::clicked, this, [this]() {
+		if (m_shape) {
+			StructureBoxes::edit(m_shape, this);
+			updateUi();
+		}
+	});
 }
 
 ShapeGraphicsItemPropertiesWidget::ShapeGraphicsItemPropertiesWidget(QList<QetShapeItem *> items_list, QWidget *parent) :
@@ -46,6 +67,7 @@ ShapeGraphicsItemPropertiesWidget::ShapeGraphicsItemPropertiesWidget(QList<QetSh
 	ui(new Ui::ShapeGraphicsItemPropertiesWidget)
 {
 	ui->setupUi(this);
+	setUpStructureButton();
 	setItems(items_list);
 }
 
@@ -76,6 +98,9 @@ void ShapeGraphicsItemPropertiesWidget::setItem(QetShapeItem *shape)
 	ui->m_close_polygon->setVisible(m_shape->shapeType() == QetShapeItem::Polygon
 			|| m_shape->shapeType() == QetShapeItem::Path);
 	ui->m_filling_gb->setHidden(m_shape->shapeType() == QetShapeItem::Line);
+	if (m_structure_pb) {
+		m_structure_pb->setVisible(m_shape->isStructureBox());
+	}
 
 	updateUi();
 	setUpEditConnection();

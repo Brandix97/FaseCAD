@@ -16,6 +16,7 @@
 	along with QElectroTech. If not, see <http://www.gnu.org/licenses/>.
 */
 #include "elementscollectionwidget.h"
+#include "../properties/elementdata.h"
 
 #include "../editor/ui/qetelementeditor.h"
 #include "../elementscategoryeditor.h"
@@ -267,6 +268,11 @@ void ElementsCollectionWidget::setUpAction()
 					  tr("New folder"), this);
 	m_new_element = new QAction(QET::Icons::ElementNew,
 					tr("New element"), this);
+		//A symbol of a summary sheet, of the type chosen here (2026-11-28)
+	m_new_plc_summary = new QAction(QET::Icons::ElementNew,
+					tr("New PLC summary symbol"), this);
+	m_new_network_summary = new QAction(QET::Icons::ElementNew,
+					tr("New network summary symbol"), this);
 	m_show_this_dir = new QAction(QET::Icons::FolderOnlyThis,
 					  tr("Show only this folder"),
 					  this);
@@ -392,7 +398,11 @@ void ElementsCollectionWidget::setUpConnection()
 	connect(m_new_directory, &QAction::triggered,
 		this, &ElementsCollectionWidget::newDirectory);
 	connect(m_new_element, &QAction::triggered,
-		this, &ElementsCollectionWidget::newElement);
+		this, [this]() {newElement();});
+	connect(m_new_plc_summary, &QAction::triggered,
+		this, [this]() {newElement(ElementData::PlcSummary);});
+	connect(m_new_network_summary, &QAction::triggered,
+		this, [this]() {newElement(ElementData::NetworkSummary);});
 	connect(m_show_this_dir, &QAction::triggered,
 		this, &ElementsCollectionWidget::showThisDir);
 	connect(m_show_all_dir, &QAction::triggered,
@@ -519,6 +529,8 @@ void ElementsCollectionWidget::customContextMenu(const QPoint &point)
 			{
 				if (!feci->isMacrosCollection()) {
 					m_context_menu->addAction(m_new_element);
+					m_context_menu->addAction(m_new_plc_summary);
+					m_context_menu->addAction(m_new_network_summary);
 				}
 				m_context_menu->addAction(m_new_directory);
 				if (!feci->isCollectionRoot())
@@ -914,7 +926,7 @@ void ElementsCollectionWidget::newDirectory()
 	@brief ElementsCollectionWidget::newElement
 	Create a new element.
 */
-void ElementsCollectionWidget::newElement()
+void ElementsCollectionWidget::newElement(int type)
 {
 	ElementCollectionItem *eci = elementCollectionItemForIndex(
 				m_index_at_context_menu);
@@ -932,6 +944,7 @@ void ElementsCollectionWidget::newElement()
 	NewElementWizard elmt_wizard(this);
 	ElementsLocation loc(feci->collectionPath());
 	elmt_wizard.preselectedLocation(loc);
+	elmt_wizard.setStartType(type);
 	elmt_wizard.exec();
 
 	foreach (QETElementEditor *element_editor,

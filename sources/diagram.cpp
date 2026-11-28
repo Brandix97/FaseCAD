@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "diagram.h"
+#include "devicexrefs.h"
 #include "bridge/bridgecopy.h"
 #include "bridge/bridgemanager.h"
 #include "bridge/bridgepart.h"
@@ -1792,6 +1793,11 @@ void Diagram::appendValuesXml(QDomDocument &document, QDomElement &dom_root) con
 		dom_root.setAttribute(QStringLiteral("cabinetScale"),
 					  QString::number(m_cabinet_scale));
 	}
+		//A summary folio: its kind only
+	if (isPlcSummaryFolio() || isNetworkSummaryFolio()) {
+		dom_root.setAttribute(QStringLiteral("folioKind"),
+					  folioKindToString(m_folio_kind));
+	}
 	if (isRoutingFolio()) {
 		dom_root.setAttribute(QStringLiteral("routingSheet"), m_routing_source.toString());
 		dom_root.setAttribute(QStringLiteral("routingPlate"), m_routing_plate.toString());
@@ -2892,6 +2898,11 @@ bool Diagram::fromXml(QDomElement &document,
 		//database: the part may have changed since the file was saved
 	PartTexts::refresh(added_elements);
 
+		//The cross references between the parts of its devices
+	if (consider_informations) {
+		DeviceXRefs::scheduleRefresh(m_project);
+	}
+
 		//A routing sheet: its ways, and the plate they run on
 	if (consider_informations && isRoutingFolio()) {
 		CabinetRouting::fromXml(this, root);
@@ -3940,11 +3951,29 @@ qreal Diagram::pixelsPerMm() const
 	return pixelsPerPaperMm / drawingScale();
 }
 
+/**
+	@brief Diagram::acceptsSymbol
+	A summary symbol goes on a summary folio of its kind only; any other
+	symbol goes anywhere (Brandon, 2026-11-28)
+*/
+bool Diagram::acceptsSymbol(int link_type) const
+{
+	if (link_type == Element::PlcSummary) {
+		return isPlcSummaryFolio();
+	}
+	if (link_type == Element::NetworkSummary) {
+		return isNetworkSummaryFolio();
+	}
+	return true;
+}
+
 QString Diagram::folioKindToString(FolioKind kind)
 {
 	switch (kind) {
 		case FolioKind::Cabinet: return QStringLiteral("cabinet");
 		case FolioKind::Routing: return QStringLiteral("routing");
+		case FolioKind::PlcSummary: return QStringLiteral("plc_summary");
+		case FolioKind::NetworkSummary: return QStringLiteral("network_summary");
 		case FolioKind::Schematic: break;
 	}
 	return QStringLiteral("schematic");
@@ -3954,6 +3983,8 @@ Diagram::FolioKind Diagram::folioKindFromString(const QString &text)
 {
 	if (text == QLatin1String("cabinet")) return FolioKind::Cabinet;
 	if (text == QLatin1String("routing")) return FolioKind::Routing;
+	if (text == QLatin1String("plc_summary")) return FolioKind::PlcSummary;
+	if (text == QLatin1String("network_summary")) return FolioKind::NetworkSummary;
 	return FolioKind::Schematic;
 }
 

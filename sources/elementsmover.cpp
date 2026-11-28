@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "elementsmover.h"
+#include "structureboxes.h"
 #include "qetproject.h"
 #include "autobreakconductor.h"
 #include "autoconnect.h"
@@ -356,6 +357,9 @@ void ElementsMover::endMovement()
 
 		//empty command to be used has parent of commands below
 	QUndoCommand *undo_object{new QUndoCommand()};
+		//The symbols moved into or out of a structure box, or a box moved
+		//over symbols: they take its plant and location (2026-11-28)
+	StructureBoxes::apply(m_diagram, undo_object);
 
 		//Create undo move if there is a movement
 	if (!m_current_movement.isNull()) {

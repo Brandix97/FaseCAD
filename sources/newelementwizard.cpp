@@ -22,6 +22,10 @@
 #include "ElementsCollection/elementstreeview.h"
 #include "NameList/ui/namelistwidget.h"
 #include "editor/ui/qetelementeditor.h"
+#include "editor/elementscene.h"
+#include "properties/elementdata.h"
+#include "summarysymbols.h"
+#include "summarygeneratordialog.h"
 #include "qetmessagebox.h"
 #include "qfilenameedit.h"
 
@@ -252,6 +256,26 @@ void NewElementWizard::createNewElement()
 	ElementsLocation loc_ = m_chosen_location;
 	loc_.addToPath(m_chosen_file);
 	edit_new_element -> setLocation(loc_);
+		//A summary symbol chosen from the collection's menu: of that type
+	if (m_start_type) {
+			//A PLC summary symbol starts as the example: a box with four
+			//terminals, their function texts and places (2026-11-28)
+		if (m_start_type == ElementData::PlcSummary) {
+				//Drawn from the terminals of a card, a pattern, or the
+				//example (Brandon, 2026-11-28)
+			SummaryGeneratorDialog generator(parentWidget());
+			const QDomDocument definition = generator.exec() == QDialog::Accepted
+					&& !generator.pins().isEmpty()
+					? SummarySymbols::plcSummaryDefinition(generator.pins(), generator.twoColumns())
+					: SummarySymbols::plcExampleDefinition();
+			edit_new_element->elementScene()->fromXml(definition, QPointF(), false);
+		}
+		ElementData data = edit_new_element->elementScene()->elementData();
+		data.m_type = ElementData::Type(m_start_type);
+		edit_new_element->elementScene()->setElementData(data);
+			//Drawn already: something to save, without a change first
+		edit_new_element->elementScene()->undoStack().resetClean();
+	}
 	edit_new_element -> show();
 		// Without this, the just-closed wizard can leave the main window
 		// as the active/key window (bugtracker #281, reported on macOS):

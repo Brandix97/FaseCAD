@@ -200,6 +200,14 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/diagramcommands.h
   ${QET_DIR}/sources/diagramcontent.cpp
   ${QET_DIR}/sources/diagramcontent.h
+  ${QET_DIR}/sources/summarygeneratordialog.cpp
+  ${QET_DIR}/sources/summarygeneratordialog.h
+  ${QET_DIR}/sources/summarysymbols.cpp
+  ${QET_DIR}/sources/structureboxes.cpp
+  ${QET_DIR}/sources/structureboxes.h
+  ${QET_DIR}/sources/summarysymbols.h
+  ${QET_DIR}/sources/devicexrefs.cpp
+  ${QET_DIR}/sources/devicexrefs.h
   ${QET_DIR}/sources/devicenaming.cpp
   ${QET_DIR}/sources/devicenaming.h
   ${QET_DIR}/sources/diagramcontext.cpp
@@ -1245,6 +1253,15 @@ list(APPEND QET_SRC_FILES
 # stub when the module wasn't found.
 list(APPEND QET_SRC_FILES
   ${QET_DIR}/sources/scripting/qetscriptapi.cpp
+  ${QET_DIR}/sources/scripting/scriptdialog.cpp
+  ${QET_DIR}/sources/scripting/scriptdialog.h
+  ${QET_DIR}/sources/plugins/pluginmanifest.cpp
+  ${QET_DIR}/sources/plugins/pluginmanifest.h
+  ${QET_DIR}/sources/properties/devicexrefsettings.h
+  ${QET_DIR}/sources/plugins/pluginlibrary.cpp
+  ${QET_DIR}/sources/plugins/pluginlibrary.h
+  ${QET_DIR}/sources/plugins/pluginmanagerdialog.cpp
+  ${QET_DIR}/sources/plugins/pluginmanagerdialog.h
   ${QET_DIR}/sources/scripting/qetscriptapi.h
   ${QET_DIR}/sources/scripting/qetscripting.cpp
   ${QET_DIR}/sources/scripting/qetscripting.h

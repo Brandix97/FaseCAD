@@ -88,6 +88,15 @@ namespace QetScripting {
 	bool runSource(const QString &source, const QString &fileName, const QString &title,
 		       QETProject *project, DiagramView *view, LiveRun *live);
 
+	/**
+		@brief Run @p source of a plugin installed and switched on, from
+		@p pluginFolder, as runSource() runs a script: it runs whether or
+		not scripting is on in the settings, and qet.pluginFolder() says
+		where it comes from.
+	*/
+	bool runPlugin(const QString &source, const QString &fileName, const QString &title,
+		       const QString &pluginFolder, QETProject *project, DiagramView *view);
+
 }
 
 #endif // QET_SCRIPTING_H

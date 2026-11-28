@@ -49,6 +49,8 @@ class ElementsPanelWidget : public QWidget {
 		*prj_insert_diagram_below,
 		*prj_insert_cabinet_diagram,
 		*prj_insert_routing_diagram,
+		*prj_insert_plc_summary,
+		*prj_insert_network_summary,
 		*prj_del_diagram,
 		*prj_duplicate_diagram,
 		*prj_move_diagram_up,

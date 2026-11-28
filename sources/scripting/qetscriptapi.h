@@ -657,6 +657,21 @@ class QetScriptApi : public QObject
 		Q_INVOKABLE bool zoomReset();
 		Q_INVOKABLE void showMessage(const QString &text);
 
+		// -- plugins (FaseCAD): a window of their own, and files to write --
+			/// A window described by @p spec (see ScriptDialog): the
+			/// values by field id, null when the user cancels
+		Q_INVOKABLE QVariant dialog(const QVariantMap &spec);
+			/// Where to save a file: the path chosen, empty when none
+		Q_INVOKABLE QString chooseSaveFile(const QString &caption, const QString &filter,
+										   const QString &suggestedName = QString());
+			/// Write @p text to @p path in UTF-8
+		Q_INVOKABLE bool writeTextFile(const QString &path, const QString &text);
+			/// The folder of the plugin running, empty for a script
+		Q_INVOKABLE QString pluginFolder() const {return m_plugin_folder;}
+			/// The version of FaseCAD and of this API
+		Q_INVOKABLE QString fasecadVersion() const;
+		Q_INVOKABLE int apiVersion() const {return 1;}
+
 		// -- logging: a script has no console of its own --
 		Q_INVOKABLE void log(const QString &message);
 
@@ -669,6 +684,10 @@ class QetScriptApi : public QObject
 			/// The calls writing a file (save, export, a title block
 			/// written out) refuse, saying so in the log
 		void setNoFiles(bool no_files) {m_no_files = no_files;}
+		void setPluginFolder(const QString &folder) {m_plugin_folder = folder;}
+			/// How many windows a script waits on now: the time they are
+			/// open does not count against the time a script may take
+		static int waitingOnUser();
 
 	private:
 		bool runFlag(const QString &flag, const QStringList &args);
@@ -699,6 +718,7 @@ class QetScriptApi : public QObject
 		bool m_undo_grouped = false;
 		QStringList *m_live_log = nullptr;	///< set for a live run: log() and showMessage() go here
 		bool m_no_files = false;
+		QString m_plugin_folder;
 		bool filesRefused(const char *caller);
 		QString m_query_error;
 };

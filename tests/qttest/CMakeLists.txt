@@ -2509,6 +2509,26 @@ qet_add_app_test(tst_projectversions tst_projectversions.cpp)
 # Copy format and Apply format of the element editor, and its A4 sheet.
 qet_add_app_test(tst_elementformat tst_elementformat.cpp)
 
+# Plugins: the manifest, installing a .fasplugin, switching it off and
+# removing it, its commands as actions and tabs, a command in one step of
+# undo, the windows of qet.dialog(), the example plugin.
+qet_add_app_test(tst_plugins tst_plugins.cpp)
+
+# The symbol of a part of the parts database placed in a project goes into
+# a folder named after the part, replacing one of the same name there.
+qet_add_app_test(tst_partimportfolder tst_partimportfolder.cpp)
+
+# The cross references between the parts of a device: the main part lists
+# the others, the others the main one, in the project's format; the setting
+# saved only when used.
+qet_add_app_test(tst_devicexrefs tst_devicexrefs.cpp)
+
+# Summary folios, function texts and summary symbols: the folio kinds kept,
+# summary symbols only on their folio, function texts over and under, and
+# the example of a new PLC summary folio finding the terminals of -KF1.
+qet_add_app_test(tst_summarysymbols tst_summarysymbols.cpp)
+target_compile_definitions(tst_plugins PRIVATE QET_SOURCE_DIR="${QET_DIR}")
+
 # The title block made of blocks: the template built from a design, the
 # label above the value, fill and borders kept through the XML, the design
 # read back, the paper and the scale of a folio, the project's revisions,

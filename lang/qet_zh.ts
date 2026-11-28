@@ -3894,6 +3894,22 @@ Continue?</source>
         <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
         <translation type="unfinished">符号 %1 / %2：%3。Tab：下一个符号，Shift+Tab：上一个</translation>
     </message>
+    <message>
+        <source>A PLC summary symbol goes on a PLC summary sheet only.</source>
+        <translation type="unfinished">PLC 汇总符号只能放在 PLC 汇总图纸上。</translation>
+    </message>
+    <message>
+        <source>A network summary symbol goes on a network summary sheet only.</source>
+        <translation type="unfinished">网络汇总符号只能放在网络汇总图纸上。</translation>
+    </message>
+    <message>
+        <source>Summary symbol</source>
+        <translation type="unfinished">汇总符号</translation>
+    </message>
+    <message>
+        <source>The device this summary symbol shows:</source>
+        <translation type="unfinished">此汇总符号显示的设备：</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -6633,6 +6649,14 @@ Continue?</source>
         <source>Ground</source>
         <translation>大地</translation>
     </message>
+    <message>
+        <source>PLC summary symbol</source>
+        <translation type="unfinished">PLC 汇总符号</translation>
+    </message>
+    <message>
+        <source>Network summary symbol</source>
+        <translation type="unfinished">网络汇总符号</translation>
+    </message>
 </context>
 <context>
     <name>ElementPropertiesWidget</name>
@@ -7458,6 +7482,14 @@ QElectroTech 无法自动判断您导入文件的来源，也无法判断适用�
         <source>Download the symbols</source>
         <translation type="unfinished">下载符号</translation>
     </message>
+    <message>
+        <source>New PLC summary symbol</source>
+        <translation type="unfinished">新建 PLC 汇总符号</translation>
+    </message>
+    <message>
+        <source>New network summary symbol</source>
+        <translation type="unfinished">新建网络汇总符号</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7656,6 +7688,14 @@ QElectroTech 无法自动判断您导入文件的来源，也无法判断适用�
     <message>
         <source>Insert a routing sheet for this cabinet</source>
         <translation type="unfinished">为此机柜插入布线图纸</translation>
+    </message>
+    <message>
+        <source>Insert a PLC summary sheet</source>
+        <translation type="unfinished">插入 PLC 汇总图纸</translation>
+    </message>
+    <message>
+        <source>Insert a network summary sheet</source>
+        <translation type="unfinished">插入网络汇总图纸</translation>
     </message>
 </context>
 <context>
@@ -10686,6 +10726,22 @@ Please use the advanced editor for this.</source>
         <source>Width:</source>
         <translation type="unfinished">宽度：</translation>
     </message>
+    <message>
+        <source>Function text</source>
+        <translation type="unfinished">功能文本</translation>
+    </message>
+    <message>
+        <source>What is drawn over and under this text, within its width, has this text as function, unless it has a function of its own</source>
+        <translation type="unfinished">在此文本宽度范围内、其上方和下方绘制的内容，若无自身功能，则以此文本为功能</translation>
+    </message>
+    <message>
+        <source>Make a function text</source>
+        <translation type="unfinished">设为功能文本</translation>
+    </message>
+    <message>
+        <source>Make a plain text</source>
+        <translation type="unfinished">设为普通文本</translation>
+    </message>
 </context>
 <context>
     <name>IntegrationMoveTitleBlockTemplatesHandler</name>
@@ -13610,6 +13666,41 @@ Give them another numbering first.</source>
         <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
         <comment>tooltip</comment>
         <translation type="unfinished">绘制导线或移动元件时，自动导线沿另一根导线延伸的中间段每次移动一个栅格步长到空闲处。这会像手动移动一样保留该路径。已绘制的导线不变。</translation>
+    </message>
+    <message>
+        <source>Show where the other parts of a device are</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">显示设备其他部件的位置</translation>
+    </message>
+    <message>
+        <source>The symbols sharing a label (a PLC drawn as its supply, its inputs and its outputs...) are one device: its main part, the one made of parts, lists the places of the others. Contacts keep the cross reference of their coil.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">共用同一标签的符号（绘制为电源、输入和输出的 PLC……）是一个设备：其主部件，即带有物料的部件，列出其他部件的位置。触点保留其线圈的交叉引用。</translation>
+    </message>
+    <message>
+        <source>The other parts show the main part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">其他部件显示主部件</translation>
+    </message>
+    <message>
+        <source>The other parts show every part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">其他部件显示所有部件</translation>
+    </message>
+    <message>
+        <source>The other parts show nothing</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">其他部件不显示任何内容</translation>
+    </message>
+    <message>
+        <source>Under the label</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">在标签下方</translation>
+    </message>
+    <message>
+        <source>Below the symbol</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">在符号下方</translation>
     </message>
 </context>
 <context>
@@ -17615,6 +17706,26 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <source>The services of fasecad.com are not open yet</source>
         <translation type="unfinished">fasecad.com 的服务尚未开放</translation>
     </message>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">结构框</translation>
+    </message>
+    <message>
+        <source>Adds a dash-dotted box: the symbols in it take its plant (=) and location (+)</source>
+        <translation type="unfinished">添加点划线框：框内的符号获得其工厂（=）和位置（+）</translation>
+    </message>
+    <message>
+        <source>Plugins…</source>
+        <translation type="unfinished">插件…</translation>
+    </message>
+    <message>
+        <source>Install, switch on or off and remove the plugins</source>
+        <translation type="unfinished">安装、开启或关闭以及移除插件</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">插件</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18589,6 +18700,14 @@ the conditions are not valid</source>
         <source>Format copied: select parts and Apply format</source>
         <translation type="unfinished">格式已复制：选择部件后点击“应用格式”</translation>
     </message>
+    <message>
+        <source>Show the frames of the texts</source>
+        <translation type="unfinished">显示文本框线</translation>
+    </message>
+    <message>
+        <source>Draws a dashed frame around each text to see where it is; the frames are not saved</source>
+        <translation type="unfinished">在每个文本周围绘制虚线框以查看其位置；框线不会保存</translation>
+    </message>
 </context>
 <context>
     <name>QETMainWindow</name>
@@ -18957,6 +19076,16 @@ What do you wish to do ?</source>
     <message>
         <source>Not to scale</source>
         <translation type="unfinished">无比例</translation>
+    </message>
+    <message>
+        <source>PLC summary</source>
+        <comment>title of a new PLC summary folio</comment>
+        <translation type="unfinished">PLC 汇总</translation>
+    </message>
+    <message>
+        <source>Network summary</source>
+        <comment>title of a new network summary folio</comment>
+        <translation type="unfinished">网络汇总</translation>
     </message>
 </context>
 <context>
@@ -22364,6 +22493,38 @@ To enable it: Configure QElectroTech &gt; General &gt; Projects, or set the QET_
         <comment>spacemouse config: unbound button</comment>
         <translation type="unfinished">（无操作）</translation>
     </message>
+    <message>
+        <source>Function text of the terminal</source>
+        <translation type="unfinished">端子的功能文本</translation>
+    </message>
+    <message>
+        <source>Place of the terminal</source>
+        <translation type="unfinished">端子的位置</translation>
+    </message>
+    <message>
+        <source>Terminal %1</source>
+        <translation type="unfinished">端子 %1</translation>
+    </message>
+    <message>
+        <source>Function text of %1</source>
+        <translation type="unfinished">%1 的功能文本</translation>
+    </message>
+    <message>
+        <source>Place of %1</source>
+        <translation type="unfinished">%1 的位置</translation>
+    </message>
+    <message>
+        <source>Function text of the terminal %1</source>
+        <translation type="unfinished">端子 %1 的功能文本</translation>
+    </message>
+    <message>
+        <source>Place of the terminal %1</source>
+        <translation type="unfinished">端子 %1 的位置</translation>
+    </message>
+    <message>
+        <source>Plugin: %1</source>
+        <translation type="unfinished">插件：%1</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -24410,6 +24571,10 @@ The other fields are not used.</source>
         <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="443"/>
         <source>Y radius</source>
         <translation>Y 半径</translation>
+    </message>
+    <message>
+        <source>Plant and location of the structure box…</source>
+        <translation type="unfinished">结构框的工厂和位置…</translation>
     </message>
 </context>
 <context>
@@ -30456,6 +30621,20 @@ version</source>
         <translation type="unfinished">设定
 版本</translation>
     </message>
+    <message>
+        <source>Structure</source>
+        <translation type="unfinished">结构</translation>
+    </message>
+    <message>
+        <source>Structure
+box</source>
+        <translation type="unfinished">结构
+框</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">插件</translation>
+    </message>
 </context>
 <context>
     <name>AccountButtons</name>
@@ -31943,6 +32122,32 @@ version</source>
         <translation type="unfinished">
             <numerusform>删除 %n 个设备</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>To place</source>
+        <translation type="unfinished">待放置</translation>
+    </message>
+    <message>
+        <source>Double-click to place this symbol of %1 on the sheet</source>
+        <translation type="unfinished">双击以将 %1 的此符号放置到图纸上</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of its article to place</source>
+        <translation type="unfinished">
+            <numerusform>其物料有 %n 个符号待放置</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Place on the sheet</source>
+        <translation type="unfinished">放置到图纸上</translation>
+    </message>
+    <message>
+        <source>Place a symbol</source>
+        <translation type="unfinished">放置符号</translation>
+    </message>
+    <message>
+        <source>Open a sheet of this project to place the symbol on.</source>
+        <translation type="unfinished">请打开此项目的一张图纸以放置符号。</translation>
     </message>
 </context>
 <context>
@@ -34757,6 +34962,287 @@ Replace it with the part of the file?</source>
     <message>
         <source>Align</source>
         <translation type="unfinished">对齐</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceXRefItem</name>
+    <message>
+        <source>Where the other parts of this device are. Double-click one to show it.</source>
+        <translation type="unfinished">此设备其他部件的位置。双击其中一个以显示它。</translation>
+    </message>
+</context>
+<context>
+    <name>PluginLibrary</name>
+    <message>
+        <source>%1: no plugin.json</source>
+        <translation type="unfinished">%1：没有 plugin.json</translation>
+    </message>
+    <message>
+        <source>%1: the folder is not named after the id of the plugin (%2)</source>
+        <translation type="unfinished">%1：文件夹名称与插件 id 不同（%2）</translation>
+    </message>
+    <message>
+        <source>The plugin %1 is already installed</source>
+        <translation type="unfinished">插件 %1 已安装</translation>
+    </message>
+    <message>
+        <source>The plugin installed before cannot be removed</source>
+        <translation type="unfinished">无法移除之前安装的插件</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written</source>
+        <translation type="unfinished">无法写入 %1</translation>
+    </message>
+    <message>
+        <source>The plugin %1 cannot be removed</source>
+        <translation type="unfinished">无法移除插件 %1</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read</source>
+        <translation type="unfinished">无法读取 %1</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerDialog</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">插件</translation>
+    </message>
+    <message>
+        <source>Plugins add their own commands to FaseCAD: buttons, windows, exports and reports made for a customer. Untick a plugin to switch it off without removing it.</source>
+        <translation type="unfinished">插件为 FaseCAD 添加自己的命令：为客户制作的按钮、窗口、导出和报告。取消勾选插件即可关闭它而不移除。</translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished">插件</translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished">命令</translation>
+    </message>
+    <message>
+        <source>Install...</source>
+        <translation type="unfinished">安装...</translation>
+    </message>
+    <message>
+        <source>Open the plugins folder</source>
+        <translation type="unfinished">打开插件文件夹</translation>
+    </message>
+    <message>
+        <source>Read the plugins folder again, after changing a plugin by hand</source>
+        <translation type="unfinished">手动修改插件后重新读取插件文件夹</translation>
+    </message>
+    <message>
+        <source>Install a plugin</source>
+        <translation type="unfinished">安装插件</translation>
+    </message>
+    <message>
+        <source>FaseCAD plugins (*.fasplugin)</source>
+        <translation type="unfinished">FaseCAD 插件 (*.fasplugin)</translation>
+    </message>
+    <message>
+        <source>Remove the plugin</source>
+        <translation type="unfinished">移除插件</translation>
+    </message>
+    <message>
+        <source>Remove the plugin %1 and its files?</source>
+        <translation type="unfinished">移除插件 %1 及其文件？</translation>
+    </message>
+    <message>
+        <source>Not loaded: %1</source>
+        <translation type="unfinished">未加载：%1</translation>
+    </message>
+    <message>
+        <source>No plugin installed. Install a .fasplugin file to add one.</source>
+        <translation type="unfinished">未安装插件。安装 .fasplugin 文件以添加插件。</translation>
+    </message>
+    <message>
+        <source>Choose a plugin to see what it does.</source>
+        <translation type="unfinished">选择一个插件以查看其作用。</translation>
+    </message>
+    <message>
+        <source>Commands:</source>
+        <translation type="unfinished">命令：</translation>
+    </message>
+    <message>
+        <source>It may:</source>
+        <translation type="unfinished">它可以：</translation>
+    </message>
+    <message>
+        <source>only work on the open project</source>
+        <translation type="unfinished">只处理打开的项目</translation>
+    </message>
+    <message>
+        <source>Folder:</source>
+        <translation type="unfinished">文件夹：</translation>
+    </message>
+    <message>
+        <source>Install %1 %2 by %3?</source>
+        <translation type="unfinished">安装 %3 的 %1 %2？</translation>
+    </message>
+    <message>
+        <source>an unknown author</source>
+        <translation type="unfinished">未知作者</translation>
+    </message>
+    <message>
+        <source>It only works on the open project.</source>
+        <translation type="unfinished">它只处理打开的项目。</translation>
+    </message>
+    <message>
+        <source>Besides the open project, it may:</source>
+        <translation type="unfinished">除打开的项目外，它还可以：</translation>
+    </message>
+    <message>
+        <source>Install only plugins from someone you trust.</source>
+        <translation type="unfinished">只安装你信任的人提供的插件。</translation>
+    </message>
+    <message>
+        <source>It replaces the plugin installed with this id.</source>
+        <translation type="unfinished">它将替换以此 id 安装的插件。</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManifest</name>
+    <message>
+        <source>The file holds no plugin.json</source>
+        <translation type="unfinished">文件中没有 plugin.json</translation>
+    </message>
+    <message>
+        <source>The file holds a path FaseCAD refuses: %1</source>
+        <translation type="unfinished">文件中有 FaseCAD 拒绝的路径：%1</translation>
+    </message>
+    <message>
+        <source>Write files on this computer (exports, reports)</source>
+        <translation type="unfinished">在此计算机上写入文件（导出、报告）</translation>
+    </message>
+    <message>
+        <source>Unknown: %1</source>
+        <translation type="unfinished">未知：%1</translation>
+    </message>
+    <message>
+        <source>plugin.json is not a JSON object: %1</source>
+        <translation type="unfinished">plugin.json 不是 JSON 对象：%1</translation>
+    </message>
+    <message>
+        <source>The id "%1" is not usable: letters, digits, ".", "-" and "_"</source>
+        <translation type="unfinished">id "%1" 不可用：只能用字母、数字、"."、"-" 和 "_"</translation>
+    </message>
+    <message>
+        <source>The plugin API %1 does not exist</source>
+        <translation type="unfinished">插件 API %1 不存在</translation>
+    </message>
+    <message>
+        <source>The plugin needs the plugin API %1; this FaseCAD gives %2: update FaseCAD</source>
+        <translation type="unfinished">插件需要插件 API %1；此 FaseCAD 提供 %2：请更新 FaseCAD</translation>
+    </message>
+    <message>
+        <source>The plugin asks for a permission FaseCAD does not know: %1</source>
+        <translation type="unfinished">插件请求了 FaseCAD 不认识的权限：%1</translation>
+    </message>
+    <message>
+        <source>A command has no usable id, or the id "%1" is repeated</source>
+        <translation type="unfinished">某个命令没有可用的 id，或 id "%1" 重复</translation>
+    </message>
+    <message>
+        <source>The command "%1" names no function of its script</source>
+        <translation type="unfinished">命令 "%1" 未指定其脚本中的函数</translation>
+    </message>
+    <message>
+        <source>The command "%1" names a file outside the plugin</source>
+        <translation type="unfinished">命令 "%1" 指定了插件之外的文件</translation>
+    </message>
+    <message>
+        <source>The plugin has no command</source>
+        <translation type="unfinished">插件没有任何命令</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptDialog</name>
+    <message>
+        <source>FaseCAD</source>
+        <translation type="unfinished">FaseCAD</translation>
+    </message>
+    <message>
+        <source>A field has no id, or the id %1 is repeated</source>
+        <translation type="unfinished">某个字段没有 id，或 id %1 重复</translation>
+    </message>
+    <message>
+        <source>The field %1 has a type FaseCAD does not know: %2</source>
+        <translation type="unfinished">字段 %1 的类型 FaseCAD 不认识：%2</translation>
+    </message>
+</context>
+<context>
+    <name>StructureBoxes</name>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">结构框</translation>
+    </message>
+    <message>
+        <source>The symbols in the box take this plant and location.</source>
+        <translation type="unfinished">框内的符号获得此工厂和位置。</translation>
+    </message>
+    <message>
+        <source>Plant (=):</source>
+        <translation type="unfinished">工厂 (=)：</translation>
+    </message>
+    <message>
+        <source>Location (+):</source>
+        <translation type="unfinished">位置 (+)：</translation>
+    </message>
+    <message>
+        <source>Add a structure box</source>
+        <translation type="unfinished">添加结构框</translation>
+    </message>
+    <message>
+        <source>Edit a structure box</source>
+        <translation type="unfinished">编辑结构框</translation>
+    </message>
+</context>
+<context>
+    <name>SummaryGeneratorDialog</name>
+    <message>
+        <source>Generate the PLC summary symbol</source>
+        <translation type="unfinished">生成 PLC 汇总符号</translation>
+    </message>
+    <message>
+        <source>A terminal is drawn for each terminal of the card, with its function text and place beside it. Each terminal shows the terminal of the same name of the device of its label.</source>
+        <translation type="unfinished">为模块的每个端子绘制一个端子，旁边显示其功能文本和位置。每个端子显示其标签所指设备的同名端子。</translation>
+    </message>
+    <message>
+        <source>The terminals of a device of an open project:</source>
+        <translation type="unfinished">打开项目中某设备的端子：</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 (%n terminal(s)) - %2</source>
+        <translation type="unfinished">
+            <numerusform>%1（%n 个端子）- %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Terminals named after a pattern:</source>
+        <translation type="unfinished">按模式命名的端子：</translation>
+    </message>
+    <message>
+        <source>The example: four terminals, X1:1 to X1:4</source>
+        <translation type="unfinished">示例：四个端子，X1:1 至 X1:4</translation>
+    </message>
+    <message>
+        <source>One column, the texts on the left</source>
+        <translation type="unfinished">一列，文本在左侧</translation>
+    </message>
+    <message>
+        <source>Two columns, half on each side</source>
+        <translation type="unfinished">两列，每侧一半</translation>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation type="unfinished">布局：</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n terminal(s): %1</source>
+        <translation type="unfinished">
+            <numerusform>%n 个端子：%1</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

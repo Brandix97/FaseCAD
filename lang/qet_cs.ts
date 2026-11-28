@@ -3966,6 +3966,22 @@ Pokračovat?</translation>
         <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
         <translation type="unfinished">Symbol %1 z %2: %3. Tab: další symbol, Shift+Tab: předchozí</translation>
     </message>
+    <message>
+        <source>A PLC summary symbol goes on a PLC summary sheet only.</source>
+        <translation type="unfinished">Souhrnný symbol PLC patří jen na souhrnný list PLC.</translation>
+    </message>
+    <message>
+        <source>A network summary symbol goes on a network summary sheet only.</source>
+        <translation type="unfinished">Souhrnný symbol sítě patří jen na souhrnný list sítě.</translation>
+    </message>
+    <message>
+        <source>Summary symbol</source>
+        <translation type="unfinished">Souhrnný symbol</translation>
+    </message>
+    <message>
+        <source>The device this summary symbol shows:</source>
+        <translation type="unfinished">Zařízení, které tento souhrnný symbol zobrazuje:</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -6703,6 +6719,14 @@ Pokračovat?</translation>
         <source>Ground</source>
         <translation>Země</translation>
     </message>
+    <message>
+        <source>PLC summary symbol</source>
+        <translation type="unfinished">Souhrnný symbol PLC</translation>
+    </message>
+    <message>
+        <source>Network summary symbol</source>
+        <translation type="unfinished">Souhrnný symbol sítě</translation>
+    </message>
 </context>
 <context>
     <name>ElementPropertiesWidget</name>
@@ -7526,6 +7550,14 @@ Importem tohoto souboru potvrzujete, že:
         <source>Download the symbols</source>
         <translation type="unfinished">Stáhnout symboly</translation>
     </message>
+    <message>
+        <source>New PLC summary symbol</source>
+        <translation type="unfinished">Nový souhrnný symbol PLC</translation>
+    </message>
+    <message>
+        <source>New network summary symbol</source>
+        <translation type="unfinished">Nový souhrnný symbol sítě</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7724,6 +7756,14 @@ Importem tohoto souboru potvrzujete, že:
     <message>
         <source>Insert a routing sheet for this cabinet</source>
         <translation type="unfinished">Vložit list vedení pro tento rozvaděč</translation>
+    </message>
+    <message>
+        <source>Insert a PLC summary sheet</source>
+        <translation type="unfinished">Vložit souhrnný list PLC</translation>
+    </message>
+    <message>
+        <source>Insert a network summary sheet</source>
+        <translation type="unfinished">Vložit souhrnný list sítě</translation>
     </message>
 </context>
 <context>
@@ -10759,6 +10799,22 @@ Na toto , prosím, použijte pokročilý editor.</translation>
         <source>Width:</source>
         <translation type="unfinished">Šířka:</translation>
     </message>
+    <message>
+        <source>Function text</source>
+        <translation type="unfinished">Text funkce</translation>
+    </message>
+    <message>
+        <source>What is drawn over and under this text, within its width, has this text as function, unless it has a function of its own</source>
+        <translation type="unfinished">Co je nakresleno nad a pod tímto textem v rámci jeho šířky, má tento text jako funkci, pokud nemá vlastní</translation>
+    </message>
+    <message>
+        <source>Make a function text</source>
+        <translation type="unfinished">Udělat textem funkce</translation>
+    </message>
+    <message>
+        <source>Make a plain text</source>
+        <translation type="unfinished">Udělat obyčejným textem</translation>
+    </message>
 </context>
 <context>
     <name>IntegrationMoveTitleBlockTemplatesHandler</name>
@@ -13728,6 +13784,41 @@ Nejprve jim dejte jiné číslování.</numerusform>
         <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
         <comment>tooltip</comment>
         <translation type="unfinished">Když se kreslí vodič nebo přesouvá prvek, prostřední úsek automatického vodiče, který by vedl podél jiného, se posune o jeden krok mřížky najednou tam, kde je volno. Zachová to cestu, jako by byla přesunuta ručně. Již nakreslené vodiče se nemění.</translation>
+    </message>
+    <message>
+        <source>Show where the other parts of a device are</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Zobrazit, kde jsou ostatní části zařízení</translation>
+    </message>
+    <message>
+        <source>The symbols sharing a label (a PLC drawn as its supply, its inputs and its outputs...) are one device: its main part, the one made of parts, lists the places of the others. Contacts keep the cross reference of their coil.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Symboly se stejným označením (PLC nakreslené jako napájení, vstupy a výstupy...) tvoří jedno zařízení: jeho hlavní část, ta s položkami, uvádí místa ostatních. Kontakty si ponechávají křížový odkaz své cívky.</translation>
+    </message>
+    <message>
+        <source>The other parts show the main part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Ostatní části zobrazují hlavní část</translation>
+    </message>
+    <message>
+        <source>The other parts show every part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Ostatní části zobrazují všechny části</translation>
+    </message>
+    <message>
+        <source>The other parts show nothing</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Ostatní části nezobrazují nic</translation>
+    </message>
+    <message>
+        <source>Under the label</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pod označením</translation>
+    </message>
+    <message>
+        <source>Below the symbol</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pod symbolem</translation>
     </message>
 </context>
 <context>
@@ -17768,6 +17859,26 @@ Chcete-li z něj vytvořit skript, požádejte svého asistenta AI: tlačítko n
         <source>The services of fasecad.com are not open yet</source>
         <translation type="unfinished">Služby fasecad.com ještě nejsou otevřeny</translation>
     </message>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Rámeček struktury</translation>
+    </message>
+    <message>
+        <source>Adds a dash-dotted box: the symbols in it take its plant (=) and location (+)</source>
+        <translation type="unfinished">Přidá čerchovaný rámeček: symboly v něm převezmou jeho zařízení (=) a místo (+)</translation>
+    </message>
+    <message>
+        <source>Plugins…</source>
+        <translation type="unfinished">Pluginy…</translation>
+    </message>
+    <message>
+        <source>Install, switch on or off and remove the plugins</source>
+        <translation type="unfinished">Instalovat, zapínat či vypínat a odebírat pluginy</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Pluginy</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18757,6 +18868,14 @@ podmínky nejsou platné</translation>
         <source>Format copied: select parts and Apply format</source>
         <translation type="unfinished">Formát zkopírován: vyberte díly a Použít formát</translation>
     </message>
+    <message>
+        <source>Show the frames of the texts</source>
+        <translation type="unfinished">Zobrazit rámečky textů</translation>
+    </message>
+    <message>
+        <source>Draws a dashed frame around each text to see where it is; the frames are not saved</source>
+        <translation type="unfinished">Kreslí čárkovaný rámeček kolem každého textu, abyste viděli, kde je; rámečky se neukládají</translation>
+    </message>
 </context>
 <context>
     <name>QETMainWindow</name>
@@ -19125,6 +19244,16 @@ Co si přejete udělat?</translation>
     <message>
         <source>Not to scale</source>
         <translation type="unfinished">Bez měřítka</translation>
+    </message>
+    <message>
+        <source>PLC summary</source>
+        <comment>title of a new PLC summary folio</comment>
+        <translation type="unfinished">Souhrn PLC</translation>
+    </message>
+    <message>
+        <source>Network summary</source>
+        <comment>title of a new network summary folio</comment>
+        <translation type="unfinished">Souhrn sítě</translation>
     </message>
 </context>
 <context>
@@ -22590,6 +22719,38 @@ Pro její zapnutí: Konfigurovat QElectroTech &gt; Obecné &gt; Projekty, nebo n
         <comment>spacemouse config: unbound button</comment>
         <translation type="unfinished">(Žádná akce)</translation>
     </message>
+    <message>
+        <source>Function text of the terminal</source>
+        <translation type="unfinished">Text funkce svorky</translation>
+    </message>
+    <message>
+        <source>Place of the terminal</source>
+        <translation type="unfinished">Místo svorky</translation>
+    </message>
+    <message>
+        <source>Terminal %1</source>
+        <translation type="unfinished">Svorka %1</translation>
+    </message>
+    <message>
+        <source>Function text of %1</source>
+        <translation type="unfinished">Text funkce %1</translation>
+    </message>
+    <message>
+        <source>Place of %1</source>
+        <translation type="unfinished">Místo %1</translation>
+    </message>
+    <message>
+        <source>Function text of the terminal %1</source>
+        <translation type="unfinished">Text funkce svorky %1</translation>
+    </message>
+    <message>
+        <source>Place of the terminal %1</source>
+        <translation type="unfinished">Místo svorky %1</translation>
+    </message>
+    <message>
+        <source>Plugin: %1</source>
+        <translation type="unfinished">Plugin: %1</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -24645,6 +24806,10 @@ Ostatní pole se nepoužívají.</translation>
         <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="443"/>
         <source>Y radius</source>
         <translation>Poloměr Y</translation>
+    </message>
+    <message>
+        <source>Plant and location of the structure box…</source>
+        <translation type="unfinished">Zařízení a místo rámečku struktury…</translation>
     </message>
 </context>
 <context>
@@ -31575,6 +31740,34 @@ Přiřazení názvu &quot;volta&quot; a hodnoty &quot;1745&quot; v záhlaví vý
             <numerusform>Odstranit %n zařízení</numerusform>
         </translation>
     </message>
+    <message>
+        <source>To place</source>
+        <translation type="unfinished">K umístění</translation>
+    </message>
+    <message>
+        <source>Double-click to place this symbol of %1 on the sheet</source>
+        <translation type="unfinished">Dvojklikem umístíte na list tento symbol %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of its article to place</source>
+        <translation type="unfinished">
+            <numerusform>%n symbol jeho položky k umístění</numerusform>
+            <numerusform>%n symboly jeho položky k umístění</numerusform>
+            <numerusform>%n symbolů jeho položky k umístění</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Place on the sheet</source>
+        <translation type="unfinished">Umístit na list</translation>
+    </message>
+    <message>
+        <source>Place a symbol</source>
+        <translation type="unfinished">Umístit symbol</translation>
+    </message>
+    <message>
+        <source>Open a sheet of this project to place the symbol on.</source>
+        <translation type="unfinished">Otevřete list tohoto projektu, abyste na něj symbol umístili.</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddCabinetItem</name>
@@ -35052,6 +35245,20 @@ katalog</translation>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: již brzy</translation>
     </message>
+    <message>
+        <source>Structure</source>
+        <translation type="unfinished">Struktura</translation>
+    </message>
+    <message>
+        <source>Structure
+box</source>
+        <translation type="unfinished">Rámeček
+struktury</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Pluginy</translation>
+    </message>
 </context>
 <context>
     <name>ElementFormatPattern</name>
@@ -35080,6 +35287,291 @@ katalog</translation>
     <message>
         <source>Align</source>
         <translation type="unfinished">Zarovnat</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceXRefItem</name>
+    <message>
+        <source>Where the other parts of this device are. Double-click one to show it.</source>
+        <translation type="unfinished">Kde jsou ostatní části tohoto zařízení. Dvojklikem na jednu ji zobrazíte.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginLibrary</name>
+    <message>
+        <source>%1: no plugin.json</source>
+        <translation type="unfinished">%1: chybí plugin.json</translation>
+    </message>
+    <message>
+        <source>%1: the folder is not named after the id of the plugin (%2)</source>
+        <translation type="unfinished">%1: složka se nejmenuje podle id pluginu (%2)</translation>
+    </message>
+    <message>
+        <source>The plugin %1 is already installed</source>
+        <translation type="unfinished">Plugin %1 je už nainstalován</translation>
+    </message>
+    <message>
+        <source>The plugin installed before cannot be removed</source>
+        <translation type="unfinished">Dříve nainstalovaný plugin nelze odebrat</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written</source>
+        <translation type="unfinished">%1 nelze zapsat</translation>
+    </message>
+    <message>
+        <source>The plugin %1 cannot be removed</source>
+        <translation type="unfinished">Plugin %1 nelze odebrat</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read</source>
+        <translation type="unfinished">%1 nelze přečíst</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerDialog</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Pluginy</translation>
+    </message>
+    <message>
+        <source>Plugins add their own commands to FaseCAD: buttons, windows, exports and reports made for a customer. Untick a plugin to switch it off without removing it.</source>
+        <translation type="unfinished">Pluginy přidávají do FaseCAD vlastní příkazy: tlačítka, okna, exporty a zprávy vytvořené pro zákazníka. Zrušením zaškrtnutí plugin vypnete, aniž byste ho odebrali.</translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished">Plugin</translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished">Příkazy</translation>
+    </message>
+    <message>
+        <source>Install...</source>
+        <translation type="unfinished">Nainstalovat...</translation>
+    </message>
+    <message>
+        <source>Open the plugins folder</source>
+        <translation type="unfinished">Otevřít složku pluginů</translation>
+    </message>
+    <message>
+        <source>Read the plugins folder again, after changing a plugin by hand</source>
+        <translation type="unfinished">Znovu načíst složku pluginů po ruční změně pluginu</translation>
+    </message>
+    <message>
+        <source>Install a plugin</source>
+        <translation type="unfinished">Nainstalovat plugin</translation>
+    </message>
+    <message>
+        <source>FaseCAD plugins (*.fasplugin)</source>
+        <translation type="unfinished">Pluginy FaseCAD (*.fasplugin)</translation>
+    </message>
+    <message>
+        <source>Remove the plugin</source>
+        <translation type="unfinished">Odebrat plugin</translation>
+    </message>
+    <message>
+        <source>Remove the plugin %1 and its files?</source>
+        <translation type="unfinished">Odebrat plugin %1 a jeho soubory?</translation>
+    </message>
+    <message>
+        <source>Not loaded: %1</source>
+        <translation type="unfinished">Nenačteno: %1</translation>
+    </message>
+    <message>
+        <source>No plugin installed. Install a .fasplugin file to add one.</source>
+        <translation type="unfinished">Není nainstalován žádný plugin. Plugin přidáte instalací souboru .fasplugin.</translation>
+    </message>
+    <message>
+        <source>Choose a plugin to see what it does.</source>
+        <translation type="unfinished">Vyberte plugin a uvidíte, co dělá.</translation>
+    </message>
+    <message>
+        <source>Commands:</source>
+        <translation type="unfinished">Příkazy:</translation>
+    </message>
+    <message>
+        <source>It may:</source>
+        <translation type="unfinished">Může:</translation>
+    </message>
+    <message>
+        <source>only work on the open project</source>
+        <translation type="unfinished">pracovat jen s otevřeným projektem</translation>
+    </message>
+    <message>
+        <source>Folder:</source>
+        <translation type="unfinished">Složka:</translation>
+    </message>
+    <message>
+        <source>Install %1 %2 by %3?</source>
+        <translation type="unfinished">Nainstalovat %1 %2 od %3?</translation>
+    </message>
+    <message>
+        <source>an unknown author</source>
+        <translation type="unfinished">neznámého autora</translation>
+    </message>
+    <message>
+        <source>It only works on the open project.</source>
+        <translation type="unfinished">Pracuje jen s otevřeným projektem.</translation>
+    </message>
+    <message>
+        <source>Besides the open project, it may:</source>
+        <translation type="unfinished">Kromě otevřeného projektu může:</translation>
+    </message>
+    <message>
+        <source>Install only plugins from someone you trust.</source>
+        <translation type="unfinished">Instalujte jen pluginy od někoho, komu důvěřujete.</translation>
+    </message>
+    <message>
+        <source>It replaces the plugin installed with this id.</source>
+        <translation type="unfinished">Nahrazuje plugin nainstalovaný s tímto id.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManifest</name>
+    <message>
+        <source>The file holds no plugin.json</source>
+        <translation type="unfinished">Soubor neobsahuje plugin.json</translation>
+    </message>
+    <message>
+        <source>The file holds a path FaseCAD refuses: %1</source>
+        <translation type="unfinished">Soubor obsahuje cestu, kterou FaseCAD odmítá: %1</translation>
+    </message>
+    <message>
+        <source>Write files on this computer (exports, reports)</source>
+        <translation type="unfinished">Zapisovat soubory na tento počítač (exporty, zprávy)</translation>
+    </message>
+    <message>
+        <source>Unknown: %1</source>
+        <translation type="unfinished">Neznámé: %1</translation>
+    </message>
+    <message>
+        <source>plugin.json is not a JSON object: %1</source>
+        <translation type="unfinished">plugin.json není objekt JSON: %1</translation>
+    </message>
+    <message>
+        <source>The id "%1" is not usable: letters, digits, ".", "-" and "_"</source>
+        <translation type="unfinished">Id "%1" nelze použít: písmena, číslice, ".", "-" a "_"</translation>
+    </message>
+    <message>
+        <source>The plugin API %1 does not exist</source>
+        <translation type="unfinished">API pluginů %1 neexistuje</translation>
+    </message>
+    <message>
+        <source>The plugin needs the plugin API %1; this FaseCAD gives %2: update FaseCAD</source>
+        <translation type="unfinished">Plugin potřebuje API pluginů %1; tento FaseCAD poskytuje %2: aktualizujte FaseCAD</translation>
+    </message>
+    <message>
+        <source>The plugin asks for a permission FaseCAD does not know: %1</source>
+        <translation type="unfinished">Plugin žádá o oprávnění, které FaseCAD nezná: %1</translation>
+    </message>
+    <message>
+        <source>A command has no usable id, or the id "%1" is repeated</source>
+        <translation type="unfinished">Příkaz nemá použitelné id, nebo se id "%1" opakuje</translation>
+    </message>
+    <message>
+        <source>The command "%1" names no function of its script</source>
+        <translation type="unfinished">Příkaz "%1" neuvádí žádnou funkci svého skriptu</translation>
+    </message>
+    <message>
+        <source>The command "%1" names a file outside the plugin</source>
+        <translation type="unfinished">Příkaz "%1" uvádí soubor mimo plugin</translation>
+    </message>
+    <message>
+        <source>The plugin has no command</source>
+        <translation type="unfinished">Plugin nemá žádný příkaz</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptDialog</name>
+    <message>
+        <source>FaseCAD</source>
+        <translation type="unfinished">FaseCAD</translation>
+    </message>
+    <message>
+        <source>A field has no id, or the id %1 is repeated</source>
+        <translation type="unfinished">Pole nemá id, nebo se id %1 opakuje</translation>
+    </message>
+    <message>
+        <source>The field %1 has a type FaseCAD does not know: %2</source>
+        <translation type="unfinished">Pole %1 má typ, který FaseCAD nezná: %2</translation>
+    </message>
+</context>
+<context>
+    <name>StructureBoxes</name>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Rámeček struktury</translation>
+    </message>
+    <message>
+        <source>The symbols in the box take this plant and location.</source>
+        <translation type="unfinished">Symboly v rámečku převezmou toto zařízení a toto místo.</translation>
+    </message>
+    <message>
+        <source>Plant (=):</source>
+        <translation type="unfinished">Zařízení (=):</translation>
+    </message>
+    <message>
+        <source>Location (+):</source>
+        <translation type="unfinished">Místo (+):</translation>
+    </message>
+    <message>
+        <source>Add a structure box</source>
+        <translation type="unfinished">Přidat rámeček struktury</translation>
+    </message>
+    <message>
+        <source>Edit a structure box</source>
+        <translation type="unfinished">Upravit rámeček struktury</translation>
+    </message>
+</context>
+<context>
+    <name>SummaryGeneratorDialog</name>
+    <message>
+        <source>Generate the PLC summary symbol</source>
+        <translation type="unfinished">Vytvořit souhrnný symbol PLC</translation>
+    </message>
+    <message>
+        <source>A terminal is drawn for each terminal of the card, with its function text and place beside it. Each terminal shows the terminal of the same name of the device of its label.</source>
+        <translation type="unfinished">Pro každou svorku karty se nakreslí svorka s textem funkce a místem vedle. Každá svorka zobrazuje stejnojmennou svorku zařízení svého označení.</translation>
+    </message>
+    <message>
+        <source>The terminals of a device of an open project:</source>
+        <translation type="unfinished">Svorky zařízení z otevřeného projektu:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 (%n terminal(s)) - %2</source>
+        <translation type="unfinished">
+            <numerusform>%1 (%n svorka) - %2</numerusform>
+            <numerusform>%1 (%n svorky) - %2</numerusform>
+            <numerusform>%1 (%n svorek) - %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Terminals named after a pattern:</source>
+        <translation type="unfinished">Svorky pojmenované podle vzoru:</translation>
+    </message>
+    <message>
+        <source>The example: four terminals, X1:1 to X1:4</source>
+        <translation type="unfinished">Příklad: čtyři svorky, X1:1 až X1:4</translation>
+    </message>
+    <message>
+        <source>One column, the texts on the left</source>
+        <translation type="unfinished">Jeden sloupec, texty vlevo</translation>
+    </message>
+    <message>
+        <source>Two columns, half on each side</source>
+        <translation type="unfinished">Dva sloupce, polovina na každé straně</translation>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation type="unfinished">Rozvržení:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n terminal(s): %1</source>
+        <translation type="unfinished">
+            <numerusform>%n svorka: %1</numerusform>
+            <numerusform>%n svorky: %1</numerusform>
+            <numerusform>%n svorek: %1</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

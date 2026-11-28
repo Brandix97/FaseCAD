@@ -46,7 +46,11 @@ class ElementData : public PropertiesInterface
 			Slave          = 16,
 			Terminal       = 32,
 			Thumbnail      = 64,
-			ConductorDefinition = 128};
+			ConductorDefinition = 128,
+				/// Drawn on a summary folio only: shows what a part of a
+				/// device drawn elsewhere is (Brandon, 2026-11-28)
+			PlcSummary = 256,
+			NetworkSummary = 512};
 		Q_ENUM(Type)
 		Q_DECLARE_FLAGS(Types, Type)
 

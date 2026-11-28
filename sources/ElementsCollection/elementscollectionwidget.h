@@ -98,7 +98,7 @@ class ElementsCollectionWidget : public QWidget
 		void deleteDirectory();
 		void editDirectory();
 		void newDirectory();
-		void newElement();
+		void newElement(int type = 0);
 		void showThisDir();
 		void resetShowThisDir();
 		void dirProperties();
@@ -164,6 +164,8 @@ class ElementsCollectionWidget : public QWidget
 				*m_edit_dir,
 				*m_new_directory,
 				*m_new_element,
+				*m_new_plc_summary,
+				*m_new_network_summary,
 				*m_show_this_dir,
 				*m_show_all_dir,
 				*m_dir_propertie,

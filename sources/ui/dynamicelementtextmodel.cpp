@@ -2272,6 +2272,20 @@ QStringList DynamicTextItemDelegate::availableInfo(
 			//Read from the wires, never stored (#1585)
 		if (elmt->elementData().m_type == ElementData::Terminal)
 			qstrl << QETInformation::terminalConductorInfoKeys(elmt->terminals().size());
+			//What a summary symbol shows of its terminal, worked out
+		if (elmt->linkType() == Element::PlcSummary || elmt->linkType() == Element::NetworkSummary) {
+			QStringList keys = QETInformation::summaryInfoKeys(int(elmt->terminals().size()));
+			for (Terminal *terminal : elmt->terminals()) {
+				const QString name = terminal->name().trimmed();
+				if (name.isEmpty()) continue;
+				keys << QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_PIN, name)
+					 << QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_FUNCTION, name)
+					 << QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_REFERENCE, name);
+			}
+			for (const QString &key : std::as_const(keys)) {
+				if (!qstrl.contains(key)) qstrl.prepend(key);
+			}
+		}
 	}
 	return qstrl;
 }

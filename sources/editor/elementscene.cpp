@@ -38,6 +38,7 @@
 #include "graphicspart/partplctable.h"
 #include "graphicspart/partterminal.h"
 #include "graphicspart/parttext.h"
+#include <QSettings>
 #include "ui/qetelementeditor.h"
 #include "ui/elementpropertieseditorwidget.h"
 #include "../qetversion.h"
@@ -366,10 +367,39 @@ void ElementScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 	\~ @param p : The QPainter to use for drawing
 	\~French Le QPainter a utiliser pour dessiner
 */
+void ElementScene::setTextFramesVisible(bool visible)
+{
+	if (visible == m_text_frames_visible) {
+		return;
+	}
+	m_text_frames_visible = visible;
+	QSettings().setValue(QStringLiteral("elementeditor/text_frames"), visible);
+	update();
+}
+
 void ElementScene::drawForeground(QPainter *p, const QRectF &)
 {
 	if (!m_hotspot_visible) {
 		return;
+	}
+
+		//The frames of the texts, an editing aid as the cross is
+	if (m_text_frames_visible) {
+		p -> save();
+		QPen frame(QColor(255, 140, 0));
+		frame.setCosmetic(true);
+		frame.setStyle(Qt::DashLine);
+		p -> setPen(frame);
+		p -> setBrush(Qt::NoBrush);
+		p -> setRenderHint(QPainter::Antialiasing, false);
+		const QList<QGraphicsItem *> all = items();
+		for (QGraphicsItem *item : all) {
+			if (qgraphicsitem_cast<PartText *>(item)
+				|| qgraphicsitem_cast<PartDynamicTextField *>(item)) {
+				p -> drawPolygon(item -> mapToScene(item -> boundingRect()));
+			}
+		}
+		p -> restore();
 	}
 
 	p -> save();

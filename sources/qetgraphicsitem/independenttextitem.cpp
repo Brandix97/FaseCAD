@@ -106,6 +106,7 @@ void IndependentTextItem::fromXml(const QDomElement &e) {
 		//Read after the text, setHtml() sets a width of its own.
 	setTextWidth(e.attribute(QStringLiteral("text_width"), QStringLiteral("-1")).toDouble());
 	setDestination(QUuid(e.attribute(QStringLiteral("destination"))));
+	setFunctionText(e.attribute(QStringLiteral("function_text")) == QLatin1String("true"));
 }
 
 /**
@@ -127,6 +128,9 @@ QDomElement IndependentTextItem::toXml(QDomDocument &document) const
 		//Likewise: only a text which leads to a folio
 	if (!m_destination.isNull())
 		result.setAttribute(QStringLiteral("destination"), m_destination.toString());
+		//Likewise: only a function text
+	if (m_function_text)
+		result.setAttribute(QStringLiteral("function_text"), QStringLiteral("true"));
 	
 	return(result);
 }
@@ -188,6 +192,18 @@ void IndependentTextItem::setDestination(const QUuid &folio)
 		return;
 	m_destination = folio;
 	emit destinationChanged();
+}
+
+/**
+	@brief IndependentTextItem::setFunctionText
+	Make this text a function text, or a plain text again
+*/
+void IndependentTextItem::setFunctionText(bool function_text)
+{
+	if (function_text == m_function_text)
+		return;
+	m_function_text = function_text;
+	emit functionTextChanged(function_text);
 }
 
 /**

@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "cli_export.h"
+#include "devicexrefs.h"
 #include "projectlock.h"
 #include "bomexport.h"
 
@@ -186,6 +187,8 @@ int exportPdf(QETProject &project, const QString &output,
 			 bool showTerminals = false)
 {
 	const QList<Diagram *> diagrams = project.diagrams();
+		//What the references and summary symbols show, before they are drawn
+	DeviceXRefs::refresh(&project);
 	if (diagrams.isEmpty()) {
 		err << "No diagrams to export.\n";
 		return 1;
@@ -303,6 +306,8 @@ int exportImages(QETProject &project, const QString &format,
 				 bool svgSmallPictures = false)
 {
 	const QList<Diagram *> diagrams = project.diagrams();
+		//What the references and summary symbols show, before they are drawn
+	DeviceXRefs::refresh(&project);
 	if (diagrams.isEmpty()) {
 		err << "No diagrams to export.\n";
 		return 1;
@@ -354,6 +359,8 @@ int exportDxf(QETProject &project, const QString &out_dir, bool showTerminals,
 			  bool dxfBlocks, bool dxfAttributes)
 {
 	const QList<Diagram *> diagrams = project.diagrams();
+		//What the references and summary symbols show, before they are drawn
+	DeviceXRefs::refresh(&project);
 	if (diagrams.isEmpty()) {
 		err << "No diagrams to export.\n";
 		return 1;

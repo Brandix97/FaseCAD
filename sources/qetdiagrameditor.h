@@ -34,6 +34,7 @@
 #include <QSignalMapper>
 #include <QUndoGroup>
 
+class CommandTabs;
 class QToolButton;
 class QLabel;
 
@@ -203,6 +204,7 @@ class QETDiagramEditor : public QETMainWindow
 #ifdef QET_HAS_SCRIPTING
 		void slot_runScript();
 		void rebuildScriptActions();
+		void rebuildPluginActions();
 		void updateScriptActions();
 		bool ensureScriptingEnabled(const QString &title);
 		void runStoredScript(const QString &path, const QString &name);
@@ -323,6 +325,7 @@ class QETDiagramEditor : public QETMainWindow
 		*m_add_nomenclature,		///< Add nomenclature graphics item;
 		*m_add_summary,			///<Add summary graphics item
 		*m_add_folio_index,		///<Add the automatic folio index
+		*m_add_structure_box,	///<Add a structure box
 		*m_terminal_strip_dialog = nullptr, ///<Launch terminal strip dialog
 		*m_project_terminalBloc,	///< generate terminal block
 		*m_project_export_conductor_num,///<Export the wire num to csv
@@ -459,6 +462,10 @@ class QETDiagramEditor : public QETMainWindow
 		void updateConnectionAction(int kind);
 #ifdef QET_HAS_SCRIPTING
 		QMenu *m_scripts_menu = nullptr;
+		QHash<QString, QAction *> m_plugin_actions;	///< One per command of a plugin switched on, by its id
+		QMenu *m_plugins_menu = nullptr;
+		QAction *m_manage_plugins = nullptr;
+		QPointer<CommandTabs> m_command_tabs;
 		QList<QAction *> m_script_actions;	///< One per stored script, rebuilt when the folder changes
 		bool m_had_scripts = false;
 		QPointer<QDialog> m_script_manager;

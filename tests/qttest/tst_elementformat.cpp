@@ -21,6 +21,7 @@
 #include "editor/graphicspart/partline.h"
 #include "editor/graphicspart/partrectangle.h"
 #include "editor/graphicspart/parttext.h"
+#include "editor/graphicspart/partdynamictextfield.h"
 
 #include <QtTest>
 #include <QUndoStack>
@@ -80,6 +81,35 @@ private slots:
 		QCOMPARE(target.defaultTextColor(), QColor(Qt::darkGreen));
 			//A QColor is not the colour of a line
 		QCOMPARE(line.color(), line_color);
+	}
+
+		/// The texts of a symbol are mostly dynamic texts: their font, size,
+		/// colour and frame go from one to the other, and to a plain text
+	void aDynamicTextGivesItsFormat()
+	{
+		PartDynamicTextField source(nullptr);
+		QFont font = source.font();
+		font.setPointSize(13);
+		font.setItalic(true);
+		source.setFont(font);
+		source.setColor(Qt::blue);
+		source.setFrame(true);
+		PartDynamicTextField target(nullptr);
+		PartText plain(nullptr);
+
+		QUndoStack stack;
+		QUndoCommand *command = ElementFormatPattern::applyCommand(
+					{&target, &plain}, ElementFormatPattern::take(&source));
+		QVERIFY(command);
+		stack.push(command);
+		QCOMPARE(target.font().pointSize(), 13);
+		QVERIFY(target.font().italic());
+		QCOMPARE(target.color(), QColor(Qt::blue));
+		QVERIFY(target.frame());
+		QCOMPARE(plain.font().pointSize(), 13);
+		QCOMPARE(plain.defaultTextColor(), QColor(Qt::blue));
+		stack.undo();
+		QVERIFY(!target.frame());
 	}
 
 	void nothingToChangeIsNoCommand()

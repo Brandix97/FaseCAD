@@ -208,6 +208,8 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 				iconOnly(editor("add_arc"), tr("Arc")),
 				iconOnly(editor("add_polyline"), tr("Polyline")),
 				iconOnly(editor("add_path"), tr("Path"))}},
+			{tr("Structure"), {
+				large(editor("add_structure_box"), tr("Structure\nbox"))}},
 			{tr("Dimension"), {
 				large(editor("add_dimension_linear"), tr("Linear")),
 				small(editor("add_dimension_chain"), tr("Chain"))}},
@@ -339,7 +341,9 @@ QList<CommandTabs::Tab> CommandTabs::layout()
 				large(editor("run_script"), tr("Run")),
 				small(editor("record_macro"), tr("Record")),
 				small(editor("manage_scripts"), tr("Manage")),
-				small(editor("open_scripts_folder"), tr("Folder"))}}}},
+				small(editor("open_scripts_folder"), tr("Folder"))}},
+			{tr("Plugins"), {
+				large(editor("manage_plugins"), tr("Plugins"))}}}},
 		{tr("Master data"), {
 			{tr("Parts"), {
 				large(editor("parts_manager"), tr("Parts\nmanager")),
@@ -375,6 +379,28 @@ CommandTabs::CommandTabs(const Resolver &resolver, QWidget *parent) :
 	setFolded(QSettings().value(
 			QStringLiteral("diagrameditor/command_tabs_folded"),
 			false).toBool());
+}
+
+/**
+	@brief CommandTabs::setPluginTabs
+	The tabs the plugins add, rebuilt when a plugin is installed, switched
+	on or off, or removed.
+*/
+void CommandTabs::setPluginTabs(const QList<Tab> &tabs, const Resolver &resolver)
+{
+	QWidget *current = currentWidget();
+	for (QWidget *widget : std::as_const(m_plugin_tabs)) {
+		removeTab(indexOf(widget));
+		if (widget == current) current = nullptr;
+		widget->deleteLater();
+	}
+	m_plugin_tabs.clear();
+	for (const Tab &tab : tabs) {
+		QWidget *widget = buildTab(tab, resolver);
+		addTab(widget, tab.title);
+		m_plugin_tabs << widget;
+	}
+	if (current) setCurrentWidget(current);
 }
 
 /**

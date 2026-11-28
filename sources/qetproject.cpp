@@ -39,6 +39,8 @@
 #include "diagram.h"
 #include "cabinet/cabinetrouting.h"
 #include "qetgraphicsitem/element.h"
+#include "factory/elementpicturefactory.h"
+#include "devicexrefs.h"
 #include "qetgraphicsitem/conductor.h"
 #include "qetgraphicsitem/terminal.h"
 #include "properties/terminaldata.h"
@@ -483,6 +485,10 @@ void QETProject::init()
 	connect(this, &QETProject::XRefPropertiesChanged, this, &QETProject::markKeptFoliosStale);
 
 	m_undo_stack = new QUndoStack(this);
+		//The cross references between the parts of a device, the function
+		//texts and summary symbols: after each change (follows the undo
+		//stack)
+	DeviceXRefs::follow(this);
 		//Folios not built are saved as read until something is edited
 		//(m_edited_since_open, toXml())
 	connect(m_undo_stack, &QUndoStack::indexChanged, this, [this]() {m_edited_since_open = true;});
@@ -2522,6 +2528,21 @@ void QETProject::setWiresApart(bool apart)
 }
 
 /**
+	@brief QETProject::setDeviceXRefs
+	How the parts of a device show where the others are; they are drawn
+	again at once
+*/
+void QETProject::setDeviceXRefs(const DeviceXRefSettings &settings)
+{
+	if (settings == m_device_xrefs) {
+		return;
+	}
+	m_device_xrefs = settings;
+	storeSettings();
+	DeviceXRefs::scheduleRefresh(this);
+}
+
+/**
 	@brief QETProject::uprightSymbolTexts
 	@return true if the texts drawn in a symbol stay horizontal, and read
 	normally, when the symbol is turned or mirrored on a folio, instead of
@@ -2901,6 +2922,7 @@ QDomDocument QETProject::toXml(QHash<int, QByteArray> *kept_folios, QStringList 
 	// local, non-transmitted usage tracking (time spent on this project)
 	writeUsageXml(project_root);
 	writeWireHopsXml(project_root);
+	writeDeviceXRefsXml(project_root);
 	writeSymbolTextsXml(project_root);
 	writeLanguagesXml(project_root);
 	writeVersionsXml(project_root);
@@ -3623,6 +3645,80 @@ ElementsLocation QETProject::importElement(ElementsLocation &location)
 	}
 }
 
+namespace {
+bool sameDefinition(const QDomElement &a, const QDomElement &b);
+}
+
+/**
+	@brief QETProject::importPartElement
+	The symbol @p location of a part of the parts database, placed in the
+	project (Brandon, 2026-11-28): put in the folder of the part,
+	"import/" + @p part_name, under its own file name, whatever folder of
+	the collection it comes from. A symbol of that name already there is
+	replaced by this one, without asking, and the symbols of it placed on
+	the built folios are drawn again; the folios not built read the new
+	one when they are.
+	@return the location of the symbol in the project, null when it
+	cannot be put there
+*/
+ElementsLocation QETProject::importPartElement(ElementsLocation &location,
+											   const QString &part_name)
+{
+	if (!(location.isElement() && location.exist())) {
+		return ElementsLocation();
+	}
+	const QString name = part_name.trimmed();
+	if (name.isEmpty()) {
+		return importElement(location);
+	}
+		//Already one of this project's symbols: it is used as it is
+	if (location.isProject() && location.project() == this) {
+		return location;
+	}
+
+	const QString folder = QET::stringToFileName(name);
+	const QString folder_path = QStringLiteral("import/") + folder;
+	if (!m_elements_collection->exist(folder_path)) {
+		NamesList names;
+			//The name of the part as it is written, in every language
+		for (const QString &language : {QStringLiteral("en"), QStringLiteral("es"),
+										QStringLiteral("fr")}) {
+			names.addName(language, name);
+		}
+		if (!m_elements_collection->createDir(QStringLiteral("import"), folder, names)) {
+			return importElement(location);
+		}
+	}
+
+	const QString path = folder_path + QLatin1Char('/') + location.fileName();
+	ElementsLocation existing(path, this);
+	const bool replaced = m_elements_collection->exist(path);
+	if (replaced && sameDefinition(existing.xml(), location.xml())) {
+		return existing;
+	}
+	ElementsLocation parent(folder_path, this);
+	m_elements_collection->copy(location, parent);
+		//By its path in this project: the location copy() gives names the
+		//project by its number among the open ones
+	ElementsLocation imported(path, this);
+	if (!m_elements_collection->exist(path)) {
+		return ElementsLocation();
+	}
+
+	if (replaced) {
+		ElementPictureFactory::instance()->dropCache(imported);
+		for (Diagram *folio : builtFolios()) {
+			for (QGraphicsItem *item : folio->items()) {
+				auto *element = qgraphicsitem_cast<Element *>(item);
+				if (element && element->location() == imported) {
+					element->reloadPicture(true);
+				}
+			}
+		}
+	}
+	return imported;
+}
+
 /**
 	@brief QETProject::integrateTitleBlockTemplate
 	Integrate a title block template into this project.
@@ -3975,6 +4071,38 @@ Diagram *QETProject::addNewCabinetDiagram(int pos)
 }
 
 /**
+	@brief QETProject::addNewSummaryDiagram
+	Add at @p pos a summary folio of @p kind (PLC or network summary): a
+	schematic folio on which, alone, the summary symbols of its kind are
+	put (Brandon, 2026-11-28). Undoable, as addNewDiagram() is.
+	@return the new folio
+*/
+Diagram *QETProject::addNewSummaryDiagram(Diagram::FolioKind kind, int pos)
+{
+	if (isReadOnly() || (kind != Diagram::FolioKind::PlcSummary
+						 && kind != Diagram::FolioKind::NetworkSummary)) {
+		return(nullptr);
+	}
+
+	Diagram *diagram = new Diagram(this);
+
+	diagram->border_and_titleblock.importBorder(defaultBorderProperties());
+	TitleBlockProperties titleblock = defaultTitleBlockProperties();
+	if (titleblock.title.isEmpty()) {
+		titleblock.title = kind == Diagram::FolioKind::PlcSummary
+				? tr("PLC summary", "title of a new PLC summary folio")
+				: tr("Network summary", "title of a new network summary folio");
+	}
+	diagram->border_and_titleblock.importTitleBlock(titleblock);
+	diagram->defaultConductorProperties = defaultConductorProperties();
+	diagram->setFolioKind(kind);
+	diagram->queueValuesStore();
+
+	m_undo_stack->push(new AddDiagramCommand(this, diagram, pos));
+	return(diagram);
+}
+
+/**
 	@brief QETProject::addNewRoutingDiagram
 	Add at @p pos a routing sheet for the mounting plate @p plate of the
 	cabinet sheet @p cabinet: the plate is shown on it as it is on the
@@ -4148,6 +4276,7 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 		//Load the local, non-transmitted usage tracking
 	readUsageXml(xml_project);
 	readWireHopsXml(xml_project);
+	readDeviceXRefsXml(xml_project);
 	readSymbolTextsXml(xml_project);
 	readLanguagesXml(xml_project);
 	readVersionsXml(xml_project);
@@ -4741,7 +4870,9 @@ void QETProject::readUsageXml(QDomDocument &xml_project)
 /**
 	@brief QETProject::readWireHopsXml
 	Read the <wire_crossings> element of the project, if any.
-	A project without it draws no hop.
+	A project without it draws its horizontal wires hopping over the
+	vertical ones (Brandon, 2026-11-28): the hops show in the projects
+	saved before they existed too. "No hop" chosen is saved as such.
 	@param xml_project : the xml description of the project
 */
 void QETProject::readWireHopsXml(QDomDocument &xml_project)
@@ -4749,12 +4880,31 @@ void QETProject::readWireHopsXml(QDomDocument &xml_project)
 	const QDomElement crossings = xml_project.documentElement()
 			.firstChildElement(QStringLiteral("wire_crossings"));
 	m_wire_hops = crossings.isNull()
-			? WireHops::Mode::None
+			? WireHops::Mode::Horizontal
 			: WireHops::fromString(crossings.attribute(QStringLiteral("hop")));
 		//Wires kept apart (Brandon, 2026-11-22): off for a project saved
 		//without it, so its wires are drawn as they always were
 	m_wires_apart = !crossings.isNull()
 			&& crossings.attribute(QStringLiteral("apart")) == QLatin1String("true");
+}
+
+/**
+	@brief QETProject::readDeviceXRefsXml
+	Read how the parts of a device show where the others are; off in a
+	project saved without it
+*/
+void QETProject::readDeviceXRefsXml(QDomDocument &xml_project)
+{
+	m_device_xrefs = DeviceXRefSettings::fromXml(xml_project.documentElement());
+}
+
+/**
+	@brief QETProject::writeDeviceXRefsXml
+	Written only when used: a project without it saves as it did before
+*/
+void QETProject::writeDeviceXRefsXml(QDomElement &xml_element)
+{
+	m_device_xrefs.toXml(xml_element);
 }
 
 /**
@@ -5194,7 +5344,10 @@ void QETProject::writeUsageXml(QDomElement &xml_element) {
 */
 void QETProject::writeWireHopsXml(QDomElement &xml_element)
 {
-	if (m_wire_hops == WireHops::Mode::None && !m_wires_apart) {
+		//Not written when it is what a project without it reads
+		//(horizontal hops, wires not kept apart): a project saved before
+		//saves exactly as it was. "No hop" chosen is written.
+	if (m_wire_hops == WireHops::Mode::Horizontal && !m_wires_apart) {
 		return;
 	}
 	QDomElement crossings = xml_element.ownerDocument()
@@ -5583,6 +5736,7 @@ void QETProject::storeSettings()
 	writeProjectPropertiesXml(properties);
 	root.appendChild(properties);
 	writeWireHopsXml(root);
+	writeDeviceXRefsXml(root);
 	writeSymbolTextsXml(root);
 	writeLanguagesXml(root);
 	writeVersionsXml(root);

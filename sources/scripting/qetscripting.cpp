@@ -122,6 +122,18 @@ namespace {
 		const int ms = qEnvironmentVariableIntValue("QET_SCRIPT_TIMEOUT_MS", &ok);
 		return ok && ms > 0 ? ms : kScriptTimeoutMs;
 	}
+
+		/// The folder of the plugin runPlugin() is running, empty otherwise
+	QString plugin_folder;
+}
+
+bool runPlugin(const QString &source, const QString &fileName, const QString &title,
+	       const QString &pluginFolder, QETProject *project, DiagramView *view)
+{
+	plugin_folder = pluginFolder;
+	const bool ok = runSource(source, fileName, title, project, view, nullptr);
+	plugin_folder.clear();
+	return ok;
 }
 
 bool runOnProject(const QString &scriptPath, QETProject *project, DiagramView *view,
@@ -150,7 +162,9 @@ bool runSource(const QString &source, const QString &fileName, const QString &ti
 	// on the command line, an offer to switch the setting on in the editor.
 		//A run that writes no file (the AI panel) is not what the setting
 		//guards against: it runs either way
-	if (!QetSettings::scriptingEnabled() && !(live && live->no_files)) {
+		//A plugin the user installed and switched on is allowed to run
+	if (!QetSettings::scriptingEnabled() && !(live && live->no_files)
+	    && plugin_folder.isEmpty()) {
 		err << refusalMessage() << "\n";
 		if (live) {
 			live->error = refusalMessage();
@@ -165,6 +179,7 @@ bool runSource(const QString &source, const QString &fileName, const QString &ti
 	auto *api = new QetScriptApi(project, view, &engine);
 	if (live) api->setLive(&live->log);
 	if (live && live->no_files) api->setNoFiles(true);
+	api->setPluginFolder(plugin_folder);
 	QJSValue qet_value = engine.newQObject(api);
 	// newQObject() takes ownership by default (QJSEngine::JavaScriptOwnership),
 	// which would delete api as soon as the engine's GC decides to -- api's
@@ -181,11 +196,22 @@ bool runSource(const QString &source, const QString &fileName, const QString &ti
 	bool finished = false;
 	std::mutex mtx;
 	std::condition_variable cv;
+		//The time a window of the script waits on the user (qet.dialog,
+		//qet.chooseSaveFile) does not count
 	std::thread watchdog([&]() {
 		std::unique_lock<std::mutex> lock(mtx);
-		cv.wait_for(lock, std::chrono::milliseconds(scriptTimeoutMs()), [&finished]{ return finished; });
-		if (!finished) {
-			engine.setInterrupted(true);
+		const auto budget = std::chrono::milliseconds(scriptTimeoutMs());
+		auto used = std::chrono::steady_clock::duration::zero();
+		auto last = std::chrono::steady_clock::now();
+		while (!finished) {
+			cv.wait_for(lock, std::chrono::milliseconds(50), [&finished]{ return finished; });
+			const auto now = std::chrono::steady_clock::now();
+			if (QetScriptApi::waitingOnUser() == 0) used += now - last;
+			last = now;
+			if (!finished && used >= budget) {
+				engine.setInterrupted(true);
+				break;
+			}
 		}
 	});
 
@@ -198,6 +224,7 @@ bool runSource(const QString &source, const QString &fileName, const QString &ti
 	// QUndoStack::undo() instead of being undone onto the redo side.
 	QUndoStack *stack = (view && project) ? project->undoStack() : nullptr;
 	const QString undo_text = live ? QObject::tr("Assistant: %1").arg(title)
+				       : !plugin_folder.isEmpty() ? QObject::tr("Plugin: %1").arg(title)
 				       : QObject::tr("Script: %1").arg(title);
 	if (stack) {
 		stack->beginMacro(undo_text);
@@ -266,6 +293,12 @@ bool runSource(const QString &, const QString &, const QString &, QETProject *,
 	       DiagramView *, LiveRun *live)
 {
 	if (live) live->error = QStringLiteral("built without Qt Qml: no scripting");
+	return false;
+}
+
+bool runPlugin(const QString &, const QString &, const QString &, const QString &,
+	       QETProject *, DiagramView *)
+{
 	return false;
 }
 

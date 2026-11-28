@@ -329,6 +329,11 @@ void ElementInfoWidget::buildInterface()
 		//which is why the export does not offer it either. The number
 		//stays a text variable (%{terminal_number}) of the element editor.
 	keys.removeAll(QETInformation::ELMT_TERMINAL_NUMBER);
+		//The terminal a summary symbol shows (2026-11-28): first
+	if (m_element && (m_element.data()->linkType() == Element::PlcSummary
+					  || m_element.data()->linkType() == Element::NetworkSummary)) {
+		keys.insert(qMin(2, int(keys.size())), QETInformation::ELMT_SUMMARY_PIN);
+	}
 
 	for (auto str : keys)
 	{
@@ -404,6 +409,7 @@ QStringList ElementInfoWidget::predefinedKeys() const
 		 << QStringLiteral("auto_num_locked")
 		 << QStringLiteral("potential_isolating")
 		 << QStringLiteral("exclude_from_bom")
+		 << QETInformation::ELMT_SUMMARY_PIN
 		 << QStringLiteral("label_shown")
 		 << TerminalSides::swappedKey();
 

@@ -142,6 +142,33 @@ QStringList QETInformation::diagramInfoKeys()
 	return list;
 }
 
+/**
+	@brief QETInformation::summaryInfoKeys
+	@return what a summary symbol shows of the terminal it stands for: the
+	terminal, its function text and its place (Brandon, 2026-11-28)
+*/
+QStringList QETInformation::summaryInfoKeys(int terminals)
+{
+	QStringList keys{ELMT_SUMMARY_PIN, ELMT_SUMMARY_FUNCTION, ELMT_SUMMARY_REFERENCE};
+		//And for each terminal of the symbol (2026-11-28)
+	for (int i = 1 ; i <= terminals ; ++i) {
+		keys << summaryInfoKey(ELMT_SUMMARY_PIN, i)
+			 << summaryInfoKey(ELMT_SUMMARY_FUNCTION, i)
+			 << summaryInfoKey(ELMT_SUMMARY_REFERENCE, i);
+	}
+	return keys;
+}
+
+QString QETInformation::summaryInfoKeyFor(const QString &key, const QString &name)
+{
+	return key + QLatin1Char('@') + name;
+}
+
+QString QETInformation::summaryInfoKey(const QString &key, int number)
+{
+	return key + QLatin1Char('_') + QString::number(number);
+}
+
 QStringList QETInformation::elementInfoKeys()
 {
 	QStringList list = { ELMT_FORMULA,
@@ -400,6 +427,29 @@ QString QETInformation::translatedInfoKey(const QString &info)
 	else if (info == PROJECT_SAVED_FILE_PATH)          return QObject::tr("Saved file path");
 	else if (info == ELMT_FORMULA)                     return QObject::tr("Label formula");
 	else if (info == ELMT_LABEL)                       return QObject::tr("Label");
+	else if (info == ELMT_SUMMARY_PIN)                 return QObject::tr("Terminal");
+	else if (info == ELMT_SUMMARY_FUNCTION)            return QObject::tr("Function text of the terminal");
+	else if (info == ELMT_SUMMARY_REFERENCE)           return QObject::tr("Place of the terminal");
+	else if (info.startsWith(ELMT_SUMMARY_PIN + QLatin1Char('@'))
+			 || info.startsWith(ELMT_SUMMARY_FUNCTION + QLatin1Char('@'))
+			 || info.startsWith(ELMT_SUMMARY_REFERENCE + QLatin1Char('@'))) {
+		const int at = info.indexOf(QLatin1Char('@'));
+		const QString name = info.mid(at + 1);
+		const QString key = info.left(at);
+		if (key == ELMT_SUMMARY_PIN)      return QObject::tr("Terminal %1").arg(name);
+		if (key == ELMT_SUMMARY_FUNCTION) return QObject::tr("Function text of %1").arg(name);
+		return QObject::tr("Place of %1").arg(name);
+	}
+	else if (info.startsWith(ELMT_SUMMARY_PIN + QLatin1Char('_'))
+			 || info.startsWith(ELMT_SUMMARY_FUNCTION + QLatin1Char('_'))
+			 || info.startsWith(ELMT_SUMMARY_REFERENCE + QLatin1Char('_'))) {
+		const int at = info.lastIndexOf(QLatin1Char('_'));
+		const QString number = info.mid(at + 1);
+		const QString key = info.left(at);
+		if (key == ELMT_SUMMARY_PIN)      return QObject::tr("Terminal %1").arg(number);
+		if (key == ELMT_SUMMARY_FUNCTION) return QObject::tr("Function text of the terminal %1").arg(number);
+		return QObject::tr("Place of the terminal %1").arg(number);
+	}
 	else if (info == ELMT_TERMINAL_NUMBER)             return QObject::tr("Terminal number");
 	else if (info == ELMT_COMMENT)                     return QObject::tr("Annotation");
 	else if (info == ELMT_FUNCTION)                    return QObject::tr("Function");

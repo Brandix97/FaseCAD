@@ -348,6 +348,8 @@ void ElementPropertiesEditorWidget::setUpInterface()
 	ui->m_base_type_cb->addItem (tr("Terminal block"), ElementData::Terminal);
 	ui->m_base_type_cb->addItem (tr("Thumbnail"), ElementData::Thumbnail);
 	ui->m_base_type_cb->addItem (tr("Conductor definition"), ElementData::ConductorDefinition);
+	ui->m_base_type_cb->addItem (tr("PLC summary symbol"), ElementData::PlcSummary);
+	ui->m_base_type_cb->addItem (tr("Network summary symbol"), ElementData::NetworkSummary);
 
 		// Slave option
 	ui->m_state_cb->addItem(tr("Switch normally open"),       ElementData::NO);
@@ -458,6 +460,10 @@ void ElementPropertiesEditorWidget::updateTree()
 			ui->m_tree->setEnabled(true);
 			break;
 		case ElementData::Terminal:
+			ui->m_tree->setEnabled(true);
+			break;
+		case ElementData::PlcSummary:
+		case ElementData::NetworkSummary:
 			ui->m_tree->setEnabled(true);
 			break;
 		default:

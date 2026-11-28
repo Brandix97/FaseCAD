@@ -45,7 +45,8 @@ class DiagramEventAddElement : public DiagramEventInterface
 		Q_OBJECT
 
 	public:
-		DiagramEventAddElement(ElementsLocation &location, Diagram *diagram, QPointF pos = QPointF(0,0));
+		DiagramEventAddElement(ElementsLocation &location, Diagram *diagram, QPointF pos = QPointF(0,0),
+							   const QString &part_name = QString());
 		~DiagramEventAddElement() override;
 
 		void mouseMoveEvent        (QGraphicsSceneMouseEvent *event) override;
@@ -70,6 +71,7 @@ class DiagramEventAddElement : public DiagramEventInterface
 
 	private:
 		bool buildElement();
+		void giveSummaryLabel(Element *element) const;
 		Element *createElement() const;
 		void addElement();
 		void updateDrag(const QPointF &to);
@@ -80,6 +82,12 @@ class DiagramEventAddElement : public DiagramEventInterface
 		void showAlternative();
 
 		ElementsLocation m_location;
+			/// The part placed (parts database): its symbols go into its
+			/// own folder of the project (QETProject::importPartElement())
+		QString m_part_name;
+			/// The device a summary symbol placed is of: asked once, given
+			/// to each copy (Brandon, 2026-11-28)
+		QString m_summary_label;
 		QList<ElementsLocation> m_alternatives;
 		int m_alternative = 0;
 			/// Where each alternative went in the project, once brought in

@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "dynamictextfieldeditor.h"
+#include "../graphicspart/partterminal.h"
 #include "../../partsdb/parttexts.h"
 #include "../../partsdb/partfielddialog.h"
 #include "../../partsdb/partsdatabase.h"
@@ -327,6 +328,27 @@ void DynamicTextFieldEditor::fillInfoComboBox()
 			strl.removeAll(QETInformation::ELMT_PLC_T2);
 			strl.removeAll(QETInformation::ELMT_PLC_T3);
 			strl.removeAll(QETInformation::ELMT_PLC_T4);
+		}
+			//What a summary symbol shows of its terminal (2026-11-28)
+		if (type == ElementData::PlcSummary || type == ElementData::NetworkSummary) {
+				//One set for each terminal of the symbol, 32 at least: the
+				//texts may be put before the terminals are drawn
+			int terminals = 0;
+			QStringList by_name;
+			for (CustomElementPart *part : elementEditor()->elementScene()->primitives()) {
+				if (auto *terminal = dynamic_cast<PartTerminal *>(part)) {
+					++terminals;
+						//By the name of each terminal drawn: the text
+						//follows it wherever it is moved
+					const QString name = terminal->terminalName().trimmed();
+					if (!name.isEmpty()) {
+						by_name << QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_PIN, name)
+								<< QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_FUNCTION, name)
+								<< QETInformation::summaryInfoKeyFor(QETInformation::ELMT_SUMMARY_REFERENCE, name);
+					}
+				}
+			}
+			strl = by_name + QETInformation::summaryInfoKeys(qMax(32, terminals)) + strl;
 		}
 
 		if (is_slave) {

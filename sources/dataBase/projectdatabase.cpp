@@ -5004,7 +5004,9 @@ static ElementData::Types allElementTypes()
 		   | ElementData::Slave
 		   | ElementData::Terminal
 		   | ElementData::Thumbnail
-		   | ElementData::ConductorDefinition;
+		   | ElementData::ConductorDefinition
+		   | ElementData::PlcSummary
+		   | ElementData::NetworkSummary;
 }
 
 /**
@@ -8588,7 +8590,8 @@ QStringList projectDataBase::foreignChildren(const QDomElement &parent, bool fol
 		QStringLiteral("terminal_labelling"), QStringLiteral("wiring_rules"),
 		QStringLiteral("chained_reports"), QStringLiteral("style"),
 		QStringLiteral("terminal_strip_layout"), QStringLiteral("terminal_strips"),
-		QStringLiteral("cables"), QStringLiteral("bridges")};
+		QStringLiteral("cables"), QStringLiteral("bridges"),
+		QStringLiteral("device_xrefs")};
 	static const QSet<QString> folio_known{
 		QStringLiteral("defaultconductor"), QStringLiteral("elements"), QStringLiteral("conductors"),
 		QStringLiteral("inputs"), QStringLiteral("images"), QStringLiteral("shapes"),

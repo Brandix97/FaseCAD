@@ -3966,6 +3966,22 @@ Continue?</source>
         <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
         <translation type="unfinished">Символ %1 з %2: %3. Tab: наступний символ, Shift+Tab: попередній</translation>
     </message>
+    <message>
+        <source>A PLC summary symbol goes on a PLC summary sheet only.</source>
+        <translation type="unfinished">Зведений символ ПЛК розміщується лише на зведеному аркуші ПЛК.</translation>
+    </message>
+    <message>
+        <source>A network summary symbol goes on a network summary sheet only.</source>
+        <translation type="unfinished">Зведений символ мережі розміщується лише на зведеному аркуші мережі.</translation>
+    </message>
+    <message>
+        <source>Summary symbol</source>
+        <translation type="unfinished">Зведений символ</translation>
+    </message>
+    <message>
+        <source>The device this summary symbol shows:</source>
+        <translation type="unfinished">Пристрій, який показує цей зведений символ:</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -6704,6 +6720,14 @@ Continue?</source>
         <source>Cell text font</source>
         <translation>Шрифт тексту в клітинках</translation>
     </message>
+    <message>
+        <source>PLC summary symbol</source>
+        <translation type="unfinished">Зведений символ ПЛК</translation>
+    </message>
+    <message>
+        <source>Network summary symbol</source>
+        <translation type="unfinished">Зведений символ мережі</translation>
+    </message>
 </context>
 <context>
     <name>ElementPropertiesWidget</name>
@@ -7529,6 +7553,14 @@ QElectroTech не може автоматично визначити поход�
         <source>Download the symbols</source>
         <translation type="unfinished">Завантажити символи</translation>
     </message>
+    <message>
+        <source>New PLC summary symbol</source>
+        <translation type="unfinished">Новий зведений символ ПЛК</translation>
+    </message>
+    <message>
+        <source>New network summary symbol</source>
+        <translation type="unfinished">Новий зведений символ мережі</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7728,6 +7760,14 @@ QElectroTech не може автоматично визначити поход�
     <message>
         <source>Insert a routing sheet for this cabinet</source>
         <translation type="unfinished">Вставити аркуш трасування для цієї шафи</translation>
+    </message>
+    <message>
+        <source>Insert a PLC summary sheet</source>
+        <translation type="unfinished">Вставити зведений аркуш ПЛК</translation>
+    </message>
+    <message>
+        <source>Insert a network summary sheet</source>
+        <translation type="unfinished">Вставити зведений аркуш мережі</translation>
     </message>
 </context>
 <context>
@@ -10763,6 +10803,22 @@ Please use the advanced editor for this.</source>
         <source>Width:</source>
         <translation type="unfinished">Ширина:</translation>
     </message>
+    <message>
+        <source>Function text</source>
+        <translation type="unfinished">Текст функції</translation>
+    </message>
+    <message>
+        <source>What is drawn over and under this text, within its width, has this text as function, unless it has a function of its own</source>
+        <translation type="unfinished">Те, що намальовано над і під цим текстом у межах його ширини, отримує цей текст як функцію, якщо не має власної</translation>
+    </message>
+    <message>
+        <source>Make a function text</source>
+        <translation type="unfinished">Зробити текстом функції</translation>
+    </message>
+    <message>
+        <source>Make a plain text</source>
+        <translation type="unfinished">Зробити звичайним текстом</translation>
+    </message>
 </context>
 <context>
     <name>IntegrationMoveTitleBlockTemplatesHandler</name>
@@ -13743,6 +13799,41 @@ Give them another numbering first.</source>
         <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
         <comment>tooltip</comment>
         <translation type="unfinished">Коли малюється дріт або переміщується елемент, середня ділянка автоматичного дроту, яка пішла б уздовж іншого, зміщується на один крок сітки за раз туди, де вільно. Це зберігає шлях, ніби його перемістили вручну. Уже намальовані дроти не змінюються.</translation>
+    </message>
+    <message>
+        <source>Show where the other parts of a device are</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Показувати, де розташовані інші частини пристрою</translation>
+    </message>
+    <message>
+        <source>The symbols sharing a label (a PLC drawn as its supply, its inputs and its outputs...) are one device: its main part, the one made of parts, lists the places of the others. Contacts keep the cross reference of their coil.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Символи з однаковим позначенням (ПЛК, намальований як живлення, входи та виходи...) — один пристрій: його головна частина, та, що складається з виробів, перелічує місця інших. Контакти зберігають перехресне посилання своєї котушки.</translation>
+    </message>
+    <message>
+        <source>The other parts show the main part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Інші частини показують головну частину</translation>
+    </message>
+    <message>
+        <source>The other parts show every part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Інші частини показують усі частини</translation>
+    </message>
+    <message>
+        <source>The other parts show nothing</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Інші частини нічого не показують</translation>
+    </message>
+    <message>
+        <source>Under the label</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Під позначенням</translation>
+    </message>
+    <message>
+        <source>Below the symbol</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Під символом</translation>
     </message>
 </context>
 <context>
@@ -17821,6 +17912,26 @@ To make a script of it, ask your AI assistant: the button below copies the reque
         <source>The services of fasecad.com are not open yet</source>
         <translation type="unfinished">Сервіси fasecad.com ще не відкриті</translation>
     </message>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Структурна рамка</translation>
+    </message>
+    <message>
+        <source>Adds a dash-dotted box: the symbols in it take its plant (=) and location (+)</source>
+        <translation type="unfinished">Додає штрихпунктирну рамку: символи в ній отримують її установку (=) і місце (+)</translation>
+    </message>
+    <message>
+        <source>Plugins…</source>
+        <translation type="unfinished">Плагіни…</translation>
+    </message>
+    <message>
+        <source>Install, switch on or off and remove the plugins</source>
+        <translation type="unfinished">Встановити, увімкнути чи вимкнути та видалити плагіни</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Плагіни</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18807,6 +18918,14 @@ please wait while importing...</source>
         <source>Format copied: select parts and Apply format</source>
         <translation type="unfinished">Формат скопійовано: виберіть елементи й натисніть «Застосувати формат»</translation>
     </message>
+    <message>
+        <source>Show the frames of the texts</source>
+        <translation type="unfinished">Показувати рамки текстів</translation>
+    </message>
+    <message>
+        <source>Draws a dashed frame around each text to see where it is; the frames are not saved</source>
+        <translation type="unfinished">Малює пунктирну рамку навколо кожного тексту, щоб бачити, де він; рамки не зберігаються</translation>
+    </message>
 </context>
 <context>
     <name>QETMainWindow</name>
@@ -19180,6 +19299,16 @@ What do you wish to do ?</source>
     <message>
         <source>Not to scale</source>
         <translation type="unfinished">Без масштабу</translation>
+    </message>
+    <message>
+        <source>PLC summary</source>
+        <comment>title of a new PLC summary folio</comment>
+        <translation type="unfinished">Зведення ПЛК</translation>
+    </message>
+    <message>
+        <source>Network summary</source>
+        <comment>title of a new network summary folio</comment>
+        <translation type="unfinished">Зведення мережі</translation>
     </message>
 </context>
 <context>
@@ -22649,6 +22778,38 @@ To enable it: Configure QElectroTech &gt; General &gt; Projects, or set the QET_
         <comment>spacemouse config: unbound button</comment>
         <translation type="unfinished">(Немає дії)</translation>
     </message>
+    <message>
+        <source>Function text of the terminal</source>
+        <translation type="unfinished">Текст функції клеми</translation>
+    </message>
+    <message>
+        <source>Place of the terminal</source>
+        <translation type="unfinished">Місце клеми</translation>
+    </message>
+    <message>
+        <source>Terminal %1</source>
+        <translation type="unfinished">Клема %1</translation>
+    </message>
+    <message>
+        <source>Function text of %1</source>
+        <translation type="unfinished">Текст функції %1</translation>
+    </message>
+    <message>
+        <source>Place of %1</source>
+        <translation type="unfinished">Місце %1</translation>
+    </message>
+    <message>
+        <source>Function text of the terminal %1</source>
+        <translation type="unfinished">Текст функції клеми %1</translation>
+    </message>
+    <message>
+        <source>Place of the terminal %1</source>
+        <translation type="unfinished">Місце клеми %1</translation>
+    </message>
+    <message>
+        <source>Plugin: %1</source>
+        <translation type="unfinished">Плагін: %1</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -24705,6 +24866,10 @@ The other fields are not used.</source>
         <location filename="../sources/ui/shapegraphicsitempropertieswidget.h" line="50"/>
         <source>Edit the properties of a primitive </source>
         <translation>Редагувати властивості примітива</translation>
+    </message>
+    <message>
+        <source>Plant and location of the structure box…</source>
+        <translation type="unfinished">Установка і місце структурної рамки…</translation>
     </message>
 </context>
 <context>
@@ -31640,6 +31805,34 @@ The following variables can be used:
             <numerusform>Видалити %n пристроїв</numerusform>
         </translation>
     </message>
+    <message>
+        <source>To place</source>
+        <translation type="unfinished">До розміщення</translation>
+    </message>
+    <message>
+        <source>Double-click to place this symbol of %1 on the sheet</source>
+        <translation type="unfinished">Двічі клацніть, щоб розмістити на аркуші цей символ %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of its article to place</source>
+        <translation type="unfinished">
+            <numerusform>%n символ його виробу до розміщення</numerusform>
+            <numerusform>%n символи його виробу до розміщення</numerusform>
+            <numerusform>%n символів його виробу до розміщення</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Place on the sheet</source>
+        <translation type="unfinished">Розмістити на аркуші</translation>
+    </message>
+    <message>
+        <source>Place a symbol</source>
+        <translation type="unfinished">Розмістити символ</translation>
+    </message>
+    <message>
+        <source>Open a sheet of this project to place the symbol on.</source>
+        <translation type="unfinished">Відкрийте аркуш цього проєкту, щоб розмістити символ.</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddCabinetItem</name>
@@ -35118,6 +35311,20 @@ catalog</source>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: незабаром</translation>
     </message>
+    <message>
+        <source>Structure</source>
+        <translation type="unfinished">Структура</translation>
+    </message>
+    <message>
+        <source>Structure
+box</source>
+        <translation type="unfinished">Структурна
+рамка</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Плагіни</translation>
+    </message>
 </context>
 <context>
     <name>ElementFormatPattern</name>
@@ -35146,6 +35353,291 @@ catalog</source>
     <message>
         <source>Align</source>
         <translation type="unfinished">Вирівняти</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceXRefItem</name>
+    <message>
+        <source>Where the other parts of this device are. Double-click one to show it.</source>
+        <translation type="unfinished">Де розташовані інші частини цього пристрою. Двічі клацніть по одній, щоб показати її.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginLibrary</name>
+    <message>
+        <source>%1: no plugin.json</source>
+        <translation type="unfinished">%1: немає plugin.json</translation>
+    </message>
+    <message>
+        <source>%1: the folder is not named after the id of the plugin (%2)</source>
+        <translation type="unfinished">%1: тека названа не за id плагіна (%2)</translation>
+    </message>
+    <message>
+        <source>The plugin %1 is already installed</source>
+        <translation type="unfinished">Плагін %1 уже встановлено</translation>
+    </message>
+    <message>
+        <source>The plugin installed before cannot be removed</source>
+        <translation type="unfinished">Раніше встановлений плагін не можна видалити</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written</source>
+        <translation type="unfinished">Неможливо записати %1</translation>
+    </message>
+    <message>
+        <source>The plugin %1 cannot be removed</source>
+        <translation type="unfinished">Плагін %1 не можна видалити</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read</source>
+        <translation type="unfinished">Неможливо прочитати %1</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerDialog</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Плагіни</translation>
+    </message>
+    <message>
+        <source>Plugins add their own commands to FaseCAD: buttons, windows, exports and reports made for a customer. Untick a plugin to switch it off without removing it.</source>
+        <translation type="unfinished">Плагіни додають до FaseCAD власні команди: кнопки, вікна, експорт і звіти, зроблені для замовника. Зніміть позначку з плагіна, щоб вимкнути його, не видаляючи.</translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished">Плагін</translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished">Команди</translation>
+    </message>
+    <message>
+        <source>Install...</source>
+        <translation type="unfinished">Встановити...</translation>
+    </message>
+    <message>
+        <source>Open the plugins folder</source>
+        <translation type="unfinished">Відкрити теку плагінів</translation>
+    </message>
+    <message>
+        <source>Read the plugins folder again, after changing a plugin by hand</source>
+        <translation type="unfinished">Перечитати теку плагінів після зміни плагіна вручну</translation>
+    </message>
+    <message>
+        <source>Install a plugin</source>
+        <translation type="unfinished">Встановити плагін</translation>
+    </message>
+    <message>
+        <source>FaseCAD plugins (*.fasplugin)</source>
+        <translation type="unfinished">Плагіни FaseCAD (*.fasplugin)</translation>
+    </message>
+    <message>
+        <source>Remove the plugin</source>
+        <translation type="unfinished">Видалити плагін</translation>
+    </message>
+    <message>
+        <source>Remove the plugin %1 and its files?</source>
+        <translation type="unfinished">Видалити плагін %1 та його файли?</translation>
+    </message>
+    <message>
+        <source>Not loaded: %1</source>
+        <translation type="unfinished">Не завантажено: %1</translation>
+    </message>
+    <message>
+        <source>No plugin installed. Install a .fasplugin file to add one.</source>
+        <translation type="unfinished">Плагіни не встановлено. Встановіть файл .fasplugin, щоб додати плагін.</translation>
+    </message>
+    <message>
+        <source>Choose a plugin to see what it does.</source>
+        <translation type="unfinished">Виберіть плагін, щоб побачити, що він робить.</translation>
+    </message>
+    <message>
+        <source>Commands:</source>
+        <translation type="unfinished">Команди:</translation>
+    </message>
+    <message>
+        <source>It may:</source>
+        <translation type="unfinished">Він може:</translation>
+    </message>
+    <message>
+        <source>only work on the open project</source>
+        <translation type="unfinished">працювати лише з відкритим проєктом</translation>
+    </message>
+    <message>
+        <source>Folder:</source>
+        <translation type="unfinished">Тека:</translation>
+    </message>
+    <message>
+        <source>Install %1 %2 by %3?</source>
+        <translation type="unfinished">Встановити %1 %2 від %3?</translation>
+    </message>
+    <message>
+        <source>an unknown author</source>
+        <translation type="unfinished">невідомого автора</translation>
+    </message>
+    <message>
+        <source>It only works on the open project.</source>
+        <translation type="unfinished">Він працює лише з відкритим проєктом.</translation>
+    </message>
+    <message>
+        <source>Besides the open project, it may:</source>
+        <translation type="unfinished">Окрім відкритого проєкту, він може:</translation>
+    </message>
+    <message>
+        <source>Install only plugins from someone you trust.</source>
+        <translation type="unfinished">Встановлюйте плагіни лише від тих, кому довіряєте.</translation>
+    </message>
+    <message>
+        <source>It replaces the plugin installed with this id.</source>
+        <translation type="unfinished">Він замінює плагін, встановлений з цим id.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManifest</name>
+    <message>
+        <source>The file holds no plugin.json</source>
+        <translation type="unfinished">У файлі немає plugin.json</translation>
+    </message>
+    <message>
+        <source>The file holds a path FaseCAD refuses: %1</source>
+        <translation type="unfinished">У файлі є шлях, який FaseCAD відхиляє: %1</translation>
+    </message>
+    <message>
+        <source>Write files on this computer (exports, reports)</source>
+        <translation type="unfinished">Записувати файли на цей комп’ютер (експорт, звіти)</translation>
+    </message>
+    <message>
+        <source>Unknown: %1</source>
+        <translation type="unfinished">Невідомо: %1</translation>
+    </message>
+    <message>
+        <source>plugin.json is not a JSON object: %1</source>
+        <translation type="unfinished">plugin.json не є об’єктом JSON: %1</translation>
+    </message>
+    <message>
+        <source>The id "%1" is not usable: letters, digits, ".", "-" and "_"</source>
+        <translation type="unfinished">id "%1" не можна використати: літери, цифри, ".", "-" і "_"</translation>
+    </message>
+    <message>
+        <source>The plugin API %1 does not exist</source>
+        <translation type="unfinished">API плагінів %1 не існує</translation>
+    </message>
+    <message>
+        <source>The plugin needs the plugin API %1; this FaseCAD gives %2: update FaseCAD</source>
+        <translation type="unfinished">Плагіну потрібен API плагінів %1; цей FaseCAD дає %2: оновіть FaseCAD</translation>
+    </message>
+    <message>
+        <source>The plugin asks for a permission FaseCAD does not know: %1</source>
+        <translation type="unfinished">Плагін просить дозвіл, невідомий FaseCAD: %1</translation>
+    </message>
+    <message>
+        <source>A command has no usable id, or the id "%1" is repeated</source>
+        <translation type="unfinished">Команда не має придатного id, або id "%1" повторюється</translation>
+    </message>
+    <message>
+        <source>The command "%1" names no function of its script</source>
+        <translation type="unfinished">Команда "%1" не вказує функцію свого скрипта</translation>
+    </message>
+    <message>
+        <source>The command "%1" names a file outside the plugin</source>
+        <translation type="unfinished">Команда "%1" вказує файл поза плагіном</translation>
+    </message>
+    <message>
+        <source>The plugin has no command</source>
+        <translation type="unfinished">Плагін не має команд</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptDialog</name>
+    <message>
+        <source>FaseCAD</source>
+        <translation type="unfinished">FaseCAD</translation>
+    </message>
+    <message>
+        <source>A field has no id, or the id %1 is repeated</source>
+        <translation type="unfinished">Поле не має id, або id %1 повторюється</translation>
+    </message>
+    <message>
+        <source>The field %1 has a type FaseCAD does not know: %2</source>
+        <translation type="unfinished">Поле %1 має тип, невідомий FaseCAD: %2</translation>
+    </message>
+</context>
+<context>
+    <name>StructureBoxes</name>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Структурна рамка</translation>
+    </message>
+    <message>
+        <source>The symbols in the box take this plant and location.</source>
+        <translation type="unfinished">Символи в рамці отримують цю установку і це місце.</translation>
+    </message>
+    <message>
+        <source>Plant (=):</source>
+        <translation type="unfinished">Установка (=):</translation>
+    </message>
+    <message>
+        <source>Location (+):</source>
+        <translation type="unfinished">Місце (+):</translation>
+    </message>
+    <message>
+        <source>Add a structure box</source>
+        <translation type="unfinished">Додати структурну рамку</translation>
+    </message>
+    <message>
+        <source>Edit a structure box</source>
+        <translation type="unfinished">Змінити структурну рамку</translation>
+    </message>
+</context>
+<context>
+    <name>SummaryGeneratorDialog</name>
+    <message>
+        <source>Generate the PLC summary symbol</source>
+        <translation type="unfinished">Створити зведений символ ПЛК</translation>
+    </message>
+    <message>
+        <source>A terminal is drawn for each terminal of the card, with its function text and place beside it. Each terminal shows the terminal of the same name of the device of its label.</source>
+        <translation type="unfinished">Для кожної клеми модуля малюється клема з її текстом функції та місцем поруч. Кожна клема показує однойменну клему пристрою свого позначення.</translation>
+    </message>
+    <message>
+        <source>The terminals of a device of an open project:</source>
+        <translation type="unfinished">Клеми пристрою відкритого проєкту:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 (%n terminal(s)) - %2</source>
+        <translation type="unfinished">
+            <numerusform>%1 (%n клема) - %2</numerusform>
+            <numerusform>%1 (%n клеми) - %2</numerusform>
+            <numerusform>%1 (%n клем) - %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Terminals named after a pattern:</source>
+        <translation type="unfinished">Клеми, названі за шаблоном:</translation>
+    </message>
+    <message>
+        <source>The example: four terminals, X1:1 to X1:4</source>
+        <translation type="unfinished">Приклад: чотири клеми, X1:1 — X1:4</translation>
+    </message>
+    <message>
+        <source>One column, the texts on the left</source>
+        <translation type="unfinished">Одна колонка, тексти ліворуч</translation>
+    </message>
+    <message>
+        <source>Two columns, half on each side</source>
+        <translation type="unfinished">Дві колонки, по половині з кожного боку</translation>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation type="unfinished">Розташування:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n terminal(s): %1</source>
+        <translation type="unfinished">
+            <numerusform>%n клема: %1</numerusform>
+            <numerusform>%n клеми: %1</numerusform>
+            <numerusform>%n клем: %1</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

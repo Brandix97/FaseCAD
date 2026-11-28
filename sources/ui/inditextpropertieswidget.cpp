@@ -18,6 +18,9 @@
 #include "inditextpropertieswidget.h"
 
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
+#include <QCheckBox>
+#include <QLayout>
+#include <QUndoStack>
 #include "../diagram.h"
 #include "../diagramcommands.h"
 #include "../lastusedstyle.h"
@@ -48,6 +51,7 @@ IndiTextPropertiesWidget::IndiTextPropertiesWidget(IndependentTextItem *text, QW
 	ui(new Ui::IndiTextPropertiesWidget)
 {
 	ui->setupUi(this);
+	setUpFunctionBox();
 	if (text) {
 		setText(text);
 	}
@@ -65,7 +69,51 @@ IndiTextPropertiesWidget::IndiTextPropertiesWidget(
 	ui(new Ui::IndiTextPropertiesWidget)
 {
 	ui->setupUi(this);
+	setUpFunctionBox();
 	setText(text_list);
+}
+
+/**
+	@brief IndiTextPropertiesWidget::setUpFunctionBox
+	The box making the text a function text (Brandon, 2026-11-28)
+*/
+void IndiTextPropertiesWidget::setUpFunctionBox()
+{
+	m_function_cb = new QCheckBox(tr("Function text"), this);
+	m_function_cb->setToolTip(tr("What is drawn over and under this text, within its width, has this "
+								 "text as function, unless it has a function of its own"));
+	layout()->addWidget(m_function_cb);
+	connect(m_function_cb, &QCheckBox::clicked, this, &IndiTextPropertiesWidget::applyFunctionText);
+}
+
+/**
+	@brief IndiTextPropertiesWidget::applyFunctionText
+	Make the edited texts function texts, or plain texts, in one step of undo
+*/
+void IndiTextPropertiesWidget::applyFunctionText(bool function_text)
+{
+	QList<IndependentTextItem *> texts;
+	if (m_text) {
+		texts << m_text.data();
+	}
+	for (const auto &text : std::as_const(m_text_list)) {
+		if (text) texts << text.data();
+	}
+	if (texts.isEmpty() || !texts.first()->diagram()) {
+		return;
+	}
+	auto *undo = new QUndoCommand(function_text ? tr("Make a function text")
+												: tr("Make a plain text"));
+	for (IndependentTextItem *text : std::as_const(texts)) {
+		if (text->isFunctionText() != function_text) {
+			new QPropertyUndoCommand(text, "functionText", text->isFunctionText(), function_text, undo);
+		}
+	}
+	if (undo->childCount()) {
+		texts.first()->diagram()->undoStack().push(undo);
+	} else {
+		delete undo;
+	}
 }
 
 /**
@@ -399,6 +447,14 @@ void IndiTextPropertiesWidget::updateUi()
 	}
 	m_edit_connection.clear();
 	
+	if (m_function_cb) {
+		bool all = true;
+		if (m_text) all = m_text->isFunctionText();
+		for (const auto &text : std::as_const(m_text_list)) {
+			all = all && text && text->isFunctionText();
+		}
+		m_function_cb->setChecked(all);
+	}
 	ui->m_x_sb->setEnabled(m_text_list.isEmpty() ? true : false);
 	ui->m_y_sb->setEnabled(m_text_list.isEmpty() ? true : false);
 	ui->m_line_edit->setEnabled(m_text_list.isEmpty() ? true : false);

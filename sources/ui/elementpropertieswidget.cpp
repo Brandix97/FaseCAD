@@ -398,6 +398,12 @@ void ElementPropertiesWidget::updateUi()
 			break;
 		case Element::ConductorDefinition:
 			break;
+			//A summary symbol: the device it shows and its terminal, no
+			//parts of its own (2026-11-28)
+		case Element::PlcSummary:
+		case Element::NetworkSummary:
+			m_list_editor << new ElementInfoWidget(m_element, this);
+			break;
 
 		default:
 			break;

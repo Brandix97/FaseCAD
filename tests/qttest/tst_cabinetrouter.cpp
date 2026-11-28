@@ -112,6 +112,20 @@ private slots:
 		const CabinetRouter::Route route = router.route({300, 100}, {380, 300});
 		QCOMPARE(route.points.at(1), QPointF(300, 20));
 	}
+
+		/// Two terminals of one device (a PLC's output to its own input,
+		/// Brandon 2026-11-28): out into the duct and back in
+	void outAndBackIntoTheSameDevice()
+	{
+		const QRectF plc(100, 100, 60, 80);
+		const CabinetRouter router({horizontal(0, 0, 400)}, {plc});
+		const CabinetRouter::Route route = router.route(plc.center(), plc.center(), plc, plc);
+		QVERIFY(route.through_ducts);
+		QCOMPARE(route.points.first(), plc.center());
+		QCOMPARE(route.points.last(), plc.center());
+		QVERIFY(route.points.contains(QPointF(plc.center().x(), 20)));
+		QCOMPARE(route.length, 2 * (plc.center().y() - 20));
+	}
 };
 
 QTEST_GUILESS_MAIN(tst_cabinetrouter)

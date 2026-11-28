@@ -203,6 +203,15 @@ void ProjectMainConfigPage::applyProjectConf()
 		modified_project = true;
 	}
 
+	DeviceXRefSettings device_xrefs;
+	device_xrefs.enabled = device_xrefs_cb_ -> isChecked();
+	device_xrefs.secondary = DeviceXRefSettings::Secondary(device_xrefs_secondary_cb_ -> currentData().toInt());
+	device_xrefs.place = DeviceXRefSettings::Place(device_xrefs_place_cb_ -> currentData().toInt());
+	if (m_project -> deviceXRefs() != device_xrefs) {
+		m_project -> setDeviceXRefs(device_xrefs);
+		modified_project = true;
+	}
+
 	if (m_project -> chainedReports() != chained_reports_cb_ -> isChecked()) {
 		m_project -> setChainedReports(chained_reports_cb_ -> isChecked());
 		modified_project = true;
@@ -296,6 +305,27 @@ void ProjectMainConfigPage::initWidgets()
 											  "when the element is rotated: their frame turns with the element, not the "
 											  "text. Uncheck to make them turn with the element, as before.",
 											  "tooltip"));
+
+		//Cross references between the parts of a device (Brandon, 2026-11-28)
+	device_xrefs_cb_ = new QCheckBox(tr("Show where the other parts of a device are", "checkbox label"));
+	device_xrefs_cb_ -> setToolTip(tr("The symbols sharing a label (a PLC drawn as its supply, its inputs and its "
+									  "outputs...) are one device: its main part, the one made of parts, lists "
+									  "the places of the others. Contacts keep the cross reference of their coil.",
+									  "tooltip"));
+	device_xrefs_secondary_cb_ = new QComboBox();
+	device_xrefs_secondary_cb_ -> addItem(tr("The other parts show the main part", "device cross references"),
+										  int(DeviceXRefSettings::Secondary::Main));
+	device_xrefs_secondary_cb_ -> addItem(tr("The other parts show every part", "device cross references"),
+										  int(DeviceXRefSettings::Secondary::All));
+	device_xrefs_secondary_cb_ -> addItem(tr("The other parts show nothing", "device cross references"),
+										  int(DeviceXRefSettings::Secondary::None));
+	device_xrefs_place_cb_ = new QComboBox();
+	device_xrefs_place_cb_ -> addItem(tr("Under the label", "device cross references"),
+									  int(DeviceXRefSettings::Place::UnderLabel));
+	device_xrefs_place_cb_ -> addItem(tr("Below the symbol", "device cross references"),
+									  int(DeviceXRefSettings::Place::BelowSymbol));
+	connect(device_xrefs_cb_, &QCheckBox::toggled, device_xrefs_secondary_cb_, &QWidget::setEnabled);
+	connect(device_xrefs_cb_, &QCheckBox::toggled, device_xrefs_place_cb_, &QWidget::setEnabled);
 
 	chained_reports_cb_ = new QCheckBox(tr("Enable chained folio reports for report elements", "checkbox label"));
 	chained_reports_cb_ -> setToolTip(tr("Automatically chains folio report elements with the same label in a forward/backward sequence.", "tooltip"));
@@ -408,6 +438,15 @@ void ProjectMainConfigPage::initLayout()
 	main_layout0 -> addSpacing(10);
 
 	main_layout0 -> addWidget(chained_reports_cb_);
+	main_layout0 -> addWidget(device_xrefs_cb_);
+	{
+		auto *device_xrefs_layout = new QHBoxLayout();
+		device_xrefs_layout -> addSpacing(20);
+		device_xrefs_layout -> addWidget(device_xrefs_secondary_cb_);
+		device_xrefs_layout -> addWidget(device_xrefs_place_cb_);
+		device_xrefs_layout -> addStretch();
+		main_layout0 -> addLayout(device_xrefs_layout);
+	}
 	main_layout0 -> addSpacing(10);
 
 	QVBoxLayout *terminal_label_layout = new QVBoxLayout(terminal_label_gb_);
@@ -461,6 +500,14 @@ void ProjectMainConfigPage::readValuesFromProject()
 	wires_apart_cb_ -> setChecked(m_project -> wiresApart());
 	upright_symbol_texts_cb_ -> setChecked(m_project -> uprightSymbolTexts());
 	chained_reports_cb_ -> setChecked(m_project -> chainedReports());
+	{
+		const DeviceXRefSettings device_xrefs = m_project -> deviceXRefs();
+		device_xrefs_cb_ -> setChecked(device_xrefs.enabled);
+		device_xrefs_secondary_cb_ -> setCurrentIndex(qMax(0, device_xrefs_secondary_cb_ -> findData(int(device_xrefs.secondary))));
+		device_xrefs_place_cb_ -> setCurrentIndex(qMax(0, device_xrefs_place_cb_ -> findData(int(device_xrefs.place))));
+		device_xrefs_secondary_cb_ -> setEnabled(device_xrefs.enabled);
+		device_xrefs_place_cb_ -> setEnabled(device_xrefs.enabled);
+	}
 	if (m_project -> terminalLabelSplit()) {
 		terminal_label_split_rb_ -> setChecked(true);
 	} else {
@@ -527,6 +574,7 @@ void ProjectMainConfigPage::adjustReadOnly()
 	wires_apart_cb_ -> setDisabled(is_read_only);
 	upright_symbol_texts_cb_ -> setDisabled(is_read_only);
 	chained_reports_cb_ -> setDisabled(is_read_only);
+	device_xrefs_cb_ -> setDisabled(is_read_only);
 	terminal_label_gb_ -> setDisabled(is_read_only);
 	wiring_rules_gb_ -> setDisabled(is_read_only);
 	origin_cb_->setDisabled(is_read_only);

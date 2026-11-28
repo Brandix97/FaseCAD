@@ -23,10 +23,19 @@
 #include "../diagram.h"
 #include "../diagramcontent.h"
 #include "../diagramevent/diagrameventaddcabinetitem.h"
+#include "../ElementsCollection/elementslocation.h"
+#include "../diagramevent/diagrameventaddelement.h"
+#include "../diagramview.h"
+#include "../partsdb/partsdatabase.h"
+#include "../partsdb/partsdbsymbols.h"
 #include "../partsdb/partslinks.h"
+#include "../qetapp.h"
+#include "../qetdiagrameditor.h"
+#include "../projectview.h"
 #include "../qetinformation.h"
 #include "../undocommand/changeelementinformationcommand.h"
 #include "../undocommand/deleteqgraphicsitemcommand.h"
+#include "../undocommand/linkelementcommand.h"
 #include "../qetgraphicsitem/element.h"
 #include "../qetproject.h"
 
@@ -69,6 +78,15 @@ const int placed_role = Qt::UserRole + 5;
 	/// Where the symbol a line stands for is: its sheet (from 1), its cell
 const int folio_role = Qt::UserRole + 6;
 const int cell_role = Qt::UserRole + 7;
+	/// A symbol of the article not placed yet: its location, the label
+	/// of its device in label_role, the article in article_role
+const int unplaced_role = Qt::UserRole + 8;
+const int article_role = Qt::UserRole + 9;
+
+QString fileOf(const QString &location)
+{
+	return location.section(QLatin1Char('/'), -1).toLower();
+}
 
 	/// The symbols a line stands for, as (uuid, folio uuid): those of a
 	/// device, the ones it opens on, or its own
@@ -191,7 +209,13 @@ DevicesPanel::DevicesPanel(QWidget *parent) :
 	connect(m_search, &QLineEdit::textChanged,
 			this, &DevicesPanel::scheduleRefresh);
 	connect(m_tree, &QTreeWidget::itemDoubleClicked,
-			this, [this](QTreeWidgetItem *item) {showDevice(item);});
+			this, [this](QTreeWidgetItem *item) {
+		if (item && !item->data(0, unplaced_role).toString().isEmpty()) {
+			placeUnplaced(item);
+		} else {
+			showDevice(item);
+		}
+	});
 }
 
 /**
@@ -283,7 +307,7 @@ QList<DevicesPanel::Device> DevicesPanel::devices(QETProject *project)
 			//contacts, cabinet thumbnails and wire definitions are no
 			//devices of their own
 		"WHERE e.type NOT IN ('slave', 'next_report', 'previous_report', "
-		"'thumbnail', 'conductor_definition')"));
+		"'thumbnail', 'conductor_definition', 'plc_summary', 'network_summary')"));
 	if (!query.exec()) {
 		return result;
 	}
@@ -383,6 +407,31 @@ void DevicesPanel::refresh()
 			unlabelled_open = true;
 		}
 	}
+
+		//The devices whose symbols to place were shown
+	QSet<QString> unplaced_open;
+	for (int i = 0; i < m_tree->topLevelItemCount(); ++i) {
+		QTreeWidgetItem *line = m_tree->topLevelItem(i);
+		if (line->isExpanded() && !line->data(0, label_role).toString().isEmpty()) {
+			unplaced_open.insert(line->data(0, label_role).toString());
+		}
+	}
+		//What each label is drawn with, its contacts too
+	QHash<QString, QStringList> placed_definitions;
+	if (m_project) {
+		QSqlQuery placed = m_project->dataBase()->newQuery(QStringLiteral(
+			"SELECT ei.label, e.definition FROM element e "
+			"LEFT JOIN element_info ei ON ei.element_uuid = e.uuid"));
+		if (placed.exec()) {
+			while (placed.next()) {
+				const QString label = placed.value(0).toString().trimmed();
+				if (!label.isEmpty()) {
+					placed_definitions[label] << placed.value(1).toString();
+				}
+			}
+		}
+	}
+	bool any_unplaced = false;
 
 	m_tree->clear();
 	const QString search = m_search->text().trimmed();
@@ -514,9 +563,33 @@ void DevicesPanel::refresh()
 								   line.symbols.size()));
 		}
 		mark(item, placed_folios);
+
+			//The symbols of its article still to place, to place from here
+		const QList<Unplaced> unplaced = unplacedOf(line, placed_definitions);
+		for (const Unplaced &symbol : unplaced) {
+			const ElementsLocation location(symbol.symbol);
+			auto *child = new QTreeWidgetItem(item, {
+				location.name(), tr("To place"), symbol.order_number, QString()});
+			child->setIcon(0, location.icon());
+			QFont font = child->font(0);
+			font.setItalic(true);
+			for (int column = 0 ; column < 3 ; ++column) {
+				child->setFont(column, font);
+			}
+			child->setData(0, unplaced_role, symbol.symbol);
+			child->setData(0, label_role, line.label);
+			child->setData(0, article_role, symbol.order_number);
+			child->setToolTip(0, tr("Double-click to place this symbol of %1 on the sheet").arg(line.label));
+		}
+		if (!unplaced.isEmpty()) {
+			any_unplaced = true;
+			item->setToolTip(0, tr("%n symbol(s) of its article to place", nullptr,
+								   int(unplaced.size())));
+			item->setExpanded(unplaced_open.contains(line.label));
+		}
 	}
-		//The arrows only for the line of the symbols without a label
-	m_tree->setRootIsDecorated(unlabelled_line);
+		//The arrows only for the lines that open
+	m_tree->setRootIsDecorated(unlabelled_line || any_unplaced);
 	m_tree->resizeColumnToContents(0);
 	m_tree->resizeColumnToContents(2);
 	m_tree->resizeColumnToContents(3);
@@ -538,6 +611,13 @@ void DevicesPanel::showContextMenu(const QPoint &pos)
 		item->setSelected(true);
 	}
 	QMenu menu(this);
+	if (!item->data(0, unplaced_role).toString().isEmpty()) {
+		QAction *place = menu.addAction(tr("Place on the sheet"));
+		place->setEnabled(m_project && !m_project->isReadOnly());
+		connect(place, &QAction::triggered, this, [this, item]() {placeUnplaced(item);});
+		menu.exec(m_tree->viewport()->mapToGlobal(pos));
+		return;
+	}
 	QAction *show = menu.addAction(tr("Show on the sheet"));
 	show->setEnabled(m_tree->selectedItems().size() == 1);
 	connect(show, &QAction::triggered, this, [this, item]() {showDevice(item);});
@@ -564,12 +644,18 @@ QList<QTreeWidgetItem *> DevicesPanel::selectedLines() const
 	for (int i = 0; i < m_tree->topLevelItemCount(); ++i) {
 		QTreeWidgetItem *line = m_tree->topLevelItem(i);
 		const bool whole = line->isSelected();
+		int symbols = 0;
 		for (int j = 0; j < line->childCount(); ++j) {
+				//A symbol still to place is no symbol of the device
+			if (!line->child(j)->data(0, unplaced_role).toString().isEmpty()) {
+				continue;
+			}
+			++symbols;
 			if (whole || line->child(j)->isSelected()) {
 				result << line->child(j);
 			}
 		}
-		if (whole && !line->childCount()) {
+		if (whole && !symbols) {
 			result << line;
 		}
 	}
@@ -1041,4 +1127,160 @@ void DevicesPanel::showDevice(QTreeWidgetItem *item)
 			return;
 		}
 	}
+}
+
+/**
+	@brief DevicesPanel::unplacedSymbols
+	@return the locations of @p symbols not drawn by @p placed, each
+	placed one standing for one symbol of the same file name
+*/
+QStringList DevicesPanel::unplacedSymbols(const QStringList &symbols, const QStringList &placed)
+{
+	QHash<QString, int> drawn;
+	for (const QString &definition : placed) {
+		++drawn[fileOf(definition)];
+	}
+	QStringList result;
+	for (const QString &symbol : symbols) {
+		const QString file = fileOf(symbol);
+		if (drawn.value(file) > 0) {
+			--drawn[file];
+		} else {
+			result << symbol;
+		}
+	}
+	return result;
+}
+
+/**
+	@brief DevicesPanel::unplacedOf
+	@return the symbols of the articles of @p line (its parts, read in the
+	parts database) not drawn yet under its label; @p placed holds the
+	definitions drawn for each label. The symbols drawn for one article
+	are not counted again for the next.
+*/
+QList<DevicesPanel::Unplaced> DevicesPanel::unplacedOf(
+		const Line &line, const QHash<QString, QStringList> &placed) const
+{
+	QList<Unplaced> result;
+	QList<PartsLinks::Link> links;
+	for (const Device &symbol : line.symbols) {
+		for (const PartsLinks::Link &link : PartsLinks::decode(symbol.parts)) {
+			bool known = false;
+			for (const PartsLinks::Link &other : std::as_const(links)) {
+				known = known || (other.manufacturer == link.manufacturer
+								  && other.order_number == link.order_number);
+			}
+			if (!known) {
+				links << link;
+			}
+		}
+	}
+	if (links.isEmpty()) {
+		return result;
+	}
+	PartsDatabase database;
+	if (!database.open(PartsDatabase::path())) {
+		return result;
+	}
+	QStringList drawn = placed.value(line.label);
+	for (const PartsLinks::Link &link : std::as_const(links)) {
+		const std::optional<Part> part = database.part(
+					database.findPart(link.manufacturer, link.order_number));
+		if (!part) {
+			continue;
+		}
+		QStringList symbols;
+		for (const QString &symbol : part->symbols) {
+			const QString resolved = PartsDbSymbols::resolve(database, symbol);
+			if (!resolved.isEmpty()) {
+				symbols << resolved;
+			}
+		}
+		const QStringList missing = unplacedSymbols(symbols, drawn);
+			//The drawn ones this article takes are not the next one's
+		QStringList taken = symbols;
+		for (const QString &symbol : missing) {
+			taken.removeOne(symbol);
+		}
+		for (const QString &symbol : std::as_const(taken)) {
+			for (int i = 0 ; i < drawn.size() ; ++i) {
+				if (fileOf(drawn.at(i)) == fileOf(symbol)) {
+					drawn.removeAt(i);
+					break;
+				}
+			}
+		}
+		for (const QString &symbol : missing) {
+			result << Unplaced{symbol, part->manufacturer, part->order_number};
+		}
+	}
+	return result;
+}
+
+/**
+	@brief DevicesPanel::placeUnplaced
+	Place the symbol of @p item (a symbol of the article of a device not
+	placed yet) on the sheet shown: it follows the mouse, a click puts it
+	down with the label of its device. It is no new device: it takes no
+	part, so the device's article is counted once.
+*/
+void DevicesPanel::placeUnplaced(QTreeWidgetItem *item)
+{
+	if (!item || !m_project || m_project->isReadOnly()) {
+		return;
+	}
+	const ElementsLocation location(item->data(0, unplaced_role).toString());
+	const QString label = item->data(0, label_role).toString();
+	const QString article = item->data(0, article_role).toString();
+	QETDiagramEditor *editor = QETApp::diagramEditorAncestorOf(this);
+	ProjectView *project_view = editor ? editor->currentProjectView() : nullptr;
+	DiagramView *view = project_view ? project_view->currentDiagram() : nullptr;
+	if (!view || !view->diagram() || view->diagram()->project() != m_project) {
+		QMessageBox::information(this, tr("Place a symbol"),
+								 tr("Open a sheet of this project to place the symbol on."));
+		return;
+	}
+	if (!view->startElementPlacement(location, view->defaultPlacementPos(), article)) {
+		return;
+	}
+		//The coil (or other master) of the device: a contact placed is
+		//linked to it, and shows in its cross reference
+	QPointer<Element> master;
+	QSqlQuery masters = m_project->dataBase()->newQuery();
+	masters.prepare(QStringLiteral(
+		"SELECT e.uuid, e.diagram_uuid FROM element e "
+		"JOIN element_info ei ON ei.element_uuid = e.uuid "
+		"WHERE e.type = 'master' AND TRIM(ei.label) = :label"));
+	masters.bindValue(QStringLiteral(":label"), label);
+	if (masters.exec() && masters.next()) {
+		const QUuid uuid(masters.value(0).toString());
+		if (Diagram *folio = m_project->diagramByUuid(QUuid(masters.value(1).toString()))) {
+			if (!folio->isLoaded()) {
+				m_project->buildFolios({folio});
+			}
+			for (Element *element : folio->elements()) {
+				if (element->uuid() == uuid) {
+					master = element;
+					break;
+				}
+			}
+		}
+	}
+	if (auto *event = dynamic_cast<DiagramEventAddElement *>(view->diagram()->eventInterface())) {
+		event->setPrepare([label, master](Element *element, QUndoCommand *undo) {
+			DiagramContext information = element->elementInformations();
+			information.addValue(QETInformation::ELMT_LABEL, label);
+			information.remove(QETInformation::ELMT_FORMULA);
+			information.remove(QETInformation::ELMT_FORMULA_ID);
+			element->setElementInformations(information);
+				//Linked with its placement: one undo takes both away
+			if (master && element->linkType() == Element::Slave
+				&& LinkElementCommand::isLinkable(element, master)) {
+				auto *link = new LinkElementCommand(element, undo);
+				link->setLink(master.data());
+			}
+		});
+	}
+	view->setFocus();
 }

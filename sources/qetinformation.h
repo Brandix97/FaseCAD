@@ -166,6 +166,12 @@ namespace QETInformation
 	static QString ELMT_PLC_T2          = "plc_t2";
 	static QString ELMT_PLC_T3          = "plc_t3";
 	static QString ELMT_PLC_T4          = "plc_t4";
+	/// A summary symbol (Brandon, 2026-11-28): the terminal it shows, kept
+	/// in its information, and the function text and the place of that
+	/// terminal on the schematic, worked out (SummarySymbols), not saved
+	static QString ELMT_SUMMARY_PIN       = "summary_pin";
+	static QString ELMT_SUMMARY_FUNCTION  = "summary_function";
+	static QString ELMT_SUMMARY_REFERENCE = "summary_reference";
 
 
 
@@ -176,6 +182,13 @@ namespace QETInformation
 	QHash <QString, QString> titleblockTranslatedKeyHashVar();
 
 	QStringList folioReportInfoKeys();
+	QStringList summaryInfoKeys(int terminals = 0);
+		/// @p key of the terminal @p number (from 1) of a summary symbol:
+		/// summary_function_2
+	QString summaryInfoKey(const QString &key, int number);
+		/// @p key of the terminal named @p name of a summary symbol:
+		/// summary_function@.0, which follows the terminal wherever it is
+	QString summaryInfoKeyFor(const QString &key, const QString &name);
 	QHash <QString, QString> folioReportInfoKeyToVar();
 	QString folioReportInfoToVar(const QString &info);
 

@@ -148,7 +148,8 @@ class DiagramView : public PaletteGraphicsView
 		QString pointedItemDescription() const { return m_pointed_description; }
 	
 		bool startElementPlacement(const ElementsLocation &location,
-					   const QPointF &scene_pos);
+					   const QPointF &scene_pos,
+					   const QString &part_name = QString());
 		QPointF defaultPlacementPos() const;
 		bool startPartPlacement(const ElementsLocation &location,
 					const QPointF &scene_pos,

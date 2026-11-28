@@ -393,7 +393,10 @@ bool DiagramView::startPartPlacement(const ElementsLocation &location,
 	QMimeData data;
 	data.setData(PartsPlacement::mimeType(), part);
 	const auto key = PartsPlacement::decode(&data);
-	if (!startElementPlacement(location, scene_pos)) {
+		//Its symbols go into a folder named after the part (Brandon,
+		//2026-11-28)
+	if (!startElementPlacement(location, scene_pos,
+							   key ? key->order_number : QString())) {
 		return false;
 	}
 	if (key) {
@@ -431,7 +434,8 @@ bool DiagramView::startPartPlacement(const ElementsLocation &location,
 	@return true if the placement mode was entered
 */
 bool DiagramView::startElementPlacement(const ElementsLocation &location,
-					const QPointF &scene_pos)
+					const QPointF &scene_pos,
+					const QString &part_name)
 {
 	if (!diagram() || !(location.isElement() && location.exist())) {
 		return false;
@@ -450,7 +454,7 @@ bool DiagramView::startElementPlacement(const ElementsLocation &location,
 			//"insert last element".
 		ElementsLocation loc(location);
 		diagram()->setEventInterface(
-			new DiagramEventAddElement(loc, diagram(), scene_pos));
+			new DiagramEventAddElement(loc, diagram(), scene_pos, part_name));
 		emit elementPlacementStarted(location);
 	}
 

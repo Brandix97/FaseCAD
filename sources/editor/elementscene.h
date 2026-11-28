@@ -95,6 +95,7 @@ class ElementScene : public QGraphicsScene
 		QPointer<TextResizeHandles> m_text_resize_handles;
 
 		bool m_hotspot_visible = true;
+		bool m_text_frames_visible = false;
 		bool m_background_frame_visible = false;
 		QSizeF m_background_frame_size;
 	
@@ -150,6 +151,11 @@ class ElementScene : public QGraphicsScene
 			/// not part of the drawn symbol.
 		void setHotspotVisible(bool visible) {m_hotspot_visible = visible;}
 		bool hotspotVisible() const {return m_hotspot_visible;}
+			/// A dashed frame around each text, to see where they are
+			/// (Brandon, 2026-11-28): drawn while editing only, never
+			/// saved nor exported
+		bool textFramesVisible() const {return m_text_frames_visible;}
+		void setTextFramesVisible(bool visible);
 
 		bool backgroundFrameVisible() const {return m_background_frame_visible;}
 		void setBackgroundFrameVisible(bool visible);

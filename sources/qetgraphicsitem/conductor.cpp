@@ -42,6 +42,8 @@
 #include <QtDebug>
 
 #include <cmath>
+#include <QPointer>
+#include <QTimer>
 
 namespace {
 		//Bumped whenever a conductor changes shape, moves, or enters or
@@ -49,6 +51,34 @@ namespace {
 		//0 is never current, so a fresh cache is always rebuilt.
 	quint64 s_conductor_geometry_generation = 1;
 	void conductorGeometryChanged() { ++s_conductor_geometry_generation; }
+
+		//The folios whose hops are to be checked once the event loop is
+		//back: a conductor drawn, moved or removed changes the hops of the
+		//conductors it crosses, which the view does not repaint by itself
+		//(only the area of the conductor that changed is)
+	QList<QPointer<Diagram>> s_hop_refresh;
+	bool s_hop_refresh_queued = false;
+	void scheduleHopRefresh(Diagram *diagram)
+	{
+		if (!diagram || !diagram->project()
+			|| diagram->project()->wireHops() == WireHops::Mode::None) {
+			return;
+		}
+		bool listed = false;
+		for (const QPointer<Diagram> &d : std::as_const(s_hop_refresh))
+			listed = listed || d == diagram;
+		if (!listed) s_hop_refresh << diagram;
+		if (s_hop_refresh_queued) return;
+		s_hop_refresh_queued = true;
+		QTimer::singleShot(0, []() {
+			s_hop_refresh_queued = false;
+			const QList<QPointer<Diagram>> diagrams = s_hop_refresh;
+			s_hop_refresh.clear();
+			for (const QPointer<Diagram> &d : diagrams) {
+				if (d) Conductor::refreshHops(d);
+			}
+		});
+	}
 
 		//The conductors of the last folio whose hops were computed, as
 		//scene points and plain path bounds. Rebuilt only when the folio
@@ -837,6 +867,7 @@ void Conductor::paint(QPainter *painter, const QStyleOptionGraphicsItem *options
 
 		//Draw the conductor, with a hop at each crossing if the project asks for them
 	const QPainterPath painted_path = paintedPath();
+	m_painted_path = painted_path;
 	painter -> drawPath(painted_path);
 		//Draw the second color
 	if(m_properties.m_bicolor && !typed)
@@ -1022,9 +1053,15 @@ QVariant Conductor::itemChange(GraphicsItemChange change, const QVariant &value)
 			removeHandler();
 		}
 	}
+	else if (change == QGraphicsItem::ItemSceneChange)
+	{
+			//The conductors it crossed on the folio it leaves
+		scheduleHopRefresh(diagram());
+	}
 	else if (change == QGraphicsItem::ItemSceneHasChanged)
 	{
 		conductorGeometryChanged();
+		scheduleHopRefresh(diagram());
 		calculateTextItemPosition();
 
 		if(!scene())
@@ -1041,6 +1078,7 @@ QVariant Conductor::itemChange(GraphicsItemChange change, const QVariant &value)
 	else if (change == QGraphicsItem::ItemScenePositionHasChanged) {
 		storeLayout();
 		conductorGeometryChanged();
+		scheduleHopRefresh(diagram());
 	}
 
 	return(QGraphicsObject::itemChange(change, value));
@@ -2092,6 +2130,7 @@ void Conductor::setPath(const QPainterPath &path)
 	prepareGeometryChange();
 	m_path = path;
 	conductorGeometryChanged();
+	scheduleHopRefresh(diagram());
 	update();
 }
 
@@ -2662,6 +2701,23 @@ bool Conductor::potentialTypeFormat(PotentialType *type) const
 	lies inside the bounding rect of both conductors, which Qt repaints
 	when either moves.
 */
+/**
+	@brief Conductor::refreshHops
+	Repaint, whole, each conductor of @p diagram whose hops are not the
+	ones it was last painted with: a conductor drawn across another one
+	gives that one a hop the view would otherwise show only where the new
+	conductor is, or not at all.
+*/
+void Conductor::refreshHops(Diagram *diagram)
+{
+	if (!diagram) return;
+	for (Conductor *conductor : diagram->conductors()) {
+		if (conductor->m_painted_path.isEmpty()) continue;
+		if (conductor->paintedPath() != conductor->m_painted_path)
+			conductor->update();
+	}
+}
+
 QPainterPath Conductor::paintedPath() const
 {
 	const Diagram *parent_diagram = diagram();

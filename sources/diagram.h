@@ -90,7 +90,7 @@ class Diagram : public QGraphicsScene
 		/// the construction of a cabinet, drawn to scale in millimetres,
 		/// or the routing of the wires on a mounting plate of a cabinet
 		/// (CabinetRouting)
-		enum class FolioKind { Schematic, Cabinet, Routing };
+		enum class FolioKind { Schematic, Cabinet, Routing, PlcSummary, NetworkSummary };
 		/// Pixels of a folio for one millimetre of paper (as the
 		/// dimensions measure it)
 		static constexpr qreal pixelsPerPaperMm = 2.0;
@@ -413,6 +413,13 @@ class Diagram : public QGraphicsScene
 		void setFolioKind(FolioKind kind);
 		bool isCabinetFolio() const {return m_folio_kind == FolioKind::Cabinet;}
 		bool isRoutingFolio() const {return m_folio_kind == FolioKind::Routing;}
+			/// A summary folio (Brandon, 2026-11-28): the only one the
+			/// summary symbols of its kind go on
+		bool isPlcSummaryFolio() const {return m_folio_kind == FolioKind::PlcSummary;}
+		bool isNetworkSummaryFolio() const {return m_folio_kind == FolioKind::NetworkSummary;}
+			/// Whether a symbol of the type @p link_type (Element::kind)
+			/// may be put on this folio
+		bool acceptsSymbol(int link_type) const;
 			/// The cabinet sheet and the mounting plate a routing sheet
 			/// routes the wires of
 		QUuid routingSource() const {return m_routing_source;}

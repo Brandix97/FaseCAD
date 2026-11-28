@@ -33,6 +33,33 @@ namespace {
 		return qAbs(a.x() - b.x()) < tolerance && qAbs(a.y() - b.y()) >= tolerance;
 	}
 
+		//@a wire without the points in the middle of a straight run, nor
+		//the repeated ones: a wire saved with a point on its straight
+		//stretch (where two segments of the same direction meet) does not
+		//bend there, so another wire crossing at that point still hops
+	QVector<QPointF> straightened(const QVector<QPointF> &wire)
+	{
+		QVector<QPointF> result;
+		for (const QPointF &p : wire) {
+			if (!result.isEmpty() && QLineF(result.last(), p).length() < tolerance)
+				continue;
+			if (result.size() >= 2) {
+				const QPointF a = result.at(result.size() - 2);
+				const QPointF b = result.last();
+				const bool along = (isHorizontal(a, b) && isHorizontal(b, p)
+									&& (b.x() - a.x()) * (p.x() - b.x()) > 0)
+						|| (isVertical(a, b) && isVertical(b, p)
+							&& (b.y() - a.y()) * (p.y() - b.y()) > 0);
+				if (along) {
+					result.last() = p;
+					continue;
+				}
+			}
+			result.append(p);
+		}
+		return result;
+	}
+
 		//True if @a value is strictly between @a a and @a b, by more than @a margin
 	bool strictlyBetween(qreal value, qreal a, qreal b, qreal margin) {
 		return value > qMin(a, b) + margin && value < qMax(a, b) - margin;
@@ -99,10 +126,14 @@ WireHops::Mode WireHops::fromString(const QString &string)
 	segment, so the arc fits. Of two crossings closer than one arc
 	width, only the first hops.
 */
-QList<QPointF> WireHops::crossings(const QVector<QPointF> &wire,
-								   const QList<QVector<QPointF>> &others,
+QList<QPointF> WireHops::crossings(const QVector<QPointF> &wire_points,
+								   const QList<QVector<QPointF>> &others_points,
 								   Mode mode)
 {
+	const QVector<QPointF> wire = straightened(wire_points);
+	QList<QVector<QPointF>> others;
+	for (const QVector<QPointF> &other : others_points)
+		others << straightened(other);
 	QList<QPointF> hops;
 	if (mode == Mode::None || wire.size() < 2) {
 		return hops;
@@ -167,10 +198,11 @@ QList<QPointF> WireHops::crossings(const QVector<QPointF> &wire,
 	horizontal wire, right of a vertical one. With no hop, the same path
 	as the plain wire.
 */
-QPainterPath WireHops::path(const QVector<QPointF> &wire,
+QPainterPath WireHops::path(const QVector<QPointF> &wire_points,
 							const QList<QPointF> &hops,
 							Mode mode)
 {
+	const QVector<QPointF> wire = straightened(wire_points);
 	QPainterPath path;
 	if (wire.isEmpty()) {
 		return path;

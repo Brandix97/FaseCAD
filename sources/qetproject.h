@@ -35,6 +35,7 @@
 #include "titleblockproperties.h"
 #include "wirehops.h"
 #include "wiringrules.h"
+#include "properties/devicexrefsettings.h"
 #include "diagram.h"
 #include "autoNum/assignvariables.h"
 #include "container/qetcontainerdb.h"
@@ -350,6 +351,10 @@ class QETProject : public QObject
 			/// (Brandon, 2026-11-22)
 		bool wiresApart() const {return m_wires_apart;}
 		void setWiresApart(bool apart);
+			/// The cross references between the parts of a device
+			/// (DeviceXRefs, Brandon 2026-11-28)
+		DeviceXRefSettings deviceXRefs() const {return m_device_xrefs;}
+		void setDeviceXRefs(const DeviceXRefSettings &settings);
 		bool uprightSymbolTexts() const;
 		void setUprightSymbolTexts(bool upright);
 		const ProjectLanguages &languages() const {return m_languages;}
@@ -404,6 +409,8 @@ class QETProject : public QObject
 		void setOpenedReadOnlyByLock(bool by_lock);
 		bool isEmpty() const;
 		ElementsLocation importElement(ElementsLocation &location);
+		ElementsLocation importPartElement(ElementsLocation &location,
+										   const QString &part_name);
 			/// An embedded element and the element of a collection it was taken from
 		struct OutdatedElement {
 			ElementsLocation embedded;
@@ -444,6 +451,7 @@ class QETProject : public QObject
 	public slots:
 		Diagram *addNewDiagram(int pos = -1);
 		Diagram *addNewCabinetDiagram(int pos = -1);
+		Diagram *addNewSummaryDiagram(Diagram::FolioKind kind, int pos = -1);
 		Diagram *addNewRoutingDiagram(int pos, Diagram *cabinet, const QUuid &plate);
 		void removeDiagram(Diagram *);
 		void diagramOrderChanged(int, int);
@@ -531,6 +539,8 @@ class QETProject : public QObject
 		void convertDrawnBridges();
 		void readUsageXml(QDomDocument &xml_project);
 		void readWireHopsXml(QDomDocument &xml_project);
+		void readDeviceXRefsXml(QDomDocument &xml_project);
+		void writeDeviceXRefsXml(QDomElement &xml_element);
 		void readOriginXml(QDomDocument& xml_project);
 		void readSymbolTextsXml(QDomDocument &xml_project);
 		void readLanguagesXml(QDomDocument &xml_project);
@@ -674,6 +684,7 @@ class QETProject : public QObject
 		bool m_auto_conductor = true;
 		WireHops::Mode m_wire_hops = WireHops::Mode::None;
 		bool m_wires_apart = false;
+		DeviceXRefSettings m_device_xrefs;
 		ProjectOrigin::Mode m_origin = ProjectOrigin::Mode::TopLeft;
 			/// Texts drawn in a turned symbol stay horizontal (on for a new
 			/// project, off for one saved without it), see uprightSymbolTexts()

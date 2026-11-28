@@ -51,7 +51,9 @@ class IndiTextPropertiesWidget : public PropertiesEditorWidget
 		void on_m_break_html_pb_clicked();
 		void on_m_font_pb_clicked();
 
-		private:
+	private:
+		void setUpFunctionBox();
+		void applyFunctionText(bool function_text);
 		void setUpEditConnection();
 		void updateUi() override;
 		
@@ -62,6 +64,7 @@ class IndiTextPropertiesWidget : public PropertiesEditorWidget
 		QList <QMetaObject::Connection> m_connect_list,
 										m_edit_connection;
 		QFont m_selected_font;
+		class QCheckBox *m_function_cb = nullptr;
 		bool m_font_is_selected = false;
 };
 

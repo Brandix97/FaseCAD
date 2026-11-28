@@ -475,10 +475,9 @@ QList<CabinetRouting::Route> CabinetRouting::calculate(Diagram *routing,
 			++count.off_plate;
 			continue;
 		}
-			//A wire inside one device has no way to take
-		if (from == to) {
-			continue;
-		}
+			//A wire between two terminals of one device (a PLC's output
+			//to its own input) goes out to the ducts and back in
+			//(Brandon, 2026-11-28): routed as any other
 
 		QString end1 = wire.el1_uuid + QLatin1Char('/') + wire.terminalname1;
 		QString end2 = wire.el2_uuid + QLatin1Char('/') + wire.terminalname2;
@@ -555,7 +554,7 @@ CabinetRouting::Route CabinetRouting::reset(Diagram *routing, const Route &route
 	}
 	CabinetItem *from = drawingFor(drawings, route.from_label);
 	CabinetItem *to = drawingFor(drawings, route.to_label);
-	if (!from || !to || from == to) {
+	if (!from || !to) {
 		return route;
 	}
 	const QRectF from_rect = mmRect(from->sceneRect());

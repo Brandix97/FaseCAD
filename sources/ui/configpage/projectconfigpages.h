@@ -143,6 +143,9 @@ class ProjectMainConfigPage : public ProjectConfigPage {
 	QCheckBox *wires_apart_cb_;
 	QCheckBox *upright_symbol_texts_cb_;
 	QCheckBox *chained_reports_cb_;
+	QCheckBox *device_xrefs_cb_;
+	QComboBox *device_xrefs_secondary_cb_;
+	QComboBox *device_xrefs_place_cb_;
 	QGroupBox *terminal_label_gb_;
 	QRadioButton *terminal_label_combined_rb_;
 	QRadioButton *terminal_label_split_rb_;

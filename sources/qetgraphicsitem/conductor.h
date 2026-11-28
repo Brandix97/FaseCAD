@@ -200,6 +200,8 @@ class Conductor : public QGraphicsObject
 
 		QList<QPointF> junctions() const;
 		QPainterPath paintedPath() const;
+			/// Repaint the conductors of @p diagram whose hops changed
+		static void refreshHops(Diagram *diagram);
 		QColor drawnColor() const;
 		bool potentialTypeFormat(PotentialType *type) const;
 
@@ -260,6 +262,8 @@ class Conductor : public QGraphicsObject
 		bool m_mouse_over;
 			///Hop path cache for paintedPath(), valid while no conductor geometry changed
 		mutable QPainterPath m_hops_path;
+			///What paint() last drew, to see when the hops changed
+		QPainterPath m_painted_path;
 		mutable quint64 m_hops_generation = 0;
 		mutable int m_hops_mode = -1;
 			/// Functional properties

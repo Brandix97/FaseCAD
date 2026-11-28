@@ -99,6 +99,9 @@ class CommandTabs : public QTabWidget
 			/// search
 		void addCornerWidget(QWidget *widget);
 		void setFolded(bool folded);
+			/// The tabs of the plugins, after the others, in place of
+			/// the ones given before
+		void setPluginTabs(const QList<Tab> &tabs, const Resolver &resolver);
 
 	private:
 		QWidget *buildTab(const Tab &tab, const Resolver &resolver);
@@ -107,6 +110,7 @@ class CommandTabs : public QTabWidget
 		bool m_folded = false;
 		QToolButton *m_fold_button = nullptr;
 		QHBoxLayout *m_corner_layout = nullptr;
+		QList<QWidget *> m_plugin_tabs;
 };
 
 /**

@@ -89,6 +89,15 @@ private slots:
 		QTest::newRow("misses") << horizontal << line({150, -20}, {150, 20}) << h << QList<QPointF>();
 		QTest::newRow("bent wire, second segment")
 				<< QVector<QPointF>{{0, -40}, {0, 0}, {100, 0}} << vertical << h << QList<QPointF>{{50, 0}};
+			//Saved with a point on its straight stretch, right where the
+			//other wire crosses: no bend there, still a crossing
+		QTest::newRow("other with a point on its straight run")
+				<< horizontal << QVector<QPointF>{{50, -20}, {50, 0}, {50, 20}} << h << QList<QPointF>{{50, 0}};
+		QTest::newRow("wire with a point on its straight run")
+				<< QVector<QPointF>{{0, 0}, {50, 0}, {100, 0}} << vertical << h << QList<QPointF>{{50, 0}};
+			//A wire that turns back on itself at the point does bend
+		QTest::newRow("other turning back is no crossing")
+				<< horizontal << QVector<QPointF>{{50, -20}, {50, 0}, {50, -10}} << h << QList<QPointF>();
 	}
 
 	void crossing()

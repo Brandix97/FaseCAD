@@ -517,6 +517,8 @@
 	<file>ico/format-copy.svg</file>
 	<file>ico/distribute-horizontal.svg</file>
 	<file>ico/distribute-vertical.svg</file>
+	<file>ico/plugin.svg</file>
+	<file>ico/structure-box.svg</file>
 	<file>ico/format-apply.svg</file>
 	<file>ico/dimension-linear.svg</file>
 	<file>ico/dimension-chain.svg</file>

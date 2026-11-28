@@ -46,6 +46,9 @@ class NewElementWizard : public QWizard
 		~NewElementWizard() override;
 
 		void preselectedLocation(const ElementsLocation &location);
+			/// The type the new symbol starts with (ElementData::Type), a
+			/// summary symbol for instance (Brandon, 2026-11-28); 0: simple
+		void setStartType(int type) {m_start_type = type;}
 	
 	private:
 		NewElementWizard(const NewElementWizard &);
@@ -59,6 +62,7 @@ class NewElementWizard : public QWizard
 		QTreeView *m_tree_view = nullptr;
 		ElementsLocation m_chosen_location;
 		ElementsCollectionModel *m_model = nullptr;
+		int m_start_type = 0;
 	
 		// methods
 	private:

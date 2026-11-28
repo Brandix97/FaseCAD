@@ -1560,6 +1560,11 @@ void DynamicElementTextItem::elementInfoChanged()
 		}
 		else {
 			final_text = dc.value(m_info_name).toString();
+				//Worked out and named after a terminal (summary_function@DI
+				//a.0): no key a context takes, read where it is kept
+			if (final_text.isEmpty() && element) {
+				final_text = element->computedInfo().value(m_info_name);
+			}
 		}
 	}
 	else if (m_text_from == CompositeText)

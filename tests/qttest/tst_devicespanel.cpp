@@ -52,6 +52,7 @@ class tst_devicespanel : public QObject
 
 private slots:
 	void naturalOrder();
+	void symbolsOfTheArticleToPlace();
 	void listsTheProject();
 	void oneLinePerDevice();
 	void labelsAreNumbered();
@@ -65,6 +66,29 @@ void tst_devicespanel::naturalOrder()
 	QVERIFY(DevicesPanel::labelLessThan(QStringLiteral("-K2"), QStringLiteral("-K10")));
 	QVERIFY(!DevicesPanel::labelLessThan(QStringLiteral("-K10"), QStringLiteral("-K2")));
 	QVERIFY(DevicesPanel::labelLessThan(QStringLiteral("-f1"), QStringLiteral("-F2")));
+}
+
+/**
+	The symbols of a device's article not drawn yet under its label
+	(Brandon, 2026-11-28): told apart by file name, wherever the drawn
+	one was put in the project; one drawn stands for one of the article
+*/
+void tst_devicespanel::symbolsOfTheArticleToPlace()
+{
+	const QStringList article{
+		QStringLiteral("custom://imported_parts/ACME/supply.elmt"),
+		QStringLiteral("custom://imported_parts/ACME/di.elmt"),
+		QStringLiteral("custom://imported_parts/ACME/di.elmt"),
+		QStringLiteral("common://10_electric/plc/dq.elmt")};
+	QCOMPARE(DevicesPanel::unplacedSymbols(article, {}), article);
+	const QStringList drawn{
+		QStringLiteral("embed://import/acme-plc/supply.elmt"),
+		QStringLiteral("embed://import/acme-plc/DI.elmt")};
+	QCOMPARE(DevicesPanel::unplacedSymbols(article, drawn),
+			 (QStringList{article.at(2), article.at(3)}));
+	QVERIFY(DevicesPanel::unplacedSymbols(article, drawn + drawn
+										  + QStringList{QStringLiteral("embed://import/x/dq.elmt")})
+			.isEmpty());
 }
 
 void tst_devicespanel::listsTheProject()

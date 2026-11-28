@@ -134,6 +134,30 @@ private slots:
 		QVERIFY(project->wiresApart());
 	}
 
+	/// A wire drawn across another one hops at once, as it does once
+	/// moved: the vertical wire is drawn first, the crossing one after
+	void aWireDrawnAcrossHops()
+	{
+		Element *top = symbol(QStringLiteral("v_top"), QStringLiteral("s"), QPointF(300, 50));
+		Element *bottom = symbol(QStringLiteral("v_bottom"), QStringLiteral("n"), QPointF(300, 350));
+		QVERIFY(top && bottom);
+		auto *vertical = new Conductor(top->terminals().first(), bottom->terminals().first());
+		m_diagram->addItem(vertical);
+			//Painted once before the other wire exists
+		QCOMPARE(vertical->paintedPath(), vertical->path());
+
+		Conductor *crossing = wire(QStringLiteral("h"), 150, 450);
+		QVERIFY(crossing);
+		crossing->keepApart();
+		QVERIFY2(crossing->paintedPath() != crossing->path(), "the new wire draws no hop");
+		const QPainterPath at_once = crossing->paintedPath();
+
+			//Moved away and back: the same hop
+		crossing->setPos(crossing->pos() + QPointF(0, 0.0001));
+		crossing->setPos(crossing->pos() - QPointF(0, 0.0001));
+		QCOMPARE(crossing->paintedPath(), at_once);
+	}
+
 	void aWireIsKeptOffTheOther()
 	{
 		Conductor *first = wire(QStringLiteral("a"), 100, 200);
@@ -214,6 +238,31 @@ private slots:
 		QCOMPARE(reopened.state(), QETProject::Ok);
 		QVERIFY(!reopened.wiresApart());
 		QVERIFY(reopened.wireHops() == WireHops::Mode::Vertical);
+	}
+
+	/// A project saved before the hops existed shows them; "No hop"
+	/// chosen stays so
+	void anOldProjectHops()
+	{
+		QTemporaryDir dir;
+		QVERIFY(dir.isValid());
+		QETProject project;
+		project.addNewDiagram();
+		project.setWireHops(WireHops::Mode::Horizontal);
+		project.setFilePath(dir.filePath(QStringLiteral("old.qet")));
+		QVERIFY(project.write().isOk());
+		{
+				//Horizontal and nothing else: saved as a project of before
+			QFile file(project.filePath());
+			QVERIFY(file.open(QIODevice::ReadOnly));
+			QVERIFY(!file.readAll().contains("wire_crossings"));
+			QETProject reopened(project.filePath());
+			QVERIFY(reopened.wireHops() == WireHops::Mode::Horizontal);
+		}
+		project.setWireHops(WireHops::Mode::None);
+		QVERIFY(project.write().isOk());
+		QETProject reopened(project.filePath());
+		QVERIFY(reopened.wireHops() == WireHops::Mode::None);
 	}
 };
 

@@ -53,6 +53,13 @@
 #include "../qetgraphicsitem/diagramimageitem.h"
 #include "../utils/qetsettings.h"
 #include "assistantinfo.h"
+#include "scriptdialog.h"
+#include "../qetversion.h"
+#include <QApplication>
+#include <QFileDialog>
+#include <QSaveFile>
+#include <QSettings>
+#include <atomic>
 
 // See diagrameventaddpdf.h: a missing QtPdf module (or Qt < 6.4) is not
 // fatal at build time, so addPdfPage() is always declared -- a script
@@ -5792,6 +5799,71 @@ bool QetScriptApi::zoomReset()
 	that keeps --export-* and --resave from hanging on a warning dialog.
 	Interactively, a real person is there to see and dismiss it.
 */
+namespace {
+	std::atomic<int> waiting_on_user{0};
+	struct WaitOnUser {
+		WaitOnUser() {++waiting_on_user;}
+		~WaitOnUser() {--waiting_on_user;}
+	};
+}
+
+int QetScriptApi::waitingOnUser()
+{
+	return waiting_on_user.load();
+}
+
+QVariant QetScriptApi::dialog(const QVariantMap &spec)
+{
+	if (m_live_log) {
+		log(QStringLiteral("qet.dialog: no window from here"));
+		return QVariant();
+	}
+	WaitOnUser wait;
+	ScriptDialog window(spec, QApplication::activeWindow());
+	for (const QString &error : window.errors())
+		log(QStringLiteral("qet.dialog: ") + error);
+	if (window.exec() != QDialog::Accepted) return QVariant();
+	return window.values();
+}
+
+QString QetScriptApi::chooseSaveFile(const QString &caption, const QString &filter,
+									 const QString &suggestedName)
+{
+	if (m_live_log || filesRefused("chooseSaveFile")) return QString();
+	WaitOnUser wait;
+	QSettings settings;
+	const QString folder = settings.value(QStringLiteral("plugins/save_folder"),
+										  QDir::homePath()).toString();
+	const QString path = QFileDialog::getSaveFileName(
+				QApplication::activeWindow(), caption,
+				suggestedName.isEmpty() ? folder : QDir(folder).filePath(suggestedName),
+				filter);
+	if (!path.isEmpty())
+		settings.setValue(QStringLiteral("plugins/save_folder"), QFileInfo(path).absolutePath());
+	return path;
+}
+
+bool QetScriptApi::writeTextFile(const QString &path, const QString &text)
+{
+	if (filesRefused("writeTextFile")) return false;
+	QSaveFile file(path);
+	if (path.isEmpty() || !file.open(QIODevice::WriteOnly)) {
+		log(QStringLiteral("qet.writeTextFile: cannot write %1").arg(path));
+		return false;
+	}
+	file.write(text.toUtf8());
+	if (!file.commit()) {
+		log(QStringLiteral("qet.writeTextFile: cannot write %1").arg(path));
+		return false;
+	}
+	return true;
+}
+
+QString QetScriptApi::fasecadVersion() const
+{
+	return QetVersion::productVersion();
+}
+
 void QetScriptApi::showMessage(const QString &text)
 {
 	if (m_live_log) {

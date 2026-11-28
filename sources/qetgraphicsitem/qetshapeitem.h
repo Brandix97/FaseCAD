@@ -69,6 +69,8 @@ class QetShapeItem : public QetGraphicsItem
 
 	Q_PROPERTY(qreal startAngle READ startAngle WRITE setStartAngle NOTIFY arcChanged)
 	Q_PROPERTY(qreal endAngle READ endAngle WRITE setEndAngle NOTIFY arcChanged)
+	Q_PROPERTY(QString structurePlant READ structurePlant WRITE setStructurePlant)
+	Q_PROPERTY(QString structureLocation READ structureLocation WRITE setStructureLocation)
 
 	signals:
 		void penChanged();
@@ -177,6 +179,16 @@ class QetShapeItem : public QetGraphicsItem
 		QPolygonF polygon() const {return m_polygon;}
 		bool setPolygon (const QPolygonF &polygon);
 		bool isClosed() const {return m_closed;}
+			/// A structure box (Brandon, 2026-11-28): a rectangle whose
+			/// plant (=) and location (+) are given to every symbol in it
+			/// (StructureBoxes)
+		bool isStructureBox() const {return m_structure_box;}
+		void setStructureBox(bool box);
+		QString structurePlant() const {return m_structure_plant;}
+		void setStructurePlant(const QString &plant);
+		QString structureLocation() const {return m_structure_location;}
+		void setStructureLocation(const QString &location);
+		QString structureText() const;
 		void setClosed (bool close);
 		qreal XRadius() const {return m_xRadius;}
 		void setXRadius(qreal X);
@@ -360,5 +372,9 @@ class QetShapeItem : public QetGraphicsItem
 		QPointF          m_curveDragOriginalP1, m_curveDragOriginalP2;   // absolute control points at drag start, fixed for the whole drag
 		QPointF          m_curveDragPressPos;        // local position at press, to tell a plain click from a real drag
 		bool             m_curveDragEngaged = false; // false until the drag actually exceeds a small threshold
+	private:
+		bool m_structure_box = false;
+		QString m_structure_plant;
+		QString m_structure_location;
 };
 #endif // QETSHAPEITEM_H

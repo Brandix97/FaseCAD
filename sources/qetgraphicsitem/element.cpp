@@ -894,6 +894,10 @@ bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
 	QString my_type_str = xml_def_elmt.attribute(QStringLiteral("link_type"), QStringLiteral("simple"));
 	if (my_type_str == QLatin1String("conductor_definition")) {
 		m_link_type = Element::ConductorDefinition;
+	} else if (my_type_str == QLatin1String("plc_summary")) {
+		m_link_type = Element::PlcSummary;
+	} else if (my_type_str == QLatin1String("network_summary")) {
+		m_link_type = Element::NetworkSummary;
 	}
 
 		//load kind informations
@@ -2200,6 +2204,10 @@ QString Element::linkTypeToString() const
 			return QStringLiteral("Thumbnail");
 		case ConductorDefinition:
 			return QStringLiteral("ConductorDefinition");
+		case PlcSummary:
+			return QStringLiteral("PlcSummary");
+		case NetworkSummary:
+			return QStringLiteral("NetworkSummary");
 		default:
 			return QStringLiteral("Unknown");
 	}
@@ -3384,7 +3392,32 @@ QString Element::infoForDisplay(const QString &info_name)
 		return conductorInfoForDisplay(info_name);
 	}
 
-	return m_data.m_informations.value(info_name).toString();
+	const QString stored = m_data.m_informations.value(info_name).toString();
+	if (stored.isEmpty() && m_computed_info.contains(info_name)) {
+		return m_computed_info.value(info_name);
+	}
+	return stored;
+}
+
+/**
+	@brief Element::setComputedInfo
+	What the texts of this element show of the project without it being
+	saved; the texts are drawn again when it changes
+*/
+void Element::setComputedInfo(const QHash<QString, QString> &values)
+{
+	if (values == m_computed_info) {
+		return;
+	}
+	m_computed_info = values;
+	for (DynamicElementTextItem *text : dynamicTextItems()) {
+		text->refreshConductorText();
+	}
+	for (ElementTextItemGroup *group : textGroups()) {
+		for (DynamicElementTextItem *text : group->texts()) {
+			text->refreshConductorText();
+		}
+	}
 }
 
 /**
@@ -3444,6 +3477,12 @@ void Element::addDisplayValues(DiagramContext &dc)
 	dc.addValue(QETInformation::ELMT_LABEL,            labelForDisplay());
 	dc.addValue(QETInformation::ELMT_TERMINAL_NUMBER, terminalNumberForDisplay());
 	dc.addValue(QETInformation::ELMT_CONDUCTOR_TEXT,  conductorTextForDisplay());
+		//Worked out, where nothing is stored
+	for (auto it = m_computed_info.constBegin() ; it != m_computed_info.constEnd() ; ++it) {
+		if (dc.value(it.key()).toString().isEmpty()) {
+			dc.addValue(it.key(), it.value());
+		}
+	}
 
 	if (m_data.m_type == ElementData::Terminal) {
 		for (const QString &key

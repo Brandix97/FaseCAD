@@ -20,6 +20,7 @@
 
 #include "../PropertiesEditor/propertieseditordialog.h"
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
+#include "../structureboxes.h"
 #include "../QetGraphicsItemModeler/qetgraphicshandlerutility.h"
 #include "../createdxf.h"
 #include "../diagram.h"
@@ -704,6 +705,21 @@ void QetShapeItem::paint(
 	}
 
 	painter->drawPath(outline());
+
+		//A structure box says its plant and location in its corner
+	if (m_structure_box && m_shapeType == Rectangle) {
+		const QString text = structureText();
+		if (!text.isEmpty()) {
+			painter->save();
+			QFont font = painter->font();
+			font.setPointSizeF(7);
+			painter->setFont(font);
+			painter->setPen(m_pen.color());
+			const QRectF box = QRectF(m_P1, m_P2).normalized();
+			painter->drawText(box.adjusted(3, 2, -3, -2), Qt::AlignLeft | Qt::AlignTop, text);
+			painter->restore();
+		}
+	}
 
 	// Segment midpoint markers: a small, distinct diamond at the middle
 	// of every segment -- straight or already curved -- shown only in
@@ -3032,6 +3048,11 @@ void QetShapeItem::handlerMouseReleaseEvent(int handlerIndex)
 		// two separate actions, since the shared label is otherwise
 		// indistinguishable from a genuine continuation.
 		new QUndoCommand(undo);
+			//A structure box given a new size gives its plant and
+			//location to what it now holds, in the same step
+		if (m_structure_box) {
+			StructureBoxes::apply(diagram(), undo);
+		}
 		diagram()->undoStack().push(undo);
 	}
 }
@@ -3042,6 +3063,43 @@ void QetShapeItem::handlerMouseReleaseEvent(int handlerIndex)
 	@param e element where is stored this item
 	@return true if load success
 */
+void QetShapeItem::setStructureBox(bool box)
+{
+	m_structure_box = box;
+	update();
+}
+
+void QetShapeItem::setStructurePlant(const QString &plant)
+{
+	m_structure_plant = plant.trimmed();
+	update();
+}
+
+void QetShapeItem::setStructureLocation(const QString &location)
+{
+	m_structure_location = location.trimmed();
+	update();
+}
+
+/**
+	@brief QetShapeItem::structureText
+	@return "=A1+S1": the plant and the location of a structure box, each
+	with its sign when it has none
+*/
+QString QetShapeItem::structureText() const
+{
+	QString text;
+	if (!m_structure_plant.isEmpty()) {
+		text += m_structure_plant.startsWith(QLatin1Char('=')) ? m_structure_plant
+															   : QLatin1Char('=') + m_structure_plant;
+	}
+	if (!m_structure_location.isEmpty()) {
+		text += m_structure_location.startsWith(QLatin1Char('+')) ? m_structure_location
+																  : QLatin1Char('+') + m_structure_location;
+	}
+	return text;
+}
+
 bool QetShapeItem::fromXml(const QDomElement &e)
 {
 	if (e.tagName() != "shape") return (false);
@@ -3050,6 +3108,9 @@ bool QetShapeItem::fromXml(const QDomElement &e)
 		//one this item already has, Diagram::fromXml() settles it.
 	const QUuid uuid(e.attribute(QStringLiteral("uuid")));
 	if (!uuid.isNull() && uuid != m_uuid) setUuid(uuid);
+	m_structure_box = e.attribute(QStringLiteral("structure_box")) == QLatin1String("true");
+	m_structure_plant = e.attribute(QStringLiteral("plant"));
+	m_structure_location = e.attribute(QStringLiteral("location"));
 
 	// fromXml() is also used to *restore* an already-displayed item's
 	// state (PromoteShapeCommand's undo/redo), not just to populate a
@@ -3185,6 +3246,12 @@ QDomElement QetShapeItem::toXml(QDomDocument &document) const
 	result.appendChild(QETXML::brushToXml(document, m_brush));
 	result.setAttribute("is_movable", bool(is_movable_));
 	result.setAttribute("closed", bool(m_closed));
+		//Only for a structure box, so other shapes save as before
+	if (m_structure_box) {
+		result.setAttribute(QStringLiteral("structure_box"), QStringLiteral("true"));
+		result.setAttribute(QStringLiteral("plant"), m_structure_plant);
+		result.setAttribute(QStringLiteral("location"), m_structure_location);
+	}
 
 	if (m_shapeType != Polygon && m_shapeType != Path)
 	{

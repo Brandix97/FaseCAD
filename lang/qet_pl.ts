@@ -3971,6 +3971,22 @@ Kontynuować?</translation>
         <source>Symbol %1 of %2: %3. Tab: next symbol, Shift+Tab: previous one</source>
         <translation type="unfinished">Symbol %1 z %2: %3. Tab: następny symbol, Shift+Tab: poprzedni</translation>
     </message>
+    <message>
+        <source>A PLC summary symbol goes on a PLC summary sheet only.</source>
+        <translation type="unfinished">Symbol zestawienia PLC trafia tylko na arkusz zestawienia PLC.</translation>
+    </message>
+    <message>
+        <source>A network summary symbol goes on a network summary sheet only.</source>
+        <translation type="unfinished">Symbol zestawienia sieci trafia tylko na arkusz zestawienia sieci.</translation>
+    </message>
+    <message>
+        <source>Summary symbol</source>
+        <translation type="unfinished">Symbol zestawienia</translation>
+    </message>
+    <message>
+        <source>The device this summary symbol shows:</source>
+        <translation type="unfinished">Urządzenie, które pokazuje ten symbol zestawienia:</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddImage</name>
@@ -6737,6 +6753,14 @@ Kontynuować?</translation>
         <source>Ground</source>
         <translation>Ochronny</translation>
     </message>
+    <message>
+        <source>PLC summary symbol</source>
+        <translation type="unfinished">Symbol zestawienia PLC</translation>
+    </message>
+    <message>
+        <source>Network summary symbol</source>
+        <translation type="unfinished">Symbol zestawienia sieci</translation>
+    </message>
 </context>
 <context>
     <name>ElementPropertiesWidget</name>
@@ -7567,6 +7591,14 @@ Importując ten plik, potwierdzasz, że:
         <source>Download the symbols</source>
         <translation type="unfinished">Pobierz symbole</translation>
     </message>
+    <message>
+        <source>New PLC summary symbol</source>
+        <translation type="unfinished">Nowy symbol zestawienia PLC</translation>
+    </message>
+    <message>
+        <source>New network summary symbol</source>
+        <translation type="unfinished">Nowy symbol zestawienia sieci</translation>
+    </message>
 </context>
 <context>
     <name>ElementsPanel</name>
@@ -7766,6 +7798,14 @@ Importując ten plik, potwierdzasz, że:
     <message>
         <source>Insert a routing sheet for this cabinet</source>
         <translation type="unfinished">Wstaw arkusz prowadzenia dla tej szafy</translation>
+    </message>
+    <message>
+        <source>Insert a PLC summary sheet</source>
+        <translation type="unfinished">Wstaw arkusz zestawienia PLC</translation>
+    </message>
+    <message>
+        <source>Insert a network summary sheet</source>
+        <translation type="unfinished">Wstaw arkusz zestawienia sieci</translation>
     </message>
 </context>
 <context>
@@ -10814,6 +10854,22 @@ Użyj do tego zaawansowanego edytora.</translation>
         <source>Modify the properties of a text</source>
         <translation>Zmiana właściwości tekstu</translation>
     </message>
+    <message>
+        <source>Function text</source>
+        <translation type="unfinished">Tekst funkcji</translation>
+    </message>
+    <message>
+        <source>What is drawn over and under this text, within its width, has this text as function, unless it has a function of its own</source>
+        <translation type="unfinished">To, co narysowano nad i pod tym tekstem w obrębie jego szerokości, ma ten tekst jako funkcję, chyba że ma własną</translation>
+    </message>
+    <message>
+        <source>Make a function text</source>
+        <translation type="unfinished">Zmień w tekst funkcji</translation>
+    </message>
+    <message>
+        <source>Make a plain text</source>
+        <translation type="unfinished">Zmień w zwykły tekst</translation>
+    </message>
 </context>
 <context>
     <name>IntegrationMoveTitleBlockTemplatesHandler</name>
@@ -13800,6 +13856,41 @@ Najpierw nadaj im inną numerację.</numerusform>
         <source>When a conductor is drawn, or an element moved, the middle stretch of an automatic conductor that would lie along another one is moved, one grid step at a time, to where it is free. It keeps that path as one moved by hand. Conductors already drawn are not changed.</source>
         <comment>tooltip</comment>
         <translation type="unfinished">Gdy rysowany jest przewód lub przesuwany element, środkowy odcinek automatycznego przewodu, który biegłby wzdłuż innego, jest przesuwany o jeden krok siatki naraz tam, gdzie jest wolne miejsce. Zachowuje to drogę, jakby przesunięto ją ręcznie. Już narysowane przewody się nie zmieniają.</translation>
+    </message>
+    <message>
+        <source>Show where the other parts of a device are</source>
+        <comment>checkbox label</comment>
+        <translation type="unfinished">Pokazuj, gdzie są pozostałe części urządzenia</translation>
+    </message>
+    <message>
+        <source>The symbols sharing a label (a PLC drawn as its supply, its inputs and its outputs...) are one device: its main part, the one made of parts, lists the places of the others. Contacts keep the cross reference of their coil.</source>
+        <comment>tooltip</comment>
+        <translation type="unfinished">Symbole o tym samym oznaczeniu (PLC narysowany jako zasilanie, wejścia i wyjścia...) to jedno urządzenie: jego część główna, ta złożona z artykułów, wymienia miejsca pozostałych. Styki zachowują odsyłacz swojej cewki.</translation>
+    </message>
+    <message>
+        <source>The other parts show the main part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pozostałe części pokazują część główną</translation>
+    </message>
+    <message>
+        <source>The other parts show every part</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pozostałe części pokazują wszystkie części</translation>
+    </message>
+    <message>
+        <source>The other parts show nothing</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pozostałe części nic nie pokazują</translation>
+    </message>
+    <message>
+        <source>Under the label</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pod oznaczeniem</translation>
+    </message>
+    <message>
+        <source>Below the symbol</source>
+        <comment>device cross references</comment>
+        <translation type="unfinished">Pod symbolem</translation>
     </message>
 </context>
 <context>
@@ -17859,6 +17950,26 @@ Aby zrobić z niego skrypt, poproś swojego asystenta AI: poniższy przycisk kop
         <source>The services of fasecad.com are not open yet</source>
         <translation type="unfinished">Usługi fasecad.com nie są jeszcze otwarte</translation>
     </message>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Ramka struktury</translation>
+    </message>
+    <message>
+        <source>Adds a dash-dotted box: the symbols in it take its plant (=) and location (+)</source>
+        <translation type="unfinished">Dodaje ramkę kreska-kropka: symbole w niej otrzymują jej instalację (=) i miejsce (+)</translation>
+    </message>
+    <message>
+        <source>Plugins…</source>
+        <translation type="unfinished">Wtyczki…</translation>
+    </message>
+    <message>
+        <source>Install, switch on or off and remove the plugins</source>
+        <translation type="unfinished">Instaluj, włączaj lub wyłączaj i usuwaj wtyczki</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Wtyczki</translation>
+    </message>
 </context>
 <context>
     <name>QETElementEditor</name>
@@ -18847,6 +18958,14 @@ wymagane warunki nie zostały spełnione</translation>
         <source>Format copied: select parts and Apply format</source>
         <translation type="unfinished">Format skopiowany: zaznacz elementy i Zastosuj format</translation>
     </message>
+    <message>
+        <source>Show the frames of the texts</source>
+        <translation type="unfinished">Pokaż ramki tekstów</translation>
+    </message>
+    <message>
+        <source>Draws a dashed frame around each text to see where it is; the frames are not saved</source>
+        <translation type="unfinished">Rysuje przerywaną ramkę wokół każdego tekstu, aby widzieć, gdzie jest; ramki nie są zapisywane</translation>
+    </message>
 </context>
 <context>
     <name>QETMainWindow</name>
@@ -19215,6 +19334,16 @@ Co chcesz zrobić?</translation>
     <message>
         <source>Not to scale</source>
         <translation type="unfinished">Bez skali</translation>
+    </message>
+    <message>
+        <source>PLC summary</source>
+        <comment>title of a new PLC summary folio</comment>
+        <translation type="unfinished">Zestawienie PLC</translation>
+    </message>
+    <message>
+        <source>Network summary</source>
+        <comment>title of a new network summary folio</comment>
+        <translation type="unfinished">Zestawienie sieci</translation>
     </message>
 </context>
 <context>
@@ -22720,6 +22849,38 @@ Aby ją włączyć: Konfiguracja QElectroTech &gt; Ogólne &gt; Projekty, lub zd
         <source>Bill of materials</source>
         <translation type="unfinished">Zestawienie materiałów</translation>
     </message>
+    <message>
+        <source>Function text of the terminal</source>
+        <translation type="unfinished">Tekst funkcji zacisku</translation>
+    </message>
+    <message>
+        <source>Place of the terminal</source>
+        <translation type="unfinished">Miejsce zacisku</translation>
+    </message>
+    <message>
+        <source>Terminal %1</source>
+        <translation type="unfinished">Zacisk %1</translation>
+    </message>
+    <message>
+        <source>Function text of %1</source>
+        <translation type="unfinished">Tekst funkcji %1</translation>
+    </message>
+    <message>
+        <source>Place of %1</source>
+        <translation type="unfinished">Miejsce %1</translation>
+    </message>
+    <message>
+        <source>Function text of the terminal %1</source>
+        <translation type="unfinished">Tekst funkcji zacisku %1</translation>
+    </message>
+    <message>
+        <source>Place of the terminal %1</source>
+        <translation type="unfinished">Miejsce zacisku %1</translation>
+    </message>
+    <message>
+        <source>Plugin: %1</source>
+        <translation type="unfinished">Wtyczka: %1</translation>
+    </message>
 </context>
 <context>
     <name>QTextOrientationWidget</name>
@@ -24779,6 +24940,10 @@ Pozostałe pola nie są używane.</translation>
         <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="443"/>
         <source>Y radius</source>
         <translation>Promień Y</translation>
+    </message>
+    <message>
+        <source>Plant and location of the structure box…</source>
+        <translation type="unfinished">Instalacja i miejsce ramki struktury…</translation>
     </message>
 </context>
 <context>
@@ -31726,6 +31891,34 @@ skojarzenie nazwy &quot;volta&quot; i wartości &quot;1745&quot; spowoduje zast�
             <numerusform>Usuń %n urządzeń</numerusform>
         </translation>
     </message>
+    <message>
+        <source>To place</source>
+        <translation type="unfinished">Do umieszczenia</translation>
+    </message>
+    <message>
+        <source>Double-click to place this symbol of %1 on the sheet</source>
+        <translation type="unfinished">Kliknij dwukrotnie, aby umieścić na arkuszu ten symbol %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n symbol(s) of its article to place</source>
+        <translation type="unfinished">
+            <numerusform>%n symbol jego artykułu do umieszczenia</numerusform>
+            <numerusform>%n symbole jego artykułu do umieszczenia</numerusform>
+            <numerusform>%n symboli jego artykułu do umieszczenia</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Place on the sheet</source>
+        <translation type="unfinished">Umieść na arkuszu</translation>
+    </message>
+    <message>
+        <source>Place a symbol</source>
+        <translation type="unfinished">Umieść symbol</translation>
+    </message>
+    <message>
+        <source>Open a sheet of this project to place the symbol on.</source>
+        <translation type="unfinished">Otwórz arkusz tego projektu, aby umieścić na nim symbol.</translation>
+    </message>
 </context>
 <context>
     <name>DiagramEventAddCabinetItem</name>
@@ -35204,6 +35397,20 @@ katalog</translation>
         <source>%1: coming soon</source>
         <translation type="unfinished">%1: wkrótce</translation>
     </message>
+    <message>
+        <source>Structure</source>
+        <translation type="unfinished">Struktura</translation>
+    </message>
+    <message>
+        <source>Structure
+box</source>
+        <translation type="unfinished">Ramka
+struktury</translation>
+    </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Wtyczki</translation>
+    </message>
 </context>
 <context>
     <name>ElementFormatPattern</name>
@@ -35232,6 +35439,291 @@ katalog</translation>
     <message>
         <source>Align</source>
         <translation type="unfinished">Wyrównaj</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceXRefItem</name>
+    <message>
+        <source>Where the other parts of this device are. Double-click one to show it.</source>
+        <translation type="unfinished">Gdzie są pozostałe części tego urządzenia. Kliknij dwukrotnie jedną, aby ją pokazać.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginLibrary</name>
+    <message>
+        <source>%1: no plugin.json</source>
+        <translation type="unfinished">%1: brak plugin.json</translation>
+    </message>
+    <message>
+        <source>%1: the folder is not named after the id of the plugin (%2)</source>
+        <translation type="unfinished">%1: folder nie nazywa się jak id wtyczki (%2)</translation>
+    </message>
+    <message>
+        <source>The plugin %1 is already installed</source>
+        <translation type="unfinished">Wtyczka %1 jest już zainstalowana</translation>
+    </message>
+    <message>
+        <source>The plugin installed before cannot be removed</source>
+        <translation type="unfinished">Nie można usunąć wcześniej zainstalowanej wtyczki</translation>
+    </message>
+    <message>
+        <source>%1 cannot be written</source>
+        <translation type="unfinished">Nie można zapisać %1</translation>
+    </message>
+    <message>
+        <source>The plugin %1 cannot be removed</source>
+        <translation type="unfinished">Nie można usunąć wtyczki %1</translation>
+    </message>
+    <message>
+        <source>%1 cannot be read</source>
+        <translation type="unfinished">Nie można odczytać %1</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManagerDialog</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished">Wtyczki</translation>
+    </message>
+    <message>
+        <source>Plugins add their own commands to FaseCAD: buttons, windows, exports and reports made for a customer. Untick a plugin to switch it off without removing it.</source>
+        <translation type="unfinished">Wtyczki dodają do FaseCAD własne polecenia: przyciski, okna, eksporty i raporty zrobione dla klienta. Odznacz wtyczkę, aby ją wyłączyć bez usuwania.</translation>
+    </message>
+    <message>
+        <source>Plugin</source>
+        <translation type="unfinished">Wtyczka</translation>
+    </message>
+    <message>
+        <source>Commands</source>
+        <translation type="unfinished">Polecenia</translation>
+    </message>
+    <message>
+        <source>Install...</source>
+        <translation type="unfinished">Zainstaluj...</translation>
+    </message>
+    <message>
+        <source>Open the plugins folder</source>
+        <translation type="unfinished">Otwórz folder wtyczek</translation>
+    </message>
+    <message>
+        <source>Read the plugins folder again, after changing a plugin by hand</source>
+        <translation type="unfinished">Odczytaj ponownie folder wtyczek po ręcznej zmianie wtyczki</translation>
+    </message>
+    <message>
+        <source>Install a plugin</source>
+        <translation type="unfinished">Zainstaluj wtyczkę</translation>
+    </message>
+    <message>
+        <source>FaseCAD plugins (*.fasplugin)</source>
+        <translation type="unfinished">Wtyczki FaseCAD (*.fasplugin)</translation>
+    </message>
+    <message>
+        <source>Remove the plugin</source>
+        <translation type="unfinished">Usuń wtyczkę</translation>
+    </message>
+    <message>
+        <source>Remove the plugin %1 and its files?</source>
+        <translation type="unfinished">Usunąć wtyczkę %1 i jej pliki?</translation>
+    </message>
+    <message>
+        <source>Not loaded: %1</source>
+        <translation type="unfinished">Nie załadowano: %1</translation>
+    </message>
+    <message>
+        <source>No plugin installed. Install a .fasplugin file to add one.</source>
+        <translation type="unfinished">Brak zainstalowanych wtyczek. Zainstaluj plik .fasplugin, aby dodać wtyczkę.</translation>
+    </message>
+    <message>
+        <source>Choose a plugin to see what it does.</source>
+        <translation type="unfinished">Wybierz wtyczkę, aby zobaczyć, co robi.</translation>
+    </message>
+    <message>
+        <source>Commands:</source>
+        <translation type="unfinished">Polecenia:</translation>
+    </message>
+    <message>
+        <source>It may:</source>
+        <translation type="unfinished">Może:</translation>
+    </message>
+    <message>
+        <source>only work on the open project</source>
+        <translation type="unfinished">pracować tylko na otwartym projekcie</translation>
+    </message>
+    <message>
+        <source>Folder:</source>
+        <translation type="unfinished">Folder:</translation>
+    </message>
+    <message>
+        <source>Install %1 %2 by %3?</source>
+        <translation type="unfinished">Zainstalować %1 %2 od %3?</translation>
+    </message>
+    <message>
+        <source>an unknown author</source>
+        <translation type="unfinished">nieznanego autora</translation>
+    </message>
+    <message>
+        <source>It only works on the open project.</source>
+        <translation type="unfinished">Pracuje tylko na otwartym projekcie.</translation>
+    </message>
+    <message>
+        <source>Besides the open project, it may:</source>
+        <translation type="unfinished">Oprócz otwartego projektu może:</translation>
+    </message>
+    <message>
+        <source>Install only plugins from someone you trust.</source>
+        <translation type="unfinished">Instaluj tylko wtyczki od kogoś, komu ufasz.</translation>
+    </message>
+    <message>
+        <source>It replaces the plugin installed with this id.</source>
+        <translation type="unfinished">Zastępuje wtyczkę zainstalowaną z tym id.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginManifest</name>
+    <message>
+        <source>The file holds no plugin.json</source>
+        <translation type="unfinished">Plik nie zawiera plugin.json</translation>
+    </message>
+    <message>
+        <source>The file holds a path FaseCAD refuses: %1</source>
+        <translation type="unfinished">Plik zawiera ścieżkę, którą FaseCAD odrzuca: %1</translation>
+    </message>
+    <message>
+        <source>Write files on this computer (exports, reports)</source>
+        <translation type="unfinished">Zapisywać pliki na tym komputerze (eksporty, raporty)</translation>
+    </message>
+    <message>
+        <source>Unknown: %1</source>
+        <translation type="unfinished">Nieznane: %1</translation>
+    </message>
+    <message>
+        <source>plugin.json is not a JSON object: %1</source>
+        <translation type="unfinished">plugin.json nie jest obiektem JSON: %1</translation>
+    </message>
+    <message>
+        <source>The id "%1" is not usable: letters, digits, ".", "-" and "_"</source>
+        <translation type="unfinished">Nie można użyć id "%1": litery, cyfry, ".", "-" i "_"</translation>
+    </message>
+    <message>
+        <source>The plugin API %1 does not exist</source>
+        <translation type="unfinished">API wtyczek %1 nie istnieje</translation>
+    </message>
+    <message>
+        <source>The plugin needs the plugin API %1; this FaseCAD gives %2: update FaseCAD</source>
+        <translation type="unfinished">Wtyczka potrzebuje API wtyczek %1; ten FaseCAD daje %2: zaktualizuj FaseCAD</translation>
+    </message>
+    <message>
+        <source>The plugin asks for a permission FaseCAD does not know: %1</source>
+        <translation type="unfinished">Wtyczka prosi o uprawnienie nieznane FaseCAD: %1</translation>
+    </message>
+    <message>
+        <source>A command has no usable id, or the id "%1" is repeated</source>
+        <translation type="unfinished">Polecenie nie ma użytecznego id albo id "%1" się powtarza</translation>
+    </message>
+    <message>
+        <source>The command "%1" names no function of its script</source>
+        <translation type="unfinished">Polecenie "%1" nie wskazuje żadnej funkcji swojego skryptu</translation>
+    </message>
+    <message>
+        <source>The command "%1" names a file outside the plugin</source>
+        <translation type="unfinished">Polecenie "%1" wskazuje plik spoza wtyczki</translation>
+    </message>
+    <message>
+        <source>The plugin has no command</source>
+        <translation type="unfinished">Wtyczka nie ma żadnego polecenia</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptDialog</name>
+    <message>
+        <source>FaseCAD</source>
+        <translation type="unfinished">FaseCAD</translation>
+    </message>
+    <message>
+        <source>A field has no id, or the id %1 is repeated</source>
+        <translation type="unfinished">Pole nie ma id albo id %1 się powtarza</translation>
+    </message>
+    <message>
+        <source>The field %1 has a type FaseCAD does not know: %2</source>
+        <translation type="unfinished">Pole %1 ma typ nieznany FaseCAD: %2</translation>
+    </message>
+</context>
+<context>
+    <name>StructureBoxes</name>
+    <message>
+        <source>Structure box</source>
+        <translation type="unfinished">Ramka struktury</translation>
+    </message>
+    <message>
+        <source>The symbols in the box take this plant and location.</source>
+        <translation type="unfinished">Symbole w ramce otrzymują tę instalację i to miejsce.</translation>
+    </message>
+    <message>
+        <source>Plant (=):</source>
+        <translation type="unfinished">Instalacja (=):</translation>
+    </message>
+    <message>
+        <source>Location (+):</source>
+        <translation type="unfinished">Miejsce (+):</translation>
+    </message>
+    <message>
+        <source>Add a structure box</source>
+        <translation type="unfinished">Dodaj ramkę struktury</translation>
+    </message>
+    <message>
+        <source>Edit a structure box</source>
+        <translation type="unfinished">Edytuj ramkę struktury</translation>
+    </message>
+</context>
+<context>
+    <name>SummaryGeneratorDialog</name>
+    <message>
+        <source>Generate the PLC summary symbol</source>
+        <translation type="unfinished">Utwórz symbol zestawienia PLC</translation>
+    </message>
+    <message>
+        <source>A terminal is drawn for each terminal of the card, with its function text and place beside it. Each terminal shows the terminal of the same name of the device of its label.</source>
+        <translation type="unfinished">Dla każdego zacisku karty rysowany jest zacisk z jego tekstem funkcji i miejscem obok. Każdy zacisk pokazuje zacisk o tej samej nazwie urządzenia ze swojego oznaczenia.</translation>
+    </message>
+    <message>
+        <source>The terminals of a device of an open project:</source>
+        <translation type="unfinished">Zaciski urządzenia z otwartego projektu:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 (%n terminal(s)) - %2</source>
+        <translation type="unfinished">
+            <numerusform>%1 (%n zacisk) - %2</numerusform>
+            <numerusform>%1 (%n zaciski) - %2</numerusform>
+            <numerusform>%1 (%n zacisków) - %2</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Terminals named after a pattern:</source>
+        <translation type="unfinished">Zaciski nazwane według wzoru:</translation>
+    </message>
+    <message>
+        <source>The example: four terminals, X1:1 to X1:4</source>
+        <translation type="unfinished">Przykład: cztery zaciski, od X1:1 do X1:4</translation>
+    </message>
+    <message>
+        <source>One column, the texts on the left</source>
+        <translation type="unfinished">Jedna kolumna, teksty po lewej</translation>
+    </message>
+    <message>
+        <source>Two columns, half on each side</source>
+        <translation type="unfinished">Dwie kolumny, po połowie z każdej strony</translation>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation type="unfinished">Układ:</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n terminal(s): %1</source>
+        <translation type="unfinished">
+            <numerusform>%n zacisk: %1</numerusform>
+            <numerusform>%n zaciski: %1</numerusform>
+            <numerusform>%n zacisków: %1</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

@@ -32,12 +32,14 @@ class IndependentTextItem : public DiagramTextItem
 
 	Q_PROPERTY(qreal textWidth READ textWidth WRITE setTextWidth NOTIFY textWidthChanged)
 	Q_PROPERTY(QUuid destination READ destination WRITE setDestination NOTIFY destinationChanged)
+	Q_PROPERTY(bool functionText READ isFunctionText WRITE setFunctionText NOTIFY functionTextChanged)
 		
 		// constructors, destructor
 	signals:
 		void uuidChanged();
 		void textWidthChanged(qreal width);
 		void destinationChanged();
+		void functionTextChanged(bool function_text);
 
 	public:
 		IndependentTextItem();
@@ -69,6 +71,12 @@ class IndependentTextItem : public DiagramTextItem
 			//not make an electrical link.
 		QUuid destination() const {return m_destination;}
 		void setDestination(const QUuid &folio);
+
+			//A function text (Brandon, 2026-11-28): what is drawn over and
+			//under it, within its width, has this function, unless it has
+			//one of its own (FunctionTexts)
+		bool isFunctionText() const {return m_function_text;}
+		void setFunctionText(bool function_text);
 		
 	protected:
 		void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
@@ -82,5 +90,6 @@ class IndependentTextItem : public DiagramTextItem
 		QUuid m_uuid = QUuid::createUuid();
 		qreal m_text_width = -1;
 		QUuid m_destination;
+		bool m_function_text = false;
 };
 #endif

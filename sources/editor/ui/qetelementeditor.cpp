@@ -1278,6 +1278,19 @@ void QETElementEditor::setupActions()
 	ui->m_display_menu->addAction(toggle_background_frame_action);
 	ui->m_view_toolbar->addAction(toggle_background_frame_action);
 
+		//The frames of the texts, to see where each one is: drawn while
+		//editing, never saved (Brandon, 2026-11-28)
+	auto *toggle_text_frames_action = new QAction(QET::Icons::PartTextField, tr("Show the frames of the texts"), this);
+	toggle_text_frames_action -> setCheckable(true);
+	toggle_text_frames_action -> setToolTip(tr("Draws a dashed frame around each text to see where it is; "
+											   "the frames are not saved"));
+	m_elmt_scene -> setTextFramesVisible(QSettings().value(QStringLiteral("elementeditor/text_frames"), true).toBool());
+	toggle_text_frames_action -> setChecked(m_elmt_scene -> textFramesVisible());
+	connect(toggle_text_frames_action, &QAction::toggled, m_elmt_scene, &ElementScene::setTextFramesVisible);
+	ShortcutManager::instance().registerAction(toggle_text_frames_action, "elementeditor.toggle_text_frames", tr("Element editors"), QKeySequence());
+	ui->m_display_menu->addAction(toggle_text_frames_action);
+	ui->m_view_toolbar->addAction(toggle_text_frames_action);
+
 	auto *configure_background_frame_action = new QAction(tr("Sheet size..."), this);
 	connect(configure_background_frame_action, &QAction::triggered, this, [this]() {
 		QDialog dialog(this);

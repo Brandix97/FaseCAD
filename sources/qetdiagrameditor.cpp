@@ -30,6 +30,8 @@
 #ifdef QET_HAS_SCRIPTING
 #include "scripting/qetscripting.h"
 #include "scripting/scriptlibrary.h"
+#include "plugins/pluginlibrary.h"
+#include "plugins/pluginmanagerdialog.h"
 #include "scripting/scriptmanagerdialog.h"
 #include "scripting/liveserver.h"
 #include "scripting/macrorecorder.h"
@@ -105,6 +107,7 @@
 #include "partsdb/parttexts.h"
 #include "partsdb/partssymbolfiles.h"
 #include "partsdb/partsdbsymbols.h"
+#include "structureboxes.h"
 #include "partsdb/partsdatabase.h"
 #include "elementdialog.h"
 #include "partsdb/partsbom.h"
@@ -1303,6 +1306,14 @@ void QETDiagramEditor::setUpActions()
 		}
 	});
 
+		//A structure box: its plant and location for what it holds (2026-11-28)
+	m_add_structure_box = new QAction(QIcon(QStringLiteral(":/ico/structure-box.svg")), tr("Structure box"), this);
+	m_add_structure_box->setStatusTip(tr("Adds a dash-dotted box: the symbols in it take its plant (=) and location (+)"));
+	ShortcutManager::instance().registerAction(m_add_structure_box, "diagrameditor.add_structure_box", tr("Diagram editors"), QKeySequence());
+	connect(m_add_structure_box, &QAction::triggered, this, [this]() {
+		StructureBoxes::insert(currentDiagramView());
+	});
+
 	m_terminal_strip_dialog = new QAction(QET::Icons::TerminalStrip, tr("Terminal block manager (DEV)"), this);
 	ShortcutManager::instance().registerAction(m_terminal_strip_dialog, "diagrameditor.terminal_strip_dialog", tr("Diagram editors"), QKeySequence());
 	connect(m_terminal_strip_dialog, &QAction::triggered, this, [this]()
@@ -1641,6 +1652,15 @@ void QETDiagramEditor::setUpActions()
 	connect(m_open_scripts_folder, &QAction::triggered, this, []() {
 		QDir().mkpath(ScriptLibrary::folder());
 		QDesktopServices::openUrl(QUrl::fromLocalFile(ScriptLibrary::folder()));
+	});
+
+		//Plugins: commands made for a customer, installed as .fasplugin
+	m_manage_plugins = new QAction(QIcon(QStringLiteral(":/ico/plugin.svg")), tr("Plugins…"), this);
+	m_manage_plugins->setStatusTip(tr("Install, switch on or off and remove the plugins"));
+	ShortcutManager::instance().registerAction(m_manage_plugins, "diagrameditor.manage_plugins", tr("Diagram editors"), QKeySequence());
+	connect(m_manage_plugins, &QAction::triggered, this, [this]() {
+		PluginManagerDialog dialog(this);
+		dialog.exec();
 	});
 #endif
 
@@ -2439,6 +2459,8 @@ void QETDiagramEditor::rebuildToolBars()
 */
 QAction *QETDiagramEditor::commandTabsAction(const QString &id)
 {
+	if (QAction *plugin = m_plugin_actions.value(id))
+		return plugin;
 	if (id == QLatin1String("panel.projects")) {
 		QAction *action = qdw_pa->toggleViewAction();
 		if (action->icon().isNull())
@@ -2526,6 +2548,8 @@ void QETDiagramEditor::updateCommandTabs()
 	auto *tabs = new CommandTabs([this](const QString &id) {
 		return commandTabsAction(id);
 	}, m_command_tabs_bar);
+	m_command_tabs = tabs;
+	rebuildPluginActions();
 	tabs->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 		//Report a bug, sign in, request support (Brandon, 2026-11-26)
 	tabs->addCornerWidget(new AccountButtons());
@@ -2705,6 +2729,10 @@ void QETDiagramEditor::setUpMenu()
 	rebuildScriptActions();
 	connect(&ScriptLibrary::instance(), &ScriptLibrary::changed,
 		this, &QETDiagramEditor::rebuildScriptActions);
+	m_plugins_menu = menu_project -> addMenu(tr("Plugins"));
+	rebuildPluginActions();
+	connect(&PluginLibrary::instance(), &PluginLibrary::changed,
+		this, &QETDiagramEditor::rebuildPluginActions);
 #endif
 #ifdef QET_EXPORT_PROJECT_DB
 	menu_project -> addSeparator();
@@ -2893,6 +2921,10 @@ static void useNewProjectWiring(QETProject *project)
 {
 	project -> setWireHops(WireHops::Mode::Horizontal);
 	project -> setWiresApart(true);
+		//The parts of a device show where the others are (2026-11-28)
+	DeviceXRefSettings xrefs = project -> deviceXRefs();
+	xrefs.enabled = true;
+	project -> setDeviceXRefs(xrefs);
 }
 
 /**
@@ -4391,6 +4423,7 @@ void QETDiagramEditor::slot_updateActions()
 	m_clean_project               -> setEnabled(editable_project);
 	m_add_summary                 -> setEnabled(editable_project);
 	m_add_folio_index             -> setEnabled(editable_project);
+	m_add_structure_box           -> setEnabled(editable_project);
 	m_add_nomenclature            -> setEnabled(editable_project);
 	m_csv_export                  -> setEnabled(editable_project);
 	m_project_export_conductor_num-> setEnabled(opened_project);
@@ -6420,6 +6453,87 @@ void QETDiagramEditor::runStoredScript(const QString &path, const QString &name)
 	if (!project) return;
 	if (!ensureScriptingEnabled(name)) return;
 	QetScripting::runOnProject(path, project, currentDiagramView(), name);
+}
+
+/**
+	@brief QETDiagramEditor::rebuildPluginActions
+	One action per command of each plugin switched on: in Project >
+	Plugins, in the command search and the shortcut settings, and in the
+	command tabs, in the tab the plugin names or in the Plugins tab, one
+	group per plugin. Rebuilt whenever a plugin is installed, switched on
+	or off, or removed.
+*/
+void QETDiagramEditor::rebuildPluginActions()
+{
+#ifdef QET_HAS_SCRIPTING
+	if (!m_plugins_menu) return;
+	for (auto it = m_plugin_actions.constBegin() ; it != m_plugin_actions.constEnd() ; ++it) {
+		ShortcutManager::instance().unregisterAction(it.value(), it.key());
+		delete it.value();
+	}
+	m_plugin_actions.clear();
+	m_plugins_menu->clear();
+
+	QList<CommandTabs::Tab> tabs;
+	CommandTabs::Tab common{tr("Plugins"), {}};
+	for (const PluginLibrary::Plugin &plugin : PluginLibrary::instance().plugins()) {
+		if (!plugin.enabled) continue;
+		const PluginManifest &m = plugin.manifest;
+		QMenu *menu = m_plugins_menu->addMenu(m.name);
+		QList<CommandTabs::Group> groups;
+		for (const PluginManifest::Command &command : m.commands) {
+			const QString id = PluginLibrary::actionId(m.id, command.id);
+			auto *action = new QAction(PluginLibrary::icon(plugin, command), command.label.simplified(), this);
+			action->setStatusTip(command.tooltip);
+			action->setToolTip(command.tooltip.isEmpty() ? command.label.simplified()
+								: command.label.simplified() + QLatin1Char('\n') + command.tooltip);
+			connect(action, &QAction::triggered, this, [this, plugin_id = m.id, command_id = command.id]() {
+				const PluginLibrary::Plugin *p = PluginLibrary::instance().find(plugin_id);
+				if (!p || !currentProject()) return;
+				for (const PluginManifest::Command &c : p->manifest.commands) {
+					if (c.id != command_id) continue;
+					QString error;
+					if (!PluginLibrary::run(*p, c, currentProject(), currentDiagramView(), &error)
+						&& !error.isEmpty())
+						QET::QetMessageBox::warning(this, p->manifest.name, error);
+				}
+			});
+			ShortcutManager::instance().registerAction(action, id, tr("Plugins"), QKeySequence());
+			m_plugin_actions.insert(id, action);
+			menu->addAction(action);
+
+			const QString group_title = command.group.isEmpty() ? m.name : command.group;
+			auto group = std::find_if(groups.begin(), groups.end(),
+									  [&](const CommandTabs::Group &g) {return g.title == group_title;});
+			if (group == groups.end()) {
+				groups << CommandTabs::Group{group_title, {}};
+				group = groups.end() - 1;
+			}
+			CommandTabs::Command button;
+			button.id = id;
+			button.label = command.label;
+			button.size = command.large ? CommandTabs::Size::Large : CommandTabs::Size::Small;
+			group->commands << button;
+		}
+		if (m.tab.isEmpty()) {
+			common.groups << groups;
+		} else {
+			auto tab = std::find_if(tabs.begin(), tabs.end(),
+									[&](const CommandTabs::Tab &t) {return t.title == m.tab;});
+			if (tab == tabs.end()) tabs << CommandTabs::Tab{m.tab, groups};
+			else tab->groups << groups;
+		}
+	}
+	if (!common.groups.isEmpty()) tabs.prepend(common);
+	if (!m_plugin_actions.isEmpty()) m_plugins_menu->addSeparator();
+	m_plugins_menu->addAction(m_manage_plugins);
+
+	if (m_command_tabs) {
+		m_command_tabs->setPluginTabs(tabs, [this](const QString &id) {
+			return commandTabsAction(id);
+		});
+	}
+#endif
 }
 
 /**
